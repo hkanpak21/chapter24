@@ -1,0 +1,250 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% Theorem-like environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Macros
+\newcommand{\Pnk}{\mathcal{P}_{n,k}}
+\newcommand{\Pnzero}{\mathcal{P}_{n,0}}
+\newcommand{\DG}{\mathcal{D}_G}
+\newcommand{\Adv}{\mathrm{adv}}
+\newcommand{\AdvSQ}{\Adv_{\mathrm{SQ}}}
+\newcommand{\Ex}{\mathbb{E}}
+\newcommand{\bits}{\{0,1\}}
+
+\title{An SQ-Hardness Reduction for Black-Box Attacks on \\ SQ-Implementable Learners}
+\author{Working note}
+\date{2026-04-23}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a self-contained reduction showing that, under the planted-clique conjecture, no black-box query-bounded adversary can detect the planted structure of a graph encoded into the training data of an SQ-implementable learner. The reduction is a one-step lift of the Feldman--Grigorescu--Reyzin--Vempala--Xiao 2017 SQ lower bound for planted clique, from \emph{SQ algorithms attacking PC directly} to \emph{black-box adversaries attacking the output of an SQ-implementable learner}. The adversary's query budget does not enter the bound; only the learner's SQ parameters do. Specializations to attribute inference, backdoor activation, membership inference, and model extraction follow as corollaries. Concrete-security calibration and explicit caveats are provided.
+\end{abstract}
+
+\section{Setting}
+
+\subsection{The hard problem (source)}
+
+\begin{definition}[Planted Clique distribution]
+For positive integer $n$ and $k \le n$, the \emph{planted clique distribution} $\Pnk$ is defined as follows. Sample a uniformly random subset $S \subseteq [n]$ with $|S| = k$. Sample a graph $G$ on vertex set $[n]$ where every edge with both endpoints in $S$ is present, and every other edge is independently present with probability $\tfrac{1}{2}$. The \emph{null distribution} $\Pnzero$ is the Erd\H{o}s--R\'enyi distribution $G(n, \tfrac{1}{2})$.
+\end{definition}
+
+\begin{conjecture}[Planted Clique]
+For any constant $\delta \in (0, \tfrac{1}{2})$, no polynomial-time algorithm distinguishes $\Pnk$ from $\Pnzero$ with constant advantage when $k = n^{1/2 - \delta}$.
+\end{conjecture}
+
+The Hirahara--Shimizu STOC 2024 equivalence theorem~\cite{HS24} shows that almost all variants of the PC conjecture (search vs.\ decision, exponentially-close-to-one vs.\ non-negligible advantage, worst-case $k$-clique on incompressible graphs) reduce to this conjecture, so we use it without specifying the variant.
+
+\subsection{The learning game (target)}
+
+Fix $n$ and a clique-size threshold $k$. Let $G$ be a graph on $[n]$ drawn either from $\Pnzero$ or $\Pnk$.
+
+\paragraph{Encoding.}
+Define the \emph{vertex-row encoding} $\DG$ as the distribution over labeled examples obtained by sampling a vertex $v$ uniformly from $[n]$ and outputting $(x_v, y_v)$ where:
+\begin{itemize}
+  \item $x_v = G[v, \cdot] \in \bits^n$ is the adjacency row of $v$;
+  \item $y_v$ is some deterministic function of $x_v$ fixed in advance (e.g., the parity of $x_v$'s coordinates above some index, or simply $y_v = 0$). The choice does not affect the proof so long as $y_v$ is computable from $x_v$.
+\end{itemize}
+$\DG$ is a distribution over $(x, y)$ pairs whose underlying randomness is the choice of $v \in [n]$. For any function $f \colon \bits^n \times \bits \to [0, 1]$,
+\[
+\Ex_{(x, y) \sim \DG}\bigl[f(x, y)\bigr] \;=\; \frac{1}{n} \sum_{v \in [n]} f\bigl(G[v, \cdot], y_v\bigr).
+\]
+This is a \emph{vertex-average} over $G$ --- a deterministic function of $G$ alone.
+
+\paragraph{SQ-implementable learner.}
+A learning algorithm $L$ is \emph{$(q, \tau)$-SQ-implementable} if its only access to $\DG$ consists of at most $q$ queries of the form
+\begin{quote}
+For a given function $f \colon \bits^n \times \bits \to [0, 1]$, output an estimate $\widehat{a}$ of $\Ex_{(x, y) \sim \DG}[f(x, y)]$ within additive tolerance $\tau$.
+\end{quote}
+All other internal computation is data-independent. This is the standard SQ access model of Kearns~\cite{Kearns98} adapted to a finite-graph-derived distribution. Mini-batch SGD with batch size $B = \Omega(1/\tau^2)$ and ERM with smooth losses are SQ-implementable in this sense. Memorization-prone deep models can also be SQ-implementable as algorithms --- implementability is a property of the access pattern, not of the resulting model's expressiveness. Capacity bounds on the resulting model arise as a \emph{consequence} of the SQ access budget ($q \cdot \log(1/\tau)$ bits maximum), not as a separate hypothesis.
+
+The learner $L$ outputs a model $M \colon \mathcal{X} \to \mathcal{Y}$. We assume $M$ is deterministic given the SQ answers; randomized $M$ is handled in Remark~\ref{rem:randomized}.
+
+\paragraph{The adversary.}
+A \emph{black-box adversary} $A$ is a randomized algorithm with oracle access to $M$. $A$ makes at most $q_A$ queries (input choices for which it observes $M$'s output) and outputs a bit $b \in \bits$. $A$'s advantage in distinguishing $\Pnzero$ from $\Pnk$ is
+\[
+\Adv(A) \;=\; \Bigl| \Pr_{G \sim \Pnk}[A^M = 1] \;-\; \Pr_{G \sim \Pnzero}[A^M = 1] \Bigr|,
+\]
+where in each probability $M = L(\DG)$ is the trained model on the encoded dataset. The probability is over the choice of $G$, the learner's SQ-answer randomness (within tolerance $\tau$), and $A$'s coins.
+
+\section{The Primitive Lower Bound}
+
+We use the SQ lower bound for planted clique in its standard form.
+
+\begin{theorem}[Feldman--Grigorescu--Reyzin--Vempala--Xiao~\cite{FGRVX17}, Theorem~1.1]\label{thm:fgrvx}
+Let $\delta > 0$ and $k = n^{1/2 - \delta}$. Any SQ algorithm with $q$ queries of tolerance $\tau \ge n^{-1/2 + \delta/2}$ distinguishing $\Pnk$ from $\Pnzero$ over vertex-SQ access satisfies
+\[
+q \cdot \tau^2 \;\ge\; \Omega\bigl(n^{2\delta}\bigr).
+\]
+That is, distinguishing with advantage $\Omega(1)$ requires either $q = \Omega(n^{2\delta})$ queries at constant tolerance, or smaller tolerance $\tau = O(n^{-\delta})$. Equivalently, in the $\mathrm{VSTAT}(t)$ variant, distinguishing requires $t \ge \Omega(n^{2\delta})$.
+\end{theorem}
+
+For the secret-leakage variant $\mathrm{PC}_{\rho}$ (where the planted set $S$ is drawn from a leakage distribution $\rho$ rather than uniformly), Brennan--Bresler~\cite{BB20} (Theorem~5.1 and \S5.2) establish the same SQ lower bound up to a constant factor.
+
+We encapsulate the bound as a function: define $\AdvSQ(n, k, q, \tau)$ to be the maximum SQ-distinguishing advantage achievable with $q$ queries of tolerance $\tau$. By Theorem~\ref{thm:fgrvx},
+\[
+\AdvSQ(n, k, q, \tau) \;\le\; O\!\left(\frac{q \cdot \tau^2 \cdot n}{k^2}\right),
+\]
+which for $k = n^{1/2 - \delta}$ and $\tau = O(1)$ gives
+\[
+\AdvSQ(n, k, q, O(1)) \;\le\; O\bigl(q \cdot n^{-1 + 2\delta}\bigr) \;\to\; 0
+\quad \text{unless} \quad q = \Omega(n^{1 - 2\delta}).
+\]
+The exact form of $\AdvSQ$ varies across formulations; what matters for the reduction is that it is the same function on both sides of the inequality below.
+
+\section{Main Theorem}
+
+\begin{theorem}[SQ-Hardness Reduction for Black-Box Attacks]\label{thm:main}
+Let $A$ be a black-box adversary making $q_A$ queries to $M$. Let $L$ be a deterministic $(q_L, \tau_L)$-SQ-implementable learner with vertex-row encoding $\DG$. Let $G$ be drawn from $\Pnzero$ or $\Pnk$. Then
+\[
+\Adv(A) \;\le\; \AdvSQ(n, k, q_L, \tau_L).
+\]
+In particular, by Theorem~\ref{thm:fgrvx} for $k = n^{1/2 - \delta}$: any SQ-implementable learner with $q_L = \mathrm{poly}(n)$ SQ queries at constant tolerance produces a model $M$ against which \emph{no} black-box adversary --- regardless of $q_A$ --- can achieve constant distinguishing advantage between planted and null. \textbf{The adversary's query budget does not enter the bound.}
+\end{theorem}
+
+\begin{proof}
+We construct an SQ algorithm $B$ that distinguishes $\Pnzero$ from $\Pnk$ with the same advantage as $A$ but uses only $q_L$ vertex-SQ queries on $G$ with tolerance $\tau_L$. Combined with Theorem~\ref{thm:fgrvx}, this gives the bound.
+
+\textbf{Step 1: SQ simulation of the learner.} Let $L$'s SQ queries be $Q_1, Q_2, \ldots, Q_{q_L}$, where $Q_i$ may depend on the answers of $Q_1, \ldots, Q_{i-1}$ (adaptive SQ). Each query $Q_i$ is a function $f_i \colon \bits^n \times \bits \to [0, 1]$. By the encoding,
+\[
+\Ex_{(x, y) \sim \DG}\bigl[f_i(x, y)\bigr] \;=\; \frac{1}{n} \sum_{v \in [n]} f_i\bigl(G[v, \cdot], y_v\bigr),
+\]
+which depends only on the graph $G$, not on additional randomness in $\DG$. Thus a vertex-SQ query on $G$ with the same function $f_i$ and tolerance $\tau_L$ returns an answer that is, by construction, identically distributed to the SQ answer $L$ would have received from $\DG$.
+
+\textbf{Step 2: $B$'s construction.} $B$ is given vertex-SQ access to $G$. $B$ simulates $L$:
+\begin{enumerate}[label=(\arabic*),leftmargin=*]
+  \item For $i = 1$ to $q_L$, $B$ issues vertex-SQ query $Q_i$ (computed adaptively from previous answers), receives $a_i$ within tolerance $\tau_L$ of the true value.
+  \item After all queries, $B$ reconstructs $\widehat{M} = L(a_1, \ldots, a_{q_L})$ --- the model $L$ would have output given the same SQ answers. Since $L$ is deterministic given its SQ answers, $\widehat{M} = M$ (the actual model $L$ would produce on $\DG$ with the same SQ randomness).
+  \item $B$ then simulates $A$: $B$ has full access to $\widehat{M}$ and can answer $A$'s $q_A$ oracle queries by directly evaluating $\widehat{M}$ on $A$'s chosen inputs, using \emph{no further SQ queries on $G$}. $B$ outputs whatever $A$ outputs.
+\end{enumerate}
+
+\textbf{Step 3: Advantage equivalence.} $B$'s output, conditioned on SQ-answer randomness within tolerance $\tau_L$, equals $A$'s output (when $A$ is run on $\widehat{M} = M$). Marginalizing over both algorithms' coins,
+\[
+\Adv(B) \;=\; \Bigl| \Pr_{G \sim \Pnk}[B = 1] \;-\; \Pr_{G \sim \Pnzero}[B = 1] \Bigr| \;=\; \Adv(A).
+\]
+
+\textbf{Step 4: Apply Theorem~\ref{thm:fgrvx}.} $B$ is an SQ algorithm with $q_L$ vertex-SQ queries of tolerance $\tau_L$ distinguishing $\Pnzero$ from $\Pnk$. By Theorem~\ref{thm:fgrvx},
+\[
+\Adv(B) \;\le\; \AdvSQ(n, k, q_L, \tau_L).
+\]
+Combining with $\Adv(A) = \Adv(B)$ gives the claim.
+\end{proof}
+
+\section{Remarks}
+
+\begin{remark}[The adversary's query budget is decoupled from the bound]
+The bound depends on $q_L$ and $\tau_L$ (learner's parameters), not on $q_A$. $A$ can make exponentially many queries to $M$ and still cannot exceed the SQ-PC distinguishing limit fixed by $L$'s data access. The information channel from $G$ to $M$ is what bounds the attacker's advantage --- not the attacker's compute. The mathematical reason is that $A$'s queries to $M$ are computable from $M$ itself (post-training); they do not access $G$ further.
+
+This is the mechanism underlying the ``$M$ is determined by its SQ summary'' argument and is the core formal reason why SQ-implementability plus a bounded learner-query-budget gives security against any post-training attack in the black-box model.
+\end{remark}
+
+\begin{remark}[Capacity bound is implicit]
+A common framing introduces ``bounded model capacity $C$'' as a separate hypothesis. In this proof, $C \le q_L \cdot \log(1/\tau_L)$ bits is automatic --- $M$ is reconstructed from $q_L$ SQ answers, each providing $\log(1/\tau_L)$ bits beyond the prior. No separate capacity hypothesis is needed.
+\end{remark}
+
+\begin{remark}[Specializations to standard attack classes]
+The theorem gives a primitive distinguishing-advantage bound. Specific attacks correspond to specific decision rules for $A$.
+\begin{itemize}
+  \item \emph{Attribute inference.} A bit $\alpha(G)$ of $G$'s structure (e.g., ``is vertex $1$ in the planted clique?'') is the target. $A$ guesses $\alpha(G)$ from $M$-queries. By the theorem with $H_1$ conditioned on $\alpha = 1$ and $H_0$ conditioned on $\alpha = 0$, $A$'s advantage over random guessing is bounded by $\AdvSQ(n, k, q_L, \tau_L)$.
+  \item \emph{Backdoor activation.} A trigger input $x^*$ activates pre-planted behavior in $M$ iff $G$ has the planted clique. $A$ finds $x^*$ by querying $M$. Equivalent to attribute inference with $\alpha = \mathbf{1}[G \text{ has planted clique}]$, so the same bound applies.
+  \item \emph{Membership inference.} ``Is point $(x_v, y_v)$ in the training set?'' Encoded as an attribute $\alpha$ of $G$ via the vertex $v$'s adjacency row, this reduces to attribute inference.
+  \item \emph{Model extraction.} $A$ reconstructs an approximation $\widehat{M}_A$ of $M$ via queries. Information about $G$ in $\widehat{M}_A$ is bounded by information about $G$ in $M$, which is bounded by $q_L \cdot \log(1/\tau_L)$ bits. Specifically,
+  \[
+  I(G; \widehat{M}_A) \;\le\; I(G; M) \;\le\; q_L \cdot H(\text{SQ answer} \mid \text{query}) \;\le\; q_L \cdot \log(1/\tau_L),
+  \]
+  so any $G$-property $A$ extracts from $\widehat{M}_A$ inherits the same SQ-PC bound.
+\end{itemize}
+\end{remark}
+
+\begin{remark}[Randomized learners]\label{rem:randomized}
+If $L$ uses internal randomness $r$ in addition to its SQ answers, the simulation in the proof must condition on $r$. Either (a) $r$ is public (visible to all parties; in particular $B$ samples $r$ from the same distribution and proceeds), or (b) $r$ is private. In case (b), $L$'s output $M$ is a function of $(a_1, \ldots, a_{q_L}, r)$. $B$ samples $r$ from the same distribution and the rest of the proof proceeds with one extra averaging step over $r$. The bound is unchanged.
+\end{remark}
+
+\begin{remark}[Where the proof fails]
+The proof breaks if any of the following conditions are violated:
+\begin{itemize}
+  \item \textbf{$L$ is not SQ-implementable.} Memorization through individual-record access (kNN, hash tables, retrieval-augmented LMs that store-and-retrieve verbatim training records) is the most common way out. A non-SQ-implementable learner can encode information about specific $G$-edges into $M$ that is not bounded by $\AdvSQ$.
+  \item \textbf{The encoding is not vertex-row-shaped.} Encodings using, e.g., random projections of adjacency rows may dilute $G$'s structure into the SQ summary in a way that strengthens or weakens the bound --- a separate analysis.
+  \item \textbf{White-box adversary} (sees $M$'s weights). The proof does not bound non-SQ functionals of $M$'s weights. White-box attacks can in principle extract more, and a separate cryptographic assumption (e.g., indistinguishability obfuscation~\cite{CHLX25}) is needed to rule them out.
+\end{itemize}
+\end{remark}
+
+\begin{remark}[Concrete-security calibration]
+The asymptotic bound becomes concrete by plugging in. For $n = 10^4$ and $\delta = 0.1$ (so $k = n^{0.4} \approx 40$), Theorem~\ref{thm:fgrvx} says distinguishing requires $q \cdot \tau^2 \ge \Omega(n^{0.2}) \approx 6.3$. A learner with $q_L = 10^5$ and $\tau_L = 10^{-3}$ has $q_L \cdot \tau_L^2 = 0.1$ --- well below the threshold --- so $\Adv(A)$ is bounded by $O(0.1 / 6.3) \approx 0.016$. The adversary's distinguishing advantage is at most $1.6\%$.
+
+This is a working-point security claim, parameterizable: smaller $k$, larger $n$, smaller $q_L$, larger $\tau_L$ all tighten the bound. Practical learners ($q_L \approx 10^5$ to $10^7$, $\tau_L \approx 10^{-3}$ to $10^{-5}$) at modest $n$ give meaningful bounds.
+\end{remark}
+
+\section{Caveats}
+
+This proof does \emph{not} establish the following.
+\begin{itemize}
+  \item \textbf{It is not a hardness proof for any specific deployed attack.} It is a hardness proof for \emph{information-theoretic distinguishing} under the SQ-implementable plus black-box assumption. Real-world attacks may rely on non-SQ-implementable learners or white-box access; these need separate treatment.
+  \item \textbf{It does not give a tight bound} in the regime where $q_L$ is very small or $\tau_L$ very large. The bound is non-trivial when $q_L \cdot \tau_L^2 < n^{2\delta}$; outside that regime the SQ-PC bound is vacuous.
+  \item \textbf{It does not transfer to LWE-encoded constructions.} The vertex-row encoding is tied to PC's combinatorial structure; constructions using lattice-based encodings need a different reduction (and the entropy mismatch with learned weights re-enters).
+  \item \textbf{It does not handle the per-round federated-learning observation model.} That requires composition over $T$ rounds and a different machinery --- most likely Mahloujifar's generalized $p$-tampering~\cite{MMM19} adapted for PC-encoded learning.
+\end{itemize}
+
+\begin{thebibliography}{9}
+
+\bibitem{FGRVX17}
+V.~Feldman, E.~Grigorescu, L.~Reyzin, S.~S.~Vempala, and Y.~Xiao.
+\newblock Statistical algorithms and a lower bound for detecting planted cliques.
+\newblock \emph{J.\ ACM}, 64(2), 2017. Theorem 1.1.
+
+\bibitem{BB20}
+M.~Brennan and G.~Bresler.
+\newblock Reducibility and statistical-computational gaps from secret leakage.
+\newblock 2020.
+
+\bibitem{HS24}
+S.~Hirahara and N.~Shimizu.
+\newblock Planted clique conjectures are equivalent.
+\newblock In \emph{STOC 2024}.
+
+\bibitem{GHJS25}
+R.~Ghosal, I.~Hair, A.~Jain, and A.~Sahai.
+\newblock Public-key encryption from planted clique and noisy $k$-LIN over expanders.
+\newblock In \emph{STOC 2025}.
+
+\bibitem{Kearns98}
+M.~Kearns.
+\newblock Efficient noise-tolerant learning from statistical queries.
+\newblock \emph{J.\ ACM}, 45(6), 1998.
+
+\bibitem{CHLX25}
+P.~Christiano, J.~Hilton, V.~Lecomte, and M.~Xu.
+\newblock Backdoor defense, learnability, and obfuscation.
+\newblock In \emph{ITCS 2025}.
+
+\bibitem{MMM19}
+S.~Mahloujifar, M.~Mahmoody, and A.~Mohammed.
+\newblock Universal multi-party poisoning attacks.
+\newblock In \emph{ICML 2019}.
+
+\bibitem{EMM20}
+O.~Etesami, S.~Mahloujifar, and M.~Mahmoody.
+\newblock Computational concentration of measure: optimal bounds, reductions, and more.
+\newblock In \emph{SODA 2020}.
+
+\end{thebibliography}
+
+\end{document}

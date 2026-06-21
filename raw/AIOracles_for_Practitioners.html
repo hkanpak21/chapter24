@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AIOracles for Practitioners</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 800px; margin: 2.5em auto; padding: 0 1.2em; color: #1a1a1a; line-height: 1.6; font-size: 17px; }
+  h1 { font-size: 1.9em; margin-bottom: 0.1em; border-bottom: 2px solid #333; padding-bottom: 0.2em; }
+  h2 { font-size: 1.3em; margin-top: 2em; color: #222; border-bottom: 1px solid #ccc; padding-bottom: 0.15em; }
+  h3 { font-size: 1.05em; margin-top: 1.3em; color: #333; }
+  .subtitle { font-style: italic; color: #555; margin-top: 0; margin-bottom: 2em; }
+  blockquote { border-left: 4px solid #888; margin: 1em 0; padding: 0.5em 1em; background: #f7f7f7; }
+  blockquote strong { font-style: normal; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 0.4em; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+  code { font-family: Consolas, "Courier New", monospace; background: #f3f3f3; padding: 0 0.25em; border-radius: 3px; font-size: 0.95em; }
+  table { border-collapse: collapse; margin: 1em 0; width: 100%; font-size: 0.95em; }
+  th, td { border: 1px solid #bbb; padding: 0.45em 0.7em; text-align: left; vertical-align: top; }
+  th { background: #eee; }
+  .footer-note { font-size: 0.9em; color: #555; font-style: italic; margin-top: 2em; }
+</style>
+</head>
+<body>
+
+<h1>Introduction to AIOracles</h1>
+<p class="subtitle">A short, technical introduction for AI researchers and security engineers.</p>
+
+<hr>
+
+<h2>1. What an AIOracle is</h2>
+<p>An <strong>AIOracle</strong> is a triple of algorithms <code>(GENERATE_DATA, LEARN, INFER)</code> together with an idealized predicate <code>&phi;(prompt, context, result)</code> that returns 1 when the result is acceptable and 0 otherwise. The predicate <code>&phi;</code> is the specification of security.</p>
+
+<p>A classifier is an AIOracle. A chatbot is an AIOracle. A multi-tool agent is an AIOracle. The contribution of the framework is a <em>vocabulary</em> in which <code>&phi;</code> mean the same thing across systems, and in which they can be reasoned about by reduction.</p>
+
+<h2>2. On specifying &phi;</h2>
+<p>The framework takes <code>&phi;</code> as an idealized object. It assumes that we can <em>name</em> what we want and reason about approximations to it. We start with this because specification is the part of agentic AI security that is most often left implicit, and an implicit specification cannot be reason about formally.</p>
+<p>Human language and human intent are ambiguous. Capturing &ldquo;what the user wants&rdquo; or formalizing a requirement such as &ldquo;I want this email reply to be appropriate&rdquo; into something precise is itself open. Think about access-control mechanisms: writing down accurate policies for agents are genuinely hard because user intent and task structure both shift in ways the policy author cannot anticipate. On the other hand, high-level coarse policies along with a learning loop can do better than any single fixed specification. We expect the situation for <code>&phi;</code> to be similar.</p>
+<p>One response to this is decomposition: rather than try to capture <code>&phi;</code> in one stroke, we break it into sub-predicates we can reason about individually. These seven sub-predicates are not equally hard to approximate; Section 6 lists them and discusses which are clean, which inherit from classifier security, and which remain open. So the framework is robust to the open status of specification.</p>
+
+<p>There is also a stronger open question raised by the framework itself: <em>for which predicates is <code>&epsilon;</code>-secure approximation even possible</em>? Bellare and Kohno&rsquo;s work on related-key attacks (Eurocrypt 2003) built a taxonomy of key-derivation classes into provably-secure, provably-insecure, and conjectured-secure. The same program is open for AIOracle predicates. The confidentiality&ndash;utility tradeoff in Section 4 is one instance of an impossibility-style result for a specific predicate (MID) in a specific model (GLM): completeness <code>p<sub>c</sub> &asymp; 1</code> forces <code>&epsilon; &ge; (p<sub>c</sub> &minus; 1/2) / n</code>, with no construction able to do better. Other sub-predicates likely admit analogous results. Cataloguing which ones do, and where the boundary between feasible and infeasible lies, is a research direction the framework opens but does not close.</p>
+
+<h2>3. Characterization of AIOracles</h2>
+<p>Two quantities characterize an AIOracle:</p>
+<ul>
+  <li><strong>Completeness.<code>p</code></strong> is the probability that <code>INFER</code> produces a result satisfying <code>&phi;</code> under benign use, where the input may be chosen by any honest <code>B</code>-bounded algorithm.</li>
+  <li><strong>Security.<code>&epsilon;</code> against an attack class <code>ATK &sube; {white_box, black_box, inject_learn, inject_infer}</code></strong> is the maximum advantage any polynomial-time adversary with those capabilities has at making <code>INFER</code> produce a result that violates <code>&phi;</code>.</li>
+</ul>
+
+<p>The remainder of this note (Sections 4 through 7) develops four results that this vocabulary makes precise: (i) it makes a utility&ndash;privacy tradeoff provable (&sect;4); (ii) it makes a defense&rsquo;s security compositional and extends to multi-step agents via per-call composition (&sect;5); (iii) Section 6 shows how to actually write down <code>&phi;</code> for an agent; (iv) it makes the impossibility result of Ball et al. legible and actionable (&sect;7).</p>
+
+<h2>4. The abstraction enables a provable utility&ndash;privacy tradeoff</h2>
+<p>The confidentiality&ndash;utility tradeoff established in this section is the cleanest demonstration of the AIOracle vocabulary. With it, the statement <em>&ldquo;a useful classifier must leak training-data membership&rdquo;</em> is made a theorem with a concrete tradeoff bounds.</p>
+<p>The construction has two parts. First, the <strong>Generic Language Model (GLM)</strong>: a classifier AIOracle where the label set is permuted by a random translation <code>t</code> sampled at the start of each game. The classifier must be complete <em>regardless of the language</em>. This strips away any prior semantic association between objects and label names; it is the analogue of Shoup&rsquo;s generic group model. The GLM is an idealized abstraction; its purpose is to express the property of a classifier whose generalization is driven by the corpus.</p>
+<p>Second, the <strong>Membership Inference Distinguishability (MID) game</strong> from Salem et al.&rsquo;s privacy-games SoK, instantiated in the AIOracle vocabulary: the adversary picks two candidate elements <code>z<sub>0</sub>, z<sub>1</sub></code>, the model is trained on <code>corpus&prime; &cup; {z<sub>b</sub>}</code> for a hidden bit <code>b</code>, and the adversary must guess <code>b</code> from the resulting <code>model</code>. An AIOracle is <code>&epsilon;</code>-MID-secure if no adversary wins the game with probability above <code>1/2 + &epsilon;</code>.</p>
+<p>These two pieces compose into a tight theorem:</p>
+<blockquote><strong>Theorem (Confidentiality&ndash;Utility Tradeoff).</strong> If a binary classifier in the GLM is <code>&epsilon;</code>-MID-secure and <code>p<sub>c</sub></code>-complete after learning a corpus of size <code>n</code>, then <code>p<sub>c</sub> &le; 1/2 + n&middot;&epsilon;</code>.</blockquote>
+<p>Rearranged, this says any classifier with completeness <code>p<sub>c</sub></code> must have <code>&epsilon; &ge; (p<sub>c</sub> &minus; 1/2) / n</code>. For a useful classifier (<code>p<sub>c</sub> &asymp; 1</code>) trained on <code>n = 5000</code> cat/dog images, this forces <code>&epsilon; &ge; 10<sup>&minus;4</sup></code>. <strong>We cannot do better, and the bound is constructive: the proof gives a sequence of hybrid games that converts any classifier into an MID adversary.</strong></p>
+<p>What the AIOracle abstraction contributed here:</p>
+<ol>
+  <li>The GLM gave a <em>uniform</em> object over which &ldquo;any useful classifier&rdquo; is a well-defined quantifier. Without it, the statement degrades to &ldquo;for some classifier we measured, this happened.&rdquo;</li>
+  <li>The proof is a textbook game-hopping reduction, which is the same methodology cryptography uses for indistinguishability arguments. It transfers because the AIOracle definitions were shaped to make it transfer.</li>
+</ol>
+<p>We present this template the framework offers for <em>every</em> tradeoff claim in agentic AI: pick a security game that captures the property we care about, instantiate the AIOracle in a sufficiently generic model, and prove the bound by reduction. The cat/dog/MID example is the working instance.</p>
+
+<h2>5. Composability: how component bounds compose into a system bound</h2>
+<p>Section 4 gave us a security bound for a single classifier AIOracle. Real agentic systems are pipelines rather than single classifiers, but classifiers do not disappear: they reappear inside the pipeline, often as the filtering component, that decides whether a candidate result satisfies a predicate. The question is then how a per-component bound, of the kind Section 4 established for a classifier, translates into a bound on the whole pipeline. Thus, we study the <em>dual construction</em> within our framework.</p>
+<p><strong>Setup.</strong> Suppose we want an AIOracle for <code>&phi; = &phi;<sub>1</sub> &and; &phi;<sub>2</sub></code>. We build two AIOracles:</p>
+<ul>
+  <li>A <strong>Creative AIOracle (CAIO)</strong> for <code>&phi;<sub>2</sub></code> (solving the search problem) proposes candidate results.</li>
+  <li>A <strong>Boring AIOracle (BAIO)</strong> for the decision version <code>&phi;&prime;<sub>1</sub></code> (the filter) accepts or rejects the candidate.</li>
+</ul>
+<p>The composed inference runs <code>result<sub>2</sub> &larr; INFER<sub>2</sub>(prompt, context, model<sub>2</sub>)</code>, then <code>result<sub>1</sub> &larr; INFER<sub>1</sub>((prompt, result<sub>2</sub>), context, model<sub>1</sub>)</code>. If <code>result<sub>1</sub> = &ldquo;accept&rdquo;</code>, return <code>result<sub>2</sub></code>; otherwise return empty.</p>
+<p><strong>Composition theorem.</strong> If BAIO is <code>p<sub>1</sub></code>-complete and <code>&epsilon;<sub>1</sub></code>-<code>ATK</code>-<code>&psi;<sub>1</sub></code>-secure for <code>&phi;&prime;<sub>1</sub></code>, and CAIO is <code>p<sub>2</sub></code>-complete and <code>&epsilon;<sub>2</sub></code>-<code>ATK</code>-<code>&psi;<sub>2</sub></code>-secure for <code>&phi;<sub>2</sub></code>, then the dual construction is:</p>
+<ul>
+  <li><code>(1 &minus; ( (1 &minus; p<sub>1</sub>) + (1 &minus; p<sub>2</sub>) + e))</code>-complete for <code>&phi;</code>, and</li>
+  <li><code>(&epsilon;<sub>1</sub> + &epsilon;<sub>2</sub> + e)</code>-<code>ATK</code>-<code>&psi;</code>-secure for <code>&phi;</code>,</li>
+</ul>
+<p>where <code>e</code> is the probability that CAIO returns a result satisfying its own predicate <code>&phi;<sub>2</sub></code> but not the conjunction. If empty results are acceptable (no-DoS), <code>e = 0</code>.</p>
+<p><strong>The slack term <code>e</code> is where engineering judgment lives.</strong> When CAIO is trained to internalize <code>&phi;<sub>1</sub></code> (for example, via RLHF), it rarely produces outputs the filter needs to reject, and <code>e</code> stays small. When CAIO is trained only for <code>&phi;<sub>2</sub></code> and the filter is added downstream as a postfilter, CAIO frequently produces outputs the filter rejects, and <code>e</code> grows. The framework gives us a place to put this tradeoff.</p>
+<p><strong>Multi-step extension.</strong> A multi-step agent, in this framing, is nothing more than the repeated invocation of a single <code>proceed</code> command that takes the current state and produces the next action.  After <code>n</code> such steps, a union bound (Theorem 3 in the paper) gives a per-trajectory security bound of <code>n&middot;&epsilon;</code>. It is loose, but it is composable, and it tells us exactly what to optimize: either tighten per-call <code>&epsilon;</code>, or shorten the trajectory <code>n</code>. Both are levers a system designer can pull.</p>
+
+<h2>6. How to specify the goal predicate &phi;</h2>
+<p>The framework&rsquo;s value gets stronger if <code>&phi;</code> can be written down for real systems. Here is one decomposition we provide, and what each step requires from the practitioner.</p>
+
+<h3>Step 1. Decompose &phi; into the seven sub-predicates organized in three groups.</h3>
+<table>
+<tr><th>Group</th><th>Sub-predicate</th><th>Condition for <code>= 1</code></th></tr>
+<tr><td rowspan="2">Action</td><td><code>&phi;<sub>allow</sub></code></td><td>every action in <code>result</code> is permitted by system policy</td></tr>
+<tr><td><code>&phi;<sub>intent</sub></code></td><td>every action takes a step toward the user&rsquo;s stated goal</td></tr>
+<tr><td rowspan="3">Data</td><td><code>&phi;<sub>content</sub></code></td><td>the data in <code>context</code> used to produce <code>result</code> is not tampered</td></tr>
+<tr><td><code>&phi;<sub>correct</sub></code></td><td>the <code>result</code> is factually correct given <code>prompt</code> and <code>context</code></td></tr>
+<tr><td><code>&phi;<sub>useful</sub></code></td><td>the <code>result</code> is useful for the task stated in <code>prompt</code></td></tr>
+<tr><td rowspan="2">Flow</td><td><code>&phi;<sub>inflow</sub></code></td><td>external data in <code>context</code> is not interpreted as instructions</td></tr>
+<tr><td><code>&phi;<sub>outflow</sub></code></td><td>no data from <code>context</code> is transmitted beyond the permission boundary</td></tr>
+</table>
+<p>The full predicate is <code>&phi; = &phi;<sub>allow</sub> &and; &phi;<sub>intent</sub> &and; &phi;<sub>content</sub> &and; &phi;<sub>correct</sub> &and; &phi;<sub>useful</sub> &and; &phi;<sub>inflow</sub> &and; &phi;<sub>outflow</sub></code>. This decomposition is not canonical; the contribution is that each sub-predicate has a single, clearly assignable responsibility. When <code>&phi; = 0</code> for a given trace, exactly <em>which</em> sub-predicate failed at <em>which</em> inference call is immediately identifiable.</p>
+
+<p>The seven sub-predicates are not equally hard to approximate:</p>
+<ul>
+  <li><strong>The clean ones.</strong> <code>&phi;<sub>outflow</sub></code>, <code>&phi;<sub>allow</sub></code>, and <code>&phi;<sub>inflow</sub></code> have crisp definitions. <code>&phi;<sub>outflow</sub></code> can often be enforced by static or evolving permission checks. <code>&phi;<sub>allow</sub></code> reduces to coarse-grained policy lookup. <code>&phi;<sub>inflow</sub></code> reduces to detecting instruction-shaped content in untrusted data, which has been studied extensively.</li>
+  <li><strong>The classifier-inheriting one.</strong> <code>&phi;<sub>content</sub></code> reduces to classification of tampering or integrity violation. Classifiers are the finest-grained AIOracles we want to reduce everything else to, and their security is the subject of Section 4.</li>
+  <li><strong>The open ones.</strong> <code>&phi;<sub>intent</sub></code> and <code>&phi;<sub>useful</sub></code> require capturing what the user actually wanted. Today this needs user studies, judge models, or behavioral analysis. The framework gives a place to state the claim. We do not define a procedure to discharge it.</li>
+</ul>
+
+<h3>Step 2. Specify the adversary <code>ATK</code>.</h3>
+<p>Pick a subset of <code>{white_box, black_box, inject_learn, inject_infer}</code>. The choice determines which arrow in the <code>(source &rarr; GENERATE_DATA &rarr; corpus &rarr; LEARN &rarr; model &rarr; INFER &rarr; result)</code> pipeline the adversary controls. For example, a retrieval-augmented agent in production typically faces <code>inject_infer</code> (web content the adversary controls). A model accessed via API is captured by <code>black_box</code>. An open-weights model means <code>white_box</code>. Document supply-chain attacks face <code>inject_learn</code>.</p>
+
+<h3>Step 3. Choose an evaluator for each sub-predicate.</h3>
+<p>Because <code>&phi;</code> is not always implementable, every claim involves <em>some</em> implementable approximation. Our options are:</p>
+<ul>
+  <li><em>A judge AIOracle (a BAIO).</em> This is the path the dual construction makes formal. The judge&rsquo;s own <code>&epsilon;</code> then enters the composed bound for the system.</li>
+  <li><em>A scoped rule.</em> For <code>&phi;<sub>outflow</sub></code>, a syntactic check on the <code>result</code>&rsquo;s recipient list against a static permission list is often sufficient and has <code>&epsilon; = 0</code> for the rule itself (errors arise only from misspecification).</li>
+  <li><em>A human-judged scoring guide.</em> Acceptable for offline measurement, expensive at runtime, and the scoring guide itself becomes part of the claim.</li>
+</ul>
+<p>The evaluator is a co-equal part of the specification. Two teams that pick different evaluators for the <em>same</em> sub-predicate are making <em>different</em> claims, and the framework forces them to say so.</p>
+
+<h3>Step 4. State the falsifiable claim.</h3>
+<p>A complete AIOracle security claim has the form:</p>
+<blockquote><em>&ldquo;System S is <code>&epsilon;</code>-<code>ATK</code>-secure for sub-predicate <code>&phi;<sub>i</sub></code> under evaluator <code>E</code>, established by procedure <code>P</code>.&rdquo;</em></blockquote>
+<p>with <code>P</code> being either an empirical measurement (Hoeffding / Clopper&ndash;Pearson on <code>N</code> trials from a stated adversary distribution) or a reduction to a more basic primitive whose <code>&epsilon;</code> is independently known. This claim is what a defender publishes, what a red-teamer attacks, what a procurement officer requires, and what a paper reviewer evaluates.</p>
+
+<h3>Worked example: email-reply agent.</h3>
+<p>In our paper, we walk through a concrete agent (reply to Alice&rsquo;s email confirming tomorrow&rsquo;s 10am meeting) and show that each of seven distinct attacks (harmful intent, capability misuse, adversarial email manipulation, wrong meeting time in draft, task drift, indirect prompt injection in the fetched email body, and data exfiltration via CC) violates <em>exactly one</em> sub-predicate, at an identifiable inference call. This is what &ldquo;modular security reasoning&rdquo; actually looks like when applied: a 7&times;k matrix (sub-predicates &times; inference calls) where each cell either holds or does not, and a system bound that composes them.</p>
+
+<h2>7. What the Ball et al. impossibility result actually says</h2>
+<p>Ball, Gluch, Goldwasser, Kreuter, Reingold, and Rothblum (2025) prove an impossibility result. The AIOracle framework offers a precise translation that makes both the strength and the scope of the result clear.</p>
+<p><strong>What they prove.</strong> Starting from any <code>(CAIO, &phi;)</code>, an adversary can construct <code>(CAIO&prime;, &phi;&prime;)</code> such that:</p>
+<ol>
+  <li><code>CAIO&prime;</code> always returns results making <code>&phi;&prime;</code> evaluate to 0 (harmful), yet</li>
+  <li><code>CAIO</code> and <code>CAIO&prime;</code> are indistinguishable to any BAIO whose complexity is below that of <code>&phi;</code>, and</li>
+  <li><code>&phi;</code> and <code>&phi;&prime;</code> produce indistinguishable outputs on triples from <code>CAIO</code>.</li>
+</ol>
+<p>The construction uses a covert channel: <code>CAIO&prime;</code> embeds a secret signal in its result that only <code>&phi;&prime;</code> can read, and <code>&phi;&prime;</code> then decides &ldquo;harmful&rdquo; based on the signal. BAIO, lacking the computational power to evaluate the predicate directly, cannot detect the signal.</p>
+
+<p><strong>The right reading in the AIOracle framework in three points.</strong></p>
+
+<p><strong>(i) The result is about filtering.</strong> Ball et al. constrain a specific dual-construction shape: a CAIO whose outputs are screened by a BAIO downstream. They show that if BAIO is <em>weaker</em> than the predicate it is approximating, no amount of clever filtering closes the gap. In the AIOracle vocabulary, this is a <em>lower bound on the complexity required of BAIO</em> for the dual construction to be sound: BAIO must have complexity at least that of <code>&phi;</code>. This is actionable engineering guidance.</p>
+
+<p><strong>(ii) The adversary model is joint corruption of <code>(CAIO, &phi;)</code>.</strong> The impossibility requires that the adversary can produce <em>both</em> a malicious generator and a matching malicious judge. In the AIOracle security game, this is a much stronger adversary than <code>inject_infer</code> because it requires <code>inject_learn</code> <em>and</em> the ability to replace the predicate-evaluator. The Ball et al. result does not rule out <code>&epsilon;</code>-bounded <code>&phi;<sub>inflow</sub></code> security under <code>inject_infer</code>-only adversaries.</p>
+
+<p><strong>(iii) The result reinforces the AIOracle framework.</strong> What the impossibility tells the AIOracle designer is: <em>invest BAIO&rsquo;s complexity proportionally to the predicate we want it to enforce</em>. A <code>&phi;<sub>inflow</sub></code> judge needs at least the capability to detect instruction-like content in arbitrary natural language. A <code>&phi;<sub>correct</sub></code> judge needs at least the capability of the underlying task. A BAIO substantially below this complexity is provably bypassable in the joint-corruption adversary model. The framework gives us exactly the language to state where to spend.</p>
+
+<p><strong>What Ball et al. do not say.</strong></p>
+<ul>
+  <li>It does not say prompt-injection defenses are impossible.</li>
+  <li>It does not say bounded-<code>&epsilon;</code> claims under restricted adversaries are unattainable.</li>
+  <li>It does not say the dual construction is unsound. It says one specific configuration of the dual construction (under-powered BAIO + jointly-corruptible CAIO and predicate) is unsound.</li>
+</ul>
+<p>The summary of Ball et al.&rsquo;s results is: <em>filter complexity must match predicate complexity, and the security game must constrain whether the predicate evaluator itself is adversarial.</em> Both of these are first-class objects in AIOracles.</p>
+
+<p class="footer-note">This document summarizes the AIOracle framework. All technical claims, including the four theorems referenced here, are stated and proved in the full paper.</p>
+
+</body>
+</html>

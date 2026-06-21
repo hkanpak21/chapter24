@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Learning Systems as Abstract Machines</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 800px; margin: 2.5em auto; padding: 0 1.2em; color: #1a1a1a; line-height: 1.6; font-size: 17px; }
+  h1 { font-size: 1.9em; margin-bottom: 0.1em; border-bottom: 2px solid #333; padding-bottom: 0.2em; }
+  h2 { font-size: 1.3em; margin-top: 2em; color: #222; border-bottom: 1px solid #ccc; padding-bottom: 0.15em; }
+  h3 { font-size: 1.05em; margin-top: 1.3em; color: #333; }
+  .subtitle { font-style: italic; color: #555; margin-top: 0; margin-bottom: 2em; }
+  blockquote { border-left: 4px solid #888; margin: 1em 0; padding: 0.5em 1em; background: #f7f7f7; }
+  blockquote strong { font-style: normal; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 0.4em; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+  code { font-family: Consolas, "Courier New", monospace; background: #f3f3f3; padding: 0 0.25em; border-radius: 3px; font-size: 0.95em; }
+  table { border-collapse: collapse; margin: 1em 0; width: 100%; font-size: 0.95em; }
+  th, td { border: 1px solid #bbb; padding: 0.45em 0.7em; text-align: left; vertical-align: top; }
+  th { background: #eee; }
+  .footer-note { font-size: 0.9em; color: #555; font-style: italic; margin-top: 2em; }
+  .caveat { background: #fbf7ef; border-left: 4px solid #c9a227; }
+</style>
+</head>
+<body>
+
+<h1>Learning Systems as Abstract Machines</h1>
+<p class="subtitle">A short, technical introduction to a complexity-theoretic foundation for the security, privacy, and accuracy of statistical learning &mdash; from linear regression to LLMs and agent stacks. A companion to, and foundation for, the AIOracle framework.</p>
+
+<hr>
+
+<h2>1. The one idea</h2>
+<p>Modern machine learning is studied with a different object for every question: a function on a metric space for evasion attacks, a tamperable compiler for poisoning, a black box with a privacy budget for membership inference. Each switch of object hides the fact that they are the same system seen from different sides. This note develops a single object and reads accuracy, security, and privacy off of it.</p>
+
+<p>The object is <strong>one universal machine</strong> <code>U</code>. A <strong>source</strong> <code>&Pi;</code> is a program for <code>U</code> fed uniform random bits &mdash; it is what &ldquo;the data&rdquo; <em>is</em>. A <strong>learner</strong> <code>L</code> reads the source through bounded access and synthesizes an <strong>advice string</strong> <code>w</code>. <strong>Inference</strong> is <code>U</code> running the advice: <code>M<sub>w</sub>(x) = U(w, x)</code> for <code>t<sub>eval</sub></code> steps. So a &ldquo;model&rdquo; is a time-bounded universal computation, and <em>linear regression and an LLM are the same <code>U</code>-program at two different coordinates</em> &mdash; a tiny <code>(|w|, t<sub>eval</sub>)</code> for the regression, an enormous one for the LLM. The thing that differs is scale, not kind.</p>
+
+<blockquote><strong>Slogan.</strong> Inference computes almost nothing &mdash; it is advice evaluation. The real computation is the learner synthesizing advice behaviourally equivalent to the source under bounded access. <em>Learning is program synthesis; security is the hardness of controlling what advice that synthesis emits.</em></blockquote>
+
+<h2>2. The discipline that keeps this complexity, not statistics</h2>
+<p>The standard move in learning theory is to fix a data distribution <code>D</code> and prove things in expectation over it. That quietly smuggles the analyst&rsquo;s assumptions into the foundation. We forbid it: <strong>the distribution is demoted from a foundation to a parameter.</strong> Nothing in the primitives may name a <code>D</code>. The only measure in the theory is the fixed uniform measure on <code>U</code>&rsquo;s random bits; any &ldquo;data distribution&rdquo; is the <em>derived</em> pushforward <code>D = &Pi;<sub>*</sub>(Uniform)</code>.</p>
+
+<p>This is the same discipline cryptography learned from Shannon to Goldwasser&ndash;Micali, and the same instinct behind the generic-group model and the AIOracle&rsquo;s <em>Generic Language Model</em>: forbid the smuggled prior, force reliance on the metered object. A consequence with teeth: two sources with the <em>same output distribution</em> <code>D</code> but different generative complexity are <strong>different objects</strong>. That difference is precisely where a statistical&ndash;computational gap can live, and it is invisible to any theory that works over <code>D</code> alone.</p>
+
+<h2>3. One quantity in five roles: <code>Kt</code></h2>
+<p>The technical spine is a single complexity measure, Levin&rsquo;s time-bounded Kolmogorov complexity <code>Kt(x) = min<sub>p</sub> { |p| + log t(p) }</code> over programs <code>p</code> for <code>U</code>. It is not chosen by taste; a conservation law forces it (a potential that composes must charge <code>log t</code>, not <code>t</code>). The same <code>Kt</code> then plays five roles:</p>
+<table>
+<tr><th>Role</th><th>What it measures</th></tr>
+<tr><td>Behavioural metric</td><td>distance between a model and the source, weighted by <code>2<sup>&minus;Kt(x)</sup></code> over the disagreement set</td></tr>
+<tr><td>Potential / conservation</td><td><code>&Phi; = |w| + log t<sub>train</sub> + log t<sub>eval</sub></code>, additive under reduction</td></tr>
+<tr><td>Capacity</td><td><code>Kt(w)</code>, the <em>effective</em> complexity of the model &mdash; not raw size <code>|w|</code></td></tr>
+<tr><td>Security object</td><td>finding a cheap adversarial input = finding low-<code>Kt</code> witnesses; OWF-equivalent (Liu&ndash;Pass)</td></tr>
+<tr><td>Learner objective</td><td>the learner minimizes <code>Kt(w)</code> subject to fit (Levin search)</td></tr>
+</table>
+
+<p>That capacity is <code>Kt(w)</code> and not <code>|w|</code> resolves the overparameterization puzzle directly: large models generalize because the advice SGD finds is <em>compressible</em> (<code>Kt(w) &Lt; |w|</code>), while robustness lower bounds genuinely need large raw <code>|w|</code>. Generalization is governed by <code>Kt(w)</code>; robustness by <code>|w|</code>; both hold at once <em>because they meter different resources</em>.</p>
+
+<h2>4. One functional, four corners: accuracy, security, privacy</h2>
+<p>Every player &mdash; honest learner or adversary &mdash; is the same kind of object: a resource-bounded transducer with a capability vector <code>&kappa;</code> (which tapes it can touch) and a budget. Define one quantity,</p>
+<blockquote><strong>Risk*(T, &kappa;, r)</strong> = the best expected loss on task <code>T</code> achievable by any player with capabilities <code>&kappa;</code> and budget <code>r</code>.</blockquote>
+<p>Reading this one functional with two knobs &mdash; an aggregation operator <code>&oplus;</code> and a base &mdash; produces the entire security/privacy vocabulary as corners of one object:</p>
+<table>
+<tr><th>Corner</th><th>Reading</th><th>This is&hellip;</th></tr>
+<tr><td>Accuracy</td><td><code>&oplus; = E</code> (average), honest task</td><td>completeness / utility</td></tr>
+<tr><td>Detection</td><td><code>&oplus; = quantile</code></td><td>distribution-shift / auditing</td></tr>
+<tr><td>Security</td><td><code>&oplus; = sup</code> (worst case)</td><td>robustness / evasion</td></tr>
+<tr><td>Privacy</td><td>distinguishing on the neighbourhood base</td><td>membership inference / leakage</td></tr>
+</table>
+
+<blockquote><strong>The central identification.</strong> Accuracy and security are <em>one surface seen from two sides</em>. Accuracy is the region a bounded learner can reach (a positive theory). <strong>Security is a learning lower bound</strong> &mdash; the attack task is <em>un-learnable</em> by a <code>&kappa;</code>-bounded adversary. &ldquo;Security follows from negative results&rdquo; stops being a slogan and becomes a definition: a security theorem <em>is</em> a hardness-of-learning theorem for the attack task.</blockquote>
+
+<p>Note this replaces the metric-budget convention (&ldquo;adversary constrained to an <code>&epsilon;</code>-ball&rdquo;) with a <em>computational</em> budget: what the adversary can spend to find a bad input, not how far that input sits from a benign one. The capability vector <code>&kappa;</code> replaces the attack taxonomy &mdash; evasion, poisoning, and backdoor are not separate categories but different settings of <code>&kappa;</code>, exactly the AIOracle&rsquo;s <code>ATK &sube; {white_box, black_box, inject_learn, inject_infer}</code>.</p>
+
+<h2>5. The staircase: a graded security taxonomy with a provability ladder</h2>
+<p>Because security is un-learnability, the strength of a security guarantee is graded by <em>how hard the corresponding learning problem is</em>. This produces a staircase of thresholds, <code>&tau;<sub>stat</sub> &le; &tau;<sub>detect</sub> &le; &tau;<sub>recover</sub></code>, cutting the resource plane into regimes that <em>replace</em> the ad-hoc evasion/poisoning/backdoor taxonomy:</p>
+<table>
+<tr><th>Regime</th><th>Meaning</th><th>Replaces</th></tr>
+<tr><td>below <code>&tau;<sub>stat</sub></code></td><td>information-theoretically hidden</td><td>statistical / perfect security</td></tr>
+<tr><td><code>&tau;<sub>stat</sub></code> to <code>&tau;<sub>detect</sub></code></td><td>present but undetectable</td><td>undetectable backdoors; computational privacy</td></tr>
+<tr><td><code>&tau;<sub>detect</sub></code> to <code>&tau;<sub>recover</sub></code></td><td>detectable, not recoverable</td><td>watermarking; auditable-but-private</td></tr>
+<tr><td>above <code>&tau;<sub>recover</sub></code></td><td>fully learnable</td><td>accuracy</td></tr>
+</table>
+
+<p>Remarkably, the difficulty of <em>proving</em> security at each rung climbs through cryptography&rsquo;s own provability ladder &mdash; and the cost of <em>certifying</em> it, the <code>U</code>-dependence of the bound, and the cost of zero-knowledge certification all climb <em>together</em>:</p>
+
+<blockquote><strong>Provability ladder.</strong> unconditional (statistical dimension / SQ floor) &rarr; idealized-model (random-oracle / generic-group / GLM) &rarr; standard-assumption (one-way functions, via <code>K<sup>t</sup></code>-hardness) &rarr; open (Gap-<code>K<sup>t</sup></code>, the detection band).</blockquote>
+
+<p>The SQ floor is the jewel: it is the one place this theory proves security <em>unconditionally</em> &mdash; without betting on <code>P &ne; NP</code> or one-way functions &mdash; via statistical-dimension lower bounds. The idealized-model rung is where the AIOracle&rsquo;s utility&ndash;privacy theorem lives; it carries the standard caveat that idealized-model proofs can be uninstantiable (Canetti&ndash;Goldreich&ndash;Halevi), so provability there slightly outruns real-world soundness.</p>
+
+<h2>6. The keystone: one theorem the framework genuinely owns</h2>
+<p>Most of the staircase re-reads known hardness (SQ, low-degree, planted clique, one-way functions) in a unified vocabulary. One result is native to the framework:</p>
+
+<blockquote><strong>Keystone (universal = generalizing).</strong> The learner that minimizes <code>Kt(w)</code> subject to behavioural fit is simultaneously <em>universal</em> (it is Levin search over advice) and <em>generalizing</em> (low <code>Kt(w)</code> gives an Occam bound). These are two readings of one principle &mdash; minimum-description behavioural fit &mdash; under a single hypothesis: <code>I &Lt; s</code>, the learner used far less information than it saw.</blockquote>
+
+<p>The bridge is <code>Kt(w) &lesssim; Kt(L) + I + log t</code>: the advice complexity is the (constant) learner-program complexity plus the information <code>I</code> actually pulled from the source. So &ldquo;it generalizes&rdquo; and &ldquo;it is the canonical learner&rdquo; are the same statement, and the hypothesis <code>I &Lt; s</code> is at once Occam compression and the non-memorization condition.</p>
+
+<h2>7. The membrane: the organizing principle for resources, composition, and agents</h2>
+<p>One structural distinction organizes the entire subject &mdash; the <strong>membrane</strong> between what happens at training and what happens at deployment. The learner can query the source (it spends samples); inference is <em>source-blind</em> (it sees only <code>w</code> and the input). This single line sorts everything:</p>
+<table>
+<tr><th>Aspect</th><th>Training side</th><th>Deployment side</th></tr>
+<tr><td>Compute</td><td><code>t<sub>train</sub></code> (with source access)</td><td><code>&Phi;<sub>deploy</sub> = |w| + log t<sub>eval</sub></code></td></tr>
+<tr><td>Information</td><td>forward flow <code>I</code> (learning)</td><td>reverse flow <code>I<sup>&larr;</sup></code> (steering)</td></tr>
+<tr><td>Randomness</td><td><code>H<sub>train</sub></code> (privacy / DP)</td><td><code>H<sub>eval</sub></code> (certified robustness / smoothing)</td></tr>
+<tr><td>Composition</td><td><code>&Lambda;<sub>train</sub></code> (model collapse)</td><td><code>&Lambda;<sub>eval</sub></code> (agent stacks)</td></tr>
+</table>
+
+<p>Two compute trades are free <em>within</em> the deployment side (memorize vs recompute, <code>|w| &harr; t<sub>eval</sub></code>; trained-in vs prompted-in knowledge, weights vs context). What is <em>not</em> free is crossing the membrane &mdash; and that non-freeness is exactly the sample/information axis a complexity theory must keep separate from compute.</p>
+
+<p>One modulus recurs across the membrane: a Lipschitz sensitivity <code>&Lambda;</code> that <em>is</em> privacy <em>is</em> composability <em>is</em> performative stability. It obeys a clean ordering &mdash; <strong>a private learner is automatically composable and generalizing; the converse fails</strong> &mdash; which is the complexity-native form of the adaptive-data-analysis theorem (DP &rArr; stability &rArr; generalization).</p>
+
+<h2>8. What the framework explains, predicts, and proposes</h2>
+
+<h3>Explains (unifies known phenomena)</h3>
+<ul>
+  <li><strong>&ldquo;SOTA accuracy, trivially fooled.&rdquo;</strong> Accuracy is the <code>E</code>-corner, security the <code>sup</code>-corner of one functional; a low <em>average</em> sensitivity <code>&Lambda;</code> says nothing about the <em>worst-case</em> sensitivity <code>&Lambda;<sup>sup</sup></code> an adversarial input excites. Functionality never implies robustness.</li>
+  <li><strong>Overparameterization is not a paradox.</strong> Generalization meters <code>Kt(w)</code>, robustness meters <code>|w|</code>; their gap is implicit regularization.</li>
+  <li><strong>Why backdoor detection keeps losing.</strong> Undetectable backdoors sit on the recovery band (OWF-equivalent); &ldquo;scan the weights&rdquo; is cryptographically hard, not merely unsolved.</li>
+  <li><strong>Why DP costs accuracy, and why the same noise gives certified robustness.</strong> One randomness budget <code>H<sub>L</sub> = H<sub>train</sub> + H<sub>eval</sub></code> feeds both privacy and robustness, on opposite membrane sides.</li>
+  <li><strong>Model collapse on synthetic data.</strong> Training-side composition with <code>&Lambda;<sub>train</sub> &gt; 1</code>; a sharp phase boundary at <code>&Lambda; = 1</code>.</li>
+</ul>
+
+<h3>Predicts (new, falsifiable)</h3>
+<ul>
+  <li><strong>The comp&ndash;stat envelope.</strong> The data-scaling exponent and the parameters-vs-test-time-compute exponent obey a one-sided bound <code>&theta;<sub>comp</sub> &le; &Phi;(&theta;<sub>data</sub>)</code>: no task should have cheap params&harr;compute tradeability with poor data-scaling. A single point above the envelope falsifies the unified <code>Kt</code>-axis &mdash; and since the envelope is derived from the keystone, <em>this single experiment is a direct test of the keystone.</em></li>
+  <li><strong>The memorization corner.</strong> On tasks with labels independent of inputs, test-time compute cannot substitute for parameters &mdash; chain-of-thought gives near-zero benefit on pure memorization but real benefit on structured reasoning. A cheap experiment.</li>
+  <li><strong>Backdoor reproduction number.</strong> In a system retrained on its own traces, a planted backdoor persists across generations iff <code>R = &Lambda;<sub>train</sub> &middot; &Lambda;<sub>C</sub> &middot; &Lambda;<sub>eval</sub><sup>sup</sup> &middot; &rho;<sub>hit</sub> &gt; 1</code>. A backdoor cannot be both self-amplifying (high <code>&rho;<sub>hit</sub></code>) and stealthy (low <code>&rho;<sub>hit</sub></code>) &mdash; they trade off, so the dangerous regime is exactly the open detection band.</li>
+</ul>
+
+<h3>Proposes (things to build)</h3>
+<ul>
+  <li><strong>A noiseless, computational leakage metric:</strong> <code>|w| &minus; Kt(w)</code>. A model&rsquo;s compressibility bounds how much individuating information it can have memorized &mdash; the privacy notion that hides identity by computation, not by DP&rsquo;s information-destroying noise.</li>
+  <li><strong>Deepest-first robustness budgeting</strong> for agent stacks: one ill-conditioned deep tool (<code>&Lambda;<sub>eval</sub><sup>sup</sup> &Gt; 1</code>) re-weights every commitment above it, so spend certified-robustness budget on the most-deeply-called components first.</li>
+  <li><strong>A containment monitor</strong> for self-improving systems: hold <code>R &lt; 1</code> by certifying inference sensitivity or filtering traces.</li>
+  <li><strong>Provenance over detection</strong> for the model supply chain: detecting a backdoor is OWF-hard, but proving a component ran a declared clean training process is an <code>&exist;/NP</code> statement that <em>composes</em> via recursive proofs (proof-carrying data). Attest the curation step, do not scan the weights.</li>
+</ul>
+
+<h2>9. Relationship to the AIOracle framework</h2>
+<p>This theory and the AIOracle framework are <strong>two layers of one theory</strong>, joined at a single seam: the AIOracle&rsquo;s idealized predicate <code>&phi;(prompt, context, result)</code> corresponds to a <strong>task <code>T</code> approximated by a <code>U</code>-bounded judge with budget <code>r<sub>judge</sub></code></strong>. The AIOracle is the <em>interface</em> &mdash; name <code>&phi;</code>, decompose it, measure <code>&epsilon;</code>, publish a falsifiable claim. This note is the <em>foundation</em> &mdash; which claims are achievable, which are impossible, and why.</p>
+
+<table>
+<tr><th>AIOracle</th><th>Here</th></tr>
+<tr><td>completeness <code>p</code> / security <code>&epsilon;</code></td><td>the <code>E</code>-corner / the <code>sup</code>-corner of one <code>Risk*</code></td></tr>
+<tr><td><code>ATK = {wb, bb, inj_learn, inj_infer}</code></td><td>the capability vector <code>&kappa;</code>, sorted by the membrane</td></tr>
+<tr><td>Generic Language Model (GLM)</td><td>the idealized-model rung; the demote-the-distribution discipline (different smuggled prior)</td></tr>
+<tr><td>MID game</td><td>distinguishing on the neighbourhood graph (the privacy corner)</td></tr>
+<tr><td><code>p<sub>c</sub> &le; 1/2 + n&epsilon;</code></td><td>one-surface/two-frontiers at the idealized-model rung</td></tr>
+<tr><td>dual construction, <code>&epsilon;<sub>1</sub>+&epsilon;<sub>2</sub>+e</code></td><td>one term of the three-term composition law (see below)</td></tr>
+<tr><td>Ball et al. (filter &ge; predicate)</td><td>cleanness certification is <code>&forall;/coNP</code>-hard; the verifier must clear the SQ floor</td></tr>
+<tr><td>which sub-predicates are hard</td><td>graded by source complexity <code>Kt(&Pi;<sub>i</sub>)</code></td></tr>
+</table>
+
+<p>The integration is genuinely two-way &mdash; each framework sharpens the other:</p>
+
+<blockquote><strong>Three-term composition law.</strong> When AIOracles compose, the system breach is governed by three terms of three different types: a breach probability <code>&epsilon;</code> (additive, union bound), a predicate-coverage mismatch <code>e</code> (additive, the AIOracle&rsquo;s contribution), and an error-magnitude amplification <code>&Lambda;</code> (multiplicative, this note&rsquo;s contribution). The AIOracle&rsquo;s additive bound is correct only in the contractive regime <code>&Lambda;<sup>sup</sup> &le; 1</code>; above it, the additive bound silently under-counts &mdash; the model-collapse / supply-chain regime. Conversely, the coverage term <code>e</code> is a real cost this note&rsquo;s composition theory lacked. Neither framework had all three.</blockquote>
+
+<p>The AIOracle&rsquo;s <code>GENERATE_DATA</code> box, which we had folded away, turns out to be a first-class <strong>curation transducer <code>C</code></strong> sitting between source and corpus &mdash; and it is exactly the control point of the reproduction number <code>R</code> (a good filter lowers <code>&rho;<sub>hit</sub></code>; a corrupted one raises it). In an agent stack, one agent&rsquo;s <code>GENERATE_DATA</code> is the next agent&rsquo;s <code>INFER</code> composed with <code>C</code>, so a single AIOracle&rsquo;s composition theorem, applied recursively, already bounds agent-stack security.</p>
+
+<p>Finally, the integration answers a question the AIOracle note explicitly leaves open. Citing Bellare&ndash;Kohno on related-key attacks, it asks: <em>for which predicates is <code>&epsilon;</code>-secure approximation even possible?</em> The staircase is that catalogue: <code>&epsilon;</code>-secure approximation of <code>&phi;<sub>i</sub></code> is unconditional below <code>&tau;<sub>stat</sub></code>, idealized-model-provable at the GLM rung, OWF-relative in the recovery band, and open in the detection band &mdash; indexed by the source complexity <code>Kt(&Pi;<sub>i</sub>)</code> and the judge budget <code>r<sub>judge</sub></code>.</p>
+
+<h2>10. A frontier the integration generated: intent-conditioned authorization</h2>
+<p>The AIOracle decomposition lists action-authorization (<code>&phi;<sub>allow</sub></code>) as <em>clean</em> and goal-fidelity (<code>&phi;<sub>intent</sub></code>) as <em>open</em>, separately. The interesting object is their conjunction &mdash; <em>&ldquo;is this action permitted <strong>given the user&rsquo;s goal</strong>?&rdquo;</em> &mdash; which neither framework alone handles. Its complexity is <code>Kt(&phi;<sub>allow</sub> &and; &phi;<sub>intent</sub>) &asymp; Kt(&Pi;<sub>intent</sub>)</code>, the complexity of the user&rsquo;s true-goal program, and it reduces to <strong>intent inference</strong> &mdash; the formal core of the scalable-oversight / value-specification problem.</p>
+
+<blockquote><strong>Design law.</strong> An agent is either <em>intent-blind</em> (drop <code>&and; &phi;<sub>intent</sub></code> &rarr; static coarse authorization, SQ-floor, certifiable) or <em>intent-elicited</em> (ask the user for the goal &rarr; low-complexity lookup, cost pushed to the human). It cannot cheaply <em>infer</em> the intent and condition on it &mdash; that path costs <code>Kt(&Pi;<sub>intent</sub>)</code>. Production agents fall back to coarse static policies not from laziness but because it is the only certifiable option below <code>Kt(&Pi;<sub>intent</sub>)</code>.</blockquote>
+
+<h2>11. Honest status</h2>
+<p class="caveat">This is an organizing theory, not yet a validated one. To be precise about what is and is not established:</p>
+<ul>
+  <li><strong>Proved:</strong> the keystone (universal = generalizing under <code>I &Lt; s</code>), plus faithful re-readings of statistical-query, low-degree, planted-clique, and one-way-function hardness in the unified vocabulary.</li>
+  <li><strong>Open native conjecture:</strong> the smooth <code>|w| &harr; t<sub>eval</sub></code> tradeoff for natural compressible tasks &mdash; a genuine capacity-vs-inference-compute lower bound the borrowed tools cannot even state, but which appears to be as hard as a circuit lower bound.</li>
+  <li><strong>Testable prediction, unmeasured:</strong> the comp&ndash;stat envelope on scaling exponents. Its experiment is a direct test of the keystone.</li>
+  <li><strong>Methodological:</strong> the discipline of keeping the statistical and computational axes separate repeatedly forbids the field&rsquo;s most tempting false unifications &mdash; evidence the framework has content, since a vacuous reframing forbids nothing.</li>
+</ul>
+<p>The honest one-line self-classification: <em>a genuine organizing theory with one proved keystone, one open native conjecture, one keystone-derived testable prediction, and a working forbidding-principle &mdash; built on a faithful re-reading of complexity-theoretic hardness, and joined to the AIOracle framework as its foundation.</em></p>
+
+<p class="footer-note">This document summarizes a research framework under development (working title: <em>Learning Systems as Abstract Machines: Computation, Approximation, and Security</em>). It is a companion to, and the complexity-theoretic foundation for, the AIOracle framework. Technical claims are at varying stages of proof, as Section 11 states explicitly.</p>
+
+</body>
+</html>

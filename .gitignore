@@ -1,0 +1,12 @@
+# --- Raw source PDFs are NOT tracked (see raw/SOURCES.md for the catalog) ---
+raw/*.pdf
+
+# --- macOS / editor cruft ---
+.DS_Store
+**/.DS_Store
+.obsidian/workspace.json
+wiki/.obsidian/workspace.json
+
+# --- Large local tooling binaries (LaTeX engine) ---
+.tools/tectonic
+.tools/tectonic.tar.gz
