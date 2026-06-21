@@ -142,6 +142,7 @@ Catalog of all pages. Updated on every ingest, query filing, and lint pass.
 | [deep-research-prompt-formalizing-ai-security](analyses/deep-research-prompt-formalizing-ai-security.md) | 2026-04-12 | Comprehensive deep research prompt for the formal theory of AI security (16 questions across 4 parts) |
 | [reading-pathway-formal-security](analyses/reading-pathway-formal-security.md) | 2026-04-23 | Recommended order-of-reading through the 45-paper corpus, clustered by research program and prerequisites |
 | [web-research-2026-frontier](analyses/web-research-2026-frontier.md) | 2026-04-23 | 2024–2026 web research: what's new since the current corpus, priority candidate ingests, open-problem status updates, recommended research bet |
+| [summer-2026-research-programme](analyses/summer-2026-research-programme.md) | 2026-06-21 | June–Sept 2026 calendar interleaving Arora–Barak (from §2.3 Cook–Levin) with the corpus, driving the Chapter 24 "learning-as-abstract-machine" thesis; spine-primary, Durak as Sept coda |
 
 ---
 

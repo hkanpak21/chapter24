@@ -384,3 +384,19 @@ Digestion of all 52 raw/ PDFs confirmed complete (all have matching wiki source 
 - Proof chain: small m → indistinguishable concepts (α-close) → non-negligible error → high AdvRisk (via Lemma 3.2 from MDM19)
 
 **Index updated**: Sources count 15 → 16.
+
+---
+
+## [2026-06-21] analysis | Summer 2026 Research & Reading Programme
+
+Created `wiki/analyses/summer-2026-research-programme.md` — a June–September calendar interleaving
+Arora–Barak (Mursit at §2.3 Cook–Levin) with the paper corpus, driving the Chapter 24
+"learning-as-abstract-machine" thesis. Settings: spine-primary (north star = the "Goldwasser theorem
+of AI", i.e. the Shannon→reduction-based-crypto transition applied to statistical→computationally-bounded
+AI); moderate pacing (~10–12 hrs/wk); Durak's agentic/verification agenda demoted to a September
+commentary coda. Assessed arXiv 2412.08897 (Neural Interactive Proofs, Hammond–Adam-Day ICLR'25):
+adjacent "useful shadow" (IP/verification projection), not core; read in Sept after AB Ch. 8.
+Candidate ingests flagged: Valiant 1984, Neural Interactive Proofs. Updated `wiki/index.md`.
+
+Repo bootstrapped and pushed to https://github.com/hkanpak21/chapter24 (raw PDFs gitignored;
+`raw/SOURCES.md` added as the source catalog).
