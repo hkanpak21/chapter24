@@ -400,3 +400,28 @@ Candidate ingests flagged: Valiant 1984, Neural Interactive Proofs. Updated `wik
 
 Repo bootstrapped and pushed to https://github.com/hkanpak21/chapter24 (raw PDFs gitignored;
 `raw/SOURCES.md` added as the source catalog).
+
+---
+
+## [2026-06-22] analysis | Summer programme dated + field-introduction blog written
+
+Reworked `wiki/analyses/summer-2026-research-programme.md` into a **dated week-by-week plan** (Jun 22 →
+Sep 30, 14 weeks) interleaving Arora–Barak (Ch. 2→3→6→7→8→9→18→19) with the corpus, assigning every raw/
+text a role ([DEEP]/[map]/[shelf]) so nothing is orphaned. Encodes the design settled in the June
+brainstorming: spine-primary; adversary all-PPT-first (learning-shaped/SQ as Phase 2); engine = crypto
+reductions as concrete-security measuring instruments; **anchor game `COMP-MEM`** (Computational Membership
+Indistinguishability — floor of the `COMP-TW` training-world schema, = privacy corner of `Risk*` / bottom
+rung of the τ-staircase); κ = (O,T,B,mode) with κ₀ = prior/public knowledge and marginal advantage; crown
+jewel = threshold reduction learning→OWF; planted-models corpus as the bridge to deep learning.
+
+Wrote `output/intro-computational-security-of-learning.md` — a blog-style field introduction covering the
+statistical→computational ("Goldwasser theorem of AI") framing, the abstract-machine reframing, the
+COMP-MEM/COMP-TW design, the corrections (indexing hardness, PAC-vs-deep chasm, concrete security,
+confidentiality/integrity split), the lineage (Kearns–Valiant, BFKL, Win-Win, Pessiland), and the
+**lödeg/nannosh results**: the `Kt`-on-`U` machine, the membrane, the keystone theorem, the τ-staircase
+("security IS learning lower bounds"), reproduction number `R`, the Phase-2 "organizing theory" verdict,
+and the Phase-3 AIOracle unification (two layers of one theory; the four-rung provability ladder). Ends
+with an 8-section roadmap.
+
+Candidate ingests flagged: Kearns–Valiant 1994, BFKL 1993, Kearns–Vazirani, Bellare–Rogaway concrete
+security, Neural Interactive Proofs, and `raw/AIOracles_for_Practitioners.html`.
