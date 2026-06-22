@@ -27,8 +27,9 @@ concentration). The dialogue has already reached the slogan **"security *is* lea
 
 ### Design decisions settled in the June 2026 brainstorming (the objective this schedule serves)
 
-- **Spine = primary.** Mursit's own thesis leads; Durak's agentic/verification agenda is a **September
-  coda**, not a parallel track. (The dialogue's Phase 3 already unifies the two — see below.)
+- **Spine = primary.** Mursit's own thesis leads. Durak's agentic/verification work (the AIOracle paper,
+  Neural Interactive Proofs) is **not scheduled here** — Mursit is reading it directly, in parallel. (The
+  dialogue's Phase 3 records how it unifies with Chapter 24, for when the coda is written.)
 - **Adversary = all PPT first**, the **learning-shaped (SQ/low-degree) adversary** as a Phase-2 extension.
 - **Engine = crypto reductions used as *measuring instruments* (concrete/exact security)** — "breaking X
   in time `t`, advantage `ε` ⟹ solving reference problem in `t'≈t`, `ε'≈ε`." *Measurable, not merely
@@ -143,26 +144,23 @@ Arc: **reductions → non-uniformity/randomness → one-wayness/average-case →
   `COMP-MEM → reference problem` (planted-clique or cLWE). This is the dialogue's `Risk*` privacy-corner /
   τ_stat rung, made concrete.
 
-### Phase D — Interactive proofs, verification, synthesis & the Durak coda · **W11–W14 (Aug 31 – Sep 30)**
+### Phase D — Interactive proofs, verification & synthesis · **W11–W14 (Aug 31 – Sep 30)**
 
 - **W11 — AB Ch. 8 (interactive proofs; IP = PSPACE, MIP, ZK).**
   **[DEEP]** [HN23 — Learning in Pessiland](../sources/learning-in-pessiland.md) (the threshold/world reading
-  — *the crown-jewel regime*). **[map] Neural Interactive Proofs** (Hammond–Adam-Day, ICLR'25, arXiv
-  2412.08897) — the IP/delegation side-track; now it fits, as the integrity/verifiable-delegation example.
-  *(Candidate ingest.)*
+  — *the crown-jewel regime*).
 - **W12 — hardness-of-alignment in our idiom.**
   **[DEEP]** [BGGKRR25 — Impossibility of Filtering for Alignment](../sources/filter-impossibility-ai-alignment.md)
   (Goldwasser et al.; a hardness theorem in the target idiom). **[map]**
   [BLW25 ZK pipelines](../sources/zk-verifiable-ai-pipelines.md),
   [SKMTO25 Lean Rademacher](../sources/lean-rademacher-formalization.md) (formalization/verification angle).
-- **W13 — Durak coda, part 1 (integrate, using the dialogue's Phase-3 result).**
-  **[DEEP]** [VDKMR26 — AIOracle](../sources/extending-formalism-cryptography-ai.md) (re-read) +
-  `raw/AIOracles_for_Practitioners.html` (the Phase-3 source). The dialogue already proved AIOracle and
-  Chapter-24 are **two layers of one theory** joined at `φ ↔ (T, r_judge)`; the coda makes that rigorous and
-  printable. **[map]** [Siu et al. — formalizing LLM agent security](../sources/formalizing-llm-agent-security.md).
-- **W14 — Durak coda, part 2 + synthesis.**
-  **Deliverables:** (1) **native complexity class + the threshold-reduction draft** (learning → OWF at the
-  certain point); (2) the **Durak critical coda** written; aim for the Chapter-24 `HUMAN consent` skeleton.
+- **W13 — synthesis: the threshold reduction.**
+  Revisit [DNV19 Win-Win](../sources/win-win-robust-learning.md) and HN23 to draft *learning → OWF at the
+  certain point*; define the **native complexity class** for learning-as-synthesis and what reduces to it.
+  **[map]** [CK21 Covert Learning](../sources/covert-learning.md) revisited (crypto-style learning security).
+- **W14 — consolidation toward the Chapter-24 skeleton.**
+  **Deliverable:** the **native complexity class + threshold-reduction draft** (learning → OWF at the certain
+  point), written up toward the Chapter-24 `HUMAN consent` skeleton.
 
 ---
 
@@ -183,7 +181,7 @@ not on a fixed week. Stated explicitly so nothing is silently dropped.
   [SYL+19 SmoothAdv](../sources/provably-robust-smoothadv.md), [WK18 convex polytope](../sources/provable-defenses-convex-polytope.md),
   [SKL17 certified poisoning](../sources/certified-defenses-data-poisoning.md),
   [TSETM19](../sources/robustness-at-odds-accuracy.md), [SSTTM18](../sources/robust-generalization-more-data.md).
-- **Applied LLM / agentic security (the Durak-coda evidence base):**
+- **Applied LLM / agentic security:**
   [DS+25 CaMeL](../sources/camel-defeating-prompt-injections.md), [ZYWGW25 MELON](../sources/melon-indirect-prompt-injection.md),
   [FTH+25 IMTM](../sources/imtm-prompt-injections-protocols.md), [K+25 Seven Challenges](../sources/seven-challenges-cross-domain-mas.md),
   [C24 Jailbreak Paradox](../sources/jailbreak-paradox.md), [RT23 universal jailbreak RLHF](../sources/universal-jailbreak-rlhf-backdoors.md),
@@ -196,9 +194,9 @@ not on a fixed week. Stated explicitly so nothing is silently dropped.
 ## Implications for the Wiki
 
 - **Candidate ingests this summer (not yet in corpus):** Kearns–Valiant 1994; Blum–Furst–Kearns–Lipton 1993;
-  Kearns–Vazirani textbook; Bellare–Rogaway concrete-security notes; Neural Interactive Proofs (Hammond–Adam-Day);
-  **and `raw/AIOracles_for_Practitioners.html`** — the dialogue's Phase-3 flagged it for ingestion as
-  `wiki/sources/aioracles-for-practitioners.md` (cites Ball et al. 2025, Bellare–Kohno 2003, the GLM).
+  Kearns–Vazirani textbook; Bellare–Rogaway concrete-security notes. *(Mursit is reading the AIOracle note and
+  Neural Interactive Proofs directly, so they are off the schedule; `raw/AIOracles_for_Practitioners.html`
+  remains a candidate wiki ingest for whenever convenient.)*
 - **New concept pages to create when their definitions stabilize:** `comp-mem-game`, `comp-tw-schema`,
   `capability-vector-kappa`, `learning-adversary`, `kt-on-u`, `the-membrane`, `tau-staircase`,
   `keystone-universal-generalizing`. They currently exist only as prose in [../../output/chapter_24.md].
