@@ -425,3 +425,29 @@ with an 8-section roadmap.
 
 Candidate ingests flagged: Kearns–Valiant 1994, BFKL 1993, Kearns–Vazirani, Bellare–Rogaway concrete
 security, Neural Interactive Proofs, and `raw/AIOracles_for_Practitioners.html`.
+
+## [2026-07-10] analysis | Native-problem survey: the full reference-problem zoo
+
+Wrote `output/native-computational-problems-survey.md` — an exhaustive catalogue of every established
+computational problem / hardness assumption that could serve as the reference problem for the
+programme's reductions, compiled from a full wiki sweep + a multi-agent web literature sweep
+(planted-graph canon, spiked/continuous, crypto-from-learning, hardness-of-learning-NNs,
+meta-complexity; ~102 raw entries → ~80 distinct problems, organized in five tiers by role:
+reduction-grade anchors / hardness-of-learning theorems / stat-comp gap witnesses / evidence
+languages / cautionary counterexamples).
+
+**Verdict:** hCLWE/CLWE as the working native problem (continuous Gaussian substrate, worst-case
+lattice backing via BRST21+GVV22, already anchors GKVZ22 backdoors, SZB/CGKM/LZZ net-learning
+hardness, GMM and score-estimation hardness); PC_ρ as the reduction/routing engine (leakage prior ρ =
+the κ₀ side-information knob; PC now PKE-grade via GHJS25); Gap-K^t **over samplable distributions**
+(Liu–Pass, IRS, HILNO SoI duality) as the theory's own idiom for the crown-jewel threshold; traitor
+tracing (DNRRV09/Ullman13) flagged as the incumbent prior art for the COMP-MEM privacy corner — must
+be engaged before any novelty claim. Phase-2 adversary language: information/generative exponents +
+leap complexity. Confirms and sharpens the W10 deliverable choice (cLWE over planted clique as
+primary target).
+
+Caveats recorded in the report: the web sweep's verification pass and six lenses were cut short by a
+session rate limit (2025–2026 single-sourced items marked †; maintainer-filled sections marked ◊);
+the workflow is resumable from cache to finish. Candidate ingests surfaced: Liu–Pass 2020, IRS 2022,
+HILNO 2023, Hirahara 2022, Liu–Mazor–Pass 2025 (white-box learning), DNRRV09+Ullman13, Song 2024,
+DPVLB 2024, GVV22, Tiegel 2023/24, Daniely–Vardi 2021.
