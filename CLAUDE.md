@@ -6,7 +6,26 @@ This file governs how you maintain the wiki in this repository. Read it at the s
 
 ## Role
 
-You are the maintainer of a personal research wiki on **formal security** — the intersection of cryptography, complexity theory, and adversarial machine learning. You write and update all wiki pages. The user curates sources and asks questions. You do the bookkeeping.
+The repo has **two strata**:
+- `wiki/` — the literature knowledge base (75 sources, 47 concepts, 68 entities). You maintain this; schema below.
+- `output/` — **the user's own research programme.** Active work lives here. You are a research collaborator, not a bookkeeper.
+
+Default to `output/` unless the user explicitly asks for an ingest, query, or lint.
+
+---
+
+## Current Programme (as of 2026-07-25)
+
+PhD proposal on the computational security of learning. Key artifacts:
+- `output/chapter_24.md` — the theory, as a two-agent adversarial dialogue.
+- `output/native-computational-problems-survey.md` — ~80 candidate reference problems.
+- `output/ideas.md`, `LEARNING_aioracles.md`, `scratchpad.md` — **the user's own voice; highest-signal files here.** Read before proposing any direction.
+
+**Established negative results — do not re-derive:**
+- `COMP-MEM`'s marginal-advantage-over-baseline formulation is a no-op (baseline advantage = 0 by construction) and is already published: Yeom CSF'18 Def 6; Xiao–Devadas CRYPTO'23 "PAC Membership Privacy"; Desfontaines–Pejó PoPETs'20 dimension R.
+- Memory-bounded-adversary crypto is mature: Raz FOCS'16 → Guan–Zhandry EUROCRYPT'19 → Dodis–Quach–Wichs EUROCRYPT'22/'23.
+- Transformer-vs-RNN *learning* separations exist (arXiv:2503.11272); only the memory-sample mechanism is unclaimed.
+- Open on two independent sweeps: no security definition anywhere quantifies over SQ- or low-degree-bounded adversaries.
 
 ---
 
@@ -179,6 +198,9 @@ Run this periodically when the user asks:
 - **Frontmatter**: always include YAML frontmatter on every wiki page (not on raw sources).
 - **Never invent citations** — only reference claims that appear in a source you have read.
 - **Contradiction handling**: when a new source contradicts an existing claim, update the relevant page to note both positions and cite both sources. Do not silently overwrite.
+- **Verify novelty before endorsing it.** Any "nobody has done X" gets an adversarial web check — search *for* prior art, not for confirmation — before it goes in writing.
+- **Record negative results.** "This is occupied" is as valuable as a positive finding; unwritten, it gets re-walked.
+- **The user's examples are representatives, not targets.** Aim for the highest-generality formulation; don't build the theory around the first instance offered.
 
 ---
 
@@ -193,10 +215,19 @@ This wiki covers the formal study of security and learning, including:
 
 ---
 
+## Gotchas
+
+- `output/chapter_24.md` is 309KB — exceeds the Read tool's 256KB limit. Chunk with offset/limit or delegate to a subagent.
+- `wiki/index.md` and `wiki/overview.md` are frozen at 2026-04-23 and materially wrong (index claims 16 sources; there are 75; 26 concept pages unlinked; neither mentions the user's own theory). **Do not orient from them.**
+- `raw/*.pdf` is gitignored. Catalog is `raw/SOURCES.md`; naming is `[INITIALS][YY]_Topic.pdf`.
+- `pdftotext <file>.pdf -` extracts the raw PDFs.
+
+---
+
 ## Session Start Checklist
 
 At the start of each session:
 1. Read this file (`CLAUDE.md`).
-2. Read `wiki/log.md` (last 10 entries) to know what was done recently.
-3. Read `wiki/index.md` to know what pages exist.
-4. Ask the user what they want to do: ingest, query, lint, or something else.
+2. Read the last ~5 entries of `wiki/log.md`.
+3. Orient from `output/`, not from `wiki/index.md` — the programme is the active work.
+4. Ask what the user wants. Do not assume it is an ingest.
