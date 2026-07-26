@@ -496,3 +496,38 @@ pancakes — the membrane, proved, and it kills the schedule's `κ_inf`-first or
 **Schedule amendments filed:** W10's deliverable targets a dead object (`COMP-MEM` marginal advantage);
 "all PPT first" inverts; "black-box first" inverts. Revised read order: HSU 2508.19458 §1.3 first.
 All † entries are single-sourced and unread — verification debt recorded on the page.
+
+## [2026-07-26] ingest | Reconstruction / fiber corpus — 10 sources, 2 concepts
+
+Batch ingest of the papers surfaced by the fiber prior-art sweep. **Provenance: built from verified
+sweep extractions (quotes pulled from primary PDFs), not from full reads.** Every page carries a
+banner saying so and states what a full read still owes.
+
+Sources: dinur-nissim-revealing-information (PODS'03), cohen-data-reconstruction (ITCS'25),
+suliman-data-forging-attacks (USENIX Sec'25), kaplan-bayesian-memorization-reconstruction (ITCS'26),
+haghifam-sample-complexity-mia, jagielski-model-extraction (USENIX Sec'20), proof-of-learning (S&P'21),
+song-cryptographic-hardness-score-estimation (NeurIPS'24), bogdanov-low-degree-planted-subgraph (TCC'24),
+xiao-formal-privacy-proof-data-encoding (CCS'24 — unread, scope unverified).
+
+Concepts: fiber-of-the-training-map, computational-vs-statistical-memorization.
+
+**Why this batch exists.** The fiber framing written up in `output/fibers-of-the-training-map.md` was
+refuted at its core. Dinur–Nissim PODS'03 makes the size-vs-navigability split its main theorem (§3
+"Exponential Adversary" vs §4 "Polynomially Bounded Adversary"), and the OLS reconstruction example is
+theirs. Cohen et al. ITCS'25 Def C.1 already gives a computational reconstruction-resilience notion and
+proves it equivalent to one-wayness, which occupies "is training a one-way function." Kaplan et al.
+ITCS'26 asks the computational-vs-statistical memorization question directly.
+
+**What survived and is now the designated target:** Suliman et al. USENIX Sec'25 conjecture that finding
+gradient-equivalent mini-batches *within domain constraints* may be computationally infeasible, state it
+in one paragraph, and stop. Jagielski et al. proved the analogous NP-hardness for the **evaluation** map
+only. The training-map version is open, has a named published conjecture attached, and cannot be scooped
+by reframing.
+
+Obstacles recorded: Xiao–Suh–Devadas CCS'24 (learnable encodings get no worst-case crypto security);
+Proof-of-Learning as the same quantity under another name; the 17-year-old open question of whether
+computational boundedness buys anything over statistical DP in the single-curator setting.
+
+Methodological note carried into the Bogdanov page: two sweeps missed the low-degree security line
+because both searched the ML-security literature while the result lives in the crypto literature. Sweep
+the venue where the *technique* lives.
