@@ -451,3 +451,48 @@ session rate limit (2025–2026 single-sourced items marked †; maintainer-fill
 the workflow is resumable from cache to finish. Candidate ingests surfaced: Liu–Pass 2020, IRS 2022,
 HILNO 2023, Hirahara 2022, Liu–Mazor–Pass 2025 (white-box learning), DNRRV09+Ullman13, Song 2024,
 DPVLB 2024, GVV22, Tiegel 2023/24, Daniely–Vardi 2021.
+
+## [2026-07-25] analysis | Native asymmetry in learning — where a security gap can come from
+
+Wrote `wiki/analyses/native-asymmetry-in-learning.md`. Answers the structural question behind the
+recurring objection that crypto→ML constructions "don't come natural": if the defender is efficient
+and the adversary is efficient over the same source, where does any asymmetry come from?
+
+**Audit.** Crypto has three asymmetry shapes (direction / knowledge / verification), all manufactured.
+Of the four ML task-pairs, only train-vs-invert has the right sign — an independent derivation of why
+the privacy corner is load-bearing. The structural reason: learning's parties are asymmetric *by
+access*, never *by construction*; there is no primitive only one party can evaluate. This explains DP's
+incumbency, Groce–Katz–Yerukhimovich TCC'11, and why GJMM20/GKVZ22 must weld on a signature or a
+lattice trapdoor. Honest limit recorded: "different tasks, different complexity" is Naor STOC'96 +
+Viola SICOMP, and the detection⟺generation equivalence for learned distributions is *proved*
+(Alvarez-Melis–Garg–Kalai NeurIPS'22 §5) — §1 is proposal framing, not a contribution.
+
+**Mursit's two native sources** (the page's structural core): (a) *knowledge of the data* — in leakage
+attacks the data-knowledge IS the contested asset, so asymmetry and objective coincide; (b) *access to
+parts of the algorithm* — in backdoor settings the asymmetry is operational (arbitrary weight-setting
+vs. a bounded injected update; finding a malicious sample vs. detecting one). These map onto
+independent components of `κ`: (a) = `O`, (b) = `T,B,mode`. Structural prediction recorded: corner (a)
+can support a native security statement, corner (b) cannot and must import.
+
+**RETRACTION.** The `CLAUDE.md` line "no security definition quantifies over SQ/low-degree adversaries"
+is false — Bogdanov–Jones–Rosen–Zadik TCC'24 (arXiv:2409.16227) + Abram et al. TCC'23 define crypto
+security against low-degree distinguishers. Both earlier sweeps searched the ML-security literature;
+the result lives in the crypto literature. `CLAUDE.md` corrected.
+
+**Other occupied cells found:** attacker-needs-more-samples-than-trainer is published (Haghifam–Smith–
+Ullman arXiv:2508.19458, MIA vs Gaussian mean estimation, quadratic gap, IT units); security-relevant
+SQ separation exists (BPR19 — but the *defender* fails); attacker-as-restricted-class-learner is
+occupied in crypto units (Canetti–Karchmer TCC'21, Karchmer SaTML'23, CHLX25, arXiv:2504.20310).
+
+**Survives**, verified by citation-graph sweep (0 security citers across BGJ'21 / ABM COLT'22+'23 /
+DPVLB COLT'24 / generative-leap, n=148/152/152/43/8): attacker and defender priced in the *same*
+exponent units, separated at matched budget, attacker restricted to training's own algorithm class.
+Song NeurIPS'24 §1.3.2 names "discriminators with bounded compute or memory" as open from inside the
+CLWE literature; Gaussian pancakes are simultaneously SQ-hard and lattice-hard, confirming hCLWE.
+
+**Hard constraint found:** Song §1.3.3 proves black-box access to a sampler cannot solve Gaussian
+pancakes — the membrane, proved, and it kills the schedule's `κ_inf`-first ordering. Start white-box.
+
+**Schedule amendments filed:** W10's deliverable targets a dead object (`COMP-MEM` marginal advantage);
+"all PPT first" inverts; "black-box first" inverts. Revised read order: HSU 2508.19458 §1.3 first.
+All † entries are single-sourced and unread — verification debt recorded on the page.

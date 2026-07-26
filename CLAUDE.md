@@ -25,7 +25,12 @@ PhD proposal on the computational security of learning. Key artifacts:
 - `COMP-MEM`'s marginal-advantage-over-baseline formulation is a no-op (baseline advantage = 0 by construction) and is already published: Yeom CSF'18 Def 6; Xiao–Devadas CRYPTO'23 "PAC Membership Privacy"; Desfontaines–Pejó PoPETs'20 dimension R.
 - Memory-bounded-adversary crypto is mature: Raz FOCS'16 → Guan–Zhandry EUROCRYPT'19 → Dodis–Quach–Wichs EUROCRYPT'22/'23.
 - Transformer-vs-RNN *learning* separations exist (arXiv:2503.11272); only the memory-sample mechanism is unclaimed.
-- Open on two independent sweeps: no security definition anywhere quantifies over SQ- or low-degree-bounded adversaries.
+- ~~No security definition quantifies over SQ/low-degree adversaries~~ — **RETRACTED 2026-07-25, this was false.** Low-degree-bounded adversaries carry real crypto security: Bogdanov–Jones–Rosen–Zadik TCC'24 (arXiv:2409.16227) → PSM + secret sharing; Abram–Beimel–Ishai–Kushilevitz–Narayanan TCC'23. SQ-quantified soundness: Ngo–Kim arXiv:2607.15528 (single-sourced, verify).
+- "Attacker needs more samples than the trainer" is published: Haghifam–Smith–Ullman arXiv:2508.19458, MIA vs Gaussian mean estimation, `m ≳ n²ρ²+n`. IT units (Ingster/χ²), unbounded adversary.
+- Security-relevant SQ separation exists: Bubeck–Price–Razenshteyn ICML'19 (in wiki, W3) — but the *defender* fails there, not the attacker.
+- Attacker-as-restricted-class-learner is occupied in **crypto** units: Canetti–Karchmer TCC'21; Karchmer SaTML'23; Christiano–Hilton–Lecomte–Xu arXiv:2409.03077; arXiv:2504.20310. Only the *units* are unclaimed.
+- Detection ⟺ generation for learned distributions is **proved**: Alvarez-Melis–Garg–Kalai NeurIPS'22 (arXiv:2205.09838) §5, both directions, poly-time, bounded distinguisher class. Not framed as security. Black-box version is provably **false**: Song NeurIPS'24 (arXiv:2404.03272) §1.3.3.
+- **Still open, narrowly:** attacker and defender priced in the *same* exponent units (information/generative exponent, leap), separated at matched budget, attacker restricted to training's own algorithm class. Citation-graph sweep of BGJ'21, ABM COLT'22+'23, DPVLB COLT'24, generative-leap: **0** security/privacy citers. Song arXiv:2404.03272 §1.3.2 names "discriminators with bounded compute or memory" as open from inside the CLWE literature.
 
 ---
 

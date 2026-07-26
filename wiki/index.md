@@ -143,6 +143,7 @@ Catalog of all pages. Updated on every ingest, query filing, and lint pass.
 | [reading-pathway-formal-security](analyses/reading-pathway-formal-security.md) | 2026-04-23 | Recommended order-of-reading through the 45-paper corpus, clustered by research program and prerequisites |
 | [web-research-2026-frontier](analyses/web-research-2026-frontier.md) | 2026-04-23 | 2024–2026 web research: what's new since the current corpus, priority candidate ingests, open-problem status updates, recommended research bet |
 | [summer-2026-research-programme](analyses/summer-2026-research-programme.md) | 2026-06-21 | June–Sept 2026 calendar interleaving Arora–Barak (from §2.3 Cook–Levin) with the corpus, driving the Chapter 24 "learning-as-abstract-machine" thesis; spine-primary, Durak as Sept coda |
+| [native-asymmetry-in-learning](analyses/native-asymmetry-in-learning.md) | 2026-07-25 | Where a security gap can come from when both parties are efficient: crypto's three asymmetries vs. learning's two native ones (data-knowledge → privacy, access → backdoor); two adversarial prior-art sweeps; **retracts a false novelty claim**; amends the W10 deliverable and the black-box-first ordering |
 
 ---
 
