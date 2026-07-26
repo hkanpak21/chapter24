@@ -5,6 +5,15 @@ date: 2026-06-22
 tags: [reading-guide, programme, chapter-24, formal-security, complexity-theory, planning, schedule]
 ---
 
+> **AMENDED 2026-07-25.** Three design decisions below were invalidated by the prior-art sweeps recorded
+> in [native-asymmetry-in-learning](native-asymmetry-in-learning.md). They are struck inline rather than
+> deleted, per the wiki's contradiction-handling rule. Summary: (1) `COMP-MEM`'s marginal-advantage
+> formulation is a no-op and the game is Yeom's, so **W10's deliverable targets a dead object**;
+> (2) the **PPT-first / learning-shaped-second ordering inverts**; (3) the **black-box-first climb
+> inverts** — Song NeurIPS'24 §1.3.3 proves black-box access to a sampler cannot solve Gaussian
+> pancakes. The calendar's *reading* is unaffected; only these three decisions and the W10 deliverable
+> change.
+
 ## Question / Motivation
 
 Mursit is building **Chapter 24** of Arora–Barak ([../../output/chapter_24.md] — the lödeg↔nannosh dialogue):
@@ -30,7 +39,13 @@ concentration). The dialogue has already reached the slogan **"security *is* lea
 - **Spine = primary.** Mursit's own thesis leads. Durak's agentic/verification work (the AIOracle paper,
   Neural Interactive Proofs) is **not scheduled here** — Mursit is reading it directly, in parallel. (The
   dialogue's Phase 3 records how it unifies with Chapter 24, for when the coda is written.)
-- **Adversary = all PPT first**, the **learning-shaped (SQ/low-degree) adversary** as a Phase-2 extension.
+- ~~**Adversary = all PPT first**, the **learning-shaped (SQ/low-degree) adversary** as a Phase-2
+  extension.~~ **INVERTED 2026-07-25.** The all-PPT lane is occupied at both ends (Yeom / Xiao–Devadas
+  below; GKVZ22 / CHLX25 / BGGKRR25 above) and, by Groce–Katz–Yerukhimovich TCC'11, provably buys
+  nothing over IT in the single-curator setting. **The learning-shaped adversary is the thesis; all-PPT
+  is the fallback.** Note the correction that came with this: low-degree-bounded adversaries *do* carry
+  crypto security (Bogdanov–Jones–Rosen–Zadik TCC'24; Abram et al. TCC'23) — only the *exponent* units
+  are unclaimed.
 - **Engine = crypto reductions used as *measuring instruments* (concrete/exact security)** — "breaking X
   in time `t`, advantage `ε` ⟹ solving reference problem in `t'≈t`, `ε'≈ε`." *Measurable, not merely
   asymptotic.*
@@ -43,8 +58,14 @@ concentration). The dialogue has already reached the slogan **"security *is* lea
 - **Adversary calibration:** `κ = (O observation-map, T timeline-phase, B budget, mode passive/chosen)`,
   folded into the adversary. The dataset is the **secret**, so the baseline `κ₀` is *prior/public knowledge*
   (distribution, architecture, "model card") **not** the realized training set; security is the **marginal
-  advantage** `Adv(κ) − Adv(κ₀)` — what the *trained model* leaks beyond the prior. Build on the simplest
-  lattice point first: `κ_inf` (black-box, inference-only, passive), then climb.
+  advantage** `Adv(κ) − Adv(κ₀)` — what the *trained model* leaks beyond the prior. ~~Build on the
+  simplest lattice point first: `κ_inf` (black-box, inference-only, passive), then climb.~~
+  **RETRACTED 2026-07-25 on two counts.** (i) The marginal advantage is a **no-op**: `Adv(κ₀) = 0` by
+  construction, and what remains is Yeom CSF'18 Def 6 / Xiao–Devadas CRYPTO'23. (ii) The climb
+  **inverts** — Song NeurIPS'24 (arXiv:2404.03272) §1.3.3 proves the Gaussian-pancakes problem is hard
+  for poly-time distinguishers *even given exact sampling oracles*, so no black-box procedure can solve
+  it. **Start white-box.** This also types the primitive correctly (AIOWF: the published weights *are*
+  the auxiliary input) and aligns with Liu–Mazor–Pass ITCS'25 white-box learning.
 - **Crown jewel = a reduction at a threshold:** *past a certain point, learning reduces to breaking a OWF.*
   Not an identity; a **regime change**. Lineage: Kearns–Valiant 1994 → BFKL 1993 → DNV19 Win-Win → HN23
   Pessiland.
@@ -140,9 +161,17 @@ Arc: **reductions → non-uniformity/randomness → one-wayness/average-case →
   [ABIKN23 crypto from planted graphs](../sources/cryptography-from-planted-graphs.md),
   GJW21/GJW22 circuit-LBs ([1](../sources/gamarnik-hardness-random-optimization-circuits.md),
   [2](../sources/gamarnik-circuit-lower-bounds-pspin.md)).
-  **Deliverable:** instantiate `COMP-MEM` fully in the machine model; prove **one** reduction
-  `COMP-MEM → reference problem` (planted-clique or cLWE). This is the dialogue's `Risk*` privacy-corner /
-  τ_stat rung, made concrete.
+  ~~**Deliverable:** instantiate `COMP-MEM` fully in the machine model; prove **one** reduction
+  `COMP-MEM → reference problem` (planted-clique or cLWE).~~ **REPLACED 2026-07-25** — the definition is
+  Yeom's and the marginal advantage is a no-op, so this deliverable produces a reduction between two
+  objects other people defined. *(It survives as a fallback result: cite Yeom for the game, prove the
+  hCLWE reduction with concrete `t′≈t, ε′≈ε` bookkeeping. Publishable; not a thesis.)*
+  **New W10 deliverable:** characterize the **fiber of the training map**, `L⁻¹(w) = {D : L(D) = w}`, on
+  the smallest non-trivial instance — a single-index model on Gaussian data. Specifically: is a point of
+  the fiber findable in polynomial time given `w` and bounded side information? Working conjecture — the
+  fiber at information exponent `k` is a **degree-`k` variety**, affine and navigable at `k = 1` (the OLS
+  reconstruction case), tensor-shaped and plausibly hard at `k ≥ 3`. A negative answer closes the
+  geometric route in weeks. See [fibers-of-the-training-map](../../output/fibers-of-the-training-map.md).
 
 ### Phase D — Interactive proofs, verification & synthesis · **W11–W14 (Aug 31 – Sep 30)**
 
