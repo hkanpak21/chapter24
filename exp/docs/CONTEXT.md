@@ -23,6 +23,10 @@ Terms are fixed here once and used nowhere else with a different meaning.
 | `f` | a function in the hypothesis space; the object training reaches | fixed |
 | `L` | the training map, `D ↦ f` | fixed |
 | `R` | the success criterion: a relation deciding whether an adversary's output counts | fixed, borrowed (Cohen et al. ITCS'25) |
+| **baseline of `R`** | what a party with only public knowledge achieves on `R`; a field of `R`, not of the game | fixed, ours |
+| **degenerate baseline** | a baseline at 0, 1/2 or 1, where subtracting it is a no-op; forces raw advantage | fixed, ours |
+| `η` | `R`'s tolerance, and the dial between the population regime (coarse, nothing to measure) and the cryptographic regime (tight, needs an assumption) | fixed, ours |
+| **party searching for `R`** | changes with the family: the attacker in the privacy criteria, the *detector* in the backdoor criterion | fixed, ours |
 | **displacement** | what a training-time adversary does to `f` | fixed, ours |
 | **phase of action / phase of measurement** | when the adversary acts vs when `R` is evaluated; a backdoor differs in the two | fixed, ours |
 | `𝒜` | the adversary's algorithm class | fixed |

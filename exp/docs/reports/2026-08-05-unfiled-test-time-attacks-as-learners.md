@@ -94,6 +94,9 @@ displacement family is the next thing to check properly and not yet a claim.
 | Defendability, CHLX25, [[backdoor-defense-learnability-obfuscation]] | training-time | no, a fixed game |
 | Undetectable backdoors, GKVZ22, [[planting-undetectable-backdoors]] | training-time | no, a fixed game |
 
+[[2026-08-05-unfiled-concrete-r-criteria]] supplies a candidate `R` for the training-time family, the
+backdoor criterion, and marks it a candidate rather than a verified contribution.
+
 ## Where it applies
 
 | Section | Change |
