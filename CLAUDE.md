@@ -8,18 +8,21 @@ This file governs how you maintain the wiki in this repository. Read it at the s
 
 The repo has **two strata**:
 - `wiki/` — the literature knowledge base (75 sources, 47 concepts, 68 entities). You maintain this; schema below.
-- `output/` — **the user's own research programme.** Active work lives here. You are a research collaborator, not a bookkeeper.
+- `exp/` — **the user's own research programme** (renamed from `output/` on 2026-08-05; "experimental" and "exponential"). Active work lives here. You are a research collaborator, not a bookkeeper. It follows the `research` skill layout — `literature/`, `lab/`, `paper/`, `docs/` — and has its own `CLAUDE.md` and `docs/CONTEXT.md`. **Read `exp/docs/CONTEXT.md` before proposing any direction.**
 
-Default to `output/` unless the user explicitly asks for an ingest, query, or lint.
+Default to `exp/` unless the user explicitly asks for an ingest, query, or lint.
 
 ---
 
 ## Current Programme (as of 2026-07-25)
 
 PhD proposal on the computational security of learning. Key artifacts:
-- `output/chapter_24.md` — the theory, as a two-agent adversarial dialogue.
-- `output/native-computational-problems-survey.md` — ~80 candidate reference problems.
-- `output/ideas.md`, `LEARNING_aioracles.md`, `scratchpad.md` — **the user's own voice; highest-signal files here.** Read before proposing any direction.
+- `exp/docs/CONTEXT.md` — terminology ledger, the three attack families, standing constraints. **Start here.**
+- `exp/docs/reports/` — the channel back to the user; five sections, verdict first.
+- `exp/docs/notes/chapter-24.md` — the theory, as a two-agent adversarial dialogue.
+- `exp/literature/related-work.md` — ~80 candidate reference problems, by tier.
+- `exp/docs/notes/ideas.md`, `LEARNING_aioracles.md`, `scratchpad.md` — **the user's own voice; highest-signal files here.** Read before proposing any direction.
+- **Scope, as of 2026-08-05: measurement, not hardness.** The goal is to measure an attack's capability against a concrete adversary. No defence mechanism is being proposed yet.
 
 **Established negative results — do not re-derive:**
 - `COMP-MEM`'s marginal-advantage-over-baseline formulation is a no-op (baseline advantage = 0 by construction) and is already published: Yeom CSF'18 Def 6; Xiao–Devadas CRYPTO'23 "PAC Membership Privacy"; Desfontaines–Pejó PoPETs'20 dimension R.
@@ -33,6 +36,9 @@ PhD proposal on the computational security of learning. Key artifacts:
 - **Fiber-of-the-training-map framing is REFUTED at its core** (checked 2026-07-26). Size-vs-navigability *with* a complexity separation is Dinur–Nissim PODS'03 (§3 "Exponential Adversary" vs §4 "Polynomially Bounded Adversary" — the separation is the main theorem; the OLS reconstruction example is theirs). Restated as "computational vs statistical memorization" by Kaplan–Mansour–Nissim–Stemmer arXiv:2505.23658 (ITCS'26). A computational security notion for reconstruction already exists and is *equivalent to one-wayness*: Cohen et al. ITCS'25 arXiv:2405.15753 Def C.1 — so "is training a OWF" is occupied. Training-map identifiability-vs-optimization: Shen et al. arXiv:2602.08723.
 - **Fiber survivor — the best-defined target found this session:** a *hardness theorem* for **constrained** fiber navigation on the **training** map. Suliman et al. USENIX Sec'25 arXiv:2411.05658 conjecture it verbatim and stop; Jagielski et al. USENIX Sec'20 proved NP-hardness for the **evaluation** map only. Also open: CDP/SDP applied to reconstruction from weights (verified negative across Beimel–Nissim–Omri → Ghazi et al. FOCS'23).
 - Fiber obstacles/must-cites: Xiao–Suh–Devadas CCS'24 (no property-preserving learnable transformation gets worst-case crypto security for free); Proof-of-Learning, Jia et al. S&P'21 (a "spoof" *is* fiber navigation priced in compute); forging/unlearning — Thudi et al. USENIX Sec'22, Kong et al. arXiv:2303.03648.
+- **"Compute amount rather than hardness" is fine-grained cryptography** (checked 2026-07-26). Canonical: Brzuska–Couteau EUROCRYPT'22 / J.Cryptology'24 Def 6 (`(ε,δ)`-fine-grained OWF: no circuit of size `< |f|^{1+δ}` inverts); LaVigne–Lincoln–Vassilevska Williams CRYPTO'19 Def 5 (**"the gap"** as a named object); Ball–Rosen–Sabin–Vasudevan STOC'17 Def 2. **Write it as an exponent (`honest^{1+δ}`), not a constant `c`.** Hard ceiling: Barak–Mahmoody CRYPTO'09 — quadratic is provably optimal in the ROM; Afshar et al. EUROCRYPT'23 caps 3-NIKE at `O(n²)` in Maurer's GGM. Barriers: BRSV §5.2 (NSETH); Alman–Huang–Yeo EUROCRYPT'25 (no OWFs ⟹ average-case k-SUM/Zero-k-Clique false).
+- **Near-collision with the Phase-2 idea, privacy corner:** Chaudhuri–Imola–Machanavajjhala NeurIPS'19 **capacity-bounded DP** (arXiv:1907.02159) bounds the adversary *"not in computational power, but in terms of the function class from which their attack algorithm is drawn,"* via restricted f-divergences. That is a function-class-restricted adversary for privacy — closer to the learning-adversary proposal than Bogdanov et al. Read before writing anything about restricted-class privacy.
+- **Two seams left by the compute-amount sweep**, both ML-side: (a) Proof-of-Learning's `E[C_A] ≥ E[C_T]` (Property 2, Def 2) is a **bare inequality** — never parameterized into a δ-indexed family, and PoL does not cite BRSV/LLW; (b) **no fine-grained/ratio-parameterized privacy notion exists** — CDP is asymptotic, capacity-bounded DP is a function class. Also: model extraction has no formal success definition (arXiv:2310.01959 says so from inside). **Caveat: the machinery is off-the-shelf, so the contribution must be a theorem at a stated δ, not a definition.**
 - **Methodological, 2026-07-26:** four novelty claims checked this session, four refuted. The single survivor was verified by **citation-graph sweep**, not topic search. Topic search has 0/4 in this area. Prefer starting from a *named published conjecture* over hunting empty framings.
 - **Still open, narrowly:** attacker and defender priced in the *same* exponent units (information/generative exponent, leap), separated at matched budget, attacker restricted to training's own algorithm class. Citation-graph sweep of BGJ'21, ABM COLT'22+'23, DPVLB COLT'24, generative-leap: **0** security/privacy citers. Song arXiv:2404.03272 §1.3.2 names "discriminators with bounded compute or memory" as open from inside the CLWE literature.
 
@@ -226,7 +232,7 @@ This wiki covers the formal study of security and learning, including:
 
 ## Gotchas
 
-- `output/chapter_24.md` is 309KB — exceeds the Read tool's 256KB limit. Chunk with offset/limit or delegate to a subagent.
+- `exp/docs/notes/chapter-24.md` is 309KB — exceeds the Read tool's 256KB limit. Chunk with offset/limit or delegate to a subagent.
 - `wiki/index.md` and `wiki/overview.md` are frozen at 2026-04-23 and materially wrong (index claims 16 sources; there are 75; 26 concept pages unlinked; neither mentions the user's own theory). **Do not orient from them.**
 - `raw/*.pdf` is gitignored. Catalog is `raw/SOURCES.md`; naming is `[INITIALS][YY]_Topic.pdf`.
 - `pdftotext <file>.pdf -` extracts the raw PDFs.
@@ -238,5 +244,5 @@ This wiki covers the formal study of security and learning, including:
 At the start of each session:
 1. Read this file (`CLAUDE.md`).
 2. Read the last ~5 entries of `wiki/log.md`.
-3. Orient from `output/`, not from `wiki/index.md` — the programme is the active work.
+3. Orient from `exp/` (start at `exp/docs/CONTEXT.md`), not from `wiki/index.md` — the programme is the active work.
 4. Ask what the user wants. Do not assume it is an ingest.
