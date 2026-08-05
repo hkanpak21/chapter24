@@ -6,6 +6,12 @@ skill: `literature/`, `lab/`, `paper/`, `docs/`.
 **Read `docs/CONTEXT.md` first.** It carries the terminology ledger, the three attack families, and the
 standing constraints. Nothing here repeats it.
 
+- **Halil reads reports, not chat.** Substance goes in a report or it does not land. Keep chat to what
+  is needed to agree on the next report.
+- **Delegate report-writing to subagents** wherever the work can be scoped. Reserve the main thread for
+  deciding what the report should argue.
+- **Cross-reference for Obsidian.** The repo root is the vault. Every report links related reports,
+  notes, and wiki pages with `[[wikilinks]]` by filename, so the graph view is navigable.
 - Anything written for Halil goes to `docs/reports/YYYY-MM-DD-<tag>-<slug>.md`, five sections, verdict
   first. Validate with `python3 ~/.claude/skills/research/scripts/check-report.py`.
 - Prose destined for a reviewer or PI uses the `academic-ste` register.

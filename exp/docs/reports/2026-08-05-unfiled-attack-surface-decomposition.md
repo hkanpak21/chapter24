@@ -42,6 +42,10 @@ than what has been named.
 Does not show: that the three families are mutually irreducible, only that they are exhaustive over
 displacement targets.
 
+Corrected by [[2026-08-05-unfiled-test-time-attacks-as-learners]]: displacement alone does not
+separate a chosen-query membership-inference adversary from an adversarial example, and the correct
+index carries three axes.
+
 ## How it was produced
 
 | | |

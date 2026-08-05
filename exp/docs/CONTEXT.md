@@ -31,16 +31,27 @@ Terms are fixed here once and used nowhere else with a different meaning.
 | **the three maps** | training `D ↦ f`, parameterization `w ↦ M_w`, feature `x ↦ f_θ(x)`; never conflated | fixed, ours |
 | `δ` | the fine-grained gap; adversary work `≥` honest work`^{1+δ}` | fixed, borrowed (fine-grained crypto) |
 
-## The three attack families
+## The attack surface: three axes
 
-Indexed by what the adversary displaces. See
-`docs/reports/2026-08-05-unfiled-attack-surface-decomposition.md`.
+An attack is a cell, not a named family. See
+[[2026-08-05-unfiled-test-time-attacks-as-learners]], which corrects the single-axis version in
+[[2026-08-05-unfiled-attack-surface-decomposition]].
 
-| Family | Displaces | `R` evaluated on |
+| Axis | Values |
+| --- | --- |
+| Phase of observation | training / test |
+| Displacement | none / `x` non-adaptive / `x` adaptive / `f` |
+| `R` target | a property of `D` / of `f` / of `f(x)` |
+
+The displacement levels are the **passive, chosen-plaintext, chosen-ciphertext** hierarchy. An access
+level times a criterion replaces any per-attack definition.
+
+The two halves take different machinery:
+
+| Half | The adversary | Machinery |
 | --- | --- | --- |
-| Training-time | `f` | a property of `f` |
-| Test-time passive | nothing | a property of `D` or `f` |
-| Test-time active | `x` | a property of `f(x)` |
+| Training-time | **acts on** a learner | displacement geometry: loss landscape, the fiber |
+| Test-time | **is** a learner | learning-theoretic thresholds: sample and query complexity, exponents |
 
 ## Standing constraints
 
