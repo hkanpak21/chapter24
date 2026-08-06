@@ -11,10 +11,10 @@
             "id": "0c560d31e3ecc06e",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -181,8 +181,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "a92989ca44cd1958",
+  "active": "0c560d31e3ecc06e",
   "lastOpenFiles": [
+    "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
     "docs/reports/2026-08-05-unfiled-concrete-r-criteria.md",
     "proof.pdf.md"
   ]

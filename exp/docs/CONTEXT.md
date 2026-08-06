@@ -22,7 +22,7 @@ Terms are fixed here once and used nowhere else with a different meaning.
 | `D` | the dataset | fixed |
 | `f` | a function in the hypothesis space; the object training reaches | fixed |
 | `L` | the training map, `D ↦ f` | fixed |
-| `R` | the success criterion: a relation deciding whether an adversary's output counts | fixed, borrowed (Cohen et al. ITCS'25) |
+| `R` | **the quantizer between the approximate learning layer and the exact cryptographic layer.** Exact by type; its parameters are where the approximation is quantized. There is **one** `R`, indexed by search-or-decision and by the target of the attack | fixed, ours; the relation form is borrowed (Cohen et al. ITCS'25) |
 | **baseline of `R`** | what a party with only public knowledge achieves on `R`; a field of `R`, not of the game | fixed, ours |
 | **degenerate baseline** | a baseline at 0, 1/2 or 1, where subtracting it is a no-op; forces raw advantage | fixed, ours |
 | `η` | `R`'s tolerance, and the dial between the population regime (coarse, nothing to measure) and the cryptographic regime (tight, needs an assumption) | fixed, ours |
