@@ -36,29 +36,23 @@ adversary axis survives, and it is the only thing that does.**
 
 ### The threat to the framing
 
-**Bellare and Sahai, CRYPTO 1999.** Non-malleability was originally stated by quantifying over
-poly-time success relations `R`. They then eliminated it, verbatim: the characterization dispenses with
-the relation and the message space, and is just a game involving two messages. Non-malleability is
-equivalent to indistinguishability under parallel chosen-ciphertext attack, with the number of parallel
-queries one less than the arity of `R`.
+**Bellare and Sahai, CRYPTO 1999, eliminated the relation.** Non-malleability was originally stated by
+quantifying over poly-time success relations `R`, and their characterization then dispenses with the
+relation entirely, reducing to indistinguishability under parallel chosen-ciphertext attack with the
+number of parallel queries one less than the arity of `R`.
 
-**A security definition built on a quantified success relation was proved redundant.** A reviewer who
-knows this will raise it, and the framing dies if `R` is similarly collapsible.
-
-The candidate answer, which must be argued rather than asserted: their elimination trades the relation
-against *parallel queries*, which is available because the adversary is otherwise unconstrained. This
-programme **fixes `R` and varies the adversary's resources**, so there is no such trade to make. That
-is a real structural difference and it is currently a conjecture.
+| | |
+| --- | --- |
+| The threat | A security definition built on a quantified success relation was proved redundant. A reviewer who knows this will raise it, and the framing dies if `R` is similarly collapsible |
+| The candidate answer, **a conjecture** | Their elimination trades the relation against *parallel queries*, available because the adversary is otherwise unconstrained. This programme fixes `R` and varies the adversary's budget, so no such trade exists |
 
 ### The one precedent on the axis that survives
 
 **Chaudhuri, Imola, Machanavajjhala, NeurIPS 2019**, capacity-bounded differential privacy, Definition
 3: a mechanism is `(H,Γ)`-capacity bounded private when the adversary lies in a restricted function
-class `H`, with linear functions, reproducing-kernel Hilbert spaces and two-layer ReLU networks named.
-**This is the nearest neighbour on the axis this programme owns, and nothing in the quantitative
-information flow or maximal leakage lineages cites it.**
-
-Everything else is unbounded:
+class `H`, with linear functions, reproducing-kernel Hilbert spaces and two-layer ReLU networks named,
+and nothing in the quantitative information flow or maximal leakage lineages cites it. Everything else
+is unbounded:
 
 | Framework | Adversary |
 | --- | --- |
@@ -68,9 +62,9 @@ Everything else is unbounded:
 | Fisher information leakage | unbiased estimators only, a statistical restriction the authors flag as breakable |
 | Leakage-resilient cryptography | the class restricts the **side-channel map**, not the adversary. Different axis; not a precedent |
 
-**The pattern is worth stating to the PI.** Every leakage measure that takes a supremum over the target
-function is engineered to be *agnostic to what the adversary wants*. This programme fixes what the
-adversary wants and prices what it can spend, which is the opposite move.
+**The pattern is worth stating to the PI:** every leakage measure that takes a supremum over the target
+function is engineered to be agnostic to what the adversary wants, whereas this programme fixes what the
+adversary wants and prices what it can spend.
 
 ### What survives, ranked
 
