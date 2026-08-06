@@ -32,6 +32,8 @@ Terms are fixed here once and used nowhere else with a different meaning.
 | `𝒜` | the adversary's algorithm class | fixed |
 | `b` | the adversary's resource budget | fixed |
 | **security profile** | the curve `b ↦ ε(b)`; the measurable object, not a single number | proposed, ours |
+| `Φ(P, 𝒜, b)` | `inf { θ : some A ∈ 𝒜 at budget b makes the searching party P win R_θ above baseline }`. Reads as **leakage** when P is the attacker and as the **detection floor** when P is the detector. Requires `{R_θ}` monotone in `θ` | proposed, ours |
+| **searching party `P`** | an explicit argument of `Φ`; making it explicit is what collapses the PI's two requested functions into one | fixed, ours |
 | **the three maps** | training `D ↦ f`, parameterization `w ↦ M_w`, feature `x ↦ f_θ(x)`; never conflated | fixed, ours |
 | `δ` | the fine-grained gap; adversary work `≥` honest work`^{1+δ}` | fixed, borrowed (fine-grained crypto) |
 

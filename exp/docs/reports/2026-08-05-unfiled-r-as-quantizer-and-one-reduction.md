@@ -28,9 +28,8 @@ cryptographic layer consumes a single bit, and `R` is the map between them, exac
 parameters placed exactly where the approximation is quantized.**
 
 The construction below carries property inference against a released model into the Gaussian pancakes
-problem, with every parameter of `R` appearing unchanged as a parameter of that problem. The variance
-that makes empirical security results disagree across settings and seeds never enters, because the
-reduction consumes the bit that `R` emits and nothing else.
+problem, with every parameter of `R` appearing unchanged, so the variance that makes empirical security
+results disagree across settings and seeds never enters.
 
 ### What `R` does
 
