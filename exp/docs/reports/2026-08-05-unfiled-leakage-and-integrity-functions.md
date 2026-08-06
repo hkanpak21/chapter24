@@ -43,17 +43,11 @@ Fix a criterion family `{R_θ}` indexed by a parameter `θ`, a searching party `
 | `Φ` reads as | **leakage**: the finest resolution at which the secret becomes visible | **detection floor**: the smallest deviation that can be found |
 | Direction of harm | smaller `Φ` is worse, since the secret is pinned more precisely | larger `Φ` is worse, since more deviation hides beneath it |
 
-The reversal of direction is not an inconsistency. It follows from the party: an attacker searching
-harder drives `Φ` down, a detector searching harder drives `Φ` down too, and what differs is whether
-the searching party is the adversary or the defender.
-
-### Why one function and not two
-
-The programme already established that the party searching for `R` changes with the family, in
-[[2026-08-05-unfiled-concrete-r-criteria]]: in the privacy criteria the attacker pursues `R`, and in
-the backdoor criterion the detector does. Making the searching party an explicit argument of `Φ` is
-what collapses the PI's two requested functions into one. Two functions would record the same
-structure twice and would hide the fact that the reversal is a consequence rather than a convention.
+The reversal of direction follows from the party rather than from a convention, since both parties
+searching harder drives `Φ` down and only the identity of the searcher differs. The collapse into one
+function is available because the programme already established in
+[[2026-08-05-unfiled-concrete-r-criteria]] that the party pursuing `R` changes with the family, so
+making that party an argument is the whole of the unification.
 
 ### Where the security statement lives
 
@@ -65,10 +59,9 @@ structure twice and would hide the fact that the reversal is a consequence rathe
 | `Φ_comp(b) = Φ(P, 𝒜, b)` | the resolution a bounded party actually reaches |
 | **`Φ_comp(b) − Φ_IT`** | **the security margin, in the units of `θ`** |
 
-For privacy this is the gap between what the release contains and what an efficient adversary can
-extract. For integrity it is the gap between deviations that exist and deviations a bounded detector
-finds. Both are curves in `b`, which is the security profile the programme has been building toward,
-now with an operational definition rather than a name.
+For privacy this is the gap between what the release contains and what an efficient adversary extracts,
+and for integrity between deviations that exist and deviations a bounded detector finds, both as curves
+in `b`.
 
 Does not show: that `Φ` is well defined when the criterion family is not monotone in `θ`. Monotonicity
 holds for the tolerance families used so far, since a coarser tolerance is easier to satisfy, but it
