@@ -11,10 +11,14 @@
             "id": "0c560d31e3ecc06e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-08-05-unfiled-r-as-quantizer-and-one-reduction"
             }
           }
         ]
@@ -79,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e750e48aacbb0b6d",
@@ -95,6 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,6 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,8 +191,10 @@
   },
   "active": "0c560d31e3ecc06e",
   "lastOpenFiles": [
-    "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
+    "docs/reports/2026-08-05-unfiled-test-time-attacks-as-learners.md",
     "docs/reports/2026-08-05-unfiled-concrete-r-criteria.md",
+    "docs/reports/2026-08-05-unfiled-attack-surface-decomposition.md",
+    "docs/reports/2026-08-05-unfiled-r-as-quantizer-and-one-reduction.md",
     "proof.pdf.md"
   ]
 }

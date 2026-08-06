@@ -82,6 +82,10 @@ In the third case `η` measures how much of the secret a model carries while rem
 object to prove is a curve and not a bound: the largest `η` an efficient adversary achieves against a
 model of test error at most `ε`, as a function of `ε`.
 
+Corrected by [[2026-08-05-unfiled-natural-source-r-selects-the-problem]]: the source here is a planted
+cryptographic distribution, so the hardness precedes `R` and `R` only reads it off. This construction
+stands as an illustration of tightness and not as a reduction about learning.
+
 Does not show: the reduction is stated as a construction and a chain of implications, not as a proof.
 The projection-and-test step needs a stated tolerance regime relating `η` to `β` and `γ`, the
 search-to-decision direction for Gaussian pancakes must be checked against the source rather than

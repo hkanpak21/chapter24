@@ -63,6 +63,9 @@ The two halves take different machinery:
   never a definition alone.
 - **`R` must be pinned to a harm before anyone looks at its difficulty.** Choosing `R` to be something
   known to be hard proves a fact about `R`, not about the system. This is the one guardrail.
+- **A planted source voids the guardrail as surely as a planted `R`.** If the hardness is in the data
+  distribution before `R` arrives, `R` reads it off and does no work. Hold the source natural; let `R`
+  select the problem. See [[2026-08-05-unfiled-natural-source-r-selects-the-problem]].
 - **The write-up register is `academic-ste`.** No first person, no em dash, one idea per sentence.
 - Full record of what has been refuted and what remains open is in the repo root `CLAUDE.md`.
 
