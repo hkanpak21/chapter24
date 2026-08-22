@@ -3,9 +3,13 @@ title: The Franz–Parisi Criterion and Computational Trade-Offs in High Dimensi
 type: source
 date_ingested: 2026-04-12
 authors: [Afonso S. Bandeira, Ahmed El Alaoui, Samuel B. Hopkins, Tselil Schramm, Alexander S. Wein, Ilias Zadik]
-venue: Preprint / NeurIPS 2022
+venue: Preprint (the ingested PDF is arXiv:2205.09727v2, 13 Oct 2022, and does not itself state a venue; the NeurIPS 2022 attribution comes from an earlier ingest and is unconfirmed here)
 year: 2022
 tags: [statistical-computational-gaps, franz-parisi, low-degree-polynomials, statistical-physics, free-energy]
+claim_quantifier: conditional
+antecedent: "the model class. Equivalence is proved for Gaussian additive models and the implication for planted sparse models. Outside these classes the paper exhibits counterexamples where the two criteria disagree."
+algorithm_class: "low-degree, plus local MCMC as a corollary"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -17,6 +21,14 @@ This paper builds a rigorous bridge between two previously separate approaches f
 (iii) For Gaussian additive models, LD-hardness implies failure of local MCMC algorithms (free-energy barrier → MCMC-hard).
 
 The work also exhibits counterexamples where FP and LD disagree, suggesting that the equivalence is model-dependent and opening the question of which free-energy criterion is right for which problem.
+
+## Claim Boundary
+
+- **Quantified over:** two model classes. The Franz-Parisi and low-degree criteria are proved equivalent for Gaussian additive models, and Franz-Parisi hardness implies low-degree hardness for planted sparse models.
+- **Antecedent:** the model class itself. Outside these classes the paper exhibits counterexamples where the two criteria disagree, so the equivalence is not general.
+- **Algorithm class:** low-degree, with local MCMC appearing as a corollary for Gaussian additive models. Neither is polynomial time.
+- **Does not establish:** that the free-energy heuristic predicts polynomial-time hardness. It establishes that two heuristics agree on stated model classes and disagree outside them.
+- **Abstract vs theorem:** none found. The abstract restricts each claim to its model class.
 
 ## Key Contributions
 
@@ -54,4 +66,10 @@ The work also exhibits counterexamples where FP and LD disagree, suggesting that
 
 > "This paper aims to make a rigorous connection between the low-degree and free-energy based approaches in the setting of statistical inference."
 
-> "LD-hardness implies failure of 'geometric' local MCMC algorithms" — the first formal bridge from TCS-style LD lower bounds to statistical-physics-style dynamical barriers.
+> _Not verbatim. Checked against `raw/BEHSWZ22_FranzParisiCriterion.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary._
+>
+> LD-hardness implies failure of 'geometric' local MCMC algorithms, the first formal bridge from TCS-style LD lower bounds to statistical-physics-style dynamical barriers.
+
+The passage the paraphrase was drawn from is below, verbatim, verified 2026-08-20. Note that it is restricted to Gaussian additive models, which the paraphrase dropped.
+
+> "establish that for Gaussian additive models the "algebraic" notion of low-degree hardness implies failure of "geometric" local MCMC algorithms, and provide new low-degree lower bounds for sparse linear regression which seem difficult to prove directly"

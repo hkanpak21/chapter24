@@ -54,6 +54,15 @@ reason DP cannot distinguish a model that is safe from one that is merely expens
 - [cohen-data-reconstruction](../sources/cohen-data-reconstruction.md)
 - [haghifam-sample-complexity-mia](../sources/haghifam-sample-complexity-mia.md)
 - [native-asymmetry-in-learning](../analyses/native-asymmetry-in-learning.md)
+- **Where the split is conspicuously absent.** Three 2022–2025 systematizations define attack success
+  without any resource term, so they have nowhere to record which side of this line an attack sits on:
+  [sok-data-reconstruction-attacks](../sources/sok-data-reconstruction-attacks.md) (`(ε, µ)`-approximate
+  reconstruction; adversary characterized by *knowledge* only),
+  [beyond-labeling-oracles](../sources/beyond-labeling-oracles.md) (extraction success proposed as a
+  dollar-cost inequality, left informal, training compute dropped), and
+  [auditable-unlearning-definitions](../sources/auditable-unlearning-definitions.md) (forging maps proved
+  to *exist*, with no bound on the cost of finding one — the statistical side of the split with the
+  computational side missing).
 
 ## Related Concepts
 

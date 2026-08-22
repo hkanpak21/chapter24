@@ -3,9 +3,13 @@ title: "Provably Robust Adaptation for Language-Empowered Foundation Models (LeF
 type: source
 date_ingested: 2026-04-23
 authors: [Yuni Lai, Xiaoyu Xue, Linghui Shen, Yulun Wu, Gaolei Li, Song Guo, Kai Zhou, Bin Xiao]
-venue: "arXiv:2510.08659 (Oct 2025); Hong Kong Polytechnic University"
+venue: "arXiv:2510.08659v1 (9 Oct 2025). No venue is stated in the PDF."
 year: 2025
 tags: [certified-robustness, foundation-models, few-shot, CLIP, randomized-smoothing, poisoning]
+claim_quantifier: conditional
+antecedent: "The attacker modifies at most T of the n support samples, altering inputs or labels arbitrarily but preserving the C-way K-shot structure. The encoders are frozen and clean; nothing in the guarantee covers poisoning of the pre-training corpus."
+adversary_bound: "none — the attacker is assumed to have full knowledge of the data and the model and is unrestricted in computation. It is bounded only by T, the number of support samples it may poison, which is a counting budget on the perturbation."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -17,6 +21,14 @@ Two refinements extend the baseline:
 - **LeFCert-C**: provides **collective certification** under a shared attack budget, tightening the guarantee when multiple attacks are correlated.
 
 LeFCert extends Cohen-Rosenfeld-Kolter's randomized-smoothing framework from standard classification to the **few-shot foundation-model adaptation regime** — a significant deployment pattern for production AI systems (e.g., CLIP-based classifiers, zero-shot/few-shot LEM-based applications).
+
+## Claim Boundary
+
+- **Quantified over:** a single test input x_test and the set B(D, T) of all support sets obtainable from the clean support set D by modifying at most T of its samples. Theorem 2 gives a condition under which g(x_test; D) = g(x_test; D_p) for every D_p in that set. The certification is pointwise in the test input and worst-case in the poisoning, within the budget.
+- **Antecedent:** the attacker may alter x_i or y_i arbitrarily for at most T samples but must preserve the C-way K-shot structure. The encoders producing the feature and textual embeddings are frozen and assumed clean. The blending weight and the trimming parameter are fixed before the attack.
+- **Which party is constrained:** the attacker, and only in the number of support samples it may touch. The paper states outright that it assumes "the attacker has all the knowledge about the data and model", so the adversary is omniscient and computationally unbounded. T is a counting budget on the perturbation, not a resource bound. LeFCert-L adds ℓ₂ radii on features and a budget on labels, which are again geometric and counting constraints.
+- **Does not establish:** any guarantee against poisoning of the pre-training corpus that produced CLIP or GraphCLIP. The threat model begins after the encoders are fixed and covers only the small task-specific support set. It also certifies label stability, not correctness: a test point the clean classifier gets wrong is certified to stay wrong. Certified accuracy, as the paper defines it, counts only test samples that are both correctly classified and provably robust, so the reported figures already exclude that case, but the theorem itself does not.
+- **Abstract vs theorem:** none found. The abstract's "certification under worst-case poisoning scenarios" is bounded by the attack budget T in the same breath, and the claim to be "the first provably robust few-shot classifier that is tailored for LeFMs" is a priority claim about scope, not a strength claim about the guarantee.
 
 ## Key Contributions
 
@@ -55,6 +67,18 @@ LeFCert extends Cohen-Rosenfeld-Kolter's randomized-smoothing framework from sta
 
 ## Quotes / Notable Passages
 
-> "The first provably robust few-shot classifier tailored to language-empowered foundation models (CLIP, GraphCLIP)."
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> The first provably robust few-shot classifier tailored to language-empowered foundation models (CLIP, GraphCLIP).
 
-> "A twofold trimmed-mean prototype that blends textual and feature embeddings, with analytic upper/lower bounds on classification scores yielding certified accuracy under worst-case support-set poisoning."
+The abstract's own words, verbatim:
+
+> "This study seeks to fill these critical gaps by proposing the first provably robust few-shot classifier that is tailored for LeFMs."
+
+The threat model, verbatim, which is where the adversary's freedom is stated:
+
+> "We assume that the attacker has all the knowledge about the data and model, and the attacker can arbitrarily poison at most T support samples"
+
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> A twofold trimmed-mean prototype that blends textual and feature embeddings, with analytic upper/lower bounds on classification scores yielding certified accuracy under worst-case support-set poisoning.

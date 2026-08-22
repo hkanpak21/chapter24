@@ -3,9 +3,12 @@ title: "Adversarially Robust PAC Learnability of Real-Valued Functions"
 type: source
 date_ingested: 2026-04-23
 authors: [Idan Attias, Steve Hanneke]
-venue: ICML 2023 (arXiv:2206.12977)
+venue: "ICML 2023 (venue unconfirmed from PDF: raw/AH23_RobustPACRegression.pdf is arXiv:2206.12977v3 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
 year: 2023
 tags: [adversarial-ml, PAC-learning, regression, fat-shattering, sample-complexity, sample-compression]
+claim_quantifier: universal
+antecedent: "Finite γ-fat-shattering dimension of the real-valued function class, an ℓp loss, and an arbitrary perturbation set. For the proper-learning half, convexity of the function class. The training sample is i.i.d. and non-adversarial; the adversary acts at test time only."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +18,14 @@ This paper (AH23) extends the adversarial PAC-learnability characterization from
 The main technical tool is an **adversarially robust sample compression scheme** of size determined by the fat-shattering dimension. Going beyond the binary-valued case requires (a) a robust boosting algorithm for real-valued functions (adapted from Kégl 2003 and Hanneke et al. 2019), (b) generalization from approximate interpolation via uniform convergence (Anthony-Bartlett), and (c) careful discretization via uniform supremum-metric covers (since the classification-era trick of inflating to a finite partition fails for ℓp losses).
 
 A separate, novel agnostic sample compression scheme for real-valued functions is introduced along the way, which may be of independent interest for statistical learning theory.
+
+## Claim Boundary
+
+- **Quantified over:** all real-valued function classes of finite fat-shattering dimension, all perturbation sets, ℓp losses, realizable and agnostic. The proper-learning result is quantified over convex classes; the improper-learning necessity is existential, inherited as a construction from the classification setting.
+- **Antecedent:** finite fat-shattering dimension at the relevant scale, and for the proper half, convexity. Both are properties of the hypothesis class, checkable in principle for a given class.
+- **Which party is constrained:** the **learner**, in sample complexity. The perturbation set is arbitrary and the adversary realising it has no resource bound of any kind. Nothing is computational — the page's own limitations section records that the compression scheme's efficiency is not addressed. The one bounded quantity, the compression size, is a property of the learner.
+- **Does not establish:** (i) the converse — the abstract claims only that finite fat-shattering implies learnability, so the "iff" stated earlier on this page under Key Contributions is stronger than what is verified from the abstract and should be checked against the theorem statements before being cited; (ii) any efficient algorithm; (iii) the exact characterizing dimension for robust regression, which the paper leaves open.
+- **Abstract vs theorem:** none found in the paper. The overstatement is on this page, in the "iff" noted above.
 
 ## Key Contributions
 
@@ -54,6 +65,8 @@ A separate, novel agnostic sample compression scheme for real-valued functions i
 
 ## Quotes / Notable Passages
 
-> "Classes of finite fat-shattering dimension are learnable in both realizable and agnostic settings. Moreover, for convex function classes, they are even properly learnable. In contrast, some non-convex function classes provably require improper learning algorithms."
+> "We show that classes of finite fat-shattering dimension are learnable in both realizable and agnostic settings. Moreover, for convex function classes, they are even properly learnable. In contrast, some non-convex function classes provably require improper learning algorithms."
+>
+> _Corrected 2026-08-20 against `raw/AH23_RobustPACRegression.pdf`: the passage previously began "Classes of finite…", dropping the abstract's "We show that". Restored so that the sentence reads as the paper states it — an implication in one direction, not an equivalence._
 
 > "Our main technique is based on a construction of an adversarially robust sample compression scheme of a size determined by the fat-shattering dimension."

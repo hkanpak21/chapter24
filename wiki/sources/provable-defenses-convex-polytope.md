@@ -3,9 +3,13 @@ title: "Provable Defenses against Adversarial Examples via the Convex Outer Adve
 type: source
 date_ingested: 2026-04-23
 authors: [Eric Wong, J. Zico Kolter]
-venue: ICML 2018
+venue: "ICML 2018, stated in the PDF's own footer as Proceedings of the 35th International Conference on Machine Learning, PMLR 80 (arXiv:1711.00851v3, 8 Jun 2018)"
 year: 2018
 tags: [adversarial-ml, certified-robustness, convex-optimization, linear-programming, evasion-attacks, relu-networks]
+claim_quantifier: universal
+antecedent: "none. The bound is a convex relaxation and holds unconditionally for ReLU networks. The relaxation's looseness is the price, not an assumption."
+adversary_bound: "none. The attacker is an ℓ∞ ball of radius ε on the input. No computational bound is placed on any party; the defender's cost is a few extra forward and backward passes, possibly with much larger batch sizes."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -14,7 +18,15 @@ This paper (WK18) provides the first **certified-defense framework for deep ReLU
 
 The training procedure minimizes the LP-dual's worst-case loss, yielding networks whose predictions are certified robust to norm-bounded perturbations on the training data *and* detectably robust on test points. The method was the first certified-robustness result scalable to convolutional networks. On MNIST with ε = 0.1 ℓ∞ perturbations, WK18 achieves <5.8% test error with provable certificates — a result that was a foundational demonstration that certified robustness is practically achievable for non-trivial networks.
 
-This framework was influential in two ways: (1) it established the "relax-and-optimize" paradigm for certified training (later extended by Dvijotham et al., Gowal et al., Raghunathan et al., and others), and (2) it defined what "certified robustness" means in practice for neural networks — a guaranteed radius, not just empirical robustness to known attacks.
+This framework established the relax-and-optimise paradigm for certified training.
+
+## Claim Boundary
+
+- **Quantified over:** the guarantee has two different shapes and the difference is easy to lose. On the **training data**, the classifier is provably robust against norm-bounded perturbations. On **previously unseen examples**, the guarantee is weaker and is a *detection* guarantee: the approach is guaranteed to detect all adversarial examples, but may also flag some non-adversarial ones. The paper states both in its first two sentences.
+- **Antecedent:** none. The convex outer approximation is a relaxation, valid unconditionally for ReLU networks. What it costs is tightness: the certified error is an upper bound and may be far above the true robust error.
+- **Which party is constrained:** **neither party is bounded in computation.** The attacker is an ℓ∞ ball of radius ε. The defender's cost is a few extra forward and backward passes through a modified network, and the paper notes in the same sentence that this may require much larger batch sizes.
+- **Does not establish:** robustness for non-ReLU activations; a tight certificate; or scalability to ImageNet. The headline MNIST number is a bound of the same kind: less than 5.8% test error for any adversarial attack with ℓ∞ perturbation bounded by `ε = 0.1`.
+- **Abstract vs theorem:** none found. The abstract states the training-data restriction and the false-flag caveat explicitly.
 
 ## Key Contributions
 
@@ -53,8 +65,22 @@ This framework was influential in two ways: (1) it established the "relax-and-op
 
 ## Quotes / Notable Passages
 
+Verified against `raw/WK18_ConvexOuterPolytope.pdf` on 2026-08-20 unless marked otherwise.
+
 > "We propose a method to learn deep ReLU-based classifiers that are provably robust against norm-bounded adversarial perturbations on the training data. For previously unseen examples, the approach is guaranteed to detect all adversarial examples, though it may flag some non-adversarial examples as well."
 
 > "The basic idea is to consider a convex outer approximation of the set of activations reachable through a norm-bounded perturbation, and we develop a robust optimization procedure that minimizes the worst case loss over this outer region (via a linear program)."
 
-> "By executing a few more forward and backward passes through a slightly modified version of the original network, we can learn a classifier that is provably robust to any norm-bounded adversarial attack."
+> _Not verbatim. Checked against `raw/WK18_ConvexOuterPolytope.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> By executing a few more forward and backward passes through a slightly modified version of the original network, we can learn a classifier that is provably robust to any norm-bounded adversarial attack.
+
+The paraphrase silently drops a parenthetical that carries a cost. The paper's sentence:
+
+> "The end result is that by executing a few more forward and backward passes through a slightly modified version of the original network (though possibly with much larger batch sizes), we can learn a classifier that is provably robust to any norm-bounded adversarial attack."
+
+— abstract.
+
+> "We illustrate the approach on a number of tasks to train classifiers with robust adversarial guarantees (e.g. for MNIST, we produce a convolutional classifier that provably has less than 5.8% test error for any adversarial attack with bounded ℓ∞ norm less than ε = 0.1)"
+
+— abstract, the headline number with its radius attached.

@@ -3,9 +3,13 @@ title: "Certified Adversarial Robustness via Randomized Smoothing"
 type: source
 date_ingested: 2026-04-23
 authors: [Jeremy Cohen, Elan Rosenfeld, J. Zico Kolter]
-venue: ICML 2019
+venue: "ICML 2019, stated in the PDF's own footer as Proceedings of the 36th International Conference on Machine Learning, PMLR 97 (arXiv:1902.02918v2, 15 Jun 2019)"
 year: 2019
 tags: [adversarial-ml, certified-robustness, randomized-smoothing, differential-privacy, robustness]
+claim_quantifier: universal
+antecedent: "none. The robustness guarantee is a geometric consequence of Gaussian smoothing via the Neyman-Pearson lemma. No hardness assumption is used."
+adversary_bound: "none. The attacker is constrained only by an ℓ₂ ball of radius R. The defender's Monte Carlo sample budget enters as a confidence level on the certificate, not as a bound on the attacker."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -14,7 +18,15 @@ This paper (CRK19) establishes **randomized smoothing** as the first certified a
 
 The certification procedure uses Monte Carlo sampling to estimate p_A, p_B with high-probability lower/upper confidence bounds, making g practically certifiable. On ImageNet, randomized smoothing achieves 49% certified top-1 accuracy under ℓ₂ perturbations of norm ≤ 0.5; no competing certified defense has demonstrated any non-trivial accuracy at ImageNet scale. On CIFAR-10 and smaller datasets where alternatives are viable, smoothing still wins on certified accuracy.
 
-The paper also introduces adversarial-training-for-smoothed-classifiers as an empirical improvement and lays the foundation for the [Salman et al. SmoothAdv](provably-robust-smoothadv.md) follow-up which tightens this further via adapted attacks.
+The paper lays the foundation for the [Salman et al. SmoothAdv](provably-robust-smoothadv.md) follow-up, which improves the base classifier by adversarial training against an attack adapted to the smoothed model.
+
+## Claim Boundary
+
+- **Quantified over:** every base classifier. The theorem is universal in `f`, which is the paper's central selling point: no assumption on architecture, activation, or training. What is *not* universal is the certificate, which is per-input and depends on the two class probabilities at that input.
+- **Antecedent:** none. The radius follows from the Neyman-Pearson lemma applied to Gaussian smoothing. Nothing cryptographic or complexity-theoretic enters.
+- **Which party is constrained:** **neither party is bounded in computation.** The attacker is constrained by an ℓ₂ ball of radius `R` and nothing else; the certificate is a geometric statement about that ball. The defender's Monte Carlo budget appears only as the confidence level attached to the estimated `p_A` — an abstention-and-confidence device, not a resource bound on the attacker. A page in this corpus that reads randomized smoothing as pricing an adversary is misreading it.
+- **Does not establish:** robustness in ℓ∞; robustness of the base classifier `f`; or anything for perturbations outside the certified radius. The certificate also does not hold with probability 1 — `CERTIFY` returns a high-probability statement and abstains otherwise.
+- **Abstract vs theorem:** none found. The abstract states the ImageNet number with its radius and hedges "e.g.".
 
 ## Key Contributions
 
@@ -39,7 +51,7 @@ The paper also introduces adversarial-training-for-smoothed-classifiers as an em
 - Source: [Convex Outer Adversarial Polytope (Wong-Kolter 2018)](provable-defenses-convex-polytope.md) — an alternative certified defense using LP relaxations; scales less well but works on ℓ∞.
 - Concept: [Certified Robustness](../concepts/) / [Evasion Attacks](../concepts/evasion-attacks.md).
 - Concept: [Concentration of Measure](../concepts/concentration-of-measure.md) — Gaussian smoothing connects to Gaussian isoperimetry and hence to concentration bounds.
-- Source: [Universal Law of Robustness](universal-law-of-robustness.md) — Bubeck-Sellke establish that overparameterization is necessary for Lipschitzness; smoothing is the other side of this coin (adding noise averages out overfit adversarial sensitivity).
+- Source: [Universal Law of Robustness](universal-law-of-robustness.md) — Bubeck–Sellke relate the number of parameters to the Lipschitz constant an interpolating classifier must have. **Correction, 2026-08-20:** this line previously said they "establish that overparameterization is necessary for Lipschitzness". That sentence is marked as non-verbatim on the Bubeck–Sellke page itself; their own statement is hedged as "highly speculative in nature".
 - Author: J. Zico Kolter (CMU, co-author on [Wong-Kolter 2018](provable-defenses-convex-polytope.md)).
 
 ## Open Questions / Limitations
@@ -52,8 +64,22 @@ The paper also introduces adversarial-training-for-smoothed-classifiers as an em
 
 ## Quotes / Notable Passages
 
+Verified against `raw/CRK19_RandomizedSmoothing.pdf` on 2026-08-20 unless marked otherwise.
+
 > "We show how to turn any classifier that classifies well under Gaussian noise into a new classifier that is certifiably robust to adversarial perturbations under the ℓ₂ norm."
 
 > "No certified defense has been shown feasible on ImageNet except for smoothing."
 
-> "Smoothing delivers higher certified accuracies than competing approaches on smaller-scale datasets where alternatives are viable."
+> _Not verbatim. Checked against `raw/CRK19_RandomizedSmoothing.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> Smoothing delivers higher certified accuracies than competing approaches on smaller-scale datasets where alternatives are viable.
+
+The paper's own sentence, verified:
+
+> "On smaller-scale datasets where competing approaches to certified ℓ2 robustness are viable, smoothing delivers higher certified accuracies."
+
+— abstract.
+
+> "This “randomized smoothing” technique has been proposed recently in the literature, but existing guarantees are loose. We prove a tight robustness guarantee in ℓ2 norm for smoothing with Gaussian noise."
+
+— abstract, on what is new here relative to PixelDP and Li et al.

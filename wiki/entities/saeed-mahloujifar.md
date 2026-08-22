@@ -13,6 +13,7 @@ Researcher in the theoretical foundations of adversarial machine learning and cr
 
 - **[A Complexity Theoretic Approach to Adversarial ML](../sources/complexity-theoretic-adversarial-ml.md)** — research statement surveying PhD contributions
 - **[Adversarially Robust Learning Could Leverage Computational Hardness](../sources/computational-hardness-robust-learning.md)** (ALT 2020, GJMM20) — computational robustness from digital signatures
+- **[Overparameterization from Computational Constraints](../sources/overparameterization-computational-constraints.md)** (2022, GJMMW22) — computational efficiency of the learner priced in model parameters; bounding the attacker buys the parameters back
 - Core developer of [Concentration of Measure](../concepts/concentration-of-measure.md) bounds for adversarial robustness [MDM19, DMM18]
 - Introduced [Computational Concentration of Measure](../concepts/computational-concentration-of-measure.md) [MM19, EMM20]
 - Developed [p-Tampering Model](../concepts/p-tampering-model.md) attacks for both ML and cryptographic primitives [MM17]
@@ -23,6 +24,7 @@ Researcher in the theoretical foundations of adversarial machine learning and cr
 
 - [Mohammad Mahmoody](mohammad-mahmoody.md) — primary collaborator
 - Dimitrios Diochnos — collaborator on DMM18, MDM19, DMM19
-- Somesh Jha, Sanjam Garg — collaborators on GJMM20
+- Somesh Jha, Sanjam Garg — collaborators on GJMM20 and GJMMW22
+- Mingyuan Wang — collaborator on GJMMW22
 - David Evans — collaborator on MZME19
 - Ameer Mohammed — collaborator on MMM19

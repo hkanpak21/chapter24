@@ -7,6 +7,9 @@ tags: [complexity theory, cryptography, adversarial-ml, learning-theory, statist
 
 ## Question / Motivation
 
+> **Correction, 2026-08-22.** An earlier version of this passage described the Alvarez-Melis–Garg–Kalai reduction as polynomial-time and both-directional. Verified against `raw/AGK22_AreGANsOverkillNLP.pdf`: §5 gives both directions but is **exponential-time in general** by the authors' own statement; the polynomial-time result is §6, in a different model, and runs one direction only. No distinguisher carries a runtime bound, and both directions are empirical on a fixed sample. See [Are GANs overkill for NLP?](../sources/are-gans-overkill-for-nlp.md).
+
+
 Two questions, asked in the same session and answered together.
 
 1. **Structural.** Every cryptographic security proof rests on an asymmetry between two parties. Deep
@@ -15,7 +18,7 @@ Two questions, asked in the same session and answered together.
    security gap come from at all?* This is the question behind Mursit's recurring objection that
    GKVZ22 "uses a nice crypto tool and nicely embeds a crypto structure … but it just does not come
    natural to me."
-2. **Tactical.** The [native-problem survey](../../output/native-computational-problems-survey.md)
+2. **Tactical.** The [native-problem survey](../../exp/literature/related-work.md)
    (2026-07-10) selected four reference problems and a Phase-2 adversary language. Which of the
    resulting theorem-shapes are actually unclaimed?
 
@@ -80,7 +83,7 @@ complexity" is not new — it is a thirty-year-old TCS subject, and it must be c
   the *opposite* way to what a security claim would want.
 - **Viola, "The complexity of distributions," SICOMP (FOCS 2010)** — sampling is never harder than
   computing and is sometimes dramatically easier (XOR: `AC⁰`-hard to compute, `NC⁰` to sample).
-- **Alvarez-Melis–Garg–Kalai, "Why GANs are overkill for NLP," NeurIPS 2022 (arXiv:2205.09838) §5** —
+- **Alvarez-Melis–Garg–Kalai, "Are GANs overkill for NLP?," NeurIPS 2022 (arXiv:2205.09838) §5** —
   *"Distinguishability is equivalent to increasing likelihood for general F, Q"*; both directions, an
   explicit polynomial-time reduction, relative to a bounded distinguisher class. **The
   detection ⟺ generation equivalence for learned distributions is proved.** It is framed as an argument
@@ -111,7 +114,7 @@ by a secret.
 
 **Mapping onto `κ`.** These are not two ad-hoc observations; they are two independent components of
 the capability vector `κ = (O, T, B, mode)` already defined in
-[chapter_24.md](../../output/chapter_24.md):
+[chapter_24.md](../../exp/docs/notes/chapter-24.md):
 
 | Source | `κ` component | Corner | Asset vs. asymmetry |
 |---|---|---|---|
@@ -285,9 +288,9 @@ Karchmer SaTML'23; Naor STOC'96.
 
 ## References
 
-- [native-computational-problems-survey](../../output/native-computational-problems-survey.md) — the
+- [native-computational-problems-survey](../../exp/literature/related-work.md) — the
   ~80-problem zoo this page prunes.
 - [summer-2026-research-programme](summer-2026-research-programme.md) — the schedule this page amends.
-- [chapter_24.md](../../output/chapter_24.md) — `κ`, the membrane, the τ-staircase.
-- [ideas.md](../../output/ideas.md) — the games-not-taxonomies argument and the learning-adversary
+- [chapter_24.md](../../exp/docs/notes/chapter-24.md) — `κ`, the membrane, the τ-staircase.
+- [ideas.md](../../exp/docs/notes/ideas.md) — the games-not-taxonomies argument and the learning-adversary
   conjecture this page formalizes.

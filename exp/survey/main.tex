@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% tectonic's default engine is XeTeX, so inputenc's utf8 option is a no-op
+% and \DeclareUnicodeCharacter is undefined; the packages above are kept for
+% portability to pdflatex/luatex. Non-ASCII glyphs that the T1/Latin-Modern
+% fonts can't hold (em dash, ogonek, the author's Turkish dotted capital I)
+% must be written as LaTeX commands at the source (---, \k{a}, \.I) rather
+% than as literal Unicode bytes, since there is no inputenc mapping to fall
+% back on.
+
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{margin=1in}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\input{results}
+
+\title{How Hard Is the Attack?\\A Complexity-Theoretic Survey of Machine Learning Security}
+\author{Halil {\.I}brahim Kanpak}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\input{sections/01-introduction}
+\input{sections/02-problem}
+\input{sections/03-background}
+\input{sections/04-landscape}
+\input{sections/05-formalization}
+\input{sections/06-mapping}
+\input{sections/07-findings}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

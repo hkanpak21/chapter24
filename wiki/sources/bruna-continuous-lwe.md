@@ -3,9 +3,14 @@ title: Continuous LWE
 type: source
 date_ingested: 2026-04-12
 authors: [Joan Bruna, Oded Regev, Min Jae Song, Yi Tang]
-venue: STOC 2021
+venue: STOC 2021 (the ingested PDF is arXiv:2005.09595v2, 24 Oct 2020, and does not itself state a venue)
 year: 2021
 tags: [lattice-cryptography, continuous-lwe, gaussian-mixtures, statistical-query, hardness-reductions, cryptography]
+claim_quantifier: conditional
+antecedent: "worst-case hardness of GapSVP and SIVP against quantum polynomial-time algorithms, for gamma at least 2 sqrt(n) with beta polynomially bounded. A standard lattice assumption."
+algorithm_class: "all poly-time for the reduction-based hardness, SQ for the separate hCLWE lower bound"
+adversary_bound: "quantum poly-time via the reduction"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -18,6 +23,14 @@ The main consequences:
 3. **Opens new avenues for quantum attacks on lattice problems** — a CLWE algorithm implies a quantum lattice algorithm.
 
 The noiseless variant of hCLWE is later shown by [Zadik-Song-Wein-Bruna 2022] to be *not* hard (LLL solves it), emphasizing that noise is essential to CLWE's hardness.
+
+## Claim Boundary
+
+- **Quantified over:** algorithms for CLWE, through a polynomial-time quantum reduction from worst-case lattice problems. The separate lower bound on homogeneous CLWE quantifies over statistical query algorithms.
+- **Antecedent:** worst-case hardness of GapSVP and SIVP against quantum polynomial-time algorithms, in the parameter regime where gamma is at least 2 times the square root of n and beta is polynomially bounded. This is a standard lattice assumption.
+- **Algorithm class:** all polynomial time for the reduction-based hardness, and SQ for the exponential lower bound on homogeneous CLWE. These are two different statements about two different classes and should not be merged into one.
+- **Does not establish:** classical hardness. The reduction is quantum, as it is for LWE. It also says nothing about the noiseless case, where an LLL-based algorithm succeeds.
+- **Abstract vs theorem:** none found. The abstract states that the reduction is quantum, and offers the reverse reading itself, that the result opens new avenues of quantum attacks on lattice problems.
 
 ## Key Contributions
 
@@ -54,4 +67,6 @@ The noiseless variant of hCLWE is later shown by [Zadik-Song-Wein-Bruna 2022] to
 
 > "Our work resolves an open problem regarding the computational complexity of learning mixtures of Gaussians without separability assumptions."
 
-> "CLWE might be a better algorithmic target than LWE" — suggests CLWE's continuous geometry may enable new lattice algorithm design.
+> "We interpret this as an encouraging sign that CLWE might be a better algorithmic target than LWE."
+
+_Verified verbatim against `raw/BRST21_ContinuousLWE.pdf` on 2026-08-20. A note added earlier that day marked this passage as not found; that verdict was too broad. It failed only because an editorial gloss had been appended inside the quotation marks. The sentence itself is in Section 1 of the paper. The gloss, retained unquoted, read: suggests CLWE's continuous geometry may enable new lattice algorithm design. The claim the paper attaches to the sentence is narrower, namely that a simple moment-based algorithm solves CLWE in time exp(γ²) where the comparable lattice result needs a more involved argument._

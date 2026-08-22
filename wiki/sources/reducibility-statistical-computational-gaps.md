@@ -3,9 +3,13 @@ title: "Reducibility and Statistical-Computational Gaps from Secret Leakage"
 type: source
 date_ingested: 2026-04-12
 authors: [Matthew Brennan, Guy Bresler]
-venue: arXiv preprint (arXiv:2005.08099v2)
+venue: arXiv preprint (the ingested PDF is arXiv:2005.08099v2, 28 Jun 2020)
 year: 2020
 tags: [statistical-computational-gaps, hardness-reductions, planted-clique, average-case-reductions, complexity-theory, learning-theory, statistical-query]
+claim_quantifier: conditional
+antecedent: "the secret leakage planted clique conjecture PC_rho of Conjecture 2.2 together with the specific hardness assumptions of Conjecture 2.3. Conjectured, newer than the planted clique conjecture, and the paper notes that failure for some rho would undermine the reductions."
+algorithm_class: "all poly-time conditionally; the unconditional content in Section 12 is low-degree and SQ"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +19,14 @@ This paper provides the first evidence that average-case reductions can relate s
 The paper constructs a *web* of reductions (see Figure 1) from k-partite, bipartite, and hypergraph variants of PC, yielding tight statistical-computational tradeoffs for a broad range of problems: robust sparse mean estimation, dense stochastic block models, hidden partition models, semirandom planted dense subgraph, negatively correlated sparse PCA, mixtures of sparse linear regressions, robust sparse linear regression, tensor PCA, and universality for learning sparse mixtures.
 
 New reduction techniques introduced include: **rejection kernels**, **dense Bernoulli rotations**, **design matrices and tensors**, and a convergence result between **Wishart and inverse Wishart matrices**.
+
+## Claim Boundary
+
+- **Quantified over:** polynomial-time algorithms for the target problems, conditional on the source assumption. Every lower bound in the paper is the image of a conjecture under a total variation reduction.
+- **Antecedent:** the secret leakage planted clique conjecture PC_rho of Conjecture 2.2, together with the specific hardness assumptions of Conjecture 2.3. These are conjectured, they are newer and stronger than the planted clique conjecture, and the paper's own open questions note that failure for some rho would undermine the reductions.
+- **Algorithm class:** all polynomial time, but only conditionally. The unconditional content is the reductions themselves plus the low-degree lower bounds of Section 12.2 and the statistical query lower bounds of Section 12.3 for PC_rho, which are restricted-class results.
+- **Does not establish:** unconditional hardness for any target problem. A reduction transfers belief rather than creating it, and what it transfers here is belief in a generalisation of planted clique rather than in planted clique itself.
+- **Abstract vs theorem:** none found.
 
 ## Key Contributions
 
@@ -78,7 +90,9 @@ New reduction techniques introduced include: **rejection kernels**, **dense Bern
 
 ## Quotes / Notable Passages
 
-> "The insight in this work is that a slight generalization of the planted clique conjecture — the secret leakage planted clique (PC_ρ) — gives rise to a variety of new average-case reduction techniques, yielding a web of reductions relating statistical problems with very different structure."
+> _An earlier rendering inserted an article and dropped the clause that says what the leakage is. Checked against `raw/BB20_SecretLeakagePC.pdf` on 2026-08-20; the paper's own wording follows and is verbatim._
+>
+> "The insight in this work is that a slight generalization of the planted clique conjecture – secret leakage planted clique (PC_ρ), wherein a small amount of information about the hidden clique is revealed – gives rise to a variety of new average-case reduction techniques, yielding a web of reductions relating statistical problems with very different structure."
 
 > "An expanded set of hardness assumptions, such as PC_ρ, may be a key first step towards a more complete theory of reductions among statistical problems."
 

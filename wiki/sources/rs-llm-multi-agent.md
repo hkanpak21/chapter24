@@ -3,23 +3,38 @@ title: "Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomize
 type: source
 date_ingested: 2026-04-23
 authors: [Jinwei Hu, Yi Dong, Zhengtao Ding, Xiaowei Huang]
-venue: "arXiv:2507.04105 (Jul 2025); accepted Chinese Journal of Aeronautics"
+venue: "arXiv:2507.04105v1 (5 Jul 2025). The PDF footer reads 'Preprint accepted by Chinese Journal of Aeronautics.'"
 year: 2025
 tags: [certified-robustness, multi-agent, llm-security, randomized-smoothing, consensus, byzantine]
+claim_quantifier: conditional
+antecedent: "Each malicious agent's deceptive state is bounded, ||x-tilde_k(t) - x_k(t)|| <= delta_max, and is sent with some probability p_k(t). Theorem 1 needs a lower bound p_A on the top decision region's probability and an upper bound p_B on the runner-up, both estimated by sampling."
+adversary_bound: "none — a malicious agent is bounded in how far its transmitted state may deviate, delta_max, which is a geometric constraint on the message. Nothing bounds any party's compute, queries, or memory."
+date_verified: 2026-08-20
 ---
 
 ## Summary
 
 This paper (HDDH25) lifts [randomized smoothing (CRK19)](certified-robustness-randomized-smoothing.md) from single-model classification to the **consensus-seeking layer of LLM multi-agent systems**. Neyman-Pearson-style arguments yield **probabilistic bounds on how the consensus decision shifts under adversarial injection or hallucinated messages from a subset of agents**. A two-stage adaptive sampling scheme balances robustness vs. sample complexity in black-box conditions where agents' internals are unavailable.
 
-The main technical result: for an LLM MAS aggregating decisions from m agents via a voting or averaging mechanism, if at most k of m agents can be adversarially controlled (Byzantine), randomized-smoothing-at-the-consensus-layer provides probabilistic bounds on the deviation of the consensus decision from the honest-majority outcome. The bounds depend on k/m, the smoothing noise level, and the number of samples drawn.
+The main technical result, stated as the paper states it. **Theorem 1 (Decision Stability Under Perturbed Information)** is the Cohen-Rosenfeld-Kolter radius applied per agent: for an agent smoothing with Gaussian noise N(0, σ²I), if the perturbation in the information received from neighbours satisfies ‖δ‖₂ < (σ/2)(Φ⁻¹(p_A) − Φ⁻¹(p_B)), the agent's decision region is stable, where p_A lower-bounds the probability of the most likely decision region and p_B upper-bounds the runner-up. **Proposition 2 (Malicious Tolerance)** gives the only statement relating the fraction of malicious agents to the radius, and it is a proportionality rather than a bound: |A_mal|/|A| ∝ r_min/‖δ_mal‖_max, with r_min the minimum certification radius in the system.
+
+An earlier version of this page described the main result as probabilistic bounds on the deviation of the consensus decision from the honest-majority outcome, depending on k/m, the noise level, and the sample count. Corrected 2026-08-20: no such bound is proved. The threat model also does not admit a Byzantine agent in the usual sense, since a malicious agent's transmitted state must satisfy ‖x̃_k(t) − x_k(t)‖ ≤ δ_max. An agent that sends an arbitrary value is outside the model.
 
 Positioned as a first step toward a composable multi-agent certification theorem. The paper does **not** yet offer a UC-style composition theorem — per the wiki's [2026 frontier analysis](../analyses/web-research-2026-frontier.md), this remains the single largest formal gap. HDDH25 provides a constructive lower bound on what composability *could* look like at the randomized-smoothing layer.
+
+## Claim Boundary
+
+- **Quantified over:** one agent's decision at one step, given the information it receives from its neighbours. Theorem 1 is pointwise in that sense. Proposition 2 speaks of the system but only as a proportionality. Everything else is simulation: agents are driven by GPT-3.5-Turbo, updated in parallel, and the reported effects are measured deviations from an ideal no-attack baseline.
+- **Antecedent:** a malicious agent transmits a deceptive state with probability p_k(t), and that state is bounded, ‖x̃_k(t) − x_k(t)‖ ≤ δ_max. Theorem 1 needs p_A and p_B, which are estimated by Monte Carlo rather than known. The two-stage adaptive sampling scheme decides how many samples to draw, so the radius reported for an agent inherits that estimate's confidence.
+- **Which party is constrained:** the malicious agent, in how far its message may deviate from its true state. That is a geometric constraint on the message, not a resource bound. No party is bounded in compute, queries, or memory. The one computational quantity anywhere in the paper is the defender's sample count, which the adaptive scheme is designed to reduce.
+- **Does not establish:** a composition theorem, or any guarantee about the consensus the network reaches. Theorem 1 certifies one agent's decision region against bounded neighbour perturbation; it does not compose across agents or across rounds, and Proposition 2's proportionality is not a substitute. It also does not cover an agent that sends arbitrary values, or one that is silent, or a coalition that coordinates — the threat model is per-agent and magnitude-bounded.
+- **Abstract vs theorem:** the abstract is measured. It claims "probabilistic guarantees on agent decisions under adversarial influence" and calls the results simulation results. The stronger framing on this page, of a step toward composable multi-agent certification, is the wiki's and the secondary survey artifact's, not the paper's.
 
 ## Key Contributions
 
 - **RS at the consensus layer**: extends CRK19 smoothing from single-model classification to multi-agent consensus decisions.
-- **Neyman-Pearson-style probabilistic bounds**: for Byzantine adversary controlling up to k of m agents, decision deviation is bounded by a function of k/m and smoothing noise.
+- **Theorem 1, Decision Stability Under Perturbed Information**: the CRK19 certified radius (σ/2)(Φ⁻¹(p_A) − Φ⁻¹(p_B)) applied to one agent's decision under bounded perturbation of neighbour information.
+- **Proposition 2, Malicious Tolerance**: |A_mal|/|A| ∝ r_min/‖δ_mal‖_max. A proportionality, not a bound.
 - **Two-stage adaptive sampling**: adjusts Monte Carlo sample count based on margin estimates, balancing robustness and compute.
 - **Black-box agent assumption**: works when agents are opaque (no internal access), which is the common MAS deployment pattern.
 - **First step toward composable MAS certification**: provides one component-level guarantee that a future UC composition theorem could build on.
@@ -52,6 +67,18 @@ Positioned as a first step toward a composable multi-agent certification theorem
 
 ## Quotes / Notable Passages
 
-> "Lifts randomized smoothing from single-model classification to the consensus-seeking layer of an LLM multi-agent system. Neyman-Pearson arguments yield probabilistic bounds on how the consensus decision shifts under adversarial injection or hallucinated messages."
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> Lifts randomized smoothing from single-model classification to the consensus-seeking layer of an LLM multi-agent system. Neyman-Pearson arguments yield probabilistic bounds on how the consensus decision shifts under adversarial injection or hallucinated messages.
 
-> "A first step toward a composable multi-agent certification theorem — but the paper does not yet offer a UC-style composition."
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> A first step toward a composable multi-agent certification theorem — but the paper does not yet offer a UC-style composition.
+
+The paper's own statement of what it does, verbatim from the abstract:
+
+> "We apply Randomized Smoothing—a statistical robustness certification technique—to the MAS consensus context, enabling probabilistic guarantees on agent decisions under adversarial influence."
+
+And Theorem 1, verbatim as far as the prose runs before the displayed inequality:
+
+> "Theorem 1 (Decision Stability Under Perturbed Information). For an LLM-driven agent in a MAS using randomized smoothing with Gaussian noise"

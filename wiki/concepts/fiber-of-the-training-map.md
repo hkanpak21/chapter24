@@ -59,7 +59,15 @@ recovered exactly. **Huge fiber, zero protection, because it was flat.**
   navigating the fiber *under domain constraints* may be infeasible. Unproved.
 - [Proof-of-Learning](../sources/proof-of-learning.md) — the same quantity priced in compute; a spoof is
   a fiber navigation cheaper than honest training.
-- [fibers-of-the-training-map](../../output/fibers-of-the-training-map.md) — the programme's exposition.
+- **Machine unlearning is this object under a different name.**
+  [Thudi et al. USENIX Sec'22](../sources/auditable-unlearning-definitions.md) define *forgeability* on
+  proof-of-learning logs and characterize the `ε = 0` classes exactly: `D` and `D'` are forgeable iff
+  `H_D(W) = H_{D'}(W)`, i.e. iff they reach the same parameter sequences. That is a fiber over a
+  *trajectory* rather than over a weight vector, and it is populated by disjoint datasets — hence
+  "one could unlearn without modifying the model at all".
+  [Zhang et al. ICML'24](../sources/unlearning-verification-fragile.md) navigate it constructively and,
+  unusually, price the walk (Prop. 4.5). See [machine-unlearning](machine-unlearning.md).
+- [fibers-of-the-training-map](../../exp/docs/notes/fibers-of-the-training-map.md) — the programme's exposition.
 
 ## Related Concepts
 

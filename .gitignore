@@ -10,3 +10,9 @@ wiki/.obsidian/workspace.json
 # --- Large local tooling binaries (LaTeX engine) ---
 .tools/tectonic
 .tools/tectonic.tar.gz
+
+# --- Built PDFs (source is exp/survey/*.tex; build with tectonic) ---
+exp/survey/main.pdf
+
+# --- Per-machine Claude Code settings ---
+.claude/settings.local.json

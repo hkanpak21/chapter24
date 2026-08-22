@@ -3,9 +3,13 @@ title: Low Degree Conjecture Implies Sharp Computational Thresholds in Stochasti
 type: source
 date_ingested: 2026-04-12
 authors: [Jingqiu Ding, Yiding Hua, Lucas Slot, David Steurer]
-venue: Preprint
+venue: Preprint (the ingested PDF is arXiv:2502.15024v2, 28 Apr 2025)
 year: 2025
 tags: [stochastic-block-model, low-degree-polynomials, kesten-stigum, community-detection, statistical-computational-gaps]
+claim_quantifier: conditional
+antecedent: "the extended low-degree conjecture as formalized in [MW23], with an added restriction the authors introduce after a refutation attributed in their footnote to Ansh Nagda. Conjectured, and already revised once."
+algorithm_class: "low-degree"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +19,14 @@ This paper sharpens the implications of the (extended) low-degree conjecture for
 Concretely, the paper shows (Theorem 2.1) that below KS no exp(n^0.99)-time algorithm achieves recovery rate n^{-0.49} with constant probability, while above KS poly-time weak recovery is known [Mas14, AS15]. Previous work ruled out only hypothesis-testing-style algorithms with success probability 1 - o(1); this paper handles the harder case of constant-probability recovery via a **correlation-preserving projection** technique (from [HS17]) plus graph-splitting and cross-validation.
 
 Results also give computational lower bounds for learning SBM parameters (edge probability matrix and graphon).
+
+## Claim Boundary
+
+- **Quantified over:** algorithms running in time exp(n^{0.99}) for the symmetric stochastic block model below the Kesten-Stigum threshold, and only under the conjecture.
+- **Antecedent:** the extended low-degree conjecture as formalized in [MW23], with an additional restriction the authors introduce because the original formalization was refuted. Their footnote attributes that refutation to Ansh Nagda, using algorithms that exploit rare events, and reports it as personal communication with Alexander S. Wein. The antecedent is therefore conjectured and has already been revised once.
+- **Algorithm class:** low-degree. The conclusion reads as a statement about running time only through the conjecture, and the conjecture is the step with no proof.
+- **Does not establish:** an unconditional computational lower bound for weak recovery. The paper says so.
+- **Abstract vs theorem:** none found. The abstract states the dependence on the conjecture in its first sentences.
 
 ## Key Contributions
 
@@ -30,6 +42,14 @@ Results also give computational lower bounds for learning SBM parameters (edge p
 - **Conjecture 1.3 (Extended low-degree conjecture)** formalized in [MW23].
 - **Theorem 2.1**: Assuming LD conjecture, no exp(n^0.99)-time algorithm achieves recovery rate n^{-0.49} below KS.
 - **Theorem 2.4**: LD-based lower bounds for learning edge connection probability matrix.
+
+## Limits
+
+The conjecture this paper assumes is not settled, and its unrestricted form has been refuted.
+
+- The paper's own footnote records that the formalization it builds on, from [MW23], was revised after a refutation attributed to Ansh Nagda using algorithms that exploit rare events, reported there as personal communication with Alexander S. Wein. The authors add a restriction that they say seems to survive that refutation.
+- [The Quasi-Polynomial Low-Degree Conjecture is False](quasi-poly-low-degree-conjecture-false.md), Buhai, Hsieh, Jain and Kothari, FOCS 2025, disproves the quasi-polynomial form of the low-degree conjecture in the regime where it was stated. A bound on low-degree advantage and a bound on quasi-polynomial running time are provably different things, so a conditional statement of the form used here cannot be read as a statement about running time without the conjecture holding.
+- [Rigorous Implications of the Low-Degree Heuristic](rigorous-implications-low-degree.md), Hsieh, Kane, Kothari, Li, Mohanty and Tiegel, STOC 2026, is the positive counterpart. Its results are conditioned on a noisy version of the problem, two of the three additionally require permutation invariance, and none rules out all polynomial-time algorithms.
 
 ## Connections
 

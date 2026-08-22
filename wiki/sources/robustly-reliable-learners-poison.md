@@ -3,9 +3,12 @@ title: "Robustly-Reliable Learners Under Poisoning Attacks"
 type: source
 date_ingested: 2026-04-12
 authors: [Maria-Florina Balcan, Avrim Blum, Steve Hanneke, Dravyansh Sharma]
-venue: "COLT 2022 (arXiv:2203.04160)"
+venue: "COLT 2022 (venue unconfirmed from PDF: raw/BBHS22_RobustlyReliableLearners.pdf is arXiv:2203.04160v1 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
 year: 2022
 tags: [adversarial-ml, PAC-learning, poisoning-attacks, certification, learning-theory, reliable-learning]
+claim_quantifier: universal
+antecedent: "For the main characterization, realizability — the target concept lies in H — and a corruption budget η that the adversary does not exceed, measured as a fraction of the training sample under normalized Hamming distance. The certificate is void the moment the budget is exceeded, and the budget is an input to the guarantee rather than something the defender can verify. The efficient learner additionally needs an ERM oracle for H; the truly polynomial-time result needs linear separators under isotropic log-concave marginals."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -17,6 +20,14 @@ The optimal robustly-reliable learner L, given a (possibly corrupted) sample S',
 Results extend to: instance-adaptive adversaries, active learning with adaptive adversaries, and agnostic learning. For linear separators under log-concave marginals, the authors give a truly polynomial-time (non-oracle) robustly-reliable algorithm (Theorem 4.1), building on Awasthi et al. 2017.
 
 Model: nasty-adversary poisoning (Bshouty et al. 2002) — the adversary picks η fraction of the training sample and arbitrarily modifies both x and y. Instance-targeting means the adversary can know the test point x before committing corruptions.
+
+## Claim Boundary
+
+- **Quantified over:** all hypothesis classes, with matching upper and lower bounds on the region that can be certified — the paper's phrase is "nearly-tight matching upper and lower bounds". The efficient non-oracle algorithm is existential and specific: linear separators under log-concave marginals.
+- **Antecedent:** realizability for the strongest statements, and a known corruption budget η. Both matter. If the target concept is not in H the guarantees weaken to the agnostic form given in Section 6, where the adversary can force mistakes only where every low-error hypothesis also errs.
+- **Which party is constrained:** the **adversary**, in the fraction η of training examples it may corrupt. That is a counting budget, not a resource bound — within it the adversary is arbitrary, computationally unbounded, and instance-targeted, meaning it may know the test point in advance. The **defender** is constrained by compute in the sense that the general learner is stated relative to an ERM oracle, with genuine polynomial time achieved only for the linear-separator case.
+- **Does not establish:** (i) any guarantee once the budget is exceeded, and the paper offers no way to detect that; (ii) a certificate on points outside the agreement region, where the learner abstains rather than being wrong; (iii) efficiency for general classes without an ERM oracle; (iv) anything about test-time evasion, which is a different threat model.
+- **Abstract vs theorem:** none found. The abstract states the budget condition inline ("so long as the adversary has not exceeded a given corruption budget") and marks the efficient algorithms as oracle-based except in the log-concave case.
 
 ## Key Contributions
 

@@ -3,9 +3,13 @@ title: Planted Clique Conjectures are Equivalent
 type: source
 date_ingested: 2026-04-12
 authors: [Shuichi Hirahara, Nobutaka Shimizu]
-venue: Preprint / STOC (expected)
+venue: ECCC Report No. 58 (2024), dated 29 March 2024. This is the venue the ingested PDF states; the earlier STOC attribution was not confirmed here
 year: 2024
 tags: [planted-clique, statistical-computational-gaps, hardness-reductions, complexity-theory, average-case-reductions]
+claim_quantifier: universal
+antecedent: "none. The reductions are unconditional. What stays conjectural is the hardness itself."
+algorithm_class: "all poly-time"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -14,16 +18,28 @@ This paper establishes formal equivalences between different variants of the Pla
 
 This has significant implications for the web of average-case reductions built on top of PC: reductions that use one variant (e.g., detection) now yield hardness for the others as well, unifying the literature and strengthening conditional lower bounds.
 
+## Claim Boundary
+
+- **Quantified over:** variants of the planted clique conjecture. The abstract names search versions with success probability exponentially close to one and with non-negligible success probability, a worst-case version on incompressible graphs, decision versions with small and with large success probabilities, and decision versions with adversarially chosen and with binomially distributed k.
+- **Antecedent:** none. The reductions are unconditional. What stays conjectural is the hardness itself.
+- **Algorithm class:** all polynomial time. These are ordinary polynomial-time reductions, not restricted-class results.
+- **Does not establish:** that planted clique is hard, and does not place refutation inside the same equivalence class as detection and search. Refutation is the subject of a separate equivalence, between the existence of a refutation algorithm and an average-case polynomial-time algorithm for the k-clique problem on Erdos-Renyi random graphs.
+- **Abstract vs theorem:** none found. The abstract reports a detection-recovery gap in success probabilities as a consequence of the equivalences rather than as an assumption.
+
 ## Key Contributions
 
-- Polynomial-time reductions between detection, search, and refutation variants of planted clique, under the parameter regime k = o(√n).
-- Demonstrates that the "PC conjecture" is a single assumption rather than a family of potentially distinct conjectures.
+- Polynomial-time equivalences among search versions at success probabilities from exponentially close to one down to non-negligible, a worst-case version on incompressible graphs, and decision versions at small and large success probabilities including adversarially chosen and binomially distributed k. _Corrected 2026-08-20 against the primary PDF: an earlier version of this bullet grouped refutation with detection and search. Refutation is not in that equivalence class. The paper states a separate equivalence, between the existence of a refutation algorithm and an average-case polynomial-time algorithm for k-clique on Erdős–Rényi random graphs._
+- Establishes the equivalence between the planted clique problem of Jerrum and Kučera and the decision version suggested by Saks in the 1990s.
+- Identifies the optimality of the simple edge-counting algorithm among decision versions: no polynomial-time algorithm distinguishes the two random graphs with probability much greater than k²/n if and only if the planted clique conjecture holds.
+- Gives the first one-way function admitting a polynomial-time security-preserving self-reduction from exponentially weak to strong one-way functions.
+- Reveals a detection-recovery gap in success probabilities for planted clique.
 - Strengthens downstream reductions that build statistical-computational hardness on PC.
 
 ## Key Definitions / Theorems
 
 - Formal statements of PC-detection, PC-search, PC-refutation.
-- Main theorem: poly-time equivalence among the three variants (under mild parameter conditions).
+- Main theorem: poly-time equivalence among the search and decision variants named above.
+- A separate theorem for refutation, equating the existence of a refutation algorithm with an average-case polynomial-time algorithm for k-clique on Erdős–Rényi random graphs.
 
 ## Connections
 
@@ -39,4 +55,10 @@ This has significant implications for the web of average-case reductions built o
 
 ## Quotes / Notable Passages
 
-(Content read indirectly due to PDF extraction issues; claims based on paper title and abstract.)
+_All passages below verified verbatim against `raw/HS24_PCConjecturesEquivalent.pdf` on 2026-08-20. The earlier note about extraction failure no longer applies._
+
+> "In this paper, we prove the equivalence among many (in fact, most) variants of planted clique conjectures, such as search versions with a success probability exponentially close to 1 and with a non-negligible success probability, a worst-case version (the k-clique problem on incompressible graphs), decision versions with small and large success probabilities, and decision versions with adversarially chosen k and binomially distributed k."
+
+> "These results reveal a detection-recovery gap in success probabilities for the planted clique problem."
+
+> "We also present another equivalence between the existence of a refutation algorithm for the planted clique problem and an average-case polynomial-time algorithm for the k-clique problem with respect to the Erdős–Rényi random graph."

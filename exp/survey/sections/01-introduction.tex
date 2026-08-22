@@ -1,0 +1,83 @@
+\section{Introduction}
+\label{sec:intro}
+
+Security claims about machine learning appear faster than the field can compare
+them. Arp et al.\ read \DDpapers{} papers from CCS, S\&P, USENIX Security and NDSS
+across a decade, name \DDpitfalls{} recurring pitfalls, and find every one of the
+\DDpapers{} papers affected by at least \DDminPitfalls{} of them \cite{AQPWPWCR22}.
+One of the \DDpitfalls{} is the threat model. Their measurement is of practice, and
+the same defect shows up in the results themselves wherever one attack has been
+studied by several groups.
+
+Membership inference makes the defect concrete, and we use it to state the three
+problems in Section~\ref{sec:problem}. The attack decides whether one record was in
+a model's training set, and Meeus et al.\ count at least \MIAnewMethods{} new
+methods for it proposed in 2024 alone \cite{MSJFRM25}. The published verdicts on whether it works span the full range.
+Carlini et al.\ report that it succeeds at low false positive rates
+\cite{CCNSTT22}. Duan et al.\ run five attacks against models whose training set is
+known and report that none exceeds \MIAmimirAUC{} AUC outside one domain
+\cite{DSMMSZTCEH24}. Das et al.\ report that on \MIAblindSets{} published
+benchmarks a classifier that never queries the model beats the best attack that
+does \cite{DZT25}. Zhang et al.\ argue that the attack cannot establish training-set
+membership for a deployed model at all \cite{ZDKT25}. Every one of these results is
+correct on its own terms. They differ in what they let the attacker know and spend,
+and none of them states that in a form the others can be checked against.
+
+Membership inference is one attack among many, and it appears in \NumMIApages{} of
+the \NumSources{} works surveyed here. The corpus also covers evasion, poisoning,
+backdoors, data reconstruction and model extraction, and on the other side
+computational differential privacy, statistical-query and low-degree hardness,
+bounded-memory adversaries and fine-grained cryptography. No single attack runs
+through every part of the survey, so each part of Section~\ref{sec:landscape}
+carries its own worked case.
+
+The field has not ignored the adversary. It has described the adversary without
+pricing it. The standing systematization of the area sorts attacks by the stage of
+the pipeline the adversary acts at, whether it can write as well as read, the
+access it holds, and the goal it pursues \cite{PMSW18}, and none of those four axes
+is a computational resource. Three later systematizations, all of them preprints at the time
+of writing, report that their own subfield lacks a formal definition of attack
+success, on adversarial examples \cite{FK24}, on model extraction \cite{SSEP24},
+and on data reconstruction \cite{WLBZ25}. Each proposes a repair, and each repair supplies knowledge, access
+or a success metric. None supplies a budget. A reader holding two results therefore
+cannot ask which adversary was stronger, because neither result answers it.
+
+Cryptography has priced adversaries for fifty years, and the objects the comparison
+needs already exist there. An adversary class fixes what the attacker may run. A
+budget fixes how much of it the attacker may spend. A success criterion with a
+tolerance fixes what counts as winning. A baseline fixes what public knowledge
+alone already achieves, so that an advantage is measured against something. We
+carry those four objects into machine learning security and use them to read the
+field.
+
+We read \NumSources{} formal works and record, for each one, which party's
+resources enter its main claim and in what unit. Recording the budget per party
+rather than per adversary is what lets a single statement hold a bound on the
+attacker, a bound on the learner, a bound on an auditor, and a ratio between two of
+them. It also makes the most common answer visible, which is that no party's
+resources enter the claim at all.
+
+Our contributions are the following.
+
+\begin{itemize}
+  \item A survey of \NumSources{} formal works on the security and privacy of
+        learning, organized by the attack family together with the party each work
+        constrains, recording for every work which party's resources enter its main
+        claim, in what unit, and whether the work assesses the adversary explicitly
+        or leaves the assessment implicit (Section~\ref{sec:landscape}).
+  \item An experiment, $\mathrm{Exp}[\Pi, L, A, R, \kappa]$, whose four coordinates
+        are the adversary's observation point on the chain from training data to
+        model output, the criterion $R$ it must satisfy and the tolerance $\eta$ it
+        is held to, a capability vector $\kappa$ carried per party, and the
+        baseline. We show which published results each coordinate separates, and
+        which results the experiment does not hold
+        (Section~\ref{sec:formalization}).
+  \item A mapping of the corpus into that experiment, generated from the recorded
+        claim quantifier, antecedent and adversary bound of each work rather than
+        assembled by hand, so that it can be rebuilt when the corpus changes
+        (Section~\ref{sec:mapping}).
+  \item Four regions of the experiment that no work in the corpus occupies, each
+        reported with the search that established it rather than as an assertion,
+        together with the count of works that state no budget for any party
+        (Section~\ref{sec:findings}).
+\end{itemize}

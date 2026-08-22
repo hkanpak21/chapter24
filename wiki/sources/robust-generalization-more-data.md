@@ -3,9 +3,12 @@ title: "Adversarially Robust Generalization Requires More Data"
 type: source
 date_ingested: 2026-04-23
 authors: [Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, Aleksander Mądry]
-venue: NeurIPS 2018 (arXiv:1804.11285)
+venue: "NeurIPS 2018 (venue unconfirmed from PDF: raw/SSTTM18_RobustGenRequiresMoreData.pdf is arXiv:1804.11285v2 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
 year: 2018
 tags: [adversarial-ml, sample-complexity, generalization, robust-pac-learning, information-theoretic]
+claim_quantifier: existential
+antecedent: "The lower bound is proved for two constructed distributional models — a mixture of two class-conditional Gaussians and a binary-feature model — under ℓ∞ perturbations. The paper's own phrasing is 'already in a simple natural data model'. In the second model the increased sample complexity holds only when linear classifiers are used."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +18,14 @@ This paper (SSTTM18) establishes a **formal information-theoretic sample-complex
 Experimentally, the paper demonstrates the same gap qualitatively on MNIST and CIFAR-10: adversarial generalization (adversarial test accuracy) lags standard generalization, and the lag is sample-complexity-shaped rather than algorithmic. This finding explains why adversarially-trained models on CIFAR-10 achieve substantially lower test accuracy than standard models even with state-of-the-art training procedures — the deficit is partly a data-efficiency issue, not just a training-procedure issue.
 
 SSTTM18 is the natural complement to [Tsipras et al. 2019](robustness-at-odds-accuracy.md): where Tsipras et al. show that robust classifiers must learn *different features* (tradeoff persists at infinite data), SSTTM18 shows robust classifiers need *more data* to reach that feature-learning regime. Together, the two papers characterize two distinct costs of robustness — the sample-complexity premium and the accuracy premium.
+
+## Claim Boundary
+
+- **Quantified over:** two specific distributions, and within them, all learning algorithms and model families. The information-theoretic strength of the lower bound applies *inside* the constructed model; the outer quantifier is existential. "There is a data model where robust learning costs more samples" is not "robust learning always costs more samples".
+- **Antecedent:** the Gaussian-mixture or binary-feature construction, ℓ∞ perturbations, and a robustness radius in the stated range. The binary model carries a further clause the title suppresses: its gap is relative to **linear** classifiers, and a slightly non-linear thresholding classifier recovers the standard sample complexity. The authors offer this as evidence that ℓ∞ robustness on MNIST is easier than on other datasets.
+- **Which party is constrained:** the **learner**, in sample size. The adversary is unbounded in computation and constrained only by the ℓ∞ radius, which is a geometric budget. Nothing in the paper prices attacker effort.
+- **Does not establish:** (i) that robust learning is always harder than standard learning — the binary model is a counterexample within the paper once the hypothesis class is allowed to be non-linear; (ii) that the CIFAR-10 robustness deficit is a sample-complexity effect, which the experiments make plausible and do not prove; (iii) any computational claim, since the matching upper bound is achieved by a specific estimator and no statement is made about what gradient training achieves.
+- **Abstract vs theorem:** the abstract is correctly hedged with "already in a simple natural data model". The page's earlier framing, and the title, drop that clause; read without it the result becomes a universal claim the paper does not make.
 
 ## Key Contributions
 
@@ -53,6 +64,22 @@ SSTTM18 is the natural complement to [Tsipras et al. 2019](robustness-at-odds-ac
 
 ## Quotes / Notable Passages
 
-> "The sample complexity of robust learning can be significantly larger than that of 'standard' learning, and this gap is information theoretic and holds irrespective of the training algorithm or the model family."
+> _Not verbatim. Checked against `raw/SSTTM18_RobustGenRequiresMoreData.pdf` on 2026-08-20 and not found; an earlier ingest compressed two abstract sentences and dropped the clause "already in a simple natural data model", which carries the antecedent. Retained unquoted as a summary._
+>
+> The sample complexity of robust learning can be significantly larger than that of 'standard' learning, and this gap is information theoretic and holds irrespective of the training algorithm or the model family.
 
-> "Our theoretical findings are complemented by experiments on popular image classification datasets and show that a similar gap exists in practice."
+The abstract, verified:
+
+> "We show that already in a simple natural data model, the sample complexity of robust learning can be significantly larger than that of “standard” learning. This gap is information theoretic and holds irrespective of the training algorithm or the model family."
+
+> _Not verbatim. Checked against `raw/SSTTM18_RobustGenRequiresMoreData.pdf` on 2026-08-20 and not found; a reworded version of the next abstract sentence. Retained unquoted as a summary._
+>
+> Our theoretical findings are complemented by experiments on popular image classification datasets and show that a similar gap exists in practice.
+
+The abstract, verified:
+
+> "We complement our theoretical results with experiments on popular image classification datasets and show that a similar gap exists here as well."
+
+The clause that bounds the second data model, from Section 1:
+
+> "it also suffers from a significantly increased sample complexity whenever one employs linear classifiers to achieve adversarially robust generalization. Nevertheless, a slightly non-linear classifier that utilizes thresholding turns out to recover the smaller sample complexity of standard generalization."

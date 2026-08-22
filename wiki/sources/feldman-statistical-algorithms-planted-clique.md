@@ -3,9 +3,14 @@ title: Statistical Algorithms and a Lower Bound for Detecting Planted Cliques
 type: source
 date_ingested: 2026-04-12
 authors: [Vitaly Feldman, Elena Grigorescu, Lev Reyzin, Santosh S. Vempala, Ying Xiao]
-venue: JACM 2017 (conference: STOC 2013)
+venue: JACM 2017, conference version STOC 2013 (the ingested PDF is arXiv:1201.1214v6, 15 Aug 2016, and does not itself state a venue)
 year: 2017
 tags: [planted-clique, statistical-query, lower-bounds, statistical-computational-gaps]
+claim_quantifier: universal
+antecedent: "none. The lower bound is unconditional inside the statistical query model."
+algorithm_class: "SQ"
+adversary_bound: "queries to the VSTAT and MVSTAT oracles, bounded in number and in precision"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -13,6 +18,14 @@ tags: [planted-clique, statistical-query, lower-bounds, statistical-computationa
 This paper (FGR+13 in the literature) establishes the foundational Statistical Query (SQ) lower bound for planted clique. It generalizes Kearns' SQ framework from PAC learning to distributional search/optimization problems, introducing a notion of **statistical dimension** (SDA) for such problems. The main theorem shows that any SQ algorithm solving planted clique with clique size k requires either super-polynomially many queries or queries of super-polynomial precision whenever k = o(√n) — matching the conjectured √n threshold.
 
 This is widely cited as the first "restricted model" evidence for the PC conjecture beyond SDP/LS+ hierarchies, and serves as a template for SQ lower bounds across the entire statistical-computational gap literature (tensor PCA, sparse PCA, community detection, robust mean estimation).
+
+## Claim Boundary
+
+- **Quantified over:** every algorithm whose access to the input distribution is limited to estimates of expectations, in the paper's VSTAT and MVSTAT forms. The bound is on query count and oracle precision for detecting planted bipartite clique and planted dense subgraph distributions when the planted clique has size O(n^{1/2-delta}) for constant delta > 0.
+- **Antecedent:** none. The lower bound is unconditional inside the statistical query model.
+- **Algorithm class:** SQ. The abstract observes that most natural algorithms of interest, including moment methods, local search, standard iterative convex optimization, MCMC and simulated annealing, can be implemented in the framework. That is a statement about which known algorithms fit the model, not a proof that every polynomial-time algorithm does.
+- **Does not establish:** that planted clique is hard for polynomial time. A bound against SQ rules out one class. Gaussian elimination on an exactly solvable linear system is the standard example of a polynomial-time algorithm that both the SQ and the low-degree model miss.
+- **Abstract vs theorem:** none found. The abstract states the result as concrete evidence supporting hardness assumptions rather than as hardness.
 
 ## Key Contributions
 
@@ -41,5 +54,15 @@ This is widely cited as the first "restricted model" evidence for the PC conject
 - Does not address search/refutation variants directly.
 
 ## Quotes / Notable Passages
+
+_All passages below verified verbatim against `raw/FGRVX17_SQLowerBoundPC.pdf` on 2026-08-20._
+
+> "The assumed hardness of variants of these problems has been used to prove hardness of several other problems and as a guarantee for security in cryptographic applications. Our lower bounds provide concrete evidence of hardness, thus supporting these assumptions."
+
+> "Our main application is a nearly optimal lower bound on the complexity of any statistical query algorithm for detecting planted bipartite clique distributions (or planted dense subgraph distributions) when the planted clique has size O(n^{1/2−δ}) for any constant δ > 0."
+
+The exponent and the constant in the second passage are set as a superscript and a Greek letter, which `pdftotext` flattens and drops. The surrounding prose matches the paper exactly and the parameters are as stated in the abstract.
+
+The following line is not a quotation and was carried by an earlier ingest without attribution. Retained unquoted as a summary.
 
 - Statistical dimension framework has become the standard tool for SQ lower bounds in high-dimensional statistics.

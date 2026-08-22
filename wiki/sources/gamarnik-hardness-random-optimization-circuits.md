@@ -3,9 +3,13 @@ title: Hardness of Random Optimization Problems for Boolean Circuits, Low-Degree
 type: source
 date_ingested: 2026-04-12
 authors: [David Gamarnik, Aukosh Jagannath, Alexander S. Wein]
-venue: FOCS 2020 (journal version 2022)
+venue: FOCS 2020, journal version 2022 (the ingested PDF is arXiv:2004.12063v2, 26 Jan 2022, and does not itself state a venue)
 year: 2022
 tags: [overlap-gap-property, low-degree-polynomials, boolean-circuits, langevin-dynamics, random-optimization, p-spin, circuit-complexity]
+claim_quantifier: universal
+antecedent: "the overlap gap property for the models considered, which the paper proves rather than assumes. The mechanism is that all three algorithm classes are stable under small input perturbations."
+algorithm_class: "low-degree, circuits, Langevin dynamics"
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +19,14 @@ This paper proves computational hardness of two random optimization problems —
 The circuit lower bound is particularly notable: it gives a super-polynomial depth lower bound (depth ≥ log n / (log log n)^{O(1)}) for any poly-size circuit producing a large independent set in a sparse random graph, stronger than prior Rossman-style bounds which required o(log n / log log n) depth. The core proof technique converts OGP-based noise-insensitivity arguments from real-valued polynomials to Boolean circuits via the Linial-Mansour-Nisan theorem bounding total influence of low-depth circuits.
 
 The Langevin result is a straightforward consequence of SDE well-posedness: bounded-horizon Langevin is stable, so OGP blocks it. All three algorithm classes share a form of noise-insensitivity that OGP directly rules out via an interpolation argument.
+
+## Claim Boundary
+
+- **Quantified over:** three algorithm classes on two random optimization problems. The classes are low-degree polynomials of the input, low-depth Boolean circuits, and Langevin dynamics run for bounded time. The problems are the ground state of a spherical or Ising p-spin glass and large independent sets in sparse Erdos-Renyi graphs.
+- **Antecedent:** the overlap gap property for the models considered, which the paper proves rather than assumes. The mechanism is that all three classes are stable, so that a small perturbation of the input induces a small perturbation of the output.
+- **Algorithm class:** low-degree, circuits and Langevin dynamics. What the argument actually uses is stability, so an algorithm that is not stable in this sense lies outside the reach of the proof.
+- **Does not establish:** hardness for polynomial time. The circuit result is a depth lower bound for poly-size circuits that produce a whole solution, so it concerns the search problem and not the decision problem.
+- **Abstract vs theorem:** none found. The abstract flags the search versus decision caveat itself, in parentheses, at the point where it claims an improvement on the state of the art in circuit complexity.
 
 ## Key Contributions
 
@@ -50,4 +62,10 @@ The Langevin result is a straightforward consequence of SDE well-posedness: boun
 
 > "The crux of our proof is that the classes of algorithms we consider exhibit a form of stability (noise-insensitivity): a small perturbation of the input induces a small perturbation of the output. We show by an interpolation argument that stable algorithms cannot overcome the OGP barrier."
 
-> "To the best of our knowledge, this is the first instance when methods from spin glass theory have ramifications for circuit complexity."
+> _Not from this paper. Checked against `raw/GJW21_HardnessRandomOpt.pdf` on 2026-08-20 and not found. The sentence is verbatim in the companion note, `raw/GJW22_CircuitLBPSpin.pdf`, and belongs on [Circuit Lower Bounds for the p-Spin Optimization Problem](gamarnik-circuit-lower-bounds-pspin.md). Retained here unquoted so the misattribution is not repeated._
+>
+> To the best of our knowledge, this is the first instance when methods from spin glass theory have ramifications for circuit complexity.
+
+> "For the case of Boolean circuits, our results improve the state-of-the-art bounds known in circuit complexity theory (although we consider the search problem as opposed to the decision problem)."
+
+> "Nevertheless, our result presents the strongest known circuit depth lower bounds for combinatorial optimization problems, to the best of our knowledge."

@@ -18,7 +18,15 @@ standing constraints. Nothing here repeats it.
 - Working notes and the long-form dialogue live in `docs/notes/`. They are not reports and are not
   held to the report format.
 - `literature/related-work.md` is the ~80-problem reference-problem survey, grouped by tier.
-- `paper/` is intentionally unscaffolded: no venue, no deliverable fixed yet.
+- **`survey/` is the active deliverable.** A complexity-theoretic survey of machine-learning security.
+  Start at `survey/notes/2026-08-22-plan-survey-tasks.md`, which carries the corpus state, the settled decisions that must not
+  be reopened, and the task list keyed to wiki pages. `survey/notes/2026-08-22-plan-survey-scope-and-structure.md` holds the scope boundary
+  and the framework; `survey/notes/2026-08-22-note-wiki-audit-findings.md` holds what the 2026-08-22 verification pass
+  found and what it changes. Draft is `survey/main.tex`; build with
+  `cd exp/survey && ../../.tools/tectonic -X compile main.tex --outdir .`, which leaves no `.log` or
+  `.aux` behind.
+- `paper/` is a **different, later** work that builds on the survey. Intentionally unscaffolded: no
+  venue, no deliverable fixed yet. Do not confuse it with `survey/`.
 - The literature knowledge base is outside this project, at the repo root `wiki/`, governed by the
   repo root `CLAUDE.md`. That file also holds the record of refuted claims — read it before asserting
   novelty about anything.

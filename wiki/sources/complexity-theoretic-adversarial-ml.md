@@ -3,9 +3,12 @@ title: "A Complexity Theoretic Approach to Adversarial Machine Learning"
 type: source
 date_ingested: 2026-04-12
 authors: [Saeed Mahloujifar]
-venue: Research Statement / PhD Thesis Overview
+venue: Research Statement / PhD Thesis Overview (no venue; the PDF is a personal research statement and states none)
 year: 2019
 tags: [adversarial-ml, evasion-attacks, poisoning-attacks, concentration-of-measure, complexity-theory, cryptography, sample-complexity]
+claim_quantifier: conditional
+antecedent: "This document proves nothing of its own; it summarises results whose antecedents live in the papers it cites. The hypothesis carrying most of its weight is metric concentration of the instance space, which is the antecedent of the evasion results and which the document's own cited measurement (MZME19) reports does not account for observed vulnerability on image benchmarks."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -15,6 +18,14 @@ This document is Saeed Mahloujifar's research statement (December 2019), surveyi
 The central insight is that adversarial vulnerability is not merely an engineering failure — it is a *provable consequence of the geometry of high-dimensional data*. Specifically, the **concentration of measure** phenomenon implies inherent upper bounds on achievable robustness for any classifier with nonzero error, independent of classifier architecture.
 
 The work then investigates whether computational hardness can rescue robustness, and finds a mixed answer: for evasion, polynomial-time attacks can match the information-theoretic lower bounds in product-distribution settings (negative); but there exist learning problems where computational robustness strictly exceeds information-theoretic robustness (positive, via [GJMM20]).
+
+## Claim Boundary
+
+- **Quantified over:** nothing directly. This is a research statement, and every claim on this page inherits the quantifier of the paper it summarises. Read each through its own source page: the evasion bounds are conditional on concentration, the poisoning bounds are universal over bad properties within a fixed corruption model, and the positive separation is existential in the learning problem.
+- **Antecedent:** metric concentration of the instance space, for the evasion half. The statement itself reports that concentration does not fully explain adversarial examples in practice, so the antecedent is flagged inside the document as not binding for real data.
+- **Which party is constrained:** varies by result, and the distinction is the document's own subject. The information-theoretic results price nothing; [Computational Concentration of Measure](computational-concentration-of-measure-etesami.md) and the p-tampering attacks price the **adversary** in running time; the [GJMM20] positive separation prices the adversary cryptographically. The learner is priced only in the sample-complexity results.
+- **Does not establish:** (i) any new theorem — this is a survey of the author's published work and should never be cited in place of the papers; (ii) that computational hardness rescues robustness in general, since the statement's own summary is that the information-theoretic and computational lower bounds coincide on certain metric probability spaces; (iii) any claim about deployed systems.
+- **Abstract vs theorem:** not applicable; the document has no abstract or theorems of its own. The one place where its prose runs ahead of its sources is the framing of vulnerability as a "provable consequence of the geometry of high-dimensional data", which holds only under the concentration hypothesis.
 
 ## Key Contributions
 

@@ -12,6 +12,7 @@ Professor at Princeton. Works on machine learning security, privacy, and network
 ## Contributions / Works
 
 - **[PAC Learning in the Presence of Evasion Adversaries](../sources/pac-learning-evasion-adversaries.md)** (NeurIPS 2018) — with Cullina and Bhagoji
+- **[RobustBench: a standardized adversarial robustness benchmark (CAS+21)](../sources/robustbench.md)** (NeurIPS 2021, Datasets and Benchmarks track) — with Croce, Andriushchenko, Sehwag, Debenedetti, Flammarion, Chiang and Hein
 
 ## Connections
 

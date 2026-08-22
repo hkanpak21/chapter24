@@ -3,23 +3,38 @@ title: "Planting Undetectable Backdoors in Machine Learning Models"
 type: source
 date_ingested: 2026-04-12
 authors: [Shafi Goldwasser, Michael P. Kim, Vinod Vaikuntanathan, Or Zamir]
-venue: "FOCS 2022 (arXiv:2204.06974)"
+venue: "arXiv:2204.06974v2 (9 Nov 2024). The FOCS 2022 attribution carried on this page is not stated in the PDF in `raw/`; the only FOCS mentions in it are bibliography entries."
 year: 2022
 tags: [cryptography, adversarial-ml, poisoning-attacks, backdoor, one-way-functions, hardness-reductions, formal-models]
+claim_quantifier: existential
+antecedent: "one-way functions exist (black-box result, Theorem 2.1); hardness of worst-case lattice problems via Continuous LWE (white-box result for Random Fourier Features, Theorem 2.2); hardness of Sparse PCA (white-box result for random ReLU networks). All are standard."
+adversary_bound: "PPT distinguisher — with oracle access to the honest and backdoored models in the black-box theorem, with the complete network description and the training data in the white-box theorems"
+date_verified: 2026-08-20
 ---
 
 ## Summary
 
-This paper establishes a fundamental **impossibility result for ML model auditing**: under standard cryptographic assumptions, any ML model can be backdoored in a way that is computationally indistinguishable from an honest model — even to an auditor with full white-box access. The result has profound implications for ML supply chain security: there is no efficient procedure to certify that a model was trained honestly.
+Under standard cryptographic assumptions a malicious learner can plant a backdoor into a classifier so that the backdoored model cannot be told apart from an honestly trained one by any computationally bounded observer. The consequence for delegated training is that no efficient procedure certifies that a model was trained honestly.
 
-Two constructions are given. The first uses **digital signatures** to achieve black-box undetectability for any training procedure. The second uses **random Fourier features** (via Continuous LWE hardness) to achieve white-box undetectability for specific model architectures. A complementary **persistence theorem** shows that backdoored networks can resist gradient-based post-processing (fine-tuning).
+Two constructions are given, with **incomparable** guarantees. The first uses **digital signatures** and works for *any* training procedure, but its undetectability is **black-box**: the distinguisher has query access only. The second replaces the random features of a **Random Fourier Features** learner with a Continuous LWE distribution and is **white-box** undetectable — the distinguisher sees all the weights — but it holds only for that specific training paradigm. A third white-box construction covers random ReLU networks under the hardness of Sparse PCA. A complementary **persistence theorem** shows that a network can be transformed so that gradient descent leaves it unchanged.
+
+**Correction, 2026-08-20.** This summary previously read that "any ML model can be backdoored in a way that is computationally indistinguishable from an honest model — even to an auditor with full white-box access", merging the two theorems into one. The paper does not prove that. The result that holds for any model is black-box; the white-box results hold for two specific learning paradigms. The paper's own comparison table is reproduced by [KKO+24](io-undetectable-backdoors-nn.md), which states that white-box undetectability for arbitrary training procedures is "unlikely".
+
+## Claim Boundary
+
+- **Quantified over:** Theorem 2.1 is universal over training procedures, but only for **black-box** undetectability and only over PPT distinguishers with oracle access. Theorem 2.2 is existential in the training paradigm: it is a construction *for* Random Fourier Features, not a statement about arbitrary networks. Neither theorem says anything about a specific deployed model; both say that a malicious trainer *can* produce one.
+- **Antecedent:** one-way functions (equivalently, CMA-secure digital signatures) for the black-box theorem; hardness of worst-case lattice problems, routed through the Continuous LWE problem of Bruna–Regev–Song–Tang, for the RFF white-box theorem; hardness of Sparse PCA for the random-ReLU white-box theorem. All three are standard, and the second and third are the stronger assumptions.
+- **Which party is constrained:** the *distinguisher* (the auditor), which must run in polynomial time. The backdoor holder is also efficient. The perturbation the backdoor applies is bounded geometrically, not computationally: for the RFF construction the activation perturbation can be made `d^ε`-sparse and `d^ε`-close in ℓ₂.
+- **Does not establish:** that backdoors are present in any deployed model; that backdoors are hard to detect when the trainer is honest but compromised in some other way; or that the white-box guarantee survives standard training. The authors state that the RFF backdoor is planted in the random initialisation and that making white-box undetectable backdoors persistent under repeated gradient descent is open.
+- **Abstract vs theorem:** none found. The abstract states the two frameworks are "incomparable" and names the RFF restriction explicitly.
 
 ## Key Contributions
 
 - **Formal definitions** of black-box and white-box undetectability, and non-replicability (backdoor key cannot be reverse-engineered from observed adversarial examples).
 - **Theorem 2.1 (Black-box, any model)**: Assuming OWFs exist, for any training procedure Train, there is a (Backdoor, Activate) pair that is non-replicable and black-box undetectable — the backdoored model is computationally indistinguishable from an honest model to any poly-time oracle-query adversary.
-- **Theorem 2.2 (White-box, RFF models)**: Assuming worst-case lattice hardness (via CLWE), for any distribution D ⊆ R^d, there is a backdoor for RFF models that is white-box undetectable — even with full weight access.
-- **Theorem 2.3 (Persistence)**: Any neural network N can be modified to an equivalent N' of size O(|N|) that is *ℓ-persistent*: gradient descent with any loss function leaves N' unchanged. Backdoors survive fine-tuning.
+- **Theorem 2.2 (White-box, RFF models)**: Assuming the hardness of worst-case lattice problems, for any data distribution D with X ⊆ R^d, there is a backdoor with respect to Train-RFF that is white-box undetectable — even with full weight access. It is *not* claimed to be non-replicable.
+- **Third construction**: a white-box undetectable backdoor for random ReLU networks under the hardness of Sparse PCA (Berthet–Rigollet).
+- **Theorem 2.3 (Persistence)**: Any neural network N of size |N| and depth d can be modified in linear time to an equivalent N' of size O(|N|) and depth d + 1 that is *ℓ-persistent*: for every loss ℓ, `∇ℓ(w) = 0` at N''s weights, so any number of gradient-descent iterations leaves N' unchanged. The persistence claim is proved for the signature construction, not for the white-box ones.
 - **Robustness certification barrier**: Undetectable backdoors imply that no efficient robustness certification algorithm can be sound — a certified robust model may secretly have adversarial examples activatable only by the backdoor holder.
 
 ## Key Definitions / Theorems
@@ -55,6 +70,20 @@ Two constructions are given. The first uses **digital signatures** to achieve bl
 
 ## Quotes / Notable Passages
 
-> "Under the assumption that CMA-secure digital signature schemes exist, a malicious learner can plant an undetectable backdoor into any classifier."
+> _Not verbatim. Checked against `raw/GKVZ22_UndetectableBackdoors.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> Under the assumption that CMA-secure digital signature schemes exist, a malicious learner can plant an undetectable backdoor into any classifier.
 
-> "Every input can have adversarial examples while remaining indistinguishable from robust classifiers — efficient robustness certification is impossible when trainers can be malicious."
+> _Not verbatim. Checked against `raw/GKVZ22_UndetectableBackdoors.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> Every input can have adversarial examples while remaining indistinguishable from robust classifiers — efficient robustness certification is impossible when trainers can be malicious.
+
+Verified against `raw/GKVZ22_UndetectableBackdoors.pdf` on 2026-08-20; these carry the same two points.
+
+> "First, we show how to plant a backdoor in any model, using digital signature schemes. The construction guarantees that given query access to the original model and the backdoored version, it is computationally infeasible to find even a single input where they differ."
+
+— abstract, on the scope and the access model of the black-box result.
+
+> "In particular, by constructing undetectable backdoor for an “adversarially-robust” learning algorithm, we can produce a classifier that is indistinguishable from a robust classifier, but where every input has an adversarial example! In this way, the existence of undetectable backdoors represent a significant theoretical roadblock to certifying adversarial robustness."
+
+— abstract, on the certification consequence.

@@ -3,21 +3,37 @@ title: "Public-Key Cryptography from Different Assumptions"
 type: source
 date_ingested: 2026-04-23
 authors: [Boaz Barak, Avi Wigderson]
-venue: "IACR ePrint 2008/335; preliminary to Applebaum-Barak-Wigderson STOC 2010"
+venue: "IACR ePrint 2008/335, preliminary to Applebaum-Barak-Wigderson STOC 2010. The ingested PDF is dated 2 August 2008 and does not itself state a venue."
 year: 2008
 tags: [cryptography, public-key-encryption, planted-clique, combinatorial-hardness, crypto-foundations]
+claim_quantifier: conditional
+antecedent: "two assumptions stated in the abstract. One, that a pseudorandom generator with small locality can be obtained by connecting outputs to inputs using any sufficiently good unbalanced expander. Two, that it is hard to distinguish a random graph that is such an expander from one where a planted random logarithmic-size subset S of the outputs is connected to fewer than |S| inputs."
+algorithm_class: "all poly-time conditionally, with the authors' own ceiling that the scheme can be broken in n^{O(log n)} time"
+adversary_bound: "poly-time, subject to the n^{O(log n)} break"
+date_verified: 2026-08-20
 ---
 
 ## Summary
 
-This paper (BW08, later Applebaum-Barak-Wigderson 2010 at STOC with Applebaum adding contributions on noisy linear equations) attempts to **broaden the foundations of public-key cryptography** beyond number-theoretic and lattice-based assumptions by constructing PKE schemes based on **average-case hardness of combinatorial NP-complete optimization problems**. The paper introduces three concrete candidate assumptions and derives a PKE scheme from their combination:
-1. **Noisy sparse linear equations over GF(2)**: infeasibility of solving a random set of sparse linear equations mod 2, a small fraction of which are corrupted.
-2. **Planted dense subgraph distinguishing**: infeasibility of distinguishing a random unbalanced bipartite graph from one with a planted small set S with |S|/3 neighbors.
-3. **NC⁰ pseudorandom generator**: existence of a PRG in NC⁰ where every output bit depends on a random constant-size subset of inputs.
+This paper (BW08, later Applebaum-Barak-Wigderson 2010 at STOC with Applebaum adding contributions on noisy linear equations) attempts to **broaden the foundations of public-key cryptography** beyond number-theoretic and lattice-based assumptions by constructing PKE schemes based on **average-case hardness of combinatorial NP-complete optimization problems**. The paper's abstract states **two** assumptions and derives a PKE scheme from their combination:
+1. **Small-locality PRG from an unbalanced expander**: one can obtain a pseudorandom generator with small locality by connecting the outputs to the inputs using any sufficiently good unbalanced expander.
+2. **Planted-subgraph distinguishing**: it is hard to distinguish between a random graph that is such an expander and a random graph where a planted random logarithmic-sized subset S of the outputs is connected to fewer than |S| inputs.
+
+_Corrected 2026-08-20 against the primary PDF. An earlier version of this list gave three assumptions, added noisy sparse linear equations over GF(2) as a separate item, and stated the planted set as having |S|/3 neighbours. The abstract names two assumptions. The string `|S|/3` does not occur in the paper, and the planted set is logarithmic in size. Noisy linear equations appear once in the body, as a comparison to Alekhnovich and to Regev rather than as an assumption of this construction. The three-assumption reading matches the later Applebaum-Barak-Wigderson version, not this one._
+
+The authors also record two drawbacks of their own scheme. The assumptions are not as well studied as the hardness of factoring, and the scheme can be broken in n^{O(log n)} time, where n is the key length and security parameter.
 
 Historically, this paper was the first serious attempt to build PKE from *combinatorial* hardness rather than algebraic / number-theoretic hardness (factoring, discrete log, LWE). The assumptions are all related to planted-structure problems in random graphs / random constraint-satisfaction, anticipating later work in statistical-computational gaps. The construction was the benchmark that [Ghosal-Hair-Jain-Sahai STOC 2025](pke-from-planted-clique.md) eventually *matched with standard PC* — closing a 15-year open question.
 
 The paper's lasting impact: it established *that* PKE can be built from combinatorial assumptions, though the specific nonstandard variants used here were later tightened. It also framed the question "which average-case hardness assumptions suffice for PKE?" as central, catalyzing decades of research.
+
+## Claim Boundary
+
+- **Quantified over:** adversaries against the proposed scheme, subject to the authors' own statement that the scheme can be broken in n^{O(log n)} time, where n is the key length and security parameter.
+- **Antecedent:** two assumptions, both stated in the abstract. First, that one can obtain a pseudorandom generator with small locality by connecting the outputs to the inputs using any sufficiently good unbalanced expander. Second, that it is hard to distinguish between a random graph that is such an expander and a random graph where a planted random logarithmic-sized subset S of the outputs is connected to fewer than |S| inputs. Both are conjectured, and the authors say they are not as well studied as the hardness of factoring.
+- **Algorithm class:** all polynomial time, conditionally, with the superpolynomial ceiling above.
+- **Does not establish:** public-key encryption from the standard planted clique conjecture, and does not establish security beyond n^{O(log n)} time. The authors record the second point as one of two major drawbacks.
+- **Abstract vs theorem:** none found. The abstract presents the assumptions as new and raises their validity and strength as open questions.
 
 ## Key Contributions
 
@@ -48,13 +64,28 @@ The paper's lasting impact: it established *that* PKE can be built from combinat
 
 ## Open Questions / Limitations
 
-- **Nonstandard assumptions**: the specific variants used (planted bipartite-dense-subgraph with |S|/3 neighbors, NC⁰ PRG) are *nonstandard*; whether PKE exists from *standard* PC was the open question closed by GHJS25 in 2025.
+- **Nonstandard assumptions**: the specific variants used, namely the planted logarithmic-size subset connected to fewer than |S| inputs and the small-locality PRG from an unbalanced expander, are *nonstandard*; whether PKE exists from *standard* PC was the open question closed by GHJS25 in 2025. _Corrected 2026-08-20: an earlier version of this bullet said |S|/3 neighbours, which does not appear in the paper._
+- **Superpolynomial ceiling**: the authors state that the scheme can be broken in n^{O(log n)} time, and say it is likely that other variants will allow subexponential rather than superpolynomial security.
 - **No implementation**: purely theoretical, with no concrete parameters analyzed.
 - **Subsequent attacks and refinements**: Followup papers (e.g., eprint 2024/359) found key-recovery attacks on specific related PKE schemes; GHJS25 avoids these.
 - **Applebaum's 2010 extension**: the STOC 2010 version adds concrete constructions via random local PRGs (Applebaum's contribution); this 2008 version has only 2 authors.
 
 ## Quotes / Notable Passages
 
-> "We construct new public-key encryption schemes based on new hardness-on-average assumptions for natural combinatorial NP-hard optimization problems."
+> _Not verbatim. Checked against `raw/BW08_PKCfromDifferentAssumptions.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary._
+>
+> We construct new public-key encryption schemes based on new hardness-on-average assumptions for natural combinatorial NP-hard optimization problems.
 
-> "It is infeasible to distinguish between a random unbalanced bipartite graph and such a graph in which a set S is 'planted' with only |S|/3 neighbors."
+> _Not verbatim, and materially wrong. Checked against `raw/BW08_PKCfromDifferentAssumptions.pdf` on 2026-08-20. The string `|S|/3` does not occur anywhere in the paper. The planted set is logarithmic in size and is connected to fewer than `|S|` inputs, not to `|S|/3` neighbours. Retained unquoted so the error is not repeated, and replaced by the paper's own sentence below._
+>
+> It is infeasible to distinguish between a random unbalanced bipartite graph and such a graph in which a set S is 'planted' with only |S|/3 neighbors.
+
+_The three passages below are verbatim, verified 2026-08-20._
+
+> "We construct a new public key encryption based on two assumptions:"
+
+> "It is hard to distinguish between a random graph that is such an expander and a random graph where a (planted) random logarithmic-sized subset S of the outputs is connected to fewer than |S| inputs."
+
+> "the scheme is far less efficient and secure than might be hoped: it can be broken in n^{O(log n)} time, where n is the key length / security parameter of the system."
+
+The exponent in the last passage is set as a superscript, which `pdftotext` flattens; the surrounding prose matches exactly.

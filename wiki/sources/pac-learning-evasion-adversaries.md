@@ -3,9 +3,12 @@ title: "PAC-learning in the Presence of Evasion Adversaries"
 type: source
 date_ingested: 2026-04-12
 authors: [Daniel Cullina, Arjun Nitin Bhagoji, Prateek Mittal]
-venue: "NeurIPS 2018 (arXiv:1806.01471)"
+venue: "NeurIPS 2018 (venue unconfirmed from PDF: raw/CBM18_PACEvasionAdversaries.pdf is arXiv:1806.01471v2 [stat.ML] and names no venue; the attribution is carried over from the earlier ingest)"
 year: 2018
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory, evasion-attacks]
+claim_quantifier: universal
+antecedent: "For the sample-complexity bound, a binary hypothesis class H and a nearness relation R, with the adversarial VC dimension of the corrupted class finite. For the halfspace theorem, the perturbation set must be a nonempty closed convex origin-symmetric subset of R^d, which covers every ℓp ball with p ≥ 1 but excludes non-convex and asymmetric perturbation sets."
+date_verified: 2026-08-20
 ---
 
 ## Summary
@@ -17,6 +20,14 @@ The key concrete result: for halfspace classifiers in R^d with any convex, origi
 The authors also show AVC can be *either larger or smaller* than the standard VC-dimension, depending on H and R, making it an interesting dimension in its own right.
 
 Historical context: this paper set up a uniform-convergence-style theory that Montasser–Hanneke–Srebro (COLT 2019) subsequently showed was fundamentally inadequate for general H (finite VC classes may not admit *proper* robust learning; AVC can be infinite even when VC is finite).
+
+## Claim Boundary
+
+- **Quantified over:** the upper bound is universal over hypothesis classes and nearness relations, conditional on the adversarial VC dimension being finite. The halfspace equality AVC = VC = d+1 is quantified over all convex origin-symmetric perturbation sets, for one hypothesis class. The incomparability result is existential in both directions: there exist H, R with AVC ≫ VC and others with AVC ≪ VC.
+- **Antecedent:** finiteness of the adversarial VC dimension. This is the clause the follow-up literature broke — [Montasser, Hanneke and Srebro 2019](vc-classes-adversarially-robustly-learnable.md) exhibit classes with vc(H) ≤ 1 whose corrupted class has unbounded VC dimension, so the antecedent can fail for classes that are nonetheless robustly learnable improperly.
+- **Which party is constrained:** the **learner**, in sample complexity, and further restricted to adversarial ERM, which is a proper rule. The adversary is unbounded in computation and constrained only by the nearness relation R, a geometric object. No compute is priced on either side.
+- **Does not establish:** (i) that finite AVC characterizes robust learnability — it is sufficient within the uniform-convergence framework and is not necessary; (ii) that RERM suffices in general, which the 2019 follow-up refutes; (iii) any efficient procedure for computing AVC beyond halfspaces; (iv) anything about training-time attacks.
+- **Abstract vs theorem:** none found. The abstract restricts the halfspace result to "a sample-wise norm-constrained adversary of the type commonly studied for evasion attacks" and presents the incomparability as making the dimension "an interesting object of study in its own right", not as a characterization.
 
 ## Key Contributions
 
@@ -56,6 +67,8 @@ Historical context: this paper set up a uniform-convergence-style theory that Mo
 
 ## Quotes / Notable Passages
 
-> "We extend the Probably Approximately Correct (PAC)-learning framework to account for the presence of an adversary... We derive the Vapnik-Chervonenkis (VC)-dimension for these, denoted as the adversarial VC-dimension."
+> "In particular, we extend the Probably Approximately Correct (PAC)-learning framework to account for the presence of an adversary. We first define corrupted hypothesis classes which arise from standard binary hypothesis classes in the presence of an evasion adversary and derive the Vapnik-Chervonenkis (VC)-dimension for these, denoted as the adversarial VC-dimension."
+>
+> _Corrected 2026-08-20 against `raw/CBM18_PACEvasionAdversaries.pdf`. This page previously elided the middle clause and restarted the second sentence as "We derive the…", which is not in the paper; the full abstract sentences are restored._
 
 > "The adversarial VC-dimension can be either larger or smaller than the standard VC-dimension depending on the hypothesis class and adversary."

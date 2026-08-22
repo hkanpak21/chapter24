@@ -1,0 +1,40 @@
+% One number, one place. Every number in the paper comes from here, and every
+% macro here comes from a counted pass over the corpus or over wiki/sources.
+% Regenerate the corpus counts with tools/corpus-counts.sh.
+
+% Corpus, counted 2026-08-22.
+\newcommand{\NumPapers}{186}          % PDFs in raw/
+\newcommand{\NumSources}{181}         % source pages in wiki/sources/
+\newcommand{\NumConcepts}{83}
+\newcommand{\NumEntities}{116}
+
+% Mapping results. Filled by the Part V generator; do not hand-edit.
+\newcommand{\NumUnstated}{\textbf{??}}
+\newcommand{\NumPriced}{\textbf{??}}
+
+% --- Numbers used in Part I. Each traces to a wiki source page that was
+% --- verified against the primary PDF in the 2026-08-22 audit.
+% mia-from-first-principles, blind-baselines-beat-mia, sok-mia-llms-rushing-nowhere,
+% do-mias-work-on-llms
+\newcommand{\MIAnewMethods}{ten}      % new MIA methods proposed in 2024 alone
+\newcommand{\MIAblindSets}{eight}     % published MI evaluation datasets beaten by blind baselines
+\newcommand{\MIAwikiLo}{0.988}        % bag-of-words AUC on WikiMIA, low
+\newcommand{\MIAwikiHi}{0.994}        % bag-of-words AUC on WikiMIA, high
+\newcommand{\MIAmimirAUC}{0.6}        % ceiling on MIMIR outside GitHub
+% obfuscated-gradients
+\newcommand{\OGpopulation}{nine}      % non-certified ICLR 2018 defences claiming white-box robustness
+\newcommand{\OGobfuscated}{seven}     % of those relying on obfuscated gradients
+\newcommand{\OGbrokenFull}{six}
+\newcommand{\OGbrokenPart}{one}
+% adaptive-attacks-defenses
+\newcommand{\AAdefences}{thirteen}
+% dos-and-donts-ml-security
+\newcommand{\DDpapers}{30}            % papers from CCS, S&P, USENIX Security, NDSS
+\newcommand{\DDpitfalls}{ten}
+\newcommand{\DDminPitfalls}{three}    % pitfalls affecting every one of the 30
+% sok-black-box-attack-pitfalls
+\newcommand{\BBattacks}{164}
+\newcommand{\BBmajorVenue}{102}
+
+% Corpus breadth, counted over wiki/sources/ front-matter tags on 2026-08-22.
+\newcommand{\NumMIApages}{21}         % source pages mentioning membership inference

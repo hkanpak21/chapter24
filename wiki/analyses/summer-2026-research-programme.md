@@ -16,7 +16,7 @@ tags: [reading-guide, programme, chapter-24, formal-security, complexity-theory,
 
 ## Question / Motivation
 
-Mursit is building **Chapter 24** of Arora–Barak ([../../output/chapter_24.md] — the lödeg↔nannosh dialogue):
+Mursit is building **Chapter 24** of Arora–Barak ([../../exp/docs/notes/chapter-24.md] — the lödeg↔nannosh dialogue):
 a **learning system is a first-class abstract machine**. One universal machine `U`: a **source** `Π`
 (a `U`-program on a uniform seed), a **learner** `L` that synthesizes an advice string `w` from
 membrane-bounded access to `Π`, and inference `M_w = U(w,·)` for `t_eval` steps. "Model" = time-bounded
@@ -171,7 +171,7 @@ Arc: **reductions → non-uniformity/randomness → one-wayness/average-case →
   the fiber findable in polynomial time given `w` and bounded side information? Working conjecture — the
   fiber at information exponent `k` is a **degree-`k` variety**, affine and navigable at `k = 1` (the OLS
   reconstruction case), tensor-shaped and plausibly hard at `k ≥ 3`. A negative answer closes the
-  geometric route in weeks. See [fibers-of-the-training-map](../../output/fibers-of-the-training-map.md).
+  geometric route in weeks. See [fibers-of-the-training-map](../../exp/docs/notes/fibers-of-the-training-map.md).
 
 ### Phase D — Interactive proofs, verification & synthesis · **W11–W14 (Aug 31 – Sep 30)**
 
@@ -228,17 +228,17 @@ not on a fixed week. Stated explicitly so nothing is silently dropped.
   remains a candidate wiki ingest for whenever convenient.)*
 - **New concept pages to create when their definitions stabilize:** `comp-mem-game`, `comp-tw-schema`,
   `capability-vector-kappa`, `learning-adversary`, `kt-on-u`, `the-membrane`, `tau-staircase`,
-  `keystone-universal-generalizing`. They currently exist only as prose in [../../output/chapter_24.md].
-- Each Phase deliverable is a dialogue turn appended to [../../output/chapter_24.md]; the Durak coda (W13–14)
+  `keystone-universal-generalizing`. They currently exist only as prose in [../../exp/docs/notes/chapter-24.md].
+- Each Phase deliverable is a dialogue turn appended to [../../exp/docs/notes/chapter-24.md]; the Durak coda (W13–14)
   is a future analysis page.
 - Confirm the two unverified raw titles (`S25_PACLearningSurvey`, `20344_Statistically_Undetectab`) — see
   [../../raw/SOURCES.md].
 
 ## References
 
-- [../../output/chapter_24.md] — the lödeg↔nannosh dialogue (the theory this programme serves; 3 phases,
+- [../../exp/docs/notes/chapter-24.md] — the lödeg↔nannosh dialogue (the theory this programme serves; 3 phases,
   Phase-2 verdict = "organizing theory," Phase-3 = AIOracle unification).
-- [../../output/ideas.md] — Mursit's critique of Mahloujifar & Durak motivating the `κ`-game.
-- [intro-computational-security-of-learning](../../output/intro-computational-security-of-learning.md) —
+- [../../exp/docs/notes/ideas.md] — Mursit's critique of Mahloujifar & Durak motivating the `κ`-game.
+- [intro-computational-security-of-learning](../../exp/docs/notes/intro-computational-security-of-learning.md) —
   the blog-style field introduction (companion to this schedule).
 - [reading-pathway-formal-security](reading-pathway-formal-security.md) — depth order within each cluster.

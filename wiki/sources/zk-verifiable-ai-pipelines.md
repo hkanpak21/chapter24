@@ -3,30 +3,45 @@ title: A Framework for Cryptographic Verifiability of End-to-End AI Pipelines
 type: source
 date_ingested: 2026-04-12
 authors: [Kar Balan, Robert Learney, Tim Wood]
-venue: IWSPA (ACM International Workshop on Security and Privacy Analytics)
+venue: "IWSPA '25 (ACM International Workshop on Security and Privacy Analytics), 6 June 2025, Pittsburgh, stated in the PDF's own footer (arXiv:2503.22573v1, 28 Mar 2025)"
 year: 2025
 tags: [cryptography, zero-knowledge-proofs, ml-verification, commitments, formal-models, compliance]
+claim_quantifier: empirical
+antecedent: "none. No theorem is stated, so nothing rests on a hypothesis."
+adversary_bound: "none stated. The paper surveys proof systems whose soundness is computational by construction, but it defines no adversary and proves nothing about one."
+date_verified: 2026-08-20
 ---
 
 ## Summary
-This is a **framework / gap-analysis paper**, not a theorem-proving paper. Balan, Learney, and Wood (Digital Catapult + Surrey) propose a six-stage cryptographic verifiability framework for AI pipelines — (1) raw data verification, (2) extraction & analysis, (3) model training, (4) model evaluation, (5) inference, (6) unlearning — and survey which cryptographic tools (digital signatures, cryptographic commitments, zero-knowledge proofs) are deployable at each stage. They then identify gaps where current ZK tooling is either absent or too inefficient to be linkable across stages.
+This is a **framework and gap-analysis paper**, not a theorem-proving paper. Balan (University of Surrey, DECaDE), Learney and Wood (Digital Catapult) propose a six-stage cryptographic verifiability framework for AI pipelines — (1) verification of raw dataset, (2) extraction and analysis, (3) model training, (4) model evaluation, (5) model inference, (6) machine unlearning — and survey which cryptographic tools are deployable at each stage. The organising requirement is that each process be shown to have run honestly *and* that the inputs of each process be the outputs of the previous one.
 
-The paper's formal content is limited to standard textbook definitions of ZKPs (completeness, soundness, zero-knowledge), commitments (hiding, binding), and digital signatures (EUF-CMA). The novelty is the *mapping exercise*: C2PA / content provenance for stage 1; federated-learning ZK (e.g., ZKAUDIT, KAIZEN, zkPoT) for stage 3; zkDL/zkCNN/zkLLM-style ZK inference for stage 5; machine-unlearning ZKPs (FairProof, zkPoUL, Eisenhofer et al.) for stage 6. The gap section highlights (i) the lack of linkable provenance across stages, (ii) the cost of ZK-SNARKs for large models (zkLLM: 803s per 13B token), and (iii) inconsistency between ZKPoT and ZKPoI representations.
+The paper's formal content is limited to standard definitions. The novelty is the mapping exercise, together with the observation that no work has yet achieved a full end-to-end verifiable pipeline. Its stated conclusion is that cryptographic tools must be efficiently **linkable** across processes, not merely efficient in isolation.
 
-**Flag to wiki**: this paper is less formal than the brief suggested. It is a systems/policy survey with cryptographic flavor, not an impossibility or verification theorem. Useful for the wiki as an entry point to ZK-for-ML tooling and for EU AI Act compliance context, but does not contribute new formal security definitions or proofs.
+**Correction, 2026-08-20.** Three tools previously named here are absent from the paper: `zkLLM`, `snarkGPT` and `zkPoUL`. The figure "zkLLM: 803s per 13B token" does not appear in it either, and neither does "Bulletproofs" or "Art. 17". The claim that "ZKPoT and ZKPoI use incompatible polynomial representations of models" also overstates: the paper says the two kinds of scheme "often use different, sometimes bespoke proof systems that are not directly compatible, e.g. quantisation is done differently", calls this "not an insurmountable challenge", and names ZKAUDIT as a system that already links the two directly. Tools that are in the paper: C2PA, ZKAUDIT, KAIZEN, zkDL, zkCNN, DECORAIT, FairProof, vTune, and Eisenhofer et al.
+
+## Claim Boundary
+
+- **Quantified over:** the survey covers the tools its authors reviewed as of early 2025. There is no universal claim and no theorem. The one general statement — that no work has yet achieved a full end-to-end verifiable pipeline — is qualified by the authors as "to the authors' knowledge".
+- **Antecedent:** none, since nothing is proved.
+- **Which party is constrained:** none is modelled. The proof systems surveyed are computationally sound, so a prover is implicitly polynomial-time bounded, but the paper defines no adversary, no game and no advantage. A reader looking here for a formal threat model will not find one.
+- **Does not establish:** any impossibility, any soundness guarantee for a composed pipeline, or any efficiency claim of its own. It also does not establish that ZKPs hide what a reader might assume: the paper notes that ZKPoTs do not hide the training process, since it is encoded in the public proof or verification algorithm, and that in ZKPoI the model architecture is the proof circuit and so is publicly accessible.
+- **Abstract vs theorem:** there is no theorem. The abstract is a description of a framework and reads as one.
+
+**Flag to wiki**: this paper is less formal than its framing suggests. It is a systems and policy survey with cryptographic flavour, not an impossibility or verification theorem. Useful as an entry point to ZK-for-ML tooling and for EU AI Act compliance context, but it contributes no new formal security definitions or proofs.
 
 ## Key Contributions
-- Six-stage framework for cryptographic verifiability across the AI lifecycle.
-- Categorization of existing tools (C2PA, ZKAUDIT, KAIZEN, zkDL, zkCNN, zkLLM, FairProof, ZKPoUL, DECORAIT, snarkGPT) by pipeline stage.
-- Gap analysis: no end-to-end linkable proof system exists; ZKPoT and ZKPoI use incompatible polynomial representations of models.
-- Regulatory framing around EU AI Act, GDPR Art. 17, CCPA.
+- Six-stage framework for cryptographic verifiability across the AI lifecycle, with the linking requirement between consecutive stages as the organising idea.
+- Categorisation of existing tools by pipeline stage: C2PA and DECORAIT for provenance, ZKAUDIT and KAIZEN for training, zkDL and zkCNN for inference, FairProof for fairness certificates, vTune for fine-tuning, Eisenhofer et al. for unlearning. **Correction, 2026-08-20:** zkLLM, ZKPoUL and snarkGPT were listed here and are not in the paper.
+- Gap analysis: to the authors' knowledge no work has achieved a full end-to-end verifiable pipeline, and ZKPoI and ZKPoT schemes often use different, sometimes bespoke proof systems that are not directly compatible — though ZKAUDIT already links them, showing feasibility.
+- The observation that ZKPoI takes an *arithmetised* model as input, so the user must trust that the circuit honestly represents the model; linking ZKPoI to ZKPoT is what closes that gap.
+- Regulatory framing around the EU AI Act, GDPR and CCPA. **Correction, 2026-08-20:** the specific citation "GDPR Art. 17" was here and does not appear in the paper.
 
 ## Key Definitions / Theorems
 No new theorems. Standard definitions invoked:
 - **ZKP (completeness / soundness / zero-knowledge)** — interactive proof between prover P and verifier V.
 - **Commitment (hiding / binding)**.
 - **Digital signature (EUF-CMA)**.
-- Classes discussed: zk-SNARK, zk-STARK, Bulletproofs, NIZK.
+- Classes discussed: zk-SNARK, zk-STARK, NIZK. **Correction, 2026-08-20:** Bulletproofs was listed here and does not appear in the paper.
 
 ## Connections
 - ZK for ML inference connects to the broader program of [verifiable computation](../concepts/verifiable-computation.md) applied to learning.
@@ -41,6 +56,33 @@ No new theorems. Standard definitions invoked:
 - No treatment of privacy leakage *from* a ZKP about a model (side-channel through proof structure).
 
 ## Quotes / Notable Passages
-"ZKPs do not necessarily hide algorithms used … and so a ZKPoT doesn't hide implementation details if the representation of the model differs, for example, from that of a ZKPoI."
 
-"We propose a framework for end-to-end verifiable AI pipelines, identifying key components and analyzing existing cryptographic tools … [and] identify the gaps and challenges."
+> _Not verbatim. Checked against `raw/BLW25_ZKMLVerification.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> ZKPs do not necessarily hide algorithms used … and so a ZKPoT doesn't hide implementation details if the representation of the model differs, for example, from that of a ZKPoI.
+
+> _Not verbatim. Checked against `raw/BLW25_ZKMLVerification.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> We propose a framework for end-to-end verifiable AI pipelines, identifying key components and analyzing existing cryptographic tools … [and] identify the gaps and challenges.
+
+Verified against `raw/BLW25_ZKMLVerification.pdf` on 2026-08-20.
+
+> "In this paper, we propose a framework for complete verifiable AI pipelines, identifying key components and analyzing existing cryptographic approaches that contribute to verifiability across different stages of the AI lifecycle, from data sourcing to training, inference, and unlearning."
+
+— abstract. The paper says "complete", not "end-to-end", and "approaches", not "tools".
+
+> "ZKPs do not necessarily hide algorithms such as the training process, so regulators may need to verify proofs of proprietary models on behalf of users to allow service providers to keep their model architectures private while giving strong cryptographic security guarantees."
+
+— §5, on what zero knowledge does not buy.
+
+> "ZKPoTs do not hide the training process (which is often a trade secret) since it is essentially encoded in the (public) proof and/or verification algorithm."
+
+— §4.2, the same point stated sharply.
+
+> "while ZKPoI ensures that sensitive information like model weights and input data remain private, the model architecture itself is the ZKP circuit, and is thus publicly accessible."
+
+— §4.3, the inference-side counterpart.
+
+> "Our findings underscore the importance of ongoing research to develop cryptographic tools that are not only efficient for isolated AI processes, but that are efficiently 'linkable' across different processes within the AI pipeline, to support the development of end-to-end verifiable AI technologies."
+
+— abstract, the paper's own conclusion.
