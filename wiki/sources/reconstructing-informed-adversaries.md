@@ -3,7 +3,7 @@ title: Reconstructing Training Data with Informed Adversaries
 type: source
 date_ingested: 2026-08-22
 authors: [Borja Balle, Giovanni Cherubin, Jamie Hayes]
-venue: "venue unconfirmed from PDF (the file carries only arXiv:2201.04845v2 [cs.CR], 25 Apr 2022)"
+venue: "IEEE S&P (43rd IEEE Symposium on Security and Privacy, 2022, pp. 1138-1156; the ingested PDF carries no venue line, venue read from three independent bibliographies in this corpus, including CHSS24_Attaxonomy)"
 year: 2022
 tags: [adversarial-ml, reconstruction, computational-indistinguishability, sample-complexity]
 claim_quantifier: conditional

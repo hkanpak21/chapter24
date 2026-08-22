@@ -16,3 +16,7 @@ exp/survey/main.pdf
 
 # --- Per-machine Claude Code settings ---
 .claude/settings.local.json
+
+# --- Google Drive Desktop sync scratch ---
+.tmp.driveupload/
+.tmp.drivedownload/
