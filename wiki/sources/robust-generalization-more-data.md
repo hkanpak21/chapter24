@@ -13,7 +13,7 @@ cls_target: outputs
 cls_family: evade
 cls_phase: test time
 cls_access: white box
-cls_write: none
+cls_write: read only
 cls_frame: capability
 cls_party: attacker
 cls_unit: perturbation

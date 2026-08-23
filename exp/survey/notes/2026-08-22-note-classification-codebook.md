@@ -73,7 +73,7 @@ because tags were applied for retrieval and not for classification.
 | `family` | `membership`, `reconstruct`, `extract`, `evade`, `poison`, `backdoor`, `forge`, `none` | `forge` covers proof-of-learning spoofing and unlearning forgery. `evade audit` covers evading a detector, monitor, filter or verifier, which is a different act from evading a classifier. `none` for foundational and cryptographic works. |
 | `phase` | `train time`, `test time`, `post hoc`, `n/a` | `post hoc` is an adversary acting on a released model with no further training. |
 | `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `channel`, `none` | The strongest access the main claim grants. `hard label` returns the top class only, `scores` a confidence vector, `black box` query access whose form the work does not fix. |
-| `write` | `read only`, `corpus`, `model`, `responses`, `channel`, `none` | Whether the adversary may write, and to what. `responses` is an adversary that may alter an oracle's answers in transit. |
+| `write` | `read only`, `corpus`, `model`, `responses`, `channel`, `none` | What the adversary may modify **in the system's persistent state**. An adversary that only crafts its own input, as every evasion adversary does, changes nothing persistent and is `read only`. `corpus` writes into training data, `model` into parameters, `responses` alters an oracle's answers in transit, `channel` writes into a communication channel between components. `none` is reserved for works with no adversary at all, and must not be used merely because the work describes no query interface. |
 | `frame` | `compute`, `statistical`, `capability`, `none` | `compute` when a computational resource bounds some party, meaning time, circuit size, memory, queries or an algorithm class. `statistical` when the only bound is an information-theoretic quantity, in practice sample complexity, and the work says nothing about computation. `capability` when a party is bounded in what it may do rather than in what it may spend, which in this corpus means a perturbation radius, a corruption fraction or a privacy budget. `none` when no party is bounded at all. |
 
 ## Table 2. Adversary assumptions and claim shape
@@ -234,3 +234,17 @@ that subset is probably correct, since a game's one half is a genuine baseline.
 Learning-theory results in it probably are not. This is one field over at most 54
 rows and is cheap to redo; it should be done in one pass at the end rather than
 piecemeal.
+
+---
+
+## `assessed` needs a second pass, like `baseline`
+
+17 rows carry a constrained party but leave `assessed` blank. Rule 5 says a blank
+`assessed` goes with `party = none`, so these are inconsistent with the rule rather
+than with each other. The likely cause is that classifiers read `assessed` as
+applying only where a *second* bound exists, which is not what it means: it records
+whether the work assesses the party's resources on purpose or leaves the quantity as
+a side condition, and that question has an answer whenever a party is bounded at all.
+
+Like `baseline`, this is one field over a bounded set of rows and should be redone in
+one pass rather than patched. Both re-passes can run together.
