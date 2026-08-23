@@ -9,6 +9,23 @@ tags: [adversary-knowledge-taxonomy, differential-privacy, data-reconstruction-a
 claim_quantifier: universal
 antecedent: "For the DistReRo results: ε-DP, independent target priors, a fixed reconstruction loss ℓ and threshold η."
 adversary_bound: knowledge (auxiliary information, access level, target source) — NOT runtime, NOT function class, NOT query count
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "'computational' occurs once in the paper, describing 'efficient computational methods for estimating the ReRo guarantees' (the defender's estimation cost, §2 related work); no runtime bound on the attacker A appears in Def 4.1-4.12 or the Attacker role dimensions of §3"
+cls_reason: "Classified on the DistReRo technical contribution (Def 4.4-4.12) over the broader knowledge taxonomy, per rule 1. frame/party/unit/tightness are none because the taxonomy's only axis is adversary knowledge and the ReRo/DistReRo theorems place no bound on the attacker A's runtime anywhere. baseline=stated because κ_{D,ℓ}(η) is treated as a first-class object, with Corollaries 4.7/4.11 stated relative to it."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

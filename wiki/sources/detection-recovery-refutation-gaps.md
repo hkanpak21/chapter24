@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "a slight variation of the planted clique hypothesis with secret leakage, introduced by Brennan and Bresler. Conjectured."
 algorithm_class: "all poly-time conditionally"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "For any sequence of (randomized) polynomial-time algorithm φn : GNn → [N ]Kn , φn cannot achieve asymptotic exact recovery on PDS(Nn , Kn , pn , qn ) assuming k-PC."
+cls_evidence_src: Cor 11
+cls_reason: "party=learner not attacker: no adversary or security game, only a poly-time algorithm attempting statistical recovery; classified on the lead recovery claim over the co-equal refutation claim (rule 1); target/family/phase/access/write are none/none/n/a/none/none since no ML system or attack scenario is present."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "The learning algorithm M is differentially private — the paper instantiates it with the Sampled Gaussian Mechanism — and the cumulative reward is bounded in a range [0, b]. The certified bound also needs a lower bound on the clean policy's return J(pi), which is estimated by sampling."
 adversary_bound: "none — the adversary has full knowledge of the MDP and unbounded computation. It is bounded by r, the number of trajectories or transitions it may add, delete, or alter, which is a counting budget on the training data."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: white box
+cls_write: corpus
+cls_frame: capability
+cls_party: attacker
+cls_unit: corruption
+cls_tightness: budget
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "Assume an adversary can make up to r changes, including additions, deletions, or alterations, to the trajectories within a clean dataset D"
+cls_evidence_src: Def 3.1
+cls_reason: "access=white box because the threat model grants the adversary full knowledge of the MDP and all historical transitions (§3, quoted in the wiki page), the strongest available access value though the field is normally used for model-query access rather than environment knowledge. second=none: the learner/mechanism M is also constrained, to differential privacy (Sampled Gaussian Mechanism, Thm 4.2's antecedent), but the DP budget epsilon has no matching value in the unit vocabulary (not time, queries, samples, memory, algo class, parameters, perturbation, corruption, or rounds) -- flagged as a vocabulary gap rather than guessed. frame=capability per rule 6 since r is a corruption count, not a compute bound, and the adversary_bound note states the adversary has unbounded computation."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

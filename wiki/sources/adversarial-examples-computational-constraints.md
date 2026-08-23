@@ -12,6 +12,23 @@ adversary_bound: "the learner is restricted to the statistical query model, with
 model_class: "binary classifiers on R^d, ℓ₂ and ℓ∞"
 algorithm_class: "statistical query algorithms"
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second: perturbation
+cls_assessed: explicit
+cls_evidence: "This example gives an exponential separation between classical learning and robust learning in the statistical query model."
+cls_evidence_src: abstract
+cls_reason: "Two parties are bounded (learner restricted to the SQ model; evasion adversary by a norm-ball radius, per the front matter's own adversary_bound field). By Rule 4 the computational bound decides the row: party=learner, unit=algo class, tightness=class (matches precedent: what-can-we-learn-privately, an SQ-restricted learner, got the identical unit/tightness pair), and the perturbation bound goes in second. access=none: grepped the PDF for 'white-box'/'black-box'/'threat model', zero hits; the evasion adversary is a norm ball with no operationalized query procedure, matching the other two evasion papers in this batch."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

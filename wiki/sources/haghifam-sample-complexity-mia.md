@@ -10,6 +10,23 @@ claim_quantifier: universal
 antecedent: "The dimension must exceed the threshold at which a fully informed attacker succeeds, d > c_1(n + n^2 ρ^2). The hard instances are Gaussian populations with spiked covariance Σ = I_d + σ^2 U U^T, σ^2 ≳ d, and the mean estimator is pinned to the noisy empirical mean. Under the complementary hypothesis, when the attacker already knows Σ, Theorem 1.2 gives m ≳ min{n, 1/ρ^2}, which never exceeds n."
 adversary_bound: "Samples only. The attack is an arbitrary function ψ_m : (R^d)^m × R^d × R^d → {IN, OUT} of m auxiliary i.i.d. samples, the released mean and the target point. It is unbounded in computation, in space and in queries. It is also required to succeed for EVERY population in the family and every ρ-accurate symmetric algorithm, so the bound is minimax over the family rather than pointwise against one population."
 tags: [sample-complexity, adversarial-ml, learning-theory, reconstruction]
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: weights
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second: samples
+cls_assessed: explicit
+cls_evidence: "every sample-based MIA for the Gaussian mean estimation problem (Section 1.1) requires m ≳ n²ρ² + n samples"
+cls_evidence_src: Thm 1.1
+cls_reason: "access=weights because μ̂ is the whole released object with no further model structure to query; second=samples records the trainer's own n against which the attacker's m is measured; frame=compute stretches the codebook's compute/capability split to cover a sample bound, since capability is defined narrowly as perturbation or corruption and the paper itself calls the attacker computationally unbounded."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Verified against `raw/HSU25_SampleComplexityMIA.pdf` on 2026-08-22.** The bound, the setting, the

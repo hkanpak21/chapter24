@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "A bounded safety reward R_safe(x,y) <= R_max; a given prompt distribution p_0 and an adversarial prompt distribution p_adv; and rho_safe, the trajectory distribution of an already safety-aligned model, taken as given. The bound is vacuous when the KL between p_0 and p_adv is large, and the paper does not bound it."
 adversary_bound: "none — the adversary is an unrestricted optimizer over prompt distributions. It is constrained only by a KL regularizer to the natural prompt distribution, which prices similarity, not compute."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second: none
+cls_assessed:
+cls_evidence: "The adversarial prompt distribution in (2), padv, is defined as a solution to a KL-regularized optimization problem that minimizes expected reward Rsafe relative to p0, with regularization parameter β."
+cls_evidence_src: Eq. 2 / Thm 1 discussion
+cls_reason: "Classified on Theorem 1 (the suboptimality bound), not the empirical ASR reduction, per rule 1. frame/party/unit/tightness are none because neither party carries a compute bound: the adversary is an unrestricted argmin regularized only by a KL similarity term, and the defender's α is a decoding hyperparameter, not a resource bound, matching the wiki page's own Claim Boundary finding 'neither, in any resource'. baseline=stated from the paper's ASR-vs-base-model comparisons even though Theorem 1 itself carries no baseline framing."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

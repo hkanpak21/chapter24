@@ -9,6 +9,23 @@ tags: [complexity theory, low-degree-polynomials, statistical-computational-gaps
 claim_quantifier: conditional
 antecedent: "Every result assumes a vanishing degree-D truncated chi-squared divergence between the planted distribution P and the null N at a degree D above a stated threshold, and every result is stated about a NOISY version of P rather than P itself. Two of the three additionally require the planted distribution to be permutation invariant; the third, on symmetric polynomials, does not need that hypothesis because the test class is already symmetric."
 adversary_bound: "restricted test classes. Result 1 bounds all distinguishers whatever their running time; result 2 bounds statistics of symmetric polynomials of degree at most O(log n / log log n); result 3 bounds statistics of a single constant-sized signed subgraph count."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: auditor
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "no statistic based on symmetric polynomials of degree at most O(log n/ log log n) can distinguish between a noisy version of P from N (0, 1)n ."
+cls_evidence_src: abstract, Result 2
+cls_reason: "Classified on Result 2 (Gaussian vector, degree-restricted symmetric polynomials), the algorithm-class-restricted shape shared with Result 3, over Result 1. Result 1 (Boolean, full statistical indistinguishability against every distinguisher of any running time) is listed first in the abstract and is a strictly stronger, unconditional special case that the paper says is likely false in the matrix/tensor settings; a literal reading of rule 1 ('classify on what the abstract leads with') would instead give frame=none, party=none, unit=none, tightness=unstated for Result 1. Flagged for a second reader: this paper does not present one claim of a single shape."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

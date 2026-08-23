@@ -10,6 +10,23 @@ claim_quantifier: universal
 antecedent: "none. The certificate follows from the differential privacy of the scoring function, which is a property of the injected noise, not a computational assumption."
 adversary_bound: "none. Neither party is bounded in computation. The attacker is constrained only geometrically, by a p-norm ball of radius 1 on the input features, and the certificate is a statement about that ball."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "It is natural to constrain the amount of change an attacker is allowed to make to the input, and often this is measured by the p-norm of the change"
+cls_evidence_src: "§II, framing before Def. of B_p(r)"
+cls_reason: "Textbook fit for Rule 5: front matter already states neither party is bounded computationally, only the attacker's p-norm ball of radius 1 (verified verbatim against raw/LAGHJ19_PixelDP.pdf), giving party=attacker, unit=perturbation, tightness=budget, frame=capability directly. access=none since the certificate is a worst-case-over-the-ball statement; the paper never uses 'white-box' or 'black-box' language (grepped, zero hits) and specifies no query model. second=none: the front matter is explicit that the defender's Monte Carlo sampling budget affects only the confidence interval of the estimate, not a formal bound entering the theorem, so it is not a second party's resource."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

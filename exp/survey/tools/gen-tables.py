@@ -27,10 +27,12 @@ OUT = os.path.join(SUR, "sections", "03-tables.tex")
 VALUES = {
     "party":     ["attacker", "learner", "auditor", "mechanism", "none"],
     "unit":      ["time", "circuit size", "queries", "samples", "memory",
-                  "algo class", "parameters", "none"],
+                  "algo class", "parameters", "perturbation", "corruption",
+                  "rounds", "none"],
     "phase":     ["train time", "test time", "post hoc", "n/a"],
-    "access":    ["black box", "scores", "white box", "weights", "gradients", "none"],
+    "access":    ["hard label", "scores", "black box", "white box", "weights", "gradients", "none"],
     "tightness": ["unstated", "poly", "class", "budget", "exponent", "measured"],
+    "frame":     ["compute", "capability", "none"],
     "family":    ["membership", "reconstruct", "extract", "forge", "evade",
                   "poison", "backdoor", "none"],
 }

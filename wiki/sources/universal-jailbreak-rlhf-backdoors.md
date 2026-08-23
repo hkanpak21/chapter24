@@ -10,6 +10,23 @@ claim_quantifier: empirical
 antecedent: "The attacker can mislabel a fraction of the human preference annotations and the same prompts are shared between the reward-modelling and RLHF fine-tuning phases. The 5% figure is measured, not derived."
 adversary_bound: "none in any resource. The attacker is bounded by its share of the annotation stream — the fraction of preference labels it controls — which is a data budget, not a compute, query, or memory budget."
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: capability
+cls_party: attacker
+cls_unit: corruption
+cls_tightness: measured
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "an attacker producing only 0.5% of the human preference data can reduce the reward model's accuracy in detecting harmful generations from 75% to 44% in the presence of the trigger"
+cls_evidence_src: abstract
+cls_reason: "Empirical paper, no theorem (Claim Boundary: 'Every number is measured. The paper contains no theorem, lemma, or proof'), so tightness=measured rather than budget even though the unit itself is a corruption fraction. The attacker only supplies poisoned preference labels and never queries the model, so access=none; the labels are written into the preference corpus, so write=corpus. frame=capability per the front matter's own statement that the bound is 'a data budget, not a compute, query, or memory budget'."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

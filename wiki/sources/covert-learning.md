@@ -12,6 +12,23 @@ adversary_bound: "polynomial-time. In Covert Learning the untrusted intermediary
 model_class: "concepts given by a concept oracle over {0,1}^n; hypothesis classes of parities, bounded-degree Fourier characters, polynomial-size decision trees, s-DNF, s-juntas"
 algorithm_class: "polynomial-time learners with membership-query access, plus random examples in the verifiable model"
 date_verified: 2026-08-20
+cls_target: training run
+cls_family: none
+cls_phase: train time
+cls_access: hard label
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "every query and response obtained by the learner is also obtained by a computationally bounded adversary"
+cls_evidence_src: §1.1.1
+cls_reason: "Wiki page flagged unreliable per assignment (invented LWE/halfspace/theorem content); classified fresh from raw/CK21_CovertLearning.pdf. family=none per codebook convention for foundational cryptographic works, since the eavesdropping intermediary does not fit membership/reconstruct/extract/forge/evade/poison/backdoor. target=training run because the privacy goal covers the query-response transcript and the learner's hypothesis-class choice jointly (hypothesis-hiding), not a static dataset. access=hard label because the concept oracle returns y in {0,1} (Def 2.5); the intermediary receives this passively rather than querying itself, a nuance worth flagging. write=read only reflects the base Covert Learning model (Def 1.1/2.7, the abstract's first bullet); Covert Verifiable Learning (second bullet) additionally lets the intermediary modify oracle responses, which fits no write value cleanly."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

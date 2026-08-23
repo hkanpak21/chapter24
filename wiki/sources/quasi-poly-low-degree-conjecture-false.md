@@ -9,6 +9,23 @@ tags: [complexity theory, low-degree-polynomials, statistical-computational-gaps
 claim_quantifier: existential
 antecedent: "none for the refutation itself. The constructions are unconditional. The first uses list decoding of Reed-Solomon codes in the high-error regime; the second is an explicit pair of rotation-invariant matrix distributions."
 adversary_bound: "the object refuted is a bound on adversaries. The conjecture asserted that vanishing low-degree advantage rules out noise-tolerant distinguishers of a given running time, and the paper exhibits distinguishers that survive."
+cls_target: none
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: budget
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "the corresponding ε-noisy distinguishing problem can be solved in n^{O(log^{1/(k−1)}(n))} time"
+cls_evidence_src: abstract
+cls_reason: "Classified on the exhibited distinguisher of Thm 1.3, which the page's own Claim Boundary calls 'ordinary algorithms' not restricted to any class, so unit=time rather than algo class. No vocabulary value cleanly fits a quasi-polynomial runtime; budget was chosen as the closest (an explicit, stated runtime, no honest-party relation to compare it against) and is flagged as a vocabulary gap. second=none because the paper's substance is one distinguisher characterized under two resource axes, algorithm class and time, not two distinct bounded parties, which the second field does not capture."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

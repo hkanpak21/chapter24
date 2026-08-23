@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "Hardness (Theorem 3.3 / Corollary 3.4) is conditional on the quantum worst-case hardness of O(d/tau)-approximate SVP (Conjecture 2.3), routed through the CLWE hardness of Bruna-Regev-Song-Tang (Theorem 2.2). It additionally requires POLYNOMIALLY SMALL BOUNDED ADVERSARIAL noise: |xi| <= beta with beta/(L tau) = omega(sqrt(log d)), gamma = omega(sqrt(log d)) (Cor 3.4: gamma >= 2 sqrt(d), gamma/tau = poly(d))."
 model_class: "Periodic neurons over isotropic Gaussian inputs: F_gamma^phi = {f(x) = phi(gamma <w,x>) : w in S^{d-1}} with phi 1-periodic, L-Lipschitz, [-1,1]-valued. Cosine neuron f(x) = cos(2 pi gamma <w,x>) is the running case. Well-approximated by a poly(gamma)-width ONE-HIDDEN-LAYER ReLU network on compact sets (their Appendix E) - the network statement is via approximation, not native."
 algorithm_class: "ALL polynomial-time algorithms (conditional on the lattice assumption), strictly extending prior gradient-based and SQ lower bounds; the positive results are an exponential-time cover-search algorithm and a poly-time LLL-based algorithm"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second: perturbation
+cls_assessed: explicit
+cls_evidence: "such learning task is hard for any polynomial-time algorithm, based on the widely-believed cryptographic assumption that (approximate) SVP is computationally intractable against quantum algorithms"
+cls_evidence_src: "§1 (Introduction)"
+cls_reason: "target=none and family=none per codebook convention for foundational cryptographic hardness-of-learning works; there is no adversary attacking a trained model, only a reduction pricing the learner. party=learner (not attacker) per rule 3: the bound (all polynomial-time algorithms) binds the learning algorithm, and the Summary states this explicitly ('this paper prices the learner, not an attacker'). second=perturbation for the beta-bounded adversarial noise on labels (Cor 3.4: beta/tau = omega(sqrt(log d))), a capability-style bound on a distinct quantity from the learner's poly-time bound, not itself a resource-bounded strategic party. baseline=stated from Definition 2.1's trivial-loss/edge formulation."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

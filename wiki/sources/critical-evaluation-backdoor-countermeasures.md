@@ -8,6 +8,23 @@ year: 2022
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology]
 claim_quantifier: existential
 antecedent: none
+cls_target: parameters
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in any of the three defenses' threat models, §II-C and §III; the paper's own claim is that the failures hold with no stronger attacker introduced anywhere"
+cls_reason: "party=none/frame=none is the paper's own finding, not an omission the classifier is guessing around: it demonstrates each defense failing entirely inside its own declared threat model, and the Claim Boundary is explicit that this does not establish anything about attacker resources. Confirmed verbatim against raw/QMZ+22_CriticalEvalBackdoorCounter.pdf (grep -a, line 25): 'not even rooted from delicate adaptive attacks.' target=parameters and access=white box follow because Neural Cleanse, ABS and MNTD are described as 'model-inspection' countermeasures examining an already-trained model's weights/activations, matching the target used elsewhere in the corpus for the backdoor family (planting-undetectable-backdoors). assessed left blank rather than 'implicit': the paper explicitly disclaims assessing attacker resources at all, which is stronger than the quantity being merely a side condition."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

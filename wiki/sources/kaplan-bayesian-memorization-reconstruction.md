@@ -10,6 +10,23 @@ claim_quantifier: existential
 antecedent: "The security results are proved for one mechanism (the exact average, or the Laplace-noised average) under one meta-distribution (Tardos-Prior, Definition 3.3), with side conditions N ≥ n ≥ Ω(1) and d ≥ Ω(log(n/δ)), and for the Hamming reconstruction relation at γ ≤ 1/25 (Lemma 3.5) or its two-sided variant (Lemma 3.7). No claim is made for arbitrary mechanisms or arbitrary relations, and the authors state that the exact average is NOT secure for the relation 'z is the average of S'."
 adversary_bound: "None. Every definition in the paper (3.1, 3.6, 4.1, 4.4, 4.11) reads 'for all attackers A', and the side-information versions add 'and every side information function SideInfo'. The attacker is unbounded in time, in space and in queries. The word 'computational' in the paper's own usage means extraction-based, in the proof-of-knowledge sense, not time-bounded."
 tags: [reconstruction, computational-indistinguishability, learning-theory, cryptography]
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second: none
+cls_assessed:
+cls_evidence: "Algorithm M is (ε, δ, Prior, R)-Bayesian extraction-safe if for all attackers A it holds that"
+cls_evidence_src: Def 3.1
+cls_reason: "party=none/unit=none/tightness=unstated/frame=none per rule 2: every security definition in the paper (3.1, 3.6, 4.1, 4.4, 4.11) quantifies over all attackers with no time, query, or space bound, and the front matter's adversary_bound confirms this is unbounded in every resource, including running time never being mentioned. This is a positive security result against a genuinely unbounded attacker, not an impossibility result, so rule 6 (impossibility still has a party) does not apply. access=white box: the attacker receives the mechanism's full output z=M(S) with no query restriction, mirroring the reconstructing-informed-adversaries precedent. baseline=stated from the Narcissus-resiliency comparison against a fresh sample T from Nature (Claim Boundary, 'The baseline')."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against `raw/KMNS26_BayesianMemorization.pdf` on 2026-08-22.** The framing question, the

@@ -9,6 +9,23 @@ tags: [adversarial-ml, learning-theory, differential-privacy, low-degree-polynom
 claim_quantifier: existential
 antecedent: "For post-processing: a composition-closure condition on the function classes (i ∘ g ∈ H for all g ∈ G, i ∈ I). For parallel/sequential composition: H1, H2 convex and translation invariant (and containing a constant function, for sequential). For generalization: H must contain {h_x : x ∈ X} where h_x(q) = q(x)."
 adversary_bound: function class (the attack algorithm is drawn from a restricted class H); NOT runtime
+cls_target: train data
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "bounded not in computational power, but in terms of the function class from which their attack algorithm is drawn"
+cls_evidence_src: abstract
+cls_reason: "family=none and phase=n/a follow the general-DP-definition pattern also used for computational-differential-privacy in this corpus, since the paper names no specific attack family or ML lifecycle stage; unit=algo class and tightness=class follow directly from the H-restricted divergence definition."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

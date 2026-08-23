@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "the model class. Equivalence is proved for Gaussian additive models and the implication for planted sparse models. Outside these classes the paper exhibits counterexamples where the two criteria disagree."
 algorithm_class: "low-degree, plus local MCMC as a corollary"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "we say that the hypothesis testing problem above is hard for the degree-D likelihood or simply low-degree hard if LD(D) = O(1)"
+cls_evidence_src: Def 1.3
+cls_reason: "No ML adversary or target: the bound is on the estimator's algorithm class (degree-D polynomials, Def 1.3), so party=learner, unit=algo class, tightness=class, by analogy to what-can-we-learn-privately. Corollary 2.18's local-MCMC bound is the same party under a second algorithm class rather than a second party, so second=none."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

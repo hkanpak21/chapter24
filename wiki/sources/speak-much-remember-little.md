@@ -9,6 +9,23 @@ tags: [cryptography, bounded-storage-model, complexity-theory, computational-ind
 claim_quantifier: universal
 antecedent: "none for the constructions, which are unconditional. The lower bounds carry an antecedent about the model: Theorem 7.4 holds in the unbounded processing model, Theorem 7.7 in the fully streaming model, both for protocols with delta-correctness and (m, epsilon) security where delta - epsilon = Omega(1)."
 adversary_bound: "memory. The adversary is a streaming algorithm with m bits of memory and unbounded computational power. The constructions additionally tolerate an adversary given unlimited short term memory during long rounds who must compress to m bits at the end of each."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: memory
+cls_tightness: exponent
+cls_baseline: stated
+cls_second: memory
+cls_assessed: explicit
+cls_evidence: "we can allow arbitrarily large gaps between m and n, up to exponential m = 2O(n)"
+cls_evidence_src: "§1 (Main Result)"
+cls_reason: "party=attacker and unit=memory even though the codebook's revision-2 note flags 'attacker × memory' as expected to stay empty in the corpus: the paper's own text is unambiguous that the eavesdropper is bounded at m bits with unbounded time, and rule 4's tie-break defaults to the adversary when both parties carry the same-type bound; second=memory records the honest parties' separately stated n-bit bound."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

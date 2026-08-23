@@ -1,25 +1,25 @@
-slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	assessed
-mia-from-first-principles	train data	membership	post hoc	scores	read only	in	attacker	time	measured	stated	implicit
-blind-baselines-beat-mia	train data	membership	post hoc	none	read only	out	none	none	unstated	stated	
-do-mias-work-on-llms	train data	membership	post hoc	scores	read only	out	none	none	unstated	stated	
-mia-cannot-prove-training	train data	membership	post hoc	scores	read only	in	auditor	time	unstated	stated	implicit
-reconstructing-informed-adversaries	train data	reconstruct	post hoc	white box	read only	out	none	none	unstated	stated	
-jagielski-model-extraction	parameters	extract	post hoc	black box	read only	in	attacker	algo class	class	absent	explicit
-active-learning-model-extraction	parameters	extract	post hoc	black box	read only	in	attacker	queries	budget	absent	explicit
-cryptanalytic-extraction-nn	parameters	extract	post hoc	scores	read only	in	attacker	queries	measured	absent	implicit
-calibrated-proof-of-work-extraction	parameters	extract	post hoc	black box	read only	in	attacker	time	measured	stated	explicit
-beyond-labeling-oracles	parameters	extract	post hoc	black box	read only	out	none	none	unstated	absent	
-proof-of-learning	training run	forge	post hoc	white box	model	in	attacker	time	unstated	absent	explicit
-obfuscated-gradients	outputs	evade	test time	white box	read only	out	none	none	unstated	stated	
-adaptive-attacks-defenses	outputs	evade	test time	white box	read only	out	none	none	unstated	stated	
-curse-of-concentration	outputs	evade	test time	none	read only	out	none	none	unstated	n/a	
-adversarial-spheres	outputs	evade	test time	none	read only	out	none	none	unstated	n/a	
-empirically-measuring-concentration	outputs	evade	test time	none	read only	out	none	none	unstated	n/a	
-universal-law-of-robustness	none	none	train time	none	none	in	learner	parameters	budget	n/a	explicit
-planting-undetectable-backdoors	parameters	backdoor	train time	black box	model	in	auditor	time	poly	stated	explicit
-win-win-robust-learning	none	evade	train time	none	none	in	learner	time	poly	n/a	explicit
-raz-parity-time-space	none	none	train time	none	none	in	learner	memory	budget	n/a	explicit
-what-can-we-learn-privately	train data	none	train time	none	none	in	learner	algo class	class	n/a	explicit
-computational-differential-privacy	train data	none	n/a	none	none	in	attacker	time	poly	stated	explicit
-fine-grained-one-way-functions	none	none	n/a	none	none	in	attacker	circuit size	exponent	n/a	explicit
-pkc-fine-grained-setting	none	none	n/a	none	none	in	attacker	time	exponent	n/a	explicit
+slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	second	assessed
+mia-from-first-principles	train data	membership	post hoc	scores	read only	compute	attacker	time	measured	stated	none	implicit
+blind-baselines-beat-mia	train data	membership	post hoc	none	read only	none	none	none	unstated	stated	none	
+do-mias-work-on-llms	train data	membership	post hoc	scores	read only	none	none	none	unstated	stated	none	
+mia-cannot-prove-training	train data	membership	post hoc	scores	read only	compute	auditor	time	unstated	stated	none	implicit
+reconstructing-informed-adversaries	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none	
+jagielski-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	algo class	class	absent	none	explicit
+active-learning-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	queries	budget	absent	none	explicit
+cryptanalytic-extraction-nn	parameters	extract	post hoc	scores	read only	compute	attacker	queries	measured	absent	none	implicit
+calibrated-proof-of-work-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	time	measured	stated	none	explicit
+beyond-labeling-oracles	parameters	extract	post hoc	black box	read only	none	none	none	unstated	absent	none	
+proof-of-learning	training run	forge	post hoc	white box	model	compute	attacker	time	unstated	absent	none	explicit
+obfuscated-gradients	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	explicit
+adaptive-attacks-defenses	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	explicit
+curse-of-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit
+adversarial-spheres	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit
+empirically-measuring-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit
+universal-law-of-robustness	none	none	train time	none	none	compute	learner	parameters	budget	n/a	none	explicit
+planting-undetectable-backdoors	parameters	backdoor	train time	black box	model	compute	auditor	time	poly	stated	none	explicit
+win-win-robust-learning	none	evade	train time	none	none	compute	learner	time	poly	n/a	perturbation	explicit
+raz-parity-time-space	none	none	train time	none	none	compute	learner	memory	budget	n/a	none	explicit
+what-can-we-learn-privately	train data	none	train time	none	none	compute	learner	algo class	class	n/a	none	explicit
+computational-differential-privacy	train data	none	n/a	none	none	compute	attacker	time	poly	stated	none	explicit
+fine-grained-one-way-functions	none	none	n/a	none	none	compute	attacker	circuit size	exponent	n/a	none	explicit
+pkc-fine-grained-setting	none	none	n/a	none	none	compute	attacker	time	exponent	n/a	none	explicit

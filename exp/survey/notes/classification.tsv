@@ -1,182 +1,50 @@
-slug	key	year	target	family	phase	access	write	frame	party	unit	tightness	baseline	assessed	quantifier	antecedent	prov
-active-learning-model-extraction	CCGJY19	2019												conditional	stated	F:quantifier,antecedent
-adaptive-attacks-defenses	TCBM20	2020												existential	none	F:quantifier,antecedent
-adaptive-test-time-defenses-eval	CGBSHC22	2022												empirical	none	F:quantifier,antecedent
-adaptive-vs-oblivious-streaming	KMNS21	2021												existential	stated	F:quantifier,antecedent
-adds-adaptive-diffusion-smoothing	SLDLN25	2025												conditional	stated	F:quantifier,antecedent
-adversarial-examples-computational-constraints	BPR19	2019												existential	stated	F:quantifier,antecedent
-adversarial-examples-prg	BLPR18	2018												conditional	stated	F:quantifier,antecedent
-adversarial-spheres	GMFSRWG18	2018												existential	stated	F:quantifier,antecedent
-adversarial-vulnerability-any-classifier	FFF18	2018												conditional	stated	F:quantifier,antecedent
-adversarially-robust-pac-regression	AH23	2023												universal	stated	F:quantifier,antecedent
-adversary-aware-dp-bounds	SAHBS26	2026												universal	stated	F:quantifier,antecedent
-are-gans-overkill-for-nlp	AGK22	2022												conditional	stated	F:quantifier,antecedent
-attaxonomy	CHSS24	2024												universal	stated	F:quantifier,antecedent
-auditable-unlearning-definitions	TJSP22	2022												existential	stated	F:quantifier,antecedent
-authentication-bounded-storage	DQW22	2022												universal	stated	F:quantifier,antecedent
-average-case-fine-grained-hardness	BRSV17	2017												conditional	stated	F:quantifier,antecedent
-average-case-parity-problems	DLSW25	2025												conditional	stated	F:quantifier,antecedent
-backdoor-defense-learnability-obfuscation	CHLX25	2025												conditional	stated	F:quantifier,antecedent
-bandeira-franz-parisi-criterion	BAHSWZ22	2022												conditional	stated	F:quantifier,antecedent
-barak-sos-lower-bound-planted-clique	BHKKMP16	2016												universal	stated	F:quantifier,antecedent
-beyond-labeling-oracles	SSEP24	2024												empirical	stated	F:quantifier,antecedent
-blind-baselines-beat-mia	DZT25	2025												empirical	stated	F:quantifier,antecedent
-bogdanov-low-degree-planted-subgraph	BJRZ24	2024												existential	stated	F:quantifier,antecedent
-bounded-storage-simple-schemes	GZ19	2019												universal	stated	F:quantifier,antecedent
-brennan-sq-lowdegree-equivalence	BBHLS21	2021												conditional	stated	F:quantifier,antecedent
-bruna-continuous-lwe	BRST21	2021												conditional	stated	F:quantifier,antecedent
-bsm-key-agreement-owf	BCEQ24	2024												conditional	stated	F:quantifier,antecedent
-calibrated-proof-of-work-extraction	DKLP22	2022												empirical	stated	F:quantifier,antecedent
-camel-defeating-prompt-injections	DSFHCFKSTT25	2025												empirical	stated	F:quantifier,antecedent
-capacity-bounded-dp	CIM19	2019												existential	stated	F:quantifier,antecedent
-catch-a-chinchilla-compute-monitoring	Sha23	2023												conditional	stated	F:quantifier,antecedent
-cdp-inner-product-implies-ot	HMSTY25	2025												conditional	stated	F:quantifier,antecedent
-cdp-wider-parameter-regimes	MR25	2025												conditional	stated	F:quantifier,antecedent
-certificates-statistical-algorithms	NK26	2026												conditional	stated	F:quantifier,antecedent
-certified-defenses-data-poisoning	SKL17	2017												conditional	stated	F:quantifier,antecedent
-certified-robustness-differential-privacy	LAGHJ19	2019												universal	stated	F:quantifier,antecedent
-certified-robustness-randomized-smoothing	CRK19	2019												universal	stated	F:quantifier,antecedent
-cohen-data-reconstruction	CKMMNST24	2024												conditional	stated	F:quantifier,antecedent
-complexity-theoretic-adversarial-ml	Mah19	2019												conditional	stated	F:quantifier,antecedent
-computational-concentration-of-measure-etesami	EMM20	2020												universal	stated	F:quantifier,antecedent
-computational-differential-privacy	MPRV09	2009												existential	stated	F:quantifier,antecedent
-computational-hardness-robust-learning	GJMM20	2020												existential	stated	F:quantifier,antecedent
-covert-learning	CK21	2021												conditional	stated	F:quantifier,antecedent
-critical-evaluation-backdoor-countermeasures	QMZAKFG22	2022												existential	none	F:quantifier,antecedent
-cryptanalytic-extraction-nn	CJM20	2020												empirical	stated	F:quantifier,antecedent
-crypto-backdoor-boon-bane	NCM25	2025												empirical	stated	F:quantifier,antecedent
-cryptography-from-planted-graphs	ABIKN23	2023												conditional	stated	F:quantifier,antecedent
-curse-of-concentration	MDM19	2019												conditional	stated	F:quantifier,antecedent
-data-concentration-robustness-avoidable	PSV23	2023												conditional	stated	F:quantifier,antecedent
-deep-learning-differential-privacy	ACGMMTZ16	2016												empirical	stated	F:quantifier,antecedent
-detection-recovery-refutation-gaps	BJ23	2023												conditional	stated	F:quantifier,antecedent
-difficulty-of-mia	RL21	2021												empirical	stated	F:quantifier,antecedent
-ding-low-degree-community-detection	DHSS25	2025												conditional	stated	F:quantifier,antecedent
-dinur-nissim-revealing-information	DN03	2003												universal	stated	F:quantifier,antecedent
-distribution-inference-risks	SE22	2022												empirical	stated	F:quantifier,antecedent
-do-mias-work-on-llms	DSMMSZTCEH24	2024												empirical	stated	F:quantifier,antecedent
-dos-and-donts-ml-security	AQPWPWCR22	2022												empirical	none	F:quantifier,antecedent
-dp-adaptive-analysis-bounded-space	DSWZ23	2023												conditional	stated	F:quantifier,antecedent
-dp-against-timing-attacks	RV24	2024												universal	stated	F:quantifier,antecedent
-empirically-measuring-concentration	MZME19	2019												empirical	stated	F:quantifier,antecedent
-evaluating-nn-backdoor-defenses	VG20	2020												existential	none	F:quantifier,antecedent
-extending-formalism-cryptography-ai	VDKMR26	2026												conditional	stated	F:quantifier,antecedent
-feldman-statistical-algorithms-planted-clique	FGRVX17	2017												universal	stated	F:quantifier,antecedent
-filter-impossibility-ai-alignment	BGGKRR25	2025												existential	stated	F:quantifier,antecedent
-fine-grained-cryptography	DVV16	2016												conditional	stated	F:quantifier,antecedent
-fine-grained-erm	BIS17	2017												conditional	stated	F:quantifier,antecedent
-fine-grained-gradient-llm	AS24	2024												conditional	stated	F:quantifier,antecedent
-fine-grained-nike-lower-bounds	ACMS23	2023												existential	stated	F:quantifier,antecedent
-fine-grained-nike-revisited	BCS24	2024												conditional	stated	F:quantifier,antecedent
-fine-grained-one-way-functions	BC22	2022												existential	stated	F:quantifier,antecedent
-fine-grained-world-without-crypto	AHY25	2025												conditional	stated	F:quantifier,antecedent
-forgeability-and-unlearning	KCC23	2023												empirical	stated	F:quantifier,antecedent
-formalizing-llm-agent-security	SHMWGWS26	2026												empirical	stated	F:quantifier,antecedent
-gamarnik-circuit-lower-bounds-pspin	GJW22a	2022												universal	stated	F:quantifier,antecedent
-gamarnik-hardness-random-optimization-circuits	GJW22b	2022												universal	stated	F:quantifier,antecedent
-generative-exponent-single-index	DPLB24	2024												conditional	stated	F:quantifier,antecedent
-generative-leap-multi-index	DLB25	2025												conditional	stated	F:quantifier,antecedent
-haghifam-sample-complexity-mia	HSU25	2025												universal	stated	F:quantifier,antecedent
-hardness-one-hidden-layer	LZZ24	2024												conditional	stated	F:quantifier,antecedent
-hardness-single-periodic-neurons	SZB21	2021												conditional	stated	F:quantifier,antecedent
-hirahara-planted-clique-conjectures-equivalent	HS24	2024												universal	stated	F:quantifier,antecedent
-holmgren-counterexamples-low-degree	HW21	2021												existential	stated	F:quantifier,antecedent
-immune-rlhf-jailbreak-defense	GCSGWVBHMB25	2025												conditional	stated	F:quantifier,antecedent
-impossibility-retrain-equivalence	YHGA25	2025												conditional	stated	F:quantifier,antecedent
-imtm-prompt-injections-protocols	FTHMLD25	2025												empirical	stated	F:quantifier,antecedent
-information-exponent-online-sgd	AGJ21	2021												universal	stated	F:quantifier,antecedent
-io-undetectable-backdoors-nn	KKOSVZ24	2024												existential	stated	F:quantifier,antecedent
-jagielski-model-extraction	JCBKP20	2020												existential	stated	F:quantifier,antecedent
-jailbreak-paradox	RCA24	2024												existential	stated	F:quantifier,antecedent
-kaplan-bayesian-memorization-reconstruction	KMNS25	2025												existential	stated	F:quantifier,antecedent
-kernel-quantum-renyi-audit	DM22	2022												existential	stated	F:quantifier,antecedent
-lamp-gradient-inversion	BDJV22	2022												empirical	stated	F:quantifier,antecedent
-language-model-preserve-privacy	BLMST22	2022												conditional	stated	F:quantifier,antecedent
-lb-latent-models-clustering	EGV25	2025												universal	stated	F:quantifier,antecedent
-lean-rademacher-formalization	SKMTO26	2026												universal	stated	F:quantifier,antecedent
-leap-complexity-sgd	ABM23	2023												conditional	stated	F:quantifier,antecedent
-learnability-deep-random-networks	DGKP19	2019												universal	stated	F:quantifier,antecedent
-learning-in-pessiland	HN23	2023												conditional	stated	F:quantifier,antecedent
-lefcert-foundation-models	LXSWLGZX25	2025												conditional	stated	F:quantifier,antecedent
-limits-cdp-client-server	GKY11	2011												conditional	stated	F:quantifier,antecedent
-low-degree-almost-orthonormal	CGGV25	2025												universal	stated	F:quantifier,antecedent
-low-degree-estimation-schramm-wein	SW22	2022												universal	stated	F:quantifier,antecedent
-low-degree-polynomials-survey	Wei25	2025												conditional	stated	F:quantifier,antecedent
-lower-bounds-robust-pac-learning	DMM19	2019												conditional	stated	F:quantifier,antecedent
-maxmin-rlhf-impossibility	CQYKMHBW24	2024												conditional	stated	F:quantifier,antecedent
-melon-indirect-prompt-injection	ZYWGW25	2025												conditional	stated	F:quantifier,antecedent
-membership-inference-shokri	SSSS17	2017												empirical	stated	F:quantifier,antecedent
-merged-staircase-property	ABM22	2022												existential	stated	F:quantifier,antecedent
-merkle-puzzles-are-optimal	BM09	2009												universal	stated	F:quantifier,antecedent
-mia-cannot-prove-training	ZDKT25	2025												conditional	stated	F:quantifier,antecedent
-mia-from-first-principles	CCNSTT22	2022												empirical	stated	F:quantifier,antecedent
-multi-level-certified-offline-rl	LCMER25	2025												conditional	stated	F:quantifier,antecedent
-multi-party-poisoning	MMM19	2019												universal	stated	F:quantifier,antecedent
-naat-certified-semantic-smoothing	CYDS26	2026												conditional	stated	F:quantifier,antecedent
-nike-without-idealized-assumptions	WSPX24	2024												conditional	stated	F:quantifier,antecedent
-noise-sensitivity-exponent	DKLM26	2026												conditional	stated	F:quantifier,antecedent
-obfuscated-gradients	ACW18	2018												existential	none	F:quantifier,antecedent
-oblivious-defense-backdoor-removal	GSVV25	2025												conditional	stated	F:quantifier,antecedent
-on-evaluating-adversarial-robustness	CAPBRTGMK19	2019												empirical	none	F:quantifier,antecedent
-overparameterization-computational-constraints	GJMMW22	2022												existential	stated	F:quantifier,antecedent
-pac-learning-evasion-adversaries	CBM18	2018												universal	stated	F:quantifier,antecedent
-permissionless-consensus-fine-grained	BGHKP24	2024												conditional	stated	F:quantifier,antecedent
-pkc-fine-grained-setting	LLW19	2019												conditional	stated	F:quantifier,antecedent
-pkc-from-different-assumptions	BW08	2008												conditional	stated	F:quantifier,antecedent
-pke-from-planted-clique	GHJS25	2025												conditional	stated	F:quantifier,antecedent
-planted-orthogonal-vectors	KPR25	2025												conditional	stated	F:quantifier,antecedent
-planting-undetectable-backdoors	GKVZ22	2022												existential	stated	F:quantifier,antecedent
-pol-incentive-security	ZFWCSXZ26	2026												conditional	stated	F:quantifier,antecedent
-pol-more-broken	FJTYCDCP23	2023												empirical	stated	F:quantifier,antecedent
-polo-proof-of-learning-ownership	DJYWWMNL26	2026												empirical	stated	F:quantifier,antecedent
-polynomial-time-cryptanalytic-extraction	CCHRSS24	2024												empirical	stated	F:quantifier,antecedent
-preventing-false-discovery-hard	HU14	2014												conditional	stated	F:quantifier,antecedent
-privacy-defense-evaluations-misleading	AZT24	2024												empirical	stated	F:quantifier,antecedent
-privacy-risk-overfitting	YGFJ18	2018												conditional	stated	F:quantifier,antecedent
-proof-of-learning	JYCDTCP21	2021												conditional	stated	F:quantifier,antecedent
-provable-defenses-convex-polytope	WK18	2018												universal	stated	F:quantifier,antecedent
-provably-robust-smoothadv	SYLZZRB19	2019												empirical	stated	F:quantifier,antecedent
-quasi-poly-low-degree-conjecture-false	BHJK25	2025												existential	stated	F:quantifier,antecedent
-query-complexity-reconstruction	ML24	2024												universal	stated	F:quantifier,antecedent
-raz-parity-time-space	Raz16	2016												universal	stated	F:quantifier,antecedent
-reconstructing-informed-adversaries	BCH22	2022												conditional	stated	F:quantifier,antecedent
-reducibility-statistical-computational-gaps	BB20	2020												conditional	stated	F:quantifier,antecedent
-reusing-batches-breaks-exponents	DTAPZK24	2024												universal	stated	F:quantifier,antecedent
-rigorous-implications-low-degree	HKKLMT26	2026												conditional	stated	F:quantifier,antecedent
-robust-estimators-high-dimensions	DKKLMS16	2016												existential	stated	F:quantifier,antecedent
-robust-generalization-more-data	SSTTM18	2018												existential	stated	F:quantifier,antecedent
-robust-multi-index-sq-bounds	DIKR25	2025												conditional	stated	F:quantifier,antecedent
-robust-pac-learning-characterization	MHS22	2022												universal	stated	F:quantifier,antecedent
-robust-single-index-efficient	WZDD24	2024												universal	stated	F:quantifier,antecedent
-robustbench	CASDFCMH21	2021												empirical	stated	F:quantifier,antecedent
-robustly-reliable-learners-poison	BBHS22	2022												universal	stated	F:quantifier,antecedent
-robustness-at-odds-accuracy	TSETM19	2019												existential	stated	F:quantifier,antecedent
-rs-llm-multi-agent	HDDH25	2025												conditional	stated	F:quantifier,antecedent
-rs-meets-vlm	SWKBC25	2025												conditional	stated	F:quantifier,antecedent
-separating-cdp-client-server	BCV16	2016												conditional	stated	F:quantifier,antecedent
-sequential-functions-fine-grained	GM24	2024												existential	stated	F:quantifier,antecedent
-seven-challenges-cross-domain-mas	KJZXKOS25	2025												empirical	stated	F:quantifier,antecedent
-sok-adversary-knowledge	FK24	2024												existential	none	F:quantifier,antecedent
-sok-backdoor-defense-evaluation	AKKTARXLNP25	2025												empirical	none	F:quantifier,antecedent
-sok-black-box-attack-pitfalls	SSZHTE24	2024												empirical	none	F:quantifier,antecedent
-sok-data-reconstruction-attacks	WLBZ25	2025												empirical	stated	F:quantifier,antecedent
-sok-differential-privacies	DP20	2020												universal	stated	F:quantifier,antecedent
-sok-mia-llms-rushing-nowhere	MSJFRM25	2025												empirical	stated	F:quantifier,antecedent
-sok-security-privacy-machine-learning	PMSW18	2018												empirical	stated	F:quantifier,antecedent
-song-cryptographic-hardness-score-estimation	Son24	2024												conditional	stated	F:quantifier,antecedent
-speak-much-remember-little	DQW21	2021												universal	stated	F:quantifier,antecedent
-suliman-data-forging-attacks	SHKBL25	2025												empirical	stated	F:quantifier,antecedent
-tolerant-robust-pac-learning	APU25	2025												universal	stated	F:quantifier,antecedent
-towards-separating-cdp	GIKKM23	2023												conditional	stated	F:quantifier,antecedent
-two-party-dp-complexity	HMST22	2022												conditional	stated	F:quantifier,antecedent
-undetectable-watermarks-lm	CGZ23	2023												existential	stated	F:quantifier,antecedent
-unelicitable-backdoors-lms	DGMRLW24	2024												empirical	stated	F:quantifier,antecedent
-universal-jailbreak-rlhf-backdoors	RT23	2023												empirical	stated	F:quantifier,antecedent
-universal-law-of-robustness	BS21	2021												conditional	stated	F:quantifier,antecedent
-unlearning-verification-fragile	ZCSL24	2024												existential	stated	F:quantifier,antecedent
-vc-classes-adversarially-robustly-learnable	MHS19	2019												universal	stated	F:quantifier,antecedent
-what-can-we-learn-privately	KLNRS08	2008												universal	stated	F:quantifier,antecedent
-win-win-robust-learning	DNV19	2019												conditional	stated	F:quantifier,antecedent
-xiao-formal-privacy-proof-data-encoding	XSD24	2024												conditional	stated	F:quantifier,antecedent
-zadik-lattice-surpass-sos	ZSWB22	2022												existential	stated	F:quantifier,antecedent
-zk-verifiable-ai-pipelines	BLW25	2025												empirical	stated	F:quantifier,antecedent
+slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	second	assessed	prov	src
+active-learning-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	queries	budget	absent	none	explicit	hand	hand
+adaptive-attacks-defenses	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	explicit	hand	hand
+adaptive-vs-oblivious-streaming	none	none	n/a	none	none	compute	mechanism	memory	exponent	stated	none	explicit	S	agent
+adversarial-examples-computational-constraints	outputs	evade	test time	none	read only	compute	learner	algo class	class	n/a	perturbation	explicit	P	agent
+adversarial-spheres	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit	hand	hand
+adversarially-robust-pac-regression	outputs	evade	test time	none	read only	compute	learner	samples	budget	n/a	none	explicit	P	agent
+attaxonomy	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none	cls_evidence: absent	P	agent
+bandeira-franz-parisi-criterion	none	none	train time	none	none	compute	learner	algo class	class	n/a	none	explicit	P	agent
+beyond-labeling-oracles	parameters	extract	post hoc	black box	read only	none	none	none	unstated	absent	none		hand	hand
+blind-baselines-beat-mia	train data	membership	post hoc	none	read only	none	none	none	unstated	stated	none		hand	hand
+calibrated-proof-of-work-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	time	measured	stated	none	explicit	hand	hand
+capacity-bounded-dp	train data	none	n/a	none	none	compute	attacker	algo class	class	stated	none	explicit	S	agent
+catch-a-chinchilla-compute-monitoring	training run	none	post hoc	none	none	none	none	none	unstated	n/a	none	cls_evidence: absent	S	agent
+certified-robustness-differential-privacy	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit	P	agent
+computational-differential-privacy	train data	none	n/a	none	none	compute	attacker	time	poly	stated	none	explicit	hand	hand
+covert-learning	training run	none	train time	hard label	read only	compute	attacker	time	poly	stated	none	explicit	P	agent
+critical-evaluation-backdoor-countermeasures	parameters	backdoor	post hoc	white box	read only	none	none	none	unstated	n/a	none	cls_evidence: absent	P	agent
+cryptanalytic-extraction-nn	parameters	extract	post hoc	scores	read only	compute	attacker	queries	measured	absent	none	implicit	hand	hand
+curse-of-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit	hand	hand
+detection-recovery-refutation-gaps	none	none	n/a	none	none	compute	learner	time	poly	n/a	none	explicit	P	agent
+do-mias-work-on-llms	train data	membership	post hoc	scores	read only	none	none	none	unstated	stated	none		hand	hand
+dp-against-timing-attacks	train data	none	n/a	none	none	compute	mechanism	time	budget	stated	none	explicit	S	agent
+empirically-measuring-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	explicit	hand	hand
+filter-impossibility-ai-alignment	outputs	evade	test time	black box	read only	compute	auditor	time	exponent	stated	none	implicit	P	agent
+fine-grained-erm	none	none	train time	none	none	compute	learner	time	exponent	n/a	none	explicit	P	agent
+fine-grained-one-way-functions	none	none	n/a	none	none	compute	attacker	circuit size	exponent	n/a	none	explicit	hand	hand
+haghifam-sample-complexity-mia	train data	membership	post hoc	weights	read only	compute	attacker	samples	exponent	stated	samples	explicit	S	agent
+hardness-single-periodic-neurons	none	none	n/a	none	none	compute	learner	time	poly	stated	perturbation	explicit	P	agent
+immune-rlhf-jailbreak-defense	outputs	evade	test time	white box	read only	none	none	none	unstated	stated	none	"cls_evidence: ""The adversarial prompt distribution in (2), padv, is defined as a solution to a KL-regularized optimization problem that minimizes expected reward Rsafe relative to p0, with regularization parameter β."	P	agent
+jagielski-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	algo class	class	absent	none	explicit	hand	hand
+kaplan-bayesian-memorization-reconstruction	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none	"cls_evidence: ""Algorithm M is (ε, δ, Prior, R)-Bayesian extraction-safe if for all attackers A it holds that"	P	agent
+low-degree-polynomials-survey	none	none	train time	none	none	compute	learner	algo class	class	n/a	none	explicit	P	agent
+mia-cannot-prove-training	train data	membership	post hoc	scores	read only	compute	auditor	time	unstated	stated	none	implicit	hand	hand
+mia-from-first-principles	train data	membership	post hoc	scores	read only	compute	attacker	time	measured	stated	none	implicit	hand	hand
+multi-level-certified-offline-rl	train data	poison	train time	white box	corpus	capability	attacker	corruption	budget	stated	none	explicit	P	agent
+obfuscated-gradients	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	explicit	hand	hand
+pkc-fine-grained-setting	none	none	n/a	none	none	compute	attacker	time	exponent	n/a	none	explicit	hand	hand
+planting-undetectable-backdoors	parameters	backdoor	train time	black box	model	compute	auditor	time	poly	stated	none	explicit	hand	hand
+proof-of-learning	training run	forge	post hoc	white box	model	compute	attacker	time	unstated	absent	none	explicit	hand	hand
+quasi-poly-low-degree-conjecture-false	none	none	train time	none	none	compute	learner	time	budget	n/a	none	explicit	P	agent
+raz-parity-time-space	none	none	train time	none	none	compute	learner	memory	budget	n/a	none	explicit	hand	hand
+reconstructing-informed-adversaries	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none		hand	hand
+rigorous-implications-low-degree	none	none	n/a	none	none	compute	auditor	algo class	class	n/a	none	explicit	P	agent
+robust-estimators-high-dimensions	train data	poison	train time	none	corpus	compute	learner	time	poly	n/a	corruption	explicit	P	agent
+speak-much-remember-little	none	none	n/a	none	none	compute	attacker	memory	exponent	stated	memory	explicit	S	agent
+universal-jailbreak-rlhf-backdoors	parameters	backdoor	train time	none	corpus	capability	attacker	corruption	measured	stated	none	explicit	P	agent
+universal-law-of-robustness	none	none	train time	none	none	compute	learner	parameters	budget	n/a	none	explicit	hand	hand
+what-can-we-learn-privately	train data	none	train time	none	none	compute	learner	algo class	class	n/a	none	explicit	hand	hand
+win-win-robust-learning	none	evade	train time	none	none	compute	learner	time	poly	n/a	perturbation	explicit	hand	hand

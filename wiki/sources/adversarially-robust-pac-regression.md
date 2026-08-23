@@ -9,6 +9,23 @@ tags: [adversarial-ml, PAC-learning, regression, fat-shattering, sample-complexi
 claim_quantifier: universal
 antecedent: "Finite γ-fat-shattering dimension of the real-valued function class, an ℓp loss, and an arbitrary perturbation set. For the proper-learning half, convexity of the function class. The training sample is i.i.d. and non-adversarial; the adversary acts at test time only."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "We show that classes of finite fat-shattering dimension are learnable in both realizable and agnostic settings."
+cls_evidence_src: abstract
+cls_reason: "frame=compute is a forced fit by elimination, not a clean match: the sole bound is sample complexity, a statistical resource, and the Claim Boundary states plainly that nothing here is computational; the three-value frame vocabulary has no category for a purely statistical bound. access=none and target=outputs follow the concentration-of-measure convention already in the corpus (worst-case perturbation set, no operationalized query model, cf. curse-of-concentration). tightness=budget: the closed-form sample-complexity expression is a definitional parameter, not a ratio to another party. second=none because U(x) is stated as an entirely arbitrary perturbation set carrying no bound of its own, so unit=perturbation does not apply to the adversary here despite the paper's subject being test-time perturbation."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

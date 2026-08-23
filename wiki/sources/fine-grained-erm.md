@@ -8,6 +8,23 @@ year: 2017
 tags: [complexity theory, hardness-reductions, learning-theory, fine-grained-complexity]
 claim_quantifier: conditional
 antecedent: "SETH — informally stated in the paper as: no algorithm decides satisfiability of a CNF formula with n variables and m clauses in time O(c^n · poly(m)) for some c < 2. Reductions run through Orthogonal Vectors (OVP) and Bichromatic Hamming Close Pair (BHCP), both known to require n^{2-o(1)} time for d = ω(log n) under SETH. Standard."
+cls_target: none
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "computing a gradient of the empirical risk for m examples takes at least O((nm)1−o(1) ) time assuming SETH."
+cls_evidence_src: Thm 10
+cls_reason: "party=learner and target/family=none because the wiki page states directly that the cost belongs to the learner, with no adversary or security game. tightness=exponent chosen over poly because the bound is a specific SETH-conditional near-quadratic exponent, not a bare 'no poly-time algorithm exists' statement (quadratic-time algorithms do solve the problem). Flagged as a judgement call: the codebook's exponent definition ('a stated relation to the honest party's work') was written for two-party fine-grained cryptography, and this paper has only one party — the exponent instead relates the lower bound to the naive/trivial algorithm's own cost."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/BIS17_FineGrainedERM.pdf`,

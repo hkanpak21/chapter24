@@ -9,6 +9,23 @@ tags: [robust-statistics, high-dimensional-statistics, algorithmic-statistics, p
 claim_quantifier: existential
 antecedent: "The distribution must lie in one of four named families — a single Gaussian, a product distribution on the hypercube, a mixture of two product distributions under a balancedness condition, or a mixture of spherical Gaussians — and the corrupted fraction ε must be bounded away from 1/2. Outside those families nothing is claimed."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second: corruption
+cls_assessed: explicit
+cls_evidence: "In this work, we obtain the first computationally efficient algorithms with dimension-independent error guarantees for agnostically learning several fundamental classes of high-dimensional distributions"
+cls_evidence_src: abstract
+cls_reason: "Both parties are bounded, in different currencies, per the page's own Claim Boundary: the defender in polynomial time, the adversary only in the ε-fraction of samples it may replace (strong contamination model). By Rule 4 the computational bound decides the row: party=learner, unit=time, tightness=poly, and the corruption fraction goes in second, a clean fit for the corruption unit. access=none: the adversary sees and replaces raw samples directly before any model is queried, so none of the query-access categories describe it. write=corpus: 'an adversary is allowed to arbitrarily corrupt an ε-fraction of the samples' (abstract, verbatim) is a direct write into the training data."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

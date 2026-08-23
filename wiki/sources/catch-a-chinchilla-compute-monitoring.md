@@ -8,6 +8,23 @@ year: 2023
 tags: [adversarial-ml, certification, verifiable-computation, governance]
 claim_quantifier: conditional
 antecedent: "The one proved theorem assumes a Poisson snapshotting process at rate f, perfect parallelism, uniform chip throughput a FLOPs/day, and a Verifier who samples s chips after the run. The framework as a whole assumes: on-chip firmware attested by hardware features; supply-chain accounting for every ML chip; and the existence of a Proof-of-Training-Transcript scheme that does not yet exist. No cryptographic or complexity assumption underlies the compute-hardness half."
+cls_target: training run
+cls_family: none
+cls_phase: post hoc
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in Theorem 1 (Appendix C.2), which is a Poisson-sampling probability with no party's resources restricted; Definition 1's F-hard/J-efficient PoTT clause does bound a spoof-generation algorithm by time F, but no (R,V) pair is proved F-hard for any F (§5.1), so the compute-hardness half has no construction to classify"
+cls_reason: "Two claims of different shape, per rule 1. The abstract's contribution (2), tied to the proven Theorem 1 and Equation (1), is a detection-sampling probability with no adversary resource bound at all (the Prover's chip-splitting strategy is unconstrained and simply fails to help); this is the row classified here. Definition 1 (PoTT) is the paper's named compute-bounded-adversary security definition (F-hard spoof-generation algorithms, J-efficient verifier) and would classify as target=training run, family=forge, party=attacker, unit=time, tightness=budget, frame=compute if it carried a proof, but it is explicitly deferred as future work with no (R,V) construction, so it does not decide the row. phase=post hoc is an imperfect fit: detection is backward-looking ('executed a rules-violating training run in the past few months') but the on-chip snapshotting occurs during the run itself; no phase value fits cleanly. family=none flagged as a vocabulary gap: chip-splitting to reduce detection probability is neither 'evade' (test-time classifier evasion) nor 'forge' (no false transcript is fabricated in Theorem 1) as those terms are used elsewhere in the codebook."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/S23_CatchAChinchilla.pdf`, extracted

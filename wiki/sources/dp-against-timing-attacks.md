@@ -9,6 +9,23 @@ tags: [differential-privacy, verifiable-computation, impossibility-frameworks]
 claim_quantifier: universal
 antecedent: "An idealized cost model — RAM or Word RAM, every instruction one time step. Timing-stable programs must have O(n) runtime (Lemma 30). The delay-based constructions yield approximate rather than pure DP."
 adversary_bound: unbounded (the adversary observes runtime in addition to output and is otherwise unrestricted); the compute being modelled is the MECHANISM's
+cls_target: train data
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: mechanism
+cls_unit: time
+cls_tightness: budget
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "Timing-stable programs have O(n) runtime"
+cls_evidence_src: Lemma 30
+cls_reason: "party=mechanism because the paper prices the mechanism's own runtime as the leakage channel while the adversary stays explicitly unbounded, per the wiki page's own framing; tightness=budget rather than exponent since O(n) is a forced ceiling tied to input size, not a stated ratio to a second party's own resource use."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

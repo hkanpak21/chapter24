@@ -9,6 +9,23 @@ tags: [adaptive-data-analysis, cryptography, complexity-theory, bounded-storage-
 claim_quantifier: existential
 antecedent: "none for Theorem 1.2 and Theorem 5.10, which are information theoretic. The variant in Section 6, described as more natural, yields only a computational separation. The result rests on the Steinke and Ullman adaptive data analysis lower bound for natural algorithms, Theorem 5.6, which is unconditional."
 adversary_bound: "none — the bound is on the DEFENDER. The space bound w is on the streaming algorithm. The adaptive Adversary in the streaming game is unrestricted in space and in time. Within the proof the roles invert: the streaming algorithm plays the space-bounded adversary against a bounded storage model pseudorandom generator."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: mechanism
+cls_unit: memory
+cls_tightness: exponent
+cls_baseline: stated
+cls_second: none
+cls_assessed: explicit
+cls_evidence: "We present a streaming problem for which every adversarially-robust streaming algorithm must use polynomial space, while there exists a classical (oblivious) streaming algorithm that uses only polylogarithmic space."
+cls_evidence_src: abstract
+cls_reason: "party=mechanism rather than learner, mirroring the wiki page's own contrast with Raz ('there the learner'); the Adversary in the two-player game is explicitly unrestricted in space and time, so second=none; tightness=exponent records the adaptive-vs-oblivious space gap as the relation to the honest (oblivious) baseline."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary
