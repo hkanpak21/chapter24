@@ -8,6 +8,24 @@ year: 2024
 claim_quantifier: conditional
 antecedent: "Bounded parallel-time construction: NC1 ⊊ ⊕L/poly, a worst-case class separation. Bounded-time construction: the strong Zero-k-Clique-R hypothesis, an average-case fine-grained hypothesis taken from LaVigne-Lincoln-Vassilevska Williams. Bounded-storage construction: none — unconditional."
 tags: [cryptography, fine-grained-cryptography, key-exchange, circuit-complexity, bounded-storage-model, lower-bounds]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: algo class
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "If NC1 ⊊ ⊕L/poly holds, then for any constant np, NCNIKE is an AC0[2]-np-NIKE with 0-correctness (i.e., perfect correctness) and NC1-negl(λ)-security."
+cls_evidence_src: Thm 3.8
+cls_reason: "Classified on the bounded parallel-time construction (Thm 3.8), which the paper's own Contributions section (§1.2) lists first of the three symmetric constructions, per rule 1. Both parties are computational (users confined to AC0[2], adversary to NC1), so by rule 4's tie-break the adversary's class decides the row: party=attacker, unit=algo class, tightness=class (a pure class restriction, no numeric ratio between the classes), second_party=algo class for the honest users' AC0[2] bound. This mirrors fine-grained-cryptography.md's row exactly, the DVV machinery this construction lifts. baseline=stated for the C2-ϵ-security bound in Definition 2.1 (an explicit ϵ cap on distinguishing advantage), not for any AC0[2]-vs-NC1 numeric ratio, which the Claim Boundary confirms does not exist for this construction ('the adversary is confined to a class'). Not classified on the bounded-time (Thm 4.8, unit=time/tightness=exponent) or bounded-storage (Thm 5.9, unit=memory) constructions, which are differently-shaped claims per the page's own Claim Boundary ('Three different adversary classes... this is the paper's whole point'); a second reader wanting those rows should treat them as a distinct classification, not a refinement of this one. target/family/phase/access/write=none: pure key-exchange cryptography, no ML attack, matching the sibling paper fine-grained-nike-lower-bounds.md."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

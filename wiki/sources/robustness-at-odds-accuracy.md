@@ -9,6 +9,24 @@ tags: [adversarial-ml, robustness, accuracy-tradeoff, representation-learning, e
 claim_quantifier: existential
 antecedent: "The formal tradeoff holds for one engineered binary problem — a single strongly correlated Gaussian feature plus d weakly correlated ones with correlation η — and only for ℓ∞ perturbation radius ε > 2η. The representation findings are empirical and carry no antecedent beyond the datasets and training procedure used."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "robust accuracy at most 1 − √p δ against an `∞ -bounded adversary with ε ≥ 2η"
+cls_evidence_src: Thm 2.1
+cls_reason: "Rule 5 overrides the wiki's own Claim Boundary framing of \"none; the constraint is geometric\": the adversary is an ℓ∞ ball of radius ε ≥ 2η, an explicit perturbation budget, so party=attacker, unit=perturbation, frame=capability, not none. The learner is unconstrained in samples and compute (infinite-data limit), so second_party=none."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

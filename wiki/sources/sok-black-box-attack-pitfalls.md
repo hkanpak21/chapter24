@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, evasion-attacks, threat-model, evaluation-methodology, sample-complexity]
 claim_quantifier: empirical
 antecedent: none
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "Execution cost such as the local attack runtime should be used as the equalizing factor when comparing black-box attack performance, not the number of iterations."
+cls_evidence_src: "§VII-A-1"
+cls_reason: "Abstract leads with the four-axis knowledge taxonomy (query access, feedback, auxiliary-data quality/quantity), which bounds nobody computationally, matching the paper's own admission that these axes are never joined to a definition of robustness; the runtime finding is the paper's compute-relevant contribution and is classified per rule 7 as a reported, non-definitional cost, hence tightness=measured and assessed=implicit rather than explicit — the paper states outright that a defence is not credited for costing the attacker more. access=black box because the taxonomy spans hard-label/top-k/full-vector feedback without fixing one."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -47,10 +47,10 @@ Every cell holds exactly one value from these lists. No free prose. No new value
 | Field | Allowed values |
 | --- | --- |
 | `target` | `train data`, `parameters`, `outputs`, `training run`, `none` |
-| `family` | `membership`, `reconstruct`, `extract`, `forge`, `evade`, `evade audit`, `poison`, `backdoor`, `none` |
+| `family` | `membership`, `attribute`, `reconstruct`, `distribution`, `extract`, `invert`, `forge`, `evade`, `evade audit`, `inject`, `poison`, `backdoor`, `multiple`, `none` |
 | `phase` | `train time`, `test time`, `post hoc`, `n/a` |
-| `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `none` |
-| `write` | `read only`, `corpus`, `model`, `responses`, `none` |
+| `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `channel`, `none` |
+| `write` | `read only`, `corpus`, `model`, `responses`, `channel`, `none` |
 | `frame` | `compute`, `statistical`, `capability`, `none` |
 
 **Adversary assumptions**
@@ -58,7 +58,7 @@ Every cell holds exactly one value from these lists. No free prose. No new value
 | Field | Allowed values |
 | --- | --- |
 | `party` | `attacker`, `learner`, `auditor`, `mechanism`, `none` |
-| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `none` |
+| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `circuit depth`, `success prob`, `none` |
 | `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `measured` |
 | `baseline` | `stated`, `absent`, `n/a` |
 | `second party` | any `unit` value, or `none` |

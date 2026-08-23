@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, verifiable-computation, poisoning-attacks, reconstruction]
 claim_quantifier: existential
 antecedent: "Both attacks require the adversary to be the model provider itself, with full control of mini-batch sampling under mini-batch SGD; under full-batch gradient descent the paper states the gradient difference 'is deterministic and cannot be manipulated'. Proposition 4.3 additionally assumes bounded gradient (G), bounded mixed second derivative (L_x), and L-smoothness, with γ ≤ 1/L. Proposition 4.4 holds only for step sizes inside explicit ranges and for ε > 0."
+cls_target: training run
+cls_family: evade audit
+cls_phase: train time
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion:
+cls_assessed: implicit
+cls_evidence: "Assume the time complexity of naive retraining is T (n). The time complexity of Algorithm 1 is T (n)"
+cls_evidence_src: Prop 4.5
+cls_reason: "Abstract's headline claim (Prop 4.2, valid PoRT at epsilon=0) is a bare existence result with no resource bound; Prop 4.5's cost relation to naive retraining T(n) is the only quantified bound on the attacker, and Claim Boundary calls the results 'upper bounds on what an attacker must spend.' assessed=implicit because Prop 4.5's cost is not part of Def 4.1's validity criterion (that is epsilon-based), only a reported comparison. The verification tolerance epsilon (Def 4.1, Prop 4.2/4.4) also bounds the attacker under a second, incomparable notion (a reproduction-error threshold) but has no matching unit in the vocabulary; left blank as a vocabulary gap rather than forced into perturbation or privacy budget."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

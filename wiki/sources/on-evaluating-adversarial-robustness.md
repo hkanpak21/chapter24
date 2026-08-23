@@ -8,6 +8,24 @@ year: 2019
 tags: [adversarial-ml, evasion-attacks, robustness, threat-model, evaluation-methodology]
 claim_quantifier: empirical
 antecedent: none
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "one common way to define robustness is the worst-case loss L for a given perturbation budget"
+cls_evidence_src: "§2.2.2"
+cls_reason: "No theorem (Claim Boundary: 'Antecedent: none. There is no theorem and no conditional result'), so the paper is classified on the adversarial-risk definition it uses throughout (Rule 5's perturbation-budget pattern), attributed to Madry et al. 2017 / Uesato et al. 2018, not introduced here. frame=capability/party=attacker/unit=perturbation/tightness=budget, matching the sibling evaluation-methodology paper adaptive-test-time-defenses-eval.md (CGB+22, this paper's own named extension) row-for-row. assessed=implicit, not blank and not a second_notion=time: §4.8 discusses attacker compute (100 vs 1000 gradient-descent iterations) explicitly as a candidate threat-model parameter and explicitly declines to adopt it ('There are few reasonable threat models under which an attacker can compute 100 iterations of gradient descent, but not 1000'), so the quantity is present but never treated as a parameter, per rule 7. This is the paper's own considered position, not an omission the classification should paper over: frame is capability (from the perturbation ball), never compute, and no unit=time/tightness=poly row is assigned to this paper. access=white box for the 'infinitely thorough' full-knowledge adaptive adversary of §2.5/Kerckhoffs's principle (§2.2.3); write=read only since the attacker submits crafted queries at test time with no persistent write."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

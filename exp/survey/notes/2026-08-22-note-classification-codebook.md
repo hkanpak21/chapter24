@@ -5,6 +5,22 @@ those tables holds one value from the lists below and nothing else. A cell is ne
 free prose, because the point of the tables is that two readers assign the same
 value.
 
+**Revision 4, 2026-08-22.** Wave one of the fanout classified 66 works and reported
+eleven vocabulary gaps, six of them in `family`. `family` gains `attribute`,
+`distribution`, `invert`, `inject` and `multiple`; `unit` gains `circuit depth` and
+`success prob`; `access` and `write` each gain `channel`.
+
+**A judgement I reversed.** After wave one I wrote that `family` needed restructuring
+rather than more values, on the grounds that it conflates the adversary's goal with
+its act. That analysis is right, and the restructure is not worth it. Separating goal
+from act would reclassify all 115 rows already done, and the flat taxonomy is the one
+a reader of this literature recognises, so the cost falls on us and the benefit falls
+nowhere. The observation is kept as a finding for the paper: **the standard attack
+taxonomy does not cover this corpus**, because the corpus also holds attacks on a
+cryptographic primitive, a communication channel, a training distribution, and an
+agent's control flow. That is a result about the field, and it belongs in the prose
+rather than in a fourth rebuild of the vocabulary.
+
 **Revision 3, 2026-08-22.** The first delegated batch of 25 works produced seven
 vocabulary gaps, every one flagged by a classifier rather than forced into a wrong
 cell. Five of the seven are the same underlying problem: the vocabulary was built
@@ -56,8 +72,8 @@ because tags were applied for retrieval and not for classification.
 | `target` | `train data`, `parameters`, `outputs`, `training run`, `none` | What the adversary is trying to learn or affect. `none` for works with no adversary. |
 | `family` | `membership`, `reconstruct`, `extract`, `evade`, `poison`, `backdoor`, `forge`, `none` | `forge` covers proof-of-learning spoofing and unlearning forgery. `evade audit` covers evading a detector, monitor, filter or verifier, which is a different act from evading a classifier. `none` for foundational and cryptographic works. |
 | `phase` | `train time`, `test time`, `post hoc`, `n/a` | `post hoc` is an adversary acting on a released model with no further training. |
-| `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `none` | The strongest access the main claim grants. `hard label` returns the top class only, `scores` a confidence vector, `black box` query access whose form the work does not fix. |
-| `write` | `read only`, `corpus`, `model`, `responses`, `none` | Whether the adversary may write, and to what. `responses` is an adversary that may alter an oracle's answers in transit. |
+| `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `channel`, `none` | The strongest access the main claim grants. `hard label` returns the top class only, `scores` a confidence vector, `black box` query access whose form the work does not fix. |
+| `write` | `read only`, `corpus`, `model`, `responses`, `channel`, `none` | Whether the adversary may write, and to what. `responses` is an adversary that may alter an oracle's answers in transit. |
 | `frame` | `compute`, `statistical`, `capability`, `none` | `compute` when a computational resource bounds some party, meaning time, circuit size, memory, queries or an algorithm class. `statistical` when the only bound is an information-theoretic quantity, in practice sample complexity, and the work says nothing about computation. `capability` when a party is bounded in what it may do rather than in what it may spend, which in this corpus means a perturbation radius, a corruption fraction or a privacy budget. `none` when no party is bounded at all. |
 
 ## Table 2. Adversary assumptions and claim shape
@@ -65,9 +81,9 @@ because tags were applied for retrieval and not for classification.
 | Column | Values | Notes |
 | --- | --- | --- |
 | `party` | `attacker`, `learner`, `auditor`, `mechanism`, `none` | Which party carries a resource bound. `none` is a legal and common value. |
-| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `none` | The unit the bound is stated in. `perturbation` is a norm-ball or metric radius on what the adversary may change. `corruption` is a fraction or count of training points it may control. `rounds` is a bound on adaptivity or on passes. `privacy budget` is the epsilon of a differential privacy guarantee, which bounds a mechanism's output distribution rather than any party's spending. |
+| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `circuit depth`, `success prob`, `none` | The unit the bound is stated in. `perturbation` is a norm-ball or metric radius on what the adversary may change. `corruption` is a fraction or count of training points it may control. `rounds` is a bound on adaptivity or on passes. `privacy budget` is the epsilon of a differential privacy guarantee, which bounds a mechanism's output distribution rather than any party's spending. |
 | `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `measured` | `poly` is the binary probabilistic-polynomial-time quantifier. `class` is membership of a restricted algorithm family. `budget` is an explicit numeric allowance that is a definitional parameter but carries no relation to the honest party, such as a query budget or a parameter count. `quasi-poly` is a stated quasi-polynomial running time, which `poly` cannot express because `poly` is reserved for the binary quantifier. `conditional` is a lower bound that holds under a named hardness assumption with no second party to compare against, such as a SETH-conditional bound. `exponent` is a stated relation to the honest party's work and therefore needs two parties. `measured` is an empirical number with no definitional status. Added 2026-08-22 during the first classification batch, where a query budget fitted none of the original five. |
-| `baseline` | `stated`, `absent`, `n/a` | Whether the work says what success means against public knowledge alone. `n/a` where no success criterion exists. |
+| `baseline` | `stated`, `absent`, `n/a` | Whether the work says what an adversary achieves **from public knowledge alone**, so that an advantage over it is measurable. The test is: could a party with no access to the target succeed this often? A security game's one half, a fair-coin guess, an oblivious attack that ignores the model, or a blind predictor are all `stated`. A matching information-theoretic lower bound, an optimal-error term such as OPT, a previously published accuracy number, or the cost of an alternative algorithm are **not** baselines in this sense and do not make the field `stated`, because none of them is what public knowledge alone achieves against this target. `absent` where a success criterion exists but no such reference does. `n/a` where the work defines no adversary success criterion at all. |
 | `second party` | any `unit` value, or `none` | Set when a second party is also bounded, naming that party's unit. Fine-grained cryptography and robust learning both bound two parties, and a single-valued `party` column would lose one of them. |
 | `second notion` | any `unit` value, or `none` | Set when **one** party is bounded under two resource notions the work treats as incomparable. This is a different situation from two parties and was previously conflated with it. The refutation of the quasi-polynomial low-degree conjecture is exactly this case: one distinguisher, bounded both by degree and by running time, with the paper's whole point being that the two diverge. |
 | `assessed` | `explicit`, `implicit` | Whether the work assesses the adversary's resources on purpose, or the quantity appears only as a side condition. Halil's axis. No prior systematization carries it. |
@@ -127,7 +143,7 @@ because tags were applied for retrieval and not for classification.
 
 ---
 
-## Pending, for revision 4
+## Applied in revision 4 (was pending)
 
 Gaps reported by classifiers after revision 3 was frozen. Not yet applied, so that
 a single revision covers them all rather than moving the vocabulary under agents
@@ -156,3 +172,65 @@ The other twelve fields have held.
 
 Rate of gaps found: 7 in the first 25 works, then 6 more across the next 42. Falling
 but not zero.
+
+---
+
+## A known interaction between rule 4 and `frame`, noticed 2026-08-22
+
+Rule 4's tie-break says that when neither party's bound is computational, the
+adversary's bound decides the row. In the robust-PAC literature that is the common
+case: the learner is bounded in samples, which is statistical, and the evasion
+adversary is bounded by a perturbation radius, which is a capability. The row
+therefore comes out `party = attacker`, `unit = perturbation`,
+`frame = capability`, and the learner's sample bound is preserved only in
+`second party`.
+
+The consequence is that `frame = statistical` will be **under-counted**. It appears
+only where a statistical bound is the *sole* bound in the work, not wherever a
+statistical bound exists. Any count of statistical bounds reported from the survey
+must be taken over `unit` and `second party` together, not over `frame` alone. The
+information is not lost, but the obvious query gives the wrong answer.
+
+---
+
+## Gaps found after revision 4 was frozen
+
+Not applied. Recorded so the count of gaps per revision stays honest and so a
+future revision can take them together.
+
+| Gap | Reported on | Note |
+| --- | --- | --- |
+| No unit for **training runs** | `membership-inference-shokri`. Its only cost quantity is the number of shadow models, 10 to 100 per dataset, which is neither queries nor samples nor time. `queries` was used as an approximation and flagged. | This is a real unit for this survey. An attacker priced in training runs is exactly the proof-of-learning comparison. Worth adding. |
+| `family` still cannot name a cryptographic goal | `merkle-puzzles-are-optimal`. Recovering a shared secret in key exchange is none of the fourteen values, and `invert` does not fit either. Forcing `extract` would collide with model extraction. | The `family` weakness again, now on its seventh instance. |
+| Only one `second notion` slot | `multi-party-poisoning` bounds one attacker in three resources at once: polynomial time, a corruption count, and a total-variation budget. Two were recorded and the time bound was left in prose. | A third slot would be used rarely. The honest fix may be to allow a comma-separated list in `second notion`, at the cost of the cross-tab. |
+
+One audit warning of mine was **stale**: the `melon-indirect-prompt-injection` page had
+already self-corrected its fabricated theorem on 2026-08-20. The classifier
+re-verified against the PDF anyway and confirmed zero occurrences of theorem, lemma
+or proposition in the body. Warning agents about corrections that have already
+landed costs them a PDF read, so the audit note should be checked against the page
+before it goes into a brief.
+
+---
+
+## `baseline` needs a second pass over the whole corpus
+
+A classifier reported that the `baseline` definition was too thin to apply
+consistently, and it was right. Two readings were in use across the delegated
+batches. The narrow one, which is what the survey means, asks what an adversary
+achieves from public knowledge alone: a game's one half, a fair coin, an oblivious
+attack. The broad one counts any explicit comparison quantity, including a matching
+information-theoretic lower bound or a previously published number.
+
+The definition is now tightened, with the exclusions written out. But rows
+classified before the tightening may carry the broad reading, and `baseline` is one
+of the columns the survey's contribution rests on, so the count cannot be reported
+until they are checked.
+
+**Scope of the re-pass.** 54 rows currently read `stated`. The suspicious subset is
+those with no attack family, 21 of them, where a "baseline" is more likely to be a
+matching bound than an adversary's trivial-success rate. Game-based cryptography in
+that subset is probably correct, since a game's one half is a genuine baseline.
+Learning-theory results in it probably are not. This is one field over at most 54
+rows and is cheap to redo; it should be done in one pass at the end rather than
+piecemeal.

@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "none. The bound is a convex relaxation and holds unconditionally for ReLU networks. The relaxation's looseness is the price, not an assumption."
 adversary_bound: "none. The attacker is an ℓ∞ ball of radius ε on the input. No computational bound is placed on any party; the defender's cost is a few extra forward and backward passes, possibly with much larger batch sizes."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "provably has less than 5.8% test error for any adversarial attack with bounded ℓ∞ norm less than ε = 0.1"
+cls_evidence_src: abstract
+cls_reason: "Rule 5, exact match: the only restriction on the attacker is the l-infinity perturbation radius epsilon, so party=attacker, unit=perturbation, tightness=budget, frame=capability. access=white box: the LP certificate bounds the worst case over the whole convex outer polytope, i.e. holds regardless of the attacker's strategy or knowledge, matching the Cohen et al. precedent's reasoning for a fully-informed adversary. write=none: the attacker perturbs its own input at test time; it does not write to a corpus, model, or response channel. second_party=none: the paper's own defender cost (extra forward/backward passes, possibly larger batch sizes) is mentioned as implementation overhead, not formalized as a resource bound on a party in any theorem."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

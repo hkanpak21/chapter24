@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "exact noiselessness. The authors state that inverse-polynomial noise breaks the method."
 algorithm_class: "none. This is an upper bound, and its bearing on the cluster is that it limits what low-degree and sum-of-squares lower bounds can be read to mean."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "if n = d+1 then there is an LLL-based algorithm (Algorithm 1) which terminates in polynomial time and outputs exactly, up to a global sign flip, both the correct labels xi and the correct hidden direction u"
+cls_evidence_src: Thm 1.1
+cls_reason: "target/family/phase/access/write are all none: this is a planted-Gaussian-clustering/lattice-algorithm paper with no ML pipeline, no train data, model or output being attacked, per rule 8 (classify what the work claims). party=learner not attacker: the LLL algorithm plays a recovery/estimator role against a randomized planted model, not an adversarial-ML security game; front matter's own 'algorithm_class: none' rules out tightness=class, so the bound is recorded as ordinary poly-time instead. second_notion=samples: Thm 1.1 bounds the same party (the LLL algorithm) under two incomparable notions, time (poly) and samples (n=d+1), per rule 4b. baseline=stated: Thm 1.2's information-theoretic lower bound (n>=d-1 needed by any estimator) is the optimal baseline the poly-time algorithm's n=d+1 sample count is shown to match."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -9,6 +9,24 @@ tags: [adversarial-ml, sample-complexity, generalization, robust-pac-learning, i
 claim_quantifier: existential
 antecedent: "The lower bound is proved for two constructed distributional models — a mixture of two class-conditional Gaussians and a binary-feature model — under ℓ∞ perturbations. The paper's own phrasing is 'already in a simple natural data model'. In the second model the increased sample complexity holds only when linear classifiers are used."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "we define the perturbation set B∞ε (x) = {x′ ∈ Rd | ‖x′ − x‖∞ ≤ ε}"
+cls_evidence_src: "Def 3, §2"
+cls_reason: "Two parties are bounded in Theorem 6 (the paper's own numbering; the wiki's Claim Boundary informally calls it 'Theorem 2'): the learner in sample count (Omega(sqrt d), a statistical/information-theoretic bound per frame=statistical's own codebook example, hence not computational) and the attacker in the l-infinity perturbation radius epsilon (a capability bound, also not computational). Per rule 4's second clause, 'if both or neither are computational, the adversary's bound decides', so party=attacker/unit=perturbation/tightness=budget/frame=capability, and the learner's bound is recorded as second_party=samples. This is a judgment call flagged for a second reader: the Claim Boundary's own prose foregrounds the learner ('Which party is constrained: the learner, in sample size'), but rule 4 is mechanical and the tie-break clause applies because neither bound is a computational resource. access=white box and write=none by the same reasoning as the sibling evasion papers in this batch (WK18, Cohen, SmoothAdv): the guarantee/attack is a worst-case bound over all perturbations in the ball, and the attacker only perturbs its own input. second_party evidence: Theorem 6 states the expected robust classification error is at least (1-1/d)/2 'if n <= c2 epsilon^2 sqrt(d) / log d', i.e. an explicit sample count."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

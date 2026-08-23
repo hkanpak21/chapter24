@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Assumption 1 on the link function: sigma normalized (E[sigma^2] = 1); the first non-zero Hermite coefficient has degree k* and c_{k*} is an absolute constant bounded away from zero ('prominent'); E[sigma^4] <= B_4 < infinity; E[(sigma')^2] = sum_{k >= k*} k c_k^2 <= C_{k*}. The link function sigma is KNOWN. The x-marginal is exactly N(0, I_d). The guarantee is C·OPT + eps with C = O(C_{k*}), not OPT + eps."
 model_class: "Gaussian single-index model sigma(w* · x) with KNOWN link sigma satisfying Assumption 1; x ~ N(0, I_d); labels y arbitrary (agnostic). Proper learning: output is a unit vector w_hat. NOT neural networks."
 algorithm_class: "an explicit algorithm the authors state 'fits the CSQ framework' - Riemannian gradient method on the sphere after a non-trivial initialization; the matching lower bounds it nearly attains are CSQ, not SQ"
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "draws n = Θ̃k∗ (d⌈k /2⌉ + d/ǫ) labeled samples, runs in poly(n, d) time"
+cls_evidence_src: Thm 1.2
+cls_reason: "Same near-miss structure as robust-multi-index-sq-bounds: labels are \"arbitrary\" (agnostic model), only the learner is priced, in samples and poly time. Second_notion=algo class because the near-matching lower bounds are CSQ, and the paper states its own algorithm \"fits the CSQ framework.\" Family=poison is a mapping choice, not the paper's own term."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -9,6 +9,24 @@ tags: [cryptography, one-way-functions, computational-indistinguishability, impo
 claim_quantifier: conditional
 antecedent: "Sub-exponentially secure one-way functions, and 'exponentially extractable' 2-message witness indistinguishable proofs (zaps) for NP. Complexity leveraging requires a gap: sub-exponential time must break the zap but not forge a signature."
 adversary_bound: PPT for the CDP mechanism; sub-exponential time for the extractor in the lower-bound reduction; unbounded for the inefficient DP mechanism that also solves the task
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: mechanism
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "there exists a polynomial-time εk-PURE-SIM-CDP mechanism {MCDP_k}k∈N and an (inefficient) εk-PURE-DP mechanism {Munb_k}k∈N"
+cls_evidence_src: "Thm 11 (Main), part 1"
+cls_reason: "Not an ML attack scenario, so target/family/phase/access/write are none/none/n/a/none/none (Rule 2). Theorem 11 quantifies over efficient (PPT) CDP and DP mechanisms; that PPT bound decides party=mechanism per Rule 4's fallback, since the extractor A in the lower-bound reduction is also computational (sub-exponential time — §3: 'a sub-exponential time adversary A that completely breaks the security of the zap proof system') but is a proof device inside the Theorem 11 part 2 reduction, not the theorem's own quantifier — recorded as second_party=time. 'Sub-exponential' has no exact match in the tightness vocabulary (not poly, quasi-poly, class, budget, exponent, or measured); flagged as a vocabulary gap. It has no tightness slot here regardless, since second_party records only a unit. The inefficient DP mechanism M^unb is explicitly unbounded — that is the separation's own point, not a second bound to record."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

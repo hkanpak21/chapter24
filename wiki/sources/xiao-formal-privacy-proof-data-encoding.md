@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Theorem 1 assumes a learnable obfuscation T = (T_X, T_Y) with BOTH components injective, satisfying learnability preservation (Definition 5, property 1) with respect to a two-element PAC-learnable concept class C = {h_0, h_1}: there is an efficient Alg and a distribution D_0 with E[h_0(x)] = 0.5 such that for n ≥ m_0, Alg returns with probability ≥ 3/4 a model whose encoded risk is at most 1/2 − λ for a constant λ > 0. If no such transformation exists the theorem is vacuous."
 adversary_bound: "Polynomial time (Definition 2, IND-CPA). The adversary must additionally be able to choose the challenge distributions D_0, D_1 and a concept class of its own construction, must receive the encoded dataset, and must be able to run the honest learner Alg on part of it and test the resulting model on the rest. Removing that last access is one of the two escapes the authors name."
 tags: [cryptography, learning-theory, computational-indistinguishability, one-way-functions]
+cls_target: train data
+cls_family: distribution
+cls_phase: train time
+cls_access: channel
+cls_write: corpus
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "A polynomial-time adversary selects two arbitrary plaintexts 𝑋0 and 𝑋1 from X∗ and sends to the user"
+cls_evidence_src: Def 2
+cls_reason: "Classified on Theorem 1, the paper's headline negative result (abstract: 'cannot offer cryptographic computational security in the worst case'), not the possibility half (Theorems 2-7), per the audit warning that this is an IND-CPA impossibility about the encoding T, not a training map, with no one-way-function claim. family=distribution: Def 2's game distinguishes which of two whole challenge datasets/distributions D_0, D_1 was encoded, not a single record's membership. Both the distinguisher and the honest learner Alg are polynomial-time (Def 2, Def 5); rule 4 puts the adversary's bound in party/unit and the learner's matching unit in second_party. access=channel: the adversary interacts with the encode-then-train pipeline as a chosen-plaintext channel, not by querying a deployed model. baseline=stated: Claim Boundary records the coin flip at 1/2 as the standard indistinguishability baseline, against which Theorem 1 delivers Pr(b-hat=b)>=2/3."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against `raw/XSD24_FormalPrivacyDataEncoding.pdf` on 2026-08-22.** The title, venue,

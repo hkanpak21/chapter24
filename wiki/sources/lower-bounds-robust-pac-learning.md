@@ -9,6 +9,24 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, concentration-of-measure
 claim_quantifier: conditional
 antecedent: "Two conditions, both stated in the paper: the input space is a Normal Lévy family with concentration function α_n(b) ≤ k₁·e^{−k₂b²/n}, and the concept class is α-close, meaning that for every α in [2^{−Θ(n)}, 1] two concepts disagree on exactly measure α. Both are known to hold for the theoretical spaces instantiated (isotropic Gaussian under ℓ₂, uniform hypercube under Hamming, the n-sphere) and are not established for natural data. The result also requires the error-region definition of adversarial risk rather than the corrupted-input one."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Any PAC learning algorithm that is robust against all attacks with a sublinear tampering b = o(n) budget under the metric d requires exponential sample complexity m ≥ 2^Ω(n)"
+cls_evidence_src: "Thm 3.4 Part 1a"
+cls_reason: "Neither bounded party is computational: the learner is bounded only in sample complexity (frame=statistical in isolation, per the audit note) and the evasion adversary is information-theoretic with unbounded computation, bounded only by a tampering budget b=o(n) (frame=capability in isolation). Rule 4's tie-break ('if both or neither are computational, the adversary's bound decides') therefore gives the row to the attacker: party=attacker, unit=perturbation, tightness=budget, frame=capability, with the learner's exponential sample requirement recorded as second_party=samples. access=none and write=read only match the sibling evasion-sample-complexity pages (adversarial-examples-computational-constraints, adversarially-robust-pac-regression, adversarial-vulnerability-any-classifier): no white-box/black-box/query terminology appears anywhere in the PDF (grepped), the adversary's function A[D,c,h] is an information-theoretic worst-case formalization, not an operationalized access model. Classified on Theorem 3.4 Part 1a/1b (pure evasion, the abstract's headline claim), not Part 2's hybrid poisoning-then-evasion result, which introduces a third party (a poisoner bounded by a corruption fraction lambda) outside the main claim's shape (rule 1). baseline=n/a, matching the sibling evasion pages, not the sample-complexity contrast with the no-adversary or corrupted-input settings, which is a scope statement, not a stated advantage-over-baseline."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

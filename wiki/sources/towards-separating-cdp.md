@@ -9,6 +9,24 @@ tags: [cryptography, indistinguishability-obfuscation, computational-indistingui
 claim_quantifier: conditional
 antecedent: "Three simultaneous cryptographic assumptions: (i) NIWI — non-interactive witness indistinguishable proofs (Assumption 26); (ii) CRKHF — laconic collision-resistant keyless hash functions (Assumption 18); (iii) diO-for-pcS — differing-inputs obfuscation for public-coin samplers (Assumption 22)."
 adversary_bound: PPT for the CDP mechanism; unbounded for the SDP lower bound; non-adaptive decision-tree (query) adversaries at the intermediate stage
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "first we show that a mechanism is \"private\" against a certain class of decision tree adversaries, and then we use cryptographic constructions to \"lift\" this into privacy against computationally bounded adversaries"
+cls_evidence_src: §I
+cls_reason: "party=attacker for the CDP indistinguishability game (Def 9), not auditor, since the distinguisher's role is to break confidentiality of D vs D' rather than verify compliance. second_notion=queries for the intermediate non-adaptive decision-tree adversary class used in the two-stage lift (Rule 4b: one party, two incomparable notions, since the paper's own point is lifting query-bounded to PPT). target=train data and family=membership since CDP/SDP are neighbor-dataset (D vs D') indistinguishability games, the canonical membership-privacy shape. phase=post hoc since the adversary examines the mechanism's released output (a circuit plus NIWI proof) with no further training."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

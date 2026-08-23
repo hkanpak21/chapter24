@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "the ground-truth labelling function is close to a Fourier-heavy function (global mitigation, Theorem 6.3), or close to a linear or low-degree polynomial function on R^n (local mitigation, Theorems 7.1, 7.7, 7.12). The marginal on the domain is fixed and known to the defender. These are structural assumptions on nature, not cryptographic assumptions."
 adversary_bound: "none on computation. The attacker may output any function f̃ whose population loss is at most ε₀; the model is fixed before the mitigator queries it. The mitigator is polynomial-time and black-box."
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: poly
+cls_baseline: absent
+cls_second_party: corruption
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "A mitigator is a PPT algorithm 𝑀 with one of the following signatures"
+cls_evidence_src: Def 4.1
+cls_reason: "party=auditor for the mitigator by the same fallback as backdoor-defense-learnability-obfuscation.md (CHLX, this paper's own named sibling): the vocabulary has no 'defender'/'mitigator' value, and rule 6 names auditor as the usual model for a party inspecting a fixed target; this is an imperfect fit since the paper's whole point is mitigation without detection ('Defensibility ≠ detectability'). unit=time/tightness=poly=explicit since Def 4.1 requires the mitigator to be PPT, matching CHLX's identical row. Diverges from CHLX on access: black box, not white box, since the front matter and the paper's own words state the mitigator is black-box query access only ('our techniques work without needing access to the model's representation'). second_party=corruption for the attacker's population-loss budget ε₀ (adversary_bound: 'none on computation... population loss is at most ε₀'), the same closeness-budget shape as CHLX's second_party. second_notion=samples: Thm 6.3 additionally bounds the mitigator by an i.i.d. sample count m, an incomparable resource to time/queries on the same party (rule 4b). baseline=absent, diverging from CHLX's baseline=stated: Def 4.3/4.5's TV-security bound compares the mitigator's output to a defender-chosen canonical distribution G_ideal, not to a fair-coin or majority baseline, so no null/trivial reference is stated. phase=post hoc and write=read only match CHLX for the same reason: the model is fixed before the mitigator acts and is never itself modified, only queried."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

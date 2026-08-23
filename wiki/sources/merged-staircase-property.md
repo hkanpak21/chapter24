@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "Conditions A0-A3 (bounded three-times-differentiable activation, one-pass fresh samples with bounded response, rotationally structured initialization, bounded and Lipschitz hyperparameters); latent dimension P fixed and independent of d; mean-field scaling. Sufficiency additionally holds only almost surely over the non-zero Fourier coefficients (measure mu_S), and for polynomial activations sigma(x) = (1+x)^L with L = 2^{8P}."
 model_class: "Sparse functions on the Boolean hypercube: x ~ Unif({+1,-1}^d), f*(x) = h*(x_I) for an unknown coordinate subset I of size P, plus bounded independent zero-mean label noise. Hypercube inputs, NOT Gaussian; depth-2 network in the mean-field regime."
 algorithm_class: "one-pass batch-SGD on a depth-2 mean-field network (square loss, layer-wise l2 regularization, time-varying step sizes); equivalently the dimension-free gradient-flow PDE"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "Let h∗ : {+1, −1}P → R be a function without MSP. Then there exists c > 0 such that for any ξ a , ξ w : R → R and regularizations λa , λw ≥ 0, we have inf t≥0 R(ρt ) ≥ c."
+cls_evidence_src: Thm 7
+cls_reason: "party=learner, not attacker: this is a pure learning-theory result with no adversary, so the attack-scenario fields (target/family/phase/access/write) are all none/n/a. unit=algo class rather than samples: Theorem 7 quantifies over all choices of SGD hyperparameters (xi^a, xi^w, lambda^a, lambda^w), i.e. over the algorithm class of one-pass mean-field batch-SGD, and the Claim Boundary explicitly denies a graded sample-complexity relation exists here ('MSP is a binary property... with no exponent attached to non-MSP targets'), so tightness=exponent would overstate the result; tightness=class matches the restricted-algorithm-family shape instead, analogous to SQ or low-degree. second_notion=samples records the O(d) scaling at which the algorithm-class question is posed, per Definition 3. frame=compute because the restriction is explicitly to SGD as opposed to any sample-efficient algorithm, and the field definition lists algorithm-class restriction as a computational bound."
+cls_prov: F
+cls_date: 2026-08-22
 ---
 
 ## Summary

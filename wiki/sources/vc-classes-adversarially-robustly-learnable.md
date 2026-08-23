@@ -9,6 +9,24 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-the
 claim_quantifier: universal
 antecedent: "For the positive result, finite VC dimension of H, and the only restriction on the perturbation map U is that U(x) be nonempty for every x. For the negative result there is no antecedent — it is an explicit construction. The learning sample itself is assumed non-adversarial and i.i.d.; the adversary acts only at test time."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "there is an improper learning rule that can robustly PAC learn H (although with sample complexity that is sometimes exponential in the VC dimension)"
+cls_evidence_src: §1 (Introduction, main results)
+cls_reason: "frame=statistical because only sample complexity is bounded on the learner; the paper prices no compute anywhere, per Claim Boundary ('No compute is priced on either side'). tightness=budget rather than exponent: the exponential-in-vc(H) sample bound is a self-contained function of the problem's own parameters (vc(H), vc*(H), epsilon), not a stated ratio to a separate honest party's cost. write=none: the evasion adversary perturbs the test input, which does not map cleanly onto corpus/model/responses/channel."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

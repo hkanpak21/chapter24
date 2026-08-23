@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "robustness of SHA-2 against preimage attacks, and the digital-locker construction of Canetti et al. 2016. The unelicitability claim is argued from these, not proved as a theorem."
 adversary_bound: "polynomial-time elicitation techniques, with white-box access to the weights"
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: train time
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "our constructions are robust against any polynomial time elicitation technique"
+cls_evidence_src: §1 (Introduction)
+cls_reason: "party is the defender's elicitation technique (auditor), not the backdoor implanter, per rule 3: the poly-time bound in adversary_bound binds elicitation, not weight-writing. phase is train time under the family=backdoor convention (implantation precedes release), though the elicitation-resistance claim itself concerns a released model; flagged as a judgment call. tightness=poly reflects the PPT-quantifier framing of the sentence itself, though front matter marks the overall claim empirical/heuristic, not a proven theorem."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

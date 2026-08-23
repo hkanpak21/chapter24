@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "None. The systematization's take-aways are assertions about the surveyed corpus, selected as \"seminal and representative works\", not consequences of a hypothesis."
 adversary_bound: "None. The taxonomy's capability axes are pipeline stage, phase (training or inference), access (white-box or black-box), and write power (read, injection, modification, logic corruption). No axis is a computational resource. Section 5.2 reports one query-complexity notion from prior work (ACRE learnability), but it is a surveyed result, not a dimension of the threat model."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: multiple
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no computational-resource axis in §3.1 (attack surface), §3.3 (adversarial capabilities), or §3.4 (adversarial goals); Kearns et al.'s poisoning-fraction bound (§4) and Lowd et al.'s ACRE learnability (§5.2, 'using a polynomial number of queries to the ML oracle') are surveyed results attributed to prior papers, not the taxonomy's own axes (Rule 8)"
+cls_reason: "Re-verified §3 directly against the PDF for this task: the threat model is three parts, not four independent axes — §3.1 attack surface (pipeline stage), §3.3 adversarial capabilities (phase: training or inference; within each, ONE strength ladder that is phase-conditioned, not two simultaneous axes — training uses read-access to injection to modification to logic-corruption ['write power'], inference uses black-box to white-box ['access level'] — these are mutually exclusive instantiations of a single capability dimension, never both at once), and §3.4 adversarial goals (confidentiality, integrity, availability, privacy). §3.2 trust model (four actor classes: data owners, system providers, consumers, outsiders) is a further, separate layer that fits none of the four axes named in the task brief. The brief's characterization ('pipeline stage, attacker write power, access level and goal') is close in content but structurally imprecise: it omits phase as the switch between the write-power and access-level ladders, and lists write power and access level as if independently combinable, when the paper applies exactly one or the other depending on phase. The novelty premise itself holds: none of pipeline stage, phase, write power/access, or goal is a computational resource; §5.2's ACRE learnability (query complexity, NP-hardness for discrete features) is the paper's single closest approach and is explicitly a reported result, not a taxonomy dimension. target/family/phase/access/write are none/multiple/n/a/none/none because the paper's own claim is the taxonomy itself, spanning all pipeline stages and all attack families (poisoning, evasion, membership inference, extraction, inversion) rather than committing to one."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1, §2, §3 (attack surface, trust model,

@@ -8,6 +8,24 @@ year: 2021
 tags: [adversarial-ml, evasion-attacks, robustness, evaluation-methodology, certification]
 claim_quantifier: empirical
 antecedent: "The benchmarked model has non-zero input gradients, a deterministic forward pass, and no optimization loop in the forward pass; and AutoAttack's upper bound on robust accuracy is near-tight for such models. The three restrictions are enforced by admission; the near-tightness is measured, not proved."
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "We use the fixed budgets of ε∞ = 8/255 and ε2 = 0.5 for the `∞ and `2 leaderboards for CIFAR-10 and CIFAR-100"
+cls_evidence_src: §3, Overall setup
+cls_reason: "Rule 5: the leaderboard's only formal restriction is a fixed norm-ball radius, so party=attacker, unit=perturbation, frame=capability, even though the paper is empirical. Access=white box for the dominant APGD/FAB attacks in the ensemble; Square Attack is a black-box check, not the primary access mode. Second_notion=time: the paper separately treats attack cost as a \"similar computational cost\" tie-break for adopting a successor attack, an incomparable notion on the same party per rule 4b, and the Claim Boundary calls this a benchmark budget rather than a threat-model parameter, so it is not folded into the primary unit."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

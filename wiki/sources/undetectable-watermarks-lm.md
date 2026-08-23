@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "A pseudorandom function family, which the paper states is equivalent to one-way functions. The warm-up construction of Section 3 additionally assumes a random oracle and initially a min-entropy bound; both are removed before Section 4. The removal attack (Theorem 11) additionally assumes the model is prefix-specifiable."
 adversary_bound: "Polynomial-time distinguishers with **adaptive oracle access to two oracles**: `Model` itself, and either `Model` or `Wat_sk` (Definition 9). Uniform p.p.t. as written; the PRF definition quantifies over \"all p.p.t. distinguishers D\". Undetectability is computational by necessity — Lemma 4 shows any sound scheme is statistically distinguishable with poly(K/ε) queries and exp(K) time, K the key length."
 date_verified: 2026-08-22
+cls_target: outputs
+cls_family: evade audit
+cls_phase: test time
+cls_access: black box
+cls_write: responses
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "there exists an efficient algorithm A making queries to Watsk … The number of queries made by A to Watsk is exactly the length of text output by A"
+cls_evidence_src: Thm 11, §6
+cls_reason: "classified on Thm 11's removal attack, not Def 9's undetectability construction, since the paper's own Summary flags §5–§6 as what matters for adversary capability and family/access/write need an explicit adversary. family=evade audit since the attack's goal is making Wat_sk's output indistinguishable from Model's so Detect_sk will not flag it (the wiki's Connections note also calls this attacker 'a query-bounded extraction adversary in all but name', an alternative reading worth a second look). tightness=exponent from the paper's own stated ~2000x-honest-cost pricing ($960.36 vs $0.48 for an 8000-token response, §6). second_notion=time from 'efficient algorithm A' (poly-time) alongside the query count."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

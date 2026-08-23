@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, differential-privacy, learning-theory, certification]
 claim_quantifier: empirical
 antecedent: "Five specific empirical defenses (HAMP, RelaxLoss, SELENA, DFKD, and a folklore defense) on CIFAR-10 at >=88% test accuracy, attacked with LiRA adapted per-defense and audited on injected canaries. The DP-SGD comparison baseline is tuned for utility, not for a meaningful epsilon."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no compute, query, sample, or privacy-budget bound stated on the attacker, any defense, or an auditor anywhere in §1-§6; the paper's headline TPR/FPR figures (abstract, Fig. 1, §4.1) measure attack success against defenses, not a resource any party spends, matching the difficulty-of-mia precedent for this same genre of MI-evaluation-methodology paper"
+cls_reason: "This is a measurement/methodology critique paper (three pitfalls in evaluating MI defenses), not a paper asserting a formal resource bound on any party, so frame/party/unit/tightness follow Rule 2 (none/none/none/unstated), matching the same-genre precedent difficulty-of-mia, which was classified identically despite also reporting attack success numbers as its central finding. The paper explicitly disclaims that DP-SGD's epsilon is a meaningful bound in its own comparison ('vacuous provable guarantees'), so per Rule 8 that examined-but-not-asserted DP framing is not recorded as frame=capability. baseline=stated: the DP-SGD high-utility baseline and the name-and-shame defense's elementary population-metric bound (TPR <= FPR + 1/|D|) are both explicit stated comparators. access=scores per LiRA's confidence/loss-based construction, adapted per-defense."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1–§4, §5.1, §5.5, §6. Quoted passages verbatim.

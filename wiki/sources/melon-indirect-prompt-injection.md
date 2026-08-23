@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The mean similarity between the original and masked runs separates the benign and malicious cases around the threshold, mu_B < theta < mu_V, and the n masking prompts act as independent trials. Neither is verified."
 adversary_bound: "none — the adversary is unrestricted. The Hoeffding bound is over the detector's own sampling, not over anything the attacker spends."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: inject
+cls_phase: test time
+cls_access: none
+cls_write: channel
+cls_frame: statistical
+cls_party: auditor
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "These bounds demonstrate that error rates decrease exponentially with the number of weak detectors, provided that µB < θ < µV."
+cls_evidence_src: §3.4.2
+cls_reason: "party is the detector, not the attacker: the adversary is explicitly unrestricted and the Hoeffding bound is over the detector's own n masking-prompt sampling, so party=auditor (the checking mechanism), not attacker. access=none and write=channel from the Threat Model verbatim: 'attackers cannot access the LLMs' input and output inside the target agent. Their access is limited to manipulating the external information retrieved by the agent via tool calls, such as websites, emails, or files.' frame=statistical because Hoeffding's inequality is an information-theoretic concentration bound, not a computational one; nothing bounds any party's compute. tightness=budget because n, the number of masking prompts, is an explicit definitional parameter with no stated relation to any honest party's own cost. baseline=n/a: this is a raw error-probability bound, not an advantage-over-baseline formulation. Confirms the audit warning directly against the PDF: the paper contains zero occurrences of Theorem/Proposition/Lemma outside page headers, and the title's 'Provable' names only this conditional Hoeffding bound."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

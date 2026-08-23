@@ -9,6 +9,24 @@ tags: [differential-privacy, data-reconstruction-attack, sample-complexity, lear
 claim_quantifier: universal
 antecedent: "(ε, δ)-DP (or (α, ε)-RDP, or ε-metric DP) learner; training data on a compact metric space (Z, ρ) for Theorem 1, locally compact for Theorem 2; a fixed known dataset D_− of N−1 records shared by learner and adversary; success measured by expected squared reconstruction error against a worst-case target."
 adversary_bound: query count (number of draws from the learner's output distribution) — NO computational restriction whatsoever
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: budget
+cls_baseline: absent
+cls_second_party: privacy budget
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Adversary makes n queries to the model, i.e., she draws n samples h1, . . . hn ∼ M(D) from the learner's output distribution"
+cls_evidence_src: "§3"
+cls_reason: "party=attacker/unit=queries/tightness=budget: n is an explicit numeric query allowance with no stated relation to the learner's own resource use (rule on tightness=budget). access=white box: the paper's own §3 calls this 'a powerful white-box reconstruction adversary' (Remark 8), and D_- is fixed and known to the adversary. second_party=privacy budget: the mechanism M is separately restricted to (ε,δ)-DP (or the Rényi/metric-DP variants), the other party's bound in rule 4's two-parties case; since queries is the only computational-frame bound present (frame=compute per the codebook's 'queries' example) and privacy budget is capability-frame, the computational bound (attacker/queries) decides the row per rule 4's first clause. baseline=absent: the value function V(M,n) is a squared-error threshold with no stated advantage-over-baseline term, matching the Dinur-Nissim precedent for reconstruction bounds with no baseline. phase=post hoc: the adversary queries a learner's output distribution after training, with no further training of its own."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -9,6 +9,24 @@ tags: [cryptography, hardness-reductions, computational-indistinguishability, di
 claim_quantifier: conditional
 antecedent: "Existence of an ε-CDP two-party protocol estimating the inner product over {−1,1}^n × {−1,1}^n up to additive error ℓ ≥ log n with probability c·e^{cε}·ℓ/√n; extends to (ε, δ)-CDP for δ ≤ 1/n²."
 adversary_bound: PPT; also holds for the weaker notion of CDP against an external observer (transcript only)
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "there exists a ppt algorithm Rec that for every database z ∈ {−1, 1}n and every oracle access to an (ℓ, 300ℓ/√n)-accurate estimator Fz"
+cls_evidence_src: Thm 6.3 (restatement of Thm 1.6), §6
+cls_reason: "classified on Thm 1.6's reconstruction attack, not the headline key-agreement-necessity reduction (Thm 1.3), because the attack-scenario fields need an explicit adversary and the reconstruction attack is the paper's only concretely instantiated one (Rule 1 exception noted). second_notion=queries from the stated Õ(n^3) query count ('Rec uses Õ(n3) queries to Fz'), a second, comparably concrete notion alongside the ppt/time bound. phase=post hoc: the reconstruction algorithm queries an already-fixed accurate estimator Fz with no further protocol execution. baseline=stated from the explicit trivial always-output-zero protocol, shown to already achieve Θ(ℓ/√n) accuracy."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

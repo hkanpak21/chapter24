@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Theorem 4.1 assumes only two answer types can be generated, that the oracle LLM's error rate is bounded by epsilon < 0.5, and that the oracle's only error is flipping between those two types. Theorem 5.3 additionally assumes the top-class probability is concentrated. The i.i.d. sampling that Clopper-Pearson needs is assumed throughout."
 adversary_bound: "none — the adversary is bounded by an l2 radius on the image, which is a geometric constraint on the perturbation. Nothing bounds its compute, queries, or memory."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "gσ is robust around x, with a radius of at least: RpA = σΦ−1(pA)"
+cls_evidence_src: "§3.1, Eq. 2 (background RS bound; Thm 4.1/4.2 extend it under an imperfect oracle)"
+cls_reason: "The ℓ2 perturbation radius on the image is the bound Thm 4.1/4.2 certify against, capability-framed. access=white box because RS certification is a worst-case guarantee against any perturbation within the radius, independent of adversary information. Sample complexity ('tens to hundreds of thousands' of noisy samples per §1-2, cut 2-3 orders of magnitude) is the certifier's statistical cost, so it goes to second_party rather than the main row: neither the radius (capability) nor the sample count (statistical) is a frame=compute bound, so the attacker's bound decides per Rule 4's fallback. The oracle error rate ε<0.5 bounds a third party (the oracle), not a resource either the attacker or certifier spends, so it is not recorded as a unit."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

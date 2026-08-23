@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Each malicious agent's deceptive state is bounded, ||x-tilde_k(t) - x_k(t)|| <= delta_max, and is sent with some probability p_k(t). Theorem 1 needs a lower bound p_A on the top decision region's probability and an upper bound p_B on the runner-up, both estimated by sampling."
 adversary_bound: "none — a malicious agent is bounded in how far its transmitted state may deviate, delta_max, which is a geometric constraint on the message. Nothing bounds any party's compute, queries, or memory."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: channel
+cls_write: channel
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "∥x̃k(t) − xk(t)∥ ≤ δmax"
+cls_evidence_src: "§2.2.1, Eq. 4"
+cls_reason: "Malicious agent's message deviation δmax is the antecedent Theorem 1 needs, a geometric/capability bound on the attacker. The defender's Monte Carlo sample cap m_max ('the maximum number of samples allowed for computational efficiency', Eq. 10, §3.1.2) is a second, statistical cost on the certifying agent, not the attacker, so it goes to second_party: per Rule 4's fallback neither bound is a frame=compute bound (perturbation is capability, samples is statistical), so the attacker's bound decides the row."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

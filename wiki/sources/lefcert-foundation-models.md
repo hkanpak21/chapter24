@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The attacker modifies at most T of the n support samples, altering inputs or labels arbitrarily but preserving the C-way K-shot structure. The encoders are frozen and clean; nothing in the guarantee covers poisoning of the pre-training corpus."
 adversary_bound: "none — the attacker is assumed to have full knowledge of the data and the model and is unrestricted in computation. It is bounded only by T, the number of support samples it may poison, which is a counting budget on the perturbation."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: white box
+cls_write: corpus
+cls_frame: capability
+cls_party: attacker
+cls_unit: corruption
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "We assume that the attacker has all the knowledge about the data and model, and the attacker can arbitrarily poison at most T support samples"
+cls_evidence_src: "§3.1 Threat model"
+cls_reason: "Classified on the base LeFCert theorem (Theorem 2), the abstract's headline claim, not LeFCert-L's added dual feature-radius + label-count budget, which is a distinct extension (rule 1); second_notion=none for the base theorem accordingly. baseline=n/a: certified accuracy is reported, not an advantage over a stated naive baseline. Matches the corpus convention for support-set/training-set poisoning certificates (cf. multi-level-certified-offline-rl: same target/family/phase/access/write/frame/party/unit/tightness tuple)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

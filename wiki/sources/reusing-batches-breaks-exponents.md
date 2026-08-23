@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "n/d = alpha > 0 fixed (proportional regime); sigma analytic with polynomially bounded derivatives, E[sigma'(z)] != 0 and sigma^k(0) != 0 for all k; g* with polynomially bounded derivatives; second-layer weights a fixed at initialization; symmetric initialization a_i = -a_{p-i+1}, w_i^0 = w_{p-i+1}^0; orthogonal normalized teacher rows; d -> infinity."
 model_class: "Gaussian multi-index teacher y = g*(W* z / sqrt(d)) with orthogonal row-normalized W* in R^{k x d}, z ~ N(0, I_d); two-layer student, first layer trained only. Proportional regime n = alpha d."
 algorithm_class: "multi-pass (full-batch) gradient descent with batch reuse, finite stepsize, batch size n = O(d); contrasted against single-pass / online SGD and population gradient flow"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "We disprove this conjecture and show that the sample complexity for a large class of functions can be reduced to O(d) independently of the leap exponent ℓ."
+cls_evidence_src: "§1"
+cls_reason: "No ML attack scenario; a pure learning-theory result, matching sibling exponent pages (target/family/phase/access/write=none/none/n/a/none/none). party=learner per rule 3: the bound binds the multi-pass GD algorithm. unit=samples/tightness=exponent for the explicit O(d) sample threshold, stated as a relation to the leap-l-dependent threshold the honest single-pass algorithm needed, matching the generative-exponent/generative-leap convention for a stated sample-complexity relation. second_notion=time records Theorem 3.2's explicit T=2 gradient-step bound, the same party (learner) under an incomparable resource notion (rule 4b), matching leap-complexity-sgd's second_notion=time convention. baseline=stated: the disproved comparison point is Abbe et al. (2023)'s conjectured O(d^max(l/2,1)) threshold, explicitly named and superseded. Not recorded: the paper's own 'expectation' that GD inherits SQ hardness (Claim Boundary: 'that is an expectation, not a theorem'), so no second_notion=algo class is added for it."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

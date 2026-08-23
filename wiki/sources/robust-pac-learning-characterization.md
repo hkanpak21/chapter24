@@ -9,6 +9,24 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-the
 claim_quantifier: universal
 antecedent: "None beyond the setting inherited from Montasser, Hanneke and Srebro 2019 — a hypothesis class H, a perturbation map U with U(x) nonempty, and an i.i.d. non-adversarial training sample. The characterization is stated up to logarithmic factors, not exactly."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "shows that DU (H) tightly (up to log factors) characterizes the sample complexity of agnostic robust learning"
+cls_evidence_src: §6, near Thm 9
+cls_reason: "Party=learner: the Claim Boundary states the adversary realizing U is unbounded in every resource and nothing in the characterization is computational, so frame=statistical, not compute, per the batch note on pure sample-complexity bounds. Tightness=budget is a judgment call: D(H,U)/ε² is an explicit closed-form dimension-based formula, and none of poly/quasi-poly/class/exponent/measured fit it cleanly in this codebook's narrower senses."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

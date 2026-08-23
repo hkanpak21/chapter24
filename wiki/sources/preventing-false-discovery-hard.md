@@ -9,6 +9,24 @@ tags: [statistical-query, hardness-reductions, one-way-functions, cryptography, 
 claim_quantifier: conditional
 antecedent: "Theorem 1.1 and 1.3: one-way functions exist (exponentially hard OWFs for the sharpest dimension regime). Theorem 1.2 is unconditional but requires dimension d = n^{3+o(1)}. All results require d growing more than logarithmically in n, so that 2^d is superpolynomial. The analyst must be computationally efficient."
 adversary_bound: query count (n^{3+o(1)} adaptive statistical queries); the adaptive analyst is required to be computationally EFFICIENT, and the oracle is the party assumed computationally bounded
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Assuming one-way functions exist, there is no computationally efficient oracle that given n samples is accurate on n3+o(1) adaptively chosen queries"
+cls_evidence_src: "Thm 1.1"
+cls_reason: "family=reconstruct classifies the attack mechanism that proves Theorem 1.1 (a fingerprinting-code tracing algorithm recovering elements of the oracle's sample S), per Rule 1's demand to classify the theorem; the paper's own framing ('do not file this as a privacy result') is about statistical validity versus confidentiality, not about whether the underlying technique is reconstruction, so family tracks the mechanism used, not the paper's chosen frame. party=attacker/unit=queries per Rule 3: n^{3+o(1)} is how many adaptive queries the analyst wields before the oracle is forced blatantly wrong; both oracle and analyst are 'computationally efficient' (both computational), so per Rule 4's tie-break the adversary's bound decides the row. second_party=samples records the oracle's own resource n, against which the exponent 3 in n^{3+o(1)} is stated, mirroring the haghifam-sample-complexity-mia precedent's second_party=samples structure for an analogous attacker-vs-honest-party exponent. tightness=exponent because the paper states the bound is tight 'up to a factor of n' against the known n^2 efficient upper bound, an explicit relation to the honest mechanism's own achievable performance, not a bare numeric budget. access=scores: a statistical query returns an approximate real-valued answer to α-tolerance, not a hard label or an access-unspecified black box."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "For the empirical claim, none beyond the measured architectures and datasets. For Proposition 1, a fully connected network with per-example cross-entropy loss, one-hot labels, and batch size 1. For Proposition 2, a fully connected network with db > d1(d+b), where d1 is the width of the first hidden layer. For Proposition 3, a single-layer network with b > rank of the gradient. The computational-infeasibility conjecture rests on no stated antecedent because it is not proved."
 adversary_bound: "none. The forging adversary is unbounded in compute, queries, and memory. What restricts it is a feasibility constraint, that the forged mini-batch lie in the allowed domain X x Y, together with the verifier's reproduction-error threshold. No running-time bound and no hardness assumption appear anywhere in the paper."
 date_verified: 2026-08-22
+cls_target: training run
+cls_family: forge
+cls_phase: train time
+cls_access: white box
+cls_write: corpus
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: no bound in Def 1, Props 1-3, or the conjecture (contribution list, §5.3, conclusion); confirmed absent by grep -a for \"polynomial-time\", \"running time\", \"adversary class\", \"NP-hard\", \"reduction\" (0 hits) in raw/S+25_DataForgingAttacks.pdf
+cls_reason: "target=training run and family=forge match the paper's subject directly (forging a training-trace mini-batch). frame/party/unit/tightness=none/none/unstated/none because the adversary is unbounded in compute, queries and memory, and the sole restriction — the forged batch must lie in the valid input domain — is a feasibility constraint on the output, not a resource bound (Claim Boundary). The measured reproduction-error gap is an attack-quality metric with no matching unit in the vocabulary, so it is not recorded as assessed=implicit."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against the primary source.** Every quotation below was checked against

@@ -9,6 +9,24 @@ tags: [cryptography, computational-indistinguishability, impossibility-framework
 claim_quantifier: conditional
 antecedent: "Two separate and independent results. (1) The construction is fully black-box from a primitive instantiable by a random object. (2) The mechanism's output lies in R^n for CONSTANT n, and its average (p,v)-error is polynomially bounded."
 adversary_bound: PPT (the CDP adversary); the constructed statistical mechanism is private against unbounded adversaries
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: privacy budget
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "A family of functions {f_k} is ε-IND-CDP if for every non-uniform polynomial-time A and every sequence of ordered pairs of polynomial-size adjacent databases, there is a negligible function negl such that"
+cls_evidence_src: Def 5
+cls_reason: "target/family/phase/access/write=none/n/a: the theorem proves a mechanism-conversion equivalence, not an attack, and its own Limitations section excludes exactly the ML-relevant case (classifiers, graphs, synthetic databases, output dimension growing with the security parameter) -- so it is not read as bounding an attacker of train data, unlike Dinur-Nissim's reconstruction attack, which is a different shape of claim and keeps target=train data. party/unit/tightness/frame follow Def 5 (IND-CDP), the definitional apparatus both Theorem 1 and Theorem 2 build on: the distinguisher A is the party whose PPT bound is what 'computational' in computational DP refers to (rule 6, the distinguisher models a privacy attacker here, not an auditor). second_party=privacy budget: the mechanism f_k is separately bounded by epsilon (Defs 5-7), a capability-style bound distinct from A's time bound, so per rule 4 the computational bound (A, time, poly) decides the row and the mechanism's epsilon bound goes to second_party. baseline=n/a: Definitions 5-7 are multiplicative-additive indistinguishability bounds with no guessing-baseline term, unlike Yeom-style advantage definitions."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

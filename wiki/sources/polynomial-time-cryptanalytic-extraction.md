@@ -9,6 +9,24 @@ tags: [adversarial-ml, cryptography, sample-complexity]
 claim_quantifier: empirical
 antecedent: "Real-valued weights, arithmetic carried out with infinite precision in unit time by both network and attacker, inputs perturbable by arbitrarily small amounts, outputs observable to arbitrarily high precision, fully connected ReLU network with known depth and layer widths, output layer linear, and known signatures for the layer under attack. Sign recovery by Neuron Wiggle is statistical and fails when the signal is weak against the noise."
 adversary_bound: "none. The attack's query count and operation count are given as polynomials in the layer widths, and its wall-clock is reported, but no definition bounds an adversary."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: implicit
+cls_evidence: "extract with arbitrarily high precision all the real-valued parameters of a ReLU-based DNN using a polynomial number of queries and a polynomial amount of time"
+cls_evidence_src: abstract
+cls_reason: "tightness=measured not poly: despite the 'polynomial' language, the page's own 'unnamed quantity' section states plainly that 'nothing quantifies over algorithms' and cost is 'a measurement of this program, not a parameter of any notion of extraction security'; adversary_bound in the front matter is explicitly 'none.' The poly/exponential contrast describes this one constructive algorithm's own resource use relative to the prior exhaustive-search attack, not a definitional class quantifier, so measured/implicit fits better than poly. unit=queries with second_notion=time because the paper reports two resource counts for the same attacker: queries (d_i+1, 3sd_i, 4d_r+1 per layer by technique) and operations/wall-clock (O(d_i^3) etc., and ~30 minutes on a 256-core computer), per rule 4b. baseline=stated: costs are explicitly compared to the prior attack's 2^256 exhaustive search, though not to the target model's own training cost, which the paper never reports anywhere (confirmed absent by the page's own check and by grep of the extracted PDF)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

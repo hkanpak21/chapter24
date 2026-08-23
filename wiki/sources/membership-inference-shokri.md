@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "The adversary receives the target model's full prediction vector, not just a label; it can draw records from the target's population (or synthesise approximations of them by hill-climbing the target's confidences); and it can train shadow models on the same platform or with the same architecture as the target."
 adversary_bound: "Knowledge and access only. Black-box query access returning the full confidence vector, plus the true label of the challenge record, plus population data, plus the ability to train shadow models. No computational bound is stated anywhere; the attack's cost appears only as the number of shadow models (10 to 100, per dataset)."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "Increasing the number of shadow models would increase the accuracy of the attack but also its cost."
+cls_evidence_src: §VI-C
+cls_reason: "party/unit/tightness by the implicit-cost rule: the paper states no security game and no formal adversary bound (front matter: 'No computational bound is stated anywhere'), but it does report a specific cost quantity, 10 to 100 shadow models per dataset, so this is not a bare party=none case. No listed unit value names a count of models trained; queries is the nearest available proxy, since building each shadow model requires training-query access to the same platform or architecture as the target, and is flagged here as an approximate fit, a vocabulary gap. phase=post hoc rather than test time: the target is a fully trained, released classifier (commercial MLaaS or the authors' own trained models) queried with no further training of the target, not a live interactive session. baseline=stated directly from the paper: 'thus the baseline accuracy is 0.5,' a property of the balanced evaluation set, not of a formal definition."
+cls_prov: F
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §I–§III, §IV (problem statement and shadow

@@ -8,6 +8,24 @@ year: 2025
 claim_quantifier: conditional
 antecedent: "For the search-to-decision reductions: the existence of a decision algorithm for planted k-OV with success probability 1 − δ(n). The average-case hardness of the planted distribution itself is Conjecture 10 — CONJECTURED, NOT PROVED."
 tags: [complexity-theory, average-case-reductions, fine-grained-cryptography, hardness-reductions, statistical-computational-gaps, planted-clique]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: success prob
+cls_assessed: explicit
+cls_evidence: "For any α(n) = ω(1) and ε > 0, there exists no algorithm A that solves the planted decision k-OV problem with any constant success probability δ > 1/2 in time O(n^{k−ε})."
+cls_evidence_src: Conjecture 10
+cls_reason: "party=learner not attacker, matching the sibling paper average-case-parity-problems.md's convention for this exact genre: no attacker/defender security game, only an algorithm attempting to solve a computational problem (rule 3, the constrained party is the solving algorithm). tightness=exponent: n^{k-ε} is a stated saving relative to the implicit worst-case/brute-force n^k baseline, the standard fine-grained-complexity idiom, matching average-case-fine-grained-hardness.md and average-case-parity-problems.md. second_notion=success prob: Conjecture 10 bounds the same algorithm under two incomparable notions, time (n^{k-ε}) and success probability (δ>1/2), per rule 4b; 'success prob' is a revision-4 vocabulary value not available when average-case-parity-problems.md was classified, which is why that sibling page left an analogous gap blank — using it here resolves that gap rather than repeating it. This is the paper's own conjecture, unproven (front-matter antecedent already records this); the classification describes the conjecture's stated shape, not an established theorem."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

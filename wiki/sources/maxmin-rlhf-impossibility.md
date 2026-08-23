@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "A Bradley-Terry preference model with linear rewards r_phi = <phi, psi(y,x)>; a bounded feature norm D; a positive minimum eigenvalue lambda_psi of the feature Gram matrix; a Lipschitz constant L_pi on log pi; and a strictly positive diversity gap epsilon. The bound is vacuous when epsilon = 0, that is when the subpopulations do not in fact disagree."
 adversary_bound: "none — there is no adversary. The obstruction is heterogeneity in the human population, not an attacker. The constrained party is the aligner, and the constraint is representational (one scalar reward) rather than a bound on any resource."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "No party is bounded in computation, samples, queries, or memory. There is no adversary anywhere in the paper."
+cls_evidence_src: wiki Claim Boundary
+cls_reason: "No attack or adversary appears anywhere. The constraint is representational, a single scalar reward serving a heterogeneous population, not a bound on any party's resource, so every field is none/unstated by Rule 2."
+cls_prov: F
+cls_date: 2026-08-22
 ---
 
 ## Summary

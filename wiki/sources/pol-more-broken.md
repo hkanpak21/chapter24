@@ -8,6 +8,24 @@ year: 2023
 tags: [adversarial-ml, certification, verifiable-computation, complexity theory]
 claim_quantifier: empirical
 antecedent: "The attacks are unconditional constructions against stated verification parameterizations (a fixed noise tolerance `δ`, and the `top-Q` selection rule with `Q` known to the adversary). The formal fragments (Lemmas 1–6) assume a metric whose Lebesgue-measure behaviour is specified, and Lemmas 5–6 assume finite variance of the cost distribution plus Markov's inequality only. Nothing rests on SETH, a cryptographic assumption, or a hardness conjecture."
+cls_target: training run
+cls_family: forge
+cls_phase: post hoc
+cls_access: white box
+cls_write: corpus
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "the linear interpolation is done once for every model parameter so the step-wise cost is 1 FP"
+cls_evidence_src: "Appendix B"
+cls_reason: "family=forge not evade audit: both attacks fabricate a trajectory that passes the verifier's own check, matching the codebook's established forge/evade-audit split from auditable-unlearning-definitions and forgeability-and-unlearning. phase=post hoc: the adversary already holds the victim's final W_T (threat model item 1, §3) and does no further honest training. access=white box: the threat model gives A complete knowledge of W_T and the architecture, though explicitly not intermediate steps or randomness (item 3), a narrower white box than the sibling PoL-forging papers. write=corpus for consistency with that same cluster, since the PoL proof format (W_t, B_t, A_t) being forged carries claimed batch data, not just weights. party/unit/tightness=attacker/time/measured, assessed=implicit: Appendix B's per-step FP counts (1 FP; (3kQ)/s+1 FP) are reported analytically but never tied to any formal cost definition or adversary class; Definition 6's c-cheap framework, the paper's only definitional cost notion, is explicitly not proved to hold of these attacks and is left an open problem, so the concrete costs are measured/implicit rather than budget/explicit, matching the assigning note's expectation for this cluster. baseline=stated because the reported cost is explicitly compared to Zhang et al.'s (43·n_iter+1)·k FPs per update, though that baseline is a prior attack's cost, not honest training's."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/F+23_PoLMoreBroken.pdf`,

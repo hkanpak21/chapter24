@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "A lower bound p_A on the top class probability and an upper bound p_B on the runner-up, both estimated by Monte Carlo with a Clopper-Pearson interval at significance alpha = 0.001, so the certificate holds with probability 1 - alpha over the smoothing randomness and not otherwise."
 adversary_bound: "none — the adversary may modify at most r token positions in the mutable payload. That is a combinatorial constraint on the perturbation, not a bound on compute, queries, or memory. The base classifier is treated as arbitrary, including adversarially constructed."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "The smoothed classifier G is provably robust (i.e., G(x′) = cA) against any perturbation of size r if:"
+cls_evidence_src: Thm 1
+cls_reason: "Rule 5 (perturbation budget): the only stated restriction is the r-token l0 budget on the payload, so party=attacker, unit=perturbation, tightness=budget, frame=capability. access=white box, not none, by direct analogy to certified-robustness-randomized-smoothing.md (CRK19, this paper's own named predecessor): Theorem 1 fixes f as 'an arbitrary base classifier' and the paper's own tightness argument constructs an adversarial Trojan classifier, so the certificate is stated to cover a fully-informed adversary, matching CRK19's 'Theorem 1 assumes nothing about f' reasoning verbatim. write=none for the same reason as CRK19: the attacker perturbs its own query input at test time and writes to no corpus, model, or channel. assessed=explicit since r is the direct subject of Theorem 1, not a reported side cost."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

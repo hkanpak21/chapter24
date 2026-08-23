@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Upper bound (Theorem 1.4) requires the target class to lie in F(K, m, zeta, tau, sigma), the well-behaved MIMs of Definition 1.3 (bounded gradient/second moment, L2-close to bounded, and for every subspace V either V-approximability or a degree-<= m distinguishing conditional moment). Lower bound (Theorem 1.10) requires a rotationally invariant K-MIM class, relative degree-m moment matching (Definition 1.9), a tau-inapproximability condition, and 'the mild assumption that the extreme values of y have small contribution to the variance'."
 model_class: "K-MIMs f: R^d -> R depending only on the projection onto a K-dimensional subspace, under the standard Gaussian x-marginal. Real-valued, square loss, agnostic (arbitrary labels). Applications: positive-homogeneous L-Lipschitz K-MIMs, hence Lipschitz homogeneous ReLU networks. NOT general neural networks."
 algorithm_class: "SQ (STAT(tau) oracle) for the lower bound; an iterative subspace-finding moment algorithm for the upper bound. The lower bound is SQ, not CSQ and not low-degree."
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "draws N = dO(m) 2polym (K/(ǫσ)) i.i.d. samples, runs in poly(N ) time"
+cls_evidence_src: Thm 1.4
+cls_reason: "Party=learner per rule 3: agnostic label noise is unbounded (\"no assumptions...on the labels\"), so only the learner is priced. Unit=samples is the headline quantity; second_notion=algo class records the SQ restriction in the separate lower bound (Thm 1.10), per rule 4b. Tightness=class because near-optimality is shown only against SQ, not all algorithms. Family=poison is a mapping choice: the paper calls this agnostic learning with adversarial label noise, not a poisoning attack."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "none. The result is unconditional inside the random oracle model."
 adversary_bound: "Oracle **query complexity** in the **random oracle model**: the attacker asks (16n/δ)² queries, where n bounds the honest parties' own queries. The attacker is otherwise computationally unbounded; the paper notes it can be made efficient only in a relativized world where P = NP. This is not a running-time bound in the standard model."
 date_verified: 2026-08-22
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: queries
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "We prove that every key exchange protocol in the random oracle model in which the honest users make at most n queries to the oracle can be broken by an adversary making O(n2) queries to the oracle."
+cls_evidence_src: abstract
+cls_reason: "target/family/phase/access/write are all none/n/a: this is a generic cryptographic key-exchange result with no ML component, so the survey's ML-specific attack-scenario vocabulary does not apply; flagged as a vocabulary gap rather than forced into a mismatched value such as 'extract'. unit=queries, not time, per the audit warning: the bound is oracle-query complexity in the random oracle model, and the paper states its own adversary 'can be implemented efficiently in a relativized world where P = NP', i.e. this is not a standard-model time bound. second_party=queries: the honest parties Alice and Bob are also bounded, each to at most n queries, the same unit as the attacker's (16n/delta)^2, so by the rule that the computational bound decides the row when both are computational, the attacker's query count is the primary row and the honest parties' n queries is the second party. tightness=exponent: the attacker's (16n/delta)^2 is stated directly as a quadratic function of n, the honest parties' own query count, matching the exponent definition exactly."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

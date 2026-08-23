@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "none. No theorem is stated, so nothing rests on a hypothesis."
 adversary_bound: "none stated. The paper surveys proof systems whose soundness is computational by construction, but it defines no adversary and proves nothing about one."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no adversary, game, or advantage defined anywhere in the paper; §2 defines ZKP/signature soundness generically ('computationally infeasible for an adversary'; 'computationally-bounded adversary'), background only, not a threat model of the paper's own; wiki Claim Boundary confirms 'none is modelled'"
+cls_reason: "Framework/gap-analysis survey, no theorem, no formal security game; front matter's own adversary_bound field already states this. All attack-scenario and adversary-assumption fields are none/unstated/n/a per rule 2."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Theorems 3.2, 3.3, 5.2 assume even activations sigma with finite NSE, i.i.d. Gaussian covariates, isotropic Gaussian planted directions, and the proportional limit d, n -> infinity with n/d -> alpha; the multi-index results take a further large-width limit p -> infinity AFTER d -> infinity. Result 4.3 (general activations, committee case) relies on statistical-physics arguments and a committee-symmetry ansatz and is 'currently non-rigorous'."
 model_class: "Three models, all Gaussian: (i) single-index with additive Gaussian noise y = sqrt(lambda) sigma(w* · x) + xi; (ii) separable multi-index / committee machine y = p^{-1/2} sum_k sigma(w*_k · x) + sqrt(Delta) xi; (iii) hierarchical multi-index y = sum_k k^{-gamma} sigma(<w*_k, x>) + sqrt(Delta) xi. Planted directions i.i.d. N(0, I_d/d)."
 algorithm_class: "AMP / first-order iterative methods (and spectral methods) in the PROPORTIONAL regime n = alpha d. NOT SQ, NOT CSQ, NOT low-degree, and NOT the d^k polynomial-scaling regime."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "the optimal AMP algorithm achieves weak recovery (see Definition 3.1) exactly for α > αWR"
+cls_evidence_src: Thm 3.2
+cls_reason: "Classified on the single-index weak-recovery result (Thms 3.2-3.3), the paper's first and cleanest rigorous result, per rule 1. party=learner: the bound binds the AMP algorithm, not an attacker (Rule 3; no adversary anywhere in the paper). unit=samples/tightness=exponent, matching the sibling page generative-exponent-single-index.md's pattern exactly: the headline quantity is the sample-ratio threshold alpha, and beta_star is a stated multiplicative relation between the AMP threshold Theta(lambda^-beta_star) (Thm 3.2) and the information-theoretic threshold Theta(lambda^-1) (Thm 3.3, verbatim 'there is a wide statistical-to-computational gap as λ → 0'), which is baseline=stated. second_notion=algo class records that this threshold is specific to AMP/first-order methods in the proportional regime (front matter algorithm_class), a restricted class incomparable to the sample count itself, per rule 4b. Per the page's own Claim Boundary this composes with no SQ/low-degree/d^k-scaling exponent and establishes no lower bound against general poly-time algorithms — AMP-optimality is invoked by citation, not proved here."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

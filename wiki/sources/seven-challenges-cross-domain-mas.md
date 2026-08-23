@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "none — a position paper. It argues from scenarios and asserts no conditional result."
 adversary_bound: "none — no adversary is formalized anywhere in the paper, so nothing bounds one. The threats are described in prose as plausible attack scenarios."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: multiple
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no bound in §1 (challenge definitions) or §2-4 (challenges, metrics, countermeasures for C1-C7); position paper defines no adversary — confirmed by grepping the extracted PDF for 'adversary', 'threat model', 'PPT', which returns only prose scenario mentions, no formal definition"
+cls_reason: "This page's pre-2026-08-20 challenge list was fabricated (overlapped the paper's actual seven on at most two entries) and was ignored per instruction; the seven below were verified directly against the primary PDF (arXiv:2505.23847v3), §1: (C1) unvetted dynamic grouping, (C2) collusion control, (C3) conflicting incentives and goals, (C4) distributed self-tuning misalignment/drift, (C5) cross-domain provenance obscurity, (C6) cross-domain context bypass, (C7) inter-domain confidentiality and integrity. This matches the page's own 'Corrected 2026-08-20' section, which is accurate and should be trusted going forward. family=multiple because the seven challenges span heterogeneous attack types (collusion, provenance falsification, context/prompt bypass, confidentiality/integrity violation) with no formal adversary to pin to one family value."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

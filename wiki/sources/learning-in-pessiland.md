@@ -12,6 +12,24 @@ adversary_bound: "none. There is no adversary in this paper. The bounded party i
 model_class: "adaptively changing distributions; P/poly-samplable distributions; all polynomial-length multi-output functions; P/poly with membership queries under the uniform distribution"
 algorithm_class: "universal extrapolation, following Solomonoff's inductive inference and Impagliazzo–Levin (FOCS'90)"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Every unknown ACD is learnable in polynomial time."
+cls_evidence_src: Thm 2.4
+cls_reason: "No adversary anywhere in the paper (front matter states this), so the constrained party is the learner (rule 3), and target/family/phase/access/write are all none/n/a since there is no attack scenario. Classified on the average-case equivalence, Theorem 2.4, the abstract's headline 'computational analogue of the fundamental theorem of statistical learning' (rule 1), not the worst-case exponential-in-computational-depth variants (Theorems 2.8/2.9), which are a secondary result stated later in the abstract."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

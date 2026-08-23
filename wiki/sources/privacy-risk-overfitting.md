@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Each theorem carries its own hypothesis, named separately: Theorem 1 assumes the learning algorithm is epsilon-differentially private; Theorem 2 assumes the loss is bounded by B; Theorem 3 assumes the residual is Gaussian with known variances under both worlds; Theorem 4 assumes an ARO-stable learning rule, a bounded loss, a finite domain, keyed pseudorandom functions, and that x uniquely determines (x,y); Theorem 5 assumes a uniform binary sensitive attribute and Gaussian residuals."
 adversary_bound: "None. The adversary A is an arbitrary function of (z, A_S, n, D); no time, size or query bound appears in any definition or theorem. Definition 6's comparison object is the Bayes optimal simulator, which is by construction computationally unbounded."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no time, size, or query bound on the adversary anywhere in Experiment 1 (§3) or Definition 4; adversary_bound in the front matter records this as none, and A is stated to range over an arbitrary function of (z, A_S, n, D). Theorem 1's epsilon-differentially-private bound restricts the learner, not the adversary, and is not the claim the abstract leads with"
+cls_reason: "Classified on Definition 4 / Experiment 1 (membership advantage, fair-coin baseline), the paper's leading membership-inference definition, per the assigning note - not Definition 6 (attribute advantage, Bayes-optimal-simulator baseline, not degenerate). party/unit/tightness=none/none/unstated per Rule 2: A ranges over all functions of (z, A_S, n, D) with no resource restriction, and the headline theorem (Theorem 2, Adv=R_gen(A)/B, matching the abstract's 'overfitting is sufficient to allow an attacker to perform membership inference') restricts no party's resources. Theorem 1's epsilon-DP bound on the learner exists in the same paper but is a secondary result the abstract does not lead with, so it does not decide this row per Rule 1. access=white box: A_S, the full trained algorithm output, is passed to the adversary directly with no restriction on what may be read from it, and the paper's own introduction frames both black-box and white-box attacks as covered by the same formal game. baseline=stated: Definition 4's baseline is 1/2 by construction and the paper proves it ('the only way to gain advantage is through access to the model'), which is exactly the no-op the repository already tracks - stated because the paper states and proves it, degenerate or not."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: §1, §2 (stability, DP, generalization error), §3

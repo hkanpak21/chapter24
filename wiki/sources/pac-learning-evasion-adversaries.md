@@ -9,6 +9,24 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-the
 claim_quantifier: universal
 antecedent: "For the sample-complexity bound, a binary hypothesis class H and a nearness relation R, with the adversarial VC dimension of the corrupted class finite. For the halfspace theorem, the perturbation set must be a nonempty closed convex origin-symmetric subset of R^d, which covers every ℓp ball with p ≥ 1 but excludes non-convex and asymmetric perturbation sets."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "For a space X, a classifier family H, and an adversarial constraint R, there is a universal constant C such that m_{H,R}(δ,ε) ≤ C·(d log(d/ε)+log(1/δ))/ε²."
+cls_evidence_src: Thm 1
+cls_reason: "Matches the sibling adversarially-robust-pac-regression.md classification (same genre: PAC sample-complexity bound under an unrestricted evasion adversary). frame=statistical not capability: Theorem 1's nearness relation R is fully general ('For a space X, a classifier family H, and an adversarial constraint R'), with no numeric restriction; the 'adversarial budget constraint ǫ' sentence in §2 is an illustrative example of how R could be built, not a restriction the theorem's own bound depends on, so rule 5's norm-ball convention does not decide the headline claim. party=learner/unit=samples/tightness=budget: the only bound in Theorem 1 is the learner's sample complexity, a closed-form definitional parameter with no stated relation to any adversary quantity; the adversary R is unconstrained (rule 2), so second_party=none. access=none/write=read only follow the corpus default for evasion-theory papers with no explicit stated query-access model. The halfspace corollary (AVC=VC=d+1, requiring convex origin-symmetric R) is a narrower instantiation and not what the abstract leads with, so it does not decide the row (rule 1)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

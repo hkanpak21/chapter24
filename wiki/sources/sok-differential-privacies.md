@@ -9,6 +9,24 @@ tags: [differential-privacy, adversary-knowledge-taxonomy, attack-taxonomy-llms,
 claim_quantifier: universal
 antecedent: none (a survey; individual catalogued results carry their own antecedents)
 adversary_bound: varies by dimension — the survey's dimension C is the runtime axis, occupied by PPT only
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: privacy budget
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Distinguisher modelled explicitly as a non-uniform ppt Turing machine"
+cls_evidence_src: "Def 21 (§9), matching Table 2's dimension-C question 'How much computational power can the attacker use?'"
+cls_reason: "The survey catalogues definitions rather than mounting an attack, so target/family/phase/access/write are none/n/a; it is included for its Adversary-assumptions finding, that dimension C (computational power) is the one axis of seven that bounds the attacker computationally, occupied only by IndCDP/SimCDP's non-uniform-ppt distinguisher (Rule 4: computational bound decides party/unit over the mechanism's own privacy-budget bound, recorded in second_party). assessed=explicit because the ppt bound is the formal defining parameter of the CDP definitions themselves, not an incidentally reported cost."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

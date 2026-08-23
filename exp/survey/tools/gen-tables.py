@@ -28,14 +28,17 @@ VALUES = {
     "party":     ["attacker", "learner", "auditor", "mechanism", "none"],
     "unit":      ["time", "circuit size", "queries", "samples", "memory",
                   "algo class", "parameters", "perturbation", "corruption",
-                  "rounds", "privacy budget", "none"],
+                  "rounds", "privacy budget", "circuit depth",
+                  "success prob", "none"],
     "phase":     ["train time", "test time", "post hoc", "n/a"],
-    "access":    ["hard label", "scores", "black box", "white box", "weights", "gradients", "none"],
+    "access":    ["hard label", "scores", "black box", "white box", "weights",
+                  "gradients", "channel", "none"],
     "tightness": ["unstated", "poly", "quasi-poly", "class", "budget",
                   "conditional", "exponent", "measured"],
     "frame":     ["compute", "statistical", "capability", "none"],
-    "family":    ["membership", "reconstruct", "extract", "forge", "evade",
-                  "evade audit", "poison", "backdoor", "none"],
+    "family":    ["membership", "attribute", "reconstruct", "distribution",
+                  "extract", "invert", "forge", "evade", "evade audit",
+                  "inject", "poison", "backdoor", "multiple", "none"],
 }
 NICE = {"party": "constrained party", "unit": "resource unit",
         "phase": "pipeline phase", "access": "access level",
@@ -71,7 +74,7 @@ def front(slug):
 
 
 def esc(s):
-    return s.replace("&", r"\&").replace("_", r"\_") if s else "--"
+    return s.replace("&", r"\&").replace("_", r"\_") if s else "$\\cdot$"
 
 
 def cite_group(keys):
@@ -186,7 +189,7 @@ def main():
              "deleting every resource restriction leaves the main claim unchanged."
              % (n, n_none, n_out))
     b.append("")
-    b.append("\\emph{This is a partial pass. %d of the corpus's works are classified; the "
+    b.append("\\emph{This is a partial pass. %d of the corpus's works are classified. The "
              "remainder are not yet placed.}" % n)
     b.append("")
 

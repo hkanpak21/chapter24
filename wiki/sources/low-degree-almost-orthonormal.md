@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "none beyond the random graph models treated. The almost-orthonormality is proved in precisely the gap regimes, not assumed."
 algorithm_class: "low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "we restrict our attention to estimators — or test statistics — that are multivariate polynomials of degree at most D in the observations"
+cls_evidence_src: "§1 (Introduction)"
+cls_reason: "Pure statistical-computational-gap proof-technique paper with no ML attack scenario, matching the corpus convention (target/family=none, phase=n/a, access/write=none) already used for low-degree-polynomials-survey and lb-latent-models-clustering. party=learner rather than attacker: the paper explicitly restricts to 'estimators -- or test statistics', covering both testing (detection) and estimation, so it takes the broader 'learner' label used for lb-latent-models-clustering (same author, Verzelen, applying this paper's technique to clustering) rather than the pure-distinguisher 'attacker' label used for brennan-sq-lowdegree-equivalence's detection-only equivalence."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, reconstruction, sample-complexity, learning-theory]
 claim_quantifier: empirical
 antecedent: "The benchmark conclusions are conditional on the vision domain, on the ten attacks selected, and on the choice of distance measure µ — the paper states that µ-exact reconstruction is 'a necessary and insufficient condition for the perfect reconstruction, depending on the choice of measure µ'. The definitional gap claim itself carries no antecedent; it is a survey observation."
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no bound in Def 3.1, 3.2, 4.1-4.4; Open Questions: 'No computational quantity appears anywhere. The adversary is described by knowledge, never by compute, queries, or time.'"
+cls_reason: "Extra Knowledge K (Def 3.1) has model access as black-box/white-box without fixing one, hence access=black box; the same axis also spans static/dynamic training type, and the ten-attack benchmark is predominantly the static (post-hoc, fixed released model) case, so phase=post hoc with the dynamic case as a documented exception. The cardinality constraint |D_rec|=|D_tar| closes an enumeration loophole but is not an adversary resource bound, so it does not populate unit."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

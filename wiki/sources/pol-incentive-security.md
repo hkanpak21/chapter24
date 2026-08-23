@@ -8,6 +8,24 @@ year: 2026
 tags: [adversarial-ml, certification, verifiable-computation, mechanism-design]
 claim_quantifier: conditional
 antecedent: "Not a complexity assumption. The theorems are conditional on: (a) rational, utility-maximising provers and verifiers; (b) a modelling assumption that a dishonestly trained epoch costs the prover ZERO computation; (c) a differentiable winning-probability function P(·) with hazard rate bounded by λ; (d) a per-stage catch probability κ = Θ(1); (e) reward R and staking/penalty γ above stated thresholds. No cryptographic or fine-grained hypothesis appears."
+cls_target: training run
+cls_family: forge
+cls_phase: train time
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "When dishonestly training an epoch, the prover may pay a significantly lower computational cost, and we assume it to be 0."
+cls_evidence_src: §3.3
+cls_reason: "The headline Theorem 6.1/6.2 (incentive-security, u(ρ)<u(1)) is game-theoretic and prices no party computationally on its own, but rule 7's test ('whether a number exists anywhere, not whether it is load-bearing') is decisive: the dishonest prover's cost is given an explicit number, zero, stated as a modelling assumption in §3.3 and used throughout the utility calculus. So party=attacker/unit=time/tightness=budget (a stipulated constant with no formula relating it to the honest cost) /assessed=implicit (the paper reports the cost but does not treat it as a varying parameter, matching rule 7's own GPU-hours example). second_party=time records the honest trainer's own explicit cost M=m·E (§3.3), a second party's own stated unit. family=forge over evade audit, following the line this corpus already draws (catch-a-chinchilla-compute-monitoring.md, auditable-unlearning-definitions.md): the cheating prover submits a structurally-correct, potentially-passing fabricated stage transcript (κ<1 catch probability), not a bare detection-probability result with no fabricated artifact. phase=train time, diverging from the post-hoc convention used for its siblings auditable-unlearning-definitions.md and forgeability-and-unlearning.md, because here the cheating decision is made live, epoch by epoch, during the mining/training process itself, not as a post-hoc rewrite of an already-trained model's log. write=model over corpus: the dataset D_tr is protocol-assigned via the seed φ=Hash(prev_block,prover_id) and cannot be chosen by the prover, so what is fabricated is the checkpoint/weight sequence for skipped epochs, not the corpus. access=white box is inferred, not an explicit stated threat-model line: the prover is itself the trainer and so has full internal visibility into its own weights/gradients by construction; flagged as inferred rather than quoted. The efficiency result (verifier overhead O(log E/E) or O(1/E), the paper's Property-1 quantity) is deliberately excluded from this row per rule 1: the abstract's headline and the title itself name the incentive-security claim, not the efficiency claim."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/Z+24_PoLIncentiveSecurity.pdf`,

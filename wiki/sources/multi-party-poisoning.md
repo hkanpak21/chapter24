@@ -9,6 +9,24 @@ tags: [poisoning-attacks, adversarial-ml, cryptography, complexity-theory, byzan
 claim_quantifier: universal
 antecedent: "The adversary is given sampling-oracle access to each party's data distribution and black-box access to the protocol, and the protocol must admit efficient conditional sampling. The corruption is static — the k parties are fixed in advance — and each corrupted message is drawn from a distribution within total-variation distance p of the honest one."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: black box
+cls_write: corpus
+cls_frame: capability
+cls_party: attacker
+cls_unit: corruption
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: perturbation
+cls_assessed: explicit
+cls_evidence: "there always is a (k, p)-poisoning attack that increases the probability of B from µ to by µ1−p·k/m = µ + Ω(p · k/m)"
+cls_evidence_src: abstract
+cls_reason: "unit=corruption (k out of m parties) with second_notion=perturbation (p, the per-message total-variation budget): the front matter names both as simultaneous resources on the same party; corruption is treated as primary since the model's headline framing and title turn on k, the count of corrupted parties. A third resource, polynomial running time, also bounds the attacker (front matter: 'in three resources at once') but is not separately recorded, since the schema carries only one second_notion slot; it is the standard poly-time efficiency requirement, not part of the headline mu^(1-pk/m) formula. tightness=budget rather than exponent for both k and p: each is an explicit numeric allowance (a corruption fraction, a TV-distance radius) with no stated relation to a second party's own resource cost, matching the canonical perturbation-budget pattern, not the honest-party-relative sense of exponent. baseline=stated: mu, the no-attack probability of the bad event, is the explicit stated baseline the amplified probability is measured against. access=black box and write=corpus: the adversary has 'black-box access to the protocol' plus sampling-oracle access to each party's distribution, and submits poisoned data on behalf of corrupted parties into the collaborative training process."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

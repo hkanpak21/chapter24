@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "none for the mean squared error bound, which is a second-moment computation. Reading that bound as a computational threshold rests on the low-degree conjecture."
 algorithm_class: "low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "For a large class of \"signal plus noise\" problems, we give a user-friendly lower bound for the best possible mean squared error achievable by any degree-D polynomial."
+cls_evidence_src: abstract
+cls_reason: "All fields direct: the bound is against 'any degree-D polynomial' estimator, matching low-degree-polynomials-survey's party=learner, unit=algo class, tightness=class exactly. No ML attack scenario (pure planted-signal recovery), so target/family/phase/access/write are none/n/a."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

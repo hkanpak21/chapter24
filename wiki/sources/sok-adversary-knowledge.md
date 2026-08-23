@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, evasion-attacks, threat-model, cryptography, evaluation-methodology]
 claim_quantifier: existential
 antecedent: none
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: implicit
+cls_evidence: "number of queries left [k]"
+cls_evidence_src: "Table 1 (oracle catalogue), state of O_S and O_L"
+cls_reason: "The paper's own four-category formalism (model, data, training, defence Hasse diagrams under domination order ⊏) prices no compute despite §3 naming 'access to data and computing resources' as adversary knowledge — per instruction, the formalism is classified, not that sentence. The only two places a computational quantity appears are incidental: a query-limit state field on two oracle types (O_S, O_L; Table 1, also used generically in the Lemma 1/2 domination proofs, e.g. 'Case 2: Limited queries... k the current allowed number of queries left'), and the PPT-bounded reduction function f inside Definition 8's domination relation ⊏, an algo-class restriction on the equivalence notion between oracle outputs rather than a resource the attacker itself spends — recorded as second_notion=algo class. Neither is used by Theorems 1-4 (which hold independent of any query count or the reduction's specific class), hence assessed=implicit rather than a load-bearing parameter. baseline=stated because Definition 15's relative performance score ϒ = ξ²_G − ξ²_{G_b} explicitly subtracts a benign/baseline success rate."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

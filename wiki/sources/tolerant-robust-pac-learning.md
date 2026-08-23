@@ -12,6 +12,24 @@ adversary_bound: "none in any computational resource. The adversary is constrain
 model_class: "binary hypothesis classes H over a domain X of finite VC dimension, with perturbation types U, V, W given as balls in a metric space for the quantitative corollaries."
 algorithm_class: "none. The results are information-theoretic sample-complexity bounds. The learners are stated relative to an ERM or robust ERM oracle and no running time is analysed anywhere in the paper."
 date_verified: 2026-08-22
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "a worst-case adversary is allowed to generate points anywhere within U(x)"
+cls_evidence_src: Appendix A
+cls_reason: "party/unit/tightness/frame follow Rule 5 (norm-ball restriction = attacker/perturbation/budget/capability). second_party=samples is the learner's bound (Thm 9/12, sample complexity linear in VC(H)): per Rule 4, neither bound is computational, so the adversary's bound decides the row and the learner's sample-complexity unit is recorded second. access=white box is inferred from Def 1 (the adversarial loss is a max over ℓ(h,z,y), which requires evaluating h), not from an explicit access-model statement. baseline=n/a: the paper states sample-complexity bounds, not an advantage-over-baseline measure."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against the primary source.** The page was checked against `raw/APU25_TolerantRobustPAC.pdf`

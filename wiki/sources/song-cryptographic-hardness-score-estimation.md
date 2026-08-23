@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Theorem 3.1 itself is unconditional, being a reduction. Every hardness reading of it is conditional on the Gaussian pancakes problem being hard, which in turn rests on worst-case lattice hardness (Bruna, Regev, Song and Tang, STOC 2021) or on sub-exponential hardness of LWE (Gupte, Vafa and Vaikuntanathan, FOCS 2022). Theorem 3.1 also requires TV(P_u, Q_d) > 1/2 and sigma at least 1/poly(d), and inherits assumptions A1 and A2 of Chen et al. on the data distribution."
 adversary_bound: "polynomial time in the dimension d. The distinguisher is a poly(d)-time randomized algorithm with oracle access to score estimates, and Definition 2.12 defines computational indistinguishability against poly(d)-time decision rules. Advantage must be non-negligible, meaning Omega(d^{-c}) for some constant c. No memory or query-count bound is imposed beyond the observation that an algorithm running in time T can make at most T oracle queries."
 date_verified: 2026-08-22
+cls_target: train data
+cls_family: distribution
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party:
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "even with unlimited query access to an exact sampling oracle, no polynomial-time algorithm A can achieve non-negligible advantage on the (γ, σ)-Gaussian pancakes problem"
+cls_evidence_src: §2.3
+cls_reason: "target=train data and family=distribution are judgment calls: Thm 3.1's game distinguishes two data distributions (Gaussian pancakes vs standard Gaussian), and no listed family names a pure distinguishing task. phase=post hoc since the score-estimation oracle models an already-trained, released network with no training-time interference. baseline=stated from Def 2.11's advantage measure (implicit 0-advantage baseline). second_party left blank: the oracle's L2-accuracy bound (Thm 3.1) has no matching unit in the vocabulary."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against the primary source.** Every quotation below was checked against

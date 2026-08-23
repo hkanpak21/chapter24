@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, learning-theory, sample-complexity]
 claim_quantifier: empirical
 antecedent: "The six datasets measured were constructed post-hoc, i.e. members and non-members were collected after model release from different time windows or sources rather than by randomized split. Measured per dataset, not assumed."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no adversary resource in the sequence-/document-level MIA formalization (§II, §V-B), which parameterizes only a scoring function and a threshold; the fixed-record-vs-fixed-model cost argument is qualitative ('unaffordable for LLMs'), never a numeric bound"
+cls_reason: "The paper's load-bearing device is the model-less bag-of-words baseline, which needs no interaction with the target model at all, so access=none and write=none rather than the white-box/scores access the surveyed MIA methods themselves use (Rule 1, main claim). baseline=stated because the clean MIMIR re-evaluation is judged against chance: 'the original attacks ... do not perform significantly better than random, and neither do any of the 5 recently proposed attacks' (§ nine-attack re-run). No party's compute, queries or samples are bounded anywhere, so party/unit/tightness/frame are all the null values."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §I–§V, §VI-A/C, §VII–§VIII, Tables I–III.

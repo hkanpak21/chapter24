@@ -10,6 +10,24 @@ antecedent: "One-way functions exist. Used twice — via HILL'99 for pseudorando
 adversary_bound: "Both regimes appear, deliberately. Part 1's robustness is against ALL adversaries within a Hamming budget of (1−R)n/2 symbols over F_{2^ℓ} (the max in Risk_{d,r}); the bounded party there is the LEARNER. Part 2 is the axis flip: the learner is compared against a poly-time adversary versus an unbounded adversary, both at Hamming budget (1−√R)n."
 priced_resource: "Model parameters — but defined as BITS OF MODEL DESCRIPTION, not weights or neurons. Definition 2: L outputs models with at most p(·) parameters iff |Supp(L(·,λ))| ≤ 2^{p(λ)}. The price is the log-cardinality of the set of classifiers the learner can emit."
 tags: [adversarial-ml, cryptography, one-way-functions, overparameterization, robustness, complexity-theory, computational-vs-it-robustness, pseudorandomness]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: parameters
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "Are there any learning tasks for which computationally bounded learners need to utilize significantly more model parameters than needed information-theoretically?"
+cls_evidence_src: abstract / §1
+cls_reason: "Classified on Part 1's base separation (Thms 20-21), the paper's own opening framing question and the first result stated, per rule 1 — not Part 2 (Thms 28-29), which flips the bound to the adversary and is a differently-shaped claim per the page's own Claim Boundary table. party=learner per rule 3: the bound binds the learner's computational status (poly-time vs unbounded), not an attacker (Thm 21 has no adversary at all). unit=parameters per the front matter's own priced_resource field ('Model parameters... the price is the log-cardinality of the set of classifiers the learner can emit'); tightness=budget since the field's own definition names 'a parameter count' as a budget example, and alpha/beta here are free polynomials in lambda set by the construction, not a ratio derived from another party's cost. frame=compute, not capability, because the qualifying condition producing the parameter cost is the learner's own poly-time-ness (Def 2's PPT-vs-unbounded split), the direct computational-constraints half of the paper's title; second_notion=time records that same poly-time/unbounded split as an incomparable second resource notion on the one classified party, per rule 4b. baseline=stated: the unbounded learner's 2λ-parameter cost (Thm 20) is the explicit reference the poly-time learner's alpha+beta/alpha-over-2 cost is measured against, per the framing question's own 'than needed information-theoretically'. target/family/phase/access/write=none: pure learning-theory separation, no ML attack, matching the sibling exponent papers (information-exponent-online-sgd.md, leap-complexity-sgd.md, noise-sensitivity-exponent.md)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology, survey]
 claim_quantifier: empirical
 antecedent: none
+cls_target: train data
+cls_family: backdoor
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no bound in R1-R9/C1-C8, the coded threat-model fields, or the re-run methodology; Open Questions states adaptiveness is recorded as yes/no and R6 asks only for defense execution time"
+cls_reason: "Attack scenario read off the backdoor literature the SoK studies (poisoning writes to the training corpus), not off the SoK's own claim, which is a meta-critique of evaluation practice with no resource bound on attacker or defender anywhere; 170 GPU-days is the authors' own study cost, not a party's bound, so it does not trigger assessed."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -11,6 +11,24 @@ antecedent: "two assumptions stated in the abstract. One, that a pseudorandom ge
 algorithm_class: "all poly-time conditionally, with the authors' own ceiling that the scheme can be broken in n^{O(log n)} time"
 adversary_bound: "poly-time, subject to the n^{O(log n)} break"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: circuit size
+cls_tightness: quasi-poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "the scheme is far less efficient and secure than might be hoped: it can be broken in n^{O(log n)} time, where n is the key length / security parameter of the system."
+cls_evidence_src: §1
+cls_reason: "Audit warning checked against the PDF: the paper states two assumptions, not three, and the wiki page already carries this correction (confirmed, not re-broken); the |S|/3 string does not occur in the paper. unit=circuit size not algo class: Theorem 2.2's security proof (§2.1) formally reduces to 'T = poly(n)-sized circuit A', a non-uniform circuit-size adversary, even though Assumption UE's own statement (Eq 1, §2) reads 'for every polynomial-time algorithm A' — the constructed scheme's own security proof is what decides the row (rule 1), and it is circuit-size, exactly the circuit-size-vs-algorithm-class distinction the audit warning names. tightness=quasi-poly rather than poly: n^{O(log n)} is the paper's own explicit statement (§1, restated at §2 immediately after Assumption UE) of where the assumption is known to break, following the same convention as cryptography-from-planted-graphs.md's n^{o(log n)} bound for the same planted-logarithmic-size-set problem family. family=none, not invert: security is semantic security/indistinguishability (Theorem 2.2), not a function-inversion game, and no ML asset is in scope, matching the cryptography-from-planted-graphs.md precedent for this genre. baseline=stated: Eq 1 gives an explicit 0.6 bound against the 0.5 guessing baseline. assessed left blank, matching the cryptography-from-planted-graphs.md precedent for this exact genre (planted-structure PKE with quasi-poly/circuit-size tightness)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

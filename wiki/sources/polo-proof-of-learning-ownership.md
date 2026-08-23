@@ -8,6 +8,24 @@ year: 2026
 tags: [adversarial-ml, certification, verifiable-computation, watermarking]
 claim_quantifier: empirical
 antecedent: "Two stated 'core assumptions', both economic rather than computational: (1) any attack whose total cost is no less than honest training is 'economically unviable and therefore irrational'; (2) inside an enforceable model marketplace, a model without a unique verifiable watermark cannot be monetised, so a rational attacker must both erase the incumbent watermark and embed a replacement. The unforgeability game additionally assumes the hash H is collision- and preimage-resistant — but no theorem is proved from that assumption."
+cls_target: training run
+cls_family: forge
+cls_phase: train time
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Forging PoLO demands 1.1–4× more resources than honest proof generation"
+cls_evidence_src: abstract
+cls_reason: "Classified on the OFA family per Rule 1: the Claim Boundary states the abstract's 1.1x-4x headline 'describes the OFA family only,' since WMA, the paper's other named attack, is three orders of magnitude cheaper and excluded from that ratio by failing on accuracy rather than cost. phase=train time because OFA fine-tunes all weights with training data (further training to erase and re-embed); WMA's direct weight overwrite would be post hoc but is not the classified row. write=model, not corpus (contrast pol-more-broken and the auditable-unlearning-definitions/forgeability-and-unlearning cluster): PoLO's verifier extracts the watermark from W_x and checks only that, and the page states explicitly 'no training data disclosed,' so no claimed dataset or log is ever forged, only the model's weights. tightness=measured not exponent: the page's own 'unnamed quantity' analysis states the 1.1x-4x figure is 'a measured multiplicative interval, not a parameterised family,' indexed to nothing (not model size, not shard count S, not a security parameter), matching the assigning note's expectation for this cluster. assessed=explicit because the ratio instantiates the paper's own named unforgeability-game symbols (C_A, C_honest, win condition C_A < C_honest) and is the abstract's headline reported result, not an incidental side cost. baseline=stated: C_honest is the explicit named comparator."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/DJY+25_PoLO.pdf`, extracted with

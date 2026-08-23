@@ -9,6 +9,24 @@ tags: [adversarial-ml, PAC-learning, poisoning-attacks, certification, learning-
 claim_quantifier: universal
 antecedent: "For the main characterization, realizability — the target concept lies in H — and a corruption budget η that the adversary does not exceed, measured as a fraction of the training sample under normalized Hamming distance. The certificate is void the moment the budget is exceeded, and the budget is an input to the guarantee rather than something the defender can verify. The efficient learner additionally needs an ERM oracle for H; the truly polynomial-time result needs linear separators under isotropic log-concave marginals."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: compute
+cls_party: learner
+cls_unit: queries
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: corruption
+cls_second_notion: time
+cls_assessed: implicit
+cls_evidence: "Learner L from Theorem 3.1 can be implemented efficiently given an ERM oracle for H"
+cls_evidence_src: Thm 3.2
+cls_reason: "Judgment call under rule 4: both the adversary (corruption budget η, a genuine capability bound, not a near-miss) and the learner (efficient ERM-oracle implementation, Thm 3.2; truly poly-time for linear separators, Thm 4.1) are bounded. Rule 4 assigns party to whichever bound is computational, so party=learner, unit=queries (ERM-oracle calls), second_party=corruption (η), second_notion=time (Thm 4.1's poly-time special case, same party, per rule 4b). This reading privileges a secondary efficiency result over the paper's headline correctness-certificate claim; a second reader may instead prefer party=attacker, unit=corruption, tightness=budget, frame=capability, treating the ERM-oracle result as incidental rather than a formal two-party bound."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
