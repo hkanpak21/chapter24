@@ -19,7 +19,7 @@ cls_party: auditor
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "no statistic based on symmetric polynomials of degree at most O(log n/ log log n) can distinguish between a noisy version of P from N (0, 1)n ."
 cls_evidence_src: abstract, Result 2

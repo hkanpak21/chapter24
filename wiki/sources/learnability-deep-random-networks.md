@@ -8,6 +8,24 @@ year: 2019
 tags: [statistical-query, learning-theory, complexity theory, sample-complexity, adversarial-ml]
 claim_quantifier: universal
 antecedent: "No complexity assumption. The lower bound is an unconditional statement about the SQ model, obtained from a correlation bound plus the standard SQ-to-weak-approximation argument (Theorem 14, imported as Theorem 31 of Blum et al.). It is conditional instead on the DATA and WEIGHT model: inputs in {±1}^n restricted to one halfspace, sgn activations, and i.i.d. Gaussian weight matrices."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "For any SQ algorithm for learning a random deep network of depth h p(n, h) \u00b7 max(r(n, h), q(n, h))\u00b2 > e^{O(h)}."
+cls_evidence_src: Thm 16
+cls_reason: "In this paper the SQ algorithm is the learner, not an attacker; the security reading is entirely downstream in Jagielski et al., per rule 3 and the page's own note that the bound lacks 'a second party'. party=learner, unit=algo class (SQ, the universal quantifier per Claim Boundary), tightness=class; second_notion=queries records Thm 16's paired p(n,h) query-count bound on the same party per rule 4b. baseline=n/a, no attacker success criterion in this paper."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/DGKP19_SQLowerBoundRandomNets.pdf`,

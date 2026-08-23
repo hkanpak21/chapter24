@@ -19,7 +19,7 @@ cls_party: learner
 cls_unit: time
 cls_tightness: poly
 cls_baseline: n/a
-cls_second: corruption
+cls_second_party: corruption
 cls_assessed: explicit
 cls_evidence: "In this work, we obtain the first computationally efficient algorithms with dimension-independent error guarantees for agnostically learning several fundamental classes of high-dimensional distributions"
 cls_evidence_src: abstract

@@ -8,6 +8,24 @@ year: 2025
 claim_quantifier: conditional
 antecedent: "One-way functions do not exist. Standard as a hypothesis (it is exactly Impagliazzo's Pessiland-or-below condition), but note it is the *negation* of the field's baseline assumption, so the paper is a barrier result rather than a construction."
 tags: [cryptography, complexity-theory, one-way-functions, fine-grained-cryptography, average-case-reductions, impagliazzo-worlds, hardness-reductions]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: conditional
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "If one-way functions do not exist, then there exists a universal constant c, such that for all k > 0, there is an O(nc)-time algorithm that solves k-SUM on average with inverse polynomial failure probability, for infinitely many n."
+cls_evidence_src: "Thm 1.2 (informal)"
+cls_reason: "No two-party protocol here: the O(n^c)-time algorithm A breaks the average-case k-SUM/Zero-k-Clique hardness conjectures that other fine-grained constructions in this corpus (e.g. WSPX24's NIKE) rely on, so party=attacker by rule 3 (the bound binds the breaking algorithm), but this paper's own theorem states no honest party's cost to relate it to, so second_party=none and tightness=conditional (the O(n^c) existence is gated on OWFs not existing, not a stated ratio to a second party's work) rather than exponent, following the convention used for fine-grained-erm's single-party SETH-conditional bound. baseline=n/a: no security game or stated advantage threshold, only a solved/not-solved average-case success criterion."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

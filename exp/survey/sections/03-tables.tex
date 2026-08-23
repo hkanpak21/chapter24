@@ -3,68 +3,69 @@
 
 This section reports the corpus in two layers. Tables~\ref{tab:party-unit} to~\ref{tab:family-party} cross-tabulate features against one another, with works in the cells by citation number. Tables~\ref{tab:scenario} and~\ref{tab:adversary} give one row per work, so that every cell above is traceable to the paper behind it. Every value comes from a fixed vocabulary settled before the pass began.
 
-The cross-tabulations are the layer that carries an argument, because in them an empty cell is a combination nobody has published. The value \texttt{none} is an answer and not a missing entry, recording that a work constrains no party at all. Of the 49 works classified so far, 9 state no resource bound on any party, and 0 fall outside the frame in the sense that deleting every resource restriction leaves the main claim unchanged.
+The cross-tabulations are the layer that carries an argument, because in them an empty cell is a combination nobody has published. The value \texttt{none} is an answer and not a missing entry, recording that a work constrains no party at all. Of the 115 works classified so far, 22 state no resource bound on any party, and 0 fall outside the frame in the sense that deleting every resource restriction leaves the main claim unchanged.
 
-\emph{This is a partial pass. 49 of the corpus's works are classified; the remainder are not yet placed.}
+\emph{This is a partial pass. 115 of the corpus's works are classified; the remainder are not yet placed.}
 
 \begin{landscape}
 \begingroup\scriptsize\setlength{\tabcolsep}{3pt}
-\begin{longtable}{lp{2.62cm}p{2.62cm}p{2.62cm}p{2.62cm}p{2.62cm}p{2.62cm}p{2.62cm}r}
+\begin{longtable}{lp{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}r}
 \caption{The corpus by pipeline phase (rows) against access level (columns). Each cell lists every work with that combination, by citation number. An empty cell is a combination no work in the corpus occupies.}\label{tab:phase-access}\\
-\toprule \textbf{phase} & \textbf{hard label} & \textbf{scores} & \textbf{black box} & \textbf{white box} & \textbf{weights} & \textbf{gradients} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
-\multicolumn{9}{l}{\emph{Table \ref{tab:phase-access}, continued}}\\
-\toprule \textbf{phase} & \textbf{hard label} & \textbf{scores} & \textbf{black box} & \textbf{white box} & \textbf{weights} & \textbf{gradients} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endhead
+\toprule \textbf{phase} & \textbf{hard label} & \textbf{scores} & \textbf{black box} & \textbf{white box} & \textbf{weights} & \textbf{gradients} & \textbf{none} & \textbf{\emph{unassigned}} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
+\multicolumn{10}{l}{\emph{Table \ref{tab:phase-access}, continued}}\\
+\toprule \textbf{phase} & \textbf{hard label} & \textbf{scores} & \textbf{black box} & \textbf{white box} & \textbf{weights} & \textbf{gradients} & \textbf{none} & \textbf{\emph{unassigned}} & \textbf{$\Sigma$} \\ \midrule\endhead
 \bottomrule\endfoot
-train time & \cite{CK21} &  & \cite{GKVZ22} & \cite{LCMER25} &  &  & \cite{BAHSWZ22,BHJK25,BIS17,BS21,DKKLMS16,DNV19,KLNRS08,RT23,Raz16,Wei25} & 13 \\
-test time &  &  & \cite{BGGKRR25} & \cite{ACW18,GCSGWVBHMB25,TCBM20} &  &  & \cite{AH23,BPR19,GMFSRWG18,LAGHJ19,MDM19,MZME19} & 10 \\
-post hoc &  & \cite{CCNSTT22,CJM20,DSMMSZTCEH24,ZDKT25} & \cite{CCGJY19,DKLP22,JCBKP20,SSEP24} & \cite{BCH22,CHSS24,JYCDTCP21,KMNS25,QMZAKFG22} & \cite{HSU25} &  & \cite{DZT25,Sha23} & 16 \\
-n/a &  &  &  &  &  &  & \cite{BC22,BJ23,CIM19,DQW21,HKKLMT26,KMNS21,LLW19,MPRV09,RV24,SZB21} & 10 \\
+train time & \cite{CK21} &  & \cite{GKVZ22} & \cite{LCMER25,VDKMR26} &  & \cite{BDJV22} & \cite{ACGMMTZ16,BAHSWZ22,BHJK25,BIS17,BS21,DKKLMS16,DNV19,KLNRS08,RT23,Raz16,SKL17,Wei25} &  & 17 \\
+test time & \cite{EMM20} &  & \cite{BGGKRR25,FTHMLD25,GJMM20,RCA24,SHMWGWS26} & \cite{ACW18,CGBSHC22,CRK19,GCSGWVBHMB25,TCBM20} &  &  & \cite{AH23,BLPR18,BPR19,DSFHCFKSTT25,FFF18,GMFSRWG18,LAGHJ19,MDM19,MZME19,Mah19,PSV23,SLDLN25} &  & 23 \\
+post hoc &  & \cite{CCNSTT22,CJM20,DSMMSZTCEH24,RL21,ZDKT25} & \cite{CCGJY19,DKLP22,DM22,JCBKP20,NCM25,SSEP24} & \cite{BCH22,CHLX25,CHSS24,JYCDTCP21,KKOSVZ24,KMNS25,QMZAKFG22,SAHBS26,TJSP22,VG20} & \cite{HSU25} & \cite{KCC23} & \cite{CKMMNST24,DZT25,NK26,Sha23} & \cite{SE22} & 28 \\
+n/a &  & \cite{DN03} &  &  &  &  & \cite{ABIKN23,ABM23,ACMS23,AGJ21,AGK22,AHY25,AQPWPWCR22,AS24,BBHLS21,BC22,BCEQ24,BCS24,BHKKMP16,BJ23,BJRZ24,BLMST22,BRST21,BRSV17,CIM19,DGKP19,DHSS25,DLB25,DLSW25,DPLB24,DQW21,DQW22,DSWZ23,DVV16,EGV25,FGRVX17,GJW22a,GJW22b,GZ19,HKKLMT26,HMSTY25,HS24,HW21,KMNS21,LLW19,LZZ24,MPRV09,MR25,RV24,SKMTO26,SZB21,YHGA25} &  & 47 \\
 \midrule
-$\Sigma$ & 1 & 4 & 6 & 9 & 1 & 0 & 28 & 49 \\
+$\Sigma$ & 2 & 6 & 12 & 17 & 1 & 2 & 74 & 1 & 115 \\
 \end{longtable}
 \endgroup
 \end{landscape}
 
 \begin{landscape}
 \begingroup\scriptsize\setlength{\tabcolsep}{3pt}
-\begin{longtable}{lp{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}p{1.75cm}r}
+\begin{longtable}{lp{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}p{1.70cm}r}
 \caption{The corpus by constrained party (rows) against resource unit (columns). Each cell lists every work with that combination, by citation number. An empty cell is a combination no work in the corpus occupies. A dagger marks works where the resource appears only as a side condition rather than as a parameter the work assesses on purpose.}\label{tab:party-unit}\\
-\toprule \textbf{party} & \textbf{time} & \textbf{circuit size} & \textbf{queries} & \textbf{samples} & \textbf{memory} & \textbf{algo class} & \textbf{parameters} & \textbf{perturbation} & \textbf{corruption} & \textbf{rounds} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
-\multicolumn{13}{l}{\emph{Table \ref{tab:party-unit}, continued}}\\
-\toprule \textbf{party} & \textbf{time} & \textbf{circuit size} & \textbf{queries} & \textbf{samples} & \textbf{memory} & \textbf{algo class} & \textbf{parameters} & \textbf{perturbation} & \textbf{corruption} & \textbf{rounds} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endhead
+\toprule \textbf{party} & \textbf{time} & \textbf{circuit size} & \textbf{queries} & \textbf{samples} & \textbf{memory} & \textbf{algo class} & \textbf{parameters} & \textbf{perturbation} & \textbf{corruption} & \textbf{rounds} & \textbf{privacy budget} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
+\multicolumn{14}{l}{\emph{Table \ref{tab:party-unit}, continued}}\\
+\toprule \textbf{party} & \textbf{time} & \textbf{circuit size} & \textbf{queries} & \textbf{samples} & \textbf{memory} & \textbf{algo class} & \textbf{parameters} & \textbf{perturbation} & \textbf{corruption} & \textbf{rounds} & \textbf{privacy budget} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endhead
 \bottomrule\endfoot
-attacker & \cite{CK21,DKLP22,JYCDTCP21,LLW19,MPRV09}, \cite{CCNSTT22}$^\dagger$ & \cite{BC22} & \cite{CCGJY19}, \cite{CJM20}$^\dagger$ & \cite{HSU25} & \cite{DQW21} & \cite{CIM19,JCBKP20} &  & \cite{ACW18,GMFSRWG18,LAGHJ19,MDM19,MZME19,TCBM20} & \cite{LCMER25,RT23} &  &  & 21 \\
-learner & \cite{BHJK25,BIS17,BJ23,DKKLMS16,DNV19,SZB21} &  &  & \cite{AH23} & \cite{Raz16} & \cite{BAHSWZ22,BPR19,KLNRS08,Wei25} & \cite{BS21} &  &  &  &  & 13 \\
-auditor & \cite{GKVZ22}, \cite{BGGKRR25,ZDKT25}$^\dagger$ &  &  &  &  & \cite{HKKLMT26} &  &  &  &  &  & 4 \\
-mechanism & \cite{RV24} &  &  &  & \cite{KMNS21} &  &  &  &  &  &  & 2 \\
-none &  &  &  &  &  &  &  &  &  &  & \cite{BCH22,CHSS24,DSMMSZTCEH24,DZT25,GCSGWVBHMB25,KMNS25,QMZAKFG22,SSEP24,Sha23} & 9 \\
+attacker & \cite{AHY25,BCS24,BRSV17,CK21,CKMMNST24,DKLP22,DN03,EMM20,HMSTY25,JYCDTCP21,LLW19,MPRV09,MR25,VDKMR26}, \cite{BDJV22,CCNSTT22}$^\dagger$ & \cite{ABIKN23,BC22,BJRZ24,GJMM20} & \cite{ACMS23,CCGJY19}, \cite{CJM20,NCM25}$^\dagger$ & \cite{HSU25}, \cite{SE22}$^\dagger$ & \cite{BCEQ24,DQW21,DQW22,GZ19} & \cite{BBHLS21,CIM19,DVV16,JCBKP20} &  & \cite{ACW18,CRK19,FFF18,GMFSRWG18,LAGHJ19,MDM19,MZME19,Mah19,PSV23,SLDLN25,TCBM20}, \cite{CGBSHC22}$^\dagger$ & \cite{LCMER25,RT23,SKL17} &  &  &  & 49 \\
+learner & \cite{AS24,BHJK25,BIS17,BJ23,BLPR18,BRST21,DHSS25,DKKLMS16,DLSW25,DNV19,HW21,LZZ24,SZB21} & \cite{GJW22a} &  & \cite{AH23,DLB25,DPLB24} & \cite{Raz16} & \cite{ABM23,AGJ21,BAHSWZ22,BPR19,DGKP19,EGV25,FGRVX17,GJW22b,KLNRS08,Wei25} & \cite{BS21} &  &  &  &  &  & 29 \\
+auditor & \cite{CHLX25,GKVZ22,KKOSVZ24}, \cite{BGGKRR25,ZDKT25}$^\dagger$ &  &  & \cite{NK26} &  & \cite{BHKKMP16,DM22,HKKLMT26} &  &  &  &  &  &  & 9 \\
+mechanism & \cite{RV24} &  &  &  & \cite{DSWZ23,KMNS21} & \cite{YHGA25}$^\dagger$ &  &  &  &  & \cite{ACGMMTZ16}, \cite{SAHBS26}$^\dagger$ &  & 6 \\
+none &  &  &  &  &  &  &  &  &  &  &  & \cite{AGK22,AQPWPWCR22,BCH22,BLMST22,CHSS24,DSFHCFKSTT25,DSMMSZTCEH24,DZT25,FTHMLD25,GCSGWVBHMB25,HS24,KCC23,KMNS25,QMZAKFG22,RCA24,RL21,SHMWGWS26,SKMTO26,SSEP24,Sha23,TJSP22,VG20} & 22 \\
 \midrule
-$\Sigma$ & 16 & 1 & 2 & 2 & 3 & 7 & 1 & 6 & 2 & 0 & 9 & 49 \\
+$\Sigma$ & 35 & 5 & 4 & 6 & 7 & 18 & 1 & 12 & 3 & 0 & 2 & 22 & 115 \\
 \end{longtable}
 \endgroup
 \end{landscape}
 
 \begin{landscape}
 \begingroup\scriptsize\setlength{\tabcolsep}{3pt}
-\begin{longtable}{lp{3.00cm}p{3.00cm}p{3.00cm}p{3.00cm}p{3.00cm}p{3.00cm}r}
+\begin{longtable}{lp{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}p{2.33cm}r}
 \caption{The corpus by resource unit (rows) against tightness of the bound (columns). Each cell lists every work with that combination, by citation number. An empty cell is a combination no work in the corpus occupies.}\label{tab:unit-tightness}\\
-\toprule \textbf{unit} & \textbf{unstated} & \textbf{poly} & \textbf{class} & \textbf{budget} & \textbf{exponent} & \textbf{measured} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
-\multicolumn{8}{l}{\emph{Table \ref{tab:unit-tightness}, continued}}\\
-\toprule \textbf{unit} & \textbf{unstated} & \textbf{poly} & \textbf{class} & \textbf{budget} & \textbf{exponent} & \textbf{measured} & \textbf{$\Sigma$} \\ \midrule\endhead
+\toprule \textbf{unit} & \textbf{unstated} & \textbf{poly} & \textbf{quasi-poly} & \textbf{class} & \textbf{budget} & \textbf{conditional} & \textbf{exponent} & \textbf{measured} & \textbf{$\Sigma$} \\ \midrule\endfirsthead
+\multicolumn{10}{l}{\emph{Table \ref{tab:unit-tightness}, continued}}\\
+\toprule \textbf{unit} & \textbf{unstated} & \textbf{poly} & \textbf{quasi-poly} & \textbf{class} & \textbf{budget} & \textbf{conditional} & \textbf{exponent} & \textbf{measured} & \textbf{$\Sigma$} \\ \midrule\endhead
 \bottomrule\endfoot
-time & \cite{JYCDTCP21,ZDKT25} & \cite{BJ23,CK21,DKKLMS16,DNV19,GKVZ22,MPRV09,SZB21} &  & \cite{BHJK25,RV24} & \cite{BGGKRR25,BIS17,LLW19} & \cite{CCNSTT22,DKLP22} & 16 \\
-circuit size &  &  &  &  & \cite{BC22} &  & 1 \\
-queries &  &  &  & \cite{CCGJY19} &  & \cite{CJM20} & 2 \\
-samples &  &  &  & \cite{AH23} & \cite{HSU25} &  & 2 \\
-memory &  &  &  & \cite{Raz16} & \cite{DQW21,KMNS21} &  & 3 \\
-algo class &  &  & \cite{BAHSWZ22,BPR19,CIM19,HKKLMT26,JCBKP20,KLNRS08,Wei25} &  &  &  & 7 \\
-parameters &  &  &  & \cite{BS21} &  &  & 1 \\
-perturbation &  &  &  & \cite{ACW18,GMFSRWG18,LAGHJ19,MDM19,MZME19,TCBM20} &  &  & 6 \\
-corruption &  &  &  & \cite{LCMER25} &  & \cite{RT23} & 2 \\
-rounds &  &  &  &  &  &  & 0 \\
-none & \cite{BCH22,CHSS24,DSMMSZTCEH24,DZT25,GCSGWVBHMB25,KMNS25,QMZAKFG22,SSEP24,Sha23} &  &  &  &  &  & 9 \\
+time & \cite{JYCDTCP21,ZDKT25} & \cite{BJ23,BLPR18,CHLX25,CK21,CKMMNST24,DKKLMS16,DN03,DNV19,EMM20,GKVZ22,HMSTY25,HW21,KKOSVZ24,LZZ24,MPRV09,MR25,SZB21,VDKMR26} & \cite{BHJK25} &  & \cite{RV24} & \cite{AHY25,AS24,BIS17,BRST21,DHSS25} & \cite{BCS24,BGGKRR25,BRSV17,DLSW25,LLW19} & \cite{BDJV22,CCNSTT22,DKLP22} & 35 \\
+circuit size &  & \cite{GJMM20} & \cite{ABIKN23} &  & \cite{BJRZ24} & \cite{GJW22a} & \cite{BC22} &  & 5 \\
+queries &  &  &  &  & \cite{CCGJY19,NCM25} &  & \cite{ACMS23} & \cite{CJM20} & 4 \\
+samples &  &  &  &  & \cite{AH23} &  & \cite{DLB25,DPLB24,HSU25,NK26} & \cite{SE22} & 6 \\
+memory &  &  &  &  & \cite{Raz16} & \cite{DSWZ23} & \cite{BCEQ24,DQW21,DQW22,GZ19,KMNS21} &  & 7 \\
+algo class &  &  &  & \cite{ABM23,AGJ21,BAHSWZ22,BBHLS21,BHKKMP16,BPR19,CIM19,DGKP19,DM22,DVV16,EGV25,FGRVX17,GJW22b,HKKLMT26,JCBKP20,KLNRS08,Wei25,YHGA25} &  &  &  &  & 18 \\
+parameters &  &  &  &  & \cite{BS21} &  &  &  & 1 \\
+perturbation &  &  &  &  & \cite{ACW18,CGBSHC22,CRK19,FFF18,GMFSRWG18,LAGHJ19,MDM19,MZME19,Mah19,PSV23,SLDLN25,TCBM20} &  &  &  & 12 \\
+corruption &  &  &  &  & \cite{LCMER25,SKL17} &  &  & \cite{RT23} & 3 \\
+rounds &  &  &  &  &  &  &  &  & 0 \\
+privacy budget &  &  &  &  & \cite{ACGMMTZ16,SAHBS26} &  &  &  & 2 \\
+none & \cite{AGK22,AQPWPWCR22,BCH22,BLMST22,CHSS24,DSFHCFKSTT25,DSMMSZTCEH24,DZT25,FTHMLD25,GCSGWVBHMB25,HS24,KCC23,KMNS25,QMZAKFG22,RCA24,RL21,SHMWGWS26,SKMTO26,SSEP24,Sha23,TJSP22,VG20} &  &  &  &  &  &  &  & 22 \\
 \midrule
-$\Sigma$ & 11 & 7 & 7 & 13 & 7 & 4 & 49 \\
+$\Sigma$ & 24 & 19 & 2 & 18 & 23 & 7 & 16 & 6 & 115 \\
 \end{longtable}
 \endgroup
 \end{landscape}
@@ -77,16 +78,18 @@ $\Sigma$ & 11 & 7 & 7 & 13 & 7 & 4 & 49 \\
 \multicolumn{7}{l}{\emph{Table \ref{tab:family-party}, continued}}\\
 \toprule \textbf{family} & \textbf{attacker} & \textbf{learner} & \textbf{auditor} & \textbf{mechanism} & \textbf{none} & \textbf{$\Sigma$} \\ \midrule\endhead
 \bottomrule\endfoot
-membership & \cite{CCNSTT22,HSU25} &  & \cite{ZDKT25} &  & \cite{DSMMSZTCEH24,DZT25} & 5 \\
-reconstruct &  &  &  &  & \cite{BCH22,CHSS24,KMNS25} & 3 \\
+membership & \cite{CCNSTT22,HSU25,VDKMR26} &  & \cite{ZDKT25} &  & \cite{DSMMSZTCEH24,DZT25,RL21} & 7 \\
+reconstruct & \cite{BDJV22,CKMMNST24,DN03} &  &  &  & \cite{BCH22,CHSS24,KMNS25} & 6 \\
 extract & \cite{CCGJY19,CJM20,DKLP22,JCBKP20} &  &  &  & \cite{SSEP24} & 5 \\
-forge & \cite{JYCDTCP21} &  &  &  &  & 1 \\
-evade & \cite{ACW18,GMFSRWG18,LAGHJ19,MDM19,MZME19,TCBM20} & \cite{AH23,BPR19,DNV19} & \cite{BGGKRR25} &  & \cite{GCSGWVBHMB25} & 11 \\
-poison & \cite{LCMER25} & \cite{DKKLMS16} &  &  &  & 2 \\
-backdoor & \cite{RT23} &  & \cite{GKVZ22} &  & \cite{QMZAKFG22} & 3 \\
-none & \cite{BC22,CIM19,CK21,DQW21,LLW19,MPRV09} & \cite{BAHSWZ22,BHJK25,BIS17,BJ23,BS21,KLNRS08,Raz16,SZB21,Wei25} & \cite{HKKLMT26} & \cite{KMNS21,RV24} & \cite{Sha23} & 19 \\
+forge & \cite{DQW22,JYCDTCP21} &  &  &  & \cite{KCC23,TJSP22} & 4 \\
+evade & \cite{ACW18,CGBSHC22,CRK19,EMM20,FFF18,GJMM20,GMFSRWG18,LAGHJ19,MDM19,MZME19,Mah19,PSV23,SLDLN25,TCBM20} & \cite{AH23,BLPR18,BPR19,DNV19} & \cite{BGGKRR25} &  & \cite{FTHMLD25,GCSGWVBHMB25} & 21 \\
+evade audit &  &  & \cite{NK26} &  & \cite{RCA24,Sha23} & 3 \\
+poison & \cite{LCMER25,SKL17} & \cite{DKKLMS16} &  &  &  & 3 \\
+backdoor & \cite{NCM25,RT23} &  & \cite{CHLX25,GKVZ22,KKOSVZ24} &  & \cite{QMZAKFG22,VG20} & 7 \\
+none & \cite{ABIKN23,ACMS23,AHY25,BBHLS21,BC22,BCEQ24,BCS24,BJRZ24,BRSV17,CIM19,CK21,DQW21,DVV16,GZ19,HMSTY25,LLW19,MPRV09,MR25} & \cite{ABM23,AGJ21,AS24,BAHSWZ22,BHJK25,BIS17,BJ23,BRST21,BS21,DGKP19,DHSS25,DLB25,DLSW25,DPLB24,EGV25,FGRVX17,GJW22a,GJW22b,HW21,KLNRS08,LZZ24,Raz16,SZB21,Wei25} & \cite{BHKKMP16,DM22,HKKLMT26} & \cite{ACGMMTZ16,DSWZ23,KMNS21,RV24,YHGA25} & \cite{AGK22,AQPWPWCR22,BLMST22,HS24,SHMWGWS26,SKMTO26} & 56 \\
+\emph{unassigned} & \cite{SE22} &  &  & \cite{SAHBS26} & \cite{DSFHCFKSTT25} & 3 \\
 \midrule
-$\Sigma$ & 21 & 13 & 4 & 2 & 9 & 49 \\
+$\Sigma$ & 49 & 29 & 9 & 6 & 22 & 115 \\
 \end{longtable}
 \endgroup
 \end{landscape}
@@ -100,46 +103,109 @@ $\Sigma$ & 21 & 13 & 4 & 2 & 9 & 49 \\
 \toprule \# & \textbf{Target} & \textbf{Family} & \textbf{Phase} & \textbf{Access} & \textbf{Write} & \textbf{Frame} \\ \midrule\endhead
 \bottomrule\endfoot
 \cite{DZT25} & train data & membership & post hoc & none & read only & none \\
+\cite{RL21} & train data & membership & post hoc & scores & read only & none \\
 \cite{DSMMSZTCEH24} & train data & membership & post hoc & scores & read only & none \\
-\cite{HSU25} & train data & membership & post hoc & weights & read only & compute \\
+\cite{VDKMR26} & train data & membership & train time & white box & corpus & compute \\
+\cite{HSU25} & train data & membership & post hoc & weights & read only & statistical \\
 \cite{ZDKT25} & train data & membership & post hoc & scores & read only & compute \\
 \cite{CCNSTT22} & train data & membership & post hoc & scores & read only & compute \\
 \cite{CHSS24} & train data & reconstruct & post hoc & white box & read only & none \\
+\cite{CKMMNST24} & train data & reconstruct & post hoc & none & read only & compute \\
+\cite{DN03} & train data & reconstruct & n/a & scores & read only & compute \\
 \cite{KMNS25} & train data & reconstruct & post hoc & white box & read only & none \\
+\cite{BDJV22} & train data & reconstruct & train time & gradients & read only & compute \\
 \cite{BCH22} & train data & reconstruct & post hoc & white box & read only & none \\
 \cite{CCGJY19} & parameters & extract & post hoc & black box & read only & compute \\
 \cite{SSEP24} & parameters & extract & post hoc & black box & read only & none \\
 \cite{DKLP22} & parameters & extract & post hoc & black box & read only & compute \\
 \cite{CJM20} & parameters & extract & post hoc & scores & read only & compute \\
 \cite{JCBKP20} & parameters & extract & post hoc & black box & read only & compute \\
+\cite{TJSP22} & training run & forge & post hoc & white box & corpus & none \\
+\cite{DQW22} & none & forge & n/a & none & none & compute \\
+\cite{KCC23} & train data & forge & post hoc & gradients & corpus & none \\
 \cite{JYCDTCP21} & training run & forge & post hoc & white box & model & compute \\
 \cite{TCBM20} & outputs & evade & test time & white box & read only & capability \\
+\cite{CGBSHC22} & outputs & evade & test time & white box & read only & capability \\
+\cite{SLDLN25} & outputs & evade & test time & none & none & capability \\
 \cite{BPR19} & outputs & evade & test time & none & read only & compute \\
+\cite{BLPR18} & outputs & evade & test time & none & none & compute \\
 \cite{GMFSRWG18} & outputs & evade & test time & none & read only & capability \\
-\cite{AH23} & outputs & evade & test time & none & read only & compute \\
+\cite{FFF18} & outputs & evade & test time & none & none & capability \\
+\cite{AH23} & outputs & evade & test time & none & read only & statistical \\
 \cite{LAGHJ19} & outputs & evade & test time & none & read only & capability \\
+\cite{CRK19} & outputs & evade & test time & white box & none & capability \\
+\cite{Mah19} & outputs & evade & test time & none & read only & capability \\
+\cite{EMM20} & outputs & evade & test time & hard label & read only & compute \\
+\cite{GJMM20} & outputs & evade & test time & black box & read only & compute \\
 \cite{MDM19} & outputs & evade & test time & none & read only & capability \\
+\cite{PSV23} & outputs & evade & test time & none & read only & capability \\
 \cite{MZME19} & outputs & evade & test time & none & read only & capability \\
 \cite{BGGKRR25} & outputs & evade & test time & black box & read only & compute \\
 \cite{GCSGWVBHMB25} & outputs & evade & test time & white box & read only & none \\
+\cite{FTHMLD25} & outputs & evade & test time & black box & read only & none \\
 \cite{ACW18} & outputs & evade & test time & white box & read only & capability \\
 \cite{DNV19} & none & evade & train time & none & none & compute \\
+\cite{Sha23} & training run & evade audit & post hoc & none & none & none \\
+\cite{NK26} & training run & evade audit & post hoc & none & responses & statistical \\
+\cite{RCA24} & outputs & evade audit & test time & black box & read only & none \\
+\cite{SKL17} & train data & poison & train time & none & corpus & capability \\
 \cite{LCMER25} & train data & poison & train time & white box & corpus & capability \\
 \cite{DKKLMS16} & train data & poison & train time & none & corpus & compute \\
+\cite{CHLX25} & parameters & backdoor & post hoc & white box & read only & compute \\
 \cite{QMZAKFG22} & parameters & backdoor & post hoc & white box & read only & none \\
+\cite{NCM25} & outputs & backdoor & post hoc & black box & read only & compute \\
+\cite{VG20} & parameters & backdoor & post hoc & white box & read only & none \\
+\cite{KKOSVZ24} & parameters & backdoor & post hoc & white box & model & compute \\
 \cite{GKVZ22} & parameters & backdoor & train time & black box & model & compute \\
 \cite{RT23} & parameters & backdoor & train time & none & corpus & capability \\
 \cite{KMNS21} & none & none & n/a & none & none & compute \\
+\cite{AGK22} & none & none & n/a & none & none & none \\
+\cite{BRSV17} & none & none & n/a & none & none & compute \\
+\cite{DLSW25} & none & none & n/a & none & none & compute \\
 \cite{BAHSWZ22} & none & none & train time & none & none & compute \\
+\cite{BHKKMP16} & none & none & n/a & none & none & compute \\
+\cite{BJRZ24} & none & none & n/a & none & none & compute \\
+\cite{GZ19} & none & none & n/a & none & none & compute \\
+\cite{BBHLS21} & none & none & n/a & none & none & compute \\
+\cite{BRST21} & none & none & n/a & none & none & compute \\
+\cite{BCEQ24} & none & none & n/a & none & none & compute \\
 \cite{CIM19} & train data & none & n/a & none & none & compute \\
-\cite{Sha23} & training run & none & post hoc & none & none & none \\
+\cite{HMSTY25} & none & none & n/a & none & none & compute \\
+\cite{MR25} & none & none & n/a & none & none & compute \\
 \cite{MPRV09} & train data & none & n/a & none & none & compute \\
 \cite{CK21} & training run & none & train time & hard label & read only & compute \\
+\cite{ABIKN23} & none & none & n/a & none & none & compute \\
+\cite{ACGMMTZ16} & train data & none & train time & none & none & capability \\
 \cite{BJ23} & none & none & n/a & none & none & compute \\
+\cite{DHSS25} & none & none & n/a & none & none & compute \\
+\cite{AQPWPWCR22} & none & none & n/a & none & none & none \\
+\cite{DSWZ23} & none & none & n/a & none & none & compute \\
 \cite{RV24} & train data & none & n/a & none & none & compute \\
+\cite{FGRVX17} & none & none & n/a & none & none & compute \\
+\cite{DVV16} & none & none & n/a & none & none & compute \\
 \cite{BIS17} & none & none & train time & none & none & compute \\
+\cite{AS24} & none & none & n/a & none & none & compute \\
+\cite{ACMS23} & none & none & n/a & none & none & compute \\
+\cite{BCS24} & none & none & n/a & none & none & compute \\
 \cite{BC22} & none & none & n/a & none & none & compute \\
+\cite{AHY25} & none & none & n/a & none & none & compute \\
+\cite{SHMWGWS26} & outputs & none & test time & black box & corpus & none \\
+\cite{GJW22a} & none & none & n/a & none & none & compute \\
+\cite{GJW22b} & none & none & n/a & none & none & compute \\
+\cite{DPLB24} & none & none & n/a & none & none & compute \\
+\cite{DLB25} & none & none & n/a & none & none & compute \\
+\cite{LZZ24} & none & none & n/a & none & none & compute \\
 \cite{SZB21} & none & none & n/a & none & none & compute \\
+\cite{HS24} & none & none & n/a & none & none & none \\
+\cite{HW21} & none & none & n/a & none & none & compute \\
+\cite{YHGA25} & none & none & n/a & none & none & compute \\
+\cite{AGJ21} & none & none & n/a & none & none & compute \\
+\cite{DM22} & outputs & none & post hoc & black box & read only & compute \\
+\cite{BLMST22} & none & none & n/a & none & none & none \\
+\cite{EGV25} & none & none & n/a & none & none & compute \\
+\cite{SKMTO26} & none & none & n/a & none & none & none \\
+\cite{ABM23} & none & none & n/a & none & none & compute \\
+\cite{DGKP19} & none & none & n/a & none & none & compute \\
 \cite{Wei25} & none & none & train time & none & none & compute \\
 \cite{LLW19} & none & none & n/a & none & none & compute \\
 \cite{BHJK25} & none & none & train time & none & none & compute \\
@@ -148,67 +214,136 @@ $\Sigma$ & 21 & 13 & 4 & 2 & 9 & 49 \\
 \cite{DQW21} & none & none & n/a & none & none & compute \\
 \cite{BS21} & none & none & train time & none & none & compute \\
 \cite{KLNRS08} & train data & none & train time & none & none & compute \\
+\cite{SAHBS26} & train data & -- & post hoc & white box & read only & capability \\
+\cite{DSFHCFKSTT25} & outputs & -- & test time & none & responses & none \\
+\cite{SE22} & train data & -- & post hoc & -- & read only & statistical \\
 \end{longtable}
 \endgroup
 \end{landscape}
 
 \begin{landscape}
 \begingroup\scriptsize\setlength{\tabcolsep}{4pt}
-\begin{longtable}{rlllllll}
+\begin{longtable}{rlllllllll}
 \caption{Per-work reference layer: adversary assumptions and claim shape. Same rows and same order as Table~\ref{tab:scenario}.}\label{tab:adversary}\\
-\toprule \# & \textbf{Party} & \textbf{Unit} & \textbf{Tightness} & \textbf{Baseline} & \textbf{Assessed} & \textbf{Quantifier} & \textbf{Antecedent} \\ \midrule\endfirsthead
-\multicolumn{8}{l}{\emph{Table \ref{tab:adversary}, continued}}\\
-\toprule \# & \textbf{Party} & \textbf{Unit} & \textbf{Tightness} & \textbf{Baseline} & \textbf{Assessed} & \textbf{Quantifier} & \textbf{Antecedent} \\ \midrule\endhead
+\toprule \# & \textbf{Party} & \textbf{Unit} & \textbf{Tightness} & \textbf{Baseline} & \textbf{2nd party} & \textbf{2nd notion} & \textbf{Assessed} & \textbf{Quantifier} & \textbf{Antecedent} \\ \midrule\endfirsthead
+\multicolumn{10}{l}{\emph{Table \ref{tab:adversary}, continued}}\\
+\toprule \# & \textbf{Party} & \textbf{Unit} & \textbf{Tightness} & \textbf{Baseline} & \textbf{2nd party} & \textbf{2nd notion} & \textbf{Assessed} & \textbf{Quantifier} & \textbf{Antecedent} \\ \midrule\endhead
 \bottomrule\endfoot
-\cite{DZT25} & none & none & unstated & stated & -- & empirical & stated \\
-\cite{DSMMSZTCEH24} & none & none & unstated & stated & -- & empirical & stated \\
-\cite{HSU25} & attacker & samples & exponent & stated & explicit & universal & stated \\
-\cite{ZDKT25} & auditor & time & unstated & stated & implicit & conditional & stated \\
-\cite{CCNSTT22} & attacker & time & measured & stated & implicit & empirical & stated \\
-\cite{CHSS24} & none & none & unstated & stated & cls\_evidence: absent & universal & stated \\
-\cite{KMNS25} & none & none & unstated & stated & cls\_evidence: "Algorithm M is (ε, δ, Prior, R)-Bayesian extraction-safe if for all attackers A it holds that & existential & stated \\
-\cite{BCH22} & none & none & unstated & stated & -- & conditional & stated \\
-\cite{CCGJY19} & attacker & queries & budget & absent & explicit & conditional & stated \\
-\cite{SSEP24} & none & none & unstated & absent & -- & empirical & stated \\
-\cite{DKLP22} & attacker & time & measured & stated & explicit & empirical & stated \\
-\cite{CJM20} & attacker & queries & measured & absent & implicit & empirical & stated \\
-\cite{JCBKP20} & attacker & algo class & class & absent & explicit & existential & stated \\
-\cite{JYCDTCP21} & attacker & time & unstated & absent & explicit & conditional & stated \\
-\cite{TCBM20} & attacker & perturbation & budget & stated & explicit & existential & none \\
-\cite{BPR19} & learner & algo class & class & n/a & explicit & existential & stated \\
-\cite{GMFSRWG18} & attacker & perturbation & budget & n/a & explicit & existential & stated \\
-\cite{AH23} & learner & samples & budget & n/a & explicit & universal & stated \\
-\cite{LAGHJ19} & attacker & perturbation & budget & n/a & explicit & universal & stated \\
-\cite{MDM19} & attacker & perturbation & budget & n/a & explicit & conditional & stated \\
-\cite{MZME19} & attacker & perturbation & budget & n/a & explicit & empirical & stated \\
-\cite{BGGKRR25} & auditor & time & exponent & stated & implicit & existential & stated \\
-\cite{GCSGWVBHMB25} & none & none & unstated & stated & cls\_evidence: "The adversarial prompt distribution in (2), padv, is defined as a solution to a KL-regularized optimization problem that minimizes expected reward Rsafe relative to p0, with regularization parameter β. & conditional & stated \\
-\cite{ACW18} & attacker & perturbation & budget & stated & explicit & existential & none \\
-\cite{DNV19} & learner & time & poly & n/a & explicit & conditional & stated \\
-\cite{LCMER25} & attacker & corruption & budget & stated & explicit & conditional & stated \\
-\cite{DKKLMS16} & learner & time & poly & n/a & explicit & existential & stated \\
-\cite{QMZAKFG22} & none & none & unstated & n/a & cls\_evidence: absent & existential & none \\
-\cite{GKVZ22} & auditor & time & poly & stated & explicit & existential & stated \\
-\cite{RT23} & attacker & corruption & measured & stated & explicit & empirical & stated \\
-\cite{KMNS21} & mechanism & memory & exponent & stated & explicit & existential & stated \\
-\cite{BAHSWZ22} & learner & algo class & class & n/a & explicit & conditional & stated \\
-\cite{CIM19} & attacker & algo class & class & stated & explicit & existential & stated \\
-\cite{Sha23} & none & none & unstated & n/a & cls\_evidence: absent & conditional & stated \\
-\cite{MPRV09} & attacker & time & poly & stated & explicit & existential & stated \\
-\cite{CK21} & attacker & time & poly & stated & explicit & conditional & stated \\
-\cite{BJ23} & learner & time & poly & n/a & explicit & conditional & stated \\
-\cite{RV24} & mechanism & time & budget & stated & explicit & universal & stated \\
-\cite{BIS17} & learner & time & exponent & n/a & explicit & conditional & stated \\
-\cite{BC22} & attacker & circuit size & exponent & n/a & explicit & existential & stated \\
-\cite{SZB21} & learner & time & poly & stated & explicit & conditional & stated \\
-\cite{Wei25} & learner & algo class & class & n/a & explicit & conditional & stated \\
-\cite{LLW19} & attacker & time & exponent & n/a & explicit & conditional & stated \\
-\cite{BHJK25} & learner & time & budget & n/a & explicit & existential & stated \\
-\cite{Raz16} & learner & memory & budget & n/a & explicit & universal & stated \\
-\cite{HKKLMT26} & auditor & algo class & class & n/a & explicit & conditional & stated \\
-\cite{DQW21} & attacker & memory & exponent & stated & explicit & universal & stated \\
-\cite{BS21} & learner & parameters & budget & n/a & explicit & conditional & stated \\
-\cite{KLNRS08} & learner & algo class & class & n/a & explicit & universal & stated \\
+\cite{DZT25} & none & none & unstated & stated & none & none & -- & empirical & stated \\
+\cite{RL21} & none & none & unstated & stated & none & none & -- & empirical & stated \\
+\cite{DSMMSZTCEH24} & none & none & unstated & stated & none & none & -- & empirical & stated \\
+\cite{VDKMR26} & attacker & time & poly & stated & none & none & explicit & conditional & stated \\
+\cite{HSU25} & attacker & samples & exponent & stated & samples & -- & explicit & universal & stated \\
+\cite{ZDKT25} & auditor & time & unstated & stated & none & none & implicit & conditional & stated \\
+\cite{CCNSTT22} & attacker & time & measured & stated & none & none & implicit & empirical & stated \\
+\cite{CHSS24} & none & none & unstated & stated & none & -- & -- & universal & stated \\
+\cite{CKMMNST24} & attacker & time & poly & stated & time & none & explicit & conditional & stated \\
+\cite{DN03} & attacker & time & poly & absent & perturbation & queries & explicit & universal & stated \\
+\cite{KMNS25} & none & none & unstated & stated & none & -- & -- & existential & stated \\
+\cite{BDJV22} & attacker & time & measured & absent & none & none & implicit & empirical & stated \\
+\cite{BCH22} & none & none & unstated & stated & none & none & -- & conditional & stated \\
+\cite{CCGJY19} & attacker & queries & budget & absent & none & none & explicit & conditional & stated \\
+\cite{SSEP24} & none & none & unstated & absent & none & none & -- & empirical & stated \\
+\cite{DKLP22} & attacker & time & measured & stated & none & none & explicit & empirical & stated \\
+\cite{CJM20} & attacker & queries & measured & absent & none & none & implicit & empirical & stated \\
+\cite{JCBKP20} & attacker & algo class & class & absent & none & none & explicit & existential & stated \\
+\cite{TJSP22} & none & none & unstated & n/a & none & none & -- & existential & stated \\
+\cite{DQW22} & attacker & memory & exponent & stated & memory & none & explicit & universal & stated \\
+\cite{KCC23} & none & none & unstated & absent & none & none & -- & empirical & stated \\
+\cite{JYCDTCP21} & attacker & time & unstated & absent & none & none & explicit & conditional & stated \\
+\cite{TCBM20} & attacker & perturbation & budget & stated & none & none & explicit & existential & none \\
+\cite{CGBSHC22} & attacker & perturbation & budget & n/a & none & none & implicit & empirical & none \\
+\cite{SLDLN25} & attacker & perturbation & budget & n/a & none & none & -- & conditional & stated \\
+\cite{BPR19} & learner & algo class & class & n/a & perturbation & -- & explicit & existential & stated \\
+\cite{BLPR18} & learner & time & poly & stated & perturbation & none & explicit & conditional & stated \\
+\cite{GMFSRWG18} & attacker & perturbation & budget & n/a & none & none & explicit & existential & stated \\
+\cite{FFF18} & attacker & perturbation & budget & n/a & none & none & -- & conditional & stated \\
+\cite{AH23} & learner & samples & budget & n/a & none & -- & explicit & universal & stated \\
+\cite{LAGHJ19} & attacker & perturbation & budget & n/a & none & -- & explicit & universal & stated \\
+\cite{CRK19} & attacker & perturbation & budget & n/a & none & none & -- & universal & stated \\
+\cite{Mah19} & attacker & perturbation & budget & n/a & none & none & -- & conditional & stated \\
+\cite{EMM20} & attacker & time & poly & n/a & none & none & -- & universal & stated \\
+\cite{GJMM20} & attacker & circuit size & poly & n/a & none & none & -- & existential & stated \\
+\cite{MDM19} & attacker & perturbation & budget & n/a & none & none & explicit & conditional & stated \\
+\cite{PSV23} & attacker & perturbation & budget & n/a & none & none & -- & conditional & stated \\
+\cite{MZME19} & attacker & perturbation & budget & n/a & none & none & explicit & empirical & stated \\
+\cite{BGGKRR25} & auditor & time & exponent & stated & none & -- & implicit & existential & stated \\
+\cite{GCSGWVBHMB25} & none & none & unstated & stated & none & -- & -- & conditional & stated \\
+\cite{FTHMLD25} & none & none & unstated & n/a & none & none & -- & empirical & stated \\
+\cite{ACW18} & attacker & perturbation & budget & stated & none & none & explicit & existential & none \\
+\cite{DNV19} & learner & time & poly & n/a & perturbation & none & explicit & conditional & stated \\
+\cite{Sha23} & none & none & unstated & n/a & none & -- & -- & conditional & stated \\
+\cite{NK26} & auditor & samples & exponent & n/a & none & none & -- & conditional & stated \\
+\cite{RCA24} & none & none & unstated & n/a & none & none & -- & existential & stated \\
+\cite{SKL17} & attacker & corruption & budget & stated & algo class & none & explicit & conditional & stated \\
+\cite{LCMER25} & attacker & corruption & budget & stated & none & -- & explicit & conditional & stated \\
+\cite{DKKLMS16} & learner & time & poly & n/a & corruption & -- & explicit & existential & stated \\
+\cite{CHLX25} & auditor & time & poly & stated & corruption & none & explicit & conditional & stated \\
+\cite{QMZAKFG22} & none & none & unstated & n/a & none & -- & -- & existential & none \\
+\cite{NCM25} & attacker & queries & budget & n/a & none & time & implicit & empirical & stated \\
+\cite{VG20} & none & none & unstated & n/a & none & none & -- & existential & none \\
+\cite{KKOSVZ24} & auditor & time & poly & stated & perturbation & none & explicit & existential & stated \\
+\cite{GKVZ22} & auditor & time & poly & stated & none & none & explicit & existential & stated \\
+\cite{RT23} & attacker & corruption & measured & stated & none & -- & explicit & empirical & stated \\
+\cite{KMNS21} & mechanism & memory & exponent & stated & none & -- & explicit & existential & stated \\
+\cite{AGK22} & none & none & unstated & n/a & none & none & -- & conditional & stated \\
+\cite{BRSV17} & attacker & time & exponent & n/a & time & none & explicit & conditional & stated \\
+\cite{DLSW25} & learner & time & exponent & n/a & none & none & -- & conditional & stated \\
+\cite{BAHSWZ22} & learner & algo class & class & n/a & none & -- & explicit & conditional & stated \\
+\cite{BHKKMP16} & auditor & algo class & class & n/a & none & none & explicit & universal & stated \\
+\cite{BJRZ24} & attacker & circuit size & budget & n/a & circuit size & algo class & explicit & existential & stated \\
+\cite{GZ19} & attacker & memory & exponent & n/a & memory & queries & explicit & universal & stated \\
+\cite{BBHLS21} & attacker & algo class & class & n/a & none & algo class & explicit & conditional & stated \\
+\cite{BRST21} & learner & time & conditional & n/a & none & algo class & explicit & conditional & stated \\
+\cite{BCEQ24} & attacker & memory & exponent & n/a & memory & time & explicit & conditional & stated \\
+\cite{CIM19} & attacker & algo class & class & stated & none & -- & explicit & existential & stated \\
+\cite{HMSTY25} & attacker & time & poly & n/a & none & none & -- & conditional & stated \\
+\cite{MR25} & attacker & time & poly & n/a & none & none & -- & conditional & stated \\
+\cite{MPRV09} & attacker & time & poly & stated & none & none & explicit & existential & stated \\
+\cite{CK21} & attacker & time & poly & stated & none & -- & explicit & conditional & stated \\
+\cite{ABIKN23} & attacker & circuit size & quasi-poly & stated & none & none & -- & conditional & stated \\
+\cite{ACGMMTZ16} & mechanism & privacy budget & budget & n/a & none & none & -- & empirical & stated \\
+\cite{BJ23} & learner & time & poly & n/a & none & -- & explicit & conditional & stated \\
+\cite{DHSS25} & learner & time & conditional & stated & none & algo class & explicit & conditional & stated \\
+\cite{AQPWPWCR22} & none & none & unstated & n/a & none & none & -- & empirical & none \\
+\cite{DSWZ23} & mechanism & memory & conditional & stated & time & none & explicit & conditional & stated \\
+\cite{RV24} & mechanism & time & budget & stated & none & -- & explicit & universal & stated \\
+\cite{FGRVX17} & learner & algo class & class & stated & none & queries & explicit & universal & stated \\
+\cite{DVV16} & attacker & algo class & class & stated & algo class & none & explicit & conditional & stated \\
+\cite{BIS17} & learner & time & conditional & n/a & none & -- & explicit & conditional & stated \\
+\cite{AS24} & learner & time & conditional & n/a & none & none & explicit & conditional & stated \\
+\cite{ACMS23} & attacker & queries & exponent & stated & queries & none & explicit & existential & stated \\
+\cite{BCS24} & attacker & time & exponent & stated & time & none & explicit & conditional & stated \\
+\cite{BC22} & attacker & circuit size & exponent & n/a & none & none & explicit & existential & stated \\
+\cite{AHY25} & attacker & time & conditional & n/a & none & none & explicit & conditional & stated \\
+\cite{SHMWGWS26} & none & none & unstated & n/a & none & none & -- & empirical & stated \\
+\cite{GJW22a} & learner & circuit size & conditional & n/a & none & none & explicit & universal & stated \\
+\cite{GJW22b} & learner & algo class & class & n/a & none & -- & explicit & universal & stated \\
+\cite{DPLB24} & learner & samples & exponent & stated & none & algo class & explicit & conditional & stated \\
+\cite{DLB25} & learner & samples & exponent & absent & none & algo class & explicit & conditional & stated \\
+\cite{LZZ24} & learner & time & poly & stated & none & -- & explicit & conditional & stated \\
+\cite{SZB21} & learner & time & poly & stated & perturbation & -- & explicit & conditional & stated \\
+\cite{HS24} & none & none & unstated & n/a & none & -- & -- & universal & stated \\
+\cite{HW21} & learner & time & poly & n/a & none & algo class & explicit & existential & stated \\
+\cite{YHGA25} & mechanism & algo class & class & stated & none & time & implicit & conditional & stated \\
+\cite{AGJ21} & learner & algo class & class & n/a & none & samples & explicit & universal & stated \\
+\cite{DM22} & auditor & algo class & class & n/a & privacy budget & samples & explicit & existential & stated \\
+\cite{BLMST22} & none & none & unstated & n/a & none & none & -- & conditional & stated \\
+\cite{EGV25} & learner & algo class & class & n/a & none & none & explicit & universal & stated \\
+\cite{SKMTO26} & none & none & unstated & n/a & none & none & -- & universal & stated \\
+\cite{ABM23} & learner & algo class & class & n/a & none & time & explicit & conditional & stated \\
+\cite{DGKP19} & learner & algo class & class & n/a & none & queries & explicit & universal & stated \\
+\cite{Wei25} & learner & algo class & class & n/a & none & -- & explicit & conditional & stated \\
+\cite{LLW19} & attacker & time & exponent & n/a & none & none & explicit & conditional & stated \\
+\cite{BHJK25} & learner & time & quasi-poly & n/a & none & algo class & explicit & existential & stated \\
+\cite{Raz16} & learner & memory & budget & n/a & none & none & explicit & universal & stated \\
+\cite{HKKLMT26} & auditor & algo class & class & n/a & none & -- & explicit & conditional & stated \\
+\cite{DQW21} & attacker & memory & exponent & stated & memory & -- & explicit & universal & stated \\
+\cite{BS21} & learner & parameters & budget & n/a & none & none & explicit & conditional & stated \\
+\cite{KLNRS08} & learner & algo class & class & n/a & none & none & explicit & universal & stated \\
+\cite{SAHBS26} & mechanism & privacy budget & budget & stated & none & none & implicit & universal & stated \\
+\cite{DSFHCFKSTT25} & none & none & unstated & n/a & none & none & -- & empirical & stated \\
+\cite{SE22} & attacker & samples & measured & stated & none & none & implicit & empirical & stated \\
 \end{longtable}
 \endgroup
 \end{landscape}

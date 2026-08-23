@@ -10,6 +10,23 @@ claim_quantifier: conditional
 antecedent: "Conditional on the quantum worst-case hardness of approximating GapSVP within polynomial factors (Conjecture 2.3), routed through CLWE (Theorem 2.4, imported from Bruna-Regev-Song-Tang). Requires width k = omega(sqrt(d log d)) and Gaussian label noise of variance sigma = poly(d)^{-1}."
 model_class: "Width-k one-hidden-layer ReLU networks f(x) = sum_i a_i (<x_i, w_i> + b_i)_+ over standard Gaussian inputs N(0, I_d), with i.i.d. Gaussian label noise N(0, sigma^2). Target: weak learning (edge inverse-polynomial in d)."
 algorithm_class: "ALL polynomial-time estimators (conditional on the lattice assumption); explicitly stronger than the cSQ lower bounds it supersedes"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_assessed: explicit
+cls_evidence: "no polynomial-time estimator can weakly learn the class of one hidden layer neural networks under arbitrary polynomially small Gaussian noise"
+cls_evidence_src: "§3, after Thm 3.1"
+cls_reason: "Same shape as its direct predecessor hardness-single-periodic-neurons: party=learner (rule 3, the bound binds the estimator, conditional on CLWE/GapSVP), unit=time, tightness=poly, baseline=stated from Definition 2.1's trivial-loss/edge weak-learning formulation (verified present in raw/LZZ24_HardnessOneHiddenLayer.pdf). second_party=none here, unlike the predecessor's second_party=perturbation: the noise in this paper is Gaussian, not adversarial, and the Summary states directly that nothing prices an attacker, the noise is 'a distributional nuisance, not a party with a budget.'"
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

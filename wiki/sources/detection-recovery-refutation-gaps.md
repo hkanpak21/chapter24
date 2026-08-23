@@ -20,7 +20,7 @@ cls_party: learner
 cls_unit: time
 cls_tightness: poly
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "For any sequence of (randomized) polynomial-time algorithm φn : GNn → [N ]Kn , φn cannot achieve asymptotic exact recovery on PDS(Nn , Kn , pn , qn ) assuming k-PC."
 cls_evidence_src: Cor 11

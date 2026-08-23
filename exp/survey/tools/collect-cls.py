@@ -10,7 +10,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 SRC = os.path.join(ROOT, "wiki", "sources")
 OUT = os.path.join(ROOT, "exp", "survey", "notes", "classification.tsv")
 FIELDS = ["target","family","phase","access","write","frame","party","unit",
-          "tightness","baseline","second","assessed","prov"]
+          "tightness","baseline","second_party","second_notion","assessed","prov"]
 rows, legacy = [], {}
 for r in csv.DictReader(open(os.path.join(ROOT,"exp","survey","notes","classification-batch1.tsv"),encoding="utf-8"),delimiter="\t"):
     legacy[r["slug"]] = r
@@ -22,7 +22,7 @@ for fn in sorted(glob.glob(os.path.join(SRC, "*.md"))):
     row = {"slug": slug}
     got = False
     for f in FIELDS:
-        m = re.search(r"^cls_%s:\s*(.*)$" % f, fm, re.M)
+        m = re.search(r"^cls_%s:[ \t]*(.*)$" % f, fm, re.M)
         if m:
             row[f] = m.group(1).strip().strip('"'); got = True
         else:

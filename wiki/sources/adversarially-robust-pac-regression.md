@@ -14,12 +14,12 @@ cls_family: evade
 cls_phase: test time
 cls_access: none
 cls_write: read only
-cls_frame: compute
+cls_frame: statistical
 cls_party: learner
 cls_unit: samples
 cls_tightness: budget
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "We show that classes of finite fat-shattering dimension are learnable in both realizable and agnostic settings."
 cls_evidence_src: abstract

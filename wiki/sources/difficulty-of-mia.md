@@ -8,6 +8,24 @@ year: 2021
 tags: [adversarial-ml, learning-theory]
 claim_quantifier: empirical
 antecedent: "Naturally trained discriminative image classifiers, attacked by confidence-value-based MIAs. Explicitly excluded by the authors: generative models, low-dimensional inputs, training-phase manipulation, and outlier samples."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no compute/query/time bound on the attacker anywhere in the threat model, §3-§6; attacks are confidence-value classifiers trained without any stated resource restriction"
+cls_reason: "baseline=stated because ZeroR and the naive attack are introduced explicitly as the paper's central argument; access=scores per the antecedent's own framing (\"confidence-value-based MIAs\"), though §4 also tests gradient/activation features as a secondary experiment; frame=none because no computational bound is placed on the attacker, target, or auditor anywhere in the paper."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1–§4, §5 headline tables, §6 conclusion

@@ -10,6 +10,23 @@ claim_quantifier: universal
 antecedent: "the overlap gap property for the models considered, which the paper proves rather than assumes. The mechanism is that all three algorithm classes are stable under small input perturbations."
 algorithm_class: "low-degree, circuits, Langevin dynamics"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_assessed: explicit
+cls_evidence: "we show a linear in n lower bound on the degree required for such an algorithm to succeed modulo exponentially small probability in n"
+cls_evidence_src: "§1 (Introduction)"
+cls_reason: "Classified on the low-degree result, first of three algorithm classes named in the abstract's list order (low-degree, circuits, Langevin); party=learner by analogy to sibling low-degree hardness pages (bandeira-franz-parisi-criterion, low-degree-polynomials-survey), since no ML adversary or target is present. phase=n/a rather than train time: this is combinatorial optimization on random instances (p-spin ground state, independent set), not a data-fitting or ML train/test pipeline. The circuit (poly-size, low-depth) and Langevin (bounded-time) theorems share the same party/unit/tightness shape as separate instantiations of the same OGP/stability mechanism, not a second party or a second incomparable notion on this claim, so second_party is none and second_notion is omitted; flagged for a second reader given the paper gives three co-equal theorems and this row reports only one."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

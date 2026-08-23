@@ -20,7 +20,7 @@ cls_party: attacker
 cls_unit: corruption
 cls_tightness: measured
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "an attacker producing only 0.5% of the human preference data can reduce the reward model's accuracy in detecting harmful generations from 75% to 44% in the presence of the trigger"
 cls_evidence_src: abstract

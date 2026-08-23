@@ -17,13 +17,14 @@ cls_write: none
 cls_frame: compute
 cls_party: learner
 cls_unit: time
-cls_tightness: budget
+cls_tightness: quasi-poly
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "the corresponding ε-noisy distinguishing problem can be solved in n^{O(log^{1/(k−1)}(n))} time"
 cls_evidence_src: abstract
 cls_reason: "Classified on the exhibited distinguisher of Thm 1.3, which the page's own Claim Boundary calls 'ordinary algorithms' not restricted to any class, so unit=time rather than algo class. No vocabulary value cleanly fits a quasi-polynomial runtime; budget was chosen as the closest (an explicit, stated runtime, no honest-party relation to compare it against) and is flagged as a vocabulary gap. second=none because the paper's substance is one distinguisher characterized under two resource axes, algorithm class and time, not two distinct bounded parties, which the second field does not capture."
+cls_second_notion: algo class
 cls_prov: P
 cls_date: 2026-08-22
 ---

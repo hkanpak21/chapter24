@@ -9,6 +9,24 @@ tags: [poisoning-attacks, certified-defenses, adversarial-ml, robust-statistics,
 claim_quantifier: conditional
 antecedent: "Two assumptions the paper states and does not verify: that the dataset is large enough for statistical concentration between train and test error to hold, and that outliers within the clean data do not have a strong effect on the model. The defender is further restricted to outlier removal followed by minimisation of a margin-based loss. The bound is described by the authors as approximate, not exact."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: capability
+cls_party: attacker
+cls_unit: corruption
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: algo class
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "The attacker adaptively chooses a \"poisoned\" dataset Dp of εn poisoned points, where ε ∈ [0, 1] parametrizes the attacker's resources."
+cls_evidence_src: "§2 (causative attack model)"
+cls_reason: "Rule 5: a poisoning fraction is a corruption budget, so party=attacker, unit=corruption, tightness=budget, frame=capability, matching the norm-ball example. Attacker is explicitly unbounded computationally ('has full knowledge of the defender's algorithm and of the clean training data'). second_party = algo class because the certificate only holds for defenders restricted to outlier removal + margin-based ERM, an explicit architectural restriction (Rule 4: neither party is computationally bounded, so the attacker's bound decides the primary row and the defender's algorithm-class restriction is the second party). baseline = stated: the paper reports poisoned test error against the clean (unpoisoned) test error as the comparison point, e.g. 12% to 23% on IMDB."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -8,6 +8,24 @@ year: 2023
 tags: [adversarial-ml, evasion-attacks, concentration-of-measure, certification, robustness]
 claim_quantifier: conditional
 antecedent: "Two different antecedents for two different theorems. Thm 2.1 (necessity) is conditional on the existence of an (ε,δ)-robust classifier. Thm 3.1 (sufficiency) is conditional on the data distribution being (ε,δ,γ)-strongly-concentrated — class conditionals sitting on small-volume sets whose 2ε-expansions barely overlap. Strong concentration is NOT measured on any real dataset in this paper; it is exhibited on two constructed examples and assumed for the union-of-subspaces model."
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "A classifier g is defined to be (ϵ, δ)-robust if the robust risk against perturbations with ℓ2 norm bounded by ϵ is at most δ"
+cls_evidence_src: Def 2.1
+cls_reason: "Classified on Def 2.1's (eps,delta)-robustness, an l2 perturbation-budget bound, per the perturbation-budget rule, rather than as frame=none; the paper bounds nobody computationally anywhere, so without that rule this would default to the none row. Both Thm 2.1 (necessity) and Thm 3.1 (sufficiency, existential) share this same robustness definition, so the row is stable regardless of which theorem is read as the paper's main claim. Read the CLAUDE.md warning first: this paper's 'concentration' is a Lebesgue-volume notion, the opposite geometric sense from computational-concentration-of-measure-etesami's metric-measure sense, though that distinction affects the papers' substance, not these classification fields, which turn on the shared perturbation-budget structure of the evasion setup."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -8,6 +8,24 @@ year: 2022
 tags: [adversarial-ml, evasion-attacks, robustness, evaluation-methodology, threat-model]
 claim_quantifier: empirical
 antecedent: none
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "a norm bound ε > 0, an attack succeeds if it finds a perturbation δ such that arg max [f (x+δ)]k ≠ y, with ‖δ‖p ≤ ε and x + δ ∈ [0, 1]^d"
+cls_evidence_src: §2.4 Eq. 2
+cls_reason: "Rule 5 (perturbation budget) fixes party/unit/tightness/frame; defender inference cost is measured, not defined as a bound, so no second_party. assessed=implicit from the conclusion's compute-ratio remark, which floats attacker compute as a candidate quantity without a definition: \"we emphasize the need to measure gains in robustness against the computation required ... if the additional computation used by the defender can impose even more computation on the attacker\" (verified in wiki Quotes)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

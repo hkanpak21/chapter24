@@ -8,6 +8,24 @@ year: 2023
 claim_quantifier: existential
 antecedent: "None in the usual sense — no computational assumption. Instead the results hold in idealized models: the random oracle model, Shoup's generic group model, and (for the lower bound) Maurer's generic group model. The idealized model IS the antecedent."
 tags: [cryptography, fine-grained-cryptography, key-exchange, lower-bounds, complexity-theory, generic-group-model]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: queries
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "the honest parties ask n queries each, while the adversary needs n^{K/(K−1)} queries to the random oracle to find the key"
+cls_evidence_src: abstract
+cls_reason: "Classified on the ROM K-NIKE construction (Thm 6), the first result the abstract leads with, per rule 1; the Shoup-GGM and Maurer-GGM results are secondary claims in the same paper. Both honest parties and the adversary are bounded in the same resource (oracle queries, not time, per Definition 2's idealized-model convention: 'we primarily count the number of oracle queries as the substitute for running time'), so rule 4's tie-break gives party=attacker; tightness=exponent because n^{K/(K-1)} is a stated relation to the honest parties' own n queries, not a time bound."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

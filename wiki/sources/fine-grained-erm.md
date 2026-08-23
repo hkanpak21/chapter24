@@ -16,9 +16,9 @@ cls_write: none
 cls_frame: compute
 cls_party: learner
 cls_unit: time
-cls_tightness: exponent
+cls_tightness: conditional
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "computing a gradient of the empirical risk for m examples takes at least O((nm)1−o(1) ) time assuming SETH."
 cls_evidence_src: Thm 10

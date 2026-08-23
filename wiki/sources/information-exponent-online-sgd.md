@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Assumption A (population loss derivative strictly negative on (0,1)) and Assumption B (Definition 1.1 moment bounds on the sample-wise error); population loss of the form Phi_N(x) = phi(m_N(x)) with m_N(x) = x · theta_N; phi in C^{k+1}([-1,1])"
 model_class: "Rank-one parameter estimation on the sphere S^{N-1}: the population loss depends on x only through the correlation m_N(x) = x · theta_N. Instantiated for single-layer networks/phase retrieval, GLMs, online PCA, spiked matrix and tensor models, two-component Gaussian mixtures. NOT a statement about neural networks of depth > 1."
 algorithm_class: "online SGD (one fresh sample per step), spherical projected update, step size delta_N, uniformly random start on the upper half-sphere"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "We study the performance of the simplest version of SGD, namely online SGD, from a random start in the setting where the parameter space is high-dimensional."
+cls_evidence_src: abstract / §1
+cls_reason: "No attacker or adversary is modeled — this is a pure estimation task — so target/family/phase/access/write are none/n/a. party=learner per Rule 3: the bound binds the algorithm running SGD. unit=algo class/tightness=class because Theorem 1.4 is explicitly a statement about this one algorithm, 'not an SQ, CSQ, or low-degree lower bound' (Claim Boundary), i.e. a class-restricted result rather than a universal poly-time bound. second_notion=samples records the M=alpha_N*N threshold that Theorems 1.3/1.4 explicitly prove (assessed=explicit, not a side-condition)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

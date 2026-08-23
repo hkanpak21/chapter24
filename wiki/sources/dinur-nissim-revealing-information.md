@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "For the two impossibility theorems, none beyond the model: a binary database of n entries answering subset-sum queries within a stated perturbation magnitude. For the feasibility theorem, the database is drawn from the uniform distribution over {0,1}^n, which the authors state is the way they model an adversary with no prior knowledge."
 adversary_bound: "Three separate bounds, one per theorem. Theorem 2 gives the adversary exponential time and all 2^n queries. Theorem 3 gives it polynomial time and n(log n)^2 uniformly random queries. Definition 4 and Theorem 5 give it a pair of Turing machines of time complexity T(n), which also caps the number of queries at T(n)."
 tags: [cryptography, complexity theory, hardness-reductions, sample-complexity, reconstruction]
+cls_target: train data
+cls_family: reconstruct
+cls_phase: n/a
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: absent
+cls_second_party: perturbation
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "Let D = (d, A) be a database where A is within o( n) perturbation then D is poly(n)non-private"
+cls_evidence_src: Thm 3
+cls_reason: "Classified on Theorem 3 (§3.2), the claim the abstract leads with (\"Our main result is a polynomial reconstruction algorithm\"), not Theorem 2's exponential-adversary result in the sibling §3.1 or Theorem 5's time-T(n) feasibility result in §4. second_party=perturbation: the curator/mechanism is separately bounded only in perturbation magnitude E. second_notion=queries: the same attacker is also bounded by n(log n)^2 uniformly random queries in the algorithm proving Theorem 3, a resource distinct from time. baseline=absent because Definition 3 (Hamming non-privacy, the criterion Theorem 3 uses) carries no baseline term, unlike Definition 4's 1/2 coin-flip baseline used only for Theorem 5. phase=n/a and access=scores are analogic fits: this is a query-release database mechanism, not an ML pipeline, so no train/test/post-hoc phase applies literally, and the adversary receives a noisy numeric answer per query, the closest match to \"scores\"."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against `raw/DN03_RevealingInformation.pdf` on 2026-08-22.** Section numbers, theorem

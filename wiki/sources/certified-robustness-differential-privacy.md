@@ -20,7 +20,7 @@ cls_party: attacker
 cls_unit: perturbation
 cls_tightness: budget
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "It is natural to constrain the amount of change an attacker is allowed to make to the input, and often this is measured by the p-norm of the change"
 cls_evidence_src: "§II, framing before Def. of B_p(r)"

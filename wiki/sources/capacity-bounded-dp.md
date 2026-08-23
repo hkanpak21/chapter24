@@ -19,7 +19,7 @@ cls_party: attacker
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "bounded not in computational power, but in terms of the function class from which their attack algorithm is drawn"
 cls_evidence_src: abstract

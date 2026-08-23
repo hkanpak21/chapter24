@@ -19,7 +19,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed:
 cls_evidence: absent
 cls_evidence_src: "'computational' occurs once in the paper, describing 'efficient computational methods for estimating the ReRo guarantees' (the defender's estimation cost, §2 related work); no runtime bound on the attacker A appears in Def 4.1-4.12 or the Attacker role dimensions of §3"

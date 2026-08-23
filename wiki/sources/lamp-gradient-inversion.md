@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "The server observes one client gradient computed on the exact parameter snapshot it distributed; the task is binary classification, so all label assignments can be enumerated; the sequence length is assumed known (with the stated fallback of running the attack for every length); and the adversary holds a pretrained GPT-2 sharing the target BERT model's tokenizer."
 adversary_bound: "None formally. The adversary is an honest-but-curious federated-learning server that does not modify the protocol. It is bounded by the channel (one gradient) and by auxiliary knowledge (an auxiliary language model, known sequence length). Cost is reported in wall-clock GPU hours and in optimization steps, never as a complexity class."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: reconstruct
+cls_phase: train time
+cls_access: gradients
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "They took between 50 hours per experiment for the LAMPCos and LAMPL2 +L1 methods and 70 hours for TAG, which executes two times more continuous optimization steps."
+cls_evidence_src: Appendix E
+cls_reason: "No formal adversary bound exists (adversary_bound: none in front matter); party/unit/tightness instead record the attack's only priced quantity, the attacker's own GPU-hours cost, per the assigning note. baseline=absent because the paper reports no gradient-free or language-model-only control."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1, §2, §3 (federated learning, gradient leakage

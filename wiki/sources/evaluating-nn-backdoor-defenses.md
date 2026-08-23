@@ -8,6 +8,24 @@ year: 2020
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology]
 claim_quantifier: existential
 antecedent: none
+cls_target: parameters
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in the threat model, §2, or in the five defenses' own stated assumptions; the paper's own Claim Boundary lists '(iii) anything about attacker compute or budget' among what it does not establish, and states that varying BadNet training hyperparameters (Pitfall 1) 'is configuration variation, not additional attacker resource'"
+cls_reason: "Follows the direct precedent of critical-evaluation-backdoor-countermeasures (same threat model: attacker uploads a trained θ_bd, defender evaluates on a small clean set), which reaches the identical finding shape for the same defense family: defenses fail inside their own declared assumptions with no stronger attacker introduced anywhere, so frame/party/unit=none and tightness=unstated. target=parameters, access=white box because Fine-pruning, Neural Cleanse and ABS are model-inspection defenses examining the trained network's neurons or weights (STRIP and the generative-modelling defense instead probe input-output behaviour, but do not change the paper's dominant access level, noted as a judgement call). write=read only: no defense retrains or modifies the model or corpus, all operate on the released θ_bd."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

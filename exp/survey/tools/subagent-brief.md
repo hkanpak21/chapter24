@@ -47,21 +47,22 @@ Every cell holds exactly one value from these lists. No free prose. No new value
 | Field | Allowed values |
 | --- | --- |
 | `target` | `train data`, `parameters`, `outputs`, `training run`, `none` |
-| `family` | `membership`, `reconstruct`, `extract`, `forge`, `evade`, `poison`, `backdoor`, `none` |
+| `family` | `membership`, `reconstruct`, `extract`, `forge`, `evade`, `evade audit`, `poison`, `backdoor`, `none` |
 | `phase` | `train time`, `test time`, `post hoc`, `n/a` |
 | `access` | `hard label`, `scores`, `black box`, `white box`, `weights`, `gradients`, `none` |
-| `write` | `read only`, `corpus`, `model`, `none` |
-| `frame` | `compute`, `capability`, `none` |
+| `write` | `read only`, `corpus`, `model`, `responses`, `none` |
+| `frame` | `compute`, `statistical`, `capability`, `none` |
 
 **Adversary assumptions**
 
 | Field | Allowed values |
 | --- | --- |
 | `party` | `attacker`, `learner`, `auditor`, `mechanism`, `none` |
-| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `none` |
-| `tightness` | `unstated`, `poly`, `class`, `budget`, `exponent`, `measured` |
+| `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `none` |
+| `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `measured` |
 | `baseline` | `stated`, `absent`, `n/a` |
-| `second` | any `unit` value, or `none` |
+| `second party` | any `unit` value, or `none` |
+| `second notion` | any `unit` value, or `none` |
 | `assessed` | `explicit`, `implicit`, or blank |
 
 `quantifier` and `antecedent` are already in the front matter. Do not re-derive them.
@@ -71,10 +72,13 @@ Every cell holds exactly one value from these lists. No free prose. No new value
 - `post hoc` is an adversary acting on a released model with no further training.
 - `black box` is query access whose form the work does not fix. Use `hard label` or
   `scores` when the work does fix it.
-- `frame = compute` means a computational resource bounds some party.
-  `frame = capability` means a party is bounded but not computationally, which in
-  this corpus means a perturbation radius or a corruption fraction.
-  `frame = none` means no party is bounded at all.
+- `frame = compute` means a computational resource bounds some party: time, circuit
+  size, memory, queries or an algorithm class. `frame = statistical` means the only
+  bound is information-theoretic, in practice sample complexity, and the work says
+  nothing about computation. Do not call a sample-complexity bound computational.
+  `frame = capability` means a party is bounded in what it may do rather than in
+  what it may spend: a perturbation radius, a corruption fraction, or a privacy
+  budget. `frame = none` means no party is bounded at all.
 - `tightness = poly` is the binary probabilistic-polynomial-time quantifier.
   `class` is membership of a restricted algorithm family such as statistical
   queries or low-degree polynomials. `budget` is an explicit numeric allowance that
@@ -97,8 +101,14 @@ Every cell holds exactly one value from these lists. No free prose. No new value
    about. A paper about attacks whose only bound is on the learner is
    `party = learner`.
 4. **When two parties are bounded, the computational bound decides the row.** Put
-   that party in `party`, its unit in `unit`, and the other party's unit in `second`.
-   If both or neither are computational, the adversary's bound decides.
+   that party in `party`, its unit in `unit`, and the other party's unit in
+   `second party`. If both or neither are computational, the adversary's bound
+   decides.
+
+4b. **When one party is bounded under two incomparable resource notions**, record
+   the second in `second notion`, not in `second party`. These are different
+   situations. A single distinguisher bounded both by degree and by running time,
+   where the work's point is that the two diverge, is one party and two notions.
 5. **A perturbation budget is a bound.** A work whose only restriction is a norm-ball
    radius is `party = attacker`, `unit = perturbation`, `tightness = budget`,
    `frame = capability`. Do not record it as `none`.
@@ -130,6 +140,22 @@ argument and are the ones a later reader will challenge.
 
 Then one sentence in `cls_reason` for any field whose value would not be obvious to
 a second reader. If every field was obvious, say so in three words.
+
+
+7. **Rule 2 and the `implicit` case do not conflict, and here is the boundary.**
+   Rule 2 says `none` is an answer. It applies when the quantity is *absent*: the
+   work never states what any party spends. The `implicit` case applies when a
+   quantity *is present* in the work as a reported runtime, query count, sample
+   count or cost, but the work does not treat it as a parameter. A paper that
+   reports its attack took seventy GPU-hours has stated a cost, so it is
+   `party = attacker`, `unit = time`, `tightness = measured`, `assessed = implicit`,
+   not `party = none`. A paper that reports no cost at all is `party = none` and
+   `assessed` is blank. The test is whether a number exists anywhere, not whether it
+   is load-bearing.
+
+8. **Classify what the work claims, not what it discusses.** A paper whose subject
+   is a critique of differential privacy does not thereby bound a mechanism by a
+   privacy budget. The bound must be one the work asserts, not one it examines.
 
 ## Provenance, recorded per work
 
@@ -163,7 +189,8 @@ cls_party: <value>
 cls_unit: <value>
 cls_tightness: <value>
 cls_baseline: <value>
-cls_second: <value>
+cls_second_party: <value>
+cls_second_notion: <value>
 cls_assessed: <value>
 cls_evidence: "<verbatim fragment, at most 40 words, or: absent>"
 cls_evidence_src: <Def 3 | Thm 1 | §4.2 | abstract | wiki Claim Boundary | where you looked>
@@ -183,7 +210,7 @@ Blank values are written as empty (`cls_assessed:`). If a page already carries
 A tab-separated block, one line per assigned work, with this header:
 
 ```
-slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	second	assessed	prov	evidence_src
+slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	second_party	second_notion	assessed	prov	evidence_src
 ```
 
 Keep `evidence` and `reason` out of the TSV, since they contain tabs and commas.

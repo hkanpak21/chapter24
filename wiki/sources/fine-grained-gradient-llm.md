@@ -8,6 +8,24 @@ year: 2024
 tags: [complexity theory, hardness-reductions, learning-theory, fine-grained-complexity]
 claim_quantifier: conditional
 antecedent: "SETH (Strong Exponential Time Hypothesis), stated in the paper as Hypothesis 3.3: for any ε > 0 there is a k ≥ 3 such that k-SAT on n variables cannot be solved in O(2^{(1-ε)n}) time, including by randomized algorithms. Standard in fine-grained complexity. The upper bound is unconditional but requires bounded entries."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: conditional
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Assuming SETH, there is no algorithm running in time O(n^{2−q}) for any q > 0 for the AAttLGC(n, d = O(log n), B = ω(√log n))."
+cls_evidence_src: Thm 1.5 / Thm 5.5
+cls_reason: "The page states outright 'There is no adversary and no security game to quantify over,' so target/family/phase/access/write=none. party=learner per rule 3: the SETH-conditional bound binds whichever algorithm attempts the trainer's own gradient computation, the honest party ('the cost is the defender's,' the page's own words), not an adversary; unit=time, tightness=conditional, matching the front matter's claim_quantifier and antecedent (SETH). baseline=n/a rather than absent: there is no second party and no distinguishing game for an advantage to be measured against, only a bare worst-case running-time lower bound with no probability threshold stated anywhere in Thm 1.5/5.5. second_party/second_notion=none for the same reason: no second party exists to record."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/AS24_FGGradientLLM.pdf`, extracted

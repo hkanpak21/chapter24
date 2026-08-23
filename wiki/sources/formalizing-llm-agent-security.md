@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "The framework assumes synchronous, turn-based agent execution, one action completing and returning an observation before the next begins. It assumes standard authentication and access-control infrastructure is available. It does not assume the agent has perfect instruction attribution or objective inference, and instead posits oracle functions supplying those. The systematization claim rests on a survey of 87 papers."
 adversary_bound: "none. No property, oracle, or definition in the paper bounds the adversary's compute, queries, memory, or any other resource. The threat model restricts the adversary by MODE OF ACCESS only, to operational means rather than training-time manipulation or direct code modification, and the four properties are access-control predicates on an authorization context rather than resource bounds. For the survey, this paper is an empty cell on the adversary-pricing axis."
 date_verified: 2026-08-22
+cls_target: outputs
+cls_family: none
+cls_phase: test time
+cls_access: black box
+cls_write: corpus
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in the four security properties (§4.2-4.4), the five oracle definitions, or the Threat Model (§3); the page's own adversary_bound field already records this"
+cls_reason: "family=none flagged as a vocabulary gap: the paper's nine attack classes (indirect/direct prompt injection, jailbreaking, confused deputy, task drift, capability misuse, cross-context leakage, tool exploitation, memory poisoning) span several codebook families at once, the paper's own primary contribution is the framework rather than any one attack, and the vocabulary has no 'injection' value. access=black box is a judgement call: the paper restricts the adversary by mode rather than resource, verbatim 'attackers who exploit these capabilities through operational means rather than training-time manipulation or direct code modification' (Threat Model, §3), a mode-of-access restriction with no fixed query form, closest to black box among the available values though the paper never uses that term. write=corpus: the described attacks write malicious content into observations/documents/memory that the agent later consumes (indirect injection, memory poisoning), not a read-only query. party/unit/tightness/frame=none/none/unstated/none: no property, oracle or definition bounds the adversary's compute, queries or memory anywhere in the paper, confirmed against the PDF and already stated in the page's own adversary_bound field."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against the primary source.** The page was checked against

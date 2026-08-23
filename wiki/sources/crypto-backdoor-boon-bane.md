@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "existence of strongly unforgeable digital signature schemes, for the non-replicability result carried over from Goldwasser et al. The three defensive protocols are argued, not proved; the authors state that the proofs relating to the defence need further study."
 adversary_bound: "black-box access to the network, for the three defensive protocols. The backdoor-enabled adversarial attack is stated to be unpreventable under the standard assumptions."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: implicit
+cls_evidence: "Consider a real-world q-query admissible adversary Areal who gets access backdoored model h̃. Areal makes q queries to the ACTIVATE(·, sk) oracle"
+cls_evidence_src: Thm II.1, proof
+cls_reason: "Classified on Theorem II.1, the paper's only theorem environment, per the wiki's own note that the three defensive protocols are argued rather than proved, even though the abstract's 'main contribution' language foregrounds the defensive protocols. family=backdoor rather than forge, since the object under study is a planted cryptographic backdoor's (non-)replicability, though the reduction mechanism is literally signature forgery. second_notion=time/assessed=implicit records the accompanying PPT bound on the forger, which the proof states only as 'computationally infeasible' and never as a named parameter of the theorem, alongside the theorem's own explicit q-query budget."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

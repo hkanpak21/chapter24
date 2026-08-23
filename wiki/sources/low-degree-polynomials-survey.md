@@ -20,7 +20,7 @@ cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "this framework measures the complexity of a statistical task by the minimum degree that a polynomial function must have in order to solve it"
 cls_evidence_src: abstract

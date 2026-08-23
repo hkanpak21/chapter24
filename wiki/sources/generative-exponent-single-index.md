@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Lower bounds: SQ bound is unconditional given the VSTAT(n) model; the low-degree bound is conditional on Conjecture 3.4 (the low-degree conjecture). Upper bound (Theorem 4.1 / Corollary 4.4) is unconditional. All results assume the Gaussian single-index model of Definition 1.1 with P known up to the caveats of Corollary 4.4."
 model_class: "Gaussian single-index model, Definition 1.1: x ~ gamma_d isotropic Gaussian in R^d, labels depend on x only through z = w* · x via a bivariate law P in G; w* uniform on S^{d-1}. Label noise is allowed (additive, multiplicative, mixture, Massart). NOT a result about neural networks."
 algorithm_class: "SQ (queries E[phi(X,Y)] via VSTAT(n)) and low-degree polynomials (degree D = omega(log d)); upper bound is a partial-trace spectral estimator after a label transformation"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "we show that computationally efficient algorithms, both within the Statistical Query (SQ) and the Low-Degree Polynomial (LDP) framework, necessarily require"
+cls_evidence_src: abstract
+cls_reason: "unit=samples/tightness=exponent rather than the algo-class/class pairing used on sibling low-degree pages, because the paper's headline quantity is an explicit sample-complexity threshold n=Theta(d^{max(1,k*/2)}) parameterized by the generative exponent k*, not a bare class-membership statement. second_notion=algo class records that this sample bound holds specifically for SQ and low-degree algorithms (Thm 3.2, Thm 3.5), the same party under two named restricted classes with matching thresholds, not two different parties. baseline=stated from Theorem 6.1's information-theoretic n=Theta(d/eps^2), against which the polynomial gap (when k*>2) is defined. party=learner, not attacker: the task is direction recovery in a Gaussian single-index model with no trained model or attack scenario (Claim Boundary: 'not a result about neural networks'). Rule 1 (main-claim-decides) was not needed since SQ and low-degree give matching, not differently-shaped, claims."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

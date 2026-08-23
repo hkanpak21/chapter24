@@ -10,7 +10,32 @@ claim_quantifier: empirical
 antecedent: "none — the paper states definitions and a taxonomy, and asserts no conditional result."
 adversary_bound: "none — the adversary is an arbitrary transformation g on the context (h, x, k), unconstrained in computation, queries, or knowledge. The one place a budget appears is the perturbation budget carried over from the adversarial-examples literature in the description of evasion attacks, and it bounds a perturbation, not a resource."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in the Adversary Model §V-A-2 (eq 15), the Prompt-Based/Jailbreaking/Evasion definitions (eq 17-20), or the abstract"
+cls_reason: "The abbreviation IMTM occurs zero times in the paper (confirmed by grep -a over the extracted PDF text) and zero times across raw/; the paper writes 'Input Manipulation Threat Model' in full. The paper is a survey with three parallel formal threat models (Input Manipulation, System & Privacy, Protocol-Level) and no theorem; classified here on the Input Manipulation Threat Model (eq 13-21, §V-A), the abstract's lead category and the formalism this slug names. g:(h,x,k)->(h',x',k') is an arbitrary transformation with no compute, query, or perturbation-radius bound in its definition, so party/unit/frame=none/none/none per Rule 2. family=evade: the formalized sub-cases (Prompt-Based eq 17, Jailbreaking eq 19, Evasion eq 20) all reduce to causing pi(y,a)=0, a safety-policy violation at inference time. write=read only: the central prompt-based formalization (eq 17) modifies (h,x) but explicitly leaves k unchanged, i.e. the attacker submits through the ordinary query channel rather than writing to a persisted corpus; indirect prompt injection (writing to an external retrieved source) is described in prose elsewhere but is not part of the formalized equations."
+cls_prov: P
+cls_date: 2026-08-22
 ---
+
+
+> **Acronym note, 2026-08-22.** The string "IMTM" occurs zero times in this paper and zero
+> times across all 186 PDFs in `raw/`, appearing only in a discarded machine-generated
+> artifact, which is where this page's slug and the raw filename came from. The underlying
+> object is real: the paper writes "Input Manipulation Threat Model" in full seven times.
+> The concept stands, the abbreviation is not the authors'.
 
 ## Summary
 

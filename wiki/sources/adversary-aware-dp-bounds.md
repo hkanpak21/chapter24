@@ -9,6 +9,24 @@ tags: [differential-privacy, data-reconstruction-attack, membership-inference-ga
 claim_quantifier: universal
 antecedent: "(ε, 0)-DP (extended with caveats to approximate DP); targets drawn from a PRODUCT distribution D_1 ⊗ … ⊗ D_n (independent priors); the success metric L must be DECOMPOSABLE into per-target terms."
 adversary_bound: prior knowledge (the distribution D) and number of guesses k — NOT runtime, NOT function class, NOT queries
+cls_target: train data
+cls_family:
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: mechanism
+cls_unit: privacy budget
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "our bounds achieve this flexibility by depending exclusively on the privacy parameters and the adversary's baseline probability of making a successful guess without access to the mechanism's output"
+cls_evidence_src: §1 (verified verbatim at this location in raw/SAH+25_AdversaryAwareDPBounds.pdf; a paraphrase of the same sentence, not identical wording, appears in the abstract)
+cls_reason: "Rule 3: the (ε,0)-DP bound binds the mechanism M, not the adversary A, which Algorithm 1 and the Claim Boundary describe as 'otherwise unconstrained' and 'an arbitrary function' of (a, D, M). The number of guesses k and the prior D are generality parameters the theorem is stated over, not restrictions that limit the adversary the way a perturbation radius or query budget would — larger k only helps the adversary, so it is not a bound in the rule-2 sense, which is why party is not attacker here despite the front matter's adversary_bound line. family left blank: the abstract states the framework 'generalizes...across membership inference, attribute inference, and data reconstruction attacks' as one theorem generic over the choice of L (Def 3.1); no single vocabulary value captures a paper whose main claim spans three of the family values at once, and attribute inference has no vocabulary term of its own. assessed=implicit: the wiki Claim Boundary (not a paper quotation) glosses the theorem as unable to distinguish a cheap attack from an astronomically expensive one, and the paper's own text says empirical attacks only lower-bound leakage because 'future, more sophisticated attacks could easily invalidate current risk assessments' (verified quote, wiki Quotes) — compute is discussed as a limitation, not treated as a parameter."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

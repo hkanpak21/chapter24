@@ -9,6 +9,24 @@ tags: [differential-privacy, learning-theory, computational-vs-it-robustness]
 claim_quantifier: existential
 antecedent: "A fixed positive definite kernel k with k(x,x)=1; regularization λ ≥ 0; order α. Post-processing requires a kernel factorization condition k(x,x') = k'(g(x), g(x'))·k̃(x,x') (deterministic case) or its expectation form (randomized case). Estimation rates are for the REGULARIZED divergence."
 adversary_bound: function class (implicitly — the witness of the divergence is restricted to an RKHS), presented as an auditing tool rather than an adversary model
+cls_target: outputs
+cls_family: none
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: auditor
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: privacy budget
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "Let H be a reproducing kernel Hilbert space of functions f : X → R corresponding to the kernel k."
+cls_evidence_src: §2 (Framework)
+cls_reason: "party=auditor per Rule 4: the estimator's witness is restricted to an RKHS (algo class, computational, §2), while the mechanism itself is separately bounded by the DP privacy budget epsilon (Def 2, D_alpha(...) <= epsilon, a capability bound) — the computational bound decides the row, so the mechanism's epsilon goes to second_party. second_notion=samples records Sec 4's parametric-rate sample estimability, a second, incomparable resource on the same auditor party (Rule 4b), both explicit rather than side-conditions. family=none: this is a detection/auditing tool, not an attack — 'evade audit' does not fit a paper that is itself the audit rather than an attacker evading one. This paper is not the flagged corpus entry, but its adversary_bound field pre-dates the classification pass and is reused directly as F/S evidence for the algo-class restriction."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

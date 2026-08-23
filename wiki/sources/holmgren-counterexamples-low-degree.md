@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "none. The refutation is unconditional. Both constructions use efficiently decodable error-correcting codes."
 algorithm_class: "low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "there exists a polynomial-time computable test distinguishing Tδ µ and ν with probability 1 − o(1)"
+cls_evidence_src: Thm 3.1
+cls_reason: "Same shape as quasi-poly-low-degree-conjecture-false: one distinguisher assessed under two incomparable resource notions where the paper's point is that they diverge (rule 4b), so party=learner, unit=time, tightness=poly (the escaping test in Thm 3.1 and again in Thm 3.4 is genuinely polynomial-time, not quasi-polynomial), second_notion=algo class for the low-degree side: mu is constructed to be Omega(n)-wise independent w.r.t. nu, and the paper states 'the notion of D-wise almost independence captures how well degree-D polynomials can distinguish mu and nu' (Section 2), so mu evades all low-degree tests up to degree Omega(n) while the exhibited test is poly-time. baseline=n/a, matching the other low-degree/statistical-computational-gap pages, since this is a counterexample to a conjectured algorithm-class-vs-time equivalence, not an advantage-over-baseline claim."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

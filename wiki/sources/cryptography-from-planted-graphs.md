@@ -11,6 +11,24 @@ antecedent: "variants of the planted clique problem, not the standard conjecture
 algorithm_class: "circuits, bounded by size"
 adversary_bound: "size n^{o(log n)}, at distinguishing advantage n^{-Omega(1)} for the basic constructions"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: circuit size
+cls_tightness: quasi-poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "The above positive results guarantee that any adversary of size no(log n) achieves an n−Ω(1) distinguishing advantage."
+cls_evidence_src: abstract
+cls_reason: "target/family/phase/access/write are none/n/a: this is a cryptographic-primitive construction (PSM, secret sharing) from planted-graph hardness, with no ML model, corpus, or training run in scope. tightness=quasi-poly rather than poly or budget: adversary size n^{o(log n)} is the standard planted-clique-regime bound tracking the best known n^{O(log n)} planted-clique algorithm, not a generic polynomial-size or arbitrary-budget parameter. Verified against the PDF per the audit warning: the abstract's negative result reads 'computational threshold secret-sharing schemes with public information require share size Omega(log log n)' — share size, confirming the wiki's already-corrected text and not the earlier message-size error. Per the brief's own note, this paper's security quantifies over size-bounded circuits, not a restricted algorithm class, so cls_unit is circuit size rather than algo class."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

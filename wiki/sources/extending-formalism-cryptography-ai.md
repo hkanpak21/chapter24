@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "for the modular composition theorem, that the two component oracles are themselves complete and ATK-ψ-secure. For the confidentiality-versus-utility result, that the AIOracle is DPD-secure, where DPD is the differentially private distinguishability game the paper takes from prior work. No cryptographic hardness assumption is instantiated anywhere; the paper supplies definitions and reductions, not constructions."
 adversary_bound: "PPT, with capabilities named by a set ATK drawn from {see_model, inject_learn, inject_infer, black_box}"
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: membership
+cls_phase: train time
+cls_access: white box
+cls_write: corpus
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "An AIOracle for φ is ε-ATK-ψ-secure if for any PPT adversary A, Adv ≤ ε in the game in Figure 6."
+cls_evidence_src: Def 3
+cls_reason: "Classified on the paper's own formal results (the dual-construction composition theorem and the confidentiality-vs-utility tension), not on the §7 filtering impossibility, which belongs to Ball et al., is existential, and one of its theorems needs a shared secret key. Of the paper's own two results, the tension is centred over the composition theorem because the abstract states it first ('we show that existing approaches to confidentiality of training data fundamentally conflict with completeness') before the modular-decomposition claim; the composition theorem (Thm 1) is itself target-less and would classify as target=none/family=none if centred instead, which is noted as the alternative reading. family=membership and target=train data follow the paper's own words for the DPD game: 'This perfectly models the membership inference attack from subsection D.2,' and DPD 'treats all data elements from corpus as confidential.' phase=train time and write=corpus because the DPD adversary itself constructs corpus′ (all but the one challenge element z_b) before LEARN runs, not merely queries a fixed corpus. access=white box: step 6 of Algorithm 2 (DPD) hands the adversary A the trained 'model' object directly, matching the paper's 'see_model' capability. party/unit/tightness taken from Definition 3, the general ATK-ψ-secure template DPD instantiates: PPT adversary ⇒ unit=time, tightness=poly. baseline=stated: the DPD advantage analysis in Appendix E.1 writes the success probability as 1/2 + ε_i (the paper's fraction glyphs are split by pdftotext extraction but the value is 1/2, confirmed against the PDF)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

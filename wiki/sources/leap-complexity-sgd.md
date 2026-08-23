@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The headline scaling Theta~(d^{max(Leap,2)}) is stated as Conjecture 1, for all but a measure-0 set of coefficient vectors. What is PROVED is a specialisation: 2-layer network with smooth activations (Assumption 1), layer-wise SGD with an entrywise l-infinity projection step, isotropic Gaussian data, and a representative subclass of nested-monomial targets (Eq. 11) with min leap >= 2; second-layer fitting proved only for the multilinear subclass (Eq. 12)."
 model_class: "Low-latent-dimension targets f*(x) = h*(Mx) with P = O_d(1), over isotropic Gaussian N(0,I_d) or uniform hypercube. The proved theorems assume Gaussian data AND that z is a subset of P coordinates of x (not a general subspace), because of the entrywise projection step. NOT a result about general neural networks."
 algorithm_class: "online SGD (fresh sample per step) on a 2-layer network, layer-wise with projected gradient steps; lower bounds are CSQ (and noisy population-GD), NOT SQ"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "the CSQ complexity of learning f\u2217 to less than \u03b5h\u2217 error is at least ch\u2217 dLeap(h\u2217 ) in the Boolean case, and at least ch\u2217 dLeap(h\u2217 )/2 in the Gaussian case."
+cls_evidence_src: Prop 2
+cls_reason: "Paper prices the SGD learner, not an attacker; party=learner per rule 3. unit=algo class (CSQ, Prop 2) is primary since the paper's universal lower bound is stated over the CSQ class; second_notion=time records the paired online-SGD time/sample complexity (Thm 1-2, Conjecture 1) as a second, incomparable resource notion on the same party per rule 4b. baseline=n/a since no attacker success criterion applies."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

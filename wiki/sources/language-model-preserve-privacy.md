@@ -8,6 +8,24 @@ year: 2022
 tags: [privacy, differential-privacy, memorization, language-models, definitions]
 claim_quantifier: conditional
 antecedent: "That private information in natural language does not respect the boundaries of the data unit being protected — secrets have no fixed borders, span text written by several people, can concern people who contributed no data at all, and are held by in-groups of unbounded size. Where this fails (structured records, an individual's own search history), the paper says the existing guarantees are adequate."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no adversary or resource bound in Def 1 or elsewhere; wiki Claim Boundary, 'Does not establish ... anything about adversary resources'"
+cls_reason: "This is a definitional critique of DP's unit of protection, not an attack or a bound; the paper explicitly disclaims addressing adversary resources (Claim Boundary, Connections axis contrast), so all attack-scenario and adversary-assumption fields are none/n/a per rule 2."
+cls_prov: F
+cls_date: 2026-08-22
 ---
 
 ## Summary

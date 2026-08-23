@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "The central bridge from the forged log being valid to the MI attack being unable to distinguish is Conjecture 1: if the two parameter vectors are within eps' in l2 then the two models are membership-inference equivalent. This is stated as a conjecture, not proved. The construction also assumes SGD training with a recorded per-step log (a Proof-of-Learning), and the empirical results are for LeNet5/MNIST and ResNet-mini/CIFAR-10."
 model_class: "SGD-trained supervised classifiers with a retained training log (PoL); evaluated on LeNet5 (MNIST) and ResNet variants (CIFAR-10). The impossibility result (Theorem 1) is for logistic regression with batch size 1."
 algorithm_class: "none - no algorithm class is priced or bounded. The relaxation replacing exact model equality by membership-inference equivalence is analogised to computationally bounded adversaries and to capacity-bounded DP, but no bound is imposed or quantified."
+cls_target: train data
+cls_family: forge
+cls_phase: post hoc
+cls_access: gradients
+cls_write: corpus
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in Def 4 (PoR), Def 5 (MI equivalence), or Conjecture 1; \"computationally feasible\" (Def 4) is used descriptively with no algorithm class, time, or query bound attached, and Conjecture 1, the l2-closeness-implies-MI-equivalence bridge, is unproved and states no resource bound either"
+cls_reason: "family=forge, not evade audit: the mechanism fabricates an alternate consistent training log/dataset D' (a false transcript), matching this codebook's use of 'forge' elsewhere for PoL-transcript fabrication, rather than 'evade audit' which is reserved for detection-probability results with no fabricated transcript. access=gradients because Algorithm 2's forging step matches per-step gradients (min ||grad loss(x_1) - grad loss(x_i)||), not just final weights. write=corpus: the forged PoR represents training on a different dataset D' = D\\{x*}. party/unit/tightness/frame=none/none/unstated/none because no algorithm class or resource is priced anywhere in the paper, confirmed against the PDF; the page's own Claim Boundary states this and notes the paper analogises to capacity-bounded DP and computational boundedness without adopting either. baseline=absent rather than n/a: Definitions 6-7 do name security games (forging game, PoR game) but state no numeric advantage threshold, so a game exists informally but its baseline is missing rather than inapplicable."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

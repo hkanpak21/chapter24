@@ -9,6 +9,24 @@ tags: [cryptography, bounded-storage-model, one-way-functions, fine-grained-cryp
 claim_quantifier: conditional
 antecedent: "For the constructions: one-way functions exist, or space-bounded one-way functions with space bound poly(a) exist for the fully streaming variant. For the converse: a streaming key agreement exists in the stated parameter regime, from which the existence of one-way functions is derived."
 adversary_bound: "TWO axes at once. The adversary is bounded in space by a, and additionally bounded in TIME to probabilistic polynomial time. The paper's subject is the exchange rate between the two."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: memory
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: memory
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "In the other direction, we show that one-way functions are necessary for key agreement in the bounded-storage model with large space gaps."
+cls_evidence_src: abstract
+cls_reason: "Adversary bounded in two axes at once, space a and PPT time (front matter adversary_bound); honest party separately bounded at s bits (second_party=memory, Claim Boundary). unit=memory/tightness=exponent for the primary space-gap axis (explicit relations s << sqrt(a) in Thm 3, s << a^{1/polylog(r)^r} in Thm 4); second_notion=time for the added computational axis this paper prices against it (rule 4b)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

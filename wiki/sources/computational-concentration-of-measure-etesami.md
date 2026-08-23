@@ -9,6 +9,24 @@ tags: [concentration-of-measure, computational-complexity, adversarial-ml, evasi
 claim_quantifier: universal
 antecedent: "The measure is a product measure of dimension n and the metric is Hamming; the algorithm is given a membership oracle for the target set S and a sampling oracle for μ; and Pr[S] ≥ ε with ε, δ non-negligible, since the running time is poly(n/εδ)."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: hard label
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "such a close point of Hamming distance O( n · ln(1/εδ)) in time poly(n, 1/ε, 1/δ)."
+cls_evidence_src: abstract
+cls_reason: "family=evade rather than poison: Theorem 1.1/3.2 is stated as finding a nearby point in a target set S at Hamming distance O(sqrt(n log(1/(eps delta)))); polynomial-time poisoning is a stated downstream corollary, not the theorem's own object. access=hard label translates the paper's own 'S-membership query oracle' framing into the closest fixed-form category; the paper never uses the phrase 'hard label' and S need not literally be a classifier's error region."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

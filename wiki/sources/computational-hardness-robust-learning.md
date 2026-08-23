@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "one-way functions, via one-time signature schemes and error-correcting codes. The quantitative gap of Ω(n) computational robustness against polylog(n) information-theoretic robustness additionally needs signatures with poly-logarithmically short signatures, which the paper's own footnote sources to exponentially hard one-way functions (Rompel 1990). The converse direction (Theorem 18) assumes nothing."
 adversary_bound: "non-uniform circuits of size s(n) for any polynomial s, in Definition 3; the perturbation budget is a separate Hamming bound b(n)"
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: circuit size
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "the size of circuit used by the adversary controls its computational power and that is why we are enforcing it to be a polynomial."
+cls_evidence_src: §2, text following Def 1 and Def 3
+cls_reason: "access=black box is stated explicitly as the paper's default ('by default, we model adversaries who have black-box access to h(·), Dn'), not white-box, even though h is a public deterministic verify-then-classify procedure. second_party left none because Theorem 8, the paper's stated main positive result, bounds only the attacker (circuit size); the learner is additionally constrained to polynomial time only in the separate Corollary 9 (robustly-hard base problem), not in Theorem 8 itself."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

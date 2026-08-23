@@ -10,6 +10,23 @@ claim_quantifier: universal
 antecedent: "none. The reductions are unconditional. What stays conjectural is the hardness itself."
 algorithm_class: "all poly-time"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no hardness bound stated; the theorem is a poly-time equivalence between PC-detection, PC-search, and PC-refutation, unconditional (antecedent: none, 'what stays conjectural is the hardness itself'); wiki Claim Boundary and abstract"
+cls_reason: "Rule 2: the headline result (title and abstract both lead with it) is a reduction/equivalence between problem formulations, not a bound on any party, so party/unit/frame=none and tightness=unstated. The one bound-shaped statement in the paper, 'no polynomial-time algorithm distinguishes the two random graphs with probability much greater than k^2/n if and only if the planted clique conjecture holds' (Key Contributions, third bullet), is a secondary corollary, conditional on the still-open PC conjecture, and is not what the abstract leads with, so rule 1 keeps it out of this row. Flagged for a second reader: that corollary has the shape party=learner or auditor, unit=time, tightness=poly, baseline=stated (edge-counting achieves k^2/n) if a future pass wants a second row for it. Confirmed against the audit warning that refutation is a separate equivalence class from detection/search in this paper, so no equivalence-class claim was conflated here."
+cls_prov: S
+cls_date: 2026-08-22
 ---
 
 ## Summary

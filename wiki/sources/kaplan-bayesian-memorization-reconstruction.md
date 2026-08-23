@@ -20,7 +20,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed:
 cls_evidence: "Algorithm M is (ε, δ, Prior, R)-Bayesian extraction-safe if for all attackers A it holds that"
 cls_evidence_src: Def 3.1

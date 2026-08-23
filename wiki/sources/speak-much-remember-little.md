@@ -19,7 +19,7 @@ cls_party: attacker
 cls_unit: memory
 cls_tightness: exponent
 cls_baseline: stated
-cls_second: memory
+cls_second_party: memory
 cls_assessed: explicit
 cls_evidence: "we can allow arbitrarily large gaps between m and n, up to exponential m = 2O(n)"
 cls_evidence_src: "§1 (Main Result)"

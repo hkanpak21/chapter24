@@ -9,7 +9,7 @@ tags: [adversarial-ml, certification, verifiable-computation, governance]
 claim_quantifier: conditional
 antecedent: "The one proved theorem assumes a Poisson snapshotting process at rate f, perfect parallelism, uniform chip throughput a FLOPs/day, and a Verifier who samples s chips after the run. The framework as a whole assumes: on-chip firmware attested by hardware features; supply-chain accounting for every ML chip; and the existence of a Proof-of-Training-Transcript scheme that does not yet exist. No cryptographic or complexity assumption underlies the compute-hardness half."
 cls_target: training run
-cls_family: none
+cls_family: evade audit
 cls_phase: post hoc
 cls_access: none
 cls_write: none
@@ -18,7 +18,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed:
 cls_evidence: absent
 cls_evidence_src: "no bound in Theorem 1 (Appendix C.2), which is a Poisson-sampling probability with no party's resources restricted; Definition 1's F-hard/J-efficient PoTT clause does bound a spoof-generation algorithm by time F, but no (R,V) pair is proved F-hard for any F (§5.1), so the compute-hardness half has no construction to classify"

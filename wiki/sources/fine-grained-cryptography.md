@@ -8,6 +8,24 @@ year: 2016
 claim_quantifier: conditional
 antecedent: "For the NC1 results: the worst-case separation ⊕L/poly ⊄ NC1 (standard-ish, widely believed, but a worst-case class separation, not an average-case or cryptographic assumption). For the AC0 results: none — they are unconditional."
 tags: [cryptography, complexity-theory, circuit-complexity, one-way-functions, pseudorandomness, fine-grained-cryptography, computational-indistinguishability]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: algo class
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Semantic Security: For any G = {gλ : PKλ × Cλ → {0, 1}} ∈ C2, there is a negligible function ν′ such that for any λ ∈ N:"
+cls_evidence_src: Def 2.13
+cls_reason: "Pure complexity-theoretic cryptography, no ML attack, so target/family/phase/access/write=none. party=attacker/unit=algo class/tightness=class because the adversary G is defined by membership in a circuit class C2, not a size or time budget; the page's own Connections section calls this the 'different move' from the exponent-based fine-grained papers ('there is no ratio, and no parameter that could be tuned'), fixing tightness=class over exponent or budget. second_party=algo class: the honest algorithms are simultaneously bounded to the smaller class C1 (Def 2.8 onward); both bounds are class-based (neither a time/size budget), so per rule 4's tie-break the adversary's side (C2, the more powerful class) decides the primary row and C1 is recorded as second_party. baseline=stated: Definition 2.13's semantic-security bound is Pr[gλ(pk,c)=b] ≤ 1/2 + ν′(λ), an explicit fair-coin baseline (the fraction is split into separate glyphs by pdftotext extraction; confirmed against the PDF's displayed inequality)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -12,6 +12,24 @@ adversary_bound: "Not an adversary class in the security sense. The distinguishe
 model_class: "log-linear families (n-gram models, neural networks with a softmax top layer) in Sections 4-5; unidirectional autoregressive sequential models over a finite vocabulary V in Section 6"
 algorithm_class: "maximum likelihood estimation, reached by boosting-style multiplicative reweighting q'(x) ∝ q(x)e^{-a f(x)}"
 date_verified: 2026-08-22
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound on the distinguisher/oracle O_d in Lemma 1, Lemma 2, Lemma 3, or Theorem 1 (§4-6); verified with grep -a for 'polynomial', 'computation', 'runtime', 'bound' against raw/AGK22_AreGANsOverkillNLP.pdf, and directly by reading Theorem 1, whose stated runtime O((T_d/ε²)L_0(1/N+nT_g(m+n))) charges the oracle's cost as free parameters T_d, T_g rather than bounding them"
+cls_reason: "Rule 2 (none is an answer): there is no adversary or threat model in this paper. The distinguisher is an arbitrary [0,1]-valued function with no runtime bound anywhere, and the paper says so of its own oracle: 'We do not need to assume that Od is optimal in any sense' (verified quote, §6). Theorem 1's runtime bound is a boosting-algorithm efficiency guarantee for the learner's own procedure, charged relative to the oracle's own unbounded cost, not a security resource bound on any party, so it does not license party=learner/frame=compute. Audit resolution: the paper names the same Algorithm 1 'a polynomial-time reduction from likelihood maximization to next-token distinguishability' in §1 (verified, p.3) and, of the identical construction, 'a polynomial-time reduction from distinguishing distributions to maximum likelihood estimation for sequential models' at the end of §6 (verified, p.7) — reversed 'from X to Y' order for one algorithm. Mechanically Algorithm 1 takes the distinguisher oracle O_d as input and, via Lemma 3's per-token reweighting, outputs a low-log-loss model that is ε-indistinguishable from S by that oracle (§6, p.3): distinguishing-capability is the resource, MLE-capability is the output, i.e. detection→generation, matching the wiki's Claim Boundary table and not the literal word order of either 'reduction from X to Y' sentence taken alone."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

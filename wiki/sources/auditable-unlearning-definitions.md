@@ -8,6 +8,24 @@ year: 2022
 tags: [adversarial-ml, reconstruction, hardness-reductions, verifiable-computation]
 claim_quantifier: existential
 antecedent: "Theorem 3 requires: (i) the update rule g is a mean-sampler (minibatch SGD and relatives); (ii) the adversary chooses its own minibatch size b and can sample from the data distribution D indefinitely; (iii) every point of D has probability 0 under D (continuous distribution); (iv) the verification tolerance ε is strictly positive, justified by floating-point precision. All four hold for standard deep-learning practice but none is vacuous."
+cls_target: training run
+cls_family: forge
+cls_phase: post hoc
+cls_access: white box
+cls_write: corpus
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in Theorem 3 (Existence of Forging Adversary) or Corollary 2; §5.3-5.4 give the adversary free choice of minibatch size b and indefinite sampling from D, and the proof is a pure existence argument with no runtime or query cost attached to finding the forging map"
+cls_reason: "target=training run and not train data: the object forged is the PoL log/trajectory pairing a dataset to a training run, not a claim about data content per se. family=forge over evade audit: the adversary constructs a log that is VALID under the verifier's own check (d(w_{i+1},g(w_i,x_i))<=eps), i.e. a fabricated but passing transcript, matching how catch-a-chinchilla-compute-monitoring's cls_reason draws that exact line (forge = false transcript fabricated and accepted; evade audit = detection probability reduced without fabricating a passing artifact). phase=post hoc since the forging map is the identity on parameters (Def., Lemma 1) -- the model is not retrained, only the claimed dataset/log changes, matching the brief's 'no further training' criterion. access=white box is an explicit threat-model statement, verified in the PDF at §3.1: the adversary has full checkpoint, data and hyperparameter visibility. frame/party/unit=none despite b and indefinite sampling: these are not a bound, they grant the adversary maximal power to prove existence, so nobody is actually constrained (rule 2)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Lower bound (Theorem 1) is a low-degree weak-separation statement at degree D = O(log(d)^2); interpreting it as ruling out polynomial-time algorithms requires the low-degree conjecture. Upper bound (Theorem 3) is unconditional but carries an unquantified constant C(P,K) that the paper itself conjectures can be exponentially large in r."
 model_class: "Gaussian multi-index model, Definition 1: X ~ N(0,I_d), P[Y|X] depends only on the projection onto an r-dimensional subspace U*, r = O_d(1), W* Haar-uniform on the Stiefel manifold. NOT a result about neural networks in general; the network case enters only through specific link functions sigma."
 algorithm_class: "low-degree polynomials (lower bound); a spectral Hermite-kernel U-statistic with subspace conditioning (upper bound). Explicitly NOT an SQ bound - see their Section 3 remark on asymmetric structure in SQ."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "is necessary in the class of algorithms captured by the Low-Degree-Polynomial framework"
+cls_evidence_src: abstract
+cls_reason: "Same shape as the single-index predecessor: unit=samples/tightness=exponent for the sample-complexity threshold n=Theta(d^{1 v k*/2}), second_notion=algo class for the low-degree restriction (Theorem 1). Unlike the single-index paper, this lower bound is explicitly low-degree only, not SQ (page's Claim Boundary: 'Do not read Theorem 1 as an SQ bound'). baseline=absent, not stated: no information-theoretic reference threshold is restated in this paper's own body (checked raw/DLB25_GenerativeLeap.pdf for 'information-theoretic', the only hit is a reference title), unlike Theorem 6.1 in the single-index predecessor this paper reduces to at r=1. Also note the Theorem 3 upper bound carries an unquantified constant C(P,K), conjectured possibly exponential in r (Section 4.2), so the matching-bound claim is qualified. This is the paper (not the single-index one) that establishes estimation, not only detection: Theorem 3 recovers the index space to accuracy eps, per the audit warning distinguishing the two papers."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

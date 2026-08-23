@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "one-way functions exist and computationally secure, efficient indistinguishability obfuscators for polynomial-size circuits exist (Assumption 2.7); for the language-model extension, additionally access to a steganographic function. iO is a standard but strong assumption."
 adversary_bound: "PPT distinguisher with white-box access to the obfuscated model (architecture and weights)"
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: perturbation
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "for all probabilistic polynomial time (in 𝜆) algorithms 𝒜, the distinguishing advantage of 𝒜 on P and Q is negligible"
+cls_evidence_src: Def 2.1, invoked by Def 2.3 (Backdoor Detection)
+cls_reason: "party=auditor models the PPT distinguisher of Def 2.3 (Rule 6), acting post hoc on the released obfuscated model with no further training. The Backdoor/Activate construction is also PPT (Def 2.2) but this is a construction-efficiency requirement, not the security-defining bound, so it is not treated as a competing computationally-bounded party. second_party=perturbation records Activate's separate ||x-x1||_inf <= gamma bound (Def 2.2), a capability constraint distinct from either party's time bound. write=model since Backdoor(.) outputs a backdoored ANN; target=parameters since the backdoor is planted into the model's weights. Verified against the flagged claim: [GKVZ22] 'leave open the question of whether undetectability is possible for general models under white-box access' (§1, verbatim) — the paper moves, not closes, the white-box restriction (RFF -> honest obfuscated pipeline), matching the page's existing 2026-08-20 correction."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

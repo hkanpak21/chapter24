@@ -11,6 +11,24 @@ antecedent: "none. The lower bound is unconditional inside the statistical query
 algorithm_class: "SQ"
 adversary_bound: "queries to the VSTAT and MVSTAT oracles, bounded in number and in precision"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "no polynomial-time statistical algorithm can solve the problem using queries to VSTAT(o(n2/k2)) and any SQ algorithm requires nΩ(log n) queries to VSTAT(n2−δ/k2)."
+cls_evidence_src: Thm 2.9
+cls_reason: "Not an ML attack paper: a detection/estimation hardness result for planted structure, so target/family/phase/access/write=none. party=learner rather than attacker: the paper 'generalizes Kearns' SQ framework from PAC learning' with no adversary vocabulary anywhere, matching this programme's established 'restricted-class learner' framing for SQ/low-degree units (repo CLAUDE.md). unit=algo class, tightness=class for the SQ-membership quantifier ('any SQ algorithm'); second_notion=queries records the explicit numeric query-count/precision bound (n^Ω(log n) queries to VSTAT(·)) the same party also carries, per rule 4b (one party, two incomparable notions: class membership and query count). baseline=stated: Thm 2.9 fixes the success criterion at probability at least 2/3."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

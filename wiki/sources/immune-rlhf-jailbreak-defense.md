@@ -20,7 +20,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed:
 cls_evidence: "The adversarial prompt distribution in (2), padv, is defined as a solution to a KL-regularized optimization problem that minimizes expected reward Rsafe relative to p0, with regularization parameter β."
 cls_evidence_src: Eq. 2 / Thm 1 discussion

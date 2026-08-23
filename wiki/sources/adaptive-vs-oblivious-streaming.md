@@ -19,7 +19,7 @@ cls_party: mechanism
 cls_unit: memory
 cls_tightness: exponent
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "We present a streaming problem for which every adversarially-robust streaming algorithm must use polynomial space, while there exists a classical (oblivious) streaming algorithm that uses only polylogarithmic space."
 cls_evidence_src: abstract

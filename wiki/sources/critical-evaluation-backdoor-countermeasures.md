@@ -18,7 +18,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed:
 cls_evidence: absent
 cls_evidence_src: "no bound in any of the three defenses' threat models, §II-C and §III; the paper's own claim is that the failures hold with no stronger attacker introduced anywhere"

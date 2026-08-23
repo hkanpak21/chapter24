@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "the extended low-degree conjecture as formalized in [MW23], with an added restriction the authors introduce after a refutation attributed in their footnote to Ansh Nagda. Conjectured, and already revised once."
 algorithm_class: "low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: conditional
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "no exp 𝑛 0.99 time algorithm can achieve recovery rate 𝑛 −0.49 in the 𝑘-stochastic block model when 𝜀2 𝑑 ⩽ 0.99𝑘 2"
+cls_evidence_src: Thm 2.1
+cls_reason: "Not an ML-attack paper; used as a reference hardness result, so target/family/phase/access/write are none/n/a. party=learner: the bounded party is a statistical-recovery algorithm, not an attacker/auditor/mechanism in a security sense. tightness=conditional because the time bound holds only assuming the unproven extended low-degree conjecture (front matter antecedent). second_notion=algo class because what is actually proved is a low-degree bound, and the conjecture alone converts it to a time statement (wiki Claim Boundary: \"the conclusion reads as a statement about running time only through the conjecture\"). baseline=stated: the paper compares against the trivial random-partition estimator's vanishing recovery rate."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

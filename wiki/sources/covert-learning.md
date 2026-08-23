@@ -22,7 +22,7 @@ cls_party: attacker
 cls_unit: time
 cls_tightness: poly
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "every query and response obtained by the learner is also obtained by a computationally bounded adversary"
 cls_evidence_src: §1.1.1

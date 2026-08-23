@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The direct implications hold for all mechanisms but only in stated parameter regimes: the SIM∀∃ → IND direction requires ε ∈ O(log κ), and the Lp-utility barrier likewise. The IND → SIM∀∃ implication holds for all ε, δ but only with an inflated δ'. The exotic-crypto barrier is conditional on the CDP mechanism being a fully black-box construction from one-way functions. The new separation itself rests on no complexity assumption."
 adversary_bound: "Non-uniform polynomial-time distinguishers: `T_poly`, \"the class of all predicates over R computable by some non-uniform polynomial-time Turing Machine (TM)\". Superpolynomial-runtime non-uniform test classes `T_s` are used inside the proofs. No uniform-time statement is made."
 date_verified: 2026-08-22
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "the class of all predicates over R computable by some non-uniform polynomial-time Turing Machine (TM)"
+cls_evidence_src: "Preliminaries (Notation, defining T_poly)"
+cls_reason: "Not an ML-attack-scenario paper: a definitional map between CDP notions (IND-CDP, SIM-CDP, SIM-forall-exists-CDP), so target/family/phase/access/write = none/n/a. party/unit/tightness from the test class T_poly that both the direct implications and the separation quantify over. The headline claims (Corollary 2's parameter fix, the new separation) rest on no mechanism-efficiency assumption, so second_party = none even though Theorem 3 and Theorem 4 separately add an efficient-mechanism antecedent; those are secondary results by Rule 1. baseline = n/a: no advantage-over-baseline game, the notions are ratio/expressiveness comparisons."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

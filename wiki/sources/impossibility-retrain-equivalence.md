@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, learning-theory, hardness-reductions]
 claim_quantifier: conditional
 antecedent: "The theorem holds only under: (i) overparameterized linear regression, two-stage proximal ridge training with the two stages in opposite orders; (ii) a *local* unlearning algorithm — updates use forget-set gradients only; (iii) the algorithm is *path-oblivious* — it does not know the learning history; (iv) gradient-ascent unlearning with step size η > 0; (v) forget matrix X_U of full row rank; (vi) a test set with m ≥ k i.i.d. rows from a continuous distribution; (vii) t ≥ max(t_0, 0). Staged training with distinct per-stage distributions is the empirical hypothesis, and it does hold of contemporary LLM pipelines."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: mechanism
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: implicit
+cls_evidence: "An unlearning algorithm U(·, Df) is considered local if it only requires gradient information computed on the forget set Df."
+cls_evidence_src: Def 2.2
+cls_reason: "party=mechanism per Rule 3: the locality/path-oblivious bound binds the unlearning algorithm, not an attacker. No adversary is modeled (Claim Boundary point e), so target/family/phase/access/write are none/n/a. second_notion=time and assessed=implicit record 'unlearning algorithms should have runtime independent of the retain data size' (§1), a motivating side-condition never formalized as a theorem parameter. baseline=stated: Def 2.1 (RE) measures distance to the fully retrained model θ_r."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

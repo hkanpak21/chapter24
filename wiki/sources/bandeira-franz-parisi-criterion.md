@@ -20,7 +20,7 @@ cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "we say that the hypothesis testing problem above is hard for the degree-D likelihood or simply low-degree hard if LD(D) = O(1)"
 cls_evidence_src: Def 1.3

@@ -9,6 +9,24 @@ tags: [cryptography, bounded-storage-model, computational-indistinguishability, 
 claim_quantifier: universal
 antecedent: "none. Security is unconditional. The structural hypothesis is that the adversary is a streaming algorithm holding at most Cn^2 memory bits for a constant C < 1/20, that honest parties hold O(n) bits, and that the honest parties can stream O(n^2) bits to each other."
 adversary_bound: "memory. The adversary is computationally UNBOUNDED and is bounded only by S(n) = Cn^2 memory bits, C < 1/20, inherited from Raz's parity bound."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: memory
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: memory
+cls_second_notion: queries
+cls_assessed: explicit
+cls_evidence: "The bounded storage model promises unconditional security proofs against computationally unbounded adversaries, so long as the adversary's space is bounded."
+cls_evidence_src: abstract
+cls_reason: "Adversary bounded by memory (Def 1, S(n)) and separately by queries Q(n) in the same definition. Honest Keeper/Recorder also memory-bounded at O(n)/O(lambda n) (second_party=memory). Storage gap stated relative to honest party's O(n) usage (quadratic, per Connections and Open Questions), giving tightness=exponent rather than budget."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

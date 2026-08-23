@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "the statistical characterisation (Theorem 4.1) is unconditional. The separation of efficient defendability from efficient PAC learnability (Theorem 5.3) holds in the random oracle model. The non-defendability of polynomial-size circuits (Theorem 5.5) assumes one-way functions and indistinguishability obfuscation."
 adversary_bound: "the defender is computationally unbounded in Section 4 and polynomial-time in Sections 5 and 6. The attacker is constrained not by computation but by the game: its strategy must work for a randomly-chosen trigger, and the backdoored function must disagree with the original on at most an ε fraction of the distribution."
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: corruption
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "F is ε-defendable with confidence 1 − δ using a detection strategy that runs in time polynomial in n and 1/δ"
+cls_evidence_src: Def 5.1
+cls_reason: "Classified on the computational half (Sections 5-6) rather than the statistical characterisation (Theorem 4.1, unbounded defender), since the abstract's own framing ('We identify efficient defendability as a notable intermediate concept in between efficient learnability and obfuscation') and the title lead with the efficient/computational notion, per rule 1. party=auditor for the defender (detects whether a given input is the trigger) since the vocabulary has no 'defender' value and rule 6 names auditor as the usual model for a party performing detection/verification; unit=time, tightness=poly because efficient defendability (Def 5.1) is a standard poly-time quantifier, not a restricted algorithm class (SQ/low-degree), so 'poly' over 'class'. second_party=corruption for the attacker's own constraint: 'ε constrains the attacker' (confirmed verbatim in the PDF beside Def 5.1) is a closeness/corruption-fraction budget (Pr[f*(x)!=f(x)]<=eps), not a computational bound (adversary_bound front matter: 'The attacker is constrained not by computation but by the game'), matching rule 4's computational-bound-decides-the-row with the non-computational party's unit recorded as second_party. baseline=stated: Theorem 4.1's supremum confidence formula is max(1/2, 1-Theta(VC(F)*eps)), an explicit coin-flip baseline. target=parameters and phase=post hoc for consistency with critical-evaluation-backdoor-countermeasures, the corpus's other backdoor-defense-evaluation paper: the object under contention is a (possibly backdoored) function/model, and the defender acts on a fixed, already-determined function/trigger pair with no further training, access/write matching that paper's white box / read only for the same reason (the defender inspects but does not modify the function)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

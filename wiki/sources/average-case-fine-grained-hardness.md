@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Worst-case conjectures, each stated for randomized two-sided-error algorithms: the OV conjecture (n^{2-o(1)} for OV_d with d = ω(log n)), the 3SUM conjecture (n^{2-o(1)}), the APSP conjecture (n^{3-o(1)}), the Triangle-Collection conjecture, and SETH. Definition 2, the fine-grained one-way function, has no antecedent because it has no instantiation here: the paper defines it and then shows a barrier (NSETH) to the one construction route it proposes."
 adversary_bound: "Uniform randomized algorithms in the Word RAM model with O(log n)-bit words, bounded by running time. Definition 2 quantifies over every algorithm running in O(t(n)^{1−δ'}) time, for every δ' > 0. Not circuits, not non-uniform, not queries."
 date_verified: 2026-08-22
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "for any δ 0 > 0, any O(t(n)1−δ )-time algorithm A, and all sufficiently large n"
+cls_evidence_src: Def 2
+cls_reason: "Classified on Definition 2 (the fine-grained one-way function) rather than on Theorems 1-4 (the average-case OV/3SUM/APSP/Triangle-Collection reductions), because CLAUDE.md names BRSV17 Def 2 as the survey's canonical fine-grained-crypto citation and it is the only place in the paper an adversary A with a security role appears; the reductions have no adversary, only a solving algorithm for a computational problem, and would classify as target=none, family=none, party=none (no security game) if chosen instead per rule 1's 'abstract-led' test. tightness=exponent per the checked caveat: pdftotext confirms (grep -a 'time algorithm A, and all', line 697) that the success bound is written epsilon(n, delta') -- a function of the adversary's OWN chosen discount delta' as well as of n, not a fixed number -- so it is the T^{1-delta} (honest) vs T^{1-delta'} (adversary, any delta'>0) RELATION that is exponent-shaped, and no single budget value describes the notion; citing 'BRSV17 Definition 2' as one number is wrong, per the wiki page's own table. second_party=time records the honest computability bound O(t(n)^{1-delta}) on the function's own evaluator (Def 2's 'for some delta>0' clause), a second computational bound on a different party (the mechanism), per rule 4. Definition 2 is stated and left uninstantiated (the one proposed construction route is blocked by NSETH, §5.2), so this row describes a definitional shape, not a realized or proven security guarantee -- flagged, not treated as blank, since the definition itself is fully specified. family=none and target=none/phase=n/a because OWF inversion has no match in the ML-attack family vocabulary (membership/reconstruct/extract/forge/evade/evade audit/poison/backdoor) and no ML asset is targeted; flagged as a possible vocabulary gap ('extract' is the closest analogy but was judged too loose to assign)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

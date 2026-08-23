@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "For the game: the adversary knows the public distribution D and both distribution transformers G_0 and G_1, and has no control over or view of the training process. For Lemma 4.1 and Theorems 4.2 and 4.3: the two distributions are Boolean-property proportional distributions derived from the same D, differing only in the proportion alpha. For Theorem 4.5: both degree distributions follow Zipf's law."
 adversary_bound: "None. The adversary is an arbitrary algorithm H mapping a model to a bit. It is bounded in knowledge (either label-only black-box access, or white-box parameter access, plus non-overlapping data from D) and in nothing else. Attack cost is reported in trained models but never enters the definition."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family:
+cls_phase: post hoc
+cls_access:
+cls_write: read only
+cls_frame: statistical
+cls_party: attacker
+cls_unit: samples
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: "the distinguishing accuracy between models trained on datasets of size n from these distributions is at most"
+cls_evidence_src: Lemma 4.1
+cls_reason: "family left blank: the paper explicitly separates distribution inference from every listed family (\"the adversary's goal in the former is to learn about the training distribution, not about the specific training dataset\"); none of membership/reconstruct/extract/forge/evade/poison/backdoor fits, a vocabulary gap rather than indecision. access left blank: the game's H is access-agnostic and the paper gives equal weight to a label-only black-box instantiation and a white-box parameter-access meta-classifier, with no textual primacy given to either. Classified on Lemma 4.1/Theorem 4.2 (the n_leaked sample-complexity bound) rather than the unrestricted formal game in §3, since this is the paper's theorem-bearing content; the bare game, taken alone, would be party=none/frame=none, flagged here for a second reader. assessed=implicit because the attacks' computational cost is discussed as a side detail and explicitly excluded from the threat model (\"does not otherwise require a stronger adversary\", §6.4), never formalized as a bound."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1, §3 (setup, the game, advantage, limitations

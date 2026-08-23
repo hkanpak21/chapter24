@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The one-wayness equivalence (Theorem C.5) holds for functions f that are efficiently computable AND well-spread, meaning Pr_{x~U_λ}[f(x) = y] ≤ ν(λ) for negligible ν and every y. Every injective function is well-spread. A function with a heavy output fibre is not, and the theorem says nothing about it."
 adversary_bound: "Two, in the same paper. The main-body notion (Definition 1.6, Narcissus resiliency) quantifies over ALL attackers, with no resource bound. The appendix notion (Definition C.1, computational Narcissus resiliency) quantifies over all non-uniform attackers running in poly(λ) time. The one-wayness and encryption results all live under the second."
 tags: [cryptography, one-way-functions, computational-indistinguishability, reconstruction, hardness-reductions]
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: none
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Algorithm M is (ε, δ, F)-R-computational-Narcissus-resilient if for all D ∈ F and for all (non-uniform) attackers A running in poly(λ) time it holds that"
+cls_evidence_src: "Def C.1"
+cls_reason: "Judgment call, flagged for a second reader: classified on the computational Narcissus resiliency of Appendix C (Def C.1 / Thm C.5), not the uncomputational main-body Def 1.6 the abstract leads with. Def 1.6 alone quantifies over all attackers with no resource bound and would give party=none, unit=none, tightness=unstated, frame=none for the whole row. Def C.1 is the instance the one-wayness equivalence (Thm C.5) and this programme's own citation of the paper rest on, and it is the only part of the paper that speaks to computational security. second_party=time: Remark C.2 additionally restricts the mechanism M (and relation R) to be efficient and every distribution in F to be poly(λ)-samplable, a second, explicitly-named party bound in the same unit (time). baseline=stated: Narcissus resiliency's defining move is scoring the attacker against its own success on a fresh independent draw T from the same distribution, an explicit self-referential baseline. Per Theorem C.5's antecedent (already in the front matter above), the one-wayness equivalence itself only holds for f efficiently computable and well-spread; that antecedent is not re-encoded in these fields, which describe the adversary's resource bound rather than the antecedent on f."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against `raw/C+25_DataReconstructionSeeIt.pdf` on 2026-08-22.** The definition numbers,

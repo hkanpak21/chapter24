@@ -8,6 +8,24 @@ year: 2025
 claim_quantifier: conditional
 antecedent: "At least one of: the randomized Exponential Time Hypothesis (rETH), the k-OV hypothesis, the k-SUM hypothesis, the k-XOR hypothesis, or the k-clique hypothesis. All are worst-case fine-grained hypotheses; the disjunctive form makes the antecedent unusually weak."
 tags: [complexity-theory, average-case-reductions, hardness-reductions, fine-grained-cryptography, statistical-computational-gaps]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "Assuming that at least one of the worst-case k-OV, k-SUM, or k-XOR hypotheses holds, all of parity-k-OV, parity-k-SUM and parity-k-XOR are n^{Ω(√k)}-hard on average for a natural distribution."
+cls_evidence_src: Thm 1.1
+cls_reason: "party=learner, not attacker: the Claim Boundary states the paper 'does not discuss cryptography at all' and there is no attacker/defender security game, only an algorithm attempting to solve a computational problem on average -- matching the convention used elsewhere in this corpus for non-adversarial hardness-of-computation papers (e.g. bandeira-franz-parisi-criterion, detection-recovery-refutation-gaps) rather than the attacker convention used for security definitions (e.g. authentication-bounded-storage). phase=n/a rather than train time because this is a combinatorial decision/counting problem (k-OV/k-SUM/k-XOR), not a statistical learning task -- the 'train time' convention in this corpus is reserved for SQ/low-degree hardness of learning specifically. tightness=exponent: the paper's own framing is 'a quadratically or cubically degraded exponent, not the worst-case one' (Summary), i.e. an explicit stated relation between the average-case lower bound (sqrt(K) or K^{1/3}) and the worst-case exponent K that functions as the honest/reference bound. family=none/target=none because no ML asset or attack family applies. Flagged gap: the theorems additionally require near-perfect success probability (1-Theta(1/2^K)), a second bound on the same party (the solving algorithm) with no matching unit in the vocabulary (not queries/samples/memory/algo class/perturbation/corruption/rounds/privacy budget) -- left out of second_notion rather than guessed; the Claim Boundary itself flags this as the paper's most important limitation for any cryptographic reading."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

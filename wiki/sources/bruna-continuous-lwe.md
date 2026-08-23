@@ -11,6 +11,24 @@ antecedent: "worst-case hardness of GapSVP and SIVP against quantum polynomial-t
 algorithm_class: "all poly-time for the reduction-based hardness, SQ for the separate hCLWE lower bound"
 adversary_bound: "quantum poly-time via the reduction"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: conditional
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "We give a polynomial-time quantum reduction from worst-case lattice problems to CLWE, showing that CLWE enjoys similar hardness guarantees to those of LWE."
+cls_evidence_src: abstract
+cls_reason: "party=learner: the bound binds whoever attempts to solve CLWE / learn the Gaussian mixture / build the Bubeck et al. robust classifier, not an MIA/extraction-style attacker. tightness=conditional since Thm 1.1's hardness rests entirely on the GapSVP/SIVP antecedent (front matter claim_quantifier=conditional). second_notion=algo class records the separate SQ lower bound for hCLWE (Claim Boundary: 'two different statements about two different classes'), same conceptual learner party under a second notion per rule 4b."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

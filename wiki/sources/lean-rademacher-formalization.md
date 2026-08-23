@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "An i.i.d. sample from an unknown distribution; a loss bounded enough for the bounded-differences argument; and, for the lifted results, a hypothesis class indexed by a separable topological space so that suprema are measurable through a countable dense subset."
 adversary_bound: "none — there is no adversary in this paper. It is a mechanized proof of classical statistical learning theory. No party is bounded in any resource, and the loss is measured against the data distribution rather than against an attacker."
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "absent"
+cls_evidence_src: "no adversary or resource bound anywhere in the paper; front matter adversary_bound and Claim Boundary, 'Which party is constrained: none'"
+cls_reason: "Mechanized Lean formalization of classical, unrestricted Rademacher-complexity generalization bounds; front matter states explicitly there is no adversary and no party is bounded in any resource."
+cls_prov: F
+cls_date: 2026-08-22
 ---
 
 ## Summary

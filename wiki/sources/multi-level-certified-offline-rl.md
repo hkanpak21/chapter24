@@ -20,11 +20,12 @@ cls_party: attacker
 cls_unit: corruption
 cls_tightness: budget
 cls_baseline: stated
-cls_second: none
+cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "Assume an adversary can make up to r changes, including additions, deletions, or alterations, to the trajectories within a clean dataset D"
 cls_evidence_src: Def 3.1
 cls_reason: "access=white box because the threat model grants the adversary full knowledge of the MDP and all historical transitions (§3, quoted in the wiki page), the strongest available access value though the field is normally used for model-query access rather than environment knowledge. second=none: the learner/mechanism M is also constrained, to differential privacy (Sampled Gaussian Mechanism, Thm 4.2's antecedent), but the DP budget epsilon has no matching value in the unit vocabulary (not time, queries, samples, memory, algo class, parameters, perturbation, corruption, or rounds) -- flagged as a vocabulary gap rather than guessed. frame=capability per rule 6 since r is a corruption count, not a compute bound, and the adversary_bound note states the adversary has unbounded computation."
+cls_second_party: privacy budget
 cls_prov: P
 cls_date: 2026-08-22
 ---

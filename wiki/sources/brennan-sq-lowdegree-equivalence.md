@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "the (delta, k)-nicenness condition of Definition 1.4. Proved automatic for Gaussian and product-measure problems, and false for the one-shot planted clique problem until the cloning recipe is applied."
 algorithm_class: "SQ and low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "Our main result is a surprisingly tight equivalence, under mild conditions, between statistical dimension and the minimum degree of any good distinguisher."
+cls_evidence_src: "§1.2"
+cls_reason: "party=attacker is the generic label for the bounded distinguisher; no ML-specific role applies to this pure complexity-theory equivalence. unit=algo class covers both SQ and low-degree; the vocabulary has no way to distinguish the two, so second_notion duplicates unit=algo class to flag that Thm 1.6 relates one distinguisher under two class notions (rule 4b)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

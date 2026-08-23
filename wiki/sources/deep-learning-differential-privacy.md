@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "none. Differential privacy is an information-theoretic guarantee and no computational assumption is used."
 adversary_bound: "none. The paper states that its approach protects against an adversary with full knowledge of the training mechanism and access to the model's parameters, and that this adversary may control some or all of the remaining training data. No bound on its computation is imposed anywhere."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: capability
+cls_party: mechanism
+cls_unit: privacy budget
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "satisfies (ε, δ)-differential privacy if for any two adjacent inputs d, d0 ∈ D and for any subset of outputs S ⊆ R it holds that Pr[M(d) ∈ S] ≤ eε Pr[M(d0) ∈ S] + δ"
+cls_evidence_src: Def 1
+cls_reason: "Adversary is explicitly unbounded (\"full knowledge of the training mechanism and access to the model's parameters\", §1); the only bound in the paper falls on the mechanism, via the privacy budget ε, hence party=mechanism/unit=privacy budget/frame=capability rather than an attacker-side reading; family=none because this is a defence with no attack instantiated."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

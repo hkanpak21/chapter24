@@ -8,6 +8,24 @@ year: 2024
 claim_quantifier: conditional
 antecedent: "Existence of an exponentially secure injective pseudorandom generator plus sub-exponential hardness of CDH (standard-model result); for the Maurer's-GGM result, a non-uniformly exponentially secure injective PRG, an assumption known to be unsatisfiable beyond time 2^{4λ/5}."
 tags: [cryptography, fine-grained-cryptography, key-exchange, generic-group-model, computational-indistinguishability]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "if the honest parties run in time n, an adversary running in time O(n2−ε) for an arbitrary constant ε > 0 should have vanishing probability of breaking the protocol"
+cls_evidence_src: "§1 (Introduction)"
+cls_reason: "Classified on Theorem 4, the standard-model 4-NIKE with quadratic gap, the first result the abstract leads with, per rule 1; the Maurer-GGM result (Thm 10, secured under a non-uniform PRG assumption and capped at N^1.6 by the MP23/HIW23 time-space tradeoff) is the paper's second, query-counted result and is not the classified claim. Both parties are computationally bounded in time here, unlike the query-counted ACMS23 predecessor, so unit=time not queries."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

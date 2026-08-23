@@ -9,6 +9,24 @@ tags: [cryptography, computational-indistinguishability, hardness-reductions, di
 claim_quantifier: conditional
 antecedent: "Existence of an (ε, 1/3n)-CDP two-party protocol estimating the inner product over {−1,1}^n × {−1,1}^n up to additive error n^{1/6}/(c·e^{cε}) with probability 0.999, for a universal constant c > 0."
 adversary_bound: PPT (the CDP distinguisher); the reduction is uniform and black-box, so it also covers uniform distinguishers
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "Equation (1) only holds for computationally efficient (ppt) algorithms D, and not necessarily for any algorithm D."
+cls_evidence_src: "§1 (Introduction, discussing Def 1.1)"
+cls_reason: "Not an ML-attack-scenario paper (target/family/phase/access/write = none/n/a): a two-party CDP protocol result. party/unit/tightness from the CDP distinguisher D, restricted to ppt in Def 1.1's relaxation. baseline = n/a, no advantage-over-baseline game. second_party = none: no other party is bounded computationally in the headline theorem."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

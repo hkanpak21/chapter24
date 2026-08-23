@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "The guided DDPM denoising of Algorithm 2 runs with total randomized-smoothing variance sigma^2, and each pixel's mechanism is r_i/sigma-GDP as established in Proposition 3.2, which itself rests on the one-step budget of Proposition 3.1 and on concurrent composition of GDP mechanisms. The bounds p_+ and p_- on the top and runner-up class probabilities are estimated, not known."
 adversary_bound: "none — the adversary is bounded by an l2 radius on the image, a geometric constraint on the perturbation. The differential privacy in this paper is a proof technique for composing the denoising steps, not a privacy guarantee and not a bound on anyone's resources."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: none
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: "perturbed inputs x + e, with perturbation e ∈ Bp(r) in the Lp ball of radius r, that make a classifier g misclassify the input x"
+cls_evidence_src: §2 Background
+cls_reason: "Rule 5 (perturbation budget); no computational, query or memory bound on any party anywhere in the paper (grepped 'polynomial', 'computation', 'runtime' — only the defender's certification runtime in Fig. 4, a different party's cost, not the attacker's), so assessed is blank rather than implicit. access/write=none: the certificate is a worst-case guarantee over the whole ℓ2 ball, with no described query/interaction protocol."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

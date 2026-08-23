@@ -8,6 +8,24 @@ year: 2022
 tags: [adversarial-ml, evaluation-methodology, survey, evasion-attacks, poisoning-attacks]
 claim_quantifier: empirical
 antecedent: none
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no adversary compute/query/sample bound anywhere in P10's description, security implications, or recommendations, or in the ten-pitfall taxonomy (Fig 1); grep -a for \"computational\" across the full text returns only interpretability cost and an unrelated introductory remark, and \"budget\" returns zero hits"
+cls_reason: "A field-wide methodology critique, not an attack, mechanism, or security-game paper, so target/family/phase/access/write are all none/n/a. The paper's own thesis, per the wiki Summary, is that threat models are unstated or imprecise, never unpriced, i.e. party=none/frame=none. baseline=n/a rather than absent: the paper never sets up an adversary-success game for which a baseline could be missing."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -62,7 +80,11 @@ with the annotation "17% present".
 - The paper notes that some pitfalls are systematically harder to detect from text — P5 when hyperparameters or tuning are undescribed, P4 when no explanation of decisions is attempted, P3 when splitting or normalization is unstated. Prevalence for these is a lower bound.
 - The authors flag that appropriate performance measures "may even be an open problem" for some settings.
 - **The unpriced adversary.** P10's remedy is a precisely *defined* threat model and an adaptive, white-box adversary. There is no notion of a system being secure against adversaries within a stated resource bound, nor any recommendation to report one. For a literature that recommends white-box adaptive adversaries as the default, the absence of a budget parameter is the conspicuous hole.
-- No inter-rater reliability statistics are reported for the coding.
+- **Corrected 2026-08-22.** This page previously read "No inter-rater reliability
+  statistics are reported for the coding." That is false. The paper reports, verbatim,
+  that "the inter-rater reliability of reviews prior to dispute resolution is α = 0.832
+  using Krippendorff's alpha, where α > 0.800 indicates confidently reliable ratings".
+  Found during the classification pass and verified against the primary PDF.
 
 ## Quotes / Notable Passages
 

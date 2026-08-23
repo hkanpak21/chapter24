@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "That the space of LLMs has a most powerful member which can be jailbroken, where power is measured by accuracy and alignment over all of Sigma-star, and that the ordering by power is well founded enough for that maximum to exist. Neither is argued."
 adversary_bound: "none — no party is bounded in compute, queries, or memory. The obstruction is a definitional maximality argument, not a hardness result."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade audit
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in the Theorem 3.1 proof, Def 4.1/4.2, or the Theorem 4.1 proof"
+cls_reason: "Verified against the flagged theorem-swap: Theorem 3.1 is the existential impossibility ('There will always exist LLMs for which there will be no strong jailbreak classifier') and Theorem 4.1 is the Pareto-dominance statement ('A pareto-dominant model can detect jailbreaks of a dominated model, but a dominated model can never detect all jailbreaks of a pareto-dominant model') — this page already carries the correct, unswapped content. Theorem 4.1's Pareto-dominance is a raw performance ordering over an arbitrary pair of models, not a designed resource restriction (no norm-ball, query budget, or algorithm-class definition is imposed on the detector), so party/unit/frame=none/none/none per Rule 2, matching the page's own verified adversary_bound field. family=evade audit since both paradoxes concern a classifier's (F_jb, or L-) ability to detect jailbreaks, not an attack construction."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

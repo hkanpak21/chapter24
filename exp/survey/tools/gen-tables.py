@@ -28,13 +28,14 @@ VALUES = {
     "party":     ["attacker", "learner", "auditor", "mechanism", "none"],
     "unit":      ["time", "circuit size", "queries", "samples", "memory",
                   "algo class", "parameters", "perturbation", "corruption",
-                  "rounds", "none"],
+                  "rounds", "privacy budget", "none"],
     "phase":     ["train time", "test time", "post hoc", "n/a"],
     "access":    ["hard label", "scores", "black box", "white box", "weights", "gradients", "none"],
-    "tightness": ["unstated", "poly", "class", "budget", "exponent", "measured"],
-    "frame":     ["compute", "capability", "none"],
+    "tightness": ["unstated", "poly", "quasi-poly", "class", "budget",
+                  "conditional", "exponent", "measured"],
+    "frame":     ["compute", "statistical", "capability", "none"],
     "family":    ["membership", "reconstruct", "extract", "forge", "evade",
-                  "poison", "backdoor", "none"],
+                  "evade audit", "poison", "backdoor", "none"],
 }
 NICE = {"party": "constrained party", "unit": "resource unit",
         "phase": "pipeline phase", "access": "access level",
@@ -43,7 +44,8 @@ NICE = {"party": "constrained party", "unit": "resource unit",
 T1 = [("target", "Target"), ("family", "Family"), ("phase", "Phase"),
       ("access", "Access"), ("write", "Write"), ("frame", "Frame")]
 T2 = [("party", "Party"), ("unit", "Unit"), ("tightness", "Tightness"),
-      ("baseline", "Baseline"), ("assessed", "Assessed"),
+      ("baseline", "Baseline"), ("second_party", "2nd party"),
+      ("second_notion", "2nd notion"), ("assessed", "Assessed"),
       ("quantifier", "Quantifier"), ("antecedent", "Antecedent")]
 
 
@@ -78,7 +80,12 @@ def cite_group(keys):
 
 def crosstab(rows, kb, a, b, label, mark_implicit=False):
     """Rows indexed by feature a, columns by feature b, cells carry citations."""
-    av, bv = VALUES[a], VALUES[b]
+    # A classifier that leaves a field blank is asking for a second reader, which is
+    # the behaviour the brief wants. Blanks therefore get their own row and column
+    # rather than being dropped: a dropped row would silently falsify the totals.
+    av, bv = list(VALUES[a]), list(VALUES[b])
+    if any(not r.get(a, "") for r in rows): av.append("")
+    if any(not r.get(b, "") for r in rows): bv.append("")
     grid = {(x, y): {"e": [], "i": []} for x in av for y in bv}
     off = 0
     for r in rows:
@@ -102,7 +109,7 @@ def crosstab(rows, kb, a, b, label, mark_implicit=False):
         cap += (" A dagger marks works where the resource appears only as a side "
                 "condition rather than as a parameter the work assesses on purpose.")
     out.append("\\caption{%s}\\label{%s}\\\\" % (cap, label))
-    head = (" & ".join(["\\textbf{%s}" % esc(a)] + ["\\textbf{%s}" % esc(y) for y in bv]
+    head = (" & ".join(["\\textbf{%s}" % esc(a)] + ["\\textbf{%s}" % ("\\emph{unassigned}" if y=="" else esc(y)) for y in bv]
                        + ["\\textbf{$\\Sigma$}"]) + " \\\\")
     out.append("\\toprule " + head + " \\midrule\\endfirsthead")
     out.append("\\multicolumn{%d}{l}{\\emph{Table \\ref{%s}, continued}}\\\\" % (len(bv) + 2, label))
@@ -119,11 +126,12 @@ def crosstab(rows, kb, a, b, label, mark_implicit=False):
             if g["i"]:
                 parts.append(cite_group(sorted(g["i"])) + "$^\\dagger$")
             cells.append(", ".join(parts) if parts else "")
-        out.append(esc(x) + " & " + " & ".join(cells) + " & %d \\\\" % tot)
+        label = "\\emph{unassigned}" if x == "" else esc(x)
+        out.append(label + " & " + " & ".join(cells) + " & %d \\\\" % tot)
     out.append("\\midrule")
     tots = []
     for y in bv:
-        tots.append(str(sum(len(grid[(x, y)]["e"]) + len(grid[(x, y)]["i"]) for x in VALUES[a])))
+        tots.append(str(sum(len(grid[(x, y)]["e"]) + len(grid[(x, y)]["i"]) for x in av)))
     out.append("$\\Sigma$ & " + " & ".join(tots) + " & %d \\\\" % (len(rows) - off))
     out += ["\\end{longtable}", "\\endgroup", "\\end{landscape}"]
     return "\n".join(out), off

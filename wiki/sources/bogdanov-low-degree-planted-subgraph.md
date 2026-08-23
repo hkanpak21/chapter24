@@ -11,6 +11,24 @@ antecedent: "Theorem 2.1 is unconditional and needs no antecedent beyond its thr
 adversary_bound: "two different bounds sit in the same paper and must not be conflated. Theorem 2.1 bounds the adversary by ALGEBRAIC DEGREE, namely an arbitrary real polynomial of degree at most D in the hyperedge indicators, which may arbitrarily preprocess H and knows the leaked set L. The security statements of Section 4, Propositions 4.1 and 4.3, bound the adversary by CIRCUIT SIZE s, and their hypothesis is delivered by Conjecture 1.4, which quantifies over polynomial-time distinguishers. The low-degree theorem is evidence for that conjecture, not the adversary class of the security reductions."
 algorithm_class: "degree-D real polynomials in the hyperedge indicator variables, measured by the degree-D likelihood ratio LR_D, with advantage normalised by the standard deviation under the null. Degree D is offered as a proxy for n^{O(D)}-time computation. The paper is explicit that the proxy is imperfect here."
 date_verified: 2026-08-22
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: circuit size
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: circuit size
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "Assume (H, ℙ_{H,L}) and (H, ℚ_{H,L}) are (s, ε)-indistinguishable for all L ⊆ V(H) with |L| = ℓ."
+cls_evidence_src: Prop 4.1
+cls_reason: "Per the assignment's audit warning, classified on Props 4.1/4.3 (circuit-size-bounded distinguisher), not Thm 2.1's low-degree bound. Prop 4.3's reduction/simulator is also circuit-size bounded (O(n choose r)), a second party in the same unit (second_party=circuit size). Thm 2.1's low-degree bound, offered as evidence for Conjecture 1.4, is the same distinguisher party under a second, incomparable notion (second_notion=algo class, rule 4b)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 > **Verified against the primary source.** Every quotation below was checked against

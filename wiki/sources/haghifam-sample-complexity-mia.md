@@ -15,12 +15,12 @@ cls_family: membership
 cls_phase: post hoc
 cls_access: weights
 cls_write: read only
-cls_frame: compute
+cls_frame: statistical
 cls_party: attacker
 cls_unit: samples
 cls_tightness: exponent
 cls_baseline: stated
-cls_second: samples
+cls_second_party: samples
 cls_assessed: explicit
 cls_evidence: "every sample-based MIA for the Gaussian mean estimation problem (Section 1.1) requires m ≳ n²ρ² + n samples"
 cls_evidence_src: Thm 1.1

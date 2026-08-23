@@ -22,7 +22,7 @@ cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
-cls_second: perturbation
+cls_second_party: perturbation
 cls_assessed: explicit
 cls_evidence: "This example gives an exponential separation between classical learning and robust learning in the statistical query model."
 cls_evidence_src: abstract

@@ -12,6 +12,24 @@ adversary_bound: "the learner is restricted to polynomial time. The perturbation
 model_class: "binary classification of pairs of distributions on {0,1}^n, Euclidean and ℓ∞"
 algorithm_class: "polynomial-time learning algorithms"
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: perturbation
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Under the quadratic residuosity assumption, any polynomial time learning algorithm for this family has an accuracy close to chance on some task in the family"
+cls_evidence_src: §3, property (c), restating Theorem 3.1
+cls_reason: "Two parties bounded: learner (polynomial time) and evasion adversary (perturbation radius Ω(√n), no compute bound per Claim Boundary). Rule 4: the computational bound decides the row, so party=learner/unit=time, and the evasion adversary's unit goes to second_party=perturbation. baseline=stated from 'accuracy close to chance.' Audit check: verified the quadratic-residuosity/BBS antecedent and the BPR-has-no-crypto-assumption relation directly against raw/BLPR19_AdvExamplesPRG.pdf (Thm 3.1, §1); the wiki's 2026-08-20 correction is accurate."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

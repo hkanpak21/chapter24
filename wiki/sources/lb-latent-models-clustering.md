@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "none for the lower bounds themselves. Reading them as computational thresholds rests on the low-degree conjecture."
 algorithm_class: "low-degree"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "We build on the seminal paper of [66] and propose a new scheme to derive lower bounds on the performance of low-degree polynomials in some latent space models."
+cls_evidence_src: abstract
+cls_reason: "Paper prices a learner restricted to low-degree polynomials solving clustering/sparse-clustering/biclustering, not an ML-security attacker; party=learner and unit=algo class follow rule 3. No attack scenario is present, so target/family/phase/access/write are none/n/a."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

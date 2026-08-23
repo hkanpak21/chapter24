@@ -9,6 +9,24 @@ tags: [differential-privacy, adaptive-data-analysis, cryptography, complexity-th
 claim_quantifier: conditional
 antecedent: "Existence of a Gamma(lambda)-secure symmetric-key encryption scheme against non-uniform adversaries, with Omega(lambda) <= Gamma(lambda) <= 2^{o(lambda)}, for the differential privacy separation (Corollary 3.13). Existence of one-way functions for the adaptive data analysis space lower bound (Theorem 4.1, via the same encryption primitive)."
 adversary_bound: "none — the bound is on the MECHANISM. The space bound s constrains the summary the algorithm may keep. The adversary built against the mechanism is bounded in TIME, at poly(Gamma(lambda)), and carries no space bound at all."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: mechanism
+cls_unit: memory
+cls_tightness: conditional
+cls_baseline: stated
+cls_second_party: time
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "there exists a poly(Γ(λ))-time adversary B such that the following holds. Let A=(A1, A2) be a poly(Γ(λ))-time mechanism with space complexity s ≤ O(λ·√k) (small enough)."
+cls_evidence_src: Thm 4.1
+cls_reason: "Not an ML attack scenario, so target/family/phase/access/write=none: no train data, model or output is targeted, only a two-party resource complexity separation. party=mechanism per rule 3 as directed: the space bound s binds the mechanism A1, not the time-bounded adversary B of Thm 4.1/Cor 3.13, so party=mechanism/unit=memory and the adversary's poly(Γ(λ))-time bound is recorded as second_party=time. tightness=conditional because both main theorems hold only given a Γ(λ)-secure encryption scheme, matching the front matter's claim_quantifier and antecedent. baseline=stated: Thm 4.1 fixes the game's success threshold at Pr[AdaptiveGameSpace=1] > 2/3, and Cor 3.13 fixes ε, δ explicitly."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

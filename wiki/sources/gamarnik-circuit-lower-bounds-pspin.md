@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "the multi-overlap gap property for even p at least 4, established in the paper, and the Linial-Mansour-Nisan bound on the total influence of low-depth circuits."
 algorithm_class: "circuits"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: circuit size
+cls_tightness: conditional
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "either the associated family of circuits Cp(n, s(n), d(n), ρ) is empty, or s(n) ≥ nα, or d(n) ≥ log n/(2 log log n)"
+cls_evidence_src: "Thm 2.3"
+cls_reason: "No security game or adversary here, only an unconditional-modulo-multi-OGP structural bound on any poly-size circuit solving p-spin, so party=learner (the computational party doing the bounded work) rather than attacker, following the single-party convention used for fine-grained-erm's SETH-conditional bound; second_party=none for the same reason. unit=circuit size is the closest available match: the theorem's actual headline quantity is circuit DEPTH (log n/(2 log log n)), and the vocabulary has no dedicated depth value, flagged here as a gap. tightness=conditional because the bound rests on the multi-overlap gap property (established earlier in this same paper) plus the Linial-Mansour-Nisan influence bound, an antecedent-gated bound rather than a stated ratio to a second party. baseline=n/a: no security game, no adversary advantage."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

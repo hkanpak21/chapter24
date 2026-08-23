@@ -9,6 +9,24 @@ tags: [cryptography, bounded-storage-model, computational-indistinguishability, 
 claim_quantifier: universal
 antecedent: "none. All results are unconditional. The structural hypotheses are that every party is a streaming algorithm, that honest parties hold n bits of memory, that the adversary holds m bits throughout, and that the number of oracle queries is at most Q = 2^lambda."
 adversary_bound: "memory. The adversary is a streaming algorithm with m bits of memory, computationally unbounded, in the man in the middle position on the channel. Definition 3.5 for MACs and Definition 3.11 for signatures fix the class."
+cls_target: none
+cls_family: forge
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: memory
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: memory
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Suppose that (KeyGen, KeyReceive, Sign, Verify) is (ε, A)-suf-cma-secure (Definition 3.10). Then m = O(n2 )."
+cls_evidence_src: Thm 7.11
+cls_reason: "target/access/write=none and phase=n/a: no ML asset (train data, parameters, outputs, a training run) is present -- this is a general-purpose crypto primitive, and none of the vocabulary's access/write values (all ML-query-oriented) fit a streaming man-in-the-middle channel adversary. family=forge is the generic cryptographic sense (MAC/signature unforgeability), not the ML-specific 'forge a training artifact' sense used elsewhere in this codebook. frame=compute per the brief's own definition, which lists memory alongside time, circuit size, queries and algo class as a compute resource, even though the paper calls the adversary 'computationally unbounded' in TIME -- memory is still the bound. party=attacker over the honest parties per rule 4: both the adversary (m bits) and the honest parties (n bits) are memory-bounded, both bounds are computational, so the adversary's bound decides the row and the honest parties' memory n goes to second_party. tightness=exponent chosen from Theorem 7.11's matching lower bound (m=O(n^2), the only bound in the paper proved optimal inside the paper rather than by an external counting argument in a footnote); the long-tag MAC construction (Thm 5.1) separately achieves m=2^{O(n)}, a different exponent relation, so a single row understates the paper's range -- flagged as a multi-construction paper. baseline=stated because the security definitions (Def 3.5/3.10/3.11) carry an explicit epsilon tolerance for forgery success."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
