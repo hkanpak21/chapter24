@@ -274,6 +274,20 @@ formalized in Part IV. **Needs one running example carried through all six subse
 
 ### Part IV — The formalization (≈5 pages)
 
+**State, 2026-08-22.** Two documents under `formalization/`, both compiling, both self-contained.
+`games.tex` (10 pp) holds the extraction games with two-party pricing, reviewed adversarially and
+rebuilt. `oracle.tex` (12 pp) holds the framework itself: the learning oracle in passive and
+interactive form, traces, views, ports, write and read budgets, the two criteria, the generic
+adversary class, and the corpus mapped onto it. Read `oracle.tex` first. Agreed in discussion and
+fixed there: the oracle idealizes the training map and nothing else; its output is the full trace;
+what a party sees is a view, a game parameter, never an oracle feature; recipe noise and view noise
+are different objects; white-box is possession of weights with unlimited ordinary computation on
+them; the generic adversary is a learning-oracle algorithm; cryptanalytic extraction is a generic
+attack on a structured class, not a structural attack. Settled against extraction from the survey:
+the oracle is **invented and defended**, with the AIOracle generic learning model as its named
+precedent. Open, and listed at the end of `oracle.tex`: the non-triviality condition for the
+backdoor game, where the planter writes, the declaration line, uninstantiability.
+
 - [ ] State the experiment: the chain from source to output, the access point as the channel, `R` as
       what must be extracted and to what tolerance, `κ` as a per-party ledger, and the baseline.
 - [ ] Show `κ` per-party absorbs the cases Part III separated — attacker-bounded, learner-bounded,
