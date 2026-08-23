@@ -248,3 +248,31 @@ a side condition, and that question has an answer whenever a party is bounded at
 
 Like `baseline`, this is one field over a bounded set of rows and should be redone in
 one pass rather than patched. Both re-passes can run together.
+
+---
+
+## Final gaps, from the last batch
+
+| Gap | Reported on | Note |
+| --- | --- | --- |
+| No unit for **approximation error** | `song-cryptographic-hardness-score-estimation`. The score oracle is bounded in `L^2` accuracy, which is a real bound on a real party and matches no unit. The classifier left `second party` **blank rather than `none`**, deliberately marking a gap rather than an absence. That distinction is worth keeping. | |
+| No unit for an **attack-quality metric** | `suliman-data-forging-attacks`. Its reproduction-error gap measures how good the attack is, not what it spent, so it is correctly not an `assessed = implicit` cost. | Probably out of scope: this survey prices resources, not attack quality. |
+| `family` cannot name **distinguishing two distributions** | `song-cryptographic-hardness-score-estimation`, where `distribution` was used as the nearest fit. | The `family` weakness, eighth instance. |
+
+## Quotation verification, whole corpus, 2026-08-22
+
+Every `cls_evidence` entry checked against the extracted primary PDFs.
+
+| | count |
+| --- | --- |
+| Quotations verified present | 129 |
+| Evidenced absence-claims | 25 |
+| Quotes too symbol-heavy to check by prose fragment | 27 |
+| **Fabrications** | **0** |
+
+Eleven entries failed the first automated pass and all eleven were false alarms:
+six from fragments spanning a line break or hyphenation, two from wrong filename
+globs in the checker, one from a quote written as the classifier's own prose rather
+than in the `absent` form, and two from Greek letters and superscript braces. This is
+the third time the corpus's documented false-positive modes have fired. **Never
+report a quotation absent from a single automated pass.**

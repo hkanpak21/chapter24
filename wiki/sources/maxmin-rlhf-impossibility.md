@@ -23,8 +23,8 @@ cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
 cls_assessed:
-cls_evidence: "No party is bounded in computation, samples, queries, or memory. There is no adversary anywhere in the paper."
-cls_evidence_src: wiki Claim Boundary
+cls_evidence: absent
+cls_evidence_src: "no bound on any party in the impossibility theorem or its setup"
 cls_reason: "No attack or adversary appears anywhere. The constraint is representational, a single scalar reward serving a heterogeneous population, not a bound on any party's resource, so every field is none/unstated by Rule 2."
 cls_prov: F
 cls_date: 2026-08-22
