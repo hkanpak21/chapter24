@@ -65,17 +65,18 @@ For black-box access this is manageable: the adversary sends inputs and receives
 outputs, and one counts the queries. For white-box access it is not. The adversary
 holds the weights, and what it can learn from them depends on how training shaped
 them. A definition that covers that case seems to require a theory of the training
-map, the function from a corpus to a model. No such theory exists, and it may be
-that none can be given in full.
+map, the function from a corpus to a model. The map itself is public code that
+anyone can run. What no theory describes is what the map produces, and whether
+anything it produces can be obtained more cheaply than by running it.
 
 Cryptography faced the same shape of problem with hash functions. No theory
 describes what SHA-256 does to its input, so the random oracle model replaces the
 hash function with an oracle that every party queries and no party can simulate,
 and proves theorems relative to that oracle. The generic group model does the same
 for group structure, and the Random Language Model of Brzuska and Couteau does it
-for language membership \cite{BC22}. In each case the thing we cannot describe is
-idealized, everything else stays concrete, and the cost of an attack is counted in
-oracle queries.
+for language membership \cite{BC22}. In each case the function is public, the hardness lies in reaching a
+\emph{specified} output without paying the search or the walk, and the cost of an
+attack is counted in oracle queries.
 
 The framework below makes that move for learning. The one object we cannot describe
 is the training map, so that is the one object the oracle idealizes. Inference is a
@@ -162,11 +163,32 @@ call to $\Lo_{\Rec}$ made by itself or by another party who then passed a view o
 on. No party can compute a trace by any other means.
 \end{definition}
 
-The last two sentences are the idealization, and they are the whole point. In the
-random oracle model no party can compute a hash without asking the oracle, because
-we do not know how to. Here no party can compute a trained model without asking
-the oracle, because we do not know how to. A party that could would possess a
-theory of learning, which is what we have said we lack.
+The last two sentences are the idealization, and they say something different from
+their random-oracle ancestor. A hash function is public, and so is the recipe.
+Nobody is prevented from running it. The oracle is a meter, not a keeper of a
+secret function: it runs the recipe so that the theory need not understand it, and
+it charges full price. What the idealization asserts is that the meter cannot be
+cheated, in two ways.
+
+\emph{No skipping.} The content of a $T$-step trace costs $T$ steps. A hash chain
+of length $T$ is computable by anyone, and by assumption not in fewer than $T$
+sequential calls; the walk to a converged model is priced the same way. Sequential
+functions are the fine-grained home of this shape of assumption \cite{GM24}, with
+one boundary: they price depth, where the step count here is total work.
+Proof-of-learning, whose security rests on the unproved claim that forging a
+training record costs as much as training \cite{JYCDTCP21}, is an instance of this
+postulate.
+
+\emph{No aiming.} A hash is inverted only by searching over inputs. Likewise there
+is no inverse map from desired model properties to weights. A party that wants a
+model with a specified behaviour, one that agrees with a victim model, contains a
+backdoor, or forgets a record, chooses corpora and ports and pays more training,
+because learning is the only search over model space the literature contains.
+
+Both postulates are one clause read from two sides. The honest party's work
+cannot be compressed, and the adversary's search has no primitive better than the
+oracle. A party that beats either postulate has, by that act, produced a training
+shortcut, which is the subject of Proposition~\ref{prop:winwin}.
 
 Three consequences follow directly from the definition.
 
@@ -447,30 +469,34 @@ function'' admits less and proves more, for fewer real systems. The declaration 
 the one place where knowledge of learning enters the framework. The oracle does not
 remove that knowledge. It confines it to one line of the game.
 
-\begin{proposition}[Structural attacks are learning theory]
+\begin{proposition}[A structural attack is a training shortcut]
 \label{prop:winwin}
 Let a game be secure against every generic adversary within a stated budget, and
-let a structural attack break it within the same budget. Then the structural attack
-contains a procedure that produces a trained model, or a training quantity,
-without running the recipe, and that procedure is a statement about the training
-map that the oracle was introduced to avoid assuming.
+let a structural attack break it within the same budget. Then the attack contains
+a procedure that obtains the content of a trace, or a model with a specified
+behaviour, at a cost below the steps the oracle would charge for it. That
+procedure violates the no-skipping or the no-aiming postulate for the declared
+recipe class, and is therefore a way to train, or to search model space, faster
+than the recipe.
 \end{proposition}
 
 \begin{proof}
-By Definition~\ref{def:structural} the attack produces such an object without an
-oracle call. By Definition~\ref{def:passive} no generic procedure does so. The
-procedure it uses is therefore not generic, and what it computes is a trained
-model or a per-step quantity of the recipe, which is by definition a property of
-the training map.
+By Definition~\ref{def:structural} the attack produces a trace, model or training
+quantity without a corresponding oracle call, hence at a cost not accounted in
+steps. If that cost were at least the steps of the corresponding oracle call, the
+attack could be rewritten as a generic one within the same budget, contradicting
+security against generic adversaries. So the cost is lower, which is the definition
+of a shortcut.
 \end{proof}
 
 This is the form in which the win-win theorem of Degwekar, Nakkiran and
 Vaikuntanathan enters \cite{DNV19}: either the construction is secure against
-generic adversaries, or a structural attack exists, and a structural attack is a
-result about learning. The proposition is a restatement of the definitions and
-carries no content beyond them. Its use is to fix what a generic-model lower bound
-promises: not that no attack exists, but that any attack beating the bound has
-learned something about training that the literature does not yet contain.
+generic adversaries, or a training shortcut exists, and a training shortcut is a
+learning-theoretic result of independent value. The proposition is close to a
+restatement of the definitions. Its use is to fix what a generic-model lower bound
+promises: not that no attack exists, but that any attack beating the bound trains,
+or searches model space, faster than the recipe, which the literature at present
+does not know how to do for the recipes this framework is intended for.
 
 \section{Cost, and the ratio between parties}
 \label{sec:cost}
@@ -634,7 +660,13 @@ Section~\ref{sec:class} fixes that what the adversary may exploit is what the ga
 declares about the recipe's output. The framework does not yet say what a
 declaration may contain. Too little, and every theorem is about random functions.
 Too much, and the declaration is the theory of learning the oracle was introduced
-to avoid. Where that line sits is the main open question about the oracle itself.
+to avoid. The declaration must also assert that the recipe has no known shortcut,
+because the postulates are false where one exists: a convex recipe such as linear
+regression has a closed-form endpoint, so the content of its trace is obtainable
+with none of its steps. The idealization is only credible for recipe classes in
+the no-known-shortcut regime, as the random oracle model is only credible for hash
+functions with no known structure. Where that line sits is the main open question
+about the oracle itself.
 \end{openq}
 
 \begin{openq}[Uninstantiability]
