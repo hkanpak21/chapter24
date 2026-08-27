@@ -18,7 +18,7 @@ R = list(csv.DictReader(open(os.path.join(SUR, "notes", "classification.tsv"),
 ml = [r for r in R if r["family"] not in ("none", "")]
 non = [r for r in R if r["family"] in ("none", "")]
 t = collections.Counter(r["tightness"] for r in ml)
-DEF = {"budget", "class", "conditional", "exponent", "poly", "quasi-poly"}
+DEF = {"budget", "class", "conditional", "exponent", "relative", "poly", "quasi-poly"}
 near = sum(1 for r in R
            if (r["tightness"] in DEF and r["assessed"] == "implicit")
            or (r["tightness"] == "measured" and r["assessed"] == "explicit")
@@ -36,7 +36,13 @@ want = {
     "AttackUnbound": sum(1 for r in ml if r["party"] == "none"),
     "TheoryUnbound": sum(1 for r in non if r["party"] == "none"),
     "NumExponent": sum(1 for r in R if r["tightness"] == "exponent"),
-    "NumExponentAttack": sum(1 for r in ml if r["tightness"] == "exponent"),
+    "NumRelative": sum(1 for r in R if r["tightness"] == "relative"),
+    "NumRelativeAttack": sum(1 for r in ml if r["tightness"] == "relative"),
+    "NumFlops": sum(1 for r in R if r["unit"] == "flops"),
+    "AttackTimeAttacker": sum(1 for r in ml if r["unit"] == "time" and r["party"] == "attacker"),
+    "NearMissA": sum(1 for r in R if r["tightness"] in DEF and r["assessed"] == "implicit"),
+    "NearMissB": sum(1 for r in R if r["tightness"] == "measured" and r["assessed"] == "explicit"),
+    "NearMissC": sum(1 for r in R if r["tightness"] == "unstated" and r["assessed"]),
     "AttackBudget": t["budget"], "AttackUnstated": t["unstated"],
     "AttackPoly": t["poly"], "AttackMeasured": t["measured"],
     "AttackClass": t["class"],

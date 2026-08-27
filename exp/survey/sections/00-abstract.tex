@@ -1,17 +1,17 @@
-% NOTE: rewritten 2026-08-27 to describe the paper as it stands. The earlier
-% version promised an experiment with four coordinates and four empty regions,
-% which belong to the formalization section that is not yet written. Restore that
-% sentence when that section lands, and not before.
+% Rewritten 2026-08-28 after review. The earlier version reported a comparable-bound
+% count that conflated two codes, and a rate difference the data does not support at
+% the stated precision. Restore a formalization sentence only when that section lands.
 Formal results on the security of machine learning are hard to compare, because a
 claim about an attack rarely states what the attacker may spend. We read
 \NumSources{} formal works and record, for each one, which party's resources enter
-its main claim, in what unit, and how tightly. \NumUnstated{} of them bound no
-party at all, and among the \NumAttackWorks{} that study a named attack the rate is
-roughly twice that found in the works drawn from cryptography and learning theory.
-Where the attack literature does bound an adversary it usually bounds what the
-adversary may change, since \AttackBudget{} state a numeric allowance such as a
-perturbation radius while \NumExponentAttack{} state a bound relative to an honest
-party's work, the form that lets two results share a scale. We identify
-\NearMiss{} works holding a resource quantity their own framing does not carry, and
-report the units in which the two halves of the field price their parties, which
-do not overlap.
+its main claim, in what unit, and how tightly, with the deciding sentence of each
+source quoted and checked against it. \NumUnstated{} of the works bound no party at
+all, and the works that study a named attack do so more often than those drawn from
+cryptography and learning theory, by a margin this corpus establishes in direction
+but not in size. Only \NumRelative{} works state a bound relative to another party's
+work, the form that lets two results share a scale, and \NumRelativeAttack{} of
+those study an attack. Where the attack literature does bound an adversary it
+usually bounds what the adversary may change, since \AttackBudget{} of the
+\NumAttackWorks{} attack works state a numeric allowance such as a perturbation
+radius. We identify \NearMiss{} works holding a resource quantity their own framing
+does not carry.

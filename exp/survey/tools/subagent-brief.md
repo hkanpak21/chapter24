@@ -59,7 +59,7 @@ Every cell holds exactly one value from these lists. No free prose. No new value
 | --- | --- |
 | `party` | `attacker`, `learner`, `auditor`, `mechanism`, `none` |
 | `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `circuit depth`, `success prob`, `flops`, `none` |
-| `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `measured` |
+| `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `relative`, `measured` |
 | `baseline` | `stated`, `absent`, `n/a` |
 | `second party` | any `unit` value, or `none` |
 | `second notion` | any `unit` value, or `none` |

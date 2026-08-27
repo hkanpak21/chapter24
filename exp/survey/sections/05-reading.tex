@@ -37,8 +37,8 @@ rest of this section documents is not a general failure to standardize.
 
 The same corpus against the party each work constrains and the unit it uses fills
 \NumPartyUnitCells{} of 75 cells, and the occupied cells do not concentrate. Among the
-\NumAttackWorks{} works studying an attack, the adversary is bounded in time in 27
-of them, by a perturbation radius in \AttackPerturb{}, in queries in 10, in samples
+\NumAttackWorks{} works studying an attack, the adversary itself is bounded in time
+in \AttackTimeAttacker{} of them, by a perturbation radius in \AttackPerturb{}, in queries in 10, in samples
 in 9, and by a corruption fraction in \AttackCorrupt{}. \AttackUnbound{} bound no
 party at all.
 
@@ -50,41 +50,48 @@ this corpus carries that restriction to an adversary attacking a model.
 
 \subsection{The comparable form of bound is almost absent from attack papers}
 
-The third column of Figure~\ref{fig:sankey} sorts the same works by how tightly
-each states its bound. \NumExponent{} works state their bound as a relation to an honest party's
-work, which is the form that lets two results be placed on one scale.
-\NumExponentAttack{} of those \NumExponent{} study an attack, and three of the
-\NumExponentAttack{} are cryptographic constructions that happen to carry an attack
-family rather than analyses of a deployed system.
+A bound is comparable across papers when it relates one party's work to another's,
+because only then can a reader ask whether one defence costs an attacker more than
+another. \NumRelative{} of the \NumSources{} works state a bound in that form, and
+\NumRelativeAttack{} of the \NumRelative{} study an attack.
 
-The attack literature uses other forms. Of the \NumAttackWorks{} attack works,
-\AttackBudget{} state a budget, meaning a numeric allowance such as a perturbation
-radius or a query count that carries no relation to anything the defender does.
+The distinction is easy to lose and we lost it once. A bound written as an exponent
+is not the same thing. A neural scaling law and a sample-complexity threshold are
+exponents in one party's own resource, with no second party anywhere, and
+\NumExponent{} works in this corpus are of that kind. Counting them together with
+the relative bounds inflates the comparable set roughly threefold, which is what an
+earlier version of this classification did before the two codes were separated.
+
+The attack literature uses neither form often. Of the \NumAttackWorks{} attack
+works, \AttackBudget{} state a budget, meaning a numeric allowance such as a
+perturbation radius that carries no relation to anything the defender does.
 \AttackUnstated{} state no tightness at all. \AttackPoly{} use the binary
 polynomial-time quantifier, \AttackMeasured{} report a measurement with no
 definitional standing, and \AttackClass{} name a restricted algorithm class.
 
-A budget bounds what an adversary may change. A relation to honest work bounds what
-it must spend to succeed against a defender who spends less. Only the second lets a
-reader ask whether one defence costs an attacker more than another, and the corpus
-contains \NumExponentAttack{} works that ask it.
+\subsection{The attack literature prices nobody more often, and how much more is uncertain}
 
-\subsection{The attack literature is the half that prices nobody}
+\AttackUnbound{} of the \NumAttackWorks{} works studying an attack bound no party
+in any resource. \TheoryUnbound{} of the \NumTheoryWorks{} works with no attack
+family do. The rates are 23 and 10 per cent, a ratio of about 2.3, with a 95 per
+cent interval on the difference of 2.6 to 22.8 percentage points.
 
-Splitting the corpus by whether a work studies a named attack gives the figure's
-first column. \AttackUnbound{} of the \NumAttackWorks{} attack works bound no party in
-any resource. \TheoryUnbound{} of the \NumTheoryWorks{} works with no attack family
-do. Stated as rates, the half of this corpus that studies attacks on machine
-learning is about twice as likely to state no adversary bound as the half drawn
-from cryptography and learning theory.
+That comparison is sensitive to who is let into each half, and the sensitivity runs
+against the finding. The unbounded attack works are dominated by systematizations,
+position papers and evaluation critiques, which enter through the third reading of
+our inclusion test and bound nobody because their claims are about practice rather
+than about an adversary. Restricting both halves to works whose main claim is a
+theorem rather than a measurement gives \ThmAttackUnbound{} of \ThmAttack{}
+against \ThmOtherUnbound{} of \ThmOther{}. The ratio is similar, near 2.5, but the
+interval on the difference then runs from $-1.1$ to $17.8$ percentage points and
+includes zero.
 
-The direction is worth stating plainly, because it is the opposite of what a reader
-might expect. The cryptographic works in this corpus are not the ones being
-imprecise about adversaries. They bound a party in \TheoryUnbound{} fewer cases out
-of a smaller total, and when they bound one they more often state the bound in a
-form another paper can be compared against.
+We therefore state the direction and not the size. The attack literature bounds no
+party more often than the cryptography and learning-theory literature does, and on
+this corpus the margin is not established. A corpus assembled by sampling a frame,
+rather than the working bibliography used here, would be needed to establish it.
 
-\subsection{Fifteen works hold a quantity their framing does not carry}
+\subsection{Eighteen works hold a quantity their framing does not carry}
 
 The classification records, separately from how tightly a work states its bound,
 whether the work treats that bound as its object or leaves it as a side condition.
@@ -98,8 +105,8 @@ on the filter running no faster than the model it audits, which is a ratio betwe
 two parties' compute, and the paper states it as a side condition rather than as the
 quantity the result is about \cite{BGGKRR25}. The evaluation guidance that rejects
 attacker compute as a threat-model parameter nonetheless fixes a perturbation radius
-and reasons about gradient-step counts \cite{CAPBRTGMK19}. Two proof-of-learning
-follow-ups price a forgery against honest training and leave the ratio
+and reasons about gradient-step counts \cite{CAPBRTGMK19}. A proof-of-learning
+follow-up prices a forgery against honest training and leaves the ratio
 unparameterized \cite{ZFWCSXZ26}.
 
 \NearMissB{} run the other way, treating a cost deliberately while stating it only

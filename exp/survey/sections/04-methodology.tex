@@ -57,16 +57,25 @@ absence is worth nothing.
 
 \subsection{Verification}
 
-Every quotation was checked against the primary document by extracting its text and
-matching a punctuation-independent fragment. Of \NumSources{} works, 129 carry a
-quotation that was found in its source, 25 carry an evidenced claim of absence, and
-27 carry a fragment too symbol-heavy for prose matching. No quotation was found to
-be absent from the document it was attributed to.
+Every quotation was checked against the primary document by extracting its text
+and matching a punctuation-independent fragment. Two passes were run. The first,
+over the \NumSources{} works then in the corpus, asked whether a quotation
+appeared anywhere in the corpus, and found none absent. That question is weaker
+than the failure it was meant to catch. A second pass binds each work to its own
+document by title and asks whether the quotation appears in \emph{that} document.
+It found four works carrying a neighbour's quotation, an off-by-one rotation
+within one batch, which the first pass had passed. All four were re-extracted from
+their own sources and verified. Of the works the second pass can bind to a
+document, 57 verify and none carries another paper's quotation. A further 85 could
+not be bound by title, and 25 record an evidenced claim of absence rather than a
+quotation.
 
-Eleven entries failed the first automated check and all eleven were false alarms,
-six from fragments spanning a line break, two from an error in the checker, one
-from a claim of absence written as prose, and two from mathematical notation. A
-single automated pass is not sufficient evidence that a quotation is absent.
+Eleven entries failed an automated check and all eleven were false alarms, six from
+fragments spanning a line break, two from an error in the checker, one from a claim
+of absence written as prose, and two from mathematical notation. A single automated
+pass is not sufficient evidence that a quotation is absent, and a pass that asks a
+weaker question than the failure mode is worse than none, because it returns a clean
+report.
 
 \subsection{Threats to validity}
 

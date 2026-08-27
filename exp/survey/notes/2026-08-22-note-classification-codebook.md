@@ -5,6 +5,18 @@ those tables holds one value from the lists below and nothing else. A cell is ne
 free prose, because the point of the tables is that two readers assign the same
 value.
 
+**Revision 6, 2026-08-27, forced by review.** `tightness` splits `exponent` into
+`exponent` and `relative`. An adversarial reviewer found that the single code was
+doing two jobs. The codebook defined it as "a stated relation to the honest party's
+work and therefore needs two parties", but 27 of the 38 rows carrying it had no
+second party, because classifiers applied it whenever a bound was *written* as an
+exponent. A neural scaling law and a sample-complexity threshold are exponents in
+one party's own resource. A fine-grained one-way function is a relation between two
+parties. Only the second is the form that lets two results share a scale, which is
+what the paper's headline claim is about, so conflating them inflated that claim by
+a factor of three. `relative` now means two parties, and `exponent` means a stated
+exponent in one party's own resource.
+
 **Revision 5, 2026-08-27.** `unit` gains `flops`. Seventeen works on neural scaling
 laws were added to the corpus after the main pass, and every one of them prices a
 budget of floating-point operations, which is the unit that literature and the
@@ -90,7 +102,7 @@ because tags were applied for retrieval and not for classification.
 | --- | --- | --- |
 | `party` | `attacker`, `learner`, `auditor`, `mechanism`, `none` | Which party carries a resource bound. `none` is a legal and common value. |
 | `unit` | `time`, `circuit size`, `queries`, `samples`, `memory`, `algo class`, `parameters`, `perturbation`, `corruption`, `rounds`, `privacy budget`, `circuit depth`, `success prob`, `flops`, `none` | The unit the bound is stated in. `perturbation` is a norm-ball or metric radius on what the adversary may change. `corruption` is a fraction or count of training points it may control. `rounds` is a bound on adaptivity or on passes. `privacy budget` is the epsilon of a differential privacy guarantee, which bounds a mechanism's output distribution rather than any party's spending. |
-| `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `measured` | `poly` is the binary probabilistic-polynomial-time quantifier. `class` is membership of a restricted algorithm family. `budget` is an explicit numeric allowance that is a definitional parameter but carries no relation to the honest party, such as a query budget or a parameter count. `quasi-poly` is a stated quasi-polynomial running time, which `poly` cannot express because `poly` is reserved for the binary quantifier. `conditional` is a lower bound that holds under a named hardness assumption with no second party to compare against, such as a SETH-conditional bound. `exponent` is a stated relation to the honest party's work and therefore needs two parties. `measured` is an empirical number with no definitional status. Added 2026-08-22 during the first classification batch, where a query budget fitted none of the original five. |
+| `tightness` | `unstated`, `poly`, `quasi-poly`, `class`, `budget`, `conditional`, `exponent`, `relative`, `measured` | `poly` is the binary probabilistic-polynomial-time quantifier. `class` is membership of a restricted algorithm family. `budget` is an explicit numeric allowance that is a definitional parameter but carries no relation to the honest party, such as a query budget or a parameter count. `quasi-poly` is a stated quasi-polynomial running time, which `poly` cannot express because `poly` is reserved for the binary quantifier. `conditional` is a lower bound that holds under a named hardness assumption with no second party to compare against, such as a SETH-conditional bound. `exponent` is a stated relation to the honest party's work and therefore needs two parties. `measured` is an empirical number with no definitional status. Added 2026-08-22 during the first classification batch, where a query budget fitted none of the original five. |
 | `baseline` | `stated`, `absent`, `n/a` | Whether the work says what an adversary achieves **from public knowledge alone**, so that an advantage over it is measurable. The test is: could a party with no access to the target succeed this often? A security game's one half, a fair-coin guess, an oblivious attack that ignores the model, or a blind predictor are all `stated`. A matching information-theoretic lower bound, an optimal-error term such as OPT, a previously published accuracy number, or the cost of an alternative algorithm are **not** baselines in this sense and do not make the field `stated`, because none of them is what public knowledge alone achieves against this target. `absent` where a success criterion exists but no such reference does. `n/a` where the work defines no adversary success criterion at all. |
 | `second party` | any `unit` value, or `none` | Set when a second party is also bounded, naming that party's unit. Fine-grained cryptography and robust learning both bound two parties, and a single-valued `party` column would lose one of them. |
 | `second notion` | any `unit` value, or `none` | Set when **one** party is bounded under two resource notions the work treats as incomparable. This is a different situation from two parties and was previously conflated with it. The refutation of the quasi-polynomial low-degree conjecture is exactly this case: one distinguisher, bounded both by degree and by running time, with the paper's whole point being that the two diverge. |

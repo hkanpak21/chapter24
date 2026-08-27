@@ -42,7 +42,7 @@ hardness profile carries cryptographic structure rather than arising by accident
 
 \subsection{The attacker bounded by what it may change}
 
-The next largest region, also 28 works, bounds what the adversary may alter and leaves
+The next largest region, 28 works, bounds what the adversary may alter and leaves
 what it may spend open. Twenty-three fix a perturbation radius and five a fraction of the
 training set.
 
@@ -148,7 +148,7 @@ against an algorithm class.
 Two boundaries on those thresholds are quoted more often than they now hold. The
 first is that the thresholds measure detection rather than recovery, which the
 single-index result states of itself \cite{DPLB24}. That gap has since been closed
-for polynomial links. Arnaboldi et al.\ carry weak recovery through to strong
+for polynomial links. Lee, Oko, Suzuki and Wu carry weak recovery through to strong
 recovery and a population error bound at $\tilde\Theta(d^{(p^*-1) \vee 1})$ samples,
 governed by the generative exponent \cite{LOSW24}, and Glasgow reaches $o(1)$
 population error on the Boolean parity instance in $\tilde\Theta(d)$ \cite{Gla24}.
@@ -164,7 +164,7 @@ is to attain the generative exponent in place of the information exponent rather
 than to leave the family \cite{LOSW24}. The learning rate selects between the two
 regimes \cite{TME25}.
 
-Reuse in general buys less than that. Kim et al.\ show that full-batch gradient
+Reuse in general buys less than that. Kova\v{c}evi\'c et al.\ show that full-batch gradient
 descent, which reuses every sample at every step, gives no advantage at all over
 one-pass stochastic gradient descent for the plain quadratic activation, and that
 the logarithmic factor in sample complexity persists \cite{KJWSM26}. An advantage
@@ -177,8 +177,9 @@ mechanism it means.
 
 \subsection{Training compute as a priced resource}
 
-Seventeen works added to this corpus late price a budget of floating-point
-operations spent on training. Kaplan et al.\ fit loss against model size, data and
+Seventeen works on neural scaling laws were added to this corpus late, and
+\NumFlops{} of them are priced in a budget of floating-point operations spent on
+training, the rest in the sample or parameter count that a fixed budget buys. Kaplan et al.\ fit loss against model size, data and
 compute \cite{KMHBCCGRWA20}, and Hoffmann et al.\ correct the allocation between
 model size and data at a fixed budget \cite{HBMBCRCHWCHNMDDGOSERVS22}. Ho et al.\ measure how
 much of the observed improvement comes from better algorithms rather than more
@@ -186,9 +187,11 @@ compute \cite{HBEORGATS24}.
 
 None of these works concerns an adversary, and all of them bound the trainer. They
 matter to this survey because they establish that the unit exists and is measured.
-Shavit's compute-monitoring proposal is the one work in the corpus that carries that
-unit toward a security claim, and it states a hardness requirement without a
-construction \cite{Sha23}. The gap between a literature that measures training
+Shavit's compute-monitoring proposal is the one work in the corpus that carries a
+training-compute budget toward a security claim, and it states a hardness
+requirement without a construction \cite{Sha23}. Its monitored quantity is
+chip-hours rather than operations, which is a further step away from the unit the
+scaling literature measures. The gap between a literature that measures training
 compute precisely and a security literature that never states an adversary's budget
 in it is the widest single gap this corpus contains.
 

@@ -34,7 +34,7 @@ VALUES = {
     "access":    ["hard label", "scores", "black box", "white box", "weights",
                   "gradients", "channel", "none"],
     "tightness": ["unstated", "poly", "quasi-poly", "class", "budget",
-                  "conditional", "exponent", "measured"],
+                  "conditional", "exponent", "relative", "measured"],
     "frame":     ["compute", "statistical", "capability", "none"],
     "family":    ["membership", "attribute", "reconstruct", "distribution",
                   "extract", "invert", "forge", "evade", "evade audit",

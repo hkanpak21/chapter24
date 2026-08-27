@@ -158,88 +158,84 @@ oracle's output.
 
 \begin{definition}[Passive learning oracle]
 \label{def:passive}
-The passive learning oracle $\Lo_{\Rec}$ for a public recipe $\Rec$ is an oracle
-that, on input a corpus $D$, draws fresh coins $r$, runs $\Rec$ on $D$ with $r$,
-and returns the trace $\Tr$. It is the only source of traces in any game. Every
-party that holds a trace, or a model, or any part of a trace, obtained it through a
-call to $\Lo_{\Rec}$ made by itself or by another party who then passed a view of it
-on. No party can compute a trace by any other means.
+A game names a finite set of public recipes. The passive learning oracle
+$\Lo_{\Rec}$ for a named recipe $\Rec$ is an oracle that, on input a corpus $D$,
+draws fresh coins $r$, runs $\Rec$ on $D$ with $r$, and returns the trace $\Tr$.
+Two calls on the same corpus return independent traces. Parties call the oracle
+on the named recipes and do not author recipes of their own.
 \end{definition}
 
-The last two sentences are the idealization, and they say something different from
-their random-oracle ancestor. A hash function is public, and so is the recipe.
-Nobody is prevented from running it. The oracle is a meter, not a keeper of a
-secret function: it runs the recipe so that the theory need not understand it, and
-it charges full price. What the idealization asserts is that the meter cannot be
-cheated, in two ways.
+\begin{definition}[Metered cost]
+\label{def:cost}
+The cost of a call is the computational work of executing the recipe on the
+submitted corpus, in a fixed machine model, together with the size of that
+corpus. Within one recipe, whose step function is fixed, the shorthand for that
+work is the step count $T$, and this document prices calls in steps whenever the
+recipe is clear from context. A party's oracle cost is the total over its calls.
+A party also has its own running time, which is ordinary computation and is
+accounted separately.
+\end{definition}
 
-\emph{No skipping.} The content of a $T$-step trace costs $T$ steps. A hash chain
-of length $T$ is computable by anyone, and by assumption not in fewer than $T$
-sequential calls. The oracle prices the walk to a converged model the same way.
-Sequential functions are the fine-grained home of this shape of assumption
-\cite{GM24}, with one boundary. They price depth, where the step count here is
-total work.
-Proof-of-learning, whose security rests on the unproved claim that forging a
-training record costs as much as training \cite{JYCDTCP21}, is an instance of this
-postulate.
+Two restrictions inside these definitions carry weight, and each blocks a
+concrete attack on the accounting itself. Recipes are named by the game rather
+than submitted by parties, because an adversary permitted to author recipes
+defeats the unit twice over. A wrapping recipe whose single step runs all $T$
+steps of another recipe would collapse any step count to one, which is why cost
+is defined as the work of the step function and steps are only a shorthand. A
+laundering recipe whose initialization rule is a constant $w^*$ would emit any
+precomputed weights as a legitimate trace at no metered cost, which is why the
+initialization rules of the named recipes are part of the game's declaration and
+a game whose theorems depend on the meter names recipes whose initialization
+carries no party-chosen information.
 
-\emph{No aiming.} A hash is inverted only by searching over inputs. Likewise there
-is no inverse map from desired model properties to weights. A party that wants a
-model with a specified behaviour, one that agrees with a victim model, contains a
-backdoor, or forgets a record, chooses corpora and ports and pays more training,
-because learning is the only search over model space the literature contains.
+What the oracle is for must be stated as plainly as what it is not for. The
+random oracle hides a random function, and that hidden randomness is what
+in-model lower bounds are made of. The learning oracle hides nothing. The recipe
+is public, its noise is declared, and a party with unbounded ordinary
+computation can compute anything computable from what its views grant it,
+trained models included. The oracle therefore manufactures no hardness, and no
+theorem in this document pretends otherwise. Every lower bound in this framework
+comes from what the views withhold, through the query-bounded machinery that
+already exists, statistical queries over the data, evaluation queries on the
+model, gradient queries on the loss. The oracle's role is what remains: it makes
+those query models views of one object, the trace, so that attacks and defences
+stated in different corners of the literature meet in one accounting, and it
+prices the honest party and the adversary in one unit so that ratio statements
+can be written at all.
 
-Both postulates are one clause read from two sides. The honest party's work
-cannot be compressed, and the adversary's search has no primitive better than the
-oracle.
-
-\paragraph{Two levels, kept apart.} Inside the model the postulates are not
-assumptions. Cost is defined as metered steps and traces exist only through the
-oracle, so no in-model adversary can violate either postulate, and every theorem
-proved in the model is unconditional there. What the postulates name is the
-\emph{transfer hypothesis}: a theorem proved in the model applies to a concrete
-system running a concrete recipe exactly when no procedure for that recipe class
-beats the meter. This is the random oracle methodology's own structure, and its
-known failure mode bounds what transfer may promise. Canetti, Goldreich and
-Halevi construct schemes secure in the Random Oracle Model with, in their words,
-``no implementation'' that is secure \cite{CGH04}. Their counterexamples are
-contrived by design, and the analogous question here, whether a game secure in
-the learning-oracle model can fail for every concrete recipe, is open and is
-listed at the end of this document. Until it is answered, a theorem in this model
-is a theorem about generic adversaries, and its application to a deployed system
+The two postulates of the introduction, no skipping and no aiming, are on this
+reading not facts of the model. They are the \emph{transfer hypotheses}: the
+claims about concrete training that make the metered cost track real cost when a
+theorem leaves the model. No skipping asserts that for the recipe class in
+question, the content of a $T$-step trace is not obtainable below the work of
+the walk. Sequential functions are the fine-grained home of that shape of
+assumption \cite{GM24}, with one boundary, they price depth where the meter here
+is total work, and proof-of-learning is the literature that needs exactly this
+hypothesis and states it as an unproved requirement \cite{JYCDTCP21}. No aiming
+asserts that, for the class in question and the views a deployment actually
+exposes, there is no inverse map from desired model properties to weights
+cheaper than search by learning. Its scope is set by the views: evaluation
+access already suffices to reconstruct some declared classes, ReLU networks
+among them \cite{CJM20}, so the hypothesis for such classes concerns what lies
+below the corresponding query counts, not the impossibility of reconstruction. Both are
+recipe-relative, both are falsifiable, and Section~\ref{sec:price-search}
+collects the current evidence for and against each. A theorem proved in the
+model applies to a deployed system exactly to the extent the hypotheses hold for
+its recipe, which is the random oracle methodology's own structure, and the
+known failure mode of that methodology bounds what transfer may promise.
+Canetti, Goldreich and Halevi construct schemes secure in the Random Oracle
+Model with, in their words, ``no implementation'' that is secure \cite{CGH04}.
+Their counterexamples are contrived by design, and whether a learning analogue
+exists is open, so the application of an in-model theorem to a deployed system
 is an argument, not a corollary.
 
-Three consequences follow directly from the definition.
-
-\begin{fact}[Inference is free of the oracle]
-Given a model $w_T$, evaluating it on an input, computing its gradient with respect
-to an input, and any analysis of its weights are ordinary computations the party
-runs itself. None is an oracle call.
-\end{fact}
-
-This is what makes white-box access expressible. The adversary holding $w_T$ may
-run singular value decomposition on a layer, probe features, or do anything else
-with the weights. The restriction is on how it \emph{obtains} trained models, not
-on what it does with them.
-
-\begin{fact}[Fresh coins]
-Two calls to $\Lo_{\Rec}$ on the same corpus return two independent traces. A
-party wanting several models trained on $D$ makes several calls.
-\end{fact}
-
-\begin{fact}[Cost]
-\label{fact:cost}
-A call on a corpus $D$ with recipe $\Rec$ costs $T$ steps, where $T$ is the
-recipe's step count, and submits $|D|$ examples. A party's oracle cost is the total
-number of steps it has caused to be run, and its total submitted corpus size, over
-all its calls.
-\end{fact}
-
-Steps rather than calls are the unit so that the passive oracle and the
-interactive oracle of Section~\ref{sec:interactive} are charged alike. A shadow
-model trained from scratch costs $T$ steps. Fine-tuning for $T'$ steps from a held
-model is a recipe with step count $T'$ whose initialization rule loads that model,
-and costs $T'$.
+Given a model $w_T$ from a view, evaluating it, differentiating it with respect
+to inputs or weights, and any other analysis of it are ordinary computation,
+charged to the party's running time and not to the meter. This is what makes
+white-box access expressible: the party holding weights may run singular value
+decomposition on a layer or probe features freely, and the floors that still
+bind it are those of the views it received, not of a prohibition the model
+cannot enforce.
 
 \section{Views}
 \label{sec:view}
@@ -282,16 +278,21 @@ there would be no single object to prove things about.
 
 \begin{fact}[Gradients plus initialization determine the model]
 \label{fact:determine}
-For a deterministic step function, $w_T$ is a function of $w_0$ and
-$(B_t, g_t)_{t \le T}$. Hence a party whose view contains the initial state and
-every per-step quantity holds the final model, and a scenario in which a party
-``sees the gradients but not the model'' is only meaningful when its view withholds
-something.
+Call a recipe \emph{gradient-factoring} if its step function updates state
+through the per-step quantity alone, $w_t = U(w_{t-1}, g_t)$ for a public $U$,
+with any optimizer state carried inside $w$. Stochastic gradient descent, with
+or without momentum, and adaptive methods in their standard forms are
+gradient-factoring. For such a recipe, $w_T$ is a function of $w_0$ and
+$(g_t)_{t \le T}$, so a party whose view contains the initial state and every
+per-step quantity can reconstruct the final model by its own ordinary
+computation, and a scenario in which a party ``sees the gradients but not the
+model'' is only meaningful when its view withholds something.
 \end{fact}
 
 \begin{proof}
-$w_t = S_2(w_{t-1}, B_t)$ for each $t$, where $S_2$ is the state coordinate of the
-step function, and the composition from $w_0$ is determined.
+$w_t = U(w_{t-1}, g_t)$ for each $t$, and the composition from $w_0$ is
+determined. The reconstruction applies the public $U$ to quantities the view
+granted, which is ordinary computation and charges no oracle cost.
 \end{proof}
 
 Fact~\ref{fact:determine} is why the view is a named object. It forces a scenario
@@ -334,14 +335,17 @@ or backward pass of that side.
 
 \begin{definition}[Interactive learning oracle]
 \label{def:interactive}
-The interactive learning oracle $\Lo^{\circ}_{\Rec}$ for a public recipe $\Rec$
-with ports holds a training state. A game \emph{attaches} parties to ports before
-training starts. The oracle then runs one step per call. In each step it sends to
-every attached party the outgoing quantities of that party's ports, waits for the
-incoming quantities, applies the validity predicates, substitutes the honest rule
-at any port that is unattached or whose incoming value is invalid, and advances
-the state. The trace records the honest and the received values at every port. As
-in Definition~\ref{def:passive}, the oracle is the only source of traces.
+The interactive learning oracle $\Lo^{\circ}_{\Rec}$ for a named recipe $\Rec$
+with ports holds a training state. The game initializes it with a corpus for the
+recipe's data input and, where the recipe's honest port rules consume data, a
+corpus per port, all named by the game. A game \emph{attaches} parties to ports
+before training starts. The oracle then runs one step per call. In each step it
+sends to every attached party the outgoing quantities of that party's ports,
+waits for the incoming quantities, applies the validity predicates, substitutes
+the honest rule at any port that is unattached or whose incoming value is
+invalid, and advances the state. The trace records the honest and the received
+values at every port. Each step's metered cost, Definition~\ref{def:cost}, is
+charged to the party the game names for it, by default the challenger.
 \end{definition}
 
 Attaching a party to a port gives it two things at once. It \emph{reads} the port's
@@ -352,21 +356,24 @@ override, which is a read without a write, and is the same as giving it the
 corresponding view of a passive trace.
 
 \begin{fact}[The passive oracle is a special case]
-Running $\Lo^{\circ}_{\Rec}$ for $T$ steps with no party attached produces the same
-distribution over traces as one call to $\Lo_{\Rec}$, and costs the same $T$
-steps.
+Running $\Lo^{\circ}_{\Rec}$ for $T$ steps with no party attached produces, after
+projecting the trace onto the honest values, the same distribution over traces
+as one call to $\Lo_{\Rec}$, and costs the same $T$ steps. The projection is
+needed because the interactive trace also records per-port received values,
+which are absent from the passive trace.
 \end{fact}
 
 \begin{definition}[Write budget]
 \label{def:write}
 A party attached to a port has a write budget: the number of steps at which it may
-send a value that differs from the honest rule, and a bound on how far the value
-may differ, stated in the port's own units. A write budget of zero is read-only
+send a value that differs from the honest rule, and, when the port's validity
+predicate carries a metric, a bound in that metric on how far the value may
+differ. A write budget of zero is read-only
 attachment.
 \end{definition}
 
 Write budgets are the second kind of budget in the framework. The first kind, from
-Fact~\ref{fact:cost}, is what a party spends on the oracle, a read budget. The
+Definition~\ref{def:cost}, is what a party spends on the oracle, a read budget. The
 second is what a party is permitted to change, a write budget. A poisoning fraction
 is a write budget at the corpus. A malicious federated client's permitted deviation
 is a write budget at its port. The prior systematization of this area separates
@@ -388,10 +395,13 @@ A game names the following.
   \item For each party, its attachment to ports and its write budget
         (Definitions~\ref{def:port} and~\ref{def:write}), and its view of any trace
         the challenger produces (Definition~\ref{def:view}).
-  \item For each party, a read budget in steps and in submitted examples
-        (Fact~\ref{fact:cost}).
-  \item An optional \emph{secret}, a value drawn with min-entropy at least $h$,
-        given to some parties and withheld from others.
+  \item For each party, a read budget, in metered oracle cost and in submitted
+        examples (Definition~\ref{def:cost}), and a bound on its running time.
+  \item Its declaration, the three-part object of Section~\ref{sec:class}.
+  \item An optional \emph{secret}, a value drawn from a stated distribution with
+        min-entropy at least $h$, given to some parties and withheld from others.
+        When a party chooses the secret, the game states the distribution it must
+        be drawn from, and the min-entropy requirement binds that distribution.
   \item A \emph{criterion}, of one of the two kinds below.
   \item A \emph{baseline}, the value of the criterion achieved without access, or
         without the secret, or by the best strategy that ignores the trace
@@ -408,10 +418,9 @@ Section~\ref{sec:backdoor} needs. Item 6 is the baseline.
 \begin{definition}[Distinguish criterion]
 \label{def:dist}
 The challenger prepares two \emph{worlds}, two settings of the corpus or of the
-ports that differ in a stated way. Either a party submits the two and the
-challenger flips a coin $b$ to pick one, or the challenger draws both. The
-challenger runs the oracle in world $b$, hands each party its view, and a
-designated party outputs a guess $b'$. Its advantage is $|\Pr[b'=b]-\tfrac12|$.
+ports that differ in a stated way. Either a party submits the two, or the challenger draws both. In both cases the
+challenger flips a coin $b$, runs the oracle in world $b$, hands each party its
+view, and a designated party outputs a guess $b'$. Its advantage is $|\Pr[b'=b]-\tfrac12|$.
 \end{definition}
 
 \begin{definition}[Produce criterion]
@@ -448,82 +457,80 @@ Section~\ref{sec:backdoor} returns to it.
 \section{The adversary class}
 \label{sec:class}
 
-\begin{definition}[Learning-oracle algorithm]
+\begin{definition}[View-generic adversary]
 \label{def:generic}
-A learning-oracle algorithm is an algorithm that obtains traces, models and
-training quantities only through the learning oracle, and otherwise computes
-freely. Its cost is its read budget, Fact~\ref{fact:cost}, plus its own running
-time.
+An adversary in a game is \emph{view-generic}, below simply generic, if it
+interacts with the corpus, the training and the model only through the views and
+interfaces the game grants it, within their query budgets, obtains any further
+trace through oracle calls within its metered budget, and otherwise computes
+freely within its running time. Genericity is relative to the granted views, and
+a statement about a generic adversary names them.
 \end{definition}
 
-This is the adversary class the framework prices. The name in the rest of the
-document is \emph{generic}, by analogy with generic group algorithms, which use the
-group only through its operations.
+This replaces an earlier dichotomy of generic against structural attacks that
+does not survive inspection, and the two examples that broke it now sit where
+they belong. Carlini, Jagielski and Mironov extract the parameters of a ReLU
+network using nothing but real-valued evaluation queries, reading piecewise
+linearity off second finite differences \cite{CJM20}, and the extraction is
+polynomial in depth \cite{CCHRSS24}. That attack is generic for any game whose
+granted view is an evaluation interface, and any lower bound for extraction
+under that view must sit at or below its query count. Gaussian elimination
+learns a noiseless parity from $O(d)$ raw samples. That attack is generic for a
+game that grants the raw corpus, and it is unavailable to an adversary whose
+granted view of the data is statistical queries, which is the view the parity
+floor is proven against. Neither attack bypasses anything. Each requires a view,
+and the informative classification of an attack is the pair of the weakest view
+it needs and the queries it spends there. What the earlier vocabulary called a
+structural attack decomposes into two honest cases: an attack that needs a
+richer view than a deployment grants, which is not an attack on that deployment,
+and a real-world procedure that violates a transfer hypothesis, which
+Proposition~\ref{prop:winwin} addresses.
 
-\begin{definition}[Structural attack]
-\label{def:structural}
-An attack is structural if it is not a learning-oracle algorithm, that is, if at
-some point it produces a model, a gradient or a trace without a corresponding
-oracle call.
-\end{definition}
+The second coordinate of the classification is the game's \emph{declaration}, a
+named object with three parts: the class the recipe's outputs lie in, the target
+family with the unit that prices it, and the noise the data carries. Noise is a
+member and not a detail, because noiseless problems admit algebraic escapes,
+parity by Gaussian elimination among them, and the surviving positive low-degree
+implications hold only for noisy problems \cite{HKKLMT26}. What a generic
+adversary may exploit through its views is fixed by the first part. A game that
+declares the recipe outputs ReLU networks of depth $h$ admits the extraction
+attacks above at their query counts. A game that declares nothing beyond ``a
+function'' admits less and proves more, for fewer real systems. The declaration
+is the one place where knowledge of learning enters the framework, and it is
+part of what a game names, Definition~\ref{def:skeleton}.
 
-The distinction is relative to what the oracle exposes, and two cautions fix its
-meaning.
-
-First, an attack that uses only oracle calls but exploits a property of the models
-the recipe produces is generic. Carlini, Jagielski and Mironov extract the
-parameters of a ReLU network from real-valued outputs alone, by reading the
-network's piecewise linearity off second finite differences of those outputs
-\cite{CJM20}, and Canales-Mart\'inez et al.\ make the extraction polynomial in
-depth \cite{CCHRSS24}. Both use nothing but evaluations of the released model.
-Both are generic attacks on a structured model class, in the way a generic group
-algorithm may exploit that the group is cyclic. A generic-model lower bound for
-extracting ReLU networks must therefore sit at or below their query counts, and
-the model is calibrated by them rather than refuted.
-
-Second, what the adversary may exploit is fixed by the game's
-\emph{declaration}, a named object with three parts: the class the recipe's
-outputs lie in, the target family with the unit that prices it, and the noise the
-data carries. Noise is a member and not a detail, because noiseless problems admit
-algebraic escapes, parity by Gaussian elimination among them, and the surviving
-positive low-degree implications hold only for noisy problems \cite{HKKLMT26}.
-What the adversary may exploit is fixed by the first part of the declaration. A game that declares the recipe outputs ReLU networks of
-depth $h$ admits the attacks above. A game that declares nothing beyond ``a
-function'' admits less and proves more, for fewer real systems. The declaration is
-the one place where knowledge of learning enters the framework. The oracle does not
-remove that knowledge. It confines it to one line of the game.
-
-\begin{proposition}[A structural attack witnesses a transfer failure]
+\begin{proposition}[Locating a real attack]
 \label{prop:winwin}
-Let a game be secure in the model against every generic adversary of budget $B$,
-and let a concrete implementation of the game, with recipe $\Rec$, be broken by a
-real attack whose resources correspond to $B$ under the game's cost accounting.
-Then no generic adversary of budget $B$ simulates the attack, and the attack
-therefore contains a procedure that obtains a trace, a training quantity, or a
-model with the winning property for recipe class $\Rec$ at real cost below the
-metered price. Such a procedure is, by definition, a violation of the no-skipping
-or the no-aiming transfer hypothesis for $\Rec$, that is, a way to train or to
-search model space faster than the recipe.
+Fix a game with a proven floor: every generic adversary, with granted views $V$
+and budgets $B$, has advantage at most $\varepsilon$. Suppose a deployed system
+implements the game so that the access it exposes corresponds to $V$ and the
+resources the real attacker spends correspond to $B$, and suppose a real attack
+attains advantage above $\varepsilon$. Then at least one of three statements
+holds. The attacker's access exceeded $V$. The cost correspondence understated
+the attacker's spend against $B$. Or the granted views were simulated from below
+in reality, that is, some real procedure supplied the information content of a
+view or of an oracle call at less than its modeled price, which for the views
+built from training is a violation of the no-skipping or the no-aiming transfer
+hypothesis for the deployed recipe.
 \end{proposition}
 
 \begin{proof}
-If some generic adversary of budget $B$ produced the attack's outputs from the
-attack's inputs, running it in the model would win the game within budget $B$,
-contradicting the in-model theorem. So none does. The attack nevertheless wins,
-so at some point it holds an object, a trace segment, a per-step quantity, or a
-winning model, that no sequence of oracle calls within its budget accounts for.
-The procedure producing that object obtains training output below the metered
-price, which is what the transfer hypotheses assert does not exist for $\Rec$.
+The floor quantifies over every algorithm interacting through $V$ within $B$,
+with no further restriction, so an attack whose access, spend and information
+sources all match the model is such an algorithm and is bound by $\varepsilon$.
+An attack exceeding $\varepsilon$ therefore fails the correspondence in at least
+one of its three clauses, access, cost, or the modeled price of what the views
+delivered, and the three listed statements are those clauses.
 \end{proof}
 
-This is the form in which the win-win theorem of Degwekar, Nakkiran and
-Vaikuntanathan enters \cite{DNV19}: either the construction is secure against
-generic adversaries, or a training shortcut exists, and a training shortcut is a
-learning-theoretic result of independent value. The proposition is close to a
-restatement of the definitions. Its use is to fix what a generic-model lower bound
-promises: not that no attack exists, but that any attack beating the bound trains,
-or searches model space, faster than the recipe, which the literature at present
-does not know how to do for the recipes this framework is intended for.
+The proposition is an audit, and that is its value. It does not say a deployed
+break is impossible, it says where the break must live, and each location is
+informative. The first is a threat-model error. The second is an accounting
+error. The third, when the underpriced object is a trained model or a trace, is
+a procedure that trains or aims cheaper than the recipe, which is a
+learning-theoretic discovery in the sense the win-win argument of Degwekar,
+Nakkiran and Vaikuntanathan gives the phrase \cite{DNV19}, an argument this
+framework shares in shape and does not import as a theorem.
 
 \section{Cost, and the ratio between parties}
 \label{sec:cost}
@@ -631,10 +638,15 @@ because an auditor given the secret detects by running the activator, so
 undetectability is meaningful only against auditors without it.
 
 \paragraph{Fixed.} The planter is generic, Definition~\ref{def:generic}. The
-constructions in the corpus that achieve undetectability all give the planter
-control of training itself and all use cryptographic structure inside the model,
-digital signatures, continuous LWE, sparse PCA, obfuscation, or a hash circuit
-compiled into a transformer \cite{GKVZ22}. A planter that only writes to the
+theory constructions in the corpus all give the planter control of training
+itself and all place cryptographic structure inside the model. Goldwasser, Kim,
+Vaikuntanathan and Zamir achieve black-box undetectability from digital
+signatures and white-box undetectability for two specific training paradigms
+from continuous LWE and sparse PCA \cite{GKVZ22}. Kalavasis et al.\ achieve
+white-box undetectability for pipelines that end in an obfuscation step
+\cite{KKOSVZ24}. Draguns et al.\ compile a hash-based digital locker into a
+transformer and achieve unelicitability, which they state plainly is not
+white-box undetectability \cite{DGMRLW24}. A planter that only writes to the
 corpus and faces an honest recipe is the case those constructions do not cover.
 
 \paragraph{Fixed.} The auditor performs detection, not reconstruction. The
@@ -665,32 +677,41 @@ literature leaves unpriced.
 
 \begin{proposition}[Undetectability against a query-bounded corpus auditor]
 \label{prop:sda}
-Fix the backdoor game in which world 0 draws the corpus from a distribution $D_0$
-and world 1 draws it from a distribution the planter selects out of a family
-$\mathcal{S}$, and fix the auditor's view to be $q$ queries to a
-$\mathrm{VSTAT}(m)$ oracle on the corpus distribution. If the statistical
-dimension $\mathrm{SDA}(D_0, \mathcal{S}, \bar m)$ of Feldman et al.\ is at
-least $q'$ at the discrimination parameter matching $m$, then no auditor with
-$q < q'$ queries decides the world with the success their framework fixes, with
-parameters inherited from their lower bound \cite{FGRVX17}. In particular, for
-planted bipartite $k$-clique with $k = o(\sqrt n)$, an auditor restricted to
-$\mathrm{VSTAT}(o(n^2/k^2))$ needs $n^{\Omega(\log n)}$ queries.
+Fix the backdoor game in which world 0 draws the corpus from a distribution
+$D_0$ and world 1 draws it from a distribution the planter selects out of a
+family $\mathcal{S}$, and grant the auditor, as its view of the data, a
+$\mathrm{VSTAT}(m)$ interface to the corpus distribution with a query budget.
+This is the decision problem between $D_0$ and $\mathcal{S}$ in the statistical
+algorithms model, and the statistical-dimension lower bound of Feldman et al.\
+prices it: an auditor with fewer queries than the statistical dimension at the
+matching discrimination parameter fails to decide the world at their stated
+success level \cite{FGRVX17}. In their planted bipartite $k$-clique
+instantiation, on graphs of size $N$ with $k \le N^{1/2-\delta}$ for constant
+$\delta > 0$: deciding requires $N^{\Omega(\log r)}$ queries to
+$\mathrm{VSTAT}(N^2/(r k^2))$ for every $r > 0$, and in particular
+$N^{\Omega(\log N)}$ queries to $\mathrm{VSTAT}(N^{2-\delta}/k^2)$.
 \end{proposition}
 
 \begin{proof}
-The auditor's task, as fixed, is the decision problem between $D_0$ and
-$\mathcal{S}$ in the $\mathrm{VSTAT}$ model, which is the problem the
-statistical-dimension lower bound of Feldman et al.\ prices, and the planted
-bipartite clique instantiation is their main theorem \cite{FGRVX17}. Nothing
+Specialization. The auditor's task, as fixed, is the model and the problem of
+Feldman et al., and the parameters are their Theorem 2.9 \cite{FGRVX17}. Nothing
 beyond the specialization is claimed.
 \end{proof}
 
-Three boundaries keep the proposition honest. It prices an auditor whose view of
-the corpus is statistical averages, and says nothing about an auditor who reads
-individual records. It does not touch the auditor who views the trained model
-rather than the corpus, and that transfer is open. And it does not assert that a
-generic planter can simultaneously meet a non-triviality condition with a
-clique-shaped poison, which is Open~\ref{oq:nontrivial}.
+Four boundaries keep the proposition honest. The $\mathrm{VSTAT}(m)$ interface
+is an oracle to the population distribution whose answer tolerance models the
+averages of roughly $m$ independent samples, which is how Feldman et al.\
+motivate it, so the correspondence to an auditor holding a corpus of about $m$
+records is the model's own reading and not a theorem. It prices an auditor whose
+access to the data is statistical averages, and says nothing about an auditor
+who reads individual records, for whom the raw-sample view makes the problem
+different. It does not touch the auditor who views the trained model rather than
+the corpus, and that transfer is open. And it does not assert that a generic
+planter can meet a non-triviality condition with a clique-shaped poison, which
+is Open~\ref{oq:nontrivial}. The proposition instantiates the
+distribution-replacement variant of the planter, the third option of the open
+question on where the planter writes, and its floor comes entirely from the view
+restriction, which is the division of labour Section~\ref{sec:passive} states.
 
 \begin{openq}[The model-level auditor]
 Whether Proposition~\ref{prop:sda} transfers to an auditor viewing the final

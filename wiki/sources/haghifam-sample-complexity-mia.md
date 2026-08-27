@@ -18,7 +18,7 @@ cls_write: read only
 cls_frame: statistical
 cls_party: attacker
 cls_unit: samples
-cls_tightness: exponent
+cls_tightness: relative
 cls_baseline: absent
 cls_baseline_checked: yes
 cls_second_party: samples
