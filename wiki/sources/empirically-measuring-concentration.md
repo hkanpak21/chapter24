@@ -9,6 +9,24 @@ tags: [adversarial-ml, concentration-of-measure, evasion-attacks, empirical, rob
 claim_quantifier: empirical
 antecedent: "The reported estimates are for MNIST, CIFAR-10, Fashion-MNIST and SVHN under ℓ∞ and ℓ₂, with the error region restricted to a complexity-controlled family G — unions of hyperrectangles for ℓ∞, unions of balls for ℓ₂. Convergence to the true unrestricted concentration function (Theorem 3.5) additionally requires condition (iv), that h(μ, α, ε, G(T)) → h(μ, α, ε), which the paper notes is hard to verify for a given dataset."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

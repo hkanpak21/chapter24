@@ -8,6 +8,25 @@ year: 2004
 tags: [cryptography, hardness-reductions, complexity-theory]
 claim_quantifier: existential
 antecedent: "The existence of one-way functions for the signature and encryption counterexamples; the CS-proof counterexample needs no computational assumption beyond what the Random Oracle Model itself provides."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_baseline_checked: yes
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "secure in the Random Oracle Model and insecure under every instantiation of the oracle by a concrete function ensemble"
+cls_evidence_src: "abstract, as summarised on this page"
+cls_reason: "The schemes are secure against every efficient adversary in the idealized model and broken by an efficient adversary once the oracle is instantiated, so the bound is polynomial time on the attacker. baseline is the indistinguishability game's own advantage bound."
+cls_prov: S
+cls_date: 2026-08-27
 ---
 
 ## Summary

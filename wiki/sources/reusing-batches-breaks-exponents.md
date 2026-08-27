@@ -19,7 +19,8 @@ cls_frame: compute
 cls_party: learner
 cls_unit: samples
 cls_tightness: exponent
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: time
 cls_assessed: explicit

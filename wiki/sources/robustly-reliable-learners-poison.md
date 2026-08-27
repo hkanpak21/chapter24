@@ -18,7 +18,8 @@ cls_frame: compute
 cls_party: learner
 cls_unit: queries
 cls_tightness: budget
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: corruption
 cls_second_notion: time
 cls_assessed: implicit

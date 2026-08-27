@@ -19,6 +19,7 @@ cls_party: mechanism
 cls_unit: privacy budget
 cls_tightness: budget
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: implicit

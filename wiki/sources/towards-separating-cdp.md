@@ -19,6 +19,7 @@ cls_party: attacker
 cls_unit: time
 cls_tightness: poly
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: queries
 cls_assessed: explicit

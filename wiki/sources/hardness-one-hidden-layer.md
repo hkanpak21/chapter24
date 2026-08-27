@@ -20,6 +20,7 @@ cls_party: learner
 cls_unit: time
 cls_tightness: poly
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "no polynomial-time estimator can weakly learn the class of one hidden layer neural networks under arbitrary polynomially small Gaussian noise"

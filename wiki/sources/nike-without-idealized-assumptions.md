@@ -18,6 +18,7 @@ cls_party: attacker
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: algo class
 cls_second_notion: none
 cls_assessed: explicit

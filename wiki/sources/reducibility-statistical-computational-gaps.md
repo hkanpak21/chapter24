@@ -19,7 +19,8 @@ cls_frame: compute
 cls_party: learner
 cls_unit: time
 cls_tightness: conditional
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: corruption
 cls_second_notion: algo class
 cls_assessed: explicit

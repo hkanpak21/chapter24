@@ -10,6 +10,24 @@ claim_quantifier: existential
 antecedent: "one-way functions exist (black-box result, Theorem 2.1); hardness of worst-case lattice problems via Continuous LWE (white-box result for Random Fourier Features, Theorem 2.2); hardness of Sparse PCA (white-box result for random ReLU networks). All are standard."
 adversary_bound: "PPT distinguisher — with oracle access to the honest and backdoored models in the black-box theorem, with the complete network description and the training data in the white-box theorems"
 date_verified: 2026-08-20
+cls_target: parameters
+cls_family: backdoor
+cls_phase: train time
+cls_access: black box
+cls_write: model
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

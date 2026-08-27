@@ -8,6 +8,24 @@ year: 2019
 tags: [adversarial-ml, evasion-attacks, poisoning-attacks, concentration-of-measure, complexity-theory]
 claim_quantifier: conditional
 antecedent: "The metric probability space (X, d, μ) of instances is concentrated — every set of measure ≥ α has an ε-expansion covering almost all of X (concentration function h(μ, α, ε) close to 1). This hypothesis was subsequently MEASURED on image benchmarks by the same research group and found NOT to bind: see Limits, below. For the poisoning theorem the antecedent is instead a product training distribution plus a deterministic learner."
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

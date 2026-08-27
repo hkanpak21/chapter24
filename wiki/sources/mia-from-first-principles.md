@@ -8,6 +8,24 @@ year: 2022
 tags: [adversarial-ml, computational-indistinguishability, sample-complexity, learning-theory]
 claim_quantifier: empirical
 antecedent: "The adversary can train N shadow models on data from the target's distribution, and the per-example loss distributions (in logit scale) under the IN and OUT worlds are approximately Gaussian. Both are constructions of the paper, not properties of the target."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §I–§V, §VI-D, §VII–§VIII. Quoted passages

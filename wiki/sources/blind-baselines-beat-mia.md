@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, sample-complexity, learning-theory]
 claim_quantifier: empirical
 antecedent: "The eight named MI evaluation datasets were built post-hoc, by collecting members and non-members from different times or different sources. Measured, not assumed: the paper exhibits the shift in each of the eight."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: none
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read in full from the primary PDF (all sections plus Tables 1–3). Quoted passages

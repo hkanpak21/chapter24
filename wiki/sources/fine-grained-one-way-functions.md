@@ -8,6 +8,24 @@ year: 2022
 claim_quantifier: existential
 antecedent: "For the one construction: block-finding hardness, a new non-standard average-case notion, with the security proof carried out in the authors' Random Language Model. For the two separations: existence of a PSPACE oracle and of a distribution over oracles."
 tags: [cryptography, one-way-functions, complexity-theory, hardness-reductions, fine-grained-cryptography, average-case-reductions, impagliazzo-worlds]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: circuit size
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

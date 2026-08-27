@@ -8,6 +8,24 @@ year: 2019
 claim_quantifier: conditional
 antecedent: "The strong Zero-k-Clique-R hypothesis (an average-case search hypothesis stated in this paper), or the Random Edge Zero-k-Clique hypothesis which implies it. Non-standard: these are average-case fine-grained hypotheses, not standard cryptographic assumptions."
 tags: [cryptography, public-key-encryption, one-way-functions, complexity-theory, fine-grained-cryptography, average-case-reductions]
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

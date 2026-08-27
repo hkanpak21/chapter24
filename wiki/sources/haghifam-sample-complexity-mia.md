@@ -19,7 +19,8 @@ cls_frame: statistical
 cls_party: attacker
 cls_unit: samples
 cls_tightness: exponent
-cls_baseline: stated
+cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: samples
 cls_assessed: explicit
 cls_evidence: "every sample-based MIA for the Gaussian mean estimation problem (Section 1.1) requires m ≳ n²ρ² + n samples"

@@ -20,6 +20,7 @@ cls_party: auditor
 cls_unit: time
 cls_tightness: exponent
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_assessed: implicit
 cls_evidence: "for every prompt filter running in time o(t^ε), for every m ∈ SH the advantage in distinguishing outputs of G and G′(m) is λ^{−Ω(1)}"

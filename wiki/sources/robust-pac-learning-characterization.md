@@ -18,7 +18,8 @@ cls_frame: statistical
 cls_party: learner
 cls_unit: samples
 cls_tightness: budget
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit

@@ -18,7 +18,8 @@ cls_frame: compute
 cls_party: mechanism
 cls_unit: time
 cls_tightness: budget
-cls_baseline: stated
+cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "Timing-stable programs have O(n) runtime"

@@ -21,6 +21,7 @@ cls_party: attacker
 cls_unit: circuit size
 cls_tightness: quasi-poly
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit

@@ -11,6 +11,24 @@ antecedent: "none. The bound is unconditional. The only structural hypotheses ar
 adversary_bound: "none for the learning theorem itself. The memory bound sits on the LEARNER (at most cn^2 bits, c < 1/20). In the paper's own encryption corollary the same party is renamed the attacker, and that is the one place a memory-bounded attacker appears."
 model_class: parity functions over {0,1}^n, target uniform
 algorithm_class: branching programs of width at most 2^{cn^2} and length at most 2^{alpha n}, non-uniform
+cls_target: none
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: memory
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

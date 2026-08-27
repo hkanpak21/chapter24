@@ -9,6 +9,24 @@ tags: [adversarial-ml, cryptography, sample-complexity]
 claim_quantifier: empirical
 antecedent: "Six stated assumptions on the oracle and the attacker: the architecture is known; arbitrary inputs from the full domain may be fed; complete real-valued outputs are returned without post-processing; the model is specified and evaluated in 64-bit floating point; the output dimension is 1; every activation is a ReLU. The paper marks only the last as fundamental."
 adversary_bound: "none. Queries and compute are measured and reported, never bounded by a definition or a hardness assumption."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: measured
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

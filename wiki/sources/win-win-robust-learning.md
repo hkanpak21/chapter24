@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "for the constructions, average-case hard functions (Result 1, no cryptographic assumption), or hardness of factoring / LPN (Result 2). The win-win theorem itself is an implication and assumes nothing."
 adversary_bound: "polynomial time, for the learner; the perturbation adversary is a budget, not a computation"
 date_verified: 2026-08-20
+cls_target: none
+cls_family: evade
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: perturbation
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -21,6 +21,7 @@ cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: queries
 cls_assessed: explicit

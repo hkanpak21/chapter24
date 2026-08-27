@@ -20,6 +20,7 @@ cls_party: learner
 cls_unit: time
 cls_tightness: poly
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: perturbation
 cls_assessed: explicit
 cls_evidence: "such learning task is hard for any polynomial-time algorithm, based on the widely-believed cryptographic assumption that (approximate) SVP is computationally intractable against quantum algorithms"

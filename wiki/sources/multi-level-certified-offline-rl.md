@@ -19,7 +19,8 @@ cls_frame: capability
 cls_party: attacker
 cls_unit: corruption
 cls_tightness: budget
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "Assume an adversary can make up to r changes, including additions, deletions, or alterations, to the trajectories within a clean dataset D"

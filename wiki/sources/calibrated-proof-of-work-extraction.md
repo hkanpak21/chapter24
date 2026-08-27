@@ -9,6 +9,24 @@ tags: [adversarial-ml, cryptography]
 claim_quantifier: empirical
 antecedent: "Users are identifiable and the server keeps per-user state; the defender holds enough training data to build a PATE teacher ensemble whose vote consensus is a usable leakage signal; a reference population of legitimate users exists from which the expected cost curve is fitted; legitimate queries are drawn at random from an in-distribution set unseen by the victim."
 adversary_bound: "compute per query, imposed operationally by a HashCash puzzle whose difficulty is set from a measured leakage figure. No class of adversaries is defined and no bound is proved."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

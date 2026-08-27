@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, learning-theory, sample-complexity]
 claim_quantifier: empirical
 antecedent: "Pretrained LLMs trained on web-scale corpora for approximately one epoch, with members and non-members drawn from the Pile's official train/test split. The near-random result is conditional on both properties; the paper varies each and shows attack performance rises when either is relaxed."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §1–§5, §6, Tables 1–4. Quoted passages verbatim.

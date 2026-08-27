@@ -18,6 +18,7 @@ cls_party: attacker
 cls_unit: time
 cls_tightness: exponent
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: time
 cls_second_notion: none
 cls_assessed: explicit

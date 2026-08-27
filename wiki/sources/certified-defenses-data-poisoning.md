@@ -18,7 +18,8 @@ cls_frame: capability
 cls_party: attacker
 cls_unit: corruption
 cls_tightness: budget
-cls_baseline: stated
+cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: algo class
 cls_second_notion: none
 cls_assessed: explicit

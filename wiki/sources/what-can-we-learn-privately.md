@@ -9,6 +9,24 @@ tags: [statistical-query, PAC-learning, learning-theory, differential-privacy, s
 claim_quantifier: universal
 antecedent: "For the local ⟺ SQ equivalence: efficiency transfer requires TRANSPARENT local randomizers (Definition 5.13); the SQ notion is relaxed to allow a small failure probability β, which the paper argues is necessary because DP algorithms must have nonzero error."
 adversary_bound: unbounded (the standard DP distinguisher). The SQ restriction is on the LEARNER, not the adversary.
+cls_target: train data
+cls_family: none
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -18,7 +18,8 @@ cls_frame: compute
 cls_party: mechanism
 cls_unit: memory
 cls_tightness: conditional
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: time
 cls_second_notion: none
 cls_assessed: explicit

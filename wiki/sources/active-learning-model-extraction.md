@@ -9,6 +9,24 @@ tags: [adversarial-ml, learning-theory, PAC-learning, sample-complexity]
 claim_quantifier: conditional
 antecedent: "The hypothesis class F is public and known to the adversary; the server answers arbitrary chosen inputs, which places the reduction in the query synthesis scenario; the error function Err is fixed in advance; for the negative result on randomised defences, the server answers correctly with probability at least 1/2 + c for a constant c > 0 on every instance."
 adversary_bound: "queries only. The adversary is charged a query budget q and is otherwise unbounded in time, memory and knowledge of F."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: queries
+cls_tightness: budget
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

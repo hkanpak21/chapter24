@@ -9,6 +9,24 @@ year: 2020
 tags: [adversarial-ml, complexity theory, hardness-reductions, statistical-query, sample-complexity]
 claim_quantifier: existential
 antecedent: "Theorem 1 needs input-output (logit) access only — it fails under side-channel access, as the paper itself notes. Theorem 2 is stated for domain {0,1}^d. Theorem 3 is inherited from Das et al. (arXiv:1904.03866) and holds only for adversaries expressible as SQ algorithms over deep random networks."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: attacker
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/JCB+20_ExtractionAccuracyFidelity.pdf`,

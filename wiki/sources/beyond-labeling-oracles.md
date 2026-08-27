@@ -8,6 +8,24 @@ year: 2024
 tags: [adversarial-ml, learning-theory, sample-complexity, computational-cost]
 claim_quantifier: empirical
 antecedent: "For the negative cost conclusion: that the victim controls the informativeness of its OOD responses (the authors' own hybrid-model instrumentation V_h), and that commercial labeling prices are those quoted in §3.2. Neither is known to hold of deployed systems — the instrumentation is the authors' construction, not a shipped defence."
+cls_target: parameters
+cls_family: extract
+cls_phase: post hoc
+cls_access: black box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

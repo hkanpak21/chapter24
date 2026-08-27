@@ -9,6 +9,24 @@ tags: [adversarial-ml, concentration-of-measure, isoperimetry, evasion-attacks, 
 claim_quantifier: existential
 antecedent: "The data are uniform on two concentric spheres in R^n, the error region is measured on the inner sphere, and the metric is the Euclidean one. This is a constructed synthetic distribution. The extension to natural image data is stated in the paper as a hypothesis, not proved."
 date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 ## Summary

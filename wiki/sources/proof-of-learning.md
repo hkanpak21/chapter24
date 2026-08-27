@@ -9,6 +9,24 @@ year: 2021
 tags: [complexity theory, adversarial-ml, certification, hardness-reductions, verifiable-computation]
 claim_quantifier: conditional
 antecedent: "The compute-comparison claim rests on the paper's own Conjecture 1, which the authors state because they are \"not aware of a mechanism to prove this formally.\" The two actual theorems (entropy growth, reverse entropy growth) assume i.i.d. hardware/library noise `z` in the training process; the paper notes counter-based PRNGs can remove that noise, voiding the assumption. Nothing rests on a standard complexity assumption."
+cls_target: training run
+cls_family: forge
+cls_phase: post hoc
+cls_access: white box
+cls_write: model
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: unstated
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Verified against the primary PDF on 2026-08-20 (`raw/JYC+21_ProofOfLearning.pdf`,

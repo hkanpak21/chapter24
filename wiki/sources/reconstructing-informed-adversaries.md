@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "For the theory: the mechanism satisfies (alpha, epsilon)-Renyi DP (Theorem 2), epsilon-DP (Corollary 3) or rho-zCDP (Corollary 4); the adversary's side knowledge is exactly a prior pi over Z; the target is drawn Z ~ pi; and the bound is stated relative to a fixed error function l and threshold eta. For the converse (Theorem 5), the mechanism must be reconstruction robust simultaneously against every prior supported on a pair of points, under the 0/1 error. For the attacks: the adversary knows all training points but one, the model weights, and the training algorithm including hyper-parameters and, by default, the initialization."
 adversary_bound: "Knowledge only. Definition 2 quantifies over any reconstruction attack R : Theta -> Z with no bound on time, circuit size or query count. Definition 1 bounds the adversary's knowledge, not its computation. The empirical attack's cost is reported as one shadow model trained per attack-training point."
 date_verified: 2026-08-20
+cls_target: train data
+cls_family: reconstruct
+cls_phase: post hoc
+cls_access: white box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read from the primary PDF: abstract, §I, §II (threat model, Algorithm 1, relations to

@@ -8,6 +8,24 @@ year: 2025
 tags: [adversarial-ml, computational-indistinguishability, sample-complexity, cryptography]
 claim_quantifier: conditional
 antecedent: "The model developer's training set D and training procedure Train are unknown, AND the verifier cannot efficiently retrain the model. Asserted as a fact about production foundation models; not measured, not proved."
+cls_target: train data
+cls_family: membership
+cls_phase: post hoc
+cls_access: scores
+cls_write: read only
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: unstated
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: implicit
+cls_evidence: absent
+cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: hand
+cls_date: 2026-08-22
 ---
 
 > **Provenance.** Read in full from the primary PDF (Sections I–VI). All quoted passages verbatim.
