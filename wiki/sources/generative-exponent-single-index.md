@@ -95,6 +95,7 @@ Example 2.7 is the boundary that must travel with any citation of this paper: fo
 - Improves on the online-SGD threshold of [BGJ21](information-exponent-online-sgd.md) and on the CSQ-only bound of [ABM23](leap-complexity-sgd.md).
 - Extended to multi-index by [The Generative Leap](generative-leap-multi-index.md), which reduces to this paper when `r = 1`.
 - The `d^{k*/2}` threshold is escaped by batch reuse for many targets: [Reusing Batches Breaks the Information and Leap Exponents](reusing-batches-breaks-exponents.md).
+- The generative-exponent regime is also reached without batch reuse, by one-pass layer-wise SGD with a large second-layer learning rate: [Learning Rate Induces Phase Transitions in SGD](learning-rate-induces-generative-exponent.md) proves learning-rate-indexed phase transitions between the information-exponent and generative-exponent complexities.
 - Criticised as brittle by [Noise Sensitivity Exponent](noise-sensitivity-exponent.md): large-generative-exponent functions are "typically fine-tuned and unstable".
 - Their `k*` corresponds to the parameter `m` of [Robust Multi-Index SQ Bounds](robust-multi-index-sq-bounds.md) when `K = 1` (that paper's Appendix C.3).
 - The lattice-based escape route in the noise-free case is [Hardness of Learning Single Periodic Neurons](hardness-single-periodic-neurons.md), cited here as [SZB21] for exactly that point.

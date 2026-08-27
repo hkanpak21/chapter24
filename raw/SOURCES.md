@@ -381,3 +381,40 @@ its paper on disk.
 | `XSD24_FormalPrivacyDataEncoding.pdf` | Formal Privacy Proof of Data Encoding: The Possibility and Impossibility of Learnable Encryption | Xiao, Suh, Devadas | CCS 2024 | `xiao-formal-privacy-proof-data-encoding` — recorded as an obstacle, never read |
 | `S+26_FormalizingLLMAgentSecurity.pdf` | A Framework for Formalizing LLM Agent Security | Siu, He, Montgomery, Wang, Gong, Wang, Song | 2026 | `formalizing-llm-agent-security` — both its quotes were unverifiable and traced to no known source |
 | `APU25_TolerantRobustPAC.pdf` | Simplifying Adversarially Robust PAC Learning with Tolerance | Ashtiani, Pathak, Urner | 2025 | `tolerant-robust-pac-learning` — the one page the geometry audit could not check |
+
+## Wave 5 (2026-08-22) — learning-theory grounding for the oracle framework
+
+Fetched after the no-aiming literature sweep. These carry the current state of "what does the
+search cost for the class that trains": the parity phase transition, the batch-reuse escapes,
+and the newest single-index machinery.
+
+| File | Title | Authors | Year |
+|------|-------|---------|------|
+| `BEGKMZ22_HiddenProgressParities.pdf` | Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit | Barak, Edelman, Goel, Kakade, Malach, Zhang | 2022 |
+| `LOSW24_SGDInfoTheoreticLimit.pdf` | Neural network learns low-dimensional polynomials with SGD near the information-theoretic limit | Lee, Oko, Suzuki, Wu | 2024 |
+| `Gla24_SGDXOR.pdf` | SGD Finds then Tunes Features in Two-Layer Neural Networks with Near-Optimal Sample Complexity: A Case Study in the XOR problem | Glasgow | 2024 |
+| `ADKPS24_RepetitaIuvant.pdf` | Repetita Iuvant: Data Repetition Allows SGD to Learn High-Dimensional Multi-Index Functions | Arnaboldi, Dandi, Krzakala, Pesce, Stephan | 2024 |
+| `KJWSM26_FullBatchGDvsSGD.pdf` | Full-Batch Gradient Descent Outperforms One-Pass SGD: Sample Complexity Separation in Single-Index Learning | Kovačević, Ji, Wu, Soltanolkotabi, Mondelli | 2026 |
+| `HG25_TransformersSparseXOR.pdf` | Transformers Provably Learn Sparse XOR with Polylogarithmic Parameters | Han, Ghoshdastidar | 2025 |
+| `JKMS25_HarmonicDecomposition.pdf` | Learning single-index models via harmonic decomposition | Joshi, Koubbi, Misiakiewicz, Srebro | 2025 |
+
+## Wave 6 (2026-08-22) — neural scaling laws
+
+The evidence base for the survey's treatment of training cost as a lawful function of compute, data,
+and model size, and for the recipe-relativity of every such law. The organising fact across the wave:
+each threshold or law holds for a named algorithm class, and the exponent moves when the recipe moves.
+
+| File | Title | Authors | Year | Boundary note |
+|------|-------|---------|------|---------------|
+| `KMH+20_ScalingLawsLM.pdf` | Scaling Laws for Neural Language Models | Kaplan, McCandlish, Henighan, Brown, Chess, Child, Gray, Radford, Wu, Amodei | 2020 (venue unconfirmed from PDF) | The founding fits. Appendix C states there is no theoretical understanding of any of the laws. `N ∝ C^0.73` is the constant Hoffmann et al. overturned and Porian et al. explained |
+| `HBM+22_Chinchilla.pdf` | Training Compute-Optimal Large Language Models | Hoffmann, Borgeaud, Mensch, et al. | 2022 (venue unconfirmed from PDF; NeurIPS 2022 per PPXP24 bibliography) | Equal N-and-D scaling, `a ≈ b ≈ 0.5`, replicated. The Approach 3 constants (E=1.69, A=406.4, B=410.7, α=0.34, β=0.28) are disputed — see the two rows below |
+| `Bes24_ChinchillaReplication.pdf` | Chinchilla Scaling: A replication attempt | Besiroglu, Erdil, Barnett, You | 2024 (venue unconfirmed from PDF) | Approach 3 as printed fails to fit the reconstructed data; confidence intervals "implausibly tight" (would need ~600k runs); causes are a non-converged Huber-loss optimizer and body-text rounding. Their refit restores consistency with Approaches 1-2 |
+| `PSM+24_ReconcilingScaling.pdf` | Resolving Discrepancies in Compute-Optimal Scaling of Language Models | Porian, Wortsman, Jitsev, Schmidt, Carmon | NeurIPS 2024 (stated in PDF) | Dissolves Kaplan-vs-Hoffmann into last-layer FLOP accounting, warmup, and optimizer tuning; disproves Hoffmann et al.'s own learning-rate-decay explanation |
+| `BDKLS24_ExplainingScalingLaws.pdf` | Explaining Neural Scaling Laws | Bahri, Dyer, Kaplan, Lee, Sharma | 2024 (venue unconfirmed from PDF; PNAS attribution not stated in the arXiv v2) | Four regimes. Variance-limited exponent 1 proven (Thm 1); resolution-limited `x^{-1/d}` is an upper bound (Thms 2-3) plus a tightness hypothesis, exact only in linear random-feature models |
+| `PPXP24_FourPlusThreePhases.pdf` | 4+3 Phases of Compute-Optimal Neural Scaling Laws | Paquette, Paquette, Xiao, Pennington | 2024 (venue unconfirmed from PDF; header says Preprint, acknowledgments thank NeurIPS reviewers) | The compute-optimal frontier as a theorem **within** PLRF + one-pass SGD. `d*(f) ≍ f^{1/2}` over a large phase region. No lower bound over algorithms is claimed; the paper says another algorithm could change the SGD-noise-phase curves |
+| `BAP24_DynamicalScalingLaws.pdf` | A Dynamical Model of Neural Scaling Laws | Bordelon, Atanasov, Pehlevan | ICML 2024 (stated in PDF) | DMFT. Exponents from the task/spectrum pair `(a, b)`: time `t^{-(a-1)/b}` vs model/data `^{-min(a-1,2b)}`, whose mismatch forces asymmetric compute-optimal allocation |
+| `BAP25_FeatureLearningScalingLaws.pdf` | How Feature Learning Can Improve Neural Scaling Laws | Bordelon, Atanasov, Pehlevan | ICLR 2025 (stated in PDF) | Feature learning lifts the hard-task time exponent `t^{-β}` to `t^{-2β/(1+β)}`, nearly doubling it for small β; easy-task exponents unchanged. The scaling exponent is algorithm-dependent — the load-bearing point |
+| `BSC+25_DistillationScalingLaws.pdf` | Distillation Scaling Laws | Busbridge, Shidani, Weers, Ramapuram, Littwin, Webb | ICML 2025 (stated in PDF) | Empirical. Distillation beats supervised only up to a student-size-dependent compute threshold and only when the teacher is already paid for (Table 2's four accounting scenarios). One student + unpaid teacher: supervised wins |
+| `SGS+22_DataPruningScaling.pdf` | Beyond neural scaling laws: beating power law scaling via data pruning | Sorscher, Geirhos, Shekhar, Ganguli, Morcos | NeurIPS 2022 (stated in PDF) | Exponential-in-pruned-size error is a perceptron replica calculation at pruning-metric angle θ=0; θ>0 provably crosses back to a power law with a floor `f_min(θ)`. Empirics ImageNet-scale with imperfect metrics. The exponent is recipe-dependent (the metric is the recipe) |
+| `HBE+24_AlgorithmicProgress.pdf` | Algorithmic Progress in Language Models | Ho, Besiroglu, Erdil, et al. | 2024 (venue unconfirmed from PDF) | Compute to fixed perplexity halves ~every 8 months (95% CI 5-14), 2012-2023. Estimation-uncertainty caveats are the paper's own; compute growth still contributed more than algorithms |
+| `TME25_LearningRatePhaseTransitions.pdf` | From Information to Generative Exponent: Learning Rate Induces Phase Transitions in SGD | Tsiolis, Mousavi-Hosseini, Erdogdu | 2025 (venue unconfirmed from PDF) | Verified at theorem level: the two-timescale alternating SGD is one-pass (no batch reuse) but uses each fresh sample twice within its iteration (second layer, then first), producing a `y²` non-correlational query on squared loss. Cor. 4.3's complexity is governed by `IE(σ*²)`; reaching `p*` in general needs depth `D ≥ I`. The batch-reuse escape itself is learning-rate-conditional |

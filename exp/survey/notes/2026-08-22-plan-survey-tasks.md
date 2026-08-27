@@ -16,8 +16,8 @@ in order not to relitigate settled questions.
 
 | | |
 | --- | --- |
-| Papers on disk | **186** in `raw/`, all catalogued in `raw/SOURCES.md` with boundary notes |
-| Wiki | **181 sources**, 83 concepts, 116 entities |
+| Papers on disk | **206** in `raw/` (waves 5 and 6, 2026-08-22: learning-theory grounding and neural scaling laws), all catalogued in `raw/SOURCES.md` |
+| Wiki | **199 sources**, 83 concepts, 116 entities. The 18 pages of waves 5 and 6 were written by ingestion agents and spot-verified; the rest carry the full 2026-08-22 audit |
 | Audited to the claim-quantifier schema | **181 of 181 — complete** |
 | Quote verification | **complete**; ~5% of 1100+ quotations were wrong, all marked in place |
 | Broken internal links | 0 |
@@ -274,7 +274,14 @@ formalized in Part IV. **Needs one running example carried through all six subse
 
 ### Part IV — The formalization (≈5 pages)
 
-**State, 2026-08-22.** Two documents under `formalization/`, both compiling, both self-contained.
+**State, 2026-08-22, evening.** `oracle.tex` grew a results section, `price.tex` (16 pp total):
+the price of aiming grounded in the SQ floors with the generative exponent as the surviving unit
+(the information exponent and the leap fell to batch reuse and learning-rate transitions and are
+cited only as what not to use); the price of skipping scoped recipe-relative, with amortization
+and the view-versus-trace gap as definitional consequences; and the sparse-parity experiment,
+`t_c ∝ d^2.02` at k=3 (the d^{k-1} law), 40 of 40 runs, plus a batch-8 wall (d=30 solves in ~7k
+steps, nine runs at d≥60 all exhaust 300k). Experiments under `exp/survey/experiments/`, figure
+under `figures/`, every number a macro in `results.tex`. Two documents under `formalization/`, both compiling, both self-contained.
 `games.tex` (10 pp) holds the extraction games with two-party pricing, reviewed adversarially and
 rebuilt. `oracle.tex` (12 pp) holds the framework itself: the learning oracle in passive and
 interactive form, traces, views, ports, write and read budgets, the two criteria, the generic

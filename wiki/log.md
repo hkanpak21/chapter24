@@ -578,3 +578,41 @@ such a page may be carried into the survey.
 
 **Repair.** The `output/` to `exp/` rename had left eleven dead internal links; all now resolve, and a
 whole-wiki link check reports zero broken.
+
+## [2026-08-22] ingest | Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit
+
+## [2026-08-22] ingest | Neural network learns low-dimensional polynomials with SGD near the information-theoretic limit
+
+## [2026-08-22] ingest | SGD Finds then Tunes Features in Two-Layer Neural Networks with Near-Optimal Sample Complexity: A Case Study in the XOR problem
+
+## [2026-08-22] ingest | Repetita Iuvant: Data Repetition Allows SGD to Learn High-Dimensional Multi-Index Functions
+
+## [2026-08-22] ingest | Full-Batch Gradient Descent Outperforms One-Pass SGD: Sample Complexity Separation in Single-Index Learning
+
+## [2026-08-22] ingest | Transformers Provably Learn Sparse XOR with Polylogarithmic Parameters
+
+## [2026-08-22] ingest | Learning single-index models via harmonic decomposition
+
+## [2026-08-22] ingest | Scaling Laws for Neural Language Models
+## [2026-08-22] ingest | Training Compute-Optimal Large Language Models (Chinchilla)
+## [2026-08-22] ingest | Explaining Neural Scaling Laws
+## [2026-08-22] ingest | 4+3 Phases of Compute-Optimal Neural Scaling Laws
+## [2026-08-22] ingest | A Dynamical Model of Neural Scaling Laws
+## [2026-08-22] ingest | How Feature Learning Can Improve Neural Scaling Laws
+## [2026-08-22] ingest | Distillation Scaling Laws
+## [2026-08-22] ingest | Beyond neural scaling laws: beating power law scaling via data pruning
+## [2026-08-22] ingest | Algorithmic Progress in Language Models
+## [2026-08-22] ingest | From Information to Generative Exponent: Learning Rate Induces Phase Transitions in SGD
+
+Wave 6, neural scaling laws, ten source pages plus two replication PDFs catalogued
+(`Bes24_ChinchillaReplication.pdf`, `PSM+24_ReconcilingScaling.pdf`) inside the Chinchilla page's
+Limits section. Every page records the algorithm class its law holds for, whether the law is
+proven-within-model, an empirical fit, or heuristic, and what would break it, plus one sentence on
+the no-skipping postulate. The Chinchilla replication dispute is recorded as a Limit, not a sibling.
+The TME25 abstract claim (beyond-CSQ without sample reuse) was verified against Corollary 4.3 and
+holds with two clauses: one-pass means no sample crosses iterations, yet each fresh sample is used
+twice within its iteration, and the plain two-layer variant is governed by IE(σ*²) with the
+generative exponent reached only via the depth-D extension. Cross-links added on
+`generative-exponent-single-index` and `reusing-batches-breaks-exponents`. `wiki/index.md` not
+touched.
+## [2026-08-22] ingest | Chinchilla Scaling: A Replication Attempt
