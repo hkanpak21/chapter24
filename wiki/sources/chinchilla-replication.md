@@ -8,6 +8,24 @@ year: 2024
 tags: [learning-theory, evaluation-methodology, sample-complexity]
 claim_quantifier: empirical
 antecedent: "The data are reconstructed from the published figure of Hoffmann et al. rather than obtained from the authors, so every conclusion is conditional on the fidelity of that reconstruction, which the paper describes and defends."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "a refit of another paper's parametric loss model; no party's resources are bounded anywhere in it"
+cls_reason: "An empirical replication of the Chinchilla estimate. It bounds nobody, and its subject is whether a published fit describes its own data."
+cls_prov: S
+cls_date: 2026-08-27
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: a curated dataset of over 200 language-model evaluations on Wikitext and Penn Treebank, 2012 to 2023, analyzed through augmented scaling-law regressions
 model_class: published language models across architectures, 2012-2023
 algorithm_class: the population of published pre-training recipes over time; post-training enhancements excluded
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "We introduce two families of estimators—based on tensor unfolding and online SGD—that respectively achieve either optimal sample complexity or optimal runtime, and argue that estimators achieving both may not exist in general."
+cls_evidence_src: abstract
+cls_reason: "No attack scenario, matching sibling single-index pages (generative-exponent-single-index, generative-leap-multi-index). party=learner per rule 3. unit=samples/tightness=exponent for Theorem 1's decoupled M*/Q* thresholds, matching the sibling pages' convention of recording the sample-complexity headline. second_notion=time per rule 4b: the abstract's own headline is that sample-optimal and runtime-optimal estimators can diverge (l_m,* != l_T,* beyond Gaussian inputs), the clearest instance in this batch of 'two incomparable notions, same party', so time is recorded here rather than algo class (already used by the sibling pages for the SQ/low-degree restriction). baseline=stated: Remark 3.1 and Appendix H state the information-theoretic recovery bound m=Omega(d), against which the detection-only scope of Theorem 1 is qualified (verified at PDF lines 650-655, 8171-8176). frame=compute: the SQ query bound and the low-degree conditional sample bound both restrict to computationally-efficient algorithm classes."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

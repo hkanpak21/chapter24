@@ -17,11 +17,11 @@ cls_access: none
 cls_write: none
 cls_frame: compute
 cls_party: learner
-cls_unit: parameters
+cls_unit: flops
 cls_tightness: exponent
 cls_baseline: absent
 cls_second_party: none
-cls_second_notion: samples
+cls_second_notion: parameters
 cls_assessed: explicit
 cls_evidence: "the compute-optimal parameter is d⋆ = f1/2 and it is independent of α and β"
 cls_evidence_src: Phase Ib discussion (compute-optimal d*)

@@ -29,7 +29,7 @@ VALUES = {
     "unit":      ["time", "circuit size", "queries", "samples", "memory",
                   "algo class", "parameters", "perturbation", "corruption",
                   "rounds", "privacy budget", "circuit depth",
-                  "success prob", "none"],
+                  "success prob", "flops", "none"],
     "phase":     ["train time", "test time", "post hoc", "n/a"],
     "access":    ["hard label", "scores", "black box", "white box", "weights",
                   "gradients", "channel", "none"],

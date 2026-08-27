@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: theory holds for perceptron learning in the teacher-student setting with Gaussian inputs, margin-based pruning, and a probe student at angle theta to the teacher, in the high-dimensional replica limit; the exponential regime needs theta = 0, an error-free pruning metric
 model_class: perceptron teacher-student (theory); ResNets on CIFAR-10, SVHN, ImageNet (empirics)
 algorithm_class: margin-based data pruning followed by standard training; the pruning metric is part of the algorithm
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: parameters
+cls_assessed: explicit
+cls_evidence: "distillation is only more efficient than supervised learning if (i) the total compute or tokens used for distillation is not larger than a student size-dependent threshold"
+cls_evidence_src: "§6 Conclusion"
+cls_reason: "No attack scenario (target/family/phase/access/write = none/none/n/a/none/none): a compute-accounting result, not a security claim. party=learner: the bound governs the training pipeline's compute budget, no adversary. unit=time/tightness=measured rather than exponent: Equation 8 is an empirical fit ('No theorems' per Key Definitions/Theorems), not a proven relation. baseline=stated: supervised pretraining is the explicit comparison point throughout the paper's conclusion. second_notion=parameters: the threshold is explicitly student-size-dependent and the compute-optimal analysis (Table 2) jointly varies compute and student size N, an incomparable resource from raw compute. second_party=none: the teacher/student cost split (Table 2's four scenarios) is bookkeeping inside one training pipeline, not a second role in the party vocabulary."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -17,7 +17,7 @@ cls_access: none
 cls_write: none
 cls_frame: compute
 cls_party: learner
-cls_unit: time
+cls_unit: flops
 cls_tightness: exponent
 cls_baseline: absent
 cls_second_party: none

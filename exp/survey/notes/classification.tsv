@@ -10,6 +10,7 @@ adversarial-spheres	outputs	evade	test time	none	read only	capability	attacker	p
 adversarial-vulnerability-any-classifier	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	P	agent
 adversarially-robust-pac-regression	outputs	evade	test time	none	read only	statistical	learner	samples	budget	n/a	none		explicit	P	agent
 adversary-aware-dp-bounds	train data		post hoc	white box	read only	capability	mechanism	privacy budget	budget	stated	none	none	implicit	P	agent
+algorithmic-progress-lm	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	time	explicit	P	agent
 are-gans-overkill-for-nlp	none	none	n/a	none	none	none	none	none	unstated	n/a	none	none		P	agent
 attaxonomy	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none			P	agent
 auditable-unlearning-definitions	training run	forge	post hoc	white box	corpus	none	none	none	unstated	n/a	none	none		P	agent
@@ -36,11 +37,14 @@ certificates-statistical-algorithms	training run	evade audit	post hoc	none	respo
 certified-defenses-data-poisoning	train data	poison	train time	none	corpus	capability	attacker	corruption	budget	stated	algo class	none	explicit	P	agent
 certified-robustness-differential-privacy	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none		explicit	P	agent
 certified-robustness-randomized-smoothing	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	P	agent
+chinchilla-compute-optimal	none	none	n/a	none	none	compute	learner	flops	exponent	stated	none	parameters	explicit	P	agent
+chinchilla-replication	none	none	n/a	none	none	none	none	none	unstated	n/a	none	none		S	agent
 cohen-data-reconstruction	train data	reconstruct	post hoc	none	read only	compute	attacker	time	poly	stated	time	none	explicit	P	agent
 complexity-theoretic-adversarial-ml	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	P	agent
 computational-concentration-of-measure-etesami	outputs	evade	test time	hard label	read only	compute	attacker	time	poly	n/a	none	none	explicit	P	agent
 computational-differential-privacy	train data	none	n/a	none	none	compute	attacker	time	poly	stated	none	none	explicit	hand	hand
 computational-hardness-robust-learning	outputs	evade	test time	black box	read only	compute	attacker	circuit size	poly	n/a	none	none	explicit	P	agent
+compute-optimal-phases	none	none	n/a	none	none	compute	learner	flops	exponent	absent	none	parameters	explicit	P	agent
 covert-learning	training run	none	train time	hard label	read only	compute	attacker	time	poly	stated	none		explicit	P	agent
 critical-evaluation-backdoor-countermeasures	parameters	backdoor	post hoc	white box	read only	none	none	none	unstated	n/a	none			P	agent
 cryptanalytic-extraction-nn	parameters	extract	post hoc	scores	read only	compute	attacker	queries	measured	absent	none	none	implicit	hand	hand
@@ -48,19 +52,24 @@ crypto-backdoor-boon-bane	outputs	backdoor	post hoc	black box	read only	compute	
 cryptography-from-planted-graphs	none	none	n/a	none	none	compute	attacker	circuit size	quasi-poly	stated	none	none	explicit	P	agent
 curse-of-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	hand	hand
 data-concentration-robustness-avoidable	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	P	agent
+data-pruning-beats-power-laws	none	none	n/a	none	none	compute	learner	time	measured	stated	none	parameters	explicit	P	agent
 deep-learning-differential-privacy	train data	none	train time	none	none	capability	mechanism	privacy budget	budget	n/a	none	none	explicit	P	agent
 detection-recovery-refutation-gaps	none	none	n/a	none	none	compute	learner	time	poly	n/a	none		explicit	P	agent
 difficulty-of-mia	train data	membership	post hoc	scores	read only	none	none	none	unstated	stated	none	none		S	agent
 ding-low-degree-community-detection	none	none	n/a	none	none	compute	learner	time	conditional	stated	none	algo class	explicit	P	agent
 dinur-nissim-revealing-information	train data	reconstruct	n/a	scores	read only	compute	attacker	time	poly	absent	perturbation	queries	explicit	P	agent
+distillation-scaling-laws	none	none	n/a	none	none	compute	learner	time	exponent	stated	none	parameters	explicit	P	agent
 distribution-inference-risks	train data		post hoc		read only	statistical	attacker	samples	measured	stated	none	none	implicit	P	agent
 do-mias-work-on-llms	train data	membership	post hoc	scores	read only	none	none	none	unstated	stated	none	none		hand	hand
 dos-and-donts-ml-security	none	none	n/a	none	none	none	none	none	unstated	n/a	none	none		P	agent
 dp-adaptive-analysis-bounded-space	none	none	n/a	none	none	compute	mechanism	memory	conditional	stated	time	none	explicit	P	agent
 dp-against-timing-attacks	train data	none	n/a	none	none	compute	mechanism	time	budget	stated	none		explicit	S	agent
+dynamical-model-scaling-laws	none	none	n/a	none	none	compute	learner	flops	exponent	absent	none	parameters	explicit	P	agent
 empirically-measuring-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit	hand	hand
 evaluating-nn-backdoor-defenses	parameters	backdoor	post hoc	white box	read only	none	none	none	unstated	n/a	none	none		S	agent
+explaining-neural-scaling-laws	none	none	n/a	none	none	compute	learner	samples	exponent	absent	none	parameters	explicit	P	agent
 extending-formalism-cryptography-ai	train data	membership	train time	white box	corpus	compute	attacker	time	poly	stated	none	none	explicit	P	agent
+feature-learning-improves-scaling	none	none	n/a	none	none	compute	learner	time	measured	stated	none	none	explicit	P	agent
 feldman-statistical-algorithms-planted-clique	none	none	n/a	none	none	compute	learner	algo class	class	stated	none	queries	explicit	P	agent
 filter-impossibility-ai-alignment	outputs	evade	test time	black box	read only	compute	auditor	time	exponent	stated	none		implicit	P	agent
 fine-grained-cryptography	none	none	n/a	none	none	compute	attacker	algo class	class	stated	algo class	none	explicit	P	agent
@@ -72,6 +81,7 @@ fine-grained-one-way-functions	none	none	n/a	none	none	compute	attacker	circuit 
 fine-grained-world-without-crypto	none	none	n/a	none	none	compute	attacker	time	conditional	n/a	none	none	explicit	P	agent
 forgeability-and-unlearning	train data	forge	post hoc	gradients	corpus	none	none	none	unstated	absent	none	none		P	agent
 formalizing-llm-agent-security	outputs	none	test time	black box	corpus	none	none	none	unstated	n/a	none	none		P	agent
+full-batch-gd-vs-one-pass-sgd	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	time	explicit	P	agent
 gamarnik-circuit-lower-bounds-pspin	none	none	n/a	none	none	compute	learner	circuit size	conditional	n/a	none	none	explicit	P	agent
 gamarnik-hardness-random-optimization-circuits	none	none	n/a	none	none	compute	learner	algo class	class	n/a	none		explicit	P	agent
 generative-exponent-single-index	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	algo class	explicit	P	agent
@@ -79,6 +89,7 @@ generative-leap-multi-index	none	none	n/a	none	none	compute	learner	samples	expo
 haghifam-sample-complexity-mia	train data	membership	post hoc	weights	read only	statistical	attacker	samples	exponent	stated	samples		explicit	S	agent
 hardness-one-hidden-layer	none	none	n/a	none	none	compute	learner	time	poly	stated	none		explicit	P	agent
 hardness-single-periodic-neurons	none	none	n/a	none	none	compute	learner	time	poly	stated	perturbation		explicit	P	agent
+hidden-progress-sgd-parities	none	none	n/a	none	none	compute	learner	time	measured	stated	none	samples	explicit	P	agent
 hirahara-planted-clique-conjectures-equivalent	none	none	n/a	none	none	none	none	none	unstated	n/a	none			S	agent
 holmgren-counterexamples-low-degree	none	none	n/a	none	none	compute	learner	time	poly	n/a	none	algo class	explicit	P	agent
 immune-rlhf-jailbreak-defense	outputs	evade	test time	white box	read only	none	none	none	unstated	stated	none			P	agent
@@ -97,6 +108,7 @@ lean-rademacher-formalization	none	none	n/a	none	none	none	none	none	unstated	n/
 leap-complexity-sgd	none	none	n/a	none	none	compute	learner	algo class	class	n/a	none	time	explicit	S	agent
 learnability-deep-random-networks	none	none	n/a	none	none	compute	learner	algo class	class	n/a	none	queries	explicit	S	agent
 learning-in-pessiland	none	none	n/a	none	none	compute	learner	time	poly	n/a	none	none	explicit	P	agent
+learning-rate-induces-generative-exponent	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	none	explicit	P	agent
 lefcert-foundation-models	train data	poison	train time	white box	corpus	capability	attacker	corruption	budget	n/a	none	none	explicit	P	agent
 limits-cdp-client-server	none	none	n/a	none	none	compute	attacker	time	poly	n/a	privacy budget	none	explicit	P	agent
 low-degree-almost-orthonormal	none	none	n/a	none	none	compute	learner	algo class	class	n/a	none	none	explicit	P	agent
@@ -141,6 +153,7 @@ query-complexity-reconstruction	train data	reconstruct	post hoc	white box	read o
 raz-parity-time-space	none	none	train time	none	none	compute	learner	memory	budget	n/a	none	none	explicit	hand	hand
 reconstructing-informed-adversaries	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none	none		hand	hand
 reducibility-statistical-computational-gaps	none	none	n/a	none	none	compute	learner	time	conditional	stated	corruption	algo class	explicit	P	agent
+repetita-iuvant-data-repetition	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	algo class	explicit	P	agent
 reusing-batches-breaks-exponents	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	time	explicit	P	agent
 rigorous-implications-low-degree	none	none	n/a	none	none	compute	auditor	algo class	class	n/a	none		explicit	P	agent
 robust-estimators-high-dimensions	train data	poison	train time	none	corpus	compute	learner	time	poly	n/a	corruption		explicit	P	agent
@@ -153,9 +166,13 @@ robustly-reliable-learners-poison	train data	poison	train time	none	corpus	compu
 robustness-at-odds-accuracy	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	none	explicit	P	agent
 rs-llm-multi-agent	outputs	evade	test time	channel	channel	capability	attacker	perturbation	budget	n/a	samples	none	explicit	P	agent
 rs-meets-vlm	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	n/a	samples	none	explicit	P	agent
+scaling-laws-neural-lm	none	none	n/a	none	none	compute	learner	flops	exponent	absent	none	parameters	explicit	P	agent
 separating-cdp-client-server	none	none	n/a	none	none	compute	mechanism	time	poly	n/a	time	none	explicit	P	agent
 sequential-functions-fine-grained	none	none	n/a	none	none	compute	attacker	circuit depth	exponent	n/a	none	queries	explicit	P	agent
 seven-challenges-cross-domain-mas	none	multiple	n/a	none	none	none	none	none	unstated	n/a	none	none		P	agent
+sgd-reuse-info-theoretic-limit	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	algo class	explicit	P	agent
+sgd-xor-near-optimal	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	algo class	explicit	P	agent
+single-index-harmonic-decomposition	none	none	n/a	none	none	compute	learner	samples	exponent	stated	none	time	explicit	P	agent
 sok-adversary-knowledge	outputs	evade	test time	black box	read only	compute	attacker	queries	budget	stated	none	algo class	implicit	P	agent
 sok-backdoor-defense-evaluation	train data	backdoor	train time	none	corpus	none	none	none	unstated	n/a	none	none		S	agent
 sok-black-box-attack-pitfalls	outputs	evade	test time	black box	read only	compute	attacker	time	measured	n/a	none	none	implicit	P	agent
@@ -168,6 +185,7 @@ speak-much-remember-little	none	none	n/a	none	none	compute	attacker	memory	expon
 suliman-data-forging-attacks	training run	forge	train time	white box	corpus	none	none	none	unstated	n/a	none	none		P	agent
 tolerant-robust-pac-learning	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	n/a	samples	none	explicit	P	agent
 towards-separating-cdp	train data	membership	post hoc	white box	read only	compute	attacker	time	poly	stated	none	queries	explicit	P	agent
+transformers-sparse-xor-polylog	none	none	n/a	none	none	compute	learner	parameters	budget	stated	none	samples	explicit	P	agent
 two-party-dp-complexity	train data	reconstruct	post hoc	scores	read only	compute	attacker	time	poly	stated	none	queries	explicit	P	agent
 undetectable-watermarks-lm	outputs	evade audit	test time	black box	responses	compute	attacker	queries	exponent	stated	none	time	explicit	P	agent
 unelicitable-backdoors-lms	parameters	backdoor	train time	white box	model	compute	auditor	time	poly	n/a	none	none	explicit	P	agent

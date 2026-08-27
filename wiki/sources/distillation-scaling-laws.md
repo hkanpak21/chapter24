@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: transformer language-model distillation in the authors' controlled setup, student and teacher sizes 143M to 12.6B, fitted where student cross-entropy exceeds 2.3 and extrapolated below
 model_class: dense Transformer language models, teacher-student pairs
 algorithm_class: supervised pretraining and logit distillation under the authors' fixed recipe
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: parameters
+cls_assessed: explicit
+cls_evidence: "feature learning can improve scaling with training time and compute, nearly doubling the exponent for hard tasks"
+cls_evidence_src: abstract
+cls_reason: "No attack scenario, matching sibling exponent pages. party=learner: the bound is on the training algorithm (projected GD with feature-learning strength gamma), no adversary. unit=time/tightness=exponent for the proven (DMFT) time-exponent lift t^-beta to t^-(2beta/(1+beta)) for hard tasks, a stated relation to the lazy-limit baseline. baseline=stated: the lazy (gamma to 0) limit, which recovers the Paquette et al. phase diagram, is the explicit comparison the 'nearly doubling' claim is measured against. second_notion=parameters: the abstract's own next sentence ties the result to a different compute-optimal strategy to scale parameters and training time together, i.e. model size N is an incomparable second resource axis for the same learner (Table 1's compute-optimal exponents combine N and t)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

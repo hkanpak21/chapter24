@@ -9,7 +9,7 @@ shape imposes.
 
 \subsection{The attacker bounded in time}
 
-The largest region bounds an adversary in running time or circuit size, 34 works in
+The largest region bounds an adversary in running time or circuit size, 35 works in
 all. Its characteristic result is an impossibility proved against every efficient
 algorithm.
 
@@ -42,7 +42,7 @@ hardness profile carries cryptographic structure rather than arising by accident
 
 \subsection{The attacker bounded by what it may change}
 
-The next largest region, 28 works, bounds what the adversary may alter and leaves
+The next largest region, also 28 works, bounds what the adversary may alter and leaves
 what it may spend open. Twenty-three fix a perturbation radius and five a fraction of the
 training set.
 
@@ -61,8 +61,9 @@ form of adversary bound in the attack literature.
 
 \subsection{The learner bounded}
 
-Forty-five works constrain the party that trains rather than the party that attacks.
-Seventeen bound it in time, thirteen in an algorithm class, ten in samples.
+Sixty-two works constrain the party that trains rather than the party that attacks.
+Twenty-one bound it in time, eighteen in samples, thirteen in an algorithm class,
+and four in a budget of floating-point operations.
 
 The algorithm-class results are the ones that transfer. Feldman et al.\ prove that
 statistical-query algorithms need superpolynomially many queries to detect a planted
@@ -89,7 +90,7 @@ bounded-storage literature builds on \cite{GZ19}.
 
 \subsection{Nobody bounded}
 
-Thirty-two works constrain no party at all. They are not a residue, and two distinct
+Thirty-three works constrain no party at all. They are not a residue, and two distinct
 lines sit inside them.
 
 The first concludes inevitability from geometry. Mahloujifar, Diochnos and Mahmoody
@@ -116,7 +117,7 @@ their claims are about practice.
 \subsection{The auditor and the mechanism}
 
 Nineteen works bound a party that is neither attacking nor learning. Twelve bound an
-auditor, seven a mechanism.
+auditor and seven a mechanism.
 
 The auditor results are impossibilities about detection. Ball et al.\ show there
 exist language models for which no efficient prompt filter works, under a
@@ -155,14 +156,41 @@ An adversary that must recover rather than detect now has a threshold to be pric
 against, at least for these targets.
 
 The second is that the exponents price single-pass training, since gradient descent
-that reuses batches was reported to escape them \cite{DTAPZK24}. Escape is the
-wrong word for what reuse does. Two steps on one minibatch pass the label through
-the activation's derivative, which is a transformation a correlational
-statistical-query learner cannot make, and the effect is to attain the generative
-exponent in place of the information exponent rather than to leave the family
-\cite{LOSW24}. The learning rate selects between the two regimes \cite{TME25}. The
-exponents are therefore narrower than a security claim would want and less fragile
-than the escape reading suggests.
+that reuses batches was reported to escape them \cite{DTAPZK24}. Escape is the wrong
+word, and the mechanism is narrower than the word suggests. Two steps on one
+minibatch pass the label through the activation's derivative, which is a
+transformation a correlational statistical-query learner cannot make, and the effect
+is to attain the generative exponent in place of the information exponent rather
+than to leave the family \cite{LOSW24}. The learning rate selects between the two
+regimes \cite{TME25}.
+
+Reuse in general buys less than that. Kim et al.\ show that full-batch gradient
+descent, which reuses every sample at every step, gives no advantage at all over
+one-pass stochastic gradient descent for the plain quadratic activation, and that
+the logarithmic factor in sample complexity persists \cite{KJWSM26}. An advantage
+appears only once the activation is truncated, and it is a single logarithmic
+factor rather than a change of exponent. Their setting fixes the exponent at its
+smallest nontrivial value, so whether reuse helps at higher leap exponents is open,
+and the authors separate their own mechanism from the two-pass one. Batch reuse is
+therefore not one phenomenon, and a security claim resting on it has to say which
+mechanism it means.
+
+\subsection{Training compute as a priced resource}
+
+Seventeen works added to this corpus late price a budget of floating-point
+operations spent on training. Kaplan et al.\ fit loss against model size, data and
+compute \cite{KMHBCCGRWA20}, and Hoffmann et al.\ correct the allocation between
+model size and data at a fixed budget \cite{HBMBCRCHWCHNMDDGOSERVS22}. Ho et al.\ measure how
+much of the observed improvement comes from better algorithms rather than more
+compute \cite{HBEORGATS24}.
+
+None of these works concerns an adversary, and all of them bound the trainer. They
+matter to this survey because they establish that the unit exists and is measured.
+Shavit's compute-monitoring proposal is the one work in the corpus that carries that
+unit toward a security claim, and it states a hardness requirement without a
+construction \cite{Sha23}. The gap between a literature that measures training
+compute precisely and a security literature that never states an adversary's budget
+in it is the widest single gap this corpus contains.
 
 One work crosses in the other direction. Haghifam, Smith and Ullman show a setting
 where a membership inference attacker needs many more samples than the training

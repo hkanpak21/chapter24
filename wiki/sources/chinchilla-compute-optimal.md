@@ -17,11 +17,11 @@ cls_access: none
 cls_write: none
 cls_frame: compute
 cls_party: learner
-cls_unit: parameters
+cls_unit: flops
 cls_tightness: exponent
 cls_baseline: stated
 cls_second_party: none
-cls_second_notion: samples
+cls_second_notion: parameters
 cls_assessed: explicit
 cls_evidence: "for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled"
 cls_evidence_src: abstract

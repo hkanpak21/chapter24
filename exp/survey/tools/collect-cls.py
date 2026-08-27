@@ -39,5 +39,6 @@ for fn in sorted(glob.glob(os.path.join(SRC, "*.md"))):
 with open(OUT,"w",newline="",encoding="utf-8") as fh:
     w = csv.DictWriter(fh, fieldnames=["slug"]+FIELDS+["src"], delimiter="\t")
     w.writeheader(); w.writerows(rows)
-a = sum(1 for r in rows if r["src"]=="agent")
-print("classified: %d  (%d by agents, %d by hand)  of 181" % (len(rows), a, len(rows)-a))
+    a = sum(1 for r in rows if r["src"] == "agent")
+    tot = len(glob.glob(os.path.join(SRC, "*.md")))
+    print("classified: %d of %d  (%d by agents, %d by hand)" % (len(rows), tot, a, len(rows) - a))

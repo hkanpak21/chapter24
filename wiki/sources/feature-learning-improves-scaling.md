@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: a two-layer linear network on power-law features with capacity exponent alpha and source exponent beta, trained by a form of projected gradient descent (equivalently ordinary gradient descent on the two-layer linear network after random projections) with feature-learning strength gamma > 0, analyzed by DMFT
 model_class: two-layer linear network over power-law features, task difficulty indexed by source exponent beta (hard means beta < 1, target outside the initial NTK RKHS)
 algorithm_class: projected gradient descent / SGD on the two-layer linear model, mean-squared loss; feature-learning strength gamma is part of the recipe
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "the compute required to reach a set performance threshold has halved approximately every 8 months, with a 95% confidence interval of around 5 to 14 months"
+cls_evidence_src: abstract
+cls_reason: "No attack scenario: a measurement of training-recipe efficiency over calendar time, not a security claim. party=learner: the bound characterizes the population of published pre-training recipes, no adversary. unit=time/tightness=measured: an empirically fitted doubling time with a wide confidence interval and no theorem (claim_quantifier=empirical), unlike the proven exponent pages. baseline=stated: the abstract itself states the rate is substantially faster than hardware gains per Moore's Law, an explicit named comparison, verified at PDF line 24. second_notion=none: the compute-vs-algorithmic-progress decomposition splits one resource (effective compute) into two channels, not two incomparable resource types."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

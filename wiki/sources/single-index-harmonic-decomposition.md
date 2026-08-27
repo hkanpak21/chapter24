@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: "Spherical single-index models (Definition 1): input x = rz with radius r ~ nu_{d,R} independent of direction z ~ Unif(S^{d-1}), label y | (r, <w*, z>) ~ nu_d, likelihood ratio in L^2 of the null (enough label noise); nu_d known (Remark 2.1). SQ lower bound (Theorem 1(i)) is unconditional within the SQ(q, tau) model; the LDP sample lower bound (Theorem 1(ii)) holds under the low-degree conjecture and Assumption 1 (M*(nu_d) = O(d^{p/2})); the SQ-to-runtime translation q/tau^2 <= T is an informal heuristic validated by matching upper bounds; upper bounds (Theorems 2 on) additionally use Assumption 2 (a bounded transformation T_l capturing the Gegenbauer coefficient)"
 model_class: "spherical single-index models over arbitrary spherically symmetric input distributions, strictly generalizing Gaussian single-index models (recovered as the special case x ~ N(0, I_d), nu_d(Y, R, Z) = rho(Y, R·Z)); label may depend on the radius r = ||x||_2"
 algorithm_class: "lower bounds: SQ (query complexity q/tau^2) and low-degree polynomials (sample complexity, conditional on the low-degree conjecture); upper bounds: spectral estimators (harmonic degrees l = 1, 2), harmonic tensor unfolding (l >= 3, sample-optimal), online SGD (l >= 3, runtime-optimal)"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: time
+cls_assessed: explicit
+cls_evidence: "by simply truncating the activation, full-batch GD exhibits a favorable optimization landscape at n ≃ d samples, thereby outperforming one-pass SGD (with the same activation) in statistical efficiency"
+cls_evidence_src: abstract
+cls_reason: "No attack scenario: both full-batch GD and one-pass SGD are training algorithms in the learner role, no adversary. unit=samples/tightness=exponent for the headline n~d threshold (Theorems 3.2, 4.1), chosen over the algo-class/class pairing used in the sibling page information-exponent-online-sgd because this paper's abstract leads with the sample count, not the restriction to one named algorithm (rule 1). baseline=stated: the d log d one-pass SGD floor is imported from Ben Arous et al. (2021) Theorem 1.4 and stated explicitly as the comparison point, not proved in this paper. second_notion=time per rule 4b: Theorem 4.1 states an explicit, incomparable step-count bound (T >~ log d gradient steps) for the same learner alongside the sample bound. Caution for the survey: Theorem 3.1 (not the classified row, per rule 1) proves the opposite for the untruncated quadratic, full-batch reuse gives no advantage over one-pass SGD when n=o(d log d); the positive separation classified here holds only after truncating the activation, and even then the gain over one-pass SGD is a single log factor (Theta(d) vs Theta(d log d)), not an exponent-independent escape. The paper explicitly distinguishes its full-batch mechanism from the two-pass label-transformation mechanism of Dandi/Damian et al., calling full-batch reuse over a diverging time horizon 'a different resource from two passes'."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
