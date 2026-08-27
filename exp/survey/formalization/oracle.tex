@@ -84,11 +84,12 @@ attack is counted in oracle queries.
 The framework below makes that move for learning. The one object we cannot describe
 is the training map, so that is the one object the oracle idealizes. Inference is a
 computable function, analysis of weights is ordinary computation, and data is
-supplied by the game. The move has a precedent inside machine learning: the
-generic learning model of Villa et al.\ is this idealization used for one theorem,
-on the tension between a classifier's usefulness and membership privacy
-\cite{VDKMR26}. What is new here is using it as the ambient model every game lives
-in, and as the unit every party is priced in.
+supplied by the game. The move has a precedent inside machine learning. Villa et al.\
+formalize training as an abstract oracle inside a security game and prove one
+theorem there, on the tension between a classifier's usefulness and membership
+privacy \cite{VDKMR26}. The metering of that oracle, its role as the ambient
+model every game lives in, and the reading of its calls as the unit every party
+is priced in, are this document's additions, not theirs.
 
 \section{Notation}
 \label{sec:notation}
@@ -587,9 +588,9 @@ to one of them.
         \cite{MPRV09}. Recipe noise, Section~\ref{sec:view}, is where the mechanism
         lives.
   \item[Evasion.] Produce. The criterion is a label change inside a ball around a
-        given input. The baseline is random noise in the same ball, which the
-        concentration results show already succeeds on some tasks
-        \cite{GMFSRWG18}. Access is a view: black-box is the metered wrapper,
+        given input. The baseline is random perturbation at the same radius, and the
+        geometric results bound how near the nearest error must lie for a model
+        with nontrivial error rate \cite{GMFSRWG18}. Access is a view: black-box is the metered wrapper,
         white-box is the final model, and transfer is a shadow model plus the
         adversary's own gradient computation. The number of gradient steps an
         attack is allowed, which the evaluation guidance of Carlini et al.\ declines

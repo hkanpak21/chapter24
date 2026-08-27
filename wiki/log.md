@@ -616,3 +616,4 @@ generative exponent reached only via the depth-D extension. Cross-links added on
 `generative-exponent-single-index` and `reusing-batches-breaks-exponents`. `wiki/index.md` not
 touched.
 ## [2026-08-22] ingest | Chinchilla Scaling: A Replication Attempt
+## [2026-08-22] ingest | The Random Oracle Methodology, Revisited
