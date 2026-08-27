@@ -274,7 +274,16 @@ formalized in Part IV. **Needs one running example carried through all six subse
 
 ### Part IV — The formalization (≈5 pages)
 
-**State, 2026-08-22, evening.** `oracle.tex` grew a results section, `price.tex` (16 pp total):
+**State, 2026-08-28.** `oracle.tex` survived a two-round adversarial review by a fresh reviewer
+and stands at 18 pages, all gates green. The review forced a redesign, not a patch: the oracle is
+now explicitly an accounting and unification device that manufactures no hardness (it hides no
+randomness, unlike the random oracle); games name recipes and parties may not author them, blocking
+the wrap and launder attacks on the meter; the generic/structural dichotomy is replaced by
+view-genericity, an attack classified by the weakest view it needs and the queries it spends there;
+the win-win is now an audit proposition locating any real break in access, cost accounting, or an
+underpriced view; and the two postulates are named transfer hypotheses throughout, introduced at
+first use. Proposition 2 carries FGRVX Theorem 2.9's exact parameters. The re-verification pass
+confirmed E1-E9 and all overreach items resolved and found six residuals, all fixed. Prior state: `oracle.tex` grew a results section, `price.tex` (16 pp total):
 the price of aiming grounded in the SQ floors with the generative exponent as the surviving unit
 (the information exponent and the leap fell to batch reuse and learning-rate transitions and are
 cited only as what not to use); the price of skipping scoped recipe-relative, with amortization

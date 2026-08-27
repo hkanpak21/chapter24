@@ -72,9 +72,10 @@ views is a named theorem about what learning-shaped access cannot do.
 \subsection{The price of skipping is recipe-relative}
 \label{sec:price-skipping}
 
-The no-skipping postulate as stated in Section~\ref{sec:passive} prices the
+The no-skipping hypothesis as stated in Section~\ref{sec:passive} prices the
 walk of one recipe. The literature now forces exactly that scoping, and the
-force is worth exhibiting, because a stronger reading of the postulate is false.
+force is worth exhibiting, because a stronger reading of the hypothesis is
+false.
 
 The walk's length is a property of the pair recipe and query type, not of the
 task. The batch-reuse and learning-rate results above shorten the same walk to
@@ -122,10 +123,11 @@ asks whether anything in the measurement contradicts that floor. Sparse parity i
 statistical-query floor is unconditional and the statistical baseline of
 $\Theta(k \log d)$ samples makes the gap between information and computation
 visible. Barak et al.\ report the phase transition and its scaling
-\cite{BEGKMZ22}. The run below uses their Figure-2 hyperparameters over a
-dimension range extending beyond their fitted grid of $n \le 30$, into the
-range where their own plots show the exponent drifting, and records the law
-under this framework's accounting, so that the survey's numbers are its own.
+\cite{BEGKMZ22}. The run below matches their Figure-2 width, batch and learning rate, with one
+stated difference, momentum 0.9 where they run SGD with no auxiliary state, over
+a dimension range extending beyond their fitted grid of $n \le 30$, into the
+range where their own plots show the exponent drifting, so that the survey's
+numbers are its own.
 
 A two-layer ReLU network of width 100 is trained by minibatch SGD with
 momentum 0.9, batch 128, learning rate 0.01, on fresh samples per step, to
@@ -172,5 +174,6 @@ What the experiment does and does not show. It shows one recipe's cost growing
 as a power of the dimension, in the regime where the recipe's steps read as
 noisy correlational queries. It does not measure the floor itself,
 since no experiment can quantify over algorithms, and it says nothing about
-structural adversaries, for which noiseless parity is easy. It is the empirical
-face of the no-aiming postulate for the class that trains, and nothing more.
+adversaries granted richer views, for which noiseless parity is easy. It is one
+recipe's cost curve, consistent with the no-aiming hypothesis for the class
+that trains, and nothing more.

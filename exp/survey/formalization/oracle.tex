@@ -107,7 +107,7 @@ g_t & the gradient, or other per-step quantity, computed at step $t$ \\
 \Lo & the learning oracle, Definitions~\ref{def:passive} and~\ref{def:interactive} \\
 \View & a view, Definition~\ref{def:view} \\
 \C, \A & the challenger and the adversary \\
-\steps & the cost unit, one step of the recipe \\
+\steps & the within-recipe shorthand for metered cost, Definition~\ref{def:cost} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -204,8 +204,9 @@ stated in different corners of the literature meet in one accounting, and it
 prices the honest party and the adversary in one unit so that ratio statements
 can be written at all.
 
-The two postulates of the introduction, no skipping and no aiming, are on this
-reading not facts of the model. They are the \emph{transfer hypotheses}: the
+Two claims about concrete training, call them \emph{no skipping} and \emph{no
+aiming}, are on this reading not facts of the model. They are the
+\emph{transfer hypotheses}: the
 claims about concrete training that make the metered cost track real cost when a
 theorem leaves the model. No skipping asserts that for the recipe class in
 question, the content of a $T$-step trace is not obtainable below the work of
@@ -246,9 +247,13 @@ the party sees, and that is a function of the trace.
 
 \begin{definition}[View]
 \label{def:view}
-A view $\View$ is a publicly known function of a trace, possibly randomized and
-possibly lossy. A game assigns each party a view. When a trace $\Tr$ is produced,
-the party receives $\View(\Tr)$ and nothing else of $\Tr$.
+A view $\View$ is either a publicly known function of a trace, possibly
+randomized and possibly lossy, or a publicly specified stateful query interface
+to the trace or to the corpus distribution, with a stated query budget. A game
+assigns each party a view. When a trace $\Tr$ is produced, the party receives
+$\View(\Tr)$, or query access through the interface, and nothing else of
+$\Tr$. The black-box wrapper of Example~\ref{ex:views} and the statistical
+interface of Proposition~\ref{prop:sda} are views of the interface kind.
 \end{definition}
 
 Views are game parameters, not oracle features. The oracle always produces the
@@ -359,10 +364,16 @@ corresponding view of a passive trace.
 \begin{fact}[The passive oracle is a special case]
 Running $\Lo^{\circ}_{\Rec}$ for $T$ steps with no party attached produces, after
 projecting the trace onto the honest values, the same distribution over traces
-as one call to $\Lo_{\Rec}$, and costs the same $T$ steps. The projection is
-needed because the interactive trace also records per-port received values,
-which are absent from the passive trace.
+as one call to $\Lo_{\Rec}$, and costs the same $T$ steps.
 \end{fact}
+
+\begin{proof}
+With no party attached the oracle substitutes the honest rule at every port at
+every step, which is exactly one run of the recipe, and the metered work is the
+same $T$ steps of the same step function. The projection removes the per-port
+received-value fields, which the interactive trace carries and the passive
+trace does not.
+\end{proof}
 
 \begin{definition}[Write budget]
 \label{def:write}
@@ -611,9 +622,9 @@ to one of them.
         is producing an accepted trace in fewer. Jia et al.\ require that forging
         cost at least as much as honest training and conjecture rather than prove
         it \cite{JYCDTCP21}. In this framework the requirement is a bound on the
-        forger's steps relative to $T$, and the attacks that break their scheme
-        \cite{FJTYCDCP23} are generic or structural according to whether they call
-        the oracle.
+        forger's steps relative to $T$, and the attacks that break their scheme succeed against the
+        verifier's lossy view of the trace \cite{FJTYCDCP23}, which is the
+        view-against-trace gap Section~\ref{sec:price-skipping} prices.
   \item[Watermarking.] Distinguish, with a secret as the hinge: the detector holds
         the key and the distinguisher does not, as in Christ, Gunn and Zamir
         \cite{CGZ23}.
@@ -742,7 +753,7 @@ declares about the recipe's output. The framework does not yet say what a
 declaration may contain. Too little, and every theorem is about random functions.
 Too much, and the declaration is the theory of learning the oracle was introduced
 to avoid. The declaration must also assert that the recipe has no known shortcut,
-because the postulates are false where one exists: a convex recipe such as linear
+because the transfer hypotheses are false where one exists: a convex recipe such as linear
 regression has a closed-form endpoint, so the content of its trace is obtainable
 with none of its steps. The idealization is only credible for recipe classes in
 the no-known-shortcut regime, as the random oracle model is only credible for hash
