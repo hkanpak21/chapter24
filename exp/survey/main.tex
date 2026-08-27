@@ -1,16 +1,16 @@
-\documentclass[11pt]{article}
+% IEEE S&P (Oakland), Systematization of Knowledge track.
+% Two-column IEEEtran. The classification tables are wide and run over several
+% pages, so they sit in a one-column landscape block of their own; longtable
+% cannot break across a two-column float.
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-% tectonic's default engine is XeTeX, so inputenc's utf8 option is a no-op
-% and \DeclareUnicodeCharacter is undefined; the packages above are kept for
-% portability to pdflatex/luatex. Non-ASCII glyphs that the T1/Latin-Modern
-% fonts can't hold (em dash, ogonek, the author's Turkish dotted capital I)
-% must be written as LaTeX commands at the source (---, \k{a}, \.I) rather
-% than as literal Unicode bytes, since there is no inputenc mapping to fall
-% back on.
+% tectonic's engine is XeTeX, so inputenc's utf8 option is a no-op and
+% \DeclareUnicodeCharacter is undefined. Non-ASCII glyphs are written as LaTeX
+% commands at the source (---, \k{a}, \.I) rather than as literal bytes.
 
-\usepackage{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -18,18 +18,19 @@
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
-\geometry{margin=1in}
-
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 
 \input{results}
 
-\title{How Hard Is the Attack?\\A Complexity-Theoretic Survey of Machine Learning Security}
-\author{Halil {\.I}brahim Kanpak}
-\date{\today}
-
 \begin{document}
+
+\title{How Hard Is the Attack?\\
+A Complexity-Theoretic Systematization of Machine Learning Security}
+
+\author{\IEEEauthorblockN{Halil {\.I}brahim Kanpak}
+\IEEEauthorblockA{Ko\c{c} University\\
+Istanbul, T\"urkiye}}
 
 \maketitle
 
@@ -37,14 +38,23 @@
 \input{sections/00-abstract}
 \end{abstract}
 
+\begin{IEEEkeywords}
+machine learning security, threat models, adversary models, computational
+hardness, fine-grained cryptography, systematization of knowledge
+\end{IEEEkeywords}
+
 \input{sections/01-introduction}
 \input{sections/02-problem}
 \input{sections/03-preliminaries}
-\input{sections/04-tables}
 \input{sections/07-findings}
 \input{sections/08-related}
 
-\bibliographystyle{plain}
+\clearpage
+\onecolumn
+\input{sections/04-tables}
+\twocolumn
+
+\bibliographystyle{IEEEtran}
 \bibliography{refs}
 
 \end{document}

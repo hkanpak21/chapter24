@@ -1,0 +1,37 @@
+# Survey metadata. Set before the prose, per the research skill's conventions.
+title: "How Hard Is the Attack? A Complexity-Theoretic Systematization of Machine Learning Security"
+venue:
+  name: IEEE S&P (Oakland)
+  track: Systematization of Knowledge
+  tier: A
+  why: >
+    The flagship security venue with an explicit SoK category, which is what this
+    paper is. It runs four submission cycles a year, so a deadline is never far,
+    and it has a major-revision path rather than a single accept-or-reject. The
+    corpus's own closest works are there, including the membership-inference
+    attack this survey uses as its worked case (S&P 2022) and proof-of-learning
+    (S&P 2021). Papernot et al., the systematization this work positions against,
+    appeared at IEEE EuroS&P, so the flagship is the natural place for a successor.
+  alternatives_considered:
+    - USENIX Security SoK, where the field-wide evaluation critique this survey
+      leans on was published. A close second.
+    - ACM CCS and NDSS, both with SoK tracks, neither a better fit.
+    - PoPETs, too privacy-specific for a corpus that is half cryptography.
+    - CRYPTO, EUROCRYPT and TCC, which have no systematization track.
+  deadline: >
+    NOT RECORDED ON PURPOSE. The venues reference warns that every cycle month in
+    it is approximate. Check the live call for papers before planning around any
+    date.
+format:
+  class: IEEEtran
+  options: conference
+  columns: 2
+  bibliography: IEEEtran
+page_budget:
+  limit_body: 13          # approximate, verify against the call
+  current_body: 5         # sections 1 to 4 prose
+  current_tables: 12      # the two layers of section 5
+  note: >
+    The tables are over budget on their own. At submission the per-work reference
+    layer, tables V and VI, moves to an appendix or is cut to the cross-tabulations
+    alone. Kept in the body for now at the author's request, for inspection.
