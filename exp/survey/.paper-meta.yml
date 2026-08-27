@@ -34,10 +34,17 @@ format:
   caption_pt: 8
   font_family: Times New Roman
 page_budget:
-  limit_body: 13          # approximate, verify against the call
-  current_body: 5         # sections 1 to 4 prose
-  current_tables: 12      # the two layers of section 5
+  # From the call for papers, verified 2026-08-27, quoted verbatim:
+  #   "Submitted papers may include up to 13 pages of text and up to 5 pages for
+  #    references and appendices, totaling no more than 18 pages."
+  #   "For SOK papers, the references do not count towards the number of pages."
+  limit_text: 13
+  limit_appendix: 5
+  references_count_against_limit: false   # SoK exemption
+  current_text: 8
+  headroom: 5
   note: >
-    The tables are over budget on their own. At submission the per-work reference
-    layer, tables V and VI, moves to an appendix or is cut to the cross-tabulations
-    alone. Kept in the body for now at the author's request, for inspection.
+    The classification tables are a separate supplementary document rather than an
+    appendix, because they run to 18 pages and the appendix allowance is 5. The
+    supplement carries its own bibliography built from the same file, so a work's
+    number is the same in both documents.

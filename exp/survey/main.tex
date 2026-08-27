@@ -2,7 +2,7 @@
 % Two-column IEEEtran. The classification tables are wide and run over several
 % pages, so they sit in a one-column landscape block of their own; longtable
 % cannot break across a two-column float.
-\documentclass[conference]{IEEEtran}
+\documentclass[conference,compsoc]{IEEEtran}
 \IEEEoverridecommandlockouts
 
 \usepackage[utf8]{inputenc}
@@ -35,6 +35,10 @@ Istanbul, T\"urkiye}}
 
 \maketitle
 
+% A survey cites what it surveys. Numbering is shared with the supplement,
+% which lists every work by the number it carries here.
+\nocite{*}
+
 \begin{abstract}
 \input{sections/00-abstract}
 \end{abstract}
@@ -49,6 +53,7 @@ hardness, fine-grained cryptography, systematization of knowledge
 \input{sections/03-preliminaries}
 \input{sections/04-methodology}
 \input{sections/05-reading}
+\input{sections/06-literature}
 \input{sections/07-findings}
 \input{sections/08-related}
 \input{sections/09-conclusion}

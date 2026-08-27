@@ -7,3 +7,8 @@ d=60 seed=2 steps=None
 d=90 seed=0 steps=None
 d=90 seed=1 steps=None
 d=90 seed=2 steps=None
+d=120 seed=0 steps=None
+d=120 seed=1 steps=None
+d=120 seed=2 steps=None
+
+fitted log-log slope (steps ~ d^slope): None

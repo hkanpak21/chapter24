@@ -12,6 +12,8 @@
 
 \geometry{margin=1in}
 
+\input{../results}
+
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
@@ -173,9 +175,10 @@ cheated, in two ways.
 
 \emph{No skipping.} The content of a $T$-step trace costs $T$ steps. A hash chain
 of length $T$ is computable by anyone, and by assumption not in fewer than $T$
-sequential calls; the walk to a converged model is priced the same way. Sequential
-functions are the fine-grained home of this shape of assumption \cite{GM24}, with
-one boundary: they price depth, where the step count here is total work.
+sequential calls. The oracle prices the walk to a converged model the same way.
+Sequential functions are the fine-grained home of this shape of assumption
+\cite{GM24}, with one boundary. They price depth, where the step count here is
+total work.
 Proof-of-learning, whose security rests on the unproved claim that forging a
 training record costs as much as training \cite{JYCDTCP21}, is an instance of this
 postulate.

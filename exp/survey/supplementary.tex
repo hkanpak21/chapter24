@@ -1,7 +1,7 @@
 % Supplementary material for the survey. The full classification, in two layers.
 % Built with the same command as the paper:
 %   ../../.tools/tectonic -X compile supplementary.tex --outdir .
-\documentclass[conference]{IEEEtran}
+\documentclass[conference,compsoc]{IEEEtran}
 \IEEEoverridecommandlockouts
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -19,7 +19,12 @@ Machine Learning Security}
 \author{\IEEEauthorblockN{Halil {\.I}brahim Kanpak}
 \IEEEauthorblockA{Ko\c{c} University}}
 \maketitle
+\nocite{*}
 
 \onecolumn
 \input{sections/04-tables}
+
+\twocolumn
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
 \end{document}

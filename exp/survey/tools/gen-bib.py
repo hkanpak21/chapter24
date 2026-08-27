@@ -121,6 +121,9 @@ def short_venue(v):
     v = re.sub(r"[,\s]*\b(19|20)\d\d\b", "", v)          # drop any year
     v = re.sub(r"[,\s]*\b(vol\.?|volume|pp\.?|pages)\b.*$", "", v, flags=re.I)
     v = re.split(r"\s*,", v)[0]                              # drop trailing commentary
+    v = re.split(r"\s+\{?-{2,}\}?\s+|\s+\u2014\s+|\.\s+[A-Z]", v)[0]  # cut at a dash or a new sentence
+    v = re.sub(r"\s*\bvenue unconfirmed.*$", "", v, flags=re.I)
+    v = re.sub(r"^\s*Proceedings on\s+", "", v, flags=re.I)
     v = v.strip().rstrip(",;.:")
     for long, short in ABBREV:
         if re.fullmatch(long, v, re.I):
@@ -141,6 +144,13 @@ ABBREV = [
     (r"Network and Distributed System Security Symposium", "NDSS"),
     (r"ACM Symposium on Theory of Computing", "STOC"),
     (r"IEEE Symposium on Foundations of Computer Science", "FOCS"),
+    (r"(Annual )?Conference on Neural Information Processing Systems", "NeurIPS"),
+    (r"NeurIPS Track on Datasets and Benchmarks", "NeurIPS Datasets and Benchmarks"),
+    (r"Privacy Enhancing Technologies", "PoPETs"),
+    (r"Theory of Cryptography Conference", "TCC"),
+    (r"International Conference on Artificial Intelligence and Statistics", "AISTATS"),
+    (r"Symposium on Principles of Database Systems", "PODS"),
+    (r"IEEE Computer Security Foundations Symposium", "CSF"),
 ]
 
 
@@ -207,7 +217,7 @@ def main():
             lines.append("  howpublished = {arXiv:%s}," % aid)
             if r["ingested"]:
                 lines.append("  urldate      = {%s}," % r["ingested"])
-        elif sv:
+        elif sv and len(sv) <= 40:
             lines.append("@inproceedings{%s," % r["key"])
             lines.append("  author       = {%s}," % latex_escape(auth))
             lines.append("  title        = {%s}," % latex_escape(r["title"]))

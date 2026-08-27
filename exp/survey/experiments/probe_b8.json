@@ -1,0 +1,80 @@
+{
+  "k": 3,
+  "width": 512,
+  "batch": 8,
+  "lr": 0.1,
+  "max_steps": 300000,
+  "thresh": 0.9,
+  "rows": [
+    {
+      "d": 30,
+      "k": 3,
+      "steps": [
+        6940,
+        6100,
+        7380
+      ],
+      "samples": [
+        55520,
+        48800,
+        59040
+      ],
+      "median": 6940.0,
+      "solved": 3,
+      "total": 3
+    },
+    {
+      "d": 60,
+      "k": 3,
+      "steps": [
+        null,
+        null,
+        null
+      ],
+      "samples": [
+        null,
+        null,
+        null
+      ],
+      "median": null,
+      "solved": 0,
+      "total": 3
+    },
+    {
+      "d": 90,
+      "k": 3,
+      "steps": [
+        null,
+        null,
+        null
+      ],
+      "samples": [
+        null,
+        null,
+        null
+      ],
+      "median": null,
+      "solved": 0,
+      "total": 3
+    },
+    {
+      "d": 120,
+      "k": 3,
+      "steps": [
+        null,
+        null,
+        null
+      ],
+      "samples": [
+        null,
+        null,
+        null
+      ],
+      "median": null,
+      "solved": 0,
+      "total": 3
+    }
+  ],
+  "loglog_slope": null,
+  "loglog_intercept": null
+}
