@@ -1,0 +1,88 @@
+\section{Four findings from the classification}
+\label{sec:findings-tables}
+
+The tables in Section~\ref{sec:tables} carry \NumSources{} works. This section
+reads them. Each finding names the table it comes from, what is dense in it, and
+what is empty.
+
+\subsection{The field agrees on access and phase}
+
+Table~\ref{tab:phase-access} is the one that comes out full.
+\NumPhaseAccessCells{} of its 28 cells are populated. Of the \NumAttackWorks{}
+works that study an attack, \AttackAccessNamed{} name an access level, and they
+split evenly between attacking a model at test time and attacking one already
+released. The vocabulary of white box, black box, confidence scores and gradients
+is shared, and works from different subfields land in the same cells without
+argument.
+
+This is worth establishing before the other three tables, because it shows the
+field is capable of agreeing on a threat-model dimension. The disagreement the
+rest of this section documents is not a general failure to standardize.
+
+\subsection{It does not agree on resources}
+
+Table~\ref{tab:party-unit} is the same corpus against the party each work
+constrains and the unit it uses. \NumPartyUnitCells{} of its 70 cells are
+populated, and the occupied cells do not concentrate. Among the
+\NumAttackWorks{} works studying an attack, the adversary is bounded in time in 27
+of them, by a perturbation radius in \AttackPerturb{}, in queries in 10, in samples
+in 9, and by a corruption fraction in \AttackCorrupt{}. \AttackUnbound{} bound no
+party at all.
+
+The row for memory is the one to look at. Four works bound an adversary in memory
+and only one of them studies an attack, and that one is bounded-storage
+cryptography rather than an attack on a learned model. The bounded-storage
+literature has spent two decades on adversaries limited in space, and no work in
+this corpus carries that restriction to an adversary attacking a model.
+
+\subsection{The comparable form of bound is almost absent from attack papers}
+
+Table~\ref{tab:unit-tightness} sorts the same works by how tightly each states its
+bound. \NumExponent{} works state their bound as a relation to an honest party's
+work, which is the form that lets two results be placed on one scale.
+\NumExponentAttack{} of those \NumExponent{} study an attack, and three of the
+\NumExponentAttack{} are cryptographic constructions that happen to carry an attack
+family rather than analyses of a deployed system.
+
+The attack literature uses other forms. Of the \NumAttackWorks{} attack works,
+\AttackBudget{} state a budget, meaning a numeric allowance such as a perturbation
+radius or a query count that carries no relation to anything the defender does.
+\AttackUnstated{} state no tightness at all. \AttackPoly{} use the binary
+polynomial-time quantifier, \AttackMeasured{} report a measurement with no
+definitional standing, and \AttackClass{} name a restricted algorithm class.
+
+A budget bounds what an adversary may change. A relation to honest work bounds what
+it must spend to succeed against a defender who spends less. Only the second lets a
+reader ask whether one defence costs an attacker more than another, and the corpus
+contains \NumExponentAttack{} works that ask it.
+
+\subsection{The attack literature is the half that prices nobody}
+
+Table~\ref{tab:family-party} splits the corpus by whether a work studies a named
+attack. \AttackUnbound{} of the \NumAttackWorks{} attack works bound no party in
+any resource. \TheoryUnbound{} of the \NumTheoryWorks{} works with no attack family
+do. Stated as rates, the half of this corpus that studies attacks on machine
+learning is about twice as likely to state no adversary bound as the half drawn
+from cryptography and learning theory.
+
+The direction is worth stating plainly, because it is the opposite of what a reader
+might expect. The cryptographic works in this corpus are not the ones being
+imprecise about adversaries. They bound a party in \TheoryUnbound{} fewer cases out
+of a smaller total, and when they bound one they more often state the bound in a
+form another paper can be compared against.
+
+\subsection{Two columns this section does not report}
+
+Two of the recorded fields are omitted from the findings above. The baseline
+column, which records whether a work says what an adversary achieves from public
+knowledge alone, was applied under two readings during classification. One asks
+for the success rate available without access to the target. The other counts any
+explicit comparison quantity, including a matching information-theoretic bound,
+which is a different object. The column is being reclassified under the narrower
+reading before any count from it is published.
+
+The same holds for the column recording whether a work assesses its adversary's
+resources deliberately or leaves the quantity as a side condition. It is blank on
+17 works that do bound a party, which contradicts the rule that governs it. Both
+columns appear in Table~\ref{tab:adversary} so that a reader can see the current
+assignments, and neither carries a count in this section.

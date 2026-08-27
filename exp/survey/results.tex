@@ -38,3 +38,22 @@
 
 % Corpus breadth, counted over wiki/sources/ front-matter tags on 2026-08-22.
 \newcommand{\NumMIApages}{21}         % source pages mentioning membership inference
+
+% --- Findings read off the classification tables. Counted by tools/collect-cls.py
+% --- over notes/classification.tsv on 2026-08-22. Regenerate before submission.
+\newcommand{\NumAttackWorks}{101}     % works carrying an attack family
+\newcommand{\NumTheoryWorks}{80}      % works carrying none
+\newcommand{\NumPhaseAccessCells}{20} % populated cells of 28 in phase x access
+\newcommand{\NumPartyUnitCells}{24}   % populated cells of 70 in party x unit
+\newcommand{\AttackAccessNamed}{71}   % attack works naming an access level
+\newcommand{\NumExponent}{25}         % works stating a bound relative to honest work
+\newcommand{\NumExponentAttack}{7}    % of those, works studying an attack
+\newcommand{\AttackUnbound}{23}       % attack works bounding no party
+\newcommand{\TheoryUnbound}{9}        % non-attack works bounding no party
+\newcommand{\AttackBudget}{38}        % attack works whose bound is a budget
+\newcommand{\AttackUnstated}{25}      % attack works stating no tightness
+\newcommand{\AttackPoly}{17}
+\newcommand{\AttackMeasured}{10}
+\newcommand{\AttackClass}{4}
+\newcommand{\AttackPerturb}{23}       % attack works bounded by a perturbation radius
+\newcommand{\AttackCorrupt}{5}        % attack works bounded by a corruption fraction
