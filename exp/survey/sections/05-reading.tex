@@ -84,18 +84,46 @@ imprecise about adversaries. They bound a party in \TheoryUnbound{} fewer cases 
 of a smaller total, and when they bound one they more often state the bound in a
 form another paper can be compared against.
 
-\subsection{Two columns this section does not report}
+\subsection{Fifteen works hold a quantity their framing does not carry}
 
-Two of the recorded fields are omitted from the findings above. The baseline
-column, which records whether a work says what an adversary achieves from public
-knowledge alone, was applied under two readings during classification. One asks
-for the success rate available without access to the target. The other counts any
+The classification records, separately from how tightly a work states its bound,
+whether the work treats that bound as its object or leaves it as a side condition.
+Across the corpus the two agree \AssessedPredictable{} per cent of the time, which
+is what makes the \NearMiss{} works where they disagree worth naming. Each holds a
+resource quantity that its own framing does not carry.
+
+\NearMissA{} of them state a bound in definitional form and do not treat it as the
+thing being studied. The filtering impossibility is the clearest. Its theorem turns
+on the filter running no faster than the model it audits, which is a ratio between
+two parties' compute, and the paper states it as a side condition rather than as the
+quantity the result is about \cite{BGGKRR25}. The evaluation guidance that rejects
+attacker compute as a threat-model parameter nonetheless fixes a perturbation radius
+and reasons about gradient-step counts \cite{CAPBRTGMK19}. Two proof-of-learning
+follow-ups price a forgery against honest training and leave the ratio
+unparameterized \cite{ZFWCSXZ26}.
+
+\NearMissB{} run the other way, treating a cost deliberately while stating it only
+as a measurement. Dziedzic et al.\ calibrate a proof-of-work puzzle to how much a
+client has already extracted, which is an adversary priced in compute, with no
+definition and no theorem attached \cite{DKLP22}.
+
+The remaining \NearMissC{} state no tightness at all while plainly assessing a
+resource. Proof-of-learning requires that forging cost at least as much as training
+and states that requirement three times without an exponent, an adversary class or
+a security parameter \cite{JYCDTCP21}. The position that membership inference
+cannot establish training-set membership rests, in its second and independent
+argument, on the cost of sampling a null hypothesis that would require training new
+large models \cite{ZDKT25}.
+
+These \NearMiss{} works are where the quantity this survey is about already exists
+in the literature without a name.
+
+\subsection{One column this section does not report}
+
+The column recording whether a work states what an adversary achieves from public
+knowledge alone was applied under two readings during classification. One asks for
+the success rate available without access to the target. The other counts any
 explicit comparison quantity, including a matching information-theoretic bound,
 which is a different object. The column is being reclassified under the narrower
-reading before any count from it is published.
-
-The same holds for the column recording whether a work assesses its adversary's
-resources deliberately or leaves the quantity as a side condition. It is blank on
-17 works that do bound a party, which contradicts the rule that governs it. Both
-columns appear in the supplementary tables so that a reader can see the current
-assignments, and neither carries a count in this section.
+reading, it appears in the supplementary tables so its current assignments are
+visible, and it carries no count here.

@@ -22,7 +22,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "g(x + δ) = cA for all ‖δ‖2 < R"
 cls_evidence_src: "Thm 1"
 cls_reason: "Rule 5, exact match: the only restriction on the attacker is the ℓ2 perturbation radius R, so party=attacker, unit=perturbation, tightness=budget, frame=capability. access=white box: the certificate is stated to hold for the worst case over any perturbation within the ball regardless of the base classifier f or the attacker's knowledge of it ('Theorem 1 assumes nothing about f'), i.e. it covers a fully-informed adversary. second_party=none: the defender's Monte Carlo sample budget is a confidence device on the certificate, not a resource bound on a party, per the Claim Boundary. write=none: the attacker perturbs its own query input at test time, it does not write to a corpus, model, or response channel."

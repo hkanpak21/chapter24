@@ -22,7 +22,7 @@ cls_tightness: poly
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "the class of all predicates over R computable by some non-uniform polynomial-time Turing Machine (TM)"
 cls_evidence_src: "Preliminaries (Notation, defining T_poly)"
 cls_reason: "Not an ML-attack-scenario paper: a definitional map between CDP notions (IND-CDP, SIM-CDP, SIM-forall-exists-CDP), so target/family/phase/access/write = none/n/a. party/unit/tightness from the test class T_poly that both the direct implications and the separation quantify over. The headline claims (Corollary 2's parameter fix, the new separation) rest on no mechanism-efficiency assumption, so second_party = none even though Theorem 3 and Theorem 4 separately add an efficient-mechanism antecedent; those are secondary results by Rule 1. baseline = n/a: no advantage-over-baseline game, the notions are ratio/expressiveness comparisons."

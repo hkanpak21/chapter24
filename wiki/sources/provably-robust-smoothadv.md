@@ -22,7 +22,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "ε = maximum allowed ℓ2 perturbation of the input"
 cls_evidence_src: "§4 (experimental hyperparameters)"
 cls_reason: "Rule 5, same shape as Cohen et al. (whose certification machinery this paper inherits unchanged, per the Claim Boundary: 'the certificate is Cohen et al.'s and is unconditional'): the only restriction on the evasion adversary is the l2 perturbation radius epsilon, so party=attacker, unit=perturbation, tightness=budget, frame=capability, access=white box, write=none. The paper's own 'SmoothAdv attack' objective is a training-time proxy the defender solves to generate adversarial examples for adversarial training, not a bound on the threat-model attacker, so it does not change this row. second_party=none: the reported Monte Carlo/training-time cost (8-16x) appears only in the wiki's Open Questions/Limitations discussion, not as a formal theorem parameter (rule 8), so it is not elevated to a second party bound."

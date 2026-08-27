@@ -21,7 +21,7 @@ cls_tightness: exponent
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "Verifier sample complexity: mV ≤ O(log(k)/τ 2 )"
 cls_evidence_src: "Thm 2 (§3.1)"
 cls_reason: "party = auditor (the verifier), not the cheating prover, per the task's audit warning: soundness (Def 3.1/3.2) quantifies over an unrestricted prover, and the query/sample bound sits on the verifier and on the algorithm A being certified. frame = statistical, not compute: the paper states its own efficiency notion is statistical throughout ('efficiency ... primarily focuses on statistical resources, rather than computation'), and Corollary 6 is a barrier showing the statistical savings do NOT become computational. tightness = exponent because the verifier's O(log k) cost is stated directly against the honest prover's Θ~(sqrt k) cost (the paper's headline 'exponential gap'). Theorem 3 additionally proves computational soundness (PPT cheating prover, Random Oracle Model, Fiat-Shamir) for randomized SQ algorithms of O(1) epochs -- a different party (the cheating prover, not the verifier) under a different, secondary theorem; not reflected in this row per Rule 1, since the abstract leads with the statistical sample-complexity gap and says nothing about PPT/ROM. family = evade audit and target = training run are judgment calls: the paper is a certification/defense construction, not an attack paper, but its soundness game (cheating prover tries to get an invalid hypothesis accepted for a claimed SQ execution) is the closest fit in the vocabulary to what it defends against. write = responses: the cheating prover fabricates the transcript of query-answer pairs presented as the certificate."

@@ -22,7 +22,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "perturbed inputs x + e, with perturbation e ∈ Bp(r) in the Lp ball of radius r, that make a classifier g misclassify the input x"
 cls_evidence_src: §2 Background
 cls_reason: "Rule 5 (perturbation budget); no computational, query or memory bound on any party anywhere in the paper (grepped 'polynomial', 'computation', 'runtime' — only the defender's certification runtime in Fig. 4, a different party's cost, not the attacker's), so assessed is blank rather than implicit. access/write=none: the certificate is a worst-case guarantee over the whole ℓ2 ball, with no described query/interaction protocol."

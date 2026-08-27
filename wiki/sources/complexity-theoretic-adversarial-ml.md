@@ -21,7 +21,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "adversary who changes only O( n) bit of the inputs increasing the error of the classifier to almost 1"
 cls_evidence_src: p.1, Inference-time Attacks section (citing DMM18; this research statement carries no internal theorem numbers)
 cls_reason: "This research statement surveys several results of different shapes (info-theoretic evasion inevitability, a sample-complexity separation, computational-concentration poly-time attacks in MM19/EMM20, and the GJMM20 positive computational-robustness separation); this row reflects the document's leading claim, the DMM18/MDM19 inherent bound, whose only stated restriction is the adversary's O(sqrt(n))-bit Hamming perturbation budget (the sqrt symbol is dropped by pdftotext in the quoted fragment), so per the perturbation-budget rule the row is party=attacker/unit=perturbation/frame=capability rather than frame=none. The later computational threads are classified separately on their own dedicated pages, computational-concentration-of-measure-etesami and computational-hardness-robust-learning."

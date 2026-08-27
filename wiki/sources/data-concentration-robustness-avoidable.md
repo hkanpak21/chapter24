@@ -20,7 +20,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "A classifier g is defined to be (ϵ, δ)-robust if the robust risk against perturbations with ℓ2 norm bounded by ϵ is at most δ"
 cls_evidence_src: Def 2.1
 cls_reason: "Classified on Def 2.1's (eps,delta)-robustness, an l2 perturbation-budget bound, per the perturbation-budget rule, rather than as frame=none; the paper bounds nobody computationally anywhere, so without that rule this would default to the none row. Both Thm 2.1 (necessity) and Thm 3.1 (sufficiency, existential) share this same robustness definition, so the row is stable regardless of which theorem is read as the paper's main claim. Read the CLAUDE.md warning first: this paper's 'concentration' is a Lebesgue-volume notion, the opposite geometric sense from computational-concentration-of-measure-etesami's metric-measure sense, though that distinction affects the papers' substance, not these classification fields, which turn on the shared perturbation-budget structure of the evasion setup."

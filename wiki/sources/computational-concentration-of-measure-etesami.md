@@ -21,7 +21,7 @@ cls_tightness: poly
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "such a close point of Hamming distance O( n · ln(1/εδ)) in time poly(n, 1/ε, 1/δ)."
 cls_evidence_src: abstract
 cls_reason: "family=evade rather than poison: Theorem 1.1/3.2 is stated as finding a nearby point in a target set S at Hamming distance O(sqrt(n log(1/(eps delta)))); polynomial-time poisoning is a stated downstream corollary, not the theorem's own object. access=hard label translates the paper's own 'S-membership query oracle' framing into the closest fixed-form category; the paper never uses the phrase 'hard label' and S need not literally be a classifier's error region."

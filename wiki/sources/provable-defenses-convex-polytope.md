@@ -22,7 +22,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "provably has less than 5.8% test error for any adversarial attack with bounded ℓ∞ norm less than ε = 0.1"
 cls_evidence_src: abstract
 cls_reason: "Rule 5, exact match: the only restriction on the attacker is the l-infinity perturbation radius epsilon, so party=attacker, unit=perturbation, tightness=budget, frame=capability. access=white box: the LP certificate bounds the worst case over the whole convex outer polytope, i.e. holds regardless of the attacker's strategy or knowledge, matching the Cohen et al. precedent's reasoning for a fully-informed adversary. write=none: the attacker perturbs its own input at test time; it does not write to a corpus, model, or response channel. second_party=none: the paper's own defender cost (extra forward/backward passes, possibly larger batch sizes) is mentioned as implementation overhead, not formalized as a resource bound on a party in any theorem."

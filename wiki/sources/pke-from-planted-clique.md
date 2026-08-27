@@ -23,7 +23,7 @@ cls_tightness: quasi-poly
 cls_baseline: stated
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "We give a public key encryption scheme that is provably secure against poly-size adversaries, assuming n^{(log n)^α} hardness of the standard planted clique conjecture, for any α ∈ (0,1)"
 cls_evidence_src: abstract
 cls_reason: "unit=circuit size, not algo class: Conjecture 1.1 itself quantifies over 'n^{(log n)^α}-size algorithms A' (§1), a non-uniform size bound; the paper's own Claim Boundary already flags that the restricted-class evidence (SQ, SOS, low-degree) is 'evidence for the assumptions' and 'not the class the security theorem quantifies over' — exactly the circuit-size-vs-algorithm-class confusion the audit warning names. tightness=quasi-poly: n^{(log n)^α} is an explicit quasi-polynomial bound, matching the sibling BW08 page and cryptography-from-planted-graphs.md's convention for this problem family. family=none, not invert: security is semantic security against the encryption scheme (Theorem 1.6), not a function-inversion game, matching the corpus convention for planted-structure PKE (cryptography-from-planted-graphs.md, pkc-from-different-assumptions.md). baseline=stated: Conjecture 1.1 states an explicit ≤1/3 advantage bound; the noisy k-LIN conjecture separately states a 1/16 bound. assessed left blank for consistency with cryptography-from-planted-graphs.md and pkc-from-different-assumptions.md."

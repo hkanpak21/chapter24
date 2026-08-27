@@ -22,7 +22,7 @@ cls_tightness: budget
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "satisfies (ε, δ)-differential privacy if for any two adjacent inputs d, d0 ∈ D and for any subset of outputs S ⊆ R it holds that Pr[M(d) ∈ S] ≤ eε Pr[M(d0) ∈ S] + δ"
 cls_evidence_src: Def 1
 cls_reason: "Adversary is explicitly unbounded (\"full knowledge of the training mechanism and access to the model's parameters\", §1); the only bound in the paper falls on the mechanism, via the privacy budget ε, hence party=mechanism/unit=privacy budget/frame=capability rather than an attacker-side reading; family=none because this is a defence with no attack instantiated."

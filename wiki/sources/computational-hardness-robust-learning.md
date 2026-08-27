@@ -22,7 +22,7 @@ cls_tightness: poly
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed:
+cls_assessed: explicit
 cls_evidence: "the size of circuit used by the adversary controls its computational power and that is why we are enforcing it to be a polynomial."
 cls_evidence_src: §2, text following Def 1 and Def 3
 cls_reason: "access=black box is stated explicitly as the paper's default ('by default, we model adversaries who have black-box access to h(·), Dn'), not white-box, even though h is a public deterministic verify-then-classify procedure. second_party left none because Theorem 8, the paper's stated main positive result, bounds only the attacker (circuit size); the learner is additionally constrained to polynomial time only in the separate Corollary 9 (robustly-hard base problem), not in Theorem 8 itself."
