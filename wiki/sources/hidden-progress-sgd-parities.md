@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: "Empirical Finding 1 holds for small instances (n <= 30, k <= 4) over the enumerated grid of architectures, initializations, batch sizes and learning rates. Theorem 4 requires sign-vector initialization, hinge loss, width r = Omega(2^k k log(k/eps)), batch size B = Omega(n^k log(n/eps)), k even, n odd. Theorems 6-7 require the disjoint-PolyNet architecture and the disjoint (n,k)-parity problem."
 model_class: "(n,k)-sparse parity over the uniform Boolean hypercube: y = prod_{i in S} x_i, |S| = k, x ~ Unif({+-1}^n). Statistically easy (Theta(k log n) samples), conjectured to cost n^{Omega(k)} computation at any noise level o(1) (Alekhnovich 2003)."
 algorithm_class: "SGD/GD on neural networks (2-layer MLPs, 1-neuron sinusoidal/zigzag nets, simplified Transformers, PolyNets); the lower bound cited is for statistical query algorithms (Kearns 1998), Omega(n^k) constant-noise queries"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: measured
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "for small n, power law relationships tc ∝ nα·k (for small constants α) are observed for all configurations."
+cls_evidence_src: Appendix C
+cls_reason: "Not an attack paper: target/family/phase/access/write = none/none/n/a/none/none (rule 2). party=learner (rule 3): the bound binds SGD, not an adversary. unit=time for t_c, the iteration count Finding 1 reports. tightness=measured because Finding 1 is the abstract-led main claim (rule 1) and is claim_quantifier=empirical in front matter, unlike the theorem-led siblings in this batch. second_notion=samples records Theorem 4's own batch-size bound B=Omega(n^k log(n/eps)), a second internally-proven quantity on the same party (rule 4b). baseline=stated against the externally-cited n^Omega(k) SQ query lower bound (Kearns 1998); that comparison is external rather than a class this paper's own theorem is stated over, so it is recorded via baseline, not second_notion=algo class. Caution: the SQ bound is a conjecture for noiseless parity (Alekhnovich 2003), and Gaussian elimination solves noiseless parity outside SQ in poly(n) time (Claim Boundary), so this prices SGD against a restricted-class limit, not an unconditional one. This paper is Boolean/SQ-framed (Kearns 1998), not part of the Gaussian single-index information/generative-exponent line used elsewhere in this batch."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

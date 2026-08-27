@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Gaussian data, multi-index target y = h*(W* z) with k = O_d(1) orthogonal directions and polynomial-growth h*, sigma (Assumption 1); Algorithm 1 (extragradient-type step: an inner gradient at learning rate rho followed by the outer update, i.e. the same sample processed twice), correlation loss, single-sample steps n_b = 1, spherical normalization, second layer frozen (Assumption 3); activation analytic a.e. with non-vanishing Hermite-type coefficients (Assumption 4, satisfiable by biasing); rho = rho_0/d with rho_0 generic (almost every rho_0 under Lebesgue measure)"
 model_class: "single-index (k = p = 1) and multi-index Gaussian targets; hardness classified by the polynomial generative exponent l*_p per direction; hard class includes k-sparse parities such as sign(z1 z2 z3); grand-staircase couplings make hard directions learnable sequentially"
 algorithm_class: "one-pass SGD-type routines that apply two gradient steps to each sample (extragradient / SAM / lookahead family); weak-recovery guarantees for this class, contrasted with vanilla one-pass SGD; no lower bound proven for any class"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "There is a choice of hyperparameters such that if h⋆ is a polynomial function, Algorithm 1 achieves weak recovery in O(d log(d)2 ) samples"
+cls_evidence_src: §1 (Theorem 1, informal)
+cls_reason: "party=learner, matching the sibling exponent-paper convention (information-exponent-online-sgd, leap-complexity-sgd, generative-exponent-single-index), not attacker: Algorithm 1 is a learning routine, not a security game. unit=samples/tightness=exponent for the explicit O(d), O(d log^2 d) step counts of Theorem 2, matching generative-exponent-single-index's treatment of an explicit sample-complexity-vs-exponent formula, here indexed by l*_p rather than k*. second_notion=algo class because the bound holds specifically for Algorithm 1 (the extragradient/two-gradient-step family), not for SGD in general; the paper states the multi-epoch-SGD extension is 'an expectation, not a theorem.' baseline=stated: Theorem 3 is explicitly said to match 'Chen-Meka-level sample complexity,' a named prior algorithm's threshold."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

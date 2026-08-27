@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: the power-law random features model with data exponent alpha and target exponent beta, trained by one-pass SGD with batch size of order one and admissible learning rate, in the large-d limit, with alpha > 1/4, 2(alpha+beta) > 1, beta < 1 + 2alpha, and (alpha, beta) off the critical lines
 model_class: power-law random features (PLRF), three parameters (alpha, beta, d)
 algorithm_class: one-pass SGD on PLRF, mean-squared loss, constant learning rate, batch size O(1)
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: parameters
+cls_tightness: exponent
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "the compute-optimal parameter is d⋆ = f1/2 and it is independent of α and β"
+cls_evidence_src: Phase Ib discussion (compute-optimal d*)
+cls_reason: "party=learner: one-pass SGD on PLRF, no adversary. unit=parameters for d*(f), the paper's own headline quantity (abstract: 'computing the optimal model-parameter-count as a function of floating point operation budget'); second_notion=samples (rule 4b) because iterations r in this one-pass, fresh-sample-per-step regime are total samples consumed, matching the convention used for information-exponent-online-sgd and leap-complexity-sgd's step-count-as-samples treatment. The compute budget f itself (flops = iterations × batch × parameters) has no unit-vocabulary value, the exact gap the assigning brief names by example ('floating-point operations or a token budget'), flagged here rather than forced into time. tightness=exponent for the proven d*(f)≍f^{1/2} formula (Theorem 2.1-derived, within the model). baseline=absent: the paper states outright 'another algorithm could change the compute-optimal curves for these phases' and leaves a cross-algorithm lower bound as future work."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

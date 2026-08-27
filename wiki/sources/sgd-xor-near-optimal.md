@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Boolean data x ~ Unif({-1,1}^d) labeled by the 2-sparse XOR y = -x_1 x_2 (rotationally invariant algorithm, so any basis); 2-layer ReLU network of width 1/theta <= p <= d^C with theta = 1/log^C(d), both layers trained simultaneously by online minibatch SGD on the logistic loss with minibatch size m >= d/theta, step size d^{-C} <= eta <= theta, initialization scale theta/sqrt(p); fresh samples at every step"
 model_class: "k = 2 XOR (2-sparse parity) on the Boolean hypercube; leap complexity L = 2, degree D = 2. NOT general k-sparse parity, NOT Gaussian data, NOT regression."
 algorithm_class: "standard online minibatch SGD, both layers trained simultaneously, logistic loss; minibatch size d·polylog(d) with fresh samples per step (no batch reuse); batch size 1 is open"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "we can learn the XOR function up to ǫ population loss in Θ (dpolylog(d)) samples and iterations on a polynomial-width network"
+cls_evidence_src: "§3, restating Thm 3.1"
+cls_reason: "Not an attack paper: target/family/phase/access/write = none/none/n/a/none/none. party=learner (rule 3): the bound binds the minibatch-SGD-trained two-layer network, not an adversary. unit=samples/tightness=exponent for Theorem 3.1's explicit Theta(d polylog d) sample-and-iteration threshold. second_notion=algo class records footnote 1's own class-relative yardstick, 'for algorithms that are rotationally invariant, Theta~(d) samples are required', a symmetry class the paper's own algorithm and initialization satisfy by construction (Remark 2.1), not an SQ/CSQ class. baseline=stated against that same footnote-1 floor. This is an ESTIMATION result (o(1) population loss on the learned classifier), stated explicitly in the page's own Detection versus estimation section, placing it alongside sgd-reuse-info-theoretic-limit rather than the weak-recovery-only learning-rate-induces-generative-exponent, both in this same batch. This is the k=2 Boolean-hypercube instance of the leap-complexity conjecture Theta~(d^{max(L-1,1)}), confirmed here with a fully standard algorithm; it is not itself an information- or generative-exponent result on Gaussian data."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

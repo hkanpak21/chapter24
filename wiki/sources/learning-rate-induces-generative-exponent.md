@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: Gaussian single-index models under the paper's Assumptions 3.1 and 3.2, online iterative algorithms of the stated one-step form with initialization overlap of order d^{-1/2}; per-corollary coefficient positivity conditions (e.g. mu_p, mu_p2 > 0 for alternating SGD)
 model_class: Gaussian single-index models, information exponent p, generative exponent p*
 algorithm_class: online (one-pass) gradient-type updates including vanilla SGD, batch-reuse SGD, and layer-wise alternating SGD; the learning rates are part of the class
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "iterations of Algorithm 2 are necessary and sufficient to achieve weak recovery."
+cls_evidence_src: Cor. 4.3
+cls_reason: "Not an attack paper: target/family/phase/access/write = none/none/n/a/none/none. party=learner (rule 3): the bound binds the online algorithm, not an adversary. unit=samples/tightness=exponent for Corollary 4.3's explicit closed-form threshold T(eta)=Theta~(d^{(p-1)v1}) wedge Theta~(eta^{-2} d^{(p2-1)v1}), matching how this corpus already prices the sibling generative-exponent-single-index result. second_notion=none: unlike leap-complexity-sgd or reusing-batches-breaks-exponents, this paper gives one unified formula rather than two separately-proven resource bounds on the learner. baseline=stated: the paper explicitly measures the induced threshold against the plain information-exponent regime (vanilla online SGD's d^{p-1}) it improves on. Caution flagged per assignment brief: Corollary 4.3 proves only WEAK recovery (a detection-shaped guarantee), never full estimation; this is the opposite emphasis from sgd-reuse-info-theoretic-limit in this same batch, which proves strong recovery plus a generalization bound and states so explicitly in its own Detection versus estimation section. Do not conflate the two exponents either: this paper's large-learning-rate regime attains the generative exponent p* (Damian et al. 2024), while its small-learning-rate regime recovers exactly the information-exponent rate of Ben Arous-Gheissari-Jagannath; both are cited correctly in the page's own Connections section."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

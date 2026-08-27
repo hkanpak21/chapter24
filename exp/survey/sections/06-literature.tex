@@ -142,10 +142,27 @@ confirms \cite{FJTYCDCP23}.
 The learning-theory exponents are the closest the machine learning side comes to a
 priced adversary. The information exponent \cite{AGJ21}, the leap \cite{ABM23} and
 the generative exponent \cite{DPLB24,DLB25} each give a sample threshold defined
-against an algorithm class. Two boundaries limit what they can carry into security.
-The thresholds are for detection, and an adversary that must recover a record is
-doing estimation, whose threshold those authors leave open. And the exponents price
-single-pass training, since gradient descent that reuses batches escapes them.
+against an algorithm class.
+
+Two boundaries on those thresholds are quoted more often than they now hold. The
+first is that the thresholds measure detection rather than recovery, which the
+single-index result states of itself \cite{DPLB24}. That gap has since been closed
+for polynomial links. Arnaboldi et al.\ carry weak recovery through to strong
+recovery and a population error bound at $\tilde\Theta(d^{(p^*-1) \vee 1})$ samples,
+governed by the generative exponent \cite{LOSW24}, and Glasgow reaches $o(1)$
+population error on the Boolean parity instance in $\tilde\Theta(d)$ \cite{Gla24}.
+An adversary that must recover rather than detect now has a threshold to be priced
+against, at least for these targets.
+
+The second is that the exponents price single-pass training, since gradient descent
+that reuses batches was reported to escape them \cite{DTAPZK24}. Escape is the
+wrong word for what reuse does. Two steps on one minibatch pass the label through
+the activation's derivative, which is a transformation a correlational
+statistical-query learner cannot make, and the effect is to attain the generative
+exponent in place of the information exponent rather than to leave the family
+\cite{LOSW24}. The learning rate selects between the two regimes \cite{TME25}. The
+exponents are therefore narrower than a security claim would want and less fragile
+than the escape reading suggests.
 
 One work crosses in the other direction. Haghifam, Smith and Ullman show a setting
 where a membership inference attacker needs many more samples than the training

@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: decoder-only Transformer language models trained with Adam on WebText2-style text, within the measured range of roughly seven orders of magnitude
 model_class: decoder-only Transformer language models
 algorithm_class: Adam-optimized autoregressive training, one recipe family
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: parameters
+cls_tightness: exponent
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "can be fit very well with a power-law N (Cmin) ∝ (Cmin)0.73"
+cls_evidence_src: Eq 6.1
+cls_reason: "party=learner (rule 3): no adversary appears anywhere in the paper. frame=compute and unit=parameters/second_notion=samples (rule 4b): Cmin is defined as 6·N·Bcrit·S, i.e. FLOPs, a computational resource, but FLOPs itself has no unit-vocabulary value, so N and D, the two quantities the fixed compute budget is split between, are recorded instead and the FLOPs gap is flagged rather than forced into unit=time. tightness=exponent, not measured, because Eq 6.1 is a stated power-law relation, matching the corpus convention used for generative-exponent/leap-complexity papers, even though the exponent is itself curve-fit rather than proven. baseline=absent: the Claim Boundary states 'nothing rules out an algorithm...reaching the same loss with less compute,' i.e. no comparison point is given."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

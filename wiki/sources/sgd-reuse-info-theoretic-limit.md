@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Gaussian single-index model y = sigma*(<x, theta>) + noise with x ~ N(0, I_d); for the headline Theta(d polylog d) result, sigma* is an arbitrary degree-q polynomial (Assumption 1); the network is the specific two-layer model (3.1) with randomized Hermite-polynomial activations satisfying Assumptions 2-3, trained by Algorithm 1 (layer-wise, normalized projected SGD with interpolation, each minibatch reused for exactly two steps)"
 model_class: "Gaussian single-index target f*(x) = sigma*(<x, theta>), information exponent p, generative exponent p* (Damian et al. 2024). For polynomial sigma*, p* <= 2. NOT multi-index; NOT general non-polynomial links for the linear-sample claim."
 algorithm_class: "SGD-based: two-layer network, Phase I normalized projected SGD on first layer with each fresh batch reused in two consecutive steps plus an interpolation (negative-momentum-like) step, Phase II ridge regression on second layer. The point of the analysis is that this sits in SQ but outside CSQ."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "this dimension dependence matches the information theoretic limit up to polylogarithmic factors"
+cls_evidence_src: abstract
+cls_reason: "Not an attack paper: target/family/phase/access/write = none/none/n/a/none/none. party=learner (rule 3): the bound binds the two-layer network trained by the paper's batch-reuse algorithm. unit=samples/tightness=exponent for the explicit closed-form n=Theta~(d^{(p*-1)v1}) threshold (main theorem, informal Section 1.1), matching the convention already used for generative-exponent-single-index. second_notion=algo class records the paper's own characterization of its algorithm as sitting 'in SQ but outside CSQ' (front matter algorithm_class; Claim Boundary), a class-membership fact about the same learner alongside the numeric threshold, not an external comparison. baseline=stated: explicit disproof of the Abbe et al. 2023 conjecture (d^{p/2}) and explicit match to the information-theoretic floor n asymp d. This is an ESTIMATION result: strong recovery of theta plus a population-loss guarantee, stated explicitly in the page's own Detection versus estimation section, in contrast to learning-rate-induces-generative-exponent in this same batch, whose headline corollary proves weak recovery only. The generative exponent p* it attains (Damian et al. 2024) is governed by the link function's generative exponent, not by the information exponent p of Ben Arous-Gheissari-Jagannath, which this paper explicitly beats when p* < p."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

@@ -10,6 +10,24 @@ claim_quantifier: empirical
 antecedent: dense Transformer language models trained on MassiveText-style data with the authors' training recipe, 70M to 16B parameters, 5B to 500B tokens
 model_class: dense Transformer language models
 algorithm_class: AdamW-style autoregressive training with tuned cosine learning-rate decay, one recipe family
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: parameters
+cls_tightness: exponent
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled"
+cls_evidence_src: abstract
+cls_reason: "party=learner, same convention as scaling-laws-neural-lm; unit=parameters/second_notion=samples (rule 4b) for the symmetric N_opt∝C^0.5, D_opt∝C^0.5 split; the fixed FLOP budget itself has no vocabulary unit, the same gap as the Kaplan page. tightness=exponent for the stated N_opt/D_opt power-law. baseline=stated, unlike the Kaplan page, because the paper reports an actual comparison: Chinchilla beats Gopher/GPT-3/Jurassic-1/Megatron-Turing NLG at matched compute, and the allocation explicitly supersedes Kaplan et al.'s 5.5x-model/1.8x-data split."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

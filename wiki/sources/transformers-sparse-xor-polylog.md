@@ -10,6 +10,24 @@ claim_quantifier: universal
 antecedent: "Sparse XOR with k = 2: x ~ Unif({+-1}^d), y = -x_{i*} x_{j*}; a single-layer two-head Transformer with softmax attention, frozen spherical positional embeddings v_i ~ Unif(S^{m-1}), a structural mask (content channel excluded from attention, CLS cannot attend to itself), value matrix restricted to the bit channel, fixed output function, and only the two reparameterized query vectors trainable, initialized antipodally (theta~^(0) = -theta^(0)); MSE loss; one gradient step at learning rate eta >= m^{3/2} d^2 with m >= (log d)^4. Theorem 2: population gradient; Corollary 3: one full-batch empirical gradient step with n >= m d^4."
 model_class: "k = 2 sparse XOR on the uniform Boolean hypercube (y = -x_{i*}x_{j*}); despite the running term 'sparse parity', nothing beyond k = 2 is proven"
 algorithm_class: "one gradient descent step (population in Theorem 2, full-batch empirical in Corollary 3) on the two query vectors of a masked single-layer two-head softmax Transformer; all other parameters fixed by construction"
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: parameters
+cls_tightness: budget
+cls_baseline: stated
+cls_second_party: none
+cls_second_notion: samples
+cls_assessed: explicit
+cls_evidence: "we prove that, with only O(polylog(d)) trainable parameters, Transformers can successfully discover the relevant features and drive the loss for every input to nearly 0 with one gradient step"
+cls_evidence_src: abstract
+cls_reason: "Not an attack paper: target/family/phase/access/write = none/none/n/a/none/none. party=learner (rule 3): the bound binds the Transformer being trained, not an adversary. unit=parameters/tightness=budget because the headline quantity is a trainable-parameter count, O(polylog d), which the codebook names verbatim as the paradigm case of budget tightness ('a parameter count'), not an exponent relative to dimension. This is the architecture-separation row flagged by the assignment brief: the bound here is on PARAMETER count, not on time, samples, or memory, and it is a Transformer-vs-FFNN separation, not the Transformer-vs-RNN memory-sample mechanism the repository records as still unclaimed. second_notion=samples records Corollary 3's own explicit n=Omega(d^4 polylog d) sample bound, the paper's stated trade-off against its parameter saving. baseline=stated: explicit comparison to the FFNN Omega(d)-parameter bottleneck, citing Barak et al. 2022 (hidden-progress-sgd-parities) and Glasgow 2024 (sgd-xor-near-optimal), both siblings in this same batch, by name. No lower bound of any kind is proven in the paper (page's own Detection versus estimation section)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

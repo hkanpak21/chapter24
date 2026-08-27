@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: variance-limited results need a well-behaved infinite-data or infinite-width limit with sufficiently smooth loss; resolution-limited results need train and test data i.i.d. on a compact d-dimensional manifold with Lipschitz loss, model, and target
 model_class: general nonlinear models for the bounds; linear random-feature models for the exact exponents; deep networks empirically
 algorithm_class: gradient-based training; exact results in solvable linear limits
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: samples
+cls_tightness: exponent
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: parameters
+cls_assessed: explicit
+cls_evidence: "dataset of size D sampled i.i.d from Md and let f (x) = F(x), ∀x ∈ D then L(D) = O KL max(Kf , KF )D−1/d"
+cls_evidence_src: Thm 2
+cls_reason: "Classified on the resolution-limited regime (Theorems 2/3) rather than the fully proven variance-limited regime (Theorem 1), a judgement call under rule 1: the abstract introduces both regimes without privileging one, and the resolution-limited half is the one the Claim Boundary flags as 'the reason it is in this corpus' and the one that connects to Kaplan/Chinchilla's empirical regime; Theorem 1's exponent=1 result is the alternative primary claim, noted here for a second reader. unit=samples/second_notion=parameters (rule 4b) for the paired L(D)=O(D^-1/d), L(P)=O(P^-1/d) bounds. tightness=exponent for the explicit power-law upper bound, matching the generative-exponent-single-index convention for a one-sided (upper-bound-only) exponent formula rather than a raw measured number. baseline=absent: the page's own Open Questions state tightness of Theorems 2/3 in general nonlinear models is open, i.e. no matching lower bound is given."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary

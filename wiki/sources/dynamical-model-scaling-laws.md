@@ -10,6 +10,24 @@ claim_quantifier: conditional
 antecedent: a randomly projected linear model with power-law features, trained by gradient flow or discrete SGD, in the DMFT limit of large feature count, model size, and sample count
 model_class: structured random-feature linear model, features with (w_k*)^2 lambda_k ~ k^{-a}, lambda_k ~ k^{-b}
 algorithm_class: gradient flow, discrete-time SGD, and momentum on the projected linear model
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: exponent
+cls_baseline: absent
+cls_second_party: none
+cls_second_notion: parameters
+cls_assessed: explicit
+cls_evidence: "While the data and model exponents are the same, the time and model exponents are different in general."
+cls_evidence_src: §1 (contributions list, item 4)
+cls_reason: "party=learner: DMFT description of gradient-based training, no adversary. unit=time/second_notion=parameters (rule 4b, the textbook case: one party bounded under two incomparable notions whose divergence is the paper's own point) because the headline finding is that the time exponent t^-(a-1)/b differs from the model/data exponent ^-min(a-1,2b), unlike Kaplan/Chinchilla where model size and data track the same fixed compute; t genuinely names training time/steps in the paper's own dynamics here, not a proxy for FLOPs, so this is not the compute-into-time forcing the assigning brief warns against. Dataset size P shares the model-size exponent exactly, so it is not recorded as a distinct third notion, noted here rather than added as a slot the vocabulary lacks. tightness=exponent for the derived (DMFT-level, not measure-theoretically proven) power laws. baseline=absent: the Claim Boundary states the paper 'does not establish...a bound for any algorithm outside its class.'"
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
