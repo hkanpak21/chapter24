@@ -20,3 +20,6 @@ exp/survey/main.pdf
 # --- Google Drive Desktop sync scratch ---
 .tmp.driveupload/
 .tmp.drivedownload/
+
+# --- macOS Finder icon cruft (name is "Icon\r") ---
+Icon?
