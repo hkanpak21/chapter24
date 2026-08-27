@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SUR = os.path.abspath(os.path.join(HERE, ".."))
 ROOT = os.path.abspath(os.path.join(SUR, "..", ".."))
 SRC = os.path.join(ROOT, "wiki", "sources")
-OUT = os.path.join(SUR, "sections", "03-tables.tex")
+OUT = os.path.join(SUR, "sections", "04-tables.tex")
 
 VALUES = {
     "party":     ["attacker", "learner", "auditor", "mechanism", "none"],

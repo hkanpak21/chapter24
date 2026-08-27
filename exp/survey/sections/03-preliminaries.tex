@@ -1,0 +1,130 @@
+\section{Complexity-theoretic preliminaries}
+\label{sec:prelim}
+
+This section introduces the machinery Section~\ref{sec:tables} uses and stops there.
+A reader fluent in game-based security definitions and restricted algorithm classes
+can move on.
+
+\subsection{Games, advantage, and the baseline}
+
+A security definition in cryptography is a game between a challenger and an
+adversary. The challenger samples a secret, the adversary interacts under stated
+rules, and the adversary wins when it produces something the definition names. The
+adversary's \emph{advantage} is its winning probability minus the probability it
+wins without the object under attack.
+
+Membership inference instantiates this. The challenger trains a model on a dataset
+that either contains a target record or does not, the adversary sees the model, and
+it guesses which. Since the challenger flips a fair coin, an adversary that ignores
+the model wins half the time, and half is the baseline that advantage is measured
+against.
+
+The baseline belongs to the definition rather than to the evaluation that follows
+it. Yeom et al.\ show what happens when it is chosen without care: under their
+membership advantage the two worlds are equiprobable before the model is consulted,
+so the marginal quantity is zero by construction and only model access can produce
+advantage \cite{YGFJ18}. Balle, Cherubin and Hayes give the constructive form for
+reconstruction, where the baseline is the best attack that ignores the model
+entirely and the criterion carries a tolerance $\eta$ rather than demanding exact
+recovery \cite{BCH22}. Section~\ref{sec:tables} records, for every work, whether a
+baseline of either kind is stated.
+
+\subsection{Adversary classes}
+
+A security claim is a statement about some set of algorithms. Six such sets appear
+in this corpus.
+
+\emph{Polynomial time} is the default in cryptography. The adversary is a
+probabilistic algorithm whose running time is polynomial in a security parameter,
+and a scheme is secure when every such algorithm has negligible advantage.
+
+\emph{Circuit size} is the non-uniform version. The adversary is a family of Boolean
+circuits, one per input length, and the resource is the number of gates. Non-uniform
+adversaries are at least as strong as uniform ones, so a bound against circuits is
+the stronger claim.
+
+\emph{Statistical queries} restrict how an algorithm touches data. An SQ algorithm
+never sees a sample. It submits a bounded function and receives that function's
+expectation over the distribution, accurate to a stated tolerance. Gradient descent
+and principal component analysis both fit the model, which is why SQ lower bounds
+carry weight in machine learning \cite{FGRVX17}.
+
+\emph{Low-degree polynomials} restrict an algorithm to thresholding a polynomial of
+degree at most $D$ in the observations \cite{Wei25}. Under conditions the low-degree
+and statistical-query classes agree \cite{BBHLS21}.
+
+\emph{Bounded memory} restricts space rather than time. Raz shows that learning
+parity from a stream requires either quadratic memory in the dimension or
+exponentially many samples \cite{Raz16}, and the bounded-storage line in
+cryptography builds on the same restriction.
+
+\emph{Function classes} restrict the adversary to a hypothesis class rather than a
+resource. Chaudhuri, Imola and Machanavajjhala bound an adversary not in
+computational power but by the class its attack algorithm is drawn from, using
+restricted $f$-divergences \cite{CIM19}.
+
+Two of these classes are often treated as interchangeable with running time, and
+they are not. Buhai, Hsieh, Jain and Kothari disprove the quasi-polynomial
+low-degree conjecture in the regime it was stated, exhibiting planted distributions
+with vanishing low-degree advantage whose noisy distinguishing problem is solved far
+faster than the conjecture allows \cite{BHJK25}. Their polynomial-time distinguisher
+is for a rectangular generalisation, and in the square symmetric regime the running
+time is $n^{O(\log^{1/(k-1)} n)}$. Hsieh et al.\ establish the positive counterpart
+\cite{HKKLMT26}. A claim resting on a low-degree bound therefore says something
+different from a claim resting on a time bound, and Section~\ref{sec:tables} keeps
+the two apart.
+
+\subsection{Worst case, average case, and assumptions}
+
+A worst-case claim says no algorithm succeeds on every instance. An average-case
+claim says no algorithm succeeds on instances drawn from a stated distribution.
+Cryptography needs the second, because a scheme whose keys are hard to break only
+occasionally is not a scheme.
+
+A claim is \emph{unconditional} when it holds outright and \emph{conditional} when
+it holds under an assumption such as the hardness of factoring, of learning parity
+with noise, or of planted clique. Lower bounds against a restricted class are often
+unconditional, since the restriction does the work that an assumption would
+otherwise do. Brennan and Bresler map the reductions that carry hardness between
+average-case problems in this area \cite{BB20}.
+
+\subsection{Reductions}
+
+A reduction from problem $A$ to problem $B$ transforms an algorithm for $B$ into an
+algorithm for $A$. It transfers hardness backwards, so hardness of $A$ implies
+hardness of $B$. Three things a reduction does not carry are worth stating, because
+this corpus contains claims that assume otherwise. It does not carry across
+adversary classes, so a reduction sound against polynomial-time algorithms says
+nothing about statistical-query ones. It does not preserve tightness unless the
+transformation's own cost is accounted for. And it inherits every antecedent of the
+result it starts from.
+
+\subsection{The gap between two parties}
+
+Fine-grained cryptography asks for security against adversaries that exceed the
+honest party's resources by a stated factor rather than superpolynomially. Three conventions for that factor appear in this corpus and they are
+not interchangeable.
+
+Brzuska and Couteau work in non-uniform circuit size, and their
+$(\varepsilon,\delta)$-fine-grained one-way function admits no inverter of size
+below $|f|^{1+\delta}$ \cite{BC22}. LaVigne, Lincoln and Vassilevska Williams work
+in uniform word-RAM time and name the object, defining the relative gap as the
+constant $\delta$ separating an honest cost of $T(n)^{1-\delta}$ from a threshold of
+$T(n)$ \cite{LLW19}. Ball, Rosen, Sabin and Vasudevan also work in word-RAM time but
+index their error by the adversary's own discount as well as by the input length, so
+a single number does not describe their notion \cite{BRSV17}. Degwekar, Vaikuntanathan
+and Vasudevan take a fourth route, restricting both parties to a circuit class rather
+than relating their costs by an exponent \cite{DVV16}.
+
+One ceiling on how large such a gap can be is often quoted without its scope. Barak
+and Mahmoody show that an adversary making $O((n/\delta)^2)$ \emph{oracle queries}
+breaks any $n$-query key exchange in the random oracle model, and they note their
+adversary runs efficiently in a relativized world where $\mathrm{P} = \mathrm{NP}$
+\cite{BM09}. The bound forbids a super-quadratic query gap in an idealized model. It
+constrains neither time gaps nor gaps built on structured assumptions.
+
+\subsection{A terminology collision}
+
+In the privacy-preserving machine learning literature, \emph{fine-grained} almost
+always means per-user access control. A keyword search returns that sense and not
+the complexity-theoretic one. The two bodies of work share a word and nothing else.
