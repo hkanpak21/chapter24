@@ -20,6 +20,7 @@ cls_party: attacker
 cls_unit: time
 cls_tightness: measured
 cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: implicit

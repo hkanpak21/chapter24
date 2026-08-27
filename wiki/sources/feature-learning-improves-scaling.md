@@ -19,13 +19,14 @@ cls_frame: compute
 cls_party: learner
 cls_unit: time
 cls_tightness: measured
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: "the compute required to reach a set performance threshold has halved approximately every 8 months, with a 95% confidence interval of around 5 to 14 months"
+cls_evidence: "nearly doubling the exponent for hard tasks"
 cls_evidence_src: abstract
-cls_reason: "No attack scenario: a measurement of training-recipe efficiency over calendar time, not a security claim. party=learner: the bound characterizes the population of published pre-training recipes, no adversary. unit=time/tightness=measured: an empirically fitted doubling time with a wide confidence interval and no theorem (claim_quantifier=empirical), unlike the proven exponent pages. baseline=stated: the abstract itself states the rate is substantially faster than hardware gains per Moore's Law, an explicit named comparison, verified at PDF line 24. second_notion=none: the compute-vs-algorithmic-progress decomposition splits one resource (effective compute) into two channels, not two incomparable resource types."
+cls_reason: "CORRECTED 2026-08-27. This row previously carried the evidence quote and reasoning of a different paper. Four pages in this batch had been rotated by one position, so each held the next paper's quote. The quote above was re-extracted from this paper's own abstract and verified against it."
 cls_prov: P
 cls_date: 2026-08-22
 ---

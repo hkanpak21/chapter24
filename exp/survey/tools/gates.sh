@@ -27,6 +27,19 @@ e=$(python3 ~/.claude/skills/research/scripts/lint.py --paper sections/00-abstra
 f=$(python3 ~/.claude/skills/research/scripts/figfont.py check figures/sankey-corpus.pdf --target 8 2>&1 | grep -oE "^[0-9]+ of" | grep -oE "^[0-9]+")
 [ "$f" = "0" ] && pass "G7 figure fonts" || fail "G7 figure fonts" "$f spans off"
 
+q=$(QUOTE_TXT_DIR=${QUOTE_TXT_DIR:-/tmp/quote-txt} python3 tools/check-quotes.py 2>&1 | grep -oE "belonging to another paper  : [0-9]+" | grep -oE "[0-9]+$")
+[ "$q" = "0" ] && pass "G11 no quote attributed to the wrong paper" || fail "G11 quote attribution" "$q transposed"
+
+bl=$(python3 -c "
+import glob,re
+u=0
+for f in glob.glob('../../wiki/sources/*.md'):
+    s=open(f,encoding='utf-8').read()
+    m=re.search(r'^cls_baseline:[ \t]*(.*)\$',s,re.M)
+    if m and m.group(1).strip()!='n/a' and not re.search(r'^cls_baseline_checked:[ \t]*yes',s,re.M): u+=1
+print(u)")
+[ "$bl" = "0" ] && pass "G2 baseline re-checked" || fail "G2 baseline re-checked" "$bl rows outstanding"
+
 b=$(python3 ~/.claude/skills/research/scripts/lint.py --bib refs.bib 2>&1 | grep -oE "^[0-9]+ error" | grep -oE "^[0-9]+")
 [ "$b" = "0" ] && pass "G8 bibliography" || fail "G8 bibliography" "$b errors"
 

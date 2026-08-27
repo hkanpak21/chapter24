@@ -19,6 +19,7 @@ cls_party: attacker
 cls_unit: queries
 cls_tightness: budget
 cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: privacy budget
 cls_second_notion: none
 cls_assessed: explicit

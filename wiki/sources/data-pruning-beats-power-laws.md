@@ -19,13 +19,14 @@ cls_frame: compute
 cls_party: learner
 cls_unit: time
 cls_tightness: measured
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: parameters
 cls_assessed: explicit
-cls_evidence: "distillation is only more efficient than supervised learning if (i) the total compute or tokens used for distillation is not larger than a student size-dependent threshold"
-cls_evidence_src: "§6 Conclusion"
-cls_reason: "No attack scenario (target/family/phase/access/write = none/none/n/a/none/none): a compute-accounting result, not a security claim. party=learner: the bound governs the training pipeline's compute budget, no adversary. unit=time/tightness=measured rather than exponent: Equation 8 is an empirical fit ('No theorems' per Key Definitions/Theorems), not a proven relation. baseline=stated: supervised pretraining is the explicit comparison point throughout the paper's conclusion. second_notion=parameters: the threshold is explicitly student-size-dependent and the compute-optimal analysis (Table 2) jointly varies compute and student size N, an incomparable resource from raw compute. second_party=none: the teacher/student cost split (Table 2's four scenarios) is bookkeeping inside one training pipeline, not a second role in the party vocabulary."
+cls_evidence: "we can break beyond power law scaling and potentially even reduce it to exponential scaling instead if we have access to a high-quality data pruning metric"
+cls_evidence_src: abstract
+cls_reason: "CORRECTED 2026-08-27. This row previously carried the evidence quote and reasoning of a different paper. Four pages in this batch had been rotated by one position, so each held the next paper's quote. The quote above was re-extracted from this paper's own abstract and verified against it."
 cls_prov: P
 cls_date: 2026-08-22
 ---

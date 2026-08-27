@@ -19,13 +19,14 @@ cls_frame: compute
 cls_party: learner
 cls_unit: time
 cls_tightness: exponent
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: parameters
 cls_assessed: explicit
-cls_evidence: "feature learning can improve scaling with training time and compute, nearly doubling the exponent for hard tasks"
+cls_evidence: "We provide compute-optimal distillation recipes for two key scenarios: when a teacher already exists, and when a teacher needs training"
 cls_evidence_src: abstract
-cls_reason: "No attack scenario, matching sibling exponent pages. party=learner: the bound is on the training algorithm (projected GD with feature-learning strength gamma), no adversary. unit=time/tightness=exponent for the proven (DMFT) time-exponent lift t^-beta to t^-(2beta/(1+beta)) for hard tasks, a stated relation to the lazy-limit baseline. baseline=stated: the lazy (gamma to 0) limit, which recovers the Paquette et al. phase diagram, is the explicit comparison the 'nearly doubling' claim is measured against. second_notion=parameters: the abstract's own next sentence ties the result to a different compute-optimal strategy to scale parameters and training time together, i.e. model size N is an incomparable second resource axis for the same learner (Table 1's compute-optimal exponents combine N and t)."
+cls_reason: "CORRECTED 2026-08-27. This row previously carried the evidence quote and reasoning of a different paper. Four pages in this batch had been rotated by one position, so each held the next paper's quote. The quote above was re-extracted from this paper's own abstract and verified against it."
 cls_prov: P
 cls_date: 2026-08-22
 ---

@@ -19,13 +19,14 @@ cls_frame: compute
 cls_party: learner
 cls_unit: samples
 cls_tightness: exponent
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: time
 cls_assessed: explicit
-cls_evidence: "by simply truncating the activation, full-batch GD exhibits a favorable optimization landscape at n ≃ d samples, thereby outperforming one-pass SGD (with the same activation) in statistical efficiency"
+cls_evidence: "We introduce two families of estimators, based on tensor unfolding and online SGD, that respectively achieve either optimal sample complexity or optimal runtime"
 cls_evidence_src: abstract
-cls_reason: "No attack scenario: both full-batch GD and one-pass SGD are training algorithms in the learner role, no adversary. unit=samples/tightness=exponent for the headline n~d threshold (Theorems 3.2, 4.1), chosen over the algo-class/class pairing used in the sibling page information-exponent-online-sgd because this paper's abstract leads with the sample count, not the restriction to one named algorithm (rule 1). baseline=stated: the d log d one-pass SGD floor is imported from Ben Arous et al. (2021) Theorem 1.4 and stated explicitly as the comparison point, not proved in this paper. second_notion=time per rule 4b: Theorem 4.1 states an explicit, incomparable step-count bound (T >~ log d gradient steps) for the same learner alongside the sample bound. Caution for the survey: Theorem 3.1 (not the classified row, per rule 1) proves the opposite for the untruncated quadratic, full-batch reuse gives no advantage over one-pass SGD when n=o(d log d); the positive separation classified here holds only after truncating the activation, and even then the gain over one-pass SGD is a single log factor (Theta(d) vs Theta(d log d)), not an exponent-independent escape. The paper explicitly distinguishes its full-batch mechanism from the two-pass label-transformation mechanism of Dandi/Damian et al., calling full-batch reuse over a diverging time horizon 'a different resource from two passes'."
+cls_reason: "CORRECTED 2026-08-27. This row previously carried an evidence quote and reasoning copied verbatim from full-batch-gd-vs-one-pass-sgd; the quoted sentence occurs once in that paper and zero times in this one. The real bound: one party, the estimator, under two incomparable notions, sample complexity and runtime, with the paper arguing the two optima are attained by different estimators. Hence unit samples, second_notion time."
 cls_prov: P
 cls_date: 2026-08-22
 ---

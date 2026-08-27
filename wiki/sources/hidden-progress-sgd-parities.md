@@ -19,7 +19,8 @@ cls_frame: compute
 cls_party: learner
 cls_unit: time
 cls_tightness: measured
-cls_baseline: stated
+cls_baseline: n/a
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: samples
 cls_assessed: explicit

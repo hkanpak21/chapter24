@@ -20,6 +20,7 @@ cls_party: none
 cls_unit: none
 cls_tightness: unstated
 cls_baseline: stated
+cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: 

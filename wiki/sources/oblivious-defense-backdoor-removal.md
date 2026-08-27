@@ -20,6 +20,7 @@ cls_party: auditor
 cls_unit: time
 cls_tightness: poly
 cls_baseline: absent
+cls_baseline_checked: yes
 cls_second_party: corruption
 cls_second_notion: samples
 cls_assessed: explicit

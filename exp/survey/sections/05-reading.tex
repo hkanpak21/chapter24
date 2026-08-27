@@ -118,12 +118,25 @@ large models \cite{ZDKT25}.
 These \NearMiss{} works are where the quantity this survey is about already exists
 in the literature without a name.
 
-\subsection{One column this section does not report}
+\subsection{Half the attack literature states no baseline}
 
-The column recording whether a work states what an adversary achieves from public
-knowledge alone was applied under two readings during classification. One asks for
-the success rate available without access to the target. The other counts any
-explicit comparison quantity, including a matching information-theoretic bound,
-which is a different object. The column is being reclassified under the narrower
-reading, it appears in the supplementary tables so its current assignments are
-visible, and it carries no count here.
+An advantage is a success rate minus what public knowledge alone achieves, so a
+work that defines adversary success without naming that reference reports a number
+with nothing to subtract. \BaselineNA{} of the \NumSources{} works define no
+adversary success criterion at all, which is the correct answer for a learning
+theory result with no adversary in it. Among the \NumAttackWorks{} works that
+study an attack, \BaselineCrit{} define what success means, and of those
+\BaselineStated{} name a baseline while \BaselineAbsent{} do not.
+
+This column was the least reliable in the classification and was re-checked in full
+before being reported. \BaselineChanged{} of the rows re-checked changed value, and
+the errors had four shapes worth naming, because each is a plausible mistake. An
+information-theoretic optimum was read as a baseline, when it describes the best any
+algorithm could do rather than what an adversary without access achieves. A
+previously published accuracy number was read as one, when it describes a different
+attack. The cost of an alternative algorithm was read as one. And in an
+unforgeability game the raw success tolerance was read as a coin flip, when a search
+game has no coin-flip structure at all.
+
+Two independent readers checked overlapping rows and agreed on 24 of 27, which is
+the only agreement figure this classification has.
