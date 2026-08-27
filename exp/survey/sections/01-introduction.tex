@@ -28,11 +28,10 @@ the \NumSources{} works surveyed here. The corpus also covers evasion, poisoning
 backdoors, data reconstruction and model extraction, and on the other side
 computational differential privacy, statistical-query and low-degree hardness,
 bounded-memory adversaries and fine-grained cryptography. No single attack runs
-through every part of the survey, so each part of Section~\ref{sec:landscape}
+through every part of the survey, so each part of Section~\ref{sec:findings-tables}
 carries its own worked case.
 
-The field has not ignored the adversary. It has described the adversary without
-pricing it. The standing systematization of the area sorts attacks along
+The field describes its adversaries and does not price them. The standing systematization of the area sorts attacks along
 three parts, namely the stage of the pipeline the adversary attacks, what it is able
 to do once there, and the goal it pursues \cite{PMSW18}. The middle part takes a
 different form in each phase. Its Figure 3 states that adversaries act ``at
@@ -46,13 +45,13 @@ and on data reconstruction \cite{WLBZ25}. Each proposes a repair, and each repai
 or a success metric. None supplies a budget. A reader holding two results therefore
 cannot ask which adversary was stronger, because neither result answers it.
 
-Cryptography has priced adversaries for fifty years, and the objects the comparison
-needs already exist there. An adversary class fixes what the attacker may run. A
-budget fixes how much of it the attacker may spend. A success criterion with a
-tolerance fixes what counts as winning. A baseline fixes what public knowledge
-alone already achieves, so that an advantage is measured against something. We
-carry those four objects into machine learning security and use them to read the
-field.
+Cryptography already holds the objects the comparison needs. An adversary class
+fixes what the attacker may run, and a budget says how much of it the attacker may
+spend. Winning is settled by a success criterion together with a tolerance, since
+an attack that recovers a record approximately has still recovered it. Underneath
+both sits a baseline, the success rate available from public knowledge alone,
+without which an advantage is a number with nothing to subtract. We carry those
+four objects into machine learning security and use them to read the field.
 
 We read \NumSources{} formal works and record, for each one, which party's
 resources enter its main claim and in what unit. Recording the budget per party
@@ -68,8 +67,9 @@ Our contributions are the following.
         learning, organized by the attack family together with the party each work
         constrains, recording for every work which party's resources enter its main
         claim, in what unit, and whether the work assesses the adversary explicitly
-        or leaves the assessment implicit (Section~\ref{sec:tables}).
-  \item Classification tables placing every work in the corpus against its attack
-        scenario, its threat model and its adversary assumptions, with the count of
-        works that state no budget for any party (Section~\ref{sec:tables}).
+        or leaves the assessment implicit (Section~\ref{sec:findings-tables}).
+  \item An evidence layer under that survey. Every classification records the
+        verbatim sentence that decided it and where in the paper it appears, and
+        every quotation was checked against the primary document, so a reader who
+        disputes a cell can go to the line it came from (Section~\ref{sec:findings-tables}).
 \end{itemize}

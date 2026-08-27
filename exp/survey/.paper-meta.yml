@@ -27,6 +27,12 @@ format:
   options: conference
   columns: 2
   bibliography: IEEEtran
+  # Measured from the compiled document, not assumed.
+  column_width_pt: 252.0
+  text_width_pt: 516.0
+  body_pt: 10
+  caption_pt: 8
+  font_family: Times New Roman
 page_budget:
   limit_body: 13          # approximate, verify against the call
   current_body: 5         # sections 1 to 4 prose

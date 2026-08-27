@@ -1,14 +1,28 @@
 \section{Four findings from the classification}
 \label{sec:findings-tables}
 
-The tables in Section~\ref{sec:tables} carry \NumSources{} works. This section
-reads them. Each finding names the table it comes from, what is dense in it, and
-what is empty.
+\begin{figure*}[t]
+\centering
+\includegraphics{figures/sankey-corpus}
+\caption{The corpus of \NumSources{} works, flowing through what each work
+attacks, which party it bounds, and how tightly. Band width is the number of
+works and colour is the constrained party. The figure shows three of the thirteen
+recorded fields. The full classification is in the supplementary material. Works
+with no attack family and works generic over several attacks share the leftmost
+band, since neither studies one attack.}
+\label{fig:sankey}
+\end{figure*}
+
+Figure~\ref{fig:sankey} shows the corpus flowing through three of the recorded
+fields. The full classification, on all thirteen fields and with every work named
+by citation, is in the supplementary material as six tables. This section reads
+them. Each finding names what is dense, what is empty, and what the emptiness
+means.
 
 \subsection{The field agrees on access and phase}
 
-Table~\ref{tab:phase-access} is the one that comes out full.
-\NumPhaseAccessCells{} of its 28 cells are populated. Of the \NumAttackWorks{}
+The classification by pipeline phase against access level is the one that comes
+out full. \NumPhaseAccessCells{} of its 28 cells are populated. Of the \NumAttackWorks{}
 works that study an attack, \AttackAccessNamed{} name an access level, and they
 split evenly between attacking a model at test time and attacking one already
 released. The vocabulary of white box, black box, confidence scores and gradients
@@ -21,9 +35,8 @@ rest of this section documents is not a general failure to standardize.
 
 \subsection{It does not agree on resources}
 
-Table~\ref{tab:party-unit} is the same corpus against the party each work
-constrains and the unit it uses. \NumPartyUnitCells{} of its 70 cells are
-populated, and the occupied cells do not concentrate. Among the
+The same corpus against the party each work constrains and the unit it uses fills
+\NumPartyUnitCells{} of 70 cells, and the occupied cells do not concentrate. Among the
 \NumAttackWorks{} works studying an attack, the adversary is bounded in time in 27
 of them, by a perturbation radius in \AttackPerturb{}, in queries in 10, in samples
 in 9, and by a corruption fraction in \AttackCorrupt{}. \AttackUnbound{} bound no
@@ -37,8 +50,8 @@ this corpus carries that restriction to an adversary attacking a model.
 
 \subsection{The comparable form of bound is almost absent from attack papers}
 
-Table~\ref{tab:unit-tightness} sorts the same works by how tightly each states its
-bound. \NumExponent{} works state their bound as a relation to an honest party's
+The third column of Figure~\ref{fig:sankey} sorts the same works by how tightly
+each states its bound. \NumExponent{} works state their bound as a relation to an honest party's
 work, which is the form that lets two results be placed on one scale.
 \NumExponentAttack{} of those \NumExponent{} study an attack, and three of the
 \NumExponentAttack{} are cryptographic constructions that happen to carry an attack
@@ -58,8 +71,8 @@ contains \NumExponentAttack{} works that ask it.
 
 \subsection{The attack literature is the half that prices nobody}
 
-Table~\ref{tab:family-party} splits the corpus by whether a work studies a named
-attack. \AttackUnbound{} of the \NumAttackWorks{} attack works bound no party in
+Splitting the corpus by whether a work studies a named attack gives the figure's
+first column. \AttackUnbound{} of the \NumAttackWorks{} attack works bound no party in
 any resource. \TheoryUnbound{} of the \NumTheoryWorks{} works with no attack family
 do. Stated as rates, the half of this corpus that studies attacks on machine
 learning is about twice as likely to state no adversary bound as the half drawn
@@ -84,5 +97,5 @@ reading before any count from it is published.
 The same holds for the column recording whether a work assesses its adversary's
 resources deliberately or leaves the quantity as a side condition. It is blank on
 17 works that do bound a party, which contradicts the rule that governs it. Both
-columns appear in Table~\ref{tab:adversary} so that a reader can see the current
+columns appear in the supplementary tables so that a reader can see the current
 assignments, and neither carries a count in this section.

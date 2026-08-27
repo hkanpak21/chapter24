@@ -1,0 +1,92 @@
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Corpus}
+
+The corpus holds \NumPapers{} documents, from which \NumSources{} carry a formal
+claim and enter the classification. A work is included when three conditions hold.
+It concerns learning or something a learning process produced, meaning a model, its
+training data, its parameters, its gradients or its outputs. It makes a formal
+claim, meaning a theorem, a definition, or a measurement designed to be comparable
+across papers. And somebody's resources bear on that claim, in the sense that
+deleting every resource restriction would change what the claim says.
+
+The third condition admits two bodies of work with no machine learning content at
+all. Fine-grained cryptography enters because it is the only place where the
+comparison between an adversary's work and an honest party's is a defined object.
+The bounded-storage literature enters on the same grounds, as the formal home of an
+adversary limited in space. Both enter as destinations rather than as subject
+matter, and Section~\ref{sec:findings-tables} reports that nothing in the machine
+learning half of the corpus has travelled to either.
+
+\subsection{Codebook}
+
+Each work is classified on thirteen fields against a fixed vocabulary, so that two
+readers assign the same value. Six fields record the attack scenario and threat
+model, and seven record what the work assumes about resources.
+
+The vocabulary was revised four times, each revision driven by a classifier
+reporting a work it could not place. The revisions are recorded rather than
+smoothed away, because their pattern is itself a result. Two of them added values
+for bounds that are not computational, namely a perturbation radius, a corruption
+fraction and a privacy budget, without which a work that bounds its adversary
+non-computationally would have been recorded as bounding nothing. One separated a
+second bounded party from one party bounded under two incomparable resource
+notions. Eight of the fourteen gaps reported across the whole pass fell in the
+single field recording the attack family, which Section~\ref{sec:findings-tables}
+returns to.
+
+\subsection{Procedure}
+
+Each work was read first through its catalogue entry, which records the quantifier
+of its main claim and the hypothesis that claim rests on, and then through the
+primary document wherever that entry was silent on a field. Four rules decide the
+cases where a work admits more than one reading. The claim the abstract leads with
+decides the row. The constrained party is whoever the bound binds rather than
+whoever the paper is about. When two parties are bounded, the computational bound
+decides the row and the other party's unit is recorded beside it. A work that
+constrains nobody is recorded as constraining nobody, which is an answer and not a
+gap.
+
+Every assignment carries the sentence that produced it. For each work the record
+holds a verbatim fragment from the source that determines the constrained party,
+the unit and the tightness, together with the definition, theorem or section it
+came from. Where a work states no bound, the record holds the claim of absence and
+the places that were checked before making it, because an unsupported claim of
+absence is worth nothing.
+
+\subsection{Verification}
+
+Every quotation was checked against the primary document by extracting its text and
+matching a punctuation-independent fragment. Of \NumSources{} works, 129 carry a
+quotation that was found in its source, 25 carry an evidenced claim of absence, and
+27 carry a fragment too symbol-heavy for prose matching. No quotation was found to
+be absent from the document it was attributed to.
+
+Eleven entries failed the first automated check and all eleven were false alarms,
+six from fragments spanning a line break, two from an error in the checker, one
+from a claim of absence written as prose, and two from mathematical notation. A
+single automated pass is not sufficient evidence that a quotation is absent.
+
+\subsection{Threats to validity}
+
+Three limits bear on the counts reported in
+Section~\ref{sec:findings-tables}. Each work was classified once rather than by two
+independent readers, so the agreement rate between readers is unmeasured, and the
+fixed vocabulary and decision rules are what stand in for that measurement.
+
+Two of the thirteen fields are not counted. The field recording whether a work
+states what an adversary achieves from public knowledge alone was applied under two
+readings during classification, one asking for the success rate available without
+access to the target and one counting any explicit comparison quantity. The field
+recording whether a work assesses its adversary deliberately is blank on 17 works
+that do bound a party, which contradicts the rule governing it. Both fields appear
+in the supplementary tables so their current assignments are visible, and neither
+carries a number here.
+
+The field recording the attack family absorbed eight of the fourteen vocabulary
+gaps. That field was built around attacks on a deployed model, and the corpus also
+contains attacks on a cryptographic primitive, on a communication channel, on a
+training distribution and on an agent's control flow. Its categories are therefore
+the least reliable of the thirteen, and the grouping used in
+Figure~\ref{fig:sankey} collapses them for that reason.

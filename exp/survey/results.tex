@@ -57,3 +57,18 @@
 \newcommand{\AttackClass}{4}
 \newcommand{\AttackPerturb}{23}       % attack works bounded by a perturbation radius
 \newcommand{\AttackCorrupt}{5}        % attack works bounded by a corruption fraction
+
+% --- Sparse-parity experiment, exp/survey/experiments/, run 2026-08-22.
+% Config: k=3, 2-layer ReLU width 100, batch 128, lr 0.01, fresh batches,
+% threshold 0.90 test accuracy, 8 seeds per dimension, d in {20,30,40,50,60}.
+% Source: canonical_b128.json (regenerate: sparse_parity.py, seeds fixed).
+\newcommand{\ParityK}{3}
+\newcommand{\ParitySlope}{2.02}       % fitted log-log exponent of median steps vs d
+\newcommand{\ParitySeeds}{8}
+\newcommand{\ParityDims}{20 to 60}
+\newcommand{\ParitySolved}{40 of 40}  % runs reaching threshold within budget
+\newcommand{\ParityMedLoD}{1025}      % median steps at d=20
+\newcommand{\ParityMedHiD}{9337}      % median steps at d=60
+% Probe regime: batch 8, otherwise width 512 lr 0.1; steps at d=30 vs cap at d=60.
+\newcommand{\ProbeMedThirty}{6940}
+\newcommand{\ProbeCap}{300000}

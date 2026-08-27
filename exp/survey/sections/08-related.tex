@@ -8,7 +8,7 @@ machine learning, and most later work in the area still uses its vocabulary
 adversary attacks, what it is able to do once there, and the goal it pursues. The
 middle part takes a different form in each phase, since their Figure 3 places white
 box and black box at inference and read and write access at training. We adopt their
-attack families wherever they fit, and Section~\ref{sec:tables} adds one axis they
+attack families wherever they fit, and Section~\ref{sec:findings-tables} adds one axis they
 do not carry, which is the resource each work bounds and the party it binds.
 
 \paragraph{Systematizations of one attack family.}
@@ -27,7 +27,7 @@ language models and show the benchmarks carry a distribution shift a model-free
 classifier can exploit \cite{MSJFRM25}. Desfontaines and Pej\'o catalogue the
 variants of differential privacy along seven dimensions \cite{DP20}. Each of these
 repairs supplies knowledge, access, or a success criterion. None supplies a budget,
-and Section~\ref{sec:tables} takes the budget as its organizing question.
+and Section~\ref{sec:findings-tables} takes the budget as its organizing question.
 
 \paragraph{Critiques of evaluation practice.}
 A second line measures how the field evaluates rather than how it defines. Arp et
@@ -42,7 +42,7 @@ technical \cite{TCBM20}. Carlini et al.\ turn the lesson into a checklist and st
 position this survey returns to in Section~\ref{sec:findings}, that attacker
 computation should not be a threat-model parameter \cite{CAPBRTGMK19}. These works
 diagnose threat models as unstated or imprecise. None of them diagnoses a threat
-model as unpriced, which is the reading Section~\ref{sec:tables} adds.
+model as unpriced, which is the reading Section~\ref{sec:findings-tables} adds.
 
 \paragraph{Where the quantity already has a definition.}
 Fine-grained cryptography is the formal home of the comparison between an
@@ -54,7 +54,7 @@ fine-grained key exchange and public-key encryption around it \cite{LLW19}. Ball
 Rosen, Sabin and Vasudevan supply average-case fine-grained hardness for the
 problems those constructions rest on \cite{BRSV17}, and Degwekar, Vaikuntanathan and
 Vasudevan build primitives secure against restricted circuit classes \cite{DVV16}.
-This literature contains no machine learning, and Section~\ref{sec:tables} reports
+This literature contains no machine learning, and Section~\ref{sec:findings-tables} reports
 that no work in the machine learning half of the corpus states its adversary in
 these terms.
 
@@ -73,6 +73,6 @@ definition by reducing it to query-synthesis active learning \cite{CCGJY19}. Dzi
 et al.\ charge an extraction adversary compute directly, calibrating a proof-of-work
 puzzle to how much information a client has already extracted \cite{DKLP22}. These
 are the works closest to the question this survey asks, and
-Section~\ref{sec:tables} places each of them alongside the rest of the corpus so
+Section~\ref{sec:findings-tables} places each of them alongside the rest of the corpus so
 that their adversary assumptions can be compared with those of works that state
 none.

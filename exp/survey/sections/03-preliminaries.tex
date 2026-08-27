@@ -1,7 +1,7 @@
 \section{Complexity-theoretic preliminaries}
 \label{sec:prelim}
 
-This section introduces the machinery Section~\ref{sec:tables} uses and stops there.
+This section introduces the machinery Section~\ref{sec:findings-tables} uses and stops there.
 A reader fluent in game-based security definitions and restricted algorithm classes
 can move on.
 
@@ -20,13 +20,13 @@ the model wins half the time, and half is the baseline that advantage is measure
 against.
 
 The baseline belongs to the definition rather than to the evaluation that follows
-it. Yeom et al.\ show what happens when it is chosen without care: under their
+it. Yeom et al.\ show what happens when it is chosen without care. Under their
 membership advantage the two worlds are equiprobable before the model is consulted,
 so the marginal quantity is zero by construction and only model access can produce
 advantage \cite{YGFJ18}. Balle, Cherubin and Hayes give the constructive form for
 reconstruction, where the baseline is the best attack that ignores the model
 entirely and the criterion carries a tolerance $\eta$ rather than demanding exact
-recovery \cite{BCH22}. Section~\ref{sec:tables} records, for every work, whether a
+recovery \cite{BCH22}. Section~\ref{sec:findings-tables} records, for every work, whether a
 baseline of either kind is stated.
 
 \subsection{Adversary classes}
@@ -59,8 +59,8 @@ exponentially many samples \cite{Raz16}, and the bounded-storage line in
 cryptography builds on the same restriction.
 
 \emph{Function classes} restrict the adversary to a hypothesis class rather than a
-resource. Chaudhuri, Imola and Machanavajjhala bound an adversary not in
-computational power but by the class its attack algorithm is drawn from, using
+resource. Chaudhuri, Imola and Machanavajjhala bound an adversary by the class its
+attack algorithm is drawn from, rather than by computational power, using
 restricted $f$-divergences \cite{CIM19}.
 
 Two of these classes are often treated as interchangeable with running time, and
@@ -71,7 +71,7 @@ faster than the conjecture allows \cite{BHJK25}. Their polynomial-time distingui
 is for a rectangular generalisation, and in the square symmetric regime the running
 time is $n^{O(\log^{1/(k-1)} n)}$. Hsieh et al.\ establish the positive counterpart
 \cite{HKKLMT26}. A claim resting on a low-degree bound therefore says something
-different from a claim resting on a time bound, and Section~\ref{sec:tables} keeps
+different from a claim resting on a time bound, and Section~\ref{sec:findings-tables} keeps
 the two apart.
 
 \subsection{Worst case, average case, and assumptions}
@@ -92,8 +92,8 @@ average-case problems in this area \cite{BB20}.
 
 A reduction from problem $A$ to problem $B$ transforms an algorithm for $B$ into an
 algorithm for $A$. It transfers hardness backwards, so hardness of $A$ implies
-hardness of $B$. Three things a reduction does not carry are worth stating, because
-this corpus contains claims that assume otherwise. It does not carry across
+hardness of $B$. A reduction fails to carry three things that this corpus
+sometimes assumes it does. It does not carry across
 adversary classes, so a reduction sound against polynomial-time algorithms says
 nothing about statistical-query ones. It does not preserve tightness unless the
 transformation's own cost is accounted for. And it inherits every antecedent of the
