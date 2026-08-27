@@ -191,8 +191,23 @@ because learning is the only search over model space the literature contains.
 
 Both postulates are one clause read from two sides. The honest party's work
 cannot be compressed, and the adversary's search has no primitive better than the
-oracle. A party that beats either postulate has, by that act, produced a training
-shortcut, which is the subject of Proposition~\ref{prop:winwin}.
+oracle.
+
+\paragraph{Two levels, kept apart.} Inside the model the postulates are not
+assumptions. Cost is defined as metered steps and traces exist only through the
+oracle, so no in-model adversary can violate either postulate, and every theorem
+proved in the model is unconditional there. What the postulates name is the
+\emph{transfer hypothesis}: a theorem proved in the model applies to a concrete
+system running a concrete recipe exactly when no procedure for that recipe class
+beats the meter. This is the random oracle methodology's own structure, and its
+known failure mode bounds what transfer may promise. Canetti, Goldreich and
+Halevi construct schemes secure in the Random Oracle Model with, in their words,
+``no implementation'' that is secure \cite{CGH04}. Their counterexamples are
+contrived by design, and the analogous question here, whether a game secure in
+the learning-oracle model can fail for every concrete recipe, is open and is
+listed at the end of this document. Until it is answered, a theorem in this model
+is a theorem about generic adversaries, and its application to a deployed system
+is an argument, not a corollary.
 
 Three consequences follow directly from the definition.
 
@@ -466,31 +481,39 @@ algorithm may exploit that the group is cyclic. A generic-model lower bound for
 extracting ReLU networks must therefore sit at or below their query counts, and
 the model is calibrated by them rather than refuted.
 
-Second, what the adversary may exploit is fixed by what the game \emph{declares}
-about the recipe's output. A game that declares the recipe outputs ReLU networks of
+Second, what the adversary may exploit is fixed by the game's
+\emph{declaration}, a named object with three parts: the class the recipe's
+outputs lie in, the target family with the unit that prices it, and the noise the
+data carries. Noise is a member and not a detail, because noiseless problems admit
+algebraic escapes, parity by Gaussian elimination among them, and the surviving
+positive low-degree implications hold only for noisy problems \cite{HKKLMT26}.
+What the adversary may exploit is fixed by the first part of the declaration. A game that declares the recipe outputs ReLU networks of
 depth $h$ admits the attacks above. A game that declares nothing beyond ``a
 function'' admits less and proves more, for fewer real systems. The declaration is
 the one place where knowledge of learning enters the framework. The oracle does not
 remove that knowledge. It confines it to one line of the game.
 
-\begin{proposition}[A structural attack is a training shortcut]
+\begin{proposition}[A structural attack witnesses a transfer failure]
 \label{prop:winwin}
-Let a game be secure against every generic adversary within a stated budget, and
-let a structural attack break it within the same budget. Then the attack contains
-a procedure that obtains the content of a trace, or a model with a specified
-behaviour, at a cost below the steps the oracle would charge for it. That
-procedure violates the no-skipping or the no-aiming postulate for the declared
-recipe class, and is therefore a way to train, or to search model space, faster
-than the recipe.
+Let a game be secure in the model against every generic adversary of budget $B$,
+and let a concrete implementation of the game, with recipe $\Rec$, be broken by a
+real attack whose resources correspond to $B$ under the game's cost accounting.
+Then no generic adversary of budget $B$ simulates the attack, and the attack
+therefore contains a procedure that obtains a trace, a training quantity, or a
+model with the winning property for recipe class $\Rec$ at real cost below the
+metered price. Such a procedure is, by definition, a violation of the no-skipping
+or the no-aiming transfer hypothesis for $\Rec$, that is, a way to train or to
+search model space faster than the recipe.
 \end{proposition}
 
 \begin{proof}
-By Definition~\ref{def:structural} the attack produces a trace, model or training
-quantity without a corresponding oracle call, hence at a cost not accounted in
-steps. If that cost were at least the steps of the corresponding oracle call, the
-attack could be rewritten as a generic one within the same budget, contradicting
-security against generic adversaries. So the cost is lower, which is the definition
-of a shortcut.
+If some generic adversary of budget $B$ produced the attack's outputs from the
+attack's inputs, running it in the model would win the game within budget $B$,
+contradicting the in-model theorem. So none does. The attack nevertheless wins,
+so at some point it holds an object, a trace segment, a per-step quantity, or a
+winning model, that no sequence of oracle calls within its budget accounts for.
+The procedure producing that object obtains training output below the metered
+price, which is what the transfer hypotheses assert does not exist for $\Rec$.
 \end{proof}
 
 This is the form in which the win-win theorem of Degwekar, Nakkiran and
@@ -636,13 +659,43 @@ in the game at all. Which of them the survey's backdoor section treats first is 
 decided.
 \end{openq}
 
-\begin{openq}[A first theorem]
-For a planter writing an $\varepsilon$-fraction of the corpus and an auditor
-viewing the corpus with a bounded number of statistical queries, undetectability
-is a statement that the poisoned corpus is a planted distribution in the
-query-hard regime. The lower-bound technology for that exists
-\cite{FGRVX17}. Whether it transfers to an auditor viewing the final model, rather
-than the corpus, is not known.
+The corpus-level half of the game's first theorem is a specialization of
+existing machinery, and it is worth stating because it prices a party this
+literature leaves unpriced.
+
+\begin{proposition}[Undetectability against a query-bounded corpus auditor]
+\label{prop:sda}
+Fix the backdoor game in which world 0 draws the corpus from a distribution $D_0$
+and world 1 draws it from a distribution the planter selects out of a family
+$\mathcal{S}$, and fix the auditor's view to be $q$ queries to a
+$\mathrm{VSTAT}(m)$ oracle on the corpus distribution. If the statistical
+dimension $\mathrm{SDA}(D_0, \mathcal{S}, \bar m)$ of Feldman et al.\ is at
+least $q'$ at the discrimination parameter matching $m$, then no auditor with
+$q < q'$ queries decides the world with the success their framework fixes, with
+parameters inherited from their lower bound \cite{FGRVX17}. In particular, for
+planted bipartite $k$-clique with $k = o(\sqrt n)$, an auditor restricted to
+$\mathrm{VSTAT}(o(n^2/k^2))$ needs $n^{\Omega(\log n)}$ queries.
+\end{proposition}
+
+\begin{proof}
+The auditor's task, as fixed, is the decision problem between $D_0$ and
+$\mathcal{S}$ in the $\mathrm{VSTAT}$ model, which is the problem the
+statistical-dimension lower bound of Feldman et al.\ prices, and the planted
+bipartite clique instantiation is their main theorem \cite{FGRVX17}. Nothing
+beyond the specialization is claimed.
+\end{proof}
+
+Three boundaries keep the proposition honest. It prices an auditor whose view of
+the corpus is statistical averages, and says nothing about an auditor who reads
+individual records. It does not touch the auditor who views the trained model
+rather than the corpus, and that transfer is open. And it does not assert that a
+generic planter can simultaneously meet a non-triviality condition with a
+clique-shaped poison, which is Open~\ref{oq:nontrivial}.
+
+\begin{openq}[The model-level auditor]
+Whether Proposition~\ref{prop:sda} transfers to an auditor viewing the final
+model, rather than the corpus, is not known, and it is the half of the first
+theorem that would price backdoor detection as deployed defences practice it.
 \end{openq}
 
 \section{What is deferred, and what remains open about the oracle}
@@ -677,9 +730,11 @@ about the oracle itself.
 
 \begin{openq}[Uninstantiability]
 Random-oracle proofs are known to have instantiations for which the proved
-theorem fails. Whether the analogous phenomenon arises when the learning oracle is
-replaced by a concrete recipe is not known, and the cryptographic reference for the
-random-oracle case is not yet in the corpus and is owed.
+theorem fails, by the construction of Canetti, Goldreich and Halevi \cite{CGH04}.
+Whether the analogous phenomenon arises when the learning oracle is replaced by a
+concrete recipe is not known. A learning analogue of their diagonalization, a game
+secure in this model that every concrete recipe implements insecurely, would put
+the same known bound on this methodology that theirs put on the random oracle.
 \end{openq}
 
 \bibliographystyle{plain}

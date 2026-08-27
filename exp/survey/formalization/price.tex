@@ -19,7 +19,16 @@ type the recipe's steps realize.
 For recipes whose steps are statistical queries, the floor is unconditional. A
 hidden $k$-sparse parity requires $d^{\Omega(k)}$ statistical queries at any
 useful tolerance, and this is the number Barak et al.\ describe SGD as
-approaching \cite{BEGKMZ22}. For Gaussian single-index models the current sharp
+approaching \cite{BEGKMZ22}. One hypothesis connects that floor to gradient
+recipes, and its status must be stated. A fresh-batch gradient step of batch size
+$B$ evaluates a correlational statistical query to tolerance on the order of
+$B^{-1/2}$, up to concentration, so a $T$-step fresh-batch recipe reads as a
+correlational-query algorithm with $T$ queries at that tolerance. The reading is
+standard and is how Barak et al.\ compare SGD to the SQ limit
+\cite{BEGKMZ22}, and it is not a theorem. Dandi et al.\ state the inheritance
+for reused batches as an expectation explicitly \cite{DTAPZK24}. Every use of a
+query floor for a gradient recipe in this framework routes through this
+simulation and carries its status. For Gaussian single-index models the current sharp
 single number is the generative exponent $k^*$: any statistical-query algorithm
 that outputs a direction with nontrivial overlap needs $n \gtrsim d^{k^*/2}$
 samples, unconditionally within the class \cite{DPLB24}. One caveat travels with
@@ -117,11 +126,16 @@ log-log fit across dimensions gives
 \[
 t_c \;\propto\; d^{\,\ParitySlope},
 \]
-which is $d^{\,k-1}$ at $k = \ParityK$, Figure~\ref{fig:parity}. The
-convergence times are heavy-tailed across seeds at fixed dimension, which
-matches the initialization sensitivity Barak et al.\ document, and the exponent
-is the small-$n$ regime of their law, which their own scaling plots show
-worsening at larger $n$. In a second regime, batch 8 with a larger learning
+Figure~\ref{fig:parity}. Three sentences fix what the fitted exponent is and is
+not. It sits in the power-law family $t_c \propto d^{\alpha k}$ that Barak et
+al.\ document, whose exponent depends on the architecture, the batch and the
+regime, and whose own scaling plots show it worsening at larger $d$
+\cite{BEGKMZ22}. It is consistent with the query floor through the simulation
+above, since the floor constrains the product of queries and squared tolerance
+and fixes no step exponent at a given batch. It does not measure the floor, and
+no experiment can, since a floor quantifies over algorithms. The convergence
+times are heavy-tailed across seeds at fixed dimension, which matches the
+initialization sensitivity Barak et al.\ document. In a second regime, batch 8 with a larger learning
 rate, the wall is sharper than any fit: the median at $d = 30$ is
 \ProbeMedThirty{} steps and none of nine runs at $d \in \{60, 90, 120\}$
 reached threshold within \ProbeCap{} steps, a greater than forty-fold increase

@@ -14,6 +14,8 @@ import csv;R=list(csv.DictReader(open('notes/classification.tsv',encoding='utf-8
 print(sum(1 for r in R if r['party']!='none' and not r['assessed']))")
 [ "$blank" = "0" ] && pass "G3 assessed complete" || fail "G3 assessed complete" "$blank blank rows"
 
+if python3 tools/check-numbers.py >/dev/null 2>&1; then pass "G4 no stale numbers"; else fail "G4 no stale numbers" "$(python3 tools/check-numbers.py 2>&1 | head -1)"; fi
+
 $T -X compile main.tex --outdir . >/dev/null 2>&1
 $T -X compile supplementary.tex --outdir . >/dev/null 2>&1
 u=$(pdftotext main.pdf - | grep -c "??"); q=$(pdftotext supplementary.pdf - | grep -c "\[?\]")
