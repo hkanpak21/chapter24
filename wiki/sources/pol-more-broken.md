@@ -3,7 +3,8 @@ title: Proof-of-Learning is Currently More Broken Than You Think
 type: source
 date_ingested: 2026-08-20
 authors: [Congyu Fang, Hengrui Jia, Anvith Thudi, Mohammad Yaghini, Christopher A. Choquette-Choo, Natalie Dullerud, Varun Chandrasekaran, Nicolas Papernot]
-venue: "venue unconfirmed from PDF (the file is arXiv:2208.03567v2, 17 Apr 2023, and states no venue; the bibliography of `DJY+25_PoLO.pdf` lists it as EuroS&P 2023)"
+venue: "IEEE EuroS&P 2023"
+venue_evidence: "DOI 10.1109/EuroSP57164.2023.00052 (Proceedings of the 8th IEEE European Symposium on Security and Privacy, EuroS&P 2023, pp. 797-816), matches DJY+25_PoLO.pdf bibliography attribution"
 year: 2023
 tags: [adversarial-ml, certification, verifiable-computation, complexity theory]
 claim_quantifier: empirical

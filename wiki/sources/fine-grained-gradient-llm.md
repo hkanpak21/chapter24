@@ -3,7 +3,8 @@ title: The Fine-Grained Complexity of Gradient Computation for Training Large La
 type: source
 date_ingested: 2026-08-20
 authors: [Josh Alman, Zhao Song]
-venue: "venue unconfirmed from PDF (the file is arXiv:2402.04497v1, 7 Feb 2024, and states no venue)"
+venue: "NeurIPS 2024"
+venue_evidence: "https://neurips.cc/virtual/2024/poster/93245; ACM DL DOI 10.5555/3737916.3739879, Proceedings of the 38th NeurIPS"
 year: 2024
 tags: [complexity theory, hardness-reductions, learning-theory, fine-grained-complexity]
 claim_quantifier: conditional

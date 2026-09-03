@@ -3,7 +3,8 @@ title: "Attaxonomy: Unpacking Differential Privacy Guarantees Against Practical 
 type: source
 date_ingested: 2026-08-20
 authors: [Rachel Cummings, Shlomi Hod, Jayshree Sarathy, Marika Swanberg]
-venue: venue unconfirmed from PDF (arXiv:2405.01716v1 [cs.CR], 2 May 2024)
+venue: "arXiv:2405.01716"
+venue_evidence: "https://arxiv.org/abs/2405.01716; footnote on the paper records the FORC 2024 non-archival track, not the archival LIPIcs proceedings (LIPIcs vol 295 table of contents does not list it) — no refereed venue"
 year: 2024
 tags: [adversary-knowledge-taxonomy, differential-privacy, data-reconstruction-attack, membership-inference-game, attack-taxonomy-llms]
 claim_quantifier: universal

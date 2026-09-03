@@ -3,7 +3,8 @@ title: Capacity Bounded Differential Privacy
 type: source
 date_ingested: 2026-08-20
 authors: [Kamalika Chaudhuri, Jacob Imola, Ashwin Machanavajjhala]
-venue: venue unconfirmed from PDF (arXiv:1907.02159v1 [cs.LG], 3 Jul 2019; the PDF footer reads "Preprint. Under review." — cited by DM22 in this corpus as NeurIPS 2019)
+venue: "NeurIPS 2019"
+venue_evidence: "https://proceedings.neurips.cc/paper/2019/hash/04df4d434d481c5bb723be1b6df1ee65-Abstract.html"
 year: 2019
 tags: [adversarial-ml, learning-theory, differential-privacy, low-degree-polynomial-framework, computational-vs-it-robustness]
 claim_quantifier: existential

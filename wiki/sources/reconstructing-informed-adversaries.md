@@ -3,7 +3,8 @@ title: Reconstructing Training Data with Informed Adversaries
 type: source
 date_ingested: 2026-08-22
 authors: [Borja Balle, Giovanni Cherubin, Jamie Hayes]
-venue: "IEEE S&P (43rd IEEE Symposium on Security and Privacy, 2022, pp. 1138-1156; the ingested PDF carries no venue line, venue read from three independent bibliographies in this corpus, including CHSS24_Attaxonomy)"
+venue: "IEEE S&P 2022"
+venue_evidence: "dblp: conf/sp/BalleCH22 (inproceedings, IEEE S&P 2022, pp. 1138-1156, DOI 10.1109/SP46214.2022.9833677); direct confirmation, superseding the earlier bibliography-cross-reference evidence"
 year: 2022
 tags: [adversarial-ml, reconstruction, computational-indistinguishability, sample-complexity]
 claim_quantifier: conditional
@@ -24,10 +25,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: 
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "absent"
+cls_evidence_src: "Checked and confirmed absent: Section II threat model and Definition 1 (Informed reconstruction adversary) bound only the adversary's knowledge (the fixed dataset D-, the released parameters θ, the training algorithm A, optional side knowledge aux) and no time, circuit-size or query count; Definition 2 (Section VII, (η,γ)-ReRo) quantifies over any reconstruction attack R : Θ → Z with no resource bound stated; Theorem 2, Corollaries 3-4 and Theorem 5 (Section VII) bound the mechanism's privacy parameters, not any party's computation. raw/BCH22_ReconstructingInformedAdversaries.pdf."
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

@@ -3,14 +3,15 @@ title: "On the Fine-Grained Complexity of Empirical Risk Minimization: Kernel Me
 type: source
 date_ingested: 2026-08-20
 authors: [Arturs Backurs, Piotr Indyk, Ludwig Schmidt]
-venue: "venue unconfirmed from PDF (the file is arXiv:1704.02958v1, 10 Apr 2017, and states no venue)"
+venue: "NeurIPS 2017"
+venue_evidence: "dblp: https://dblp.org/rec/conf/nips/BackursIS17.html; NIPS 2017, pp. 4308-4318"
 year: 2017
 tags: [complexity theory, hardness-reductions, learning-theory, fine-grained-complexity]
 claim_quantifier: conditional
 antecedent: "SETH — informally stated in the paper as: no algorithm decides satisfiability of a CNF formula with n variables and m clauses in time O(c^n · poly(m)) for some c < 2. Reductions run through Orthogonal Vectors (OVP) and Bichromatic Hamming Close Pair (BHCP), both known to require n^{2-o(1)} time for d = ω(log n) under SETH. Standard."
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -22,7 +23,7 @@ cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "computing a gradient of the empirical risk for m examples takes at least O((nm)1−o(1) ) time assuming SETH."
 cls_evidence_src: Thm 10
-cls_reason: "party=learner and target/family=none because the wiki page states directly that the cost belongs to the learner, with no adversary or security game. tightness=exponent chosen over poly because the bound is a specific SETH-conditional near-quadratic exponent, not a bare 'no poly-time algorithm exists' statement (quadratic-time algorithms do solve the problem). Flagged as a judgement call: the codebook's exponent definition ('a stated relation to the honest party's work') was written for two-party fine-grained cryptography, and this paper has only one party — the exponent instead relates the lower bound to the naive/trivial algorithm's own cost."
+cls_reason: "party=learner and target/family=none because the wiki page states directly that the cost belongs to the learner, with no adversary or security game. tightness=exponent chosen over poly because the bound is a specific SETH-conditional near-quadratic exponent, not a bare 'no poly-time algorithm exists' statement (quadratic-time algorithms do solve the problem). Flagged as a judgement call: the codebook's exponent definition ('a stated relation to the honest party's work') was written for two-party fine-grained cryptography, and this paper has only one party — the exponent instead relates the lower bound to the naive/trivial algorithm's own cost. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

@@ -22,10 +22,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: 
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "we show that blind attacks—that distinguish the member and non-member distributions without looking at any trained model—outperform state-of-the-art MI attacks."
+cls_evidence_src: "Abstract, p. 1"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

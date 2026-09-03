@@ -3,7 +3,8 @@ title: "Fast Learning Requires Good Memory: A Time-Space Lower Bound for Parity 
 type: source
 date_ingested: 2026-08-21
 authors: [Ran Raz]
-venue: venue unconfirmed from PDF (arXiv:1602.05161v1 [cs.LG], 16 Feb 2016; recorded elsewhere in this repo as FOCS'16)
+venue: "FOCS 2016"
+venue_evidence: "dblp: conf/focs/Raz16 (inproceedings, FOCS 2016, pp. 266-275); a later journal version also exists, dblp journals/jacm/Raz19 (J. ACM 66(1), article 3, 2019)"
 year: 2016
 tags: [complexity-theory, learning-theory, cryptography, sample-complexity, one-way-functions, bounded-storage-model]
 claim_quantifier: universal
@@ -13,21 +14,21 @@ model_class: parity functions over {0,1}^n, target uniform
 algorithm_class: branching programs of width at most 2^{cn^2} and length at most 2^{alpha n}, non-uniform
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
 cls_party: learner
 cls_unit: memory
-cls_tightness: budget
+cls_tightness: exponent
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "For any c < 1/20, there exists α > 0, such that the following holds: Let B be a branching program of length at most 2αn and width at most 2cn2 for parity learning (of size n)."
+cls_evidence_src: "Theorem 2, Section 7, raw/R16_ParityTimeSpace.pdf. pdftotext splits the fraction 1/20 and the exponents 2^(αn), 2^(cn^2) across separate lines (a column/footnote layout artifact); reassembled here in reading order without altering the wording. Width bounds memory (2^(cn^2) states), length bounds the sample stream (2^(αn))."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R4, threshold in the learner own resource): tightness budget -> exponent. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

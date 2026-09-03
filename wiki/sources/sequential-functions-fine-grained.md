@@ -3,7 +3,8 @@ title: "On Sequential Functions and Fine-Grained Cryptography"
 type: source
 date_ingested: 2026-08-20
 authors: [Jiaxin Guan, Hart Montgomery]
-venue: "CRYPTO 2024 (the PDF's own footnote reads \"The version published by Springer-Verlag will be available in the proceedings of CRYPTO 2024\")"
+venue: "CRYPTO 2024"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-031-68388-6_14; Springer LNCS vol. 14924, pp. 393-428, confirms PDF footnote"
 year: 2024
 claim_quantifier: existential
 antecedent: "For the main separation: existence of a PSPACE oracle. For the fine-grained SKE and MAC: an *ideal* continuous iterative sequential function whose Round function takes exactly the same time for honest parties and adversaries. For fine-grained PKE: a VDF with perfect soundness, unique proofs and proof indistinguishability, plus iO for null circuits."
@@ -16,14 +17,14 @@ cls_write: none
 cls_frame: compute
 cls_party: attacker
 cls_unit: circuit depth
-cls_tightness: exponent
+cls_tightness: relative
 cls_baseline: n/a
-cls_second_party: none
+cls_second_party: circuit depth
 cls_second_notion: queries
 cls_assessed: explicit
 cls_evidence: "For all λ ∈ N and for all tuples of PPT machines (A0, A1, A2), such that A2 runs in time strictly less than k · tA(λ) in the computational model MA"
 cls_evidence_src: "Def 3 (Sequential Functions), condition 2"
-cls_reason: "Not an ML attack scenario (pure fine-grained cryptography), so target/family/phase/access/write are none/none/n/a/none/none. A2 is bounded by parallel running time (depth) relative to the honest party's k·tC(λ), a stated relation to the honest party's work, so tightness=exponent; classified as unit=circuit depth per the wiki's own framing of this as 'the depth axis, formalized incompatibly' alongside AC0/NC1-class depth bounds elsewhere in the corpus. The main oracle separation additionally bounds the same construction by q=poly(λ) queries per round (proof of Thm 3: 'we can submit at most q queries per round'), an incomparable second resource notion for the same party per Rule 4b."
+cls_reason: "Not an ML attack scenario (pure fine-grained cryptography), so target/family/phase/access/write are none/none/n/a/none/none. A2 is bounded by parallel running time (depth) relative to the honest party's k·tC(λ), a stated relation to the honest party's work, so tightness=exponent; classified as unit=circuit depth per the wiki's own framing of this as 'the depth axis, formalized incompatibly' alongside AC0/NC1-class depth bounds elsewhere in the corpus. The main oracle separation additionally bounds the same construction by q=poly(λ) queries per round (proof of Thm 3: 'we can submit at most q queries per round'), an incomparable second resource notion for the same party per Rule 4b. RECODE 2026-09-03 (R1, revision 7): tightness exponent -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> circuit depth."
 cls_prov: P
 cls_date: 2026-08-22
 ---

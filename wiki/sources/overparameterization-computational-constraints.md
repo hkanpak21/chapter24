@@ -3,7 +3,8 @@ title: "Overparameterization from Computational Constraints"
 type: source
 date_ingested: 2026-08-20
 authors: [Sanjam Garg, Somesh Jha, Saeed Mahloujifar, Mohammad Mahmoody, Mingyuan Wang]
-venue: "venue unconfirmed from PDF — the file carries only the arXiv stamp `arXiv:2208.12926v2 [cs.LG] 15 Oct 2022` and no conference line. A NeurIPS 2022 attribution circulates externally but is not verifiable from this PDF."
+venue: "NeurIPS 2022"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2022/hash/57e48ac3aa4d107979bf5c6ebc9fe99d-Abstract-Conference.html (Advances in Neural Information Processing Systems 35, 2022)"
 year: 2022
 claim_quantifier: existential
 antecedent: "One-way functions exist. Used twice — via HILL'99 for pseudorandom generators of arbitrary polynomial stretch (Part 1), and via Naor–Yung'89 / Rompel'90 for signature schemes with weak unforgeability (Part 2). No stronger or structured assumption anywhere. Part 2's lower bound (Theorem 29) is itself an entropy argument and needs no assumption."

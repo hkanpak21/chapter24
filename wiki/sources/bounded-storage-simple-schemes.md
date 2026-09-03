@@ -3,7 +3,8 @@ title: Simple Schemes in the Bounded Storage Model
 type: source
 date_ingested: 2026-08-21
 authors: [Jiaxin Guan, Mark Zhandry]
-venue: venue unconfirmed from PDF (the file carries no date and no venue line; recorded elsewhere in this repo as EUROCRYPT'19)
+venue: "EUROCRYPT 2019"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-030-17659-4_17; Advances in Cryptology - EUROCRYPT 2019, LNCS 11478, pages 500-524"
 year: 2019
 tags: [cryptography, bounded-storage-model, computational-indistinguishability, complexity-theory, one-way-functions]
 claim_quantifier: universal
@@ -24,7 +25,7 @@ cls_second_notion: queries
 cls_assessed: explicit
 cls_evidence: "The bounded storage model promises unconditional security proofs against computationally unbounded adversaries, so long as the adversary's space is bounded."
 cls_evidence_src: abstract
-cls_reason: "Adversary bounded by memory (Def 1, S(n)) and separately by queries Q(n) in the same definition. Honest Keeper/Recorder also memory-bounded at O(n)/O(lambda n) (second_party=memory). Storage gap stated relative to honest party's O(n) usage (quadratic, per Connections and Open Questions), giving tightness=exponent rather than budget."
+cls_reason: "Adversary bounded by memory (Def 1, S(n)) and separately by queries Q(n) in the same definition. Honest Keeper/Recorder also memory-bounded at O(n)/O(lambda n) (second_party=memory). Storage gap stated relative to honest party's O(n) usage (quadratic, per Connections and Open Questions), giving tightness=exponent rather than budget. REVISION 6 NOTE 2026-09-03: tightness is relative since 2026-08-27, the exponent wording above predates the split."
 cls_prov: P
 cls_date: 2026-08-22
 ---

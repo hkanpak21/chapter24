@@ -3,7 +3,8 @@ title: "Certified Defenses for Data Poisoning Attacks"
 type: source
 date_ingested: 2026-04-23
 authors: [Jacob Steinhardt, Pang Wei Koh, Percy Liang]
-venue: "NeurIPS 2017 (venue unconfirmed from PDF: raw/SKL17_CertifiedPoisoningDefenses.pdf is arXiv:1706.03691v2 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "NeurIPS 2017"
+venue_evidence: "https://proceedings.neurips.cc/paper/2017/hash/9d7311ba459f9e45ed746755a32dcd11-Abstract.html; Advances in Neural Information Processing Systems 30 (NIPS 2017)"
 year: 2017
 tags: [poisoning-attacks, certified-defenses, adversarial-ml, robust-statistics, data-sanitization]
 claim_quantifier: conditional

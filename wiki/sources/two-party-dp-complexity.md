@@ -3,7 +3,8 @@ title: On the Complexity of Two-Party Differential Privacy
 type: source
 date_ingested: 2026-08-20
 authors: [Iftach Haitner, Noam Mazor, Jad Silbak, Eliad Tsfadia]
-venue: venue unconfirmed from PDF (arXiv:2108.07664v3 [cs.CR], 17 Jun 2022; cited by HMSTY25 in this corpus as STOC '22)
+venue: "STOC 2022"
+venue_evidence: "https://dblp.uni-trier.de/search?q=On%20the%20Complexity%20of%20Two-Party%20Differential%20Privacy; dblp: STOC 2022, pp. 1392-1405 (confirms the HMSTY25 in-corpus citation)"
 year: 2022
 tags: [cryptography, hardness-reductions, computational-indistinguishability, differential-privacy, sample-complexity]
 claim_quantifier: conditional

@@ -3,7 +3,8 @@ title: "Are GANs overkill for NLP?"
 type: source
 date_ingested: 2026-08-22
 authors: [David Alvarez-Melis, Vikas Garg, Adam Tauman Kalai]
-venue: "NeurIPS 2022 — stated in the PDF: \"36th Conference on Neural Information Processing Systems (NeurIPS 2022).\""
+venue: "NeurIPS 2022"
+venue_evidence: "https://openreview.net/forum?id=F02H1zNl213; stated in the PDF as 36th Conference on Neural Information Processing Systems (NeurIPS 2022)"
 year: 2022
 tags: [learning-theory, computational-indistinguishability, hardness-reductions, sample-complexity]
 claim_quantifier: conditional

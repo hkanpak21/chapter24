@@ -3,7 +3,8 @@ title: "Adversarially Robust PAC Learnability of Real-Valued Functions"
 type: source
 date_ingested: 2026-04-23
 authors: [Idan Attias, Steve Hanneke]
-venue: "ICML 2023 (venue unconfirmed from PDF: raw/AH23_RobustPACRegression.pdf is arXiv:2206.12977v3 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "ICML 2023"
+venue_evidence: "https://proceedings.mlr.press/v202/attias23a.html, PMLR vol 202, pages 1172-1199; https://icml.cc/virtual/2023/poster/23639"
 year: 2023
 tags: [adversarial-ml, PAC-learning, regression, fat-shattering, sample-complexity, sample-compression]
 claim_quantifier: universal

@@ -3,7 +3,8 @@ title: "Fine-Grained Non-Interactive Key-Exchange without Idealized Assumptions,
 type: source
 date_ingested: 2026-08-20
 authors: [Yuyu Wang, Chuanjie Su, Jiaxin Pan, Chunxiang Xu]
-venue: "Crypto 2024 (the PDF's own footnote reads \"A preliminary version of this paper appeared at Crypto 2024 [37], this is the full version\")"
+venue: "CRYPTO 2024"
+venue_evidence: "dblp: Fine-Grained Non-interactive Key-Exchange Without Idealized Assumptions, CRYPTO (2) 2024, pp. 251-285, DOI 10.1007/978-3-031-68379-4_8; PDF footnote also states Crypto 2024"
 year: 2024
 claim_quantifier: conditional
 antecedent: "Bounded parallel-time construction: NC1 ⊊ ⊕L/poly, a worst-case class separation. Bounded-time construction: the strong Zero-k-Clique-R hypothesis, an average-case fine-grained hypothesis taken from LaVigne-Lincoln-Vassilevska Williams. Bounded-storage construction: none — unconditional."

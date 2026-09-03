@@ -4,8 +4,9 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-22
 authors: [Edith Cohen, Haim Kaplan, Yishay Mansour, Shay Moran, Kobbi Nissim, Uri Stemmer, Eliad Tsfadia]
-venue: "venue unconfirmed from PDF"
-year: 2024
+venue: "ITCS 2025"
+venue_evidence: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.39; 16th Innovations in Theoretical Computer Science Conference (ITCS 2025), LIPIcs vol 325, pages 39:1-39:23"
+year: 2025
 claim_quantifier: conditional
 antecedent: "The one-wayness equivalence (Theorem C.5) holds for functions f that are efficiently computable AND well-spread, meaning Pr_{x~U_λ}[f(x) = y] ≤ ν(λ) for negligible ν and every y. Every injective function is well-spread. A function with a heavy output fibre is not, and the theorem says nothing about it."
 adversary_bound: "Two, in the same paper. The main-body notion (Definition 1.6, Narcissus resiliency) quantifies over ALL attackers, with no resource bound. The appendix notion (Definition C.1, computational Narcissus resiliency) quantifies over all non-uniform attackers running in poly(λ) time. The one-wayness and encryption results all live under the second."

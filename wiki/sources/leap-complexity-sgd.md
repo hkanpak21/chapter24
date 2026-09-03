@@ -3,7 +3,8 @@ title: SGD learning on neural networks - leap complexity and saddle-to-saddle dy
 type: source
 date_ingested: 2026-08-20
 authors: [Emmanuel Abbe, Enric Boix-Adserà, Theodor Misiakiewicz]
-venue: venue unconfirmed from PDF (arXiv:2302.11055v2 [cs.LG], 31 Aug 2023; cited elsewhere in this corpus as COLT 2023)
+venue: "COLT 2023"
+venue_evidence: "dblp: conf/colt/AbbeAM23, inproceedings; also proceedings.mlr.press/v195/abbe23a.html, pp. 2552-2623"
 year: 2023
 tags: [learning-theory, sample-complexity, leap-complexity, csq, feature-learning, multi-index-model]
 claim_quantifier: conditional

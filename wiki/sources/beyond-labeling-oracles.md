@@ -4,6 +4,8 @@ type: source
 date_ingested: 2026-08-20
 authors: [Avital Shafran, Ilia Shumailov, Murat A. Erdogdu, Nicolas Papernot]
 venue: "TMLR 2024"
+venue_evidence: "https://dblp.org/pid/254/2733.html lists it as Transactions on Machine Learning Research, 2024; https://arxiv.org/abs/2310.01959"
+journal_ref: "2024||"
 year: 2024
 tags: [adversarial-ml, learning-theory, sample-complexity, computational-cost]
 claim_quantifier: empirical
@@ -22,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: 
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "We are not aware of any ME literature that formally defines what makes model extraction attacks successful."
+cls_evidence_src: "Section 3.2, \"Primer on ML costing\", p. 3"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

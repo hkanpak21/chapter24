@@ -3,7 +3,8 @@ title: Algorithms and SQ Lower Bounds for Robustly Learning Real-valued Multi-in
 type: source
 date_ingested: 2026-08-20
 authors: [Ilias Diakonikolas, Giannis Iakovidis, Daniel M. Kane, Lisheng Ren]
-venue: venue unconfirmed from PDF (arXiv:2505.21475v1 [cs.LG], 27 May 2025; cited elsewhere as NeurIPS 2025)
+venue: "NeurIPS 2025"
+venue_evidence: "dblp: conf/nips/DiakonikolasIKR25 (inproceedings, NeurIPS 2025); confirms the in-corpus citation lead"
 year: 2025
 tags: [statistical-query, multi-index-model, agnostic-learning, adversarial-label-noise, sample-complexity, statistical-computational-gaps]
 claim_quantifier: conditional

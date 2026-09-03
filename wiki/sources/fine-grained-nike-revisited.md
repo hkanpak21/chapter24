@@ -3,7 +3,8 @@ title: "Fine-Grained Non-Interactive Key Exchange, Revisited"
 type: source
 date_ingested: 2026-08-20
 authors: [Balthazar Bauer, Geoffroy Couteau, Elahe Sadeghi]
-venue: "venue unconfirmed from PDF (no venue line; raw/SOURCES.md records CRYPTO 2024)"
+venue: "CRYPTO 2024"
+venue_evidence: "dblp: CRYPTO (2) 2024, pp. 286-312; IACR ePrint 2024/834 (confirms raw/SOURCES.md)"
 year: 2024
 claim_quantifier: conditional
 antecedent: "Existence of an exponentially secure injective pseudorandom generator plus sub-exponential hardness of CDH (standard-model result); for the Maurer's-GGM result, a non-uniformly exponentially secure injective PRG, an assumption known to be unsatisfiable beyond time 2^{4λ/5}."

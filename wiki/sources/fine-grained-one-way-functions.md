@@ -16,15 +16,15 @@ cls_write: none
 cls_frame: compute
 cls_party: attacker
 cls_unit: circuit size
-cls_tightness: exponent
+cls_tightness: relative
 cls_baseline: n/a
-cls_second_party: none
+cls_second_party: circuit size
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "At a high level, f is an (ε, δ)-FG-OWF if all circuits of (slightly higher) size o(|fm |1+δ ) have probability at most ε to find a preimage of fm (x) for a random input x."
+cls_evidence_src: "Section 2.2, informal definition immediately preceding Definition 6 (Fine-Grained One-Way Function), p. 8"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R1, revision 7): tightness exponent -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> circuit size."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

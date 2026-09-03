@@ -3,7 +3,8 @@ title: Continuous LWE
 type: source
 date_ingested: 2026-04-12
 authors: [Joan Bruna, Oded Regev, Min Jae Song, Yi Tang]
-venue: STOC 2021 (the ingested PDF is arXiv:2005.09595v2, 24 Oct 2020, and does not itself state a venue)
+venue: "STOC 2021"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3406325.3451000; Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing (STOC 2021), pages 694-707"
 year: 2021
 tags: [lattice-cryptography, continuous-lwe, gaussian-mixtures, statistical-query, hardness-reductions, cryptography]
 claim_quantifier: conditional

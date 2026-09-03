@@ -3,7 +3,8 @@ title: On the Necessity of Auditable Algorithmic Definitions for Machine Unlearn
 type: source
 date_ingested: 2026-08-20
 authors: [Anvith Thudi, Hengrui Jia, Ilia Shumailov, Nicolas Papernot]
-venue: 31st USENIX Security Symposium (stated on page 1 of the PDF; ingested copy is arXiv:2110.11891v2, 19 Feb 2022)
+venue: "USENIX Security 2022"
+venue_evidence: "https://www.usenix.org/conference/usenixsecurity22/presentation/thudi; 31st USENIX Security Symposium, also stated on page 1 of the PDF"
 year: 2022
 tags: [adversarial-ml, reconstruction, hardness-reductions, verifiable-computation]
 claim_quantifier: existential

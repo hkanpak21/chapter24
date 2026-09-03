@@ -3,7 +3,8 @@ title: "PoLO: Proof-of-Learning and Proof-of-Ownership at Once with Chained Wate
 type: source
 date_ingested: 2026-08-20
 authors: [Haiyu Deng, Yanna Jiang, Guangsheng Yu, Qin Wang, Xu Wang, Baihe Ma, Wei Ni, Ren Ping Liu]
-venue: "venue unconfirmed from PDF (the file is arXiv:2505.12296v2, 24 Apr 2026, and states no venue)"
+venue: "arXiv:2505.12296"
+venue_evidence: "dblp: no match found (dblp.org unreachable this session); arXiv abstract page (arxiv.org/abs/2505.12296) has no Journal-ref field despite v1->v2 revision through 2026; no conference acceptance found by web search — unconfirmed refereed venue"
 year: 2026
 tags: [adversarial-ml, certification, verifiable-computation, watermarking]
 claim_quantifier: empirical

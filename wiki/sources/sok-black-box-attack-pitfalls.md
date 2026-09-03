@@ -3,7 +3,8 @@ title: "SoK: Pitfalls in Evaluating Black-Box Attacks"
 type: source
 date_ingested: 2026-08-20
 authors: [Fnu Suya, Anshuman Suri, Tingwei Zhang, Jingtao Hong, Yuan Tian, David Evans]
-venue: arXiv preprint 2310.17534v2 (venue unconfirmed from PDF)
+venue: "IEEE SaTML 2024"
+venue_evidence: "dblp venue listing https://dblp.org/db/conf/satml/satml2024.html; corroborated by the paper's own code repository https://github.com/iamgroot42/blackboxsok stating 'SaTML 2024'"
 year: 2024
 tags: [adversarial-ml, evasion-attacks, threat-model, evaluation-methodology, sample-complexity]
 claim_quantifier: empirical

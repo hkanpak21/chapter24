@@ -3,7 +3,8 @@ title: "Fine-grained Cryptography"
 type: source
 date_ingested: 2026-08-20
 authors: [Akshay Degwekar, Vinod Vaikuntanathan, Prashant Nalini Vasudevan]
-venue: "venue unconfirmed from PDF (no venue line). WSPX24's bibliography, read in this corpus, records CRYPTO 2016, Part III, LNCS 9816, pp. 533-562"
+venue: "CRYPTO 2016"
+venue_evidence: "https://eprint.iacr.org/2016/580; CRYPTO 2016 Part III, LNCS 9816, pp. 533-562 (confirms the WSPX24 bibliography lead, 7-vote mining note)"
 year: 2016
 claim_quantifier: conditional
 antecedent: "For the NC1 results: the worst-case separation ⊕L/poly ⊄ NC1 (standard-ish, widely believed, but a worst-case class separation, not an average-case or cryptographic assumption). For the AC0 results: none — they are unconditional."

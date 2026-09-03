@@ -4,6 +4,7 @@ type: source
 date_ingested: 2026-08-20
 authors: [Jie Zhang, Debeshee Das, Gautam Kamath, Florian Tramèr]
 venue: "IEEE SaTML 2025"
+venue_evidence: "dblp: conf/satml/ZhangDKT25, inproceedings, confirms the existing venue line"
 year: 2025
 tags: [adversarial-ml, computational-indistinguishability, sample-complexity, cryptography]
 claim_quantifier: conditional
@@ -22,10 +23,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: implicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Yet, sampling from this null hypothesis is impossible, as we do not know the exact contents of the training set, nor can we (efficiently) retrain a large foundation model."
+cls_evidence_src: "Abstract, raw/ZDKT25_MIACannotProve.pdf"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

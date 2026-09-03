@@ -3,7 +3,8 @@ title: "Certified Robustness to Adversarial Examples with Differential Privacy (
 type: source
 date_ingested: 2026-04-23
 authors: [Mathias Lecuyer, Vaggelis Atlidakis, Roxana Geambasu, Daniel Hsu, Suman Jana]
-venue: "arXiv:1802.03471v4 (29 May 2019). No venue is named in the PDF in `raw/`; the IEEE S&P 2019 attribution carried on this page is unconfirmed from the primary source."
+venue: "IEEE S&P 2019"
+venue_evidence: "https://ieeexplore.ieee.org/document/8835364/; 2019 IEEE Symposium on Security and Privacy"
 year: 2019
 tags: [adversarial-ml, certified-robustness, differential-privacy, randomized-smoothing, evasion-attacks]
 claim_quantifier: universal

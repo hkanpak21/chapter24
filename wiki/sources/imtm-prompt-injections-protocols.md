@@ -3,8 +3,10 @@ title: "From Prompt Injections to Protocol Exploits: Threats in LLM-Powered AI A
 type: source
 date_ingested: 2026-04-23
 authors: [Mohamed Amine Ferrag, Norbert Tihanyi, Djallel Hamouda, Leandros Maglaras, Abderrahmane Lakas, Merouane Debbah]
-venue: "arXiv:2506.23260v2 (14 Dec 2025). Journal venue unconfirmed from PDF — the PDF carries IEEE membership designations for its authors but names no venue; the earlier attribution to ICT Express / Elsevier came from the ingest, not the document."
-year: 2025
+venue: "ICT Express 2026"
+venue_evidence: "arXiv:2506.23260 abstract page's own Journal reference field states 'ICT Express (Elsevier)', DOI 10.1016/j.icte.2025.12.001, which resolves to https://linkinghub.elsevier.com/retrieve/pii/S2405959525001997 (ScienceDirect, article pii S2405959525001997); independently corroborated via WebSearch listings on ScienceDirect and an Elsevier-Pure institutional repository page. This overturns the earlier note that the ICT Express attribution was unconfirmed — arXiv's own metadata now carries it."; Crossref 2026-09-03: volume 12, issue 2, pages 353-383, April 2026
+journal_ref: "12|2|353--383"
+year: 2026
 tags: [llm-security, agentic-systems, threat-model, prompt-injection, protocol-exploits, formal-model]
 claim_quantifier: empirical
 antecedent: "none — the paper states definitions and a taxonomy, and asserts no conditional result."

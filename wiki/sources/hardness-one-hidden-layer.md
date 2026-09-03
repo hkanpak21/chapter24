@@ -3,8 +3,9 @@ title: On the Hardness of Learning One Hidden Layer Neural Networks
 type: source
 date_ingested: 2026-08-20
 authors: [Shuchen Li, Ilias Zadik, Manolis Zampetakis]
-venue: venue unconfirmed from PDF (arXiv:2410.03477v1 [cs.LG], 4 Oct 2024)
-year: 2024
+venue: "ALT 2025"
+venue_evidence: "dblp search (q=Hardness of Learning One Hidden Layer Neural Networks): ALT 2025 inproceedings, pp.700-701, mlr.press, plus CoRR abs/2410.03477"
+year: 2025
 tags: [cryptography, hardness-reductions, continuous-lwe, lattice-cryptography, learning-theory, one-way-functions]
 claim_quantifier: conditional
 antecedent: "Conditional on the quantum worst-case hardness of approximating GapSVP within polynomial factors (Conjecture 2.3), routed through CLWE (Theorem 2.4, imported from Bruna-Regev-Song-Tang). Requires width k = omega(sqrt(d log d)) and Gaussian label noise of variance sigma = poly(d)^{-1}."

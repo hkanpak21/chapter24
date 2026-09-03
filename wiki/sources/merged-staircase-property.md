@@ -3,7 +3,8 @@ title: The merged-staircase property - a necessary and nearly sufficient conditi
 type: source
 date_ingested: 2026-08-20
 authors: [Emmanuel Abbe, Enric Boix-Adserà, Theodor Misiakiewicz]
-venue: venue unconfirmed from PDF (arXiv:2202.08658v2 [cs.LG], 26 Aug 2024; cited elsewhere in this corpus as COLT 2022)
+venue: "COLT 2022"
+venue_evidence: "dblp: conf/colt/AbbeAM22, inproceedings"
 year: 2022
 tags: [learning-theory, sample-complexity, hypercube, mean-field, feature-learning, leap-complexity]
 claim_quantifier: existential

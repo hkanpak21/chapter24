@@ -3,7 +3,8 @@ title: On the Cryptographic Hardness of Learning Single Periodic Neurons
 type: source
 date_ingested: 2026-08-20
 authors: [Min Jae Song, Ilias Zadik, Joan Bruna]
-venue: venue unconfirmed from PDF (arXiv:2106.10744v2 [cs.LG], 16 Sep 2021; cited elsewhere as NeurIPS 2021)
+venue: "NeurIPS 2021"
+venue_evidence: "dblp search (q=Cryptographic Hardness of Learning Single Periodic Neurons): NeurIPS 2021, pp.29602-29615, inproceedings, plus CoRR abs/2106.10744"
 year: 2021
 tags: [cryptography, hardness-reductions, continuous-lwe, lattice-cryptography, single-index-model, lll-algorithm, statistical-query]
 claim_quantifier: conditional

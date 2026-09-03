@@ -3,8 +3,10 @@ title: "Relating Definitions of Computational Differential Privacy in Wider Para
 type: source
 date_ingested: 2026-08-22
 authors: [Fredrik Meisingseth, Christian Rechberger]
-venue: "venue unconfirmed from PDF (no venue line; the PDF's metadata records a creation date of 2025-05-08, and Remark 2 credits \"an anonymous reviewer at Crypto'25\")"
-year: 2025
+venue: "IACR Communications in Cryptology 2026"
+venue_evidence: "https://cic.iacr.org/p/2/4/7; IACR Communications in Cryptology, volume 2, issue 4, article 7, DOI 10.62056/ahebnja5"
+journal_ref: "2|4|7"
+year: 2026
 tags: [cryptography, computational-indistinguishability, differential-privacy, impossibility-frameworks, pseudorandomness]
 claim_quantifier: conditional
 antecedent: "The direct implications hold for all mechanisms but only in stated parameter regimes: the SIM∀∃ → IND direction requires ε ∈ O(log κ), and the Lp-utility barrier likewise. The IND → SIM∀∃ implication holds for all ε, δ but only with an inflated δ'. The exotic-crypto barrier is conditional on the CDP mechanism being a fully black-box construction from one-way functions. The new separation itself rests on no complexity assumption."

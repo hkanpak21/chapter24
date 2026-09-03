@@ -3,7 +3,8 @@ title: "Provably Robust Deep Learning via Adversarially Trained Smoothed Classif
 type: source
 date_ingested: 2026-04-23
 authors: [Hadi Salman, Greg Yang, Jerry Li, Pengchuan Zhang, Huan Zhang, Ilya Razenshteyn, Sébastien Bubeck]
-venue: "NeurIPS 2019, stated in the PDF's own footer as 33rd Conference on Neural Information Processing Systems, Vancouver (arXiv:1906.04584v5, 10 Jan 2020)"
+venue: "NeurIPS 2019"
+venue_evidence: "dblp: conf/nips/SalmanLRZZYB19 (inproceedings, NeurIPS 2019, pp. 11289-11300); confirms the PDF's own stated venue"
 year: 2019
 tags: [adversarial-ml, certified-robustness, randomized-smoothing, adversarial-training, evasion-attacks]
 claim_quantifier: empirical

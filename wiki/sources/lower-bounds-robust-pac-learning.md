@@ -3,8 +3,9 @@ title: "Lower Bounds for Adversarially Robust PAC Learning"
 type: source
 date_ingested: 2026-05-07
 authors: [Dimitrios I. Diochnos, Saeed Mahloujifar, Mohammad Mahmoody]
-venue: "arXiv:1906.05815 (2019)"
-year: 2019
+venue: "ISAIM 2020"
+venue_evidence: "dblp: conf/isaim/DiochnosMM20, inproceedings, same title and same three authors as the CoRR abs/1906.05815 preprint entry; a distinct paper 'Lower Bounds for Adversarially Robust PAC Learning under Evasion and Hybrid Attacks' by the same authors appeared separately at ICMLA 2020"
+year: 2020
 tags: [adversarial-ml, PAC-learning, sample-complexity, concentration-of-measure, learning-theory, evasion-attacks, poisoning-attacks]
 claim_quantifier: conditional
 antecedent: "Two conditions, both stated in the paper: the input space is a Normal Lévy family with concentration function α_n(b) ≤ k₁·e^{−k₂b²/n}, and the concept class is α-close, meaning that for every α in [2^{−Θ(n)}, 1] two concepts disagree on exactly measure α. Both are known to hold for the theoretical spaces instantiated (isotropic Gaussian under ℓ₂, uniform hypercube under Hamming, the n-sphere) and are not established for natural data. The result also requires the error-region definition of adversarial risk rather than the corrupted-input one."

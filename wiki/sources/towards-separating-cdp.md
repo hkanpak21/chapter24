@@ -3,7 +3,8 @@ title: Towards Separating Computational and Statistical Differential Privacy
 type: source
 date_ingested: 2026-08-20
 authors: [Badih Ghazi, Rahul Ilango, Pritish Kamath, Ravi Kumar, Pasin Manurangsi]
-venue: venue unconfirmed from PDF (arXiv:2301.00104v2 [cs.CR], 23 Oct 2023; formatted as an IEEE conference paper with Index Terms)
+venue: "FOCS 2023"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Towards%20Separating%20Computational%20and%20Statistical%20Differential%20Privacy; dblp: FOCS 2023, pp. 580-599, DOI 10.1109/FOCS57990.2023.00042 (confirms the venue-mining note's 3-vote FOCS lead)"
 year: 2023
 tags: [cryptography, indistinguishability-obfuscation, computational-indistinguishability, impossibility-frameworks, differential-privacy, low-degree-polynomial-framework]
 claim_quantifier: conditional

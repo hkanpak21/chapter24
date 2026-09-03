@@ -14,18 +14,18 @@ cls_family: evade
 cls_phase: test time
 cls_access: none
 cls_write: read only
-cls_frame: capability
-cls_party: attacker
-cls_unit: perturbation
-cls_tightness: budget
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_assessed: 
+cls_evidence: "We use it to empirically estimate the intrinsic robustness to `∞ and `2 perturbations of several image classification benchmarks."
+cls_evidence_src: "Abstract, p. 1. The backtick renders the ℓ of ℓ∞/ℓ2, a pdftotext font-glyph artifact."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R2, radius is the conclusion): party attacker -> none. RECODE 2026-09-03 (R2, radius is the conclusion): unit perturbation -> none. RECODE 2026-09-03 (R2, radius is the conclusion): tightness budget -> unstated. RECODE 2026-09-03 (R2, radius is the conclusion): frame capability -> none. RECODE 2026-09-03 (R2, radius is the conclusion): assessed explicit -> ."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

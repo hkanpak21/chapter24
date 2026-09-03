@@ -3,7 +3,8 @@ title: Adversarial Examples Might be Avoidable — The Role of Data Concentratio
 type: source
 date_ingested: 2026-08-20
 authors: [Ambar Pal, Jeremias Sulam, René Vidal]
-venue: NeurIPS
+venue: "NeurIPS 2023"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2023/hash/92d21245424f3898b7110f555a00e829-Abstract-Conference.html; Advances in Neural Information Processing Systems 36 (NeurIPS 2023)"
 year: 2023
 tags: [adversarial-ml, evasion-attacks, concentration-of-measure, certification, robustness]
 claim_quantifier: conditional

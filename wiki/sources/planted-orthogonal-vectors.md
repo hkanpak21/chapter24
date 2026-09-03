@@ -3,7 +3,8 @@ title: "The Planted Orthogonal Vectors Problem"
 type: source
 date_ingested: 2026-08-20
 authors: [David Kühnemann, Adam Polak, Alon Rosen]
-venue: "venue unconfirmed from PDF (the PDF is arXiv:2505.00206v2, 14 Sep 2025)"
+venue: "ESA 2025"
+venue_evidence: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.95 (33rd Annual European Symposium on Algorithms, ESA 2025, LIPIcs vol. 351, pp. 95:1-95:17)"
 year: 2025
 claim_quantifier: conditional
 antecedent: "For the search-to-decision reductions: the existence of a decision algorithm for planted k-OV with success probability 1 − δ(n). The average-case hardness of the planted distribution itself is Conjecture 10 — CONJECTURED, NOT PROVED."

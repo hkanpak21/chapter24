@@ -3,7 +3,8 @@ title: Dos and Don'ts of Machine Learning in Computer Security
 type: source
 date_ingested: 2026-08-20
 authors: [Daniel Arp, Erwin Quiring, Feargus Pendlebury, Alexander Warnecke, Fabio Pierazzi, Christian Wressnegger, Lorenzo Cavallaro, Konrad Rieck]
-venue: USENIX Security Symposium
+venue: "USENIX Security 2022"
+venue_evidence: "dblp: https://dblp.org/search?q=Dos+and+Don%27ts+of+Machine+Learning+in+Computer+Security; inproceedings, USENIX Security Symposium 2022, pp. 3971-3988"
 year: 2022
 tags: [adversarial-ml, evaluation-methodology, survey, evasion-attacks, poisoning-attacks]
 claim_quantifier: empirical

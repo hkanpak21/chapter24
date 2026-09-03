@@ -4,7 +4,8 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-20
 authors: [Hengrui Jia, Mohammad Yaghini, Christopher A. Choquette-Choo, Natalie Dullerud, Anvith Thudi, Varun Chandrasekaran, Nicolas Papernot]
-venue: "42nd IEEE Symposium on Security and Privacy (the PDF's own header reads \"In 42nd IEEE Symposium on Security and Privacy\"; the file is arXiv:2103.05633v1, 9 Mar 2021)"
+venue: "IEEE S&P 2021"
+venue_evidence: "dblp: conf/sp/JiaYCDTCP21 (inproceedings, IEEE S&P 2021, pp. 1039-1056, DOI 10.1109/SP40001.2021.00106); confirms the PDF's own stated venue"
 year: 2021
 tags: [complexity theory, adversarial-ml, certification, hardness-reductions, verifiable-computation]
 claim_quantifier: conditional
@@ -17,16 +18,16 @@ cls_write: model
 cls_frame: compute
 cls_party: attacker
 cls_unit: time
-cls_tightness: unstated
+cls_tightness: relative
 cls_baseline: absent
 cls_baseline_checked: yes
-cls_second_party: none
+cls_second_party: time
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "Property 2. Let CA be the cost random variable associated with any spoofing strategy attempted by any A aside from the honest strategy (i.e. training fWT ). We require that E[CT ] ≤ E[CA ]"
+cls_evidence_src: "Section III, Property 2, raw/JYC+21_ProofOfLearning.pdf"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R1, revision 7): tightness unstated -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> time."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

@@ -23,10 +23,10 @@ cls_baseline: n/a
 cls_second_party: perturbation
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Any computational task where an efficient robust classifier exists, but is hard to learn one in polynomial time implies one-way functions, and hence symmetric key cryptography."
+cls_evidence_src: "Theorem 2.4 (Informal), Section 2, raw/DNV19_WinWinRobustClassification.pdf"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

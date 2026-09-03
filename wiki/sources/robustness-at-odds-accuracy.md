@@ -3,7 +3,8 @@ title: "Robustness May Be at Odds with Accuracy"
 type: source
 date_ingested: 2026-04-23
 authors: [Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Alexander Turner, Aleksander Mądry]
-venue: "ICLR 2019 (venue unconfirmed from PDF: raw/TSETM19_RobustnessAtOddsAccuracy.pdf is arXiv:1805.12152v5 [stat.ML] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "ICLR 2019"
+venue_evidence: "dblp https://dblp.org/rec/conf/iclr/TsiprasSETM19.html"
 year: 2019
 tags: [adversarial-ml, robustness, accuracy-tradeoff, representation-learning, evasion-attacks]
 claim_quantifier: existential

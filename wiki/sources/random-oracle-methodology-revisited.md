@@ -3,7 +3,8 @@ title: "The Random Oracle Methodology, Revisited"
 type: source
 date_ingested: 2026-08-22
 authors: [Ran Canetti, Oded Goldreich, Shai Halevi]
-venue: "STOC 1998, extended abstract (stated in the PDF's own front matter); full version JACM 51(4), 2004 — the journal venue is not stated in the ingested arXiv PDF (cs/0010019)"
+venue: "J. ACM 2004"
+venue_evidence: "dblp: journals/jacm/CanettiGH04 (article, J. ACM 51(4):557-594, 2004); dblp also lists the preliminary version conf/stoc/CanettiGH98 (STOC 1998, pp. 209-218), matching the PDF's own stated extended-abstract venue"
 year: 2004
 tags: [cryptography, hardness-reductions, complexity-theory]
 claim_quantifier: existential

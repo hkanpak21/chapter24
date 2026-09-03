@@ -3,8 +3,9 @@ title: "Speak Much, Remember Little: Cryptography in the Bounded Storage Model, 
 type: source
 date_ingested: 2026-08-21
 authors: [Yevgeniy Dodis, Willy Quach, Daniel Wichs]
-venue: venue unconfirmed from PDF (the file is dated September 22, 2021 and carries no venue line; recorded elsewhere in this repo as EUROCRYPT'23)
-year: 2021
+venue: "EUROCRYPT 2023"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Speak%20Much%20Remember%20Little%20Bounded%20Storage; dblp: EUROCRYPT (1) 2023, pp. 86-116 (refereed; confirms the repo's prior recorded reading)"
+year: 2023
 tags: [cryptography, bounded-storage-model, complexity-theory, computational-indistinguishability]
 claim_quantifier: universal
 antecedent: "none for the constructions, which are unconditional. The lower bounds carry an antecedent about the model: Theorem 7.4 holds in the unbounded processing model, Theorem 7.7 in the fully streaming model, both for protocols with delta-correctness and (m, epsilon) security where delta - epsilon = Omega(1)."

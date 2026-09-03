@@ -3,7 +3,8 @@ title: From Information to Generative Exponent, Learning Rate Induces Phase Tran
 type: source
 date_ingested: 2026-08-22
 authors: [Konstantinos Christopher Tsiolis, Alireza Mousavi-Hosseini, Murat A. Erdogdu]
-venue: venue unconfirmed from PDF (arXiv:2510.21020v1 says Preprint)
+venue: "NeurIPS 2025"
+venue_evidence: "dblp: conf/nips/TsiolisME25, inproceedings; also arXiv:2510.21020 abstract page Comments field states 'NeurIPS 2025'"
 year: 2025
 tags: [scaling-laws, learning-theory, sample-complexity, statistical-query]
 claim_quantifier: conditional

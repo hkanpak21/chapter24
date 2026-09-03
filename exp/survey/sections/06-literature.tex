@@ -9,9 +9,9 @@ shape imposes.
 
 \subsection{The attacker bounded in time}
 
-The largest region bounds an adversary in running time or circuit size, 35 works in
-all. Its characteristic result is an impossibility proved against every efficient
-algorithm.
+The largest region bounds an adversary in running time or circuit size,
+\AttackerTimeCirc{} works in all. Its characteristic result is a guarantee that
+holds against every efficient algorithm and against no unbounded one.
 
 Computational differential privacy is the definitional core. Mironov et al.\ relax
 the differential privacy guarantee from every distinguisher to every efficient one,
@@ -22,36 +22,34 @@ result is narrower than it is usually quoted as being, applying to black-box
 constructions and to queries whose output is a tuple of real numbers of constant
 dimension \cite{GKY11}. The authors exclude, by name, queries returning
 classifiers, graphs or synthetic databases, which is the case a released model
-falls into. Bun, Chen and Vadhan separate the two notions infeasibly
-\cite{BCV16}.
+falls into.
 
-Backdoors give the region its sharpest results. Goldwasser, Kim, Vaikuntanathan and
-Zamir plant a backdoor in a classifier so that no polynomial-time distinguisher with
-oracle access can tell the backdoored model from an honestly trained one
-\cite{GKVZ22}. The bound sits on the distinguisher, so the constrained party is
-whoever audits rather than whoever attacks. Kalavasis et al.\ extend the guarantee
-to white-box access under obfuscation, and note that the earlier work leaves that
-case open \cite{KKOSVZ24}.
-
-Robustness from hardness runs the implication the other way. Degwekar, Nakkiran and
-Vaikuntanathan prove that a task where an efficient robust classifier exists but
-cannot be learned efficiently implies one-way functions \cite{DNV19}. The direction
-matters and is easy to invert. The theorem licenses no conclusion from the belief
-that one-way functions exist, and what it supports is that a learning task with that
-hardness profile carries cryptographic structure rather than arising by accident.
+Robustness against a bounded attacker is the region's constructive side. Garg, Jha,
+Mahloujifar and Mahmoody wrap a learning problem whose classifier is vulnerable to
+every perturbation into one whose classifier resists polynomial-time adversaries
+and still yields to unbounded ones, using signatures and error-correcting codes
+\cite{GJMM20}. Etesami, Mahloujifar and Mahmoody give a polynomial-time algorithm
+that finds, on product distributions under Hamming distance, the close points the
+concentration-of-measure bound promises, so there the geometric inevitability of
+Section~\ref{sec:lit-none} is attained by an efficient attacker \cite{EMM20}.
+Cohen et al.\ define a computational form of reconstruction resilience against
+polynomial-time attackers and show that, for training maps that are efficiently
+computable and well-spread, it is equivalent to one-wayness \cite{CKMMNST25}.
 
 \subsection{The attacker bounded by what it may change}
 
-The next largest region, 28 works, bounds what the adversary may alter and leaves
-what it may spend open. Twenty-three fix a perturbation radius and five a fraction of the
-training set.
+The next region, \AttackerCapability{} works, bounds what the adversary may alter
+and leaves what it may spend open. \AttackerPerturbAll{} fix a perturbation radius
+and \AttackerCorruptAll{} a fraction of the training set.
 
 Certified defences are the mature part. Cohen, Rosenfeld and Kolter certify a radius
 around an input within which a smoothed classifier's prediction cannot change
 \cite{CRK19}, and Steinhardt, Koh and Liang certify a bound on the loss a poisoning
 adversary can induce while controlling a fixed fraction of the data \cite{SKL17}.
 Both are guarantees against an adversary with unlimited computation and a limited
-reach.
+reach. The evaluation critiques sit in this region too. Athalye et al.\ and
+Tram\`er et al.\ break defences inside their own threat models, and the threat
+model each defence stated fixes a radius and nothing else \cite{ACW18,TCBM20}.
 
 That combination is the region's defining feature and its boundary. A radius says
 what an attack may do and nothing about what it costs, so two defences certified at
@@ -61,9 +59,11 @@ form of adversary bound in the attack literature.
 
 \subsection{The learner bounded}
 
-Sixty-two works constrain the party that trains rather than the party that attacks.
-Twenty-one bound it in time, eighteen in samples, thirteen in an algorithm class,
-and four in a budget of floating-point operations.
+\LearnerBound{} works constrain the party that trains rather than the party that
+attacks. \LearnerTime{} bound it in time, \LearnerSamples{} in samples,
+\LearnerClass{} in an algorithm class, \LearnerFlops{} in a budget of
+floating-point operations, and \LearnerOther{} in parameters, circuit size, memory
+or queries.
 
 The algorithm-class results are the ones that transfer. Feldman et al.\ prove that
 statistical-query algorithms need superpolynomially many queries to detect a planted
@@ -74,12 +74,19 @@ the methods learning actually uses. Bubeck, Price and Razenshteyn use exactly th
 to separate robust from ordinary learning, and their separation rests on no
 cryptographic assumption at all \cite{BPR19}.
 
+The time-bounded results include the one that runs the implication from robustness
+to cryptography. Degwekar, Nakkiran and Vaikuntanathan prove that a task where an
+efficient robust classifier exists but cannot be learned efficiently implies
+one-way functions \cite{DNV19}. The direction matters and is easy to invert. The
+theorem licenses no conclusion from the belief that one-way functions exist, and
+what it supports is that a learning task with that hardness profile carries
+cryptographic structure rather than arising by accident.
+
 Sample complexity is the second unit. Montasser, Hanneke and Srebro show that every
 class of finite VC dimension can be learned under adversarial perturbation, though
 not by empirical risk minimization and sometimes at a sample cost exponential in
-the VC dimension
-\cite{MHS19}, and later characterize the sample complexity of the agnostic case
-\cite{MHS22}. Nothing in either is computational.
+the VC dimension \cite{MHS19}, and later characterize the sample complexity of the
+agnostic case \cite{MHS22}. Nothing in either is computational.
 
 Two results bound the learner in a resource the rest of the corpus does not use.
 Bubeck and Sellke show that smoothly interpolating $n$ points in $d$ dimensions
@@ -89,15 +96,17 @@ memory or exponentially many samples \cite{Raz16}, which is the memory bound the
 bounded-storage literature builds on \cite{GZ19}.
 
 \subsection{Nobody bounded}
+\label{sec:lit-none}
 
-Thirty-three works constrain no party at all. They are not a residue, and two distinct
-lines sit inside them.
+\NumUnstated{} works constrain no party at all. They are not a residue, and two
+distinct lines sit inside them.
 
 The first concludes inevitability from geometry. Mahloujifar, Diochnos and Mahmoody
 prove that in a concentrated metric probability space any classifier with constant
 error is vulnerable to small perturbations \cite{MDM19}, and Gilmer et al.\ exhibit
 the effect on a constructed distribution of two concentric spheres
-\cite{GMFSRWG18}. These conclude inevitability precisely because no resource enters
+\cite{GMFSRWG18}. The radius in each theorem is its conclusion, not a restriction
+on any adversary. These conclude inevitability precisely because no resource enters
 them, which is why the frame of this survey does not hold them and why the survey
 says so.
 
@@ -107,38 +116,51 @@ it does not explain observed vulnerability \cite{MZME19}. A conditional theorem
 whose antecedent is measured false is a limit on the theorem, not a sibling result,
 and the corpus records it as one.
 
-The second line is critique of evaluation. Athalye et al.\ and Tram\`er et al.\
-break defences inside their own threat models \cite{ACW18,TCBM20}, Das et al.\ show
-that classifiers which never query a model beat published membership inference
-attacks on eight benchmarks \cite{DZT25}, and Arp et al.\ measure the prevalence of
-ten pitfalls across four venues \cite{AQPWPWCR22}. These works bound nobody because
-their claims are about practice.
+The second line is critique of evaluation and of definition. Das et al.\ show that
+classifiers which never query a model beat published membership inference attacks
+on eight benchmarks \cite{DZT25}, Arp et al.\ measure the prevalence of ten
+pitfalls across four venues \cite{AQPWPWCR22}, and Shafran et al.\ report that
+model extraction has no formal definition of success at all \cite{SSEP24}. Balle,
+Cherubin and Hayes define reconstruction against an informed adversary and quantify
+over every reconstruction attack with no bound on it \cite{BCH22}, which is the
+definitional form the critiques ask for, and it prices nobody. These works bound
+nobody because their claims are about practice, or about what success means,
+rather than about an adversary's cost.
 
 \subsection{The auditor and the mechanism}
 
-Nineteen works bound a party that is neither attacking nor learning. Twelve bound an
-auditor and seven a mechanism.
+\AuditorBound{} works bound an auditor and \MechanismBound{} a mechanism, parties
+that neither attack nor learn.
 
-The auditor results are impossibilities about detection. Ball et al.\ show there
-exist language models for which no efficient prompt filter works, under a
-construction in which the model shares a secret key with the attacker
-\cite{BGGKRR25}. The claim is existential and about constructed models, and it has
-repeatedly been restated as a universal claim about deployed ones.
+The auditor results are impossibilities about detection. Goldwasser, Kim,
+Vaikuntanathan and Zamir plant a backdoor in a classifier so that no polynomial-time
+distinguisher with oracle access can tell the backdoored model from an honestly
+trained one \cite{GKVZ22}, and the bound sits on the distinguisher, so the
+constrained party is whoever audits. Kalavasis et al.\ extend the guarantee to
+white-box access under obfuscation, and note that the earlier work leaves that case
+open \cite{KKOSVZ24}. Ball et al.\ show there exist language models for which no
+efficient prompt filter works, under a construction in which the model shares a
+secret key with the attacker \cite{BGGKRR26}. The claim is existential and about
+constructed models.
 
-The mechanism results price the defence itself. Dinur et al.\ bound the space a
-differentially private mechanism may use while remaining sound under adaptive
-queries \cite{DSWZ23}, and Ratliff and Vadhan treat the mechanism's own running time
-as a leakage channel \cite{RV24}. Both put the resource bound on the system rather
-than on anyone attacking it.
+The mechanism results price the defence itself. Bun, Chen and Vadhan separate
+computational from statistical differential privacy by exhibiting a polynomial-time
+mechanism, so the bound sits on the mechanism \cite{BCV16}. Dinur et al.\ bound the
+space a differentially private mechanism may use while remaining sound under
+adaptive queries \cite{DSWZ23}, and Ratliff and Vadhan treat the mechanism's own
+running time as a leakage channel \cite{RV24}. All three put the resource bound on
+the system rather than on anyone attacking it.
 
 \subsection{Where the two halves meet, and do not}
 
-Fine-grained cryptography is the one region that states a bound as a relation
-between two parties' work \cite{BC22,LLW19,BRSV17,DVV16}. It contains no machine
-learning. The proof-of-learning line states the same relation informally, requiring
-that forging a training record cost at least as much as training
-\cite{JYCDTCP21}, and its own authors could not prove it, a gap their follow-up
-confirms \cite{FJTYCDCP23}.
+Fine-grained cryptography is where the relation between two parties' work has a
+name and a parameter \cite{BC22,LLW19,BRSV17}, and Degwekar, Vaikuntanathan and
+Vasudevan restrict both parties to a circuit class instead \cite{DVV16}. It contains
+no machine learning. The proof-of-learning line states the same relation with the
+exponent fixed at one, as a requirement its authors could not prove
+\cite{JYCDTCP21}, a gap their follow-up confirms \cite{FJTYCDCP23}. The
+\NumRelativeAttack{} attack works of Table~\ref{tab:relative} each state such a
+relation, and none writes it in the fine-grained vocabulary or cites it.
 
 The learning-theory exponents are the closest the machine learning side comes to a
 priced adversary. The information exponent \cite{AGJ21}, the leap \cite{ABM23} and
@@ -146,44 +168,29 @@ the generative exponent \cite{DPLB24,DLB25} each give a sample threshold defined
 against an algorithm class.
 
 Two boundaries on those thresholds are quoted more often than they now hold. The
-first is that the thresholds measure detection rather than recovery, which the
-single-index result states of itself \cite{DPLB24}. That gap has since been closed
-for polynomial links. Lee, Oko, Suzuki and Wu carry weak recovery through to strong
-recovery and a population error bound at $\tilde\Theta(d^{(p^*-1) \vee 1})$ samples,
-governed by the generative exponent \cite{LOSW24}, and Glasgow reaches $o(1)$
-population error on the Boolean parity instance in $\tilde\Theta(d)$ \cite{Gla24}.
-An adversary that must recover rather than detect now has a threshold to be priced
-against, at least for these targets.
-
-The second is that the exponents price single-pass training, since gradient descent
-that reuses batches was reported to escape them \cite{DTAPZK24}. Escape is the wrong
-word, and the mechanism is narrower than the word suggests. Two steps on one
-minibatch pass the label through the activation's derivative, which is a
-transformation a correlational statistical-query learner cannot make, and the effect
-is to attain the generative exponent in place of the information exponent rather
-than to leave the family \cite{LOSW24}. The learning rate selects between the two
-regimes \cite{TME25}.
-
-Reuse in general buys less than that. Kova\v{c}evi\'c et al.\ show that full-batch gradient
-descent, which reuses every sample at every step, gives no advantage at all over
-one-pass stochastic gradient descent for the plain quadratic activation, and that
-the logarithmic factor in sample complexity persists \cite{KJWSM26}. An advantage
-appears only once the activation is truncated, and it is a single logarithmic
-factor rather than a change of exponent. Their setting fixes the exponent at its
-smallest nontrivial value, so whether reuse helps at higher leap exponents is open,
-and the authors separate their own mechanism from the two-pass one. Batch reuse is
-therefore not one phenomenon, and a security claim resting on it has to say which
-mechanism it means.
+thresholds were stated for detection rather than recovery, as the single-index
+result says of itself \cite{DPLB24}. For polynomial links Lee, Oko, Suzuki and Wu
+carry weak recovery through to strong recovery at
+$\tilde\Theta(d^{(p^*-1) \vee 1})$ samples, governed by the generative exponent
+\cite{LOSW24}, and Glasgow reaches $o(1)$ population error on the Boolean parity
+instance in $\tilde\Theta(d)$ \cite{Gla24}. And they were stated for single-pass
+training, which batch reuse was reported to escape \cite{DTAPZK24}. Reuse instead
+attains the generative exponent in place of the information exponent, because two
+steps on one minibatch pass the label through the activation's derivative
+\cite{LOSW24,TME25}, and for the plain quadratic activation full-batch reuse gains
+nothing at all \cite{KJWSM26}. A security claim resting on either boundary has to
+say which version it means.
 
 \subsection{Training compute as a priced resource}
 
-Seventeen works on neural scaling laws were added to this corpus late, and
-\NumFlops{} of them are priced in a budget of floating-point operations spent on
-training, the rest in the sample or parameter count that a fixed budget buys. Kaplan et al.\ fit loss against model size, data and
-compute \cite{KMHBCCGRWA20}, and Hoffmann et al.\ correct the allocation between
-model size and data at a fixed budget \cite{HBMBCRCHWCHNMDDGOSERVS22}. Ho et al.\ measure how
-much of the observed improvement comes from better algorithms rather than more
-compute \cite{HBEORGATS24}.
+The corpus holds \NumScaling{} works on neural scaling laws, and \NumFlops{} of
+them are priced in a budget of floating-point operations spent on training, the
+rest in the sample or parameter count that a fixed budget buys. Kaplan et al.\ fit
+loss against model size, data and compute \cite{KMHBCCGRWA20}, and Hoffmann et al.\
+correct the allocation between model size and data at a fixed budget
+\cite{HBMBCRCHWCHNMDDGOSERVS22}. Ho et al.\ measure how much of the observed
+improvement comes from better algorithms rather than more compute
+\cite{HBEORGATS24}.
 
 None of these works concerns an adversary, and all of them bound the trainer. They
 matter to this survey because they establish that the unit exists and is measured.

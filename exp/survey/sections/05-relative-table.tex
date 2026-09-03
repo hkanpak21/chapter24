@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{The \NumRelative{} works that state a bound as a relation between two parties' work. The first \NumRelativeAttack{} study an attack; the rest are cryptography with no machine learning content. Each relation is given in the source's own notation.}
+\label{tab:relative}
+\begin{tabular}{@{}lllp{2.2cm}p{7.4cm}@{}}
+\toprule
+Work & Attack & Bounded party, unit & Second party's unit & Relation as stated \\
+\midrule
+\cite{NK26} & evade audit & auditor, samples & samples & verifier sample complexity $O(\log k/\tau^2)$ against a prover's $\tilde\Theta(\sqrt{k})$ \\
+\cite{BGGKRR26} & evade & auditor, time & time & every filter running in time $o(t^{\varepsilon})$ fails against a model running in time $t$ \\
+\cite{HSU25} & membership & attacker, samples & samples & attacker needs $m \gtrsim n^2\rho^2 + n$ samples against a trainer's $n$ \\
+\cite{HU14} & reconstruct & attacker, queries & samples & no efficient oracle holding $n$ samples answers $n^{3+o(1)}$ adaptive queries accurately \\
+\cite{JYCDTCP21} & forge & attacker, time & time & $\mathbb{E}[C_A] \geq \mathbb{E}[C_T]$ for every spoofing strategy $A$ against honest training $T$ \\
+\cite{ZCSL24} & evade audit & attacker, time & time & forging time $T(n)$ equal to the time $T(n)$ of retraining \\
+\midrule
+\cite{DQW22} & none & attacker, memory & memory & adversary memory $m = O(n^2)$ against honest parties holding $n$ bits \\
+\cite{BRSV17} & none & attacker, time & time & no $O(t(n)^{1-\delta})$-time algorithm inverts a function computable in time $t(n)$ \\
+\cite{GZ19} & none & attacker, memory & memory & adversary space $Cn^2$ against honest space $O(n)$ \\
+\cite{BCEQ24} & none & attacker, memory & memory & key agreement with adversary space $a \gg s^2$ against honest space $s$ needs one-way functions \\
+\cite{ACMS23} & none & attacker, queries & queries & adversary $n^{K/(K-1)}$ oracle queries against honest parties' $n$ \\
+\cite{BCS24} & none & attacker, time & time & adversary time $O(n^{2-\varepsilon})$ against honest time $n$ \\
+\cite{BC22} & none & attacker, circuit size & circuit size & no circuit of size $o(|f|^{1+\delta})$ inverts $f$ with probability above $\varepsilon$ \\
+\cite{BM09} & none & attacker, queries & queries & adversary $O(n^2)$ oracle queries against honest parties' $n$ \\
+\cite{BGHKP24} & none & attacker, time & time & adversarial power $T^{1-\varepsilon}$ against honest power $T$ \\
+\cite{LLW19} & none & attacker, time & time & honest evaluation in time $T(n)^{1-\delta}$, no adversary of time $T(n)$ inverts \\
+\cite{GM24} & none & attacker, circuit depth & circuit depth & adversary parallel time below $k \cdot t_A(\lambda)$ against $k$ honest sequential evaluations \\
+\cite{DQW23} & none & attacker, memory & memory & adversary memory $m$ up to $2^{O(n)}$ against honest memory $n$ \\
+\bottomrule
+\end{tabular}
+\end{table*}

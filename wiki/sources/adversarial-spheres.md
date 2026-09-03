@@ -3,7 +3,8 @@ title: "The Relationship Between High-Dimensional Geometry and Adversarial Examp
 type: source
 date_ingested: 2026-04-23
 authors: [Justin Gilmer, Luke Metz, Fartash Faghri, Samuel S. Schoenholz, Maithra Raghu, Martin Wattenberg, Ian Goodfellow]
-venue: "ICLR Workshop 2018 (venue unconfirmed from PDF: raw/GMF+18_AdversarialSpheres.pdf is arXiv:1801.02774v3 [cs.CV] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "ICLR Workshop 2018"
+venue_evidence: "https://dblp.org/rec/conf/iclr/GilmerMFSRWG18.html; https://openreview.net/forum?id=SyUkxxZ0b (ICLR 2018 Workshop Track)"
 year: 2018
 tags: [adversarial-ml, concentration-of-measure, isoperimetry, evasion-attacks, high-dimensional-geometry]
 claim_quantifier: existential
@@ -14,18 +15,18 @@ cls_family: evade
 cls_phase: test time
 cls_access: none
 cls_write: read only
-cls_frame: capability
-cls_party: attacker
-cls_unit: perturbation
-cls_tightness: budget
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
 cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
-cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_assessed: 
+cls_evidence: "we prove that any model which misclassifies a small constant fraction of the data manifold will be vulnerable to adversarial perturbations of size O(1/ n)."
+cls_evidence_src: "Introduction, bulleted list of results, p. 2, the bound the abstract leads with. The missing symbol before the final \"n\" is a dropped square-root glyph in the pdftotext extraction, i.e. O(1/sqrt(n))."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R2, radius is the conclusion): party attacker -> none. RECODE 2026-09-03 (R2, radius is the conclusion): unit perturbation -> none. RECODE 2026-09-03 (R2, radius is the conclusion): tightness budget -> unstated. RECODE 2026-09-03 (R2, radius is the conclusion): frame capability -> none. RECODE 2026-09-03 (R2, radius is the conclusion): assessed explicit -> ."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

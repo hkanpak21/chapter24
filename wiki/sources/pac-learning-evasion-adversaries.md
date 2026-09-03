@@ -3,7 +3,8 @@ title: "PAC-learning in the Presence of Evasion Adversaries"
 type: source
 date_ingested: 2026-04-12
 authors: [Daniel Cullina, Arjun Nitin Bhagoji, Prateek Mittal]
-venue: "NeurIPS 2018 (venue unconfirmed from PDF: raw/CBM18_PACEvasionAdversaries.pdf is arXiv:1806.01471v2 [stat.ML] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "NeurIPS 2018"
+venue_evidence: "https://proceedings.neurips.cc/paper/2018/hash/8f85517967795eeef66c225f7883bdcb-Abstract.html (camera-ready title \"PAC-learning in the presence of adversaries\", NeurIPS 2018, pp. 230-241, same authors/paper as arXiv:1806.01471)"
 year: 2018
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory, evasion-attacks]
 claim_quantifier: universal

@@ -3,7 +3,8 @@ title: Learning Single-Index Models via Harmonic Decomposition
 type: source
 date_ingested: 2026-08-22
 authors: [Nirmit Joshi, Hugo Koubbi, Theodor Misiakiewicz, Nathan Srebro]
-venue: venue unconfirmed from PDF (arXiv:2506.09887v2 [cs.LG], 29 Oct 2025)
+venue: "NeurIPS 2025"
+venue_evidence: "https://neurips.cc/virtual/2025/loc/san-diego/poster/115868; NeurIPS 2025 poster listing"
 year: 2025
 tags: [learning-theory, sample-complexity, single-index-model, generative-exponent, statistical-query, low-degree-polynomials, spherical-harmonics, statistical-computational-gaps]
 claim_quantifier: conditional

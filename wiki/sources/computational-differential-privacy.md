@@ -3,7 +3,8 @@ title: Computational Differential Privacy
 type: source
 date_ingested: 2026-08-20
 authors: [Ilya Mironov, Omkant Pandey, Omer Reingold, Salil Vadhan]
-venue: CRYPTO 2009 — not stated in this PDF; attribution taken from the reference lists of DP20_SoKDifferentialPrivacies ("Advances in Cryptology-CRYPTO 2009, Springer, 2009") and from the abstracts of BCV16 and GIKKM23, both of which cite it as "CRYPTO 2009"
+venue: "CRYPTO 2009"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-642-03356-8_8; Advances in Cryptology - CRYPTO 2009, LNCS 5677, pages 126-142"
 year: 2009
 tags: [cryptography, computational-indistinguishability, pseudorandomness, differential-privacy, one-way-functions]
 claim_quantifier: existential
@@ -23,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "This adaptation is obtained by considering a ppt adversary A, and requiring that f “looks differentially private” to every such A."
+cls_evidence_src: "Section 2, paragraph immediately preceding Definition 3 (IND-CDP privacy), p. 5"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

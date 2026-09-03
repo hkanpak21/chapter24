@@ -3,7 +3,8 @@ title: Neural Network Learns Low-Dimensional Polynomials with SGD Near the Infor
 type: source
 date_ingested: 2026-08-22
 authors: [Jason D. Lee, Kazusato Oko, Taiji Suzuki, Denny Wu]
-venue: venue unconfirmed from PDF (arXiv:2406.01581v2 [cs.LG], 22 Dec 2024; catalogued in this corpus as NeurIPS 2024)
+venue: "NeurIPS 2024"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/6bd5fca2074dcd9ede9de50f71f7ec28-Abstract-Conference.html; official NeurIPS 2024 proceedings, also https://neurips.cc/virtual/2024/poster/93503"
 year: 2024
 tags: [learning-theory, sample-complexity, single-index-model, generative-exponent, statistical-query, csq, batch-reuse]
 claim_quantifier: universal

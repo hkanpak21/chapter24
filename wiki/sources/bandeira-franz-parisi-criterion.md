@@ -3,7 +3,8 @@ title: The Franz–Parisi Criterion and Computational Trade-Offs in High Dimensi
 type: source
 date_ingested: 2026-04-12
 authors: [Afonso S. Bandeira, Ahmed El Alaoui, Samuel B. Hopkins, Tselil Schramm, Alexander S. Wein, Ilias Zadik]
-venue: Preprint (the ingested PDF is arXiv:2205.09727v2, 13 Oct 2022, and does not itself state a venue; the NeurIPS 2022 attribution comes from an earlier ingest and is unconfirmed here)
+venue: "NeurIPS 2022"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2022/hash/daff682411a64632e083b9d6665b1d30-Abstract-Conference.html"
 year: 2022
 tags: [statistical-computational-gaps, franz-parisi, low-degree-polynomials, statistical-physics, free-energy]
 claim_quantifier: conditional
@@ -12,7 +13,7 @@ algorithm_class: "low-degree, plus local MCMC as a corollary"
 date_verified: 2026-08-20
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -24,7 +25,7 @@ cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "we say that the hypothesis testing problem above is hard for the degree-D likelihood or simply low-degree hard if LD(D) = O(1)"
 cls_evidence_src: Def 1.3
-cls_reason: "No ML adversary or target: the bound is on the estimator's algorithm class (degree-D polynomials, Def 1.3), so party=learner, unit=algo class, tightness=class, by analogy to what-can-we-learn-privately. Corollary 2.18's local-MCMC bound is the same party under a second algorithm class rather than a second party, so second=none."
+cls_reason: "No ML adversary or target: the bound is on the estimator's algorithm class (degree-D polynomials, Def 1.3), so party=learner, unit=algo class, tightness=class, by analogy to what-can-we-learn-privately. Corollary 2.18's local-MCMC bound is the same party under a second algorithm class rather than a second party, so second=none. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

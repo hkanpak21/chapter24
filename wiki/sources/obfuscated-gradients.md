@@ -3,7 +3,8 @@ title: Obfuscated Gradients Give a False Sense of Security — Circumventing Def
 type: source
 date_ingested: 2026-08-20
 authors: [Anish Athalye, Nicholas Carlini, David Wagner]
-venue: ICML (PMLR 80)
+venue: "ICML 2018"
+venue_evidence: "dblp: Obfuscated Gradients Give a False Sense of Security..., ICML 2018, pp. 274-283 (PMLR 80)"
 year: 2018
 tags: [adversarial-ml, evasion-attacks, robustness, evaluation-methodology, threat-model]
 claim_quantifier: existential
@@ -22,10 +23,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "We evaluate each defense under the threat model under which it claims to be secure (e.g., bounded `∞ distortion of ε = 0.031)."
+cls_evidence_src: "Section 2.4, Threat Models, raw/ACW18_ObfuscatedGradients.pdf. pdftotext renders epsilon as an unprintable control byte, a font-encoding artifact; corrected to ε here."
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

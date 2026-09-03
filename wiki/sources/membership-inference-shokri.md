@@ -3,7 +3,8 @@ title: Membership Inference Attacks Against Machine Learning Models
 type: source
 date_ingested: 2026-08-22
 authors: [Reza Shokri, Marco Stronati, Congzheng Song, Vitaly Shmatikov]
-venue: "venue unconfirmed from PDF (the file carries only arXiv:1610.05820v2 [cs.CR], 31 Mar 2017)"
+venue: "IEEE S&P 2017"
+venue_evidence: "dblp: conf/sp/ShokriSSS17, inproceedings (IEEE Symposium on Security and Privacy 2017). Note: the mining note's 'arXiv preprint' 3-vote lead was wrong, picked up boilerplate citation text near the title fragment rather than the true venue."
 year: 2017
 tags: [adversarial-ml, sample-complexity, computational-indistinguishability, learning-theory]
 claim_quantifier: empirical

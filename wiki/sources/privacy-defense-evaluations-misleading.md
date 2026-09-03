@@ -3,7 +3,8 @@ title: Evaluations of Machine Learning Privacy Defenses are Misleading
 type: source
 date_ingested: 2026-08-20
 authors: [Michael Aerni, Jie Zhang, Florian Tramèr]
-venue: "ACM CCS 2024, Salt Lake City (arXiv:2404.17399v2)"
+venue: "ACM CCS 2024"
+venue_evidence: "DOI 10.1145/3658644.3690194 (Proceedings of the 2024 ACM SIGSAC Conference on Computer and Communications Security, CCS 2024, Salt Lake City)"
 year: 2024
 tags: [adversarial-ml, differential-privacy, learning-theory, certification]
 claim_quantifier: empirical

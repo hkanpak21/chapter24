@@ -3,7 +3,8 @@ title: Algorithmic Progress in Language Models
 type: source
 date_ingested: 2026-08-22
 authors: [Anson Ho, Tamay Besiroglu, Ege Erdil, David Owen, Robi Rahman, Zifan Carl Guo, David Atkinson, Neil Thompson, Jaime Sevilla]
-venue: venue unconfirmed from PDF (arXiv:2403.05812v1)
+venue: "NeurIPS 2024"
+venue_evidence: "https://dl.acm.org/doi/10.5555/3737916.3739772; Proceedings of the 38th International Conference on Neural Information Processing Systems (NeurIPS 2024)"
 year: 2024
 tags: [scaling-laws, compute-accounting]
 claim_quantifier: empirical
@@ -17,16 +18,16 @@ cls_access: none
 cls_write: none
 cls_frame: compute
 cls_party: learner
-cls_unit: samples
-cls_tightness: exponent
+cls_unit: flops
+cls_tightness: measured
 cls_baseline: n/a
 cls_baseline_checked: yes
 cls_second_party: none
-cls_second_notion: time
+cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: "We introduce two families of estimators—based on tensor unfolding and online SGD—that respectively achieve either optimal sample complexity or optimal runtime, and argue that estimators achieving both may not exist in general."
-cls_evidence_src: abstract
-cls_reason: "No attack scenario, matching sibling single-index pages (generative-exponent-single-index, generative-leap-multi-index). party=learner per rule 3. unit=samples/tightness=exponent for Theorem 1's decoupled M*/Q* thresholds, matching the sibling pages' convention of recording the sample-complexity headline. second_notion=time per rule 4b: the abstract's own headline is that sample-optimal and runtime-optimal estimators can diverge (l_m,* != l_T,* beyond Gaussian inputs), the clearest instance in this batch of 'two incomparable notions, same party', so time is recorded here rather than algo class (already used by the sibling pages for the SQ/low-degree restriction). baseline=stated: Remark 3.1 and Appendix H state the information-theoretic recovery bound m=Omega(d), against which the detection-only scope of Theorem 1 is qualified (verified at PDF lines 650-655, 8171-8176). frame=compute: the SQ query bound and the low-degree conditional sample bound both restrict to computationally-efficient algorithm classes."
+cls_evidence: "we find that the compute required to reach a set performance threshold has halved approximately every 8 months, with a 95% confidence interval of around 5 to 14 months"
+cls_evidence_src: abstract, arXiv:2403.05812v1
+cls_reason: "RECLASSIFIED 2026-09-03 against the primary PDF: the earlier row carried the abstract of the single-index harmonic-decomposition paper and a reason written about that paper, a transposition the catalogue-bound quotation check caught. Ho et al. is an empirical scaling-law study: it fits augmented scaling laws to 200 evaluations and reports the compute needed for a fixed loss halving every 8 months. party=learner (the trainer), unit=flops (compute-equivalent gains), tightness=measured (no definition or theorem), assessed=explicit (the compute budget is the object of study), frame=compute, no attack scenario."
 cls_prov: P
 cls_date: 2026-08-22
 ---

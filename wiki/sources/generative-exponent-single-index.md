@@ -3,7 +3,8 @@ title: Computational-Statistical Gaps in Gaussian Single-Index Models
 type: source
 date_ingested: 2026-08-20
 authors: [Alex Damian, Loucas Pillaud-Vivien, Jason D. Lee, Joan Bruna]
-venue: venue unconfirmed from PDF (arXiv:2403.05529v2 [cs.LG], 12 Mar 2024; cited elsewhere in this corpus as COLT 2024)
+venue: "COLT 2024"
+venue_evidence: "dblp search (q=Computational-Statistical Gaps Gaussian Single-Index Models): lists both a COLT 2024 inproceedings entry and CoRR abs/2403.05529 — conference version confirmed"
 year: 2024
 tags: [statistical-computational-gaps, statistical-query, low-degree-polynomials, single-index-model, generative-exponent, sample-complexity]
 claim_quantifier: conditional

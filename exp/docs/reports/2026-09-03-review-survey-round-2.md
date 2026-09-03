@@ -20,7 +20,7 @@ This report reads the survey draft against the S&P 2027 call and puts a fresh ad
 
 ## Result
 
-The reviewer returns weak reject, every one of its numeric findings holds against the data, and the corpus contains 17 or 18 works stating a bound relative to another party's work rather than the 11 the paper prints, of which 5 or 6 study an attack rather than 3. Seven rows coded `exponent` carry a recorded reason that names a second party, which is the codebook's own definition of `relative`, and the previous recoding missed them. The reviewer judges the paper's viewpoint real and the third SoK criterion within reach once the table agrees with itself, and says the paper stands without the planned formalization section.
+The reviewer returns weak reject, every one of its numeric findings holds against the data, and after Halil's four rulings the recount stands at 18 works stating a bound relative to another party's work, 6 of them attack works, against the 11 and 3 the paper printed. Seven rows coded `exponent` carried a recorded reason naming a second party, which is the codebook's own definition of `relative`, and the previous recoding had missed them. The reviewer judges the paper's viewpoint real and the third SoK criterion within reach once the table agrees with itself, and the same evening the table does: codebook revision 7, 55 field recodes each logged in its row, 24 missing quotations supplied, every venue resolved, and all ten gates passing on a 12-page body.
 
 The full review is at `exp/survey/reviews/2026-09-03-review-round-2.md`. The findings and where each stands:
 
@@ -43,11 +43,13 @@ What the headline numbers become under each ruling, computed on a copy of the ta
 
 | Table state | Relative | Of which attack | Exponent | Unbounded, attack against other | Difference, 95 per cent interval |
 | --- | --- | --- | --- | --- | --- |
-| As printed | 11 | 3 | 27 | 23 of 101 against 10 of 99 | 2.6 to 22.8 |
+| As printed this morning | 11 | 3 | 27 | 23 of 101 against 10 of 99 | 2.6 to 22.8 |
 | Blank families filled | 11 | 3 | 27 | 24 of 104 against 9 of 96 | 3.7 to 23.7 |
 | R1 option A, `relative` includes PoL | 18 | 6 | 20 | 24 of 103 against 9 of 97 | 4.0 to 24.0 |
 | R1 option B, `relative` needs a parameter | 17 | 5 | 20 | same | same |
-| A, plus R2, R3, R4 | 18 | 6 | 20 | 27 of 103 against 10 of 97 | 5.5 to 26.3 |
+| Ruled: A, plus R2, R3, R4, and one transposed row redone | 18 | 6 | 20 | 27 of 103 against 10 of 97 | 5.5 to 26.3 |
+
+Halil took the recommended option on all four. The theorem-bearing subset is 12 of 71 against 6 of 87, interval $-0.2$ to 20.2, still including zero, so Section 5.4 keeps stating direction only. The near-miss set is 19 after one recode: 9 hold an adversary's cost, 5 a training cost, 5 a capability or mechanism parameter.
 
 Fixed today, building clean under all ten gates, every new number a macro checked by `tools/check-numbers.py`:
 
@@ -58,8 +60,9 @@ Fixed today, building clean under all ten gates, every new number a macro checke
 | M4, M6, m1, m3, m4, m5, m7, m10, m11, m18 | Wrong subject of a count, wrong description of Suya et al., three misquoted details, one false "evenly", a section title, a stale caption, a tag count read as a family count, a duplicate sentence |
 | Supplement, Section 8 | False "partial pass" text; double periods after paragraph headings; a broken glyph |
 | Generators | `gen-tables.py` defaulted to the 25-row batch file and silently produced a 13-page supplement, now defaults to the full table; `gen-bib.py` printed `IACR ePrint/` for two venues and split the ogonek in Madry |
+| Evening, after the rulings | Codebook revision 7 and 55 recodes; 24 quotations supplied by two Sonnet agents, two disputes recorded; 100 venues resolved by two Sonnet agents and their sub-agents, 0 unconfirmed, 13 year fields aligned to the refereed venue, journal entries as `@article`; the quotation binder now goes through `raw/SOURCES.md` and caught one row classified against the wrong paper (Ho et al., whose row carried the harmonic-decomposition abstract), redone against its own PDF; field table, worked row, relative-rows table, near-miss table and party-by-unit table added; Sections 3.3 and 3.6 cut, 3.4 folded, 6.6 compressed, Section 6's examples re-picked from rows the table places in each region; `check-numbers.py` now covers 70 macros and rewrites `results.tex` itself |
 
-Does not show: the recount itself, which waits on rulings R1 to R4, and any row the reviewer did not open, about 150 of 200.
+Does not show: the rows neither the reviewer nor the quotation agents opened, about 130 of 200, and any second-reader agreement beyond the 24 of 27 already on record.
 
 ## How it was produced
 
@@ -74,27 +77,27 @@ Does not show: the recount itself, which waits on rulings R1 to R4, and any row 
 
 ## What this changes
 
-The headline pair 11 and 3 is not supported by the codebook's own definition of `relative`, and 17 or 18 and 5 or 6 are. The sentence in Section 5.3 that the earlier conflation inflated the count "roughly threefold" is itself wrong once the recount lands, since the inflation was closer to twofold. The abstract's claim that every row carries a quoted deciding sentence is false for 24 rows until the quotations are supplied. Section 6 illustrates its regions with works the table places elsewhere, so the prose and the codes disagree on five works coded by hand. The supplement has no submission slot at S&P, since the appendix limit is five pages, so the tables go to an anonymized artifact and the codebook to the appendix. The second cycle closes November 17 with abstract registration November 10.
+The headline pair is 18 and 6, computed under a rule the codebook now states, and the paper no longer carries a sentence about how the earlier count was wrong. Every row carries a quotation or an evidenced absence, and 155 of the 172 quotations are verified inside their own document by a binder that can no longer be fooled by a title contained in another title. Section 6 illustrates each region with works the table places there, and the geometric-inevitability results are coded where the standing decision always put them. Three works the draft called preprints are refereed, and the bibliography is complete. The supplement has no submission slot at S&P, since the appendix limit is five pages, so the tables go to an anonymized artifact and the codebook to the appendix. The second cycle closes November 17 with abstract registration November 10.
 
 ## Where it applies
 
 | Section | Change |
 | --- | --- |
-| Codebook | R1: one sentence deciding whether a bare two-party inequality is `relative`. R2: a radius that a theorem outputs is not a bound on any party. R3: a restricted-class lower bound with no security role binds the `learner`. R4: Rule 9 applied to `sok-differential-privacies`, `feldman` baseline to `n/a`, `raz` tightness to `exponent`, `phase=n/a` on the eleven `family=none` rows that carry a phase |
-| Wiki rows | Fill `family` on three rows; recode under R1 to R4; supply 24 quotations; refresh seven stale `cls_reason` texts |
-| Abstract | "Only \NumRelative{} works ... and \NumRelativeAttack{} of those" with the recounted macros; "with the deciding sentence of each source quoted" only after the 24 rows are filled |
-| Section 4.2 | Table of the thirteen fields with values and one-line definitions, in place of the revision narrative |
-| Section 4.4 | Restate the verification pass with a partition that sums to 200: 149 quotations on file, 27 evidenced absences, 24 hand rows; second pass 57 bound and verified, 85 unbound |
-| Section 5, opening | One fully worked row, thirteen fields and the deciding quotation |
-| Section 5.1, 5.2 | Argue from shared vocabulary and concentration, and add a compact party by unit table for the attack works |
-| Section 5.3 | Recounted numbers; a table of the relative rows with both parties, both units and the relation as the source states it; drop the process sentences |
-| Section 5.5 | Table of the near-miss rows with the quantity each holds; close on the rows it is true of |
-| Section 6.1, 6.4 | Examples re-picked from rows the table places in each region, or recoded under R2 |
-| Section 6.5 | Cite a restatement of Ball et al. as universal, or cut the clause |
-| Section 6.6 | Compress the generative-exponent and batch-reuse paragraphs to one; keep the correction in the wiki |
-| Section 3 | Cut 3.3 and 3.6; fold 3.4 into 3.2 |
+| Codebook, done | R1: one sentence deciding whether a bare two-party inequality is `relative`. R2: a radius that a theorem outputs is not a bound on any party. R3: a restricted-class lower bound with no security role binds the `learner`. R4: Rule 9 applied to `sok-differential-privacies`, `feldman` baseline to `n/a`, `raz` tightness to `exponent`, `phase=n/a` on the eleven `family=none` rows that carry a phase |
+| Wiki rows, done | Three `family` cells filled; 55 recodes under R1 to R4; 24 quotations supplied; six stale `cls_reason` texts annotated; one transposed row reclassified |
+| Abstract, done | "Only \NumRelative{} works ... and \NumRelativeAttack{} of those" with the recounted macros; "with the deciding sentence of each source quoted" only after the 24 rows are filled |
+| Section 4.2, done | Table of the thirteen fields with values and one-line definitions, in place of the revision narrative |
+| Section 4.4, done | Restate the verification pass with a partition that sums to 200: 149 quotations on file, 27 evidenced absences, 24 hand rows; second pass 57 bound and verified, 85 unbound |
+| Section 5, opening, done | One fully worked row, thirteen fields and the deciding quotation |
+| Section 5.1, 5.2, done | Argue from shared vocabulary and concentration, and add a compact party by unit table for the attack works |
+| Section 5.3, done | Recounted numbers; a table of the relative rows with both parties, both units and the relation as the source states it; drop the process sentences |
+| Section 5.5, done | Table of the near-miss rows with the quantity each holds; close on the rows it is true of |
+| Section 6.1, 6.4, done | Examples re-picked from rows the table places in each region, or recoded under R2 |
+| Section 6.5, done | Cut the clause about restatements of Ball et al. of Ball et al. as universal, or cut the clause |
+| Section 6.6, done | Compress the generative-exponent and batch-reuse paragraphs to one; keep the correction in the wiki |
+| Section 3, done | Cut 3.3 and 3.6; fold 3.4 into 3.2; keep the terminology warning as one sentence |
 | Section 7 | Move to the end of Section 2 or beside the near-miss row for the same work |
 | Section 5, new | A priced threat model as a template with two instances, LiRA and PoL Property 2 with the exponent symbolic. This is the reviewer's version of the formalization section and it is half a page |
 | Title, front matter | `SoK:` prefix; anonymous author block; ethics statement "None" with the reasoning |
 | Supplement | Becomes the anonymized artifact; codebook becomes the five-page appendix |
-| Bibliography | Journal entries such as TMLR and JMLR are emitted as `@inproceedings`, and the checklist wants `@article` with volume and pages; 101 entries still venue-unconfirmed, to be mined from the corpus and the web in one delegated pass |
+| Bibliography, done | 0 unconfirmed; journals as `@article` with volume and pages, the last two in-press articles completed from Crossref; the page rule is waived for TMLR, which assigns none |

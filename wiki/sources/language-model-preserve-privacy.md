@@ -3,7 +3,8 @@ title: What Does it Mean for a Language Model to Preserve Privacy?
 type: source
 date_ingested: 2026-08-20
 authors: [Hannah Brown, Katherine Lee, Fatemehsadat Mireshghallah, Reza Shokri, Florian Tramèr]
-venue: venue unconfirmed from PDF (arXiv:2202.05520, stat.ML, 14 Feb 2022)
+venue: "FAccT 2022"
+venue_evidence: "dblp: conf/fat/BrownLMST22, inproceedings, pp. 2280-2292, doi:10.1145/3531146.3534642"
 year: 2022
 tags: [privacy, differential-privacy, memorization, language-models, definitions]
 claim_quantifier: conditional

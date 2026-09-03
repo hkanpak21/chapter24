@@ -3,7 +3,8 @@ title: Computationally Differentially Private Inner-Product Protocols Imply Obli
 type: source
 date_ingested: 2026-08-20
 authors: [Iftach Haitner, Noam Mazor, Jad Silbak, Eliad Tsfadia, Chao Yan]
-venue: venue unconfirmed from PDF (arXiv:2502.15629v2 [cs.CR], 7 Jul 2025)
+venue: "CRYPTO 2025"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-032-01884-7_6; Advances in Cryptology - CRYPTO 2025, Part IV, LNCS 16003, pages 174-206"
 year: 2025
 tags: [cryptography, computational-indistinguishability, hardness-reductions, differential-privacy, one-way-functions]
 claim_quantifier: conditional

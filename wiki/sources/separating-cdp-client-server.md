@@ -3,7 +3,8 @@ title: Separating Computational and Statistical Differential Privacy in the Clie
 type: source
 date_ingested: 2026-08-20
 authors: [Mark Bun, Yi-Hsiu Chen, Salil Vadhan]
-venue: venue unconfirmed from PDF (dated August 26, 2016; cited elsewhere in this corpus as TCC 2016-B)
+venue: "TCC 2016-B"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-662-53641-4_23; Springer, Proceedings of the 14th Theory of Cryptography Conference (TCC 2016-B), Beijing, Nov 1-3 2016"
 year: 2016
 tags: [cryptography, one-way-functions, computational-indistinguishability, impossibility-frameworks, differential-privacy]
 claim_quantifier: conditional

@@ -3,8 +3,9 @@ title: On the Learnability of Deep Random Networks
 type: source
 date_ingested: 2026-08-20
 authors: [Abhimanyu Das, Sreenivas Gollapudi, Ravi Kumar, Rina Panigrahy]
-venue: "venue unconfirmed from PDF (the file is arXiv:1904.03866v1, 8 Apr 2019, and states no venue)"
-year: 2019
+venue: "SODA 2020"
+venue_evidence: "dblp: conf/soda/DasG0P20, inproceedings, pp. 398-410, doi:10.1137/1.9781611975994.24 (conference title is 'On the Learnability of Random Deep Networks', same authors, same arXiv:1904.03866 preprint)"
+year: 2020
 tags: [statistical-query, learning-theory, complexity theory, sample-complexity, adversarial-ml]
 claim_quantifier: universal
 antecedent: "No complexity assumption. The lower bound is an unconditional statement about the SQ model, obtained from a correlation bound plus the standard SQ-to-weak-approximation argument (Theorem 14, imported as Theorem 31 of Blum et al.). It is conditional instead on the DATA and WEIGHT model: inputs in {±1}^n restricted to one halfspace, sgn activations, and i.i.d. Gaussian weight matrices."

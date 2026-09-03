@@ -22,10 +22,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: implicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "For each dataset, the adversary trains N shadow models (N = 64 for ImageNet, and N = 256 otherwise) on training sets chosen so that each example (x, y) is contained in exactly half of the shadow models' training sets."
+cls_evidence_src: "Section VI-A (offline attack evaluation, adversary's shadow-model training procedure), raw/CCNSTT22_MIAFirstPrinciples.pdf"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. DISPUTE 2026-09-03: unit. The quotation prices the attacker in a count of shadow-model training runs (N = 64 or 256), not wall-clock time; the codebook has no training-runs unit (a gap already recorded against membership-inference-shokri, an identical case), so time is the nearest available proxy rather than the unit the paper itself reports."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

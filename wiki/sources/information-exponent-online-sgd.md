@@ -3,7 +3,9 @@ title: Online Stochastic Gradient Descent on Non-Convex Losses from High-Dimensi
 type: source
 date_ingested: 2026-08-20
 authors: [Gerard Ben Arous, Reza Gheissari, Aukosh Jagannath]
-venue: venue unconfirmed from PDF (arXiv:2003.10409v4 [stat.ML], 10 May 2021; cited elsewhere in this corpus as JMLR 22(106))
+venue: "JMLR 2021"
+venue_evidence: "arXiv:2003.10409 abstract page's own Journal reference field: 'J. Mach. Learn. Res., Vol 22, No.106, 1-51(2021)'"
+journal_ref: "22|106|1--51"
 year: 2021
 tags: [learning-theory, sample-complexity, statistical-computational-gaps, single-index-model, information-exponent, online-sgd]
 claim_quantifier: universal

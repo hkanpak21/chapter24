@@ -3,7 +3,8 @@ title: "SoK: Security and Privacy in Machine Learning"
 type: source
 date_ingested: 2026-08-22
 authors: [Nicolas Papernot, Patrick McDaniel, Arunesh Sinha, Michael P. Wellman]
-venue: "2018 IEEE European Symposium on Security and Privacy (stated on the PDF's first page)"
+venue: "IEEE EuroS&P 2018"
+venue_evidence: "https://dblp.uni-trier.de/search?q=SoK%20Security%20Privacy%20Machine%20Learning; dblp: EuroS&P 2018, pp. 399-414"
 year: 2018
 tags: [adversarial-ml, evasion-attacks, poisoning-attacks, learning-theory, robustness]
 claim_quantifier: empirical

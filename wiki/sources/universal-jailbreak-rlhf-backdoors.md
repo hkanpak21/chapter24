@@ -3,8 +3,9 @@ title: "Universal Jailbreak Backdoors from Poisoned Human Feedback"
 type: source
 date_ingested: 2026-04-23
 authors: [Javier Rando, Florian Tramèr]
-venue: "arXiv:2311.14455v4 (29 Apr 2024); ICLR 2024 (the PDF header reads 'Published as a conference paper at ICLR 2024')"
-year: 2023
+venue: "ICLR 2024"
+venue_evidence: "https://arxiv.org/abs/2311.14455 (PDF header: 'Published as a conference paper at ICLR 2024'); confirmed at https://dblp.uni-trier.de/search?q=Universal%20Jailbreak%20Backdoors%20from%20Poisoned%20Human%20Feedback — dblp: ICLR 2024 (refereed; also CoRR abs/2311.14455 2023)"
+year: 2024
 tags: [rlhf, poisoning-attacks, backdoor, jailbreak, llm-security, alignment]
 claim_quantifier: empirical
 antecedent: "The attacker can mislabel a fraction of the human preference annotations and the same prompts are shared between the reward-modelling and RLHF fine-tuning phases. The 5% figure is measured, not derived."

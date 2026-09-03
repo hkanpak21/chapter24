@@ -3,7 +3,8 @@ title: "A Universal Law of Robustness via Isoperimetry"
 type: source
 date_ingested: 2026-04-12
 authors: [Sébastien Bubeck, Mark Sellke]
-venue: "NeurIPS 2021, Outstanding Paper Award (venue unconfirmed from PDF: raw/BS21_UniversalLawRobustness.pdf is arXiv:2105.12806v4 [cs.LG] and names no venue or award; the attribution is carried over from the earlier ingest)"
+venue: "NeurIPS 2021"
+venue_evidence: "https://dblp.uni-trier.de/search?q=A%20Universal%20Law%20of%20Robustness%20via%20Isoperimetry; dblp: NeurIPS 2021 (refereed conference; also a journal version J. ACM 70(2) 2023 and CoRR abs/2105.12806). dblp lists no Outstanding Paper Award; that attribution remains unverified from this check"
 year: 2021
 tags: [robustness, sample-complexity, isoperimetry, overparameterization, concentration-of-measure, adversarial-ml]
 claim_quantifier: conditional
@@ -11,7 +12,7 @@ antecedent: "The covariate distribution satisfies isoperimetry, or is a mixture 
 date_verified: 2026-08-20
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -22,10 +23,10 @@ cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "for any function class smoothly parametrized by p parameters, and for any d-dimensional dataset satisfying a natural isoperimetry condition, any function in this class that fits the data below the noise level must have (Euclidean) Lipschitz constant of order at least √(nd/p)."
+cls_evidence_src: "Introduction, statement of the universal law of robustness immediately preceding Theorem 1 (Informal version of Theorem 4), raw/BS21_UniversalLawRobustness.pdf. pdftotext renders the radical sign as a stray \"q\" glyph fused onto \"class\" and splits the fraction nd/p across three lines; reconstructed here in reading order without altering the wording."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

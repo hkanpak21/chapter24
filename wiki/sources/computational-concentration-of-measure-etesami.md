@@ -3,7 +3,8 @@ title: Computational Concentration of Measure — Optimal Bounds, Reductions, an
 type: source
 date_ingested: 2026-04-12
 authors: [Omid Etesami, Saeed Mahloujifar, Mohammad Mahmoody]
-venue: "SODA 2020 (venue unconfirmed from PDF: raw/EMM20_ComputationalConcentration.pdf is arXiv:1907.05401v1 [cs.DS] and names no venue. The SODA attribution is corroborated inside the corpus by Mahloujifar's research statement, raw/M19_ComplexityTheoreticApproach.pdf, which cites it as ACM-SIAM Symposium on Discrete Algorithms 2020)"
+venue: "SODA 2020"
+venue_evidence: "https://arxiv.org/abs/1907.05401; ACM-SIAM Symposium on Discrete Algorithms (SODA 2020), pages 345-363"
 year: 2020
 tags: [concentration-of-measure, computational-complexity, adversarial-ml, evasion-attacks, poisoning-attacks, complexity-theory]
 claim_quantifier: universal

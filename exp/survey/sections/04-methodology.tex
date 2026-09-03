@@ -22,19 +22,54 @@ learning half of the corpus has travelled to either.
 \subsection{Codebook}
 
 Each work is classified on thirteen fields against a fixed vocabulary, so that two
-readers assign the same value. Six fields record the attack scenario and threat
-model, and seven record what the work assumes about resources.
+readers assign the same value. Table~\ref{tab:fields} lists the fields. Six record
+the attack scenario and threat model, and seven record what the work assumes about
+resources. The party a work bounds is whoever the bound binds, which is not always
+the party the work is about: a bound on a distinguisher binds the auditor, a bound
+on a differentially private algorithm binds the mechanism, and a work whose only
+bound is on the party that trains binds the learner.
 
-The vocabulary was revised four times, each revision driven by a classifier
-reporting a work it could not place. The revisions are recorded rather than
-smoothed away, because their pattern is itself a result. Two of them added values
-for bounds that are not computational, namely a perturbation radius, a corruption
-fraction and a privacy budget, without which a work that bounds its adversary
-non-computationally would have been recorded as bounding nothing. One separated a
-second bounded party from one party bounded under two incomparable resource
-notions. Eight of the fourteen gaps reported across the whole pass fell in the
-single field recording the attack family, which Section~\ref{sec:findings-tables}
-returns to.
+\begin{table*}[t]
+\centering
+\small
+\caption{The thirteen fields of the classification and their values. A work whose
+main claim bounds nobody is recorded as bounding nobody, which is an answer and not
+a gap.}
+\label{tab:fields}
+\begin{tabular}{@{}lp{6.4cm}p{9.0cm}@{}}
+\toprule
+Field & Values & Records \\
+\midrule
+target & train data, parameters, outputs, training run, none & what the adversary tries to learn or affect \\
+family & membership, attribute, reconstruct, distribution, extract, invert, forge, evade, evade audit, inject, poison, backdoor, multiple, none & the attack, in the standard taxonomy, extended where the corpus needed it \\
+phase & train time, test time, post hoc, n/a & when the adversary acts; post hoc is a released model with no further training \\
+access & hard label, scores, black box, white box, weights, gradients, channel, none & the strongest access the main claim grants \\
+write & read only, corpus, model, responses, channel, none & what the adversary may change in the system's persistent state \\
+frame & compute, statistical, capability, none & whether the bound is computational, information-theoretic, or on what the adversary may do \\
+\midrule
+party & attacker, learner, auditor, mechanism, none & which party the main claim bounds \\
+unit & time, circuit size, circuit depth, queries, samples, memory, algorithm class, parameters, flops, perturbation, corruption, rounds, privacy budget, success probability, none & the unit of that bound \\
+tightness & unstated, poly, quasi-poly, conditional, class, budget, exponent, relative, measured & how the bound is stated: not at all; the polynomial-time quantifier; a stated quasi-polynomial time; a bound under a named assumption; membership of an algorithm class; a numeric allowance; an exponent in the party's own resource; a relation to another party's work; a measurement with no definitional standing \\
+baseline & stated, absent, n/a & whether the work states what public knowledge alone achieves against the target \\
+second party & a unit, or none & the unit of a second bounded party, the honest party on a relative row \\
+second notion & a unit, or none & a second, incomparable bound on the same party \\
+assessed & explicit, implicit & whether the work treats the bound as its object or leaves it as a side condition \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The vocabulary was revised seven times, each revision driven by a classifier
+reporting a work it could not place or by a reviewer finding two works of one kind
+coded apart. The revisions are recorded rather than smoothed away, because their
+pattern is itself a result. Two of them added values for bounds that are not
+computational, namely a perturbation radius, a corruption fraction and a privacy
+budget, without which a work that bounds its adversary non-computationally would
+have been recorded as bounding nothing. One separated a second bounded party from
+one party bounded under two incomparable resource notions. One split a bound stated
+as an exponent in a party's own resource from a bound stated as a relation between
+two parties' work, after a review found the two conflated. Most of the vocabulary
+gaps reported during the pass fell in the single field recording the attack family,
+which Section~\ref{sec:findings-tables} returns to.
 
 \subsection{Procedure}
 
@@ -53,22 +88,22 @@ holds a verbatim fragment from the source that determines the constrained party,
 the unit and the tightness, together with the definition, theorem or section it
 came from. Where a work states no bound, the record holds the claim of absence and
 the places that were checked before making it, because an unsupported claim of
-absence is worth nothing.
+absence is worth nothing. Of the \NumSources{} works, \QuoteOnFile{} carry a
+quotation and \QuoteAbsent{} an evidenced absence.
 
 \subsection{Verification}
 
 Every quotation was checked against the primary document by extracting its text
-and matching a punctuation-independent fragment. Two passes were run. The first,
-over the \NumSources{} works then in the corpus, asked whether a quotation
-appeared anywhere in the corpus, and found none absent. That question is weaker
-than the failure it was meant to catch. A second pass binds each work to its own
-document by title and asks whether the quotation appears in \emph{that} document.
-It found four works carrying a neighbour's quotation, an off-by-one rotation
-within one batch, which the first pass had passed. All four were re-extracted from
-their own sources and verified. Of the works the second pass can bind to a
-document, 57 verify and none carries another paper's quotation. A further 85 could
-not be bound by title, and 25 record an evidenced claim of absence rather than a
-quotation.
+and matching a punctuation-independent fragment. Two passes were run. The first
+asked whether a quotation appeared anywhere in the corpus, and found none absent.
+That question is weaker than the failure it was meant to catch. A second pass binds
+each work to its own document and asks whether the quotation appears in \emph{that}
+document. It found four works carrying a neighbour's quotation, an off-by-one
+rotation within one batch, which the first pass had passed. All four were
+re-extracted from their own sources. The second pass binds \QuoteBound{} of the
+\QuoteOnFile{} quotations to their document and verifies every one there. The
+remaining \QuoteUnbound{} could not be bound to a document by title, so they were
+checked against the corpus only.
 
 Eleven entries failed an automated check and all eleven were false alarms, six from
 fragments spanning a line break, two from an error in the checker, one from a claim
@@ -92,9 +127,9 @@ quantity. Every row was re-read under the narrower definition and
 \BaselineChanged{} changed value. Where two readers checked overlapping rows they
 agreed on 24 of 27, which is the only inter-reader agreement figure available here.
 
-The field recording the attack family absorbed eight of the fourteen vocabulary
-gaps. That field was built around attacks on a deployed model, and the corpus also
-contains attacks on a cryptographic primitive, on a communication channel, on a
-training distribution and on an agent's control flow. Its categories are therefore
-the least reliable of the thirteen, and the grouping used in
+The field recording the attack family absorbed most of the vocabulary gaps reported
+during the pass. That field was built around attacks on a deployed model, and the
+corpus also contains attacks on a cryptographic primitive, on a communication
+channel, on a training distribution and on an agent's control flow. Its categories
+are therefore the least reliable of the thirteen, and the grouping used in
 Figure~\ref{fig:sankey} collapses them for that reason.

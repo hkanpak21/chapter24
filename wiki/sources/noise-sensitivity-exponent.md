@@ -3,7 +3,8 @@ title: A Noise Sensitivity Exponent Controls Large Statistical-to-Computational 
 type: source
 date_ingested: 2026-08-20
 authors: [Leonardo Defilippis, Florent Krzakala, Bruno Loureiro, Antoine Maillard]
-venue: venue unconfirmed from PDF (arXiv:2603.17896v1 [stat.ML], 18 Mar 2026)
+venue: "arXiv:2603.17896"
+venue_evidence: "dblp: A Noise Sensitivity Exponent Controls Large Statistical-to-Computational Gaps..., listed only under CoRR/arXiv (arXiv.2603.17896), no conference/journal entry"
 year: 2026
 tags: [statistical-computational-gaps, sample-complexity, approximate-message-passing, single-index-model, multi-index-model, noise-sensitivity-exponent]
 claim_quantifier: conditional

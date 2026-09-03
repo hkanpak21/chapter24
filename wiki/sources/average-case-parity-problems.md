@@ -3,7 +3,8 @@ title: "Average-Case Hardness of Parity Problems: Orthogonal Vectors, k-SUM and 
 type: source
 date_ingested: 2026-08-20
 authors: [Mina Dalirrooyfard, Andrea Lincoln, Barna Saha, Virginia Vassilevska Williams]
-venue: "venue unconfirmed from PDF (the PDF is arXiv:2503.21951v1, 27 Mar 2025; raw/SOURCES.md records SODA 2025)"
+venue: "SODA 2025"
+venue_evidence: "https://arxiv.org/abs/2503.21951; Proceedings of the 2025 ACM-SIAM Symposium on Discrete Algorithms (SODA 2025), pages 4613-4643"
 year: 2025
 claim_quantifier: conditional
 antecedent: "At least one of: the randomized Exponential Time Hypothesis (rETH), the k-OV hypothesis, the k-SUM hypothesis, the k-XOR hypothesis, or the k-clique hypothesis. All are worst-case fine-grained hypotheses; the disjunctive form makes the antecedent unusually weak."

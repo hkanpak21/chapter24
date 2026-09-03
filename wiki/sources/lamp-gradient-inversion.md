@@ -3,7 +3,8 @@ title: "LAMP: Extracting Text from Gradients with Language Model Priors"
 type: source
 date_ingested: 2026-08-22
 authors: [Mislav Balunović, Dimitar I. Dimitrov, Nikola Jovanović, Martin Vechev]
-venue: "36th Conference on Neural Information Processing Systems (NeurIPS 2022) (stated on the PDF's first page); file is arXiv:2202.08827v2 [cs.LG], 19 Oct 2022"
+venue: "NeurIPS 2022"
+venue_evidence: "dblp: conf/nips/BalunovicDJV22, inproceedings, confirms the PDF's own stated venue"
 year: 2022
 tags: [adversarial-ml, reconstruction, robustness]
 claim_quantifier: empirical

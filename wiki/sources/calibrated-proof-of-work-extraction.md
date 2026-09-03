@@ -3,7 +3,8 @@ title: Increasing the Cost of Model Extraction with Calibrated Proof of Work
 type: source
 date_ingested: 2026-08-21
 authors: [Adam Dziedzic, Muhammad Ahmad Kaleem, Yu Shen Lu, Nicolas Papernot]
-venue: ICLR 2022 (stated on every page of the ingested PDF, which is arXiv:2201.09243v3)
+venue: "ICLR 2022"
+venue_evidence: "https://iclr.cc/virtual/2022/spotlight/6514; https://openreview.net/forum?id=EAy7C1cgE1L, also stated on every page of the ingested PDF"
 year: 2022
 tags: [adversarial-ml, cryptography]
 claim_quantifier: empirical
@@ -23,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "This deters attackers by greatly increasing (even up to 100x) the computational effort needed to leverage query access for model extraction."
+cls_evidence_src: "Abstract, p. 1"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

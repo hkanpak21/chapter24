@@ -3,7 +3,8 @@ title: Beyond neural scaling laws, beating power law scaling via data pruning
 type: source
 date_ingested: 2026-08-22
 authors: [Ben Sorscher, Robert Geirhos, Shashank Shekhar, Surya Ganguli, Ari S. Morcos]
-venue: NeurIPS 2022 (stated in PDF)
+venue: "NeurIPS 2022"
+venue_evidence: "https://dblp.org/rec/conf/nips/SorscherGSGM22.html; https://proceedings.neurips.cc/paper_files/paper/2022/hash/7b75da9b61eda40fa35453ee5d077df6-Abstract-Conference.html, NeurIPS 2022 Outstanding Paper Award; also stated in the PDF"
 year: 2022
 tags: [scaling-laws, sample-complexity, learning-theory]
 claim_quantifier: conditional

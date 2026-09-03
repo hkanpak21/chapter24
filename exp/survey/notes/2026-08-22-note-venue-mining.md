@@ -8,10 +8,10 @@ a two-second decision.
 
 | | count |
 | --- | --- |
-| Unconfirmed venues mined | 103 |
+| Unconfirmed venues mined | 100 |
 | Two or more citers agree | 14 |
 | One citer only | 8 |
-| No citer in the corpus | 81 |
+| No citer in the corpus | 78 |
 
 ## Agreed, two or more independent citing papers
 
@@ -47,7 +47,7 @@ a two-second decision.
 
 ## No citing paper in this corpus
 
-These need an external lookup. 81 pages.
+These need an external lookup. 78 pages.
 
 - `adaptive-vs-oblivious-streaming` (2021)
 - `adversarially-robust-pac-regression` (2023)
@@ -58,7 +58,6 @@ These need an external lookup. 81 pages.
 - `average-case-fine-grained-hardness` (2017)
 - `average-case-parity-problems` (2025)
 - `backdoor-defense-learnability-obfuscation` (2025)
-- `beyond-labeling-oracles` (2024)
 - `bogdanov-low-degree-planted-subgraph` (2024)
 - `bounded-storage-simple-schemes` (2019)
 - `catch-a-chinchilla-compute-monitoring` (2023)
@@ -97,7 +96,6 @@ These need an external lookup. 81 pages.
 - `learnability-deep-random-networks` (2019)
 - `learning-rate-induces-generative-exponent` (2025)
 - `merged-staircase-property` (2022)
-- `mia-cannot-prove-training` (2025)
 - `noise-sensitivity-exponent` (2026)
 - `oblivious-defense-backdoor-removal` (2025)
 - `overparameterization-computational-constraints` (2022)
@@ -123,23 +121,9 @@ These need an external lookup. 81 pages.
 - `sok-adversary-knowledge` (2024)
 - `sok-backdoor-defense-evaluation` (2025)
 - `sok-black-box-attack-pitfalls` (2024)
-- `sok-data-reconstruction-attacks` (2025)
 - `speak-much-remember-little` (2021)
 - `suliman-data-forging-attacks` (2025)
 - `tolerant-robust-pac-learning` (2025)
 - `transformers-sparse-xor-polylog` (2025)
 - `two-party-dp-complexity` (2022)
 - `universal-law-of-robustness` (2021)
-
-## 2026-09-03, web check of the load-bearing tier-3 citations
-
-| Key | Resolved to | Evidence |
-| --- | --- | --- |
-| WLBZ25 | USENIX Security 2025 | usenix.org/conference/usenixsecurity25/presentation/wen |
-| ZDKT25 | IEEE SaTML 2025 | ieeexplore.ieee.org/document/10992516 |
-| FK24 | still a preprint, arXiv:2402.14937 | no refereed venue found |
-| SSEP24 | TMLR 2024 | dblp record Trans. Mach. Learn. Res. 2024, confirmed after the first search missed it |
-
-The introduction called all three systematizations preprints and Section 2 called
-Zhang et al. unrefereed. Both sentences corrected the same day. Journal entries are
-still emitted as inproceedings by gen-bib.py, and the checklist wants article.

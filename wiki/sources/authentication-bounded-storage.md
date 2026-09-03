@@ -3,14 +3,15 @@ title: Authentication in the Bounded Storage Model
 type: source
 date_ingested: 2026-08-21
 authors: [Yevgeniy Dodis, Willy Quach, Daniel Wichs]
-venue: venue unconfirmed from PDF (the file is dated May 31, 2022 and carries no venue line; recorded elsewhere in this repo as EUROCRYPT'22)
+venue: "EUROCRYPT 2022"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-031-07082-2_26; Advances in Cryptology - EUROCRYPT 2022, Part III, LNCS 13277, pages 737-766"
 year: 2022
 tags: [cryptography, bounded-storage-model, computational-indistinguishability, complexity-theory]
 claim_quantifier: universal
 antecedent: "none. All results are unconditional. The structural hypotheses are that every party is a streaming algorithm, that honest parties hold n bits of memory, that the adversary holds m bits throughout, and that the number of oracle queries is at most Q = 2^lambda."
 adversary_bound: "memory. The adversary is a streaming algorithm with m bits of memory, computationally unbounded, in the man in the middle position on the channel. Definition 3.5 for MACs and Definition 3.11 for signatures fix the class."
 cls_target: none
-cls_family: forge
+cls_family: none
 cls_phase: n/a
 cls_access: none
 cls_write: none
@@ -25,7 +26,7 @@ cls_second_notion: none
 cls_assessed: explicit
 cls_evidence: "Suppose that (KeyGen, KeyReceive, Sign, Verify) is (ε, A)-suf-cma-secure (Definition 3.10). Then m = O(n2 )."
 cls_evidence_src: Thm 7.11
-cls_reason: "target/access/write=none and phase=n/a: no ML asset (train data, parameters, outputs, a training run) is present -- this is a general-purpose crypto primitive, and none of the vocabulary's access/write values (all ML-query-oriented) fit a streaming man-in-the-middle channel adversary. family=forge is the generic cryptographic sense (MAC/signature unforgeability), not the ML-specific 'forge a training artifact' sense used elsewhere in this codebook. frame=compute per the brief's own definition, which lists memory alongside time, circuit size, queries and algo class as a compute resource, even though the paper calls the adversary 'computationally unbounded' in TIME -- memory is still the bound. party=attacker over the honest parties per rule 4: both the adversary (m bits) and the honest parties (n bits) are memory-bounded, both bounds are computational, so the adversary's bound decides the row and the honest parties' memory n goes to second_party. tightness=exponent chosen from Theorem 7.11's matching lower bound (m=O(n^2), the only bound in the paper proved optimal inside the paper rather than by an external counting argument in a footnote); the long-tag MAC construction (Thm 5.1) separately achieves m=2^{O(n)}, a different exponent relation, so a single row understates the paper's range -- flagged as a multi-construction paper. baseline=stated because the security definitions (Def 3.5/3.10/3.11) carry an explicit epsilon tolerance for forgery success."
+cls_reason: "target/access/write=none and phase=n/a: no ML asset (train data, parameters, outputs, a training run) is present -- this is a general-purpose crypto primitive, and none of the vocabulary's access/write values (all ML-query-oriented) fit a streaming man-in-the-middle channel adversary. family=forge is the generic cryptographic sense (MAC/signature unforgeability), not the ML-specific 'forge a training artifact' sense used elsewhere in this codebook. frame=compute per the brief's own definition, which lists memory alongside time, circuit size, queries and algo class as a compute resource, even though the paper calls the adversary 'computationally unbounded' in TIME -- memory is still the bound. party=attacker over the honest parties per rule 4: both the adversary (m bits) and the honest parties (n bits) are memory-bounded, both bounds are computational, so the adversary's bound decides the row and the honest parties' memory n goes to second_party. tightness=exponent chosen from Theorem 7.11's matching lower bound (m=O(n^2), the only bound in the paper proved optimal inside the paper rather than by an external counting argument in a footnote); the long-tag MAC construction (Thm 5.1) separately achieves m=2^{O(n)}, a different exponent relation, so a single row understates the paper's range -- flagged as a multi-construction paper. baseline=stated because the security definitions (Def 3.5/3.10/3.11) carry an explicit epsilon tolerance for forgery success. RECODE 2026-09-03 (R1 review, forge is the generic MAC sense, not the codebook sense): family forge -> none. REVISION 6 NOTE 2026-09-03: tightness is relative since 2026-08-27, the exponent wording above predates the split; baseline is absent, the stated clause above is superseded by the baseline re-pass."
 cls_prov: P
 cls_date: 2026-08-22
 ---

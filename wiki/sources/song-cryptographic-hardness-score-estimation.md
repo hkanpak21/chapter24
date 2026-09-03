@@ -3,7 +3,8 @@ title: Cryptographic Hardness of Score Estimation
 type: source
 date_ingested: 2026-07-26
 authors: [Min Jae Song]
-venue: "venue unconfirmed from PDF. The ingested file is arXiv:2404.03272v1, 4 April 2024, and states no venue."
+venue: "NeurIPS 2024"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Cryptographic%20Hardness%20of%20Score%20Estimation; dblp: inproceedings, NeurIPS 2024 (refereed; also listed as CoRR abs/2404.03272)"
 year: 2024
 tags: [cryptography, hardness-reductions, statistical-query, computational-indistinguishability, learning-theory]
 claim_quantifier: conditional

@@ -11,7 +11,7 @@ antecedent: "none for the refutation itself. The constructions are unconditional
 adversary_bound: "the object refuted is a bound on adversaries. The conjecture asserted that vanishing low-degree advantage rules out noise-tolerant distinguishers of a given running time, and the paper exhibits distinguishers that survive."
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -23,7 +23,7 @@ cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "the corresponding ε-noisy distinguishing problem can be solved in n^{O(log^{1/(k−1)}(n))} time"
 cls_evidence_src: abstract
-cls_reason: "Classified on the exhibited distinguisher of Thm 1.3, which the page's own Claim Boundary calls 'ordinary algorithms' not restricted to any class, so unit=time rather than algo class. No vocabulary value cleanly fits a quasi-polynomial runtime; budget was chosen as the closest (an explicit, stated runtime, no honest-party relation to compare it against) and is flagged as a vocabulary gap. second=none because the paper's substance is one distinguisher characterized under two resource axes, algorithm class and time, not two distinct bounded parties, which the second field does not capture."
+cls_reason: "Classified on the exhibited distinguisher of Thm 1.3, which the page's own Claim Boundary calls 'ordinary algorithms' not restricted to any class, so unit=time rather than algo class. No vocabulary value cleanly fits a quasi-polynomial runtime; budget was chosen as the closest (an explicit, stated runtime, no honest-party relation to compare it against) and is flagged as a vocabulary gap. second=none because the paper's substance is one distinguisher characterized under two resource axes, algorithm class and time, not two distinct bounded parties, which the second field does not capture. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_second_notion: algo class
 cls_prov: P
 cls_date: 2026-08-22

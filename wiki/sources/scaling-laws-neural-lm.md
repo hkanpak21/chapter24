@@ -3,7 +3,8 @@ title: Scaling Laws for Neural Language Models
 type: source
 date_ingested: 2026-08-22
 authors: [Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei]
-venue: venue unconfirmed from PDF (arXiv:2001.08361v1)
+venue: "arXiv:2001.08361"
+venue_evidence: "dblp https://dblp.org/rec/journals/corr/abs-2001-08361.html lists only the CoRR entry, confirming no refereed venue"
 year: 2020
 tags: [scaling-laws, sample-complexity, learning-theory, compute-accounting]
 claim_quantifier: empirical

@@ -3,7 +3,8 @@ title: "Merkle Puzzles Are Optimal — An O(n²)-Query Attack on Any Key Exchang
 type: source
 date_ingested: 2026-08-22
 authors: [Boaz Barak, Mohammad Mahmoody-Ghidary]
-venue: "CRYPTO 2009 — stated in the PDF's own footer: \"S. Halevi (Ed.): CRYPTO 2009, LNCS 5677, pp. 374-390, 2009\""
+venue: "CRYPTO 2009"
+venue_evidence: "dblp: conf/crypto/BarakM09, inproceedings; confirms the PDF's own footer (S. Halevi (Ed.): CRYPTO 2009, LNCS 5677, pp. 374-390, 2009)"
 year: 2009
 tags: [cryptography, complexity-theory, impossibility-frameworks, one-way-functions, fine-grained-cryptography]
 claim_quantifier: universal

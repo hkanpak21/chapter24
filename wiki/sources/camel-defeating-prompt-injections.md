@@ -11,7 +11,7 @@ antecedent: "The security policies handed to the interpreter express the set of 
 adversary_bound: "none — the adversary supplies an initial adversarial memory state and is otherwise unrestricted. Containment comes from the interpreter's control- and data-flow restrictions, not from any bound on adversary compute, queries, or memory."
 date_verified: 2026-08-20
 cls_target: outputs
-cls_family:
+cls_family: inject
 cls_phase: test time
 cls_access: none
 cls_write: responses
@@ -25,7 +25,7 @@ cls_second_notion: none
 cls_assessed:
 cls_evidence: "absent"
 cls_evidence_src: "no bound on A in Game PI-SEC, §4 (Fig. 3); A is defined only as producing an initial adversarial memory state mem*, with no restriction stated on its computation, queries, or memory"
-cls_reason: "family left blank: prompt injection / agentic control-flow hijacking (Game PI-SEC, §4) does not map onto the family vocabulary; closest candidate 'evade audit' (win condition is an action escaping Ω_prompt/Verify) rejected because that value pairs elsewhere with post-hoc detector evasion on a released model, not live control-flow hijacking. target=outputs: PI-SEC's win condition targets the Agent's action trace. write=responses is a low-confidence best fit: the attacker injects content into untrusted tool output the agent consumes; no training-corpus or parameter-level write applies. Re-verified directly against raw/DS+25_CaMeL.pdf per the assignment's audit warning: 0 occurrences of 'Theorem', 'Lemma', or 'we prove'; Game PI-SEC (Fig. 3-4, §4) states no restriction on A's computation, queries, or memory anywhere in §4-5."
+cls_reason: "family left blank: prompt injection / agentic control-flow hijacking (Game PI-SEC, §4) does not map onto the family vocabulary; closest candidate 'evade audit' (win condition is an action escaping Ω_prompt/Verify) rejected because that value pairs elsewhere with post-hoc detector evasion on a released model, not live control-flow hijacking. target=outputs: PI-SEC's win condition targets the Agent's action trace. write=responses is a low-confidence best fit: the attacker injects content into untrusted tool output the agent consumes; no training-corpus or parameter-level write applies. Re-verified directly against raw/DS+25_CaMeL.pdf per the assignment's audit warning: 0 occurrences of 'Theorem', 'Lemma', or 'we prove'; Game PI-SEC (Fig. 3-4, §4) states no restriction on A's computation, queries, or memory anywhere in §4-5. RECODE 2026-09-03 (revision 4 value applied): family blank -> inject."
 cls_prov: P
 cls_date: 2026-08-22
 ---

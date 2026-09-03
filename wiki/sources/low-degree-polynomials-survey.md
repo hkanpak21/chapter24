@@ -12,7 +12,7 @@ algorithm_class: "low-degree"
 date_verified: 2026-08-20
 cls_target: none
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -24,7 +24,7 @@ cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "this framework measures the complexity of a statistical task by the minimum degree that a polynomial function must have in order to solve it"
 cls_evidence_src: abstract
-cls_reason: "Survey of the low-degree framework with no ML attack scenario; the bounded party is the estimator restricted to low-degree polynomials, so party=learner, unit=algo class, tightness=class, matching what-can-we-learn-privately. Did not rely on the page's flagged 'robust subspace recovery' item (unverified, arXiv:2603.02594 postdates a June 2025 survey and is not in the PDF); verified the fields used here directly against raw/W25_LowDegreeSurvey.pdf."
+cls_reason: "Survey of the low-degree framework with no ML attack scenario; the bounded party is the estimator restricted to low-degree polynomials, so party=learner, unit=algo class, tightness=class, matching what-can-we-learn-privately. Did not rely on the page's flagged 'robust subspace recovery' item (unverified, arXiv:2603.02594 postdates a June 2025 survey and is not in the PDF); verified the fields used here directly against raw/W25_LowDegreeSurvey.pdf. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

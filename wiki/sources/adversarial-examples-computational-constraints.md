@@ -3,7 +3,8 @@ title: Adversarial Examples from Computational Constraints
 type: source
 date_ingested: 2026-04-12
 authors: [Sébastien Bubeck, Eric Price, Ilya Razenshteyn]
-venue: "arXiv:1805.10204v1 (25 May 2018). No venue is stated in the PDF in `raw/`; the ICML 2019 attribution previously carried here is unconfirmed from the primary source."
+venue: "ICML 2019"
+venue_evidence: "https://dblp.org/rec/conf/icml/BubeckLPR19.html; https://proceedings.mlr.press/v97/bubeck19a.html, PMLR vol 97, pages 831-840"
 year: 2019
 tags: [adversarial-ml, evasion-attacks, complexity-theory, statistical-query, sample-complexity]
 claim_quantifier: existential

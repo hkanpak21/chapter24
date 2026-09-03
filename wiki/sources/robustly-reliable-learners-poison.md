@@ -3,7 +3,8 @@ title: "Robustly-Reliable Learners Under Poisoning Attacks"
 type: source
 date_ingested: 2026-04-12
 authors: [Maria-Florina Balcan, Avrim Blum, Steve Hanneke, Dravyansh Sharma]
-venue: "COLT 2022 (venue unconfirmed from PDF: raw/BBHS22_RobustlyReliableLearners.pdf is arXiv:2203.04160v1 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "COLT 2022"
+venue_evidence: "https://proceedings.mlr.press/v178/balcan22a/balcan22a.pdf; PMLR volume 178 is the COLT 2022 proceedings"
 year: 2022
 tags: [adversarial-ml, PAC-learning, poisoning-attacks, certification, learning-theory, reliable-learning]
 claim_quantifier: universal

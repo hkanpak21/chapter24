@@ -3,7 +3,8 @@ title: Low Degree Conjecture Implies Sharp Computational Thresholds in Stochasti
 type: source
 date_ingested: 2026-04-12
 authors: [Jingqiu Ding, Yiding Hua, Lucas Slot, David Steurer]
-venue: Preprint (the ingested PDF is arXiv:2502.15024v2, 28 Apr 2025)
+venue: "NeurIPS 2025"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/a789f19f6454f858ad74bc8b7581fe36-Abstract-Conference.html; accepted (spotlight) under the retitled camera-ready 'Low-degree evidence for computational transition of recovery rate in stochastic block model', same authors and abstract as arXiv:2502.15024"
 year: 2025
 tags: [stochastic-block-model, low-degree-polynomials, kesten-stigum, community-detection, statistical-computational-gaps]
 claim_quantifier: conditional

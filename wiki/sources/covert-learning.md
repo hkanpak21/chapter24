@@ -3,7 +3,8 @@ title: Covert Learning — How to Learn with an Untrusted Intermediary
 type: source
 date_ingested: 2026-04-12
 authors: [Ran Canetti, Ari Karchmer]
-venue: "the PDF in `raw/` is dated 17 September 2021 and names no venue. The TCC attribution carried on this page is unconfirmed from the primary source."
+venue: "TCC 2021"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-030-90456-2_1; 19th Theory of Cryptography Conference (TCC 2021)"
 year: 2021
 tags: [cryptography, learning-theory, covert-computation, pseudorandomness, PAC-learning]
 claim_quantifier: conditional
@@ -14,7 +15,7 @@ algorithm_class: "polynomial-time learners with membership-query access, plus ra
 date_verified: 2026-08-20
 cls_target: training run
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: hard label
 cls_write: read only
 cls_frame: compute
@@ -27,7 +28,7 @@ cls_second_party: none
 cls_assessed: explicit
 cls_evidence: "every query and response obtained by the learner is also obtained by a computationally bounded adversary"
 cls_evidence_src: §1.1.1
-cls_reason: "Wiki page flagged unreliable per assignment (invented LWE/halfspace/theorem content); classified fresh from raw/CK21_CovertLearning.pdf. family=none per codebook convention for foundational cryptographic works, since the eavesdropping intermediary does not fit membership/reconstruct/extract/forge/evade/poison/backdoor. target=training run because the privacy goal covers the query-response transcript and the learner's hypothesis-class choice jointly (hypothesis-hiding), not a static dataset. access=hard label because the concept oracle returns y in {0,1} (Def 2.5); the intermediary receives this passively rather than querying itself, a nuance worth flagging. write=read only reflects the base Covert Learning model (Def 1.1/2.7, the abstract's first bullet); Covert Verifiable Learning (second bullet) additionally lets the intermediary modify oracle responses, which fits no write value cleanly."
+cls_reason: "Wiki page flagged unreliable per assignment (invented LWE/halfspace/theorem content); classified fresh from raw/CK21_CovertLearning.pdf. family=none per codebook convention for foundational cryptographic works, since the eavesdropping intermediary does not fit membership/reconstruct/extract/forge/evade/poison/backdoor. target=training run because the privacy goal covers the query-response transcript and the learner's hypothesis-class choice jointly (hypothesis-hiding), not a static dataset. access=hard label because the concept oracle returns y in {0,1} (Def 2.5); the intermediary receives this passively rather than querying itself, a nuance worth flagging. write=read only reflects the base Covert Learning model (Def 1.1/2.7, the abstract's first bullet); Covert Verifiable Learning (second bullet) additionally lets the intermediary modify oracle responses, which fits no write value cleanly. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

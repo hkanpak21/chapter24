@@ -3,7 +3,8 @@ title: "A Complexity Theoretic Approach to Adversarial Machine Learning"
 type: source
 date_ingested: 2026-04-12
 authors: [Saeed Mahloujifar]
-venue: Research Statement / PhD Thesis Overview (no venue; the PDF is a personal research statement and states none)
+venue: "Research Statement / PhD Thesis Overview (no venue)"
+venue_evidence: "no arXiv ID or refereed venue found by web search as of 2026-09-03; the PDF in raw/ is a personal research statement / PhD thesis overview, not a submitted paper, and states no venue itself"
 year: 2019
 tags: [adversarial-ml, evasion-attacks, poisoning-attacks, concentration-of-measure, complexity-theory, cryptography, sample-complexity]
 claim_quantifier: conditional

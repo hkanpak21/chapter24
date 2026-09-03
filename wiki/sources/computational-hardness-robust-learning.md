@@ -3,7 +3,8 @@ title: "Adversarially Robust Learning Could Leverage Computational Hardness"
 type: source
 date_ingested: 2026-04-12
 authors: [Sanjam Garg, Somesh Jha, Saeed Mahloujifar, Mohammad Mahmoody]
-venue: "arXiv:1905.11564v2 (19 Dec 2019). The ALT 2020 attribution carried on this page is not stated in the PDF in `raw/`; the only ALT mentions in it are bibliography entries."
+venue: "ALT 2020"
+venue_evidence: "https://dblp.org/rec/conf/alt/GargJMM20.html; https://proceedings.mlr.press/v117/garg20a.html, Proceedings of the 31st International Conference on Algorithmic Learning Theory, PMLR vol 117, pages 364-385"
 year: 2020
 tags: [adversarial-ml, cryptography, one-way-functions, hardness-reductions, robustness, complexity-theory, evasion-attacks]
 claim_quantifier: existential

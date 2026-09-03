@@ -9,8 +9,8 @@
 \newcommand{\NumEntities}{116}
 
 % Mapping results. Filled by the Part V generator; do not hand-edit.
-\newcommand{\NumUnstated}{33}          % works stating no budget for any party
-\newcommand{\NumPriced}{167}         % works bounding at least one party
+\newcommand{\NumUnstated}{37}          % works stating no budget for any party
+\newcommand{\NumPriced}{163}         % works bounding at least one party
 
 % --- Numbers used in Part I. Each traces to a wiki source page that was
 % --- verified against the primary PDF in the 2026-08-22 audit.
@@ -44,25 +44,25 @@
 
 % --- Findings read off the classification tables. Counted by tools/collect-cls.py
 % --- over notes/classification.tsv on 2026-08-22. Regenerate before submission.
-\newcommand{\NumAttackWorks}{101}     % works carrying an attack family
-\newcommand{\NumTheoryWorks}{99}      % works carrying none
+\newcommand{\NumAttackWorks}{103}     % works carrying an attack family
+\newcommand{\NumTheoryWorks}{97}      % works carrying none
 \newcommand{\NumPhaseAccessCells}{19} % populated cells of 32 in phase x access
 \newcommand{\NumPartyUnitCells}{25}   % populated cells of 75 in party x unit
-\newcommand{\AttackAccessNamed}{71}   % attack works naming an access level
-\newcommand{\AttackPostHoc}{33}       % of those, attacking a released model
+\newcommand{\AttackAccessNamed}{72}   % attack works naming an access level
+\newcommand{\AttackPostHoc}{34}       % of those, attacking a released model
 \newcommand{\AttackTestTime}{25}      % of those, at test time
 \newcommand{\AttackTrainTime}{12}     % of those, at training time
 \newcommand{\AttackQueriesAttacker}{9} % attack works whose adversary is bounded in queries
-\newcommand{\AttackSamplesAttacker}{1} % attack works whose adversary is bounded in samples
-\newcommand{\NumExponent}{27}         % works stating an exponent in one party's own resource
-\newcommand{\AttackUnbound}{23}       % attack works bounding no party
+\newcommand{\AttackSamplesAttacker}{2} % attack works whose adversary is bounded in samples
+\newcommand{\NumExponent}{20}         % works stating an exponent in one party's own resource
+\newcommand{\AttackUnbound}{27}       % attack works bounding no party
 \newcommand{\TheoryUnbound}{10}        % non-attack works bounding no party
-\newcommand{\AttackBudget}{38}        % attack works whose bound is a budget
-\newcommand{\AttackUnstated}{25}      % attack works stating no tightness
+\newcommand{\AttackBudget}{36}        % attack works whose bound is a budget
+\newcommand{\AttackUnstated}{28}      % attack works stating no tightness
 \newcommand{\AttackPoly}{17}
-\newcommand{\AttackMeasured}{10}
+\newcommand{\AttackMeasured}{12}
 \newcommand{\AttackClass}{4}
-\newcommand{\AttackPerturb}{23}       % attack works bounded by a perturbation radius
+\newcommand{\AttackPerturb}{20}       % attack works bounded by a perturbation radius
 \newcommand{\AttackCorrupt}{5}        % attack works bounded by a corruption fraction
 
 % --- Sparse-parity experiment, exp/survey/experiments/, run 2026-08-22.
@@ -83,23 +83,59 @@
 
 % --- The near-miss set: works whose treatment of a resource does not match how
 % --- tightly they state it. Counted 2026-08-27.
-\newcommand{\AssessedPredictable}{91}   % per cent predictable from tightness alone
-\newcommand{\NearMiss}{18}              % works where the two disagree
+\newcommand{\AssessedPredictable}{90}   % per cent predictable from tightness alone
+\newcommand{\NearMiss}{19}              % works where the two disagree
 \newcommand{\NearMissA}{10}             % definitional bound, not treated as the object
-\newcommand{\NearMissB}{6}              % measured cost, treated deliberately
-\newcommand{\NearMissC}{2}              % quantity present, no tightness at all
+\newcommand{\NearMissB}{8}              % measured cost, treated deliberately
+\newcommand{\NearMissC}{1}              % quantity present, no tightness at all
 
 % --- Baseline column, countable after the re-pass of 2026-08-27.
-\newcommand{\BaselineCrit}{49}
-\newcommand{\BaselineStated}{27}
-\newcommand{\BaselineAbsent}{22}
-\newcommand{\BaselineNA}{132}
+\newcommand{\BaselineCrit}{50}
+\newcommand{\BaselineStated}{29}
+\newcommand{\BaselineAbsent}{21}
+\newcommand{\BaselineNA}{133}
 \newcommand{\BaselineChanged}{31}
-\newcommand{\NumRelative}{11}
-\newcommand{\NumRelativeAttack}{3}
-\newcommand{\NumFlops}{4}
+\newcommand{\NumRelative}{18}
+\newcommand{\NumRelativeAttack}{6}
+\newcommand{\NumFlops}{5}
 \newcommand{\AttackTimeAttacker}{17}
 \newcommand{\ThmAttack}{71}
 \newcommand{\ThmOther}{87}
-\newcommand{\ThmAttackUnbound}{10}
-\newcommand{\ThmOtherUnbound}{5}
+\newcommand{\ThmAttackUnbound}{12}
+\newcommand{\ThmOtherUnbound}{6}
+
+% --- Added by check-numbers.py --write; computed from the classification.
+\newcommand{\RateAttack}{26}
+\newcommand{\RateOther}{10}
+\newcommand{\RatioUnbound}{2.5}
+\newcommand{\DiffLo}{5.5}
+\newcommand{\DiffHi}{26.3}
+\newcommand{\ThmRatio}{2.5}
+\newcommand{\ThmDiffLo}{$-0.2$}
+\newcommand{\ThmDiffHi}{20.2}
+\newcommand{\NumScaling}{10}
+\newcommand{\PhaseAccessTopFive}{62}
+\newcommand{\PartyUnitTopFive}{78}
+\newcommand{\NearMissAdv}{9}
+\newcommand{\NearMissTrain}{5}
+\newcommand{\NearMissCap}{5}
+\newcommand{\AttackerTimeCirc}{34}
+\newcommand{\AttackerCapability}{25}
+\newcommand{\AttackerPerturbAll}{20}
+\newcommand{\AttackerCorruptAll}{5}
+\newcommand{\AttackerMemory}{4}
+\newcommand{\LearnerBound}{65}
+\newcommand{\LearnerTime}{21}
+\newcommand{\LearnerSamples}{17}
+\newcommand{\LearnerClass}{16}
+\newcommand{\LearnerFlops}{5}
+\newcommand{\LearnerOther}{6}
+\newcommand{\AuditorBound}{10}
+\newcommand{\MechanismBound}{7}
+\newcommand{\QuoteOnFile}{172}
+\newcommand{\QuoteAbsent}{28}
+\newcommand{\QuoteHand}{0}
+
+% --- Second quotation pass, tools/check-quotes.py bound through raw/SOURCES.md, run 2026-09-03.
+\newcommand{\QuoteBound}{155}          % quotations verified in their own document
+\newcommand{\QuoteUnbound}{5}        % not bound to a document by title, or no prose fragment

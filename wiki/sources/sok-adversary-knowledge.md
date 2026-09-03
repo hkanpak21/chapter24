@@ -3,7 +3,8 @@ title: "SoK: Analyzing Adversarial Examples — A Framework to Study Adversary K
 type: source
 date_ingested: 2026-08-20
 authors: [Lucas Fenaux, Florian Kerschbaum]
-venue: arXiv preprint 2402.14937v1 (venue unconfirmed from PDF)
+venue: "arXiv:2402.14937"
+venue_evidence: "web search (arXiv, Semantic Scholar, UWSpace repository) found no refereed venue; still an arXiv preprint"
 year: 2024
 tags: [adversarial-ml, evasion-attacks, threat-model, cryptography, evaluation-methodology]
 claim_quantifier: existential

@@ -3,7 +3,8 @@ title: Cryptanalytic Extraction of Neural Network Models
 type: source
 date_ingested: 2026-08-21
 authors: [Nicholas Carlini, Matthew Jagielski, Ilya Mironov]
-venue: CRYPTO 2020 (the ingested PDF is arXiv:2003.04884v2, 22 Jul 2020, and does not itself state a venue)
+venue: "CRYPTO 2020"
+venue_evidence: "https://dblp.org/rec/conf/crypto/CarliniJM20.html; Advances in Cryptology - CRYPTO 2020, Part III, pages 189-218"
 year: 2020
 tags: [adversarial-ml, cryptography, sample-complexity]
 claim_quantifier: empirical
@@ -23,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: implicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "For example, we extract a 100,000 parameter neural network trained on the MNIST digit recognition task with 221.5 queries in under an hour, such that the extracted model agrees with the oracle on all inputs up to a worst-case error of 2−25."
+cls_evidence_src: "Abstract, p. 1. \"221.5\" and \"2−25\" render the exponents 2^{21.5} and 2^{-25} without superscripting, a pdftotext artifact."
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

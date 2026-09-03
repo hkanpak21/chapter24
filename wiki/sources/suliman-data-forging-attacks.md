@@ -3,7 +3,8 @@ title: Towards a Re-evaluation of Data Forging Attacks in Practice
 type: source
 date_ingested: 2026-07-26
 authors: [Mohamed Suliman, Anisa Halimi, Swanand Ravindra Kadhe, Nathalie Baracaldo, Douglas Leith]
-venue: "venue unconfirmed from PDF. The ingested file is arXiv:2411.05658v2, 10 June 2025, and states no venue. Affiliations given on the file are IBM Research and Trinity College Dublin."
+venue: "USENIX Security 2025"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Re-evaluation%20of%20Data%20Forging%20Attacks%20in%20Practice; dblp: USENIX Security Symposium 2025, pp. 5505-5524 (refereed; also listed as CoRR abs/2411.05658 2024)"
 year: 2025
 tags: [adversarial-ml, complexity theory, reconstruction, poisoning-attacks, hardness-reductions]
 claim_quantifier: empirical

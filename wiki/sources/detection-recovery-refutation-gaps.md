@@ -3,7 +3,8 @@ title: "Detection-Recovery and Detection-Refutation Gaps via Reductions from Pla
 type: source
 date_ingested: 2026-04-12
 authors: [Guy Bresler, Tianze Jiang]
-venue: "COLT 2023. The ingested PDF states its venue: Proceedings of Machine Learning Research vol 195, 36th Annual Conference on Learning Theory. Also arXiv:2306.17719v1, 30 Jun 2023."
+venue: "COLT 2023"
+venue_evidence: "https://proceedings.mlr.press/v195/bresler23a/bresler23a.pdf; Proceedings of Machine Learning Research vol 195, 36th Annual Conference on Learning Theory, pages 5850-5889; also stated in the ingested PDF"
 year: 2023
 tags: [statistical-computational-gaps, average-case-reductions, planted-clique, hardness-reductions, complexity-theory]
 claim_quantifier: conditional

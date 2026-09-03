@@ -3,7 +3,8 @@ title: On the Query Complexity of Training Data Reconstruction in Private Learni
 type: source
 date_ingested: 2026-08-20
 authors: [Prateeti Mukherjee, Satya Lokam]
-venue: venue unconfirmed from PDF (arXiv:2303.16372v6 [cs.LG], 11 Jan 2024; page header formatted as "1–34", suggesting a proceedings template — treat as preprint)
+venue: "arXiv:2303.16372"
+venue_evidence: "dblp: no match for this title/authors (searched directly, no inproceedings/article entry exists); arXiv abstract page (https://arxiv.org/abs/2303.16372) has no Journal-ref field; confirmed no refereed venue"
 year: 2024
 tags: [differential-privacy, data-reconstruction-attack, sample-complexity, learning-theory]
 claim_quantifier: universal

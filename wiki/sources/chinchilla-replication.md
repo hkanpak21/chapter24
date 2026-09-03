@@ -3,7 +3,8 @@ title: "Chinchilla Scaling: A Replication Attempt"
 type: source
 date_ingested: 2026-08-22
 authors: [Tamay Besiroglu, Ege Erdil, Matthew Barnett, Josh You]
-venue: "arXiv:2404.10102 (Epoch AI, May 2024; venue unconfirmed from PDF)"
+venue: "arXiv:2404.10102"
+venue_evidence: "https://arxiv.org/abs/2404.10102; Epoch AI blog post, no refereed venue found by web search as of 2026-09-03"
 year: 2024
 tags: [learning-theory, evaluation-methodology, sample-complexity]
 claim_quantifier: empirical

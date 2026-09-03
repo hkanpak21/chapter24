@@ -3,7 +3,8 @@ title: "Fine-Grained Complexity in a World without Cryptography"
 type: source
 date_ingested: 2026-08-20
 authors: [Josh Alman, Yizhi Huang, Kevin Yeo]
-venue: "Eurocrypt 2025 (the PDF's own footnote reads \"This is the full version of the paper that appears in the proceedings of Eurocrypt 2025\")"
+venue: "EUROCRYPT 2025"
+venue_evidence: "dblp: EUROCRYPT (7) 2025, pp. 375-405, DOI 10.1007/978-3-031-91098-2_14; also the PDF's own footnote"
 year: 2025
 claim_quantifier: conditional
 antecedent: "One-way functions do not exist. Standard as a hypothesis (it is exactly Impagliazzo's Pessiland-or-below condition), but note it is the *negation* of the field's baseline assumption, so the paper is a barrier result rather than a construction."

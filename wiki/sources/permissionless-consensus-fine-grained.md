@@ -3,7 +3,8 @@ title: "Towards Permissionless Consensus in the Standard Model via Fine-Grained 
 type: source
 date_ingested: 2026-08-20
 authors: [Marshall Ball, Juan Garay, Peter Hall, Aggelos Kiayias, Giorgos Panagiotakos]
-venue: "venue unconfirmed from PDF (no venue line; raw/SOURCES.md records CRYPTO 2024)"
+venue: "CRYPTO 2024"
+venue_evidence: "https://dl.acm.org/doi/10.1007/978-3-031-68379-4_4 (Advances in Cryptology - CRYPTO 2024, pp. 113-146)"
 year: 2024
 claim_quantifier: conditional
 antecedent: "The k-Orthogonal Vectors conjecture (worst-case, in non-uniform and probabilistic-two-sided-error variants), plus the existence of a randomness beacon, plus a corruption bound. Theorem 23 additionally needs sub-exponentially hard DDH. OVC is standard in fine-grained complexity and is implied by SETH."
@@ -23,7 +24,7 @@ cls_second_notion: none
 cls_assessed: explicit
 cls_evidence: "Our protocol achieves resilience against adversaries that control an inverse-polynomial fraction of the honest computational power, i.e., adversarial power A = T^{1−ε} for some constant ε > 0, where T denotes the honest computational power."
 cls_evidence_src: abstract
-cls_reason: "Not an ML paper: target/family/phase/access/write follow the fine-grained-world-without-crypto.md and average-case-fine-grained-hardness.md convention (none/n/a) for fine-grained-cryptography papers with no ML asset in scope. party=attacker/unit=time/tightness=exponent/second_party=time mirror average-case-fine-grained-hardness.md's Def 2 pattern: both honest power T and adversary power A=T^{1-ε} are explicit and related by a stated exponent (rule 4, the adversary's bound decides when both parties are computationally bounded)."
+cls_reason: "Not an ML paper: target/family/phase/access/write follow the fine-grained-world-without-crypto.md and average-case-fine-grained-hardness.md convention (none/n/a) for fine-grained-cryptography papers with no ML asset in scope. party=attacker/unit=time/tightness=exponent/second_party=time mirror average-case-fine-grained-hardness.md's Def 2 pattern: both honest power T and adversary power A=T^{1-ε} are explicit and related by a stated exponent (rule 4, the adversary's bound decides when both parties are computationally bounded). REVISION 6 NOTE 2026-09-03: tightness is relative since 2026-08-27, the exponent wording above predates the split."
 cls_prov: P
 cls_date: 2026-08-22
 ---

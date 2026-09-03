@@ -4,7 +4,7 @@ type: source
 date_ingested: 2026-04-12
 authors: [David Gamarnik, Aukosh Jagannath, Alexander S. Wein]
 venue: FOCS 2020, journal version 2022 (the ingested PDF is arXiv:2004.12063v2, 26 Jan 2022, and does not itself state a venue)
-year: 2022
+year: 2020
 tags: [overlap-gap-property, low-degree-polynomials, boolean-circuits, langevin-dynamics, random-optimization, p-spin, circuit-complexity]
 claim_quantifier: universal
 antecedent: "the overlap gap property for the models considered, which the paper proves rather than assumes. The mechanism is that all three algorithm classes are stable under small input perturbations."

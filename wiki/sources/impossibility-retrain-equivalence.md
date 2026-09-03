@@ -3,7 +3,8 @@ title: On the Impossibility of Retrain Equivalence in Machine Unlearning
 type: source
 date_ingested: 2026-08-20
 authors: [Jiatong Yu, Yinghui He, Anirudh Goyal, Sanjeev Arora]
-venue: Preprint (every page is stamped "Preprint"; arXiv:2510.16629v2, 29 Oct 2025) — venue unconfirmed from PDF
+venue: "arXiv:2510.16629"
+venue_evidence: "arXiv abstract page carries no Journal reference; OpenReview https://openreview.net/forum?id=r6Z3BXDrzO exists (submission under review) with no confirmed acceptance visible; dblp.org was unreachable this session (repeated ECONNRESET) — no refereed venue confirmed anywhere, kept as arXiv-only"
 year: 2025
 tags: [adversarial-ml, learning-theory, hardness-reductions]
 claim_quantifier: conditional

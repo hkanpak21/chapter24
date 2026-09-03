@@ -3,7 +3,8 @@ title: Statistical Algorithms and a Lower Bound for Detecting Planted Cliques
 type: source
 date_ingested: 2026-04-12
 authors: [Vitaly Feldman, Elena Grigorescu, Lev Reyzin, Santosh S. Vempala, Ying Xiao]
-venue: JACM 2017, conference version STOC 2013 (the ingested PDF is arXiv:1201.1214v6, 15 Aug 2016, and does not itself state a venue)
+venue: "J. ACM 2017, conference version STOC 2013"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3046674 (J. ACM 64(2), Article 8, pp. 1-37, 2017); dblp https://dblp.org/rec/conf/stoc/FeldmanGRVX13.html (STOC 2013, pp. 655-664)"
 year: 2017
 tags: [planted-clique, statistical-query, lower-bounds, statistical-computational-gaps]
 claim_quantifier: universal
@@ -20,14 +21,14 @@ cls_frame: compute
 cls_party: learner
 cls_unit: algo class
 cls_tightness: class
-cls_baseline: stated
+cls_baseline: n/a
 cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: queries
 cls_assessed: explicit
 cls_evidence: "no polynomial-time statistical algorithm can solve the problem using queries to VSTAT(o(n2/k2)) and any SQ algorithm requires nΩ(log n) queries to VSTAT(n2−δ/k2)."
 cls_evidence_src: Thm 2.9
-cls_reason: "Not an ML attack paper: a detection/estimation hardness result for planted structure, so target/family/phase/access/write=none. party=learner rather than attacker: the paper 'generalizes Kearns' SQ framework from PAC learning' with no adversary vocabulary anywhere, matching this programme's established 'restricted-class learner' framing for SQ/low-degree units (repo CLAUDE.md). unit=algo class, tightness=class for the SQ-membership quantifier ('any SQ algorithm'); second_notion=queries records the explicit numeric query-count/precision bound (n^Ω(log n) queries to VSTAT(·)) the same party also carries, per rule 4b (one party, two incomparable notions: class membership and query count). baseline=stated: Thm 2.9 fixes the success criterion at probability at least 2/3."
+cls_reason: "Not an ML attack paper: a detection/estimation hardness result for planted structure, so target/family/phase/access/write=none. party=learner rather than attacker: the paper 'generalizes Kearns' SQ framework from PAC learning' with no adversary vocabulary anywhere, matching this programme's established 'restricted-class learner' framing for SQ/low-degree units (repo CLAUDE.md). unit=algo class, tightness=class for the SQ-membership quantifier ('any SQ algorithm'); second_notion=queries records the explicit numeric query-count/precision bound (n^Ω(log n) queries to VSTAT(·)) the same party also carries, per rule 4b (one party, two incomparable notions: class membership and query count). baseline=stated: Thm 2.9 fixes the success criterion at probability at least 2/3. RECODE 2026-09-03 (R4, a success tolerance is not a baseline): baseline stated -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

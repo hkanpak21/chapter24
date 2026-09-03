@@ -3,7 +3,8 @@ title: Sample and Computationally Efficient Robust Learning of Gaussian Single-I
 type: source
 date_ingested: 2026-08-20
 authors: [Puqian Wang, Nikos Zarifis, Ilias Diakonikolas, Jelena Diakonikolas]
-venue: venue unconfirmed from PDF (arXiv:2411.05708v1 [cs.LG], 8 Nov 2024; cited elsewhere as NeurIPS 2024)
+venue: "NeurIPS 2024"
+venue_evidence: "dblp: conf/nips/WangZDD24 (inproceedings, NeurIPS 2024); confirms the in-corpus citation lead"
 year: 2024
 tags: [single-index-model, agnostic-learning, adversarial-label-noise, information-exponent, csq, sample-complexity]
 claim_quantifier: universal

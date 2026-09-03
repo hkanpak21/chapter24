@@ -3,7 +3,8 @@ title: "Privacy Risk in Machine Learning: Analyzing the Connection to Overfittin
 type: source
 date_ingested: 2026-08-22
 authors: [Samuel Yeom, Irene Giacomelli, Matt Fredrikson, Somesh Jha]
-venue: "CSF 2018 (stated in the PDF: \"This is the unabridged version of the paper accepted for publication in CSF 2018.\"); file is arXiv:1709.01604v5 [cs.CR], 4 May 2018"
+venue: "CSF 2018"
+venue_evidence: "dblp: conf/csfw/YeomGFJ18 (inproceedings, IEEE CSF 2018, pp. 268-282); confirms the PDF's own stated venue"
 year: 2018
 tags: [adversarial-ml, learning-theory, computational-indistinguishability, sample-complexity]
 claim_quantifier: conditional

@@ -3,7 +3,8 @@ title: "Adversarially Robust Learning: A Generic Minimax Optimal Learner and Cha
 type: source
 date_ingested: 2026-04-12
 authors: [Omar Montasser, Steve Hanneke, Nathan Srebro]
-venue: "NeurIPS 2022 (venue unconfirmed from PDF: raw/MHS22_GenericMinimaxLearner.pdf is arXiv:2209.07369v1 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "NeurIPS 2022"
+venue_evidence: "dblp: conf/nips/MontasserHS22 (inproceedings, NeurIPS 2022); confirms the earlier attribution"
 year: 2022
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory]
 claim_quantifier: universal

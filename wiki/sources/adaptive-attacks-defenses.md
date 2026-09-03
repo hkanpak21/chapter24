@@ -22,10 +22,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Projected Gradient Descent (Madry et al., 2017) is a strategy for finding an adversarial example x0 for an input x that satisfies a given norm-bound."
+cls_evidence_src: "Section 2.1, PGD paragraph, p. 5. The sentence continues with the inequality \"kx0-xkp <= [epsilon]\" in the PDF; the epsilon glyph extracts as an unreadable control byte (0x0F) with pdftotext, so the quotation stops before it."
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

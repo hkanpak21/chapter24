@@ -3,7 +3,8 @@ title: Repetita Iuvant - Data Repetition Allows SGD to Learn High-Dimensional Mu
 type: source
 date_ingested: 2026-08-22
 authors: [Luca Arnaboldi, Yatin Dandi, Florent Krzakala, Luca Pesce, Ludovic Stephan]
-venue: venue unconfirmed from PDF (arXiv:2405.15459v2 [stat.ML], 10 Feb 2025)
+venue: "arXiv:2405.15459"
+venue_evidence: "dblp: only a CoRR/informal entry (journals/corr/abs-2405-15459), no inproceedings entry; not found in ICML 2024 proceedings (proceedings.mlr.press/v235, checked directly for 'Repetita Iuvant' and 'Arnaboldi' — no match); confirmed no refereed venue as of this check"
 year: 2024
 tags: [learning-theory, sample-complexity, multi-index-model, generative-exponent, information-exponent, batch-reuse, staircase]
 claim_quantifier: universal

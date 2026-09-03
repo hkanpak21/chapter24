@@ -5,6 +5,42 @@ those tables holds one value from the lists below and nothing else. A cell is ne
 free prose, because the point of the tables is that two readers assign the same
 value.
 
+**Revision 7, 2026-09-03, four rulings after the second adversarial review.**
+The reviewer found four places where the codebook was silent and two readers had
+assigned different codes. Halil ruled on each; the rulings are now rules.
+
+*R1, `relative`.* A stated relation between two named parties' resources is
+`relative` whether or not it carries an exponent, a factor or a class, so
+proof-of-learning's bare inequality E[C_A] >= E[C_T] is `relative` with exponent
+one. Whether the relation is proved, conjectured or definitional is recorded by
+`quantifier` and `antecedent`, not by `tightness`. Seven rows recoded from
+`exponent`, each of whose recorded reason already named a second party, and
+`second party` now names the honest party's unit on every `relative` row. One row
+(the watermark removal, a dollar ratio observed once) recoded to `measured`.
+
+*R2, a radius the theorem outputs.* Rule 6 applies to a radius that restricts the
+adversary as a hypothesis. A radius that appears as a theorem's conclusion, "a
+perturbation of size r exists", bounds no party. The three geometric-inevitability
+rows recoded to `party = none`, which is where the survey's standing decision had
+always placed them.
+
+*R3, solver rows.* A lower bound against a restricted algorithm class solving a
+statistical problem with no attacker or defender binds the `learner`. Three rows
+recoded from `attacker` or `auditor`, each of which had cited a rule the codebook
+did not contain.
+
+*R4, existing rules applied.* Rule 9 sends a catalogue that restates a definition to
+`none` (`sok-differential-privacies`). A success tolerance is not a baseline
+(`feldman` to `n/a`). A threshold in the learner's own resource is `exponent`
+(`raz`). `phase = n/a` on ten no-attack rows that carried a phase. The three
+`family` cells left blank as vocabulary gaps take the revision 4 values `multiple`,
+`inject` and `distribution`, and `authentication-bounded-storage` loses `forge`,
+which this codebook reserves for training artifacts.
+
+Every recode is logged in the row's `cls_reason` with the ruling that produced it.
+The 24 rows classified by hand in the first batch now carry a deciding quotation or
+an evidenced absence, with `cls_prov: P`, supplied by two agents on the same day.
+
 **Revision 6, 2026-08-27, forced by review.** `tightness` splits `exponent` into
 `exponent` and `relative`. An adversarial reviewer found that the single code was
 doing two jobs. The codebook defined it as "a stated relation to the honest party's

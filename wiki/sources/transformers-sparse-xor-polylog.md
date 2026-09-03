@@ -3,7 +3,8 @@ title: Transformers Provably Learn Sparse XOR with Polylogarithmic Parameters
 type: source
 date_ingested: 2026-08-22
 authors: [Yaomengxi Han, Debarghya Ghoshdastidar]
-venue: venue unconfirmed from PDF (arXiv:2502.07553v2 [cs.LG], 9 May 2026; JMLR-style copyright line "©2025 Yaomengxi Han and Debarghya Ghoshdastidar", CC-BY 4.0)
+venue: "arXiv:2502.07553"
+venue_evidence: "dblp: no match for title (checked https://dblp.uni-trier.de/search?q=Transformers%20Provably%20Learn%20Sparse%20XOR%20Polylogarithmic); https://arxiv.org/abs/2502.07553 carries no Journal reference field — unconfirmed refereed venue, treated as preprint"
 year: 2025
 tags: [learning-theory, transformers, parity, feature-learning, parameter-complexity, sample-complexity]
 claim_quantifier: universal

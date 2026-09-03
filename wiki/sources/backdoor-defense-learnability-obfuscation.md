@@ -3,7 +3,8 @@ title: "Backdoor Defense, Learnability, and Obfuscation"
 type: source
 date_ingested: 2026-04-23
 authors: [Paul Christiano, Jacob Hilton, Victor Lecomte, Mark Xu]
-venue: "arXiv:2409.03077v2 (18 Nov 2024). The ITCS 2025 / LIPIcs Vol. 325 attribution carried on this page is not stated anywhere in the PDF in `raw/` and is unconfirmed from the primary source."
+venue: "ITCS 2025"
+venue_evidence: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.38; 16th Innovations in Theoretical Computer Science Conference (ITCS 2025), LIPIcs vol 325"
 year: 2025
 tags: [backdoor, PAC-learning, indistinguishability-obfuscation, VC-dimension, defendability, complexity-theory]
 claim_quantifier: conditional

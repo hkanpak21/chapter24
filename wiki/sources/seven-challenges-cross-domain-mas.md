@@ -3,7 +3,8 @@ title: "Seven Security Challenges That Must Be Solved in Cross-Domain Multi-Agen
 type: source
 date_ingested: 2026-04-23
 authors: [Ronny Ko, Jiseong Jeong, Shuyuan Zheng, Chuan Xiao, Tae-Wan Kim, Makoto Onizuka, Won-Yong Shin]
-venue: "arXiv:2505.23847v3 (15 Jul 2025)"
+venue: "arXiv:2505.23847"
+venue_evidence: "web search (arXiv abstract/HTML pages, Semantic Scholar, ResearchGate) found no refereed venue; still an arXiv preprint (versions up to v5 seen)"
 year: 2025
 tags: [agentic-systems, multi-agent, trust-boundaries, position-paper, desiderata]
 claim_quantifier: empirical

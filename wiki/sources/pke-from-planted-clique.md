@@ -3,7 +3,8 @@ title: "Using the Planted Clique Conjecture for Cryptography: Public-Key Encrypt
 type: source
 date_ingested: 2026-04-23
 authors: [Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai]
-venue: STOC 2025, IACR ePrint 2025/1501 (the ingested PDF does not itself state a venue)
+venue: "STOC 2025"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3717823.3718306 (STOC 2025); listed on STOC 2025 accepted-papers page"
 year: 2025
 tags: [cryptography, planted-clique, public-key-encryption, statistical-computational-gaps, crypto-foundations]
 claim_quantifier: conditional

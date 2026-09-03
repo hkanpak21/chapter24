@@ -3,7 +3,8 @@ title: "Adversarially Robust Generalization Requires More Data"
 type: source
 date_ingested: 2026-04-23
 authors: [Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, Aleksander Mądry]
-venue: "NeurIPS 2018 (venue unconfirmed from PDF: raw/SSTTM18_RobustGenRequiresMoreData.pdf is arXiv:1804.11285v2 [cs.LG] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "NeurIPS 2018"
+venue_evidence: "dblp: conf/nips/SchmidtSTTM18 (inproceedings, NeurIPS 2018, pp. 5019-5031); confirms the earlier attribution and overrides the venue-mining note's 6-vote 'arXiv preprint' lead, which is a false lead per CLAUDE.md's own caveat about boilerplate-text mining artifacts"
 year: 2018
 tags: [adversarial-ml, sample-complexity, generalization, robust-pac-learning, information-theoretic]
 claim_quantifier: existential

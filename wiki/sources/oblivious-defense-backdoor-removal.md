@@ -3,7 +3,8 @@ title: "Oblivious Defense in ML Models: Backdoor Removal without Detection"
 type: source
 date_ingested: 2026-04-23
 authors: [Shafi Goldwasser, Jonathan Shafer, Neekon Vafa, Vinod Vaikuntanathan]
-venue: "arXiv:2411.03279v1 (5 Nov 2024). The STOC 2025 attribution carried on this page is not stated anywhere in the PDF in `raw/` and is unconfirmed from the primary source."
+venue: "STOC 2025"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3717823.3718245 (Proceedings of the 57th Annual ACM Symposium on Theory of Computing, STOC 2025, pp. 1785-1794); confirmed on STOC 2025 accepted-papers list"
 year: 2025
 tags: [backdoor, cryptography, mitigation, random-self-reducibility, undetectable-backdoors, fourier-analysis]
 claim_quantifier: conditional

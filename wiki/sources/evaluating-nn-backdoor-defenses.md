@@ -3,7 +3,8 @@ title: On Evaluating Neural Network Backdoor Defenses
 type: source
 date_ingested: 2026-08-20
 authors: [Akshaj Kumar Veldanda, Siddharth Garg]
-venue: venue unconfirmed from PDF (arXiv:2010.12186, cs.LG, 23 Oct 2020)
+venue: "arXiv:2010.12186"
+venue_evidence: "dblp: https://dblp.org/search?q=On+Evaluating+Neural+Network+Backdoor+Defenses; listed only as CoRR abs/2010.12186 (Informal and Other Publications), no refereed venue found"
 year: 2020
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology]
 claim_quantifier: existential

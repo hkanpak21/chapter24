@@ -24,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Throughout, we assume that the distinguishing algorithms are efficient (polynomial-time) and may receive random samples from the data distribution D (at unit cost)."
+cls_evidence_src: "Section 4.1, Undetectability, discussion following Definition 4.6, raw/GKVZ22_UndetectableBackdoors.pdf"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

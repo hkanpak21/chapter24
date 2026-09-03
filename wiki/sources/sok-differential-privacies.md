@@ -3,7 +3,8 @@ title: "SoK: Differential privacies"
 type: source
 date_ingested: 2026-08-20
 authors: [Damien Desfontaines, Balázs Pejó]
-venue: Proceedings on Privacy Enhancing Technologies (PoPETs) 2020(2):288–313
+venue: "PoPETs 2020"
+venue_evidence: "https://petsymposium.org/popets/2020/popets-2020-0028.php; Proceedings on Privacy Enhancing Technologies 2020(2):288-313, DOI 10.2478/popets-2020-0028"
 year: 2020
 tags: [differential-privacy, adversary-knowledge-taxonomy, attack-taxonomy-llms, impossibility-frameworks]
 claim_quantifier: universal
@@ -14,17 +15,17 @@ cls_family: none
 cls_phase: n/a
 cls_access: none
 cls_write: none
-cls_frame: compute
-cls_party: attacker
-cls_unit: time
-cls_tightness: poly
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
 cls_baseline: n/a
-cls_second_party: privacy budget
+cls_second_party: none
 cls_second_notion: none
-cls_assessed: explicit
+cls_assessed: 
 cls_evidence: "Distinguisher modelled explicitly as a non-uniform ppt Turing machine"
 cls_evidence_src: "Def 21 (§9), matching Table 2's dimension-C question 'How much computational power can the attacker use?'"
-cls_reason: "The survey catalogues definitions rather than mounting an attack, so target/family/phase/access/write are none/n/a; it is included for its Adversary-assumptions finding, that dimension C (computational power) is the one axis of seven that bounds the attacker computationally, occupied only by IndCDP/SimCDP's non-uniform-ppt distinguisher (Rule 4: computational bound decides party/unit over the mechanism's own privacy-budget bound, recorded in second_party). assessed=explicit because the ppt bound is the formal defining parameter of the CDP definitions themselves, not an incidentally reported cost."
+cls_reason: "The survey catalogues definitions rather than mounting an attack, so target/family/phase/access/write are none/n/a; it is included for its Adversary-assumptions finding, that dimension C (computational power) is the one axis of seven that bounds the attacker computationally, occupied only by IndCDP/SimCDP's non-uniform-ppt distinguisher (Rule 4: computational bound decides party/unit over the mechanism's own privacy-budget bound, recorded in second_party). assessed=explicit because the ppt bound is the formal defining parameter of the CDP definitions themselves, not an incidentally reported cost. RECODE 2026-09-03 (R4, Rule 9): party attacker -> none. RECODE 2026-09-03 (R4, Rule 9): unit time -> none. RECODE 2026-09-03 (R4, Rule 9): tightness poly -> unstated. RECODE 2026-09-03 (R4, Rule 9): frame compute -> none. RECODE 2026-09-03 (R4, Rule 9): second_party privacy budget -> none. RECODE 2026-09-03 (R4, Rule 9): assessed explicit -> ."
 cls_prov: P
 cls_date: 2026-08-22
 ---

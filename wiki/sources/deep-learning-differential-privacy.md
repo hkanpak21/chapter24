@@ -3,7 +3,8 @@ title: Deep Learning with Differential Privacy
 type: source
 date_ingested: 2026-04-23
 authors: [Martín Abadi, Andy Chu, Ian Goodfellow, H. Brendan McMahan, Ilya Mironov, Kunal Talwar, Li Zhang]
-venue: "CCS 2016 (23rd ACM Conference on Computer and Communications Security), stated on the first page of the PDF; the file is the full version"
+venue: "ACM CCS 2016"
+venue_evidence: "https://dblp.org/rec/conf/ccs/AbadiCGMMT016.html; https://dl.acm.org/doi/10.1145/2976749.2978318, Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, pages 308-318; also stated on the first page of the PDF"
 year: 2016
 tags: [differential-privacy, deep-learning, privacy-preserving-ml, sgd, certification]
 claim_quantifier: empirical
@@ -12,7 +13,7 @@ adversary_bound: "none. The paper states that its approach protects against an a
 date_verified: 2026-08-20
 cls_target: train data
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: capability
@@ -25,7 +26,7 @@ cls_second_notion: none
 cls_assessed: explicit
 cls_evidence: "satisfies (ε, δ)-differential privacy if for any two adjacent inputs d, d0 ∈ D and for any subset of outputs S ⊆ R it holds that Pr[M(d) ∈ S] ≤ eε Pr[M(d0) ∈ S] + δ"
 cls_evidence_src: Def 1
-cls_reason: "Adversary is explicitly unbounded (\"full knowledge of the training mechanism and access to the model's parameters\", §1); the only bound in the paper falls on the mechanism, via the privacy budget ε, hence party=mechanism/unit=privacy budget/frame=capability rather than an attacker-side reading; family=none because this is a defence with no attack instantiated."
+cls_reason: "Adversary is explicitly unbounded (\"full knowledge of the training mechanism and access to the model's parameters\", §1); the only bound in the paper falls on the mechanism, via the privacy budget ε, hence party=mechanism/unit=privacy budget/frame=capability rather than an attacker-side reading; family=none because this is a defence with no attack instantiated. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
 cls_prov: P
 cls_date: 2026-08-22
 ---

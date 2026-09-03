@@ -4,7 +4,7 @@ type: source
 date_ingested: 2026-08-21
 authors: [Varun Chandrasekaran, Kamalika Chaudhuri, Irene Giacomelli, Somesh Jha, Songbai Yan]
 venue: USENIX Security 2020 (the ingested PDF is arXiv:1811.02054v6, 20 Nov 2019, and does not itself state a venue)
-year: 2019
+year: 2020
 tags: [adversarial-ml, learning-theory, PAC-learning, sample-complexity]
 claim_quantifier: conditional
 antecedent: "The hypothesis class F is public and known to the adversary; the server answers arbitrary chosen inputs, which places the reduction in the query synthesis scenario; the error function Err is fixed in advance; for the negative result on randomised defences, the server answers correctly with probability at least 1/2 + c for a constant c > 0 on every instance."
@@ -23,10 +23,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Let A be an adversary interacting with S with a maximum budget of q queries."
+cls_evidence_src: "Experiment 1 (Extraction experiment), Section 3.1, p. 10, the sentence immediately preceding Definition 3 (Extraction attack)"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

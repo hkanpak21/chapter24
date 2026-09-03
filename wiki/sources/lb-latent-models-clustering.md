@@ -3,7 +3,8 @@ title: "Computational Lower Bounds in Latent Models: Clustering, Sparse-Clusteri
 type: source
 date_ingested: 2026-04-23
 authors: [Bertrand Even, Christophe Giraud, Nicolas Verzelen]
-venue: "Preprint. The ingested PDF is arXiv:2506.13647v1, 16 Jun 2025, and does not state a venue."
+venue: "arXiv:2506.13647"
+venue_evidence: "dblp: no match (0 hits on title search); no refereed venue found"
 year: 2025
 tags: [statistical-computational-gaps, low-degree-polynomials, clustering, biclustering, latent-models]
 claim_quantifier: universal

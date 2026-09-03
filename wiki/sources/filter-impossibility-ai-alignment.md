@@ -3,8 +3,9 @@ title: "On the Impossibility of Separating Intelligence from Judgment: The Compu
 type: source
 date_ingested: 2026-04-23
 authors: [Sarah Ball, Greg Gluch, Shafi Goldwasser, Frauke Kreuter, Omer Reingold, Guy N. Rothblum]
-venue: "arXiv:2507.07341 (Jul 2025; preprint under review)"
-year: 2025
+venue: "ICLR 2026"
+venue_evidence: "ICLR 2026 virtual poster page (Poster Session 2, Pavilion 4, #3902), https://arxiv.org/abs/2507.07341; corroborated by MCML news https://mcml.ai/news/2026-04-22-papers-iclr2026/"
+year: 2026
 tags: [llm-security, cryptography, impossibility, alignment, one-way-functions, time-lock-puzzles, public-key-encryption]
 claim_quantifier: existential
 antecedent: "cryptographic hardness (TLPs for Thm 1; OWFs plus an LLM-attacker shared secret for Thm 2; PKE for Thm 3); the LLM is constructed by the proof, not given"
@@ -18,14 +19,14 @@ cls_write: read only
 cls_frame: compute
 cls_party: auditor
 cls_unit: time
-cls_tightness: exponent
+cls_tightness: relative
 cls_baseline: stated
 cls_baseline_checked: yes
-cls_second_party: none
+cls_second_party: time
 cls_assessed: implicit
 cls_evidence: "for every prompt filter running in time o(t^ε), for every m ∈ SH the advantage in distinguishing outputs of G and G′(m) is λ^{−Ω(1)}"
 cls_evidence_src: Thm 7 (formal version of Thm 1), App. C.1
-cls_reason: "Classified on Theorem 1: the paper states in-text 'we emphasize that the main result of this work is Theorem 1', so Thms 2-3 (stronger, but requiring a shared secret key or a public key) are noted but not the classified claim. Party is the filter (an auditor of the LLM's outputs), bounded in Thm 7 by o(t^ε) against the model's time t, a stated relation to the honest party's work, hence tightness=exponent. assessed=implicit because the wiki Summary itself flags the compute ratio as 'stated as a side condition rather than as the object of study'. second=none: the generator G' is only held to comparable-runtime-to-G boilerplate, not an independently studied bound, and the model/filter relation is already carried by tightness=exponent."
+cls_reason: "Classified on Theorem 1: the paper states in-text 'we emphasize that the main result of this work is Theorem 1', so Thms 2-3 (stronger, but requiring a shared secret key or a public key) are noted but not the classified claim. Party is the filter (an auditor of the LLM's outputs), bounded in Thm 7 by o(t^ε) against the model's time t, a stated relation to the honest party's work, hence tightness=exponent. assessed=implicit because the wiki Summary itself flags the compute ratio as 'stated as a side condition rather than as the object of study'. second=none: the generator G' is only held to comparable-runtime-to-G boilerplate, not an independently studied bound, and the model/filter relation is already carried by tightness=exponent. RECODE 2026-09-03 (R1, revision 7): tightness exponent -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> time."
 cls_prov: P
 cls_date: 2026-08-22
 ---

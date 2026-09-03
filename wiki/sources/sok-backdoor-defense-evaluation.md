@@ -3,7 +3,8 @@ title: "SoK: The Last Line of Defense — On Backdoor Defense Evaluation"
 type: source
 date_ingested: 2026-08-20
 authors: [Gorka Abad, Marina Krček, Stefanos Koffas, Behrad Tajalli, Marco Arazzi, Roberto Riaño, Xiaoyun Xu, Zhuoran Liu, Antonino Nocera, Stjepan Picek]
-venue: venue unconfirmed from PDF (arXiv:2511.13143, cs.CR, 17 Nov 2025; the text says code and additional results will be shared "after acceptance of the paper")
+venue: "arXiv:2511.13143"
+venue_evidence: "web search found no refereed venue yet; paper's own text says results follow \"after acceptance of the paper,\" confirming it is still unaccepted/preprint"
 year: 2025
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology, survey]
 claim_quantifier: empirical

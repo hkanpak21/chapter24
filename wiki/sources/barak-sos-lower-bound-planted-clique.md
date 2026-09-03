@@ -3,7 +3,8 @@ title: A Nearly Tight Sum-of-Squares Lower Bound for the Planted Clique Problem
 type: source
 date_ingested: 2026-04-12
 authors: [Boaz Barak, Samuel B. Hopkins, Jonathan Kelner, Pravesh K. Kothari, Ankur Moitra, Aaron Potechin]
-venue: FOCS 2016 (the ingested PDF is arXiv:1604.03084v2, 12 Apr 2016, and does not itself state a venue)
+venue: "FOCS 2016"
+venue_evidence: "https://arxiv.org/abs/1604.03084; Proceedings of the 57th Annual IEEE Symposium on Foundations of Computer Science (FOCS 2016), pages 428-437"
 year: 2016
 tags: [planted-clique, sum-of-squares, lower-bounds, statistical-computational-gaps, pseudo-calibration]
 claim_quantifier: universal
@@ -16,7 +17,7 @@ cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
-cls_party: auditor
+cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
@@ -25,7 +26,7 @@ cls_second_notion: none
 cls_assessed: explicit
 cls_evidence: "There is an absolute constant c so that for every d = d(n) and large enough n, the SoS relaxation of the planted clique problem has integrality gap at least n1/2−c(d/ log n)1/2 ."
 cls_evidence_src: Thm 1.1
-cls_reason: "party=auditor over learner: the theorem is stated as a certification/refutation failure -- 'the task of certifying that there is no ω-sized clique in a random G(n,1/2) graph' (verified in the PDF, §1) -- so the bounded party is whoever attempts to CERTIFY the absence of a clique, matching rule 6's auditor convention for a verification/refutation role, and matching the party used on rigorous-implications-low-degree, the corpus's other refutation-hardness page. unit=algo class and tightness=class because the bound is restricted to the degree-d SoS proof system specifically (front matter: 'SoS, SQ and low-degree are distinct classes, and a bound against one is not a bound against the others'), not a running-time bound on general algorithms -- the paper is explicit it says nothing about non-SoS polynomial-time algorithms. target/family=none and phase=n/a: no ML asset or attack scenario is present, matching the corpus's convention for pure statistical-computational-gap papers not framed around a learning task."
+cls_reason: "party=auditor over learner: the theorem is stated as a certification/refutation failure -- 'the task of certifying that there is no ω-sized clique in a random G(n,1/2) graph' (verified in the PDF, §1) -- so the bounded party is whoever attempts to CERTIFY the absence of a clique, matching rule 6's auditor convention for a verification/refutation role, and matching the party used on rigorous-implications-low-degree, the corpus's other refutation-hardness page. unit=algo class and tightness=class because the bound is restricted to the degree-d SoS proof system specifically (front matter: 'SoS, SQ and low-degree are distinct classes, and a bound against one is not a bound against the others'), not a running-time bound on general algorithms -- the paper is explicit it says nothing about non-SoS polynomial-time algorithms. target/family=none and phase=n/a: no ML asset or attack scenario is present, matching the corpus's convention for pure statistical-computational-gap papers not framed around a learning task. RECODE 2026-09-03 (R3, solver is the learner): party auditor -> learner."
 cls_prov: P
 cls_date: 2026-08-22
 ---

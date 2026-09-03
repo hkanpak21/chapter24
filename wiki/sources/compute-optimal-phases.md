@@ -3,7 +3,8 @@ title: 4+3 Phases of Compute-Optimal Neural Scaling Laws
 type: source
 date_ingested: 2026-08-22
 authors: [Elliot Paquette, Courtney Paquette, Lechao Xiao, Jeffrey Pennington]
-venue: venue unconfirmed from PDF (arXiv:2405.15074v3 header says Preprint; acknowledgments thank anonymous NeurIPS reviewers)
+venue: "NeurIPS 2024"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1dccfc3ee01871d05e33457c61037d59-Abstract-Conference.html; Advances in Neural Information Processing Systems 37 (NeurIPS 2024)"
 year: 2024
 tags: [scaling-laws, learning-theory, sample-complexity, compute-accounting]
 claim_quantifier: conditional

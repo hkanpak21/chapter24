@@ -3,7 +3,8 @@ title: SGD Finds then Tunes Features in Two-Layer Neural Networks with Near-Opti
 type: source
 date_ingested: 2026-08-22
 authors: [Margalit Glasgow]
-venue: venue unconfirmed from PDF (arXiv:2309.15111v2 [cs.LG], 2 Oct 2023; catalogued in this corpus as ICLR 2024)
+venue: "ICLR 2024"
+venue_evidence: "https://proceedings.iclr.cc/paper_files/paper/2024/file/e6d37cc5723e810b793c834bcb6647cf-Paper-Conference.pdf; official ICLR 2024 proceedings, also OpenReview https://openreview.net/forum?id=HgOJlxzB16"
 year: 2024
 tags: [learning-theory, sample-complexity, parity, feature-learning, leap-complexity, minibatch-sgd]
 claim_quantifier: universal

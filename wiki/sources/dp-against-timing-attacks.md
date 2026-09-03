@@ -3,7 +3,8 @@ title: A Framework for Differential Privacy Against Timing Attacks
 type: source
 date_ingested: 2026-08-20
 authors: [Zachary Ratliff, Salil Vadhan]
-venue: venue unconfirmed from PDF (arXiv:2409.05623v2 [cs.CR], 24 Nov 2024)
+venue: "ACM CCS 2024"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3658644.3690206; ACM SIGSAC CCS 2024, Salt Lake City, Oct 14-18 2024, DOI 10.1145/3658644.3690206"
 year: 2024
 tags: [differential-privacy, verifiable-computation, impossibility-frameworks]
 claim_quantifier: universal

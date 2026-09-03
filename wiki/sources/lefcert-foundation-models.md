@@ -3,7 +3,8 @@ title: "Provably Robust Adaptation for Language-Empowered Foundation Models (LeF
 type: source
 date_ingested: 2026-04-23
 authors: [Yuni Lai, Xiaoyu Xue, Linghui Shen, Yulun Wu, Gaolei Li, Song Guo, Kai Zhou, Bin Xiao]
-venue: "arXiv:2510.08659v1 (9 Oct 2025). No venue is stated in the PDF."
+venue: "arXiv:2510.08659"
+venue_evidence: "dblp: journals/corr/abs-2510-08659, listed only as CoRR (Informal and Other Publications), no inproceedings/article entry found"
 year: 2025
 tags: [certified-robustness, foundation-models, few-shot, CLIP, randomized-smoothing, poisoning]
 claim_quantifier: conditional

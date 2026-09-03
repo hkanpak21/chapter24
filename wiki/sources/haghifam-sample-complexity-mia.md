@@ -4,7 +4,8 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-22
 authors: [Mahdi Haghifam, Adam Smith, Jonathan Ullman]
-venue: "venue unconfirmed from PDF"
+venue: "arXiv:2508.19458"
+venue_evidence: "dblp search (q=Sample Complexity Membership Inference Privacy Auditing): CoRR abs/2508.19458 only, no refereed venue"
 year: 2025
 claim_quantifier: universal
 antecedent: "The dimension must exceed the threshold at which a fully informed attacker succeeds, d > c_1(n + n^2 ρ^2). The hard instances are Gaussian populations with spiked covariance Σ = I_d + σ^2 U U^T, σ^2 ≳ d, and the mean estimator is pinned to the noisy empirical mean. Under the complementary hypothesis, when the attacker already knows Σ, Theorem 1.2 gives m ≳ min{n, 1/ρ^2}, which never exceeds n."
@@ -25,7 +26,7 @@ cls_second_party: samples
 cls_assessed: explicit
 cls_evidence: "every sample-based MIA for the Gaussian mean estimation problem (Section 1.1) requires m ≳ n²ρ² + n samples"
 cls_evidence_src: Thm 1.1
-cls_reason: "access=weights because μ̂ is the whole released object with no further model structure to query; second=samples records the trainer's own n against which the attacker's m is measured; frame=compute stretches the codebook's compute/capability split to cover a sample bound, since capability is defined narrowly as perturbation or corruption and the paper itself calls the attacker computationally unbounded."
+cls_reason: "access=weights because μ̂ is the whole released object with no further model structure to query; second=samples records the trainer's own n against which the attacker's m is measured; frame=compute stretches the codebook's compute/capability split to cover a sample bound, since capability is defined narrowly as perturbation or corruption and the paper itself calls the attacker computationally unbounded. NOTE 2026-09-03: frame is statistical, as the codebook defines it for a bound that is purely information-theoretic; the compute clause above is superseded."
 cls_prov: S
 cls_date: 2026-08-22
 ---

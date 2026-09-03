@@ -3,7 +3,8 @@ title: Training Compute-Optimal Large Language Models (Chinchilla)
 type: source
 date_ingested: 2026-08-22
 authors: [Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Jack W. Rae, Oriol Vinyals, Laurent Sifre]
-venue: venue unconfirmed from PDF (arXiv:2203.15556v1; NeurIPS 2022 per the bibliography of arXiv:2405.15074)
+venue: "NeurIPS 2022"
+venue_evidence: "https://dl.acm.org/doi/10.5555/3600270.3602446; Proceedings of the 36th International Conference on Neural Information Processing Systems (NeurIPS 2022)"
 year: 2022
 tags: [scaling-laws, sample-complexity, compute-accounting]
 claim_quantifier: empirical

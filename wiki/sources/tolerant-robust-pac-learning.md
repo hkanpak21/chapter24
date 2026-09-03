@@ -3,7 +3,8 @@ title: "Simplifying Adversarially Robust PAC Learning with Tolerance"
 type: source
 date_ingested: 2026-04-12
 authors: [Hassan Ashtiani, Vinayak Pathak, Ruth Urner]
-venue: "venue unconfirmed from PDF. The ingested file is arXiv:2502.07232v1, 11 February 2025, and states no venue. Author affiliations on the file are McMaster University, independent, and York University."
+venue: "COLT 2025"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Simplifying%20Adversarially%20Robust%20PAC%20Learning%20with%20Tolerance; dblp: COLT 2025, pp. 147-168 (refereed; also listed as CoRR arXiv:2502.07232)"
 year: 2025
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory]
 claim_quantifier: universal

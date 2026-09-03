@@ -3,7 +3,8 @@ title: The Benefits of Reusing Batches for Gradient Descent in Two-Layer Network
 type: source
 date_ingested: 2026-08-20
 authors: [Yatin Dandi, Emanuele Troiani, Luca Arnaboldi, Luca Pesce, Lenka Zdeborová, Florent Krzakala]
-venue: venue unconfirmed from PDF (arXiv:2402.03220v3 [stat.ML], 30 Jun 2024; cited elsewhere in this corpus as ICML 2024)
+venue: "ICML 2024"
+venue_evidence: "dblp: conf/icml/DandiTAPZK24 (inproceedings, ICML 2024, PMLR pp. 9991-10016); confirms the in-corpus citation lead"
 year: 2024
 tags: [learning-theory, sample-complexity, information-exponent, leap-complexity, dynamical-mean-field-theory, feature-learning]
 claim_quantifier: universal

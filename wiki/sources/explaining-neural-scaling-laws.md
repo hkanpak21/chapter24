@@ -3,7 +3,9 @@ title: Explaining Neural Scaling Laws
 type: source
 date_ingested: 2026-08-22
 authors: [Yasaman Bahri, Ethan Dyer, Jared Kaplan, Jaehoon Lee, Utkarsh Sharma]
-venue: venue unconfirmed from PDF (arXiv:2102.06701v2; PNAS 2024 attribution not stated in the PDF)
+venue: "PNAS 2024"
+venue_evidence: "https://arxiv.org/abs/2102.06701; arXiv journal-ref field: PNAS 121 (27) e2311878121 (2024)"
+journal_ref: "121|27|e2311878121"
 year: 2024
 tags: [scaling-laws, learning-theory, sample-complexity]
 claim_quantifier: conditional

@@ -3,8 +3,10 @@ title: "Enhancing Robustness of LLM-Driven Multi-Agent Systems through Randomize
 type: source
 date_ingested: 2026-04-23
 authors: [Jinwei Hu, Yi Dong, Zhengtao Ding, Xiaowei Huang]
-venue: "arXiv:2507.04105v1 (5 Jul 2025). The PDF footer reads 'Preprint accepted by Chinese Journal of Aeronautics.'"
-year: 2025
+venue: "Chinese Journal of Aeronautics 2026"
+venue_evidence: "https://www.sciencedirect.com/science/article/pii/S1000936125003851 (article in press at ScienceDirect under Chinese Journal of Aeronautics; no volume/issue/page assigned yet, no dblp entry found)"; Crossref 2026-09-03: DOI 10.1016/j.cja.2025.103779, volume 39, issue 7, article 103779, July 2026
+journal_ref: "39|7|103779"
+year: 2026
 tags: [certified-robustness, multi-agent, llm-security, randomized-smoothing, consensus, byzantine]
 claim_quantifier: conditional
 antecedent: "Each malicious agent's deceptive state is bounded, ||x-tilde_k(t) - x_k(t)|| <= delta_max, and is sent with some probability p_k(t). Theorem 1 needs a lower bound p_A on the top decision region's probability and an upper bound p_B on the runner-up, both estimated by sampling."

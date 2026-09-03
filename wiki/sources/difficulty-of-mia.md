@@ -3,7 +3,8 @@ title: On the Difficulty of Membership Inference Attacks
 type: source
 date_ingested: 2026-08-20
 authors: [Shahbaz Rezaei, Xin Liu]
-venue: "venue unconfirmed from PDF (arXiv:2005.13702v3, 22 Mar 2021; CVPR-style formatting)"
+venue: "CVPR 2021"
+venue_evidence: "https://openaccess.thecvf.com/content/CVPR2021/html/Rezaei_On_the_Difficulty_of_Membership_Inference_Attacks_CVPR_2021_paper.html; IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2021), pages 7892-7900"
 year: 2021
 tags: [adversarial-ml, learning-theory]
 claim_quantifier: empirical

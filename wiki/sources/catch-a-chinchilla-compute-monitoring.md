@@ -3,7 +3,8 @@ title: "What does it take to catch a Chinchilla? Verifying Rules on Large-Scale 
 type: source
 date_ingested: 2026-08-20
 authors: [Yonadav Shavit]
-venue: "venue unconfirmed from PDF (the file is arXiv:2303.11341v2, 30 May 2023, and states no venue)"
+venue: "arXiv:2303.11341"
+venue_evidence: "https://arxiv.org/abs/2303.11341; no journal-ref field and no refereed venue found by web search"
 year: 2023
 tags: [adversarial-ml, certification, verifiable-computation, governance]
 claim_quantifier: conditional

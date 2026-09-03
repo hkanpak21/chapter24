@@ -3,7 +3,8 @@ title: What Can We Learn Privately?
 type: source
 date_ingested: 2026-08-20
 authors: [Shiva Prasad Kasiviswanathan, Homin K. Lee, Kobbi Nissim, Sofya Raskhodnikova, Adam Smith]
-venue: "49th Annual IEEE Symposium on Foundations of Computer Science (FOCS) — the PDF states: 'A preliminary version of this paper appeared in 49th Annual IEEE Symposium on Foundations of Computer Science'; the PDF itself is arXiv:0803.0924v3, dated February 2010"
+venue: "FOCS 2008"
+venue_evidence: "https://dblp.uni-trier.de/search?q=What%20Can%20We%20Learn%20Privately%20Kasiviswanathan; dblp: FOCS 2008, pp. 531-540 (refereed; confirms PDF's own stated venue). Journal version: SIAM J. Comput. 40(3), pp. 793-826, 2011"
 year: 2008
 tags: [statistical-query, PAC-learning, learning-theory, differential-privacy, sample-complexity]
 claim_quantifier: universal
@@ -11,7 +12,7 @@ antecedent: "For the local ⟺ SQ equivalence: efficiency transfer requires TRAN
 adversary_bound: unbounded (the standard DP distinguisher). The SQ restriction is on the LEARNER, not the adversary.
 cls_target: train data
 cls_family: none
-cls_phase: train time
+cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
@@ -22,10 +23,10 @@ cls_baseline: n/a
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "We show that a concept class is learnable by a local algorithm if and only if it is learnable in the statistical query (SQ) model."
+cls_evidence_src: "Abstract, raw/KLNRS08_WhatCanWeLearnPrivately.pdf"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R4, no adversary means no phase): phase train time -> n/a."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

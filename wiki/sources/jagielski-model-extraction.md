@@ -4,7 +4,8 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-20
 authors: [Matthew Jagielski, Nicholas Carlini, David Berthelot, Alex Kurakin, Nicolas Papernot]
-venue: USENIX Security 2020 (the ingested PDF is arXiv:1909.01838v2, 3 Mar 2020, and does not itself state a venue)
+venue: "USENIX Security 2020"
+venue_evidence: "arXiv:1909.01838 abstract page's own Comments field: 'USENIX Security 2020, 18 pages, 6 figures' — primary-source confirmation, correcting the earlier note that the PDF does not state a venue"
 year: 2020
 tags: [adversarial-ml, complexity theory, hardness-reductions, statistical-query, sample-complexity]
 claim_quantifier: existential
@@ -23,10 +24,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "Random networks with domain {0, 1}d and range {0, 1} and depth h require exp(O(h)) samples to learn in the SQ learning model."
+cls_evidence_src: "Theorem 3 (Informal, attributed to Das et al. [27]), Section 3.3 (\"Learning approaches struggle with fidelity\"), raw/JCB+20_ExtractionAccuracyFidelity.pdf"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

@@ -4,7 +4,8 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-22
 authors: [Irit Dinur, Kobbi Nissim]
-venue: "venue unconfirmed from PDF"
+venue: "PODS 2003"
+venue_evidence: "https://dblp.org/rec/conf/pods/DinurN03.html; https://dl.acm.org/doi/10.1145/773153.773173, Proceedings of the 22nd ACM SIGMOD-SIGACT-SIGART Symposium on Principles of Database Systems (PODS 2003), pages 202-210"
 year: 2003
 claim_quantifier: universal
 antecedent: "For the two impossibility theorems, none beyond the model: a binary database of n entries answering subset-sum queries within a stated perturbation magnitude. For the feasibility theorem, the database is drawn from the uniform distribution over {0,1}^n, which the authors state is the way they model an adversary with no prior knowledge."

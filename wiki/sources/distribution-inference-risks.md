@@ -3,7 +3,8 @@ title: Formalizing and Estimating Distribution Inference Risks
 type: source
 date_ingested: 2026-08-22
 authors: [Anshuman Suri, David Evans]
-venue: "venue unconfirmed from PDF (the file carries only arXiv:2109.06024v6 [cs.LG], 5 Jul 2022)"
+venue: "PoPETs 2022"
+venue_evidence: "https://petsymposium.org/popets/2022/popets-2022-0121.php; Proceedings on Privacy Enhancing Technologies, volume 2022, issue 4, pages 528-551, DOI 10.56553/popets-2022-0121"
 year: 2022
 tags: [adversarial-ml, sample-complexity, learning-theory, computational-indistinguishability]
 claim_quantifier: empirical
@@ -11,7 +12,7 @@ antecedent: "For the game: the adversary knows the public distribution D and bot
 adversary_bound: "None. The adversary is an arbitrary algorithm H mapping a model to a bit. It is bounded in knowledge (either label-only black-box access, or white-box parameter access, plus non-overlapping data from D) and in nothing else. Attack cost is reported in trained models but never enters the definition."
 date_verified: 2026-08-20
 cls_target: train data
-cls_family:
+cls_family: distribution
 cls_phase: post hoc
 cls_access:
 cls_write: read only
@@ -26,7 +27,7 @@ cls_second_notion: none
 cls_assessed: implicit
 cls_evidence: "the distinguishing accuracy between models trained on datasets of size n from these distributions is at most"
 cls_evidence_src: Lemma 4.1
-cls_reason: "family left blank: the paper explicitly separates distribution inference from every listed family (\"the adversary's goal in the former is to learn about the training distribution, not about the specific training dataset\"); none of membership/reconstruct/extract/forge/evade/poison/backdoor fits, a vocabulary gap rather than indecision. access left blank: the game's H is access-agnostic and the paper gives equal weight to a label-only black-box instantiation and a white-box parameter-access meta-classifier, with no textual primacy given to either. Classified on Lemma 4.1/Theorem 4.2 (the n_leaked sample-complexity bound) rather than the unrestricted formal game in §3, since this is the paper's theorem-bearing content; the bare game, taken alone, would be party=none/frame=none, flagged here for a second reader. assessed=implicit because the attacks' computational cost is discussed as a side detail and explicitly excluded from the threat model (\"does not otherwise require a stronger adversary\", §6.4), never formalized as a bound."
+cls_reason: "family left blank: the paper explicitly separates distribution inference from every listed family (\"the adversary's goal in the former is to learn about the training distribution, not about the specific training dataset\"); none of membership/reconstruct/extract/forge/evade/poison/backdoor fits, a vocabulary gap rather than indecision. access left blank: the game's H is access-agnostic and the paper gives equal weight to a label-only black-box instantiation and a white-box parameter-access meta-classifier, with no textual primacy given to either. Classified on Lemma 4.1/Theorem 4.2 (the n_leaked sample-complexity bound) rather than the unrestricted formal game in §3, since this is the paper's theorem-bearing content; the bare game, taken alone, would be party=none/frame=none, flagged here for a second reader. assessed=implicit because the attacks' computational cost is discussed as a side detail and explicitly excluded from the threat model (\"does not otherwise require a stronger adversary\", §6.4), never formalized as a bound. RECODE 2026-09-03 (revision 4 value applied): family blank -> distribution."
 cls_prov: P
 cls_date: 2026-08-22
 ---

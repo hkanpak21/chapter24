@@ -3,7 +3,8 @@ title: "Extending the Formalism and Theoretical Foundations of Cryptography to A
 type: source
 date_ingested: 2026-04-12
 authors: [Federico Villa, F. Betül Durak, Tadayoshi Kohno, Tapdig Maharramli, Franziska Roesner]
-venue: "arXiv:2603.02590v1 [cs.CR], 3 Mar 2026, confirmed from the PDF's own stamp"
+venue: "arXiv:2603.02590"
+venue_evidence: "dblp: https://dblp.org/search?q=Extending+the+Formalism+and+Theoretical+Foundations+of+Cryptography+to+AI; listed only as CoRR abs/2603.02590 (Informal and Other Publications), no refereed venue found"
 year: 2026
 tags: [cryptography, adversarial-ml, agentic-systems, formal-models, access-control, llm-security, confidentiality, integrity, availability]
 claim_quantifier: conditional

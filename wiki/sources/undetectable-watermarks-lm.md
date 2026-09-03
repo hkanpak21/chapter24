@@ -3,8 +3,9 @@ title: "Undetectable Watermarks for Language Models"
 type: source
 date_ingested: 2026-08-22
 authors: [Miranda Christ, Sam Gunn, Or Zamir]
-venue: "venue unconfirmed from PDF (the file carries the stamp \"arXiv:2306.09194v1 [cs.CR]\" and the dateline \"June 16, 2023\"; no venue line appears)"
-year: 2023
+venue: "COLT 2024"
+venue_evidence: "https://dblp.uni-trier.de/search?q=Undetectable%20Watermarks%20for%20Language%20Models; dblp: COLT 2024, pp. 1125-1139 (refereed). Note: the venue-mining note's 'arXiv preprint' lead had only 2 votes, below the 3-vote confirmation threshold, and was wrong — dblp shows a refereed COLT 2024 paper, also listed as CoRR abs/2306.09194 and IACR ePrint 2023/763"
+year: 2024
 tags: [cryptography, computational-indistinguishability, pseudorandomness, one-way-functions, undetectable-backdoors]
 claim_quantifier: existential
 antecedent: "A pseudorandom function family, which the paper states is equivalent to one-way functions. The warm-up construction of Section 3 additionally assumes a random oracle and initially a min-entropy bound; both are removed before Section 4. The removal attack (Theorem 11) additionally assumes the model is prefix-specifiable."
@@ -18,7 +19,7 @@ cls_write: responses
 cls_frame: compute
 cls_party: attacker
 cls_unit: queries
-cls_tightness: exponent
+cls_tightness: measured
 cls_baseline: stated
 cls_baseline_checked: yes
 cls_second_party: none
@@ -26,7 +27,7 @@ cls_second_notion: time
 cls_assessed: explicit
 cls_evidence: "there exists an efficient algorithm A making queries to Watsk … The number of queries made by A to Watsk is exactly the length of text output by A"
 cls_evidence_src: Thm 11, §6
-cls_reason: "classified on Thm 11's removal attack, not Def 9's undetectability construction, since the paper's own Summary flags §5–§6 as what matters for adversary capability and family/access/write need an explicit adversary. family=evade audit since the attack's goal is making Wat_sk's output indistinguishable from Model's so Detect_sk will not flag it (the wiki's Connections note also calls this attacker 'a query-bounded extraction adversary in all but name', an alternative reading worth a second look). tightness=exponent from the paper's own stated ~2000x-honest-cost pricing ($960.36 vs $0.48 for an 8000-token response, §6). second_notion=time from 'efficient algorithm A' (poly-time) alongside the query count."
+cls_reason: "classified on Thm 11's removal attack, not Def 9's undetectability construction, since the paper's own Summary flags §5–§6 as what matters for adversary capability and family/access/write need an explicit adversary. family=evade audit since the attack's goal is making Wat_sk's output indistinguishable from Model's so Detect_sk will not flag it (the wiki's Connections note also calls this attacker 'a query-bounded extraction adversary in all but name', an alternative reading worth a second look). tightness=exponent from the paper's own stated ~2000x-honest-cost pricing ($960.36 vs $0.48 for an 8000-token response, §6). second_notion=time from 'efficient algorithm A' (poly-time) alongside the query count. RECODE 2026-09-03 (R1, a dollar ratio observed once is a measurement): tightness exponent -> measured."
 cls_prov: P
 cls_date: 2026-08-22
 ---

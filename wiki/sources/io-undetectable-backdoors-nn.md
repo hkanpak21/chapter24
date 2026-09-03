@@ -3,7 +3,8 @@ title: "Injecting Undetectable Backdoors in Obfuscated Neural Networks and Langu
 type: source
 date_ingested: 2026-04-23
 authors: [Alkis Kalavasis, Amin Karbasi, Argyris Oikonomou, Katerina Sotiraki, Grigoris Velegkas, Manolis Zampetakis]
-venue: "arXiv:2406.05660v2 (7 Sep 2024). The NeurIPS 2024 attribution carried on this page is not stated anywhere in the PDF in `raw/` and is unconfirmed from the primary source."
+venue: "NeurIPS 2024"
+venue_evidence: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/263c763d00c6126d37ba670a1fa10847-Abstract-Conference.html — official NeurIPS 2024 proceedings page, 'Advances in Neural Information Processing Systems 37 (NeurIPS 2024)', DOI 10.52202/079017-0679. This overturns the earlier note that the NeurIPS 2024 attribution was unconfirmed — it is now confirmed via NeurIPS's own site, though still not stated in the arXiv PDF itself."
 year: 2024
 tags: [backdoor, cryptography, indistinguishability-obfuscation, llm-security, undetectable-backdoors]
 claim_quantifier: existential

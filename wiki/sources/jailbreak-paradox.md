@@ -3,7 +3,8 @@ title: "Jailbreak Paradox: The Achilles' Heel of LLMs"
 type: source
 date_ingested: 2026-04-23
 authors: [Abhinav Rao, Monojit Choudhury, Somak Aditya]
-venue: "arXiv:2406.12702v2 (21 Jun 2024). The PDF carries the line 'Disclaimer: This work is currently a work in progress.' and names no venue."
+venue: "arXiv:2406.12702"
+venue_evidence: "arXiv abstract page carries no Journal reference or Comments field naming a venue; paper title itself is marked '[WIP]'; dblp.org was unreachable this session (repeated ECONNRESET) — no refereed venue found anywhere, kept as arXiv-only"
 year: 2024
 tags: [llm-security, jailbreak, impossibility, paradox, relative-capabilities]
 claim_quantifier: existential

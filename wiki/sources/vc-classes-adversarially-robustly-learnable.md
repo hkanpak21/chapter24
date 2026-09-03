@@ -3,7 +3,8 @@ title: "VC Classes are Adversarially Robustly Learnable, but Only Improperly"
 type: source
 date_ingested: 2026-04-12
 authors: [Omar Montasser, Steve Hanneke, Nathan Srebro]
-venue: "COLT 2019 (stated in PDF: \"32nd Annual Conference on Learning Theory\", Proceedings of Machine Learning Research vol 99); arXiv:1902.04217"
+venue: "COLT 2019"
+venue_evidence: "https://dblp.uni-trier.de/search?q=VC%20Classes%20are%20Adversarially%20Robustly%20Learnable%20but%20Only%20Improperly; dblp: COLT 2019, pp. 2512-2530 (refereed; confirms PDF's own stated venue)"
 year: 2019
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory]
 claim_quantifier: universal

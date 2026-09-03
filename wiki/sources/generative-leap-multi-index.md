@@ -3,7 +3,8 @@ title: The Generative Leap - Sharp Sample Complexity for Efficiently Learning Ga
 type: source
 date_ingested: 2026-08-20
 authors: [Alex Damian, Jason D. Lee, Joan Bruna]
-venue: venue unconfirmed from PDF (arXiv:2506.05500v1 [cs.LG], 5 Jun 2025)
+venue: "NeurIPS 2025"
+venue_evidence: "dblp search (q=The Generative Leap Sample Complexity Gaussian Multi-Index Models): NeurIPS 2025 inproceedings (title 'Tight Sample Complexity...' in the camera-ready, vs 'Sharp' on arXiv) plus CoRR abs/2506.05500; corroborated by https://neurips.cc/virtual/2025/poster/119859 and https://openreview.net/forum?id=5X6PL4906S"
 year: 2025
 tags: [statistical-computational-gaps, low-degree-polynomials, multi-index-model, generative-exponent, sample-complexity, learning-theory]
 claim_quantifier: conditional

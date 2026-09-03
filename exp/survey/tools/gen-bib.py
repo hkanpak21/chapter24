@@ -179,8 +179,9 @@ def main():
         names = authors(fm.get("authors", "[]"))
         year = unquote(fm.get("year", "")) or "0000"
         venue_raw = unquote(fm.get("venue", ""))
+        journal_ref = unquote(fm.get("journal_ref", ""))
         ingested = unquote(fm.get("date_ingested", ""))
-        records.append(dict(slug=slug, title=title, names=names, year=year,
+        records.append(dict(slug=slug, title=title, names=names, year=year, journal_ref=journal_ref,
                             venue=venue_raw, ingested=ingested))
 
     # keys, with deterministic collision suffixes
@@ -212,8 +213,24 @@ def main():
         if unconf:
             note += "; venue-unconfirmed"
         auth = " and ".join(r["names"]) if r["names"] else "Anonymous"
+        jm = re.match(r"(TMLR|JMLR|J\. ACM|PNAS|IACR Communications in Cryptology|IEEE TIFS|SIAM J\. Comput\.|J\. Cryptology|ICT Express|Chinese Journal of Aeronautics|Trans\. Mach\. Learn\. Res\.|IEEE Trans\. [A-Za-z. ]+|ACM Trans\. [A-Za-z. ]+)$", sv)
         eid = re.match(r"IACR ePrint (\d{4}/\d+)$", sv)
-        if eid:
+        if jm:
+            # journal_ref in the page's front matter: "volume|number|pages", any part empty
+            jr = [x.strip() for x in (r.get("journal_ref", "") + "||").split("|")[:3]]
+            vol = None
+            lines.append("@article{%s," % r["key"])
+            lines.append("  author       = {%s}," % latex_escape(auth))
+            lines.append("  title        = {%s}," % latex_escape(r["title"]))
+            lines.append("  journal      = {%s}," % latex_escape(jm.group(1)))
+            lines.append("  year         = {%s}," % r["year"])
+            if jr[0]:
+                lines.append("  volume       = {%s}," % jr[0])
+            if jr[1]:
+                lines.append("  number       = {%s}," % jr[1])
+            if jr[2]:
+                lines.append("  pages        = {%s}," % jr[2])
+        elif eid:
             lines.append("@misc{%s," % r["key"])
             lines.append("  author       = {%s}," % latex_escape(auth))
             lines.append("  title        = {%s}," % latex_escape(r["title"]))

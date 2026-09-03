@@ -3,8 +3,10 @@ title: Towards A Critical Evaluation of Robustness for Deep Learning Backdoor Co
 type: source
 date_ingested: 2026-08-20
 authors: [Huming Qiu, Hua Ma, Zhi Zhang, Alsharif Abuadbba, Wei Kang, Anmin Fu, Yansong Gao]
-venue: venue unconfirmed from PDF (arXiv:2204.06273, cs.CR, 13 Apr 2022)
-year: 2022
+venue: "IEEE TIFS 2024"
+venue_evidence: "https://dl.acm.org/doi/10.1109/TIFS.2023.3324318; IEEE Transactions on Information Forensics and Security, volume 19, pages 455-468 (published online 2023-10-13)"
+journal_ref: "19||455--468"
+year: 2024
 tags: [adversarial-ml, poisoning-attacks, backdoor, evaluation-methodology]
 claim_quantifier: existential
 antecedent: none

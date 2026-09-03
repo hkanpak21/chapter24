@@ -3,7 +3,8 @@ title: "Fine-Grained Non-Interactive Key-Exchange: Constructions and Lower Bound
 type: source
 date_ingested: 2026-08-20
 authors: [Abtin Afshar, Geoffroy Couteau, Mohammad Mahmoody, Elahe Sadeghi]
-venue: "venue unconfirmed from PDF (no venue line). BCS24 and WSPX24, both read in this corpus, cite it as EUROCRYPT 2023"
+venue: "EUROCRYPT 2023"
+venue_evidence: "dblp: EUROCRYPT (1) 2023, pp. 55-85, DOI 10.1007/978-3-031-30545-0_3 (confirms BCS24/WSPX24 citer lead)"
 year: 2023
 claim_quantifier: existential
 antecedent: "None in the usual sense — no computational assumption. Instead the results hold in idealized models: the random oracle model, Shoup's generic group model, and (for the lower bound) Maurer's generic group model. The idealized model IS the antecedent."
@@ -24,7 +25,7 @@ cls_second_notion: none
 cls_assessed: explicit
 cls_evidence: "the honest parties ask n queries each, while the adversary needs n^{K/(K−1)} queries to the random oracle to find the key"
 cls_evidence_src: abstract
-cls_reason: "Classified on the ROM K-NIKE construction (Thm 6), the first result the abstract leads with, per rule 1; the Shoup-GGM and Maurer-GGM results are secondary claims in the same paper. Both honest parties and the adversary are bounded in the same resource (oracle queries, not time, per Definition 2's idealized-model convention: 'we primarily count the number of oracle queries as the substitute for running time'), so rule 4's tie-break gives party=attacker; tightness=exponent because n^{K/(K-1)} is a stated relation to the honest parties' own n queries, not a time bound."
+cls_reason: "Classified on the ROM K-NIKE construction (Thm 6), the first result the abstract leads with, per rule 1; the Shoup-GGM and Maurer-GGM results are secondary claims in the same paper. Both honest parties and the adversary are bounded in the same resource (oracle queries, not time, per Definition 2's idealized-model convention: 'we primarily count the number of oracle queries as the substitute for running time'), so rule 4's tie-break gives party=attacker; tightness=exponent because n^{K/(K-1)} is a stated relation to the honest parties' own n queries, not a time bound. REVISION 6 NOTE 2026-09-03: tightness is relative since 2026-08-27, the exponent wording above predates the split."
 cls_prov: P
 cls_date: 2026-08-22
 ---

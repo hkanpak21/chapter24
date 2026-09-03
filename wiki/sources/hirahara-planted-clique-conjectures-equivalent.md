@@ -3,7 +3,8 @@ title: Planted Clique Conjectures are Equivalent
 type: source
 date_ingested: 2026-04-12
 authors: [Shuichi Hirahara, Nobutaka Shimizu]
-venue: ECCC Report No. 58 (2024), dated 29 March 2024. This is the venue the ingested PDF states; the earlier STOC attribution was not confirmed here
+venue: "STOC 2024"
+venue_evidence: "https://dl.acm.org/doi/abs/10.1145/3618260.3649751 (Proceedings of the 56th Annual ACM Symposium on Theory of Computing) plus https://speakerdeck.com/nobushimi/planted-clique-conjectures-are-equivalent, title slide reads 'talk at STOC2024' — dblp.org was unreachable this session (repeated ECONNRESET) so this is confirmed via the venue's own ACM listing and the authors' own talk deck instead, not dblp"
 year: 2024
 tags: [planted-clique, statistical-computational-gaps, hardness-reductions, complexity-theory, average-case-reductions]
 claim_quantifier: universal

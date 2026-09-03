@@ -3,7 +3,8 @@ title: Statistical Query Algorithms and Low-Degree Tests Are Almost Equivalent
 type: source
 date_ingested: 2026-04-12
 authors: [Matthew Brennan, Guy Bresler, Samuel B. Hopkins, Jerry Li, Tselil Schramm]
-venue: COLT 2021 (the ingested PDF is arXiv:2009.06107v3, 26 Jun 2021, and does not itself state a venue)
+venue: "COLT 2021"
+venue_evidence: "https://proceedings.mlr.press/v134/brennan21a.html; Proceedings of Thirty Fourth Conference on Learning Theory, PMLR vol 134"
 year: 2021
 tags: [statistical-query, low-degree-polynomials, statistical-computational-gaps, lower-bounds]
 claim_quantifier: conditional
@@ -16,7 +17,7 @@ cls_phase: n/a
 cls_access: none
 cls_write: none
 cls_frame: compute
-cls_party: attacker
+cls_party: learner
 cls_unit: algo class
 cls_tightness: class
 cls_baseline: n/a
@@ -25,7 +26,7 @@ cls_second_notion: algo class
 cls_assessed: explicit
 cls_evidence: "Our main result is a surprisingly tight equivalence, under mild conditions, between statistical dimension and the minimum degree of any good distinguisher."
 cls_evidence_src: "§1.2"
-cls_reason: "party=attacker is the generic label for the bounded distinguisher; no ML-specific role applies to this pure complexity-theory equivalence. unit=algo class covers both SQ and low-degree; the vocabulary has no way to distinguish the two, so second_notion duplicates unit=algo class to flag that Thm 1.6 relates one distinguisher under two class notions (rule 4b)."
+cls_reason: "party=attacker is the generic label for the bounded distinguisher; no ML-specific role applies to this pure complexity-theory equivalence. unit=algo class covers both SQ and low-degree; the vocabulary has no way to distinguish the two, so second_notion duplicates unit=algo class to flag that Thm 1.6 relates one distinguisher under two class notions (rule 4b). RECODE 2026-09-03 (R3, solver is the learner): party attacker -> learner."
 cls_prov: P
 cls_date: 2026-08-22
 ---

@@ -3,7 +3,8 @@ title: Can Membership Inferencing be Refuted?
 type: source
 date_ingested: 2026-08-20
 authors: [Zhifeng Kong, Amrita Roy Chowdhury, Kamalika Chaudhuri]
-venue: venue unconfirmed from PDF (arXiv:2303.03648v2 [cs.LG], 8 Mar 2023)
+venue: "arXiv:2303.03648"
+venue_evidence: "dblp: https://dblp.org/search?q=Can+Membership+Inferencing+be+Refuted; listed only as CoRR abs/2303.03648 (Informal and Other Publications); a WebSearch for SaTML/workshop placement found only a distinct related follow-up paper, no refereed venue for this one"
 year: 2023
 tags: [machine-unlearning, membership-inference, proof-of-learning, forgeability, adversarial-ml, differential-privacy]
 claim_quantifier: empirical

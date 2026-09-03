@@ -3,7 +3,8 @@ title: "Average-Case Fine-Grained Hardness"
 type: source
 date_ingested: 2026-08-22
 authors: [Marshall Ball, Alon Rosen, Manuel Sabin, Prashant Nalini Vasudevan]
-venue: "venue unconfirmed from PDF (no venue line; the document is dated February 27, 2017 and refers to a companion paper as [BRSV17])"
+venue: "STOC 2017"
+venue_evidence: "https://dl.acm.org/doi/10.1145/3055399.3055466; Proceedings of the 49th Annual ACM SIGACT Symposium on Theory of Computing (STOC 2017), pages 483-496"
 year: 2017
 tags: [complexity-theory, cryptography, hardness-reductions, one-way-functions, fine-grained-cryptography, average-case-reductions]
 claim_quantifier: conditional

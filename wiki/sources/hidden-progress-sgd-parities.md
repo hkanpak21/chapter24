@@ -3,7 +3,8 @@ title: Hidden Progress in Deep Learning - SGD Learns Parities Near the Computati
 type: source
 date_ingested: 2026-08-22
 authors: [Boaz Barak, Benjamin L. Edelman, Surbhi Goel, Sham Kakade, Eran Malach, Cyril Zhang]
-venue: venue unconfirmed from PDF (arXiv:2207.08799v3 [cs.LG], 15 Jan 2023; catalogued in this corpus as NeurIPS 2022)
+venue: "NeurIPS 2022"
+venue_evidence: "dblp search (q=Hidden Progress in Deep Learning SGD Learns Parities): NeurIPS 2022 inproceedings, plus CoRR abs/2207.08799"
 year: 2022
 tags: [learning-theory, statistical-query, sample-complexity, parity, feature-learning, statistical-computational-gaps]
 claim_quantifier: empirical

@@ -3,7 +3,8 @@ title: "Public-Key Cryptography in the Fine-Grained Setting"
 type: source
 date_ingested: 2026-08-20
 authors: [Rio LaVigne, Andrea Lincoln, Virginia Vassilevska Williams]
-venue: "CRYPTO 2019, Part III, LNCS 11694, pp. 605-635 (no venue line in the PDF; venue read from five independent bibliographies in this corpus: ACMS23, AHY25, BCS24, GM24, KPR25, all agreeing)"
+venue: "CRYPTO 2019"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-030-26954-8_20 (Advances in Cryptology - CRYPTO 2019, LNCS 11694); IACR archive https://www.iacr.org/archive/crypto2019/116940386/116940386.pdf confirms"
 year: 2019
 claim_quantifier: conditional
 antecedent: "The strong Zero-k-Clique-R hypothesis (an average-case search hypothesis stated in this paper), or the Random Edge Zero-k-Clique hypothesis which implies it. Non-standard: these are average-case fine-grained hypotheses, not standard cryptographic assumptions."
@@ -16,15 +17,15 @@ cls_write: none
 cls_frame: compute
 cls_party: attacker
 cls_unit: time
-cls_tightness: exponent
+cls_tightness: relative
 cls_baseline: n/a
-cls_second_party: none
+cls_second_party: time
 cls_second_notion: none
 cls_assessed: explicit
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
-cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_evidence: "The (relative) gap of an T (n) fine-grained one-way function f is the constant δ > 0 such that it takes T (n)1−δ to compute f but for all PFTT (n) adversaries A."
+cls_evidence_src: "Definition 5, Section 2.1, p.14, raw/LLV19_PKCFineGrained.pdf"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. DISPUTE 2026-09-03: tightness and second_party. Definition 5 states a relation between two parties, the honest evaluator computing f in T(n)^(1-δ) and the PFTT(n) adversary inverting it in T(n); under codebook revision 6 (2026-08-27), which split `exponent` into a single-party exponent and a two-party `relative`, this is exactly the `relative` case, with second_party = time for the honest evaluator, not `exponent` with second_party = none. This row's cls_date (2026-08-22) predates revision 6 and appears not to have been migrated through it. RECODE 2026-09-03 (R1, revision 7): tightness exponent -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> time."
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

@@ -3,7 +3,8 @@ title: Do Membership Inference Attacks Work on Large Language Models?
 type: source
 date_ingested: 2026-08-20
 authors: [Michael Duan, Anshuman Suri, Niloofar Mireshghallah, Sewon Min, Weijia Shi, Luke Zettlemoyer, Yulia Tsvetkov, Yejin Choi, David Evans, Hannaneh Hajishirzi]
-venue: "COLM 2024 (Conference on Language Modeling); arXiv:2402.07841v2"
+venue: "COLM 2024"
+venue_evidence: "https://2024.colmweb.org/AcceptedPapers.html; https://openreview.net/forum?id=av0D19pSkU, Conference on Language Modeling (COLM 2024)"
 year: 2024
 tags: [adversarial-ml, learning-theory, sample-complexity]
 claim_quantifier: empirical
@@ -22,10 +23,10 @@ cls_baseline_checked: yes
 cls_second_party: none
 cls_second_notion: none
 cls_assessed: 
-cls_evidence: absent
-cls_evidence_src: "classified by hand in the first batch, before the evidence requirement was added to the brief"
+cls_evidence: "We find that MIAs barely outperform random guessing for most settings across varying LLM sizes and domains."
+cls_evidence_src: "Abstract, p. 1"
 cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
-cls_prov: hand
+cls_prov: P
 cls_date: 2026-08-22
 ---
 

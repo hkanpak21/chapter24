@@ -3,7 +3,8 @@ title: "Provable Defense Framework for LLM Jailbreaks via Noise-Augmented Alignm
 type: source
 date_ingested: 2026-04-23
 authors: [Zehua Cheng, Jianwei Yang, Wei Dai, Jiahao Sun]
-venue: "arXiv:2602.01587v1 (2 Feb 2026). The PDF carries an AAAI copyright line for 2026 but states no acceptance."
+venue: "arXiv:2602.01587"
+venue_evidence: "dblp: journals/corr/abs-2602-01587, listed only as CoRR (Informal and Other Publications), no inproceedings/article entry; consistent with the PDF's AAAI copyright line stating no acceptance"
 year: 2026
 tags: [llm-security, certified-robustness, randomized-smoothing, jailbreak, hypergeometric, semantic-smoothing]
 claim_quantifier: conditional

@@ -3,7 +3,8 @@ title: RobustBench — a standardized adversarial robustness benchmark
 type: source
 date_ingested: 2026-08-20
 authors: [Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti, Nicolas Flammarion, Mung Chiang, Prateek Mittal, Matthias Hein]
-venue: NeurIPS Track on Datasets and Benchmarks
+venue: "NeurIPS 2021"
+venue_evidence: "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/file/a3c65c2974270fd093ee8a9bf8ae7d0b-Paper-round2.pdf; NeurIPS 2021 Datasets and Benchmarks Track, official proceedings; OpenReview https://openreview.net/forum?id=X-sH548WreZ corroborates"
 year: 2021
 tags: [adversarial-ml, evasion-attacks, robustness, evaluation-methodology, certification]
 claim_quantifier: empirical

@@ -6,8 +6,11 @@ corpus. A rotation, where each page receives a neighbour's quote, passes that te
 and is still wrong: four such pages were found on 2026-08-27. This checks the quote
 against the paper it is attributed to, which is the question that matters.
 
-Binding is by title match against the extracted text, since most pages do not name
-their PDF.
+Binding goes through raw/SOURCES.md, which maps every file to its title, by
+normalized title similarity; a page whose title the catalogue does not hold falls
+back to a title search in the extracted texts. The earlier head-of-text search bound
+"Computational Differential Privacy" to a later paper whose title contains those
+words, and so reported a correct quotation as transposed.
 
     python3 tools/check-quotes.py [--txt DIR]
 """
@@ -37,6 +40,52 @@ def extract():
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+def catalogue():
+    """file stem -> title, from the tables in raw/SOURCES.md."""
+    out = {}
+    for line in open(os.path.join(RAW, "SOURCES.md"), encoding="utf-8"):
+        m = re.match(r"\|\s*`([^`]+)\.pdf`\s*\|\s*([^|]+)\|", line)
+        if m:
+            out[m.group(1)] = m.group(2).strip()
+    return out
+
+
+CAT = None
+
+
+def bind(title, heads, nt):
+    """Candidate file stems for a wiki title, best first."""
+    global CAT
+    import difflib
+    if CAT is None:
+        CAT = catalogue()
+    t = norm(re.sub(r"\(.*?\)", "", title))
+    if not t:
+        return []
+    scored = []
+    for stem, ct in CAT.items():
+        c = norm(re.sub(r"\(.*?\)", "", ct))
+        if not c:
+            continue
+        r = difflib.SequenceMatcher(None, t, c).ratio()
+        # the catalogue abbreviates subtitles, so the main title alone also counts
+        k = min(len(t), len(c), 36)
+        if k >= 24:
+            r = max(r, difflib.SequenceMatcher(None, t[:k], c[:k]).ratio() - 0.02)
+        if t == c:
+            r = 1.0
+        scored.append((r, stem))
+    scored.sort(reverse=True)
+    margin = scored[0][0] - scored[1][0] if len(scored) > 1 else 1.0
+    if scored and scored[0][0] >= 0.85 and margin >= 0.05 and scored[0][1] in nt:
+        return [scored[0][1]]
+    words = re.findall(r"[A-Za-z][A-Za-z-]{2,}", title)
+    if len(words) >= 3:
+        tf = norm(" ".join(words[:8]))
+        return [k for k, v in heads.items() if tf in v] or [k for k, v in nt.items() if tf in v]
+    return []
+
+
 def main():
     extract()
     texts = {os.path.basename(f)[:-4]: open(f, encoding="utf-8", errors="ignore").read()
@@ -56,11 +105,7 @@ def main():
             continue
         tm = re.search(r"^title:[ \t]*(.*)$", s, re.M)
         title = tm.group(1).strip().strip('"') if tm else ""
-        words = re.findall(r"[A-Za-z][A-Za-z-]{2,}", title)
-        cand = []
-        if len(words) >= 3:
-            tf = norm(" ".join(words[:8]))
-            cand = [k for k, v in heads.items() if tf in v] or [k for k, v in nt.items() if tf in v]
+        cand = bind(title, heads, nt)
         if not cand:
             unbound += 1
             continue

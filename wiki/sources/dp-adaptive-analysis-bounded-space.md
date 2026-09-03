@@ -3,7 +3,8 @@ title: On Differential Privacy and Adaptive Data Analysis with Bounded Space
 type: source
 date_ingested: 2026-08-21
 authors: [Itai Dinur, Uri Stemmer, David P. Woodruff, Samson Zhou]
-venue: venue unconfirmed from PDF (the file is dated February 11, 2023 and carries no venue line; recorded elsewhere in this repo as EUROCRYPT'23)
+venue: "EUROCRYPT 2023"
+venue_evidence: "dblp: https://dblp.org/search?q=Differential+Privacy+Adaptive+Data+Analysis+Bounded+Space; inproceedings, EUROCRYPT (3) 2023, pp. 35-65; also IACR ePrint 2023/171"
 year: 2023
 tags: [differential-privacy, adaptive-data-analysis, cryptography, complexity-theory, computational-indistinguishability, hardness-reductions]
 claim_quantifier: conditional

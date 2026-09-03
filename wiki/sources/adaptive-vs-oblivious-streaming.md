@@ -3,7 +3,8 @@ title: Separating Adaptive Streaming from Oblivious Streaming
 type: source
 date_ingested: 2026-08-21
 authors: [Haim Kaplan, Yishay Mansour, Kobbi Nissim, Uri Stemmer]
-venue: venue unconfirmed from PDF (arXiv:2101.10836v2 [cs.DS], 17 Feb 2021; recorded elsewhere in this repo as CRYPTO'21)
+venue: "CRYPTO 2021"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-030-84252-9_4; Advances in Cryptology – CRYPTO 2021, LNCS 12826, pages 94-121"
 year: 2021
 tags: [adaptive-data-analysis, cryptography, complexity-theory, bounded-storage-model, adaptive-attacks, hardness-reductions]
 claim_quantifier: existential

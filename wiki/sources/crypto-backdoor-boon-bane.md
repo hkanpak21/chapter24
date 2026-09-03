@@ -3,7 +3,8 @@ title: "Cryptographic Backdoor for Neural Networks: Boon and Bane"
 type: source
 date_ingested: 2026-04-23
 authors: [Anh Tu Ngo, Anupam Chattopadhyay, Subhamoy Maitra]
-venue: "arXiv:2509.20714v1 (25 Sep 2025). The PDF is typeset in the IEEE journal template; no venue is named in it, so the 'journal submission' attribution is unconfirmed from the primary source."
+venue: "arXiv:2509.20714"
+venue_evidence: "https://arxiv.org/abs/2509.20714; no refereed venue found by web search as of 2026-09-03, still a preprint"
 year: 2025
 tags: [backdoor, cryptography, watermarking, authentication, ip-protection, defensive-backdoors]
 claim_quantifier: empirical

@@ -3,7 +3,8 @@ title: "Robust Estimators in High Dimensions without the Computational Intractab
 type: source
 date_ingested: 2026-04-23
 authors: [Ilias Diakonikolas, Gautam Kamath, Daniel M. Kane, Jerry Li, Ankur Moitra, Alistair Stewart]
-venue: "FOCS 2016 (venue unconfirmed from PDF: raw/DKKLMS16_RobustEstimators.pdf is arXiv:1604.06443v2 [cs.DS] and names no venue; the attribution is carried over from the earlier ingest)"
+venue: "FOCS 2016"
+venue_evidence: "dblp: conf/focs/DiakonikolasKKLMS16 (inproceedings, FOCS 2016, pp. 655-664); a later journal version also exists, dblp journals/siamcomp/DiakonikolasKKLMS19 (SIAM J. Comput. 48(2):742-864, 2019)"
 year: 2016
 tags: [robust-statistics, high-dimensional-statistics, algorithmic-statistics, poisoning-attacks, adversarial-ml]
 claim_quantifier: existential

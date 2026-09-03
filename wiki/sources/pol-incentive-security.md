@@ -3,7 +3,8 @@ title: Proof-of-Learning with Incentive Security
 type: source
 date_ingested: 2026-08-20
 authors: [Zishuo Zhao, Zhixuan Fang, Xuechao Wang, Xi Chen, Hongxu Su, Haibo Xiao, Yuan Zhou]
-venue: "venue unconfirmed from PDF (the file is arXiv:2404.09005v8, 4 May 2026; the ACM reference block gives year 2026 with the venue field left blank)"
+venue: "arXiv:2404.09005"
+venue_evidence: "dblp: no match found (dblp.org unreachable this session, corroborated by web search finding no dblp/conference listing); arXiv abstract page (arxiv.org/abs/2404.09005) has no Journal-ref field despite 8 revisions through 2026; no conference acceptance found by web search — treated as unconfirmed refereed venue"
 year: 2026
 tags: [adversarial-ml, certification, verifiable-computation, mechanism-design]
 claim_quantifier: conditional

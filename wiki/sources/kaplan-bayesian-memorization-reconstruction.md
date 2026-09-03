@@ -4,8 +4,9 @@ type: source
 date_ingested: 2026-07-26
 date_verified: 2026-08-22
 authors: [Haim Kaplan, Yishay Mansour, Kobbi Nissim, Uri Stemmer]
-venue: "venue unconfirmed from PDF"
-year: 2025
+venue: "ITCS 2026"
+venue_evidence: "dblp: conf/innovations/KaplanMNS26, inproceedings, pp. 84:1-84:18 (CoRR abs/2505.23658 also listed as an earlier preprint entry)"
+year: 2026
 claim_quantifier: existential
 antecedent: "The security results are proved for one mechanism (the exact average, or the Laplace-noised average) under one meta-distribution (Tardos-Prior, Definition 3.3), with side conditions N ≥ n ≥ Ω(1) and d ≥ Ω(log(n/δ)), and for the Hamming reconstruction relation at γ ≤ 1/25 (Lemma 3.5) or its two-sided variant (Lemma 3.7). No claim is made for arbitrary mechanisms or arbitrary relations, and the authors state that the exact average is NOT secure for the relation 'z is the average of S'."
 adversary_bound: "None. Every definition in the paper (3.1, 3.6, 4.1, 4.4, 4.11) reads 'for all attackers A', and the side-information versions add 'and every side information function SideInfo'. The attacker is unbounded in time, in space and in queries. The word 'computational' in the paper's own usage means extraction-based, in the proof-of-knowledge sense, not time-bounded."

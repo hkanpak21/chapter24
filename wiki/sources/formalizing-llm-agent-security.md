@@ -3,7 +3,8 @@ title: "A Framework for Formalizing LLM Agent Security"
 type: source
 date_ingested: 2026-04-12
 authors: [Vincent Siu, Jingxuan He, Kyle Montgomery, Zhun Wang, Neil Gong, Chenguang Wang, Dawn Song]
-venue: "venue unconfirmed from PDF. The ingested file is arXiv:2603.19469v1, 19 March 2026, and states no venue. Author affiliations on the file are UC Santa Cruz, UC Berkeley, and Duke University."
+venue: "arXiv:2603.19469"
+venue_evidence: "dblp search (q=Framework Formalizing LLM Agent Security): CoRR abs/2603.19469 only, 'Informal and Other Publications' — no refereed venue"
 year: 2026
 tags: [llm-security, agentic-systems, formal-models, access-control, adversarial-ml, prompt-injection]
 claim_quantifier: empirical

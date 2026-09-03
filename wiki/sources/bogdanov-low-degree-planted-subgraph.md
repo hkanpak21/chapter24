@@ -3,7 +3,8 @@ title: Low-Degree Security of the Planted Random Subgraph Problem
 type: source
 date_ingested: 2026-07-26
 authors: [Andrej Bogdanov, Chris Jones, Alon Rosen, Ilias Zadik]
-venue: "venue unconfirmed from PDF. The ingested file is arXiv:2409.16227v1, 24 September 2024, and states no venue. Author affiliations on the file are University of Ottawa, Bocconi University, Reichman University, and Yale University."
+venue: "TCC 2024"
+venue_evidence: "https://link.springer.com/chapter/10.1007/978-3-031-78017-2_9; Theory of Cryptography Conference (TCC 2024), pages 255-275"
 year: 2024
 tags: [cryptography, planted-clique, statistical-query, computational-indistinguishability, hardness-reductions]
 claim_quantifier: existential
