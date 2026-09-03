@@ -88,7 +88,7 @@ UNI = {
     "\u201c": "``", "\u201d": "''", "\u00b2": "$^2$",
     "\u00e0": "\\`a", "\u00e1": "\\'a", "\u00e8": "\\`e", "\u00e9": "\\'e",
     "\u00eb": '\\"e', "\u00ed": "\\'i", "\u00f1": "\\~n", "\u00f3": "\\'o",
-    "\u00fc": '\\"u', "\u0105": "\\k{a}", "\u0107": "\\'c", "\u010d": "\\v{c}",
+    "\u00fc": '\\"u', "\u0105": "a",  # ogonek: XeTeX with T1 splits the accent, and the author's own papers print Madry "\u0107": "\\'c", "\u010d": "\\v{c}",
     "\u0142": "\\l{}", "\u015b": "\\'s", "\u017c": "\\.z", "\u0161": "\\v{s}",
     "\u011f": "\\u{g}", "\u015f": "\\c{s}", "\u0130": "\\.I", "\u0131": "\\i{}",
 }
@@ -113,6 +113,9 @@ def short_venue(v):
     """The advisor's checklist asks for the short form with no year, so "ACM CCS"
     rather than "In Proceedings of the 36th ACM Conference ... , 2021"."""
     v = unquote(v)
+    m = re.match(r"\s*IACR ePrint\s+(\d{4}/\d+)", v)
+    if m:
+        return "IACR ePrint " + m.group(1)
     v = re.split(r"\s*\(", v)[0]
     v = v.strip().rstrip(",;.")
     v = re.sub(r"^(in\s+)?proceedings of (the\s+)?(\d+(st|nd|rd|th)\s+)?", "", v, flags=re.I)
@@ -209,7 +212,16 @@ def main():
         if unconf:
             note += "; venue-unconfirmed"
         auth = " and ".join(r["names"]) if r["names"] else "Anonymous"
-        if aid and (bare_arxiv or unconf):
+        eid = re.match(r"IACR ePrint (\d{4}/\d+)$", sv)
+        if eid:
+            lines.append("@misc{%s," % r["key"])
+            lines.append("  author       = {%s}," % latex_escape(auth))
+            lines.append("  title        = {%s}," % latex_escape(r["title"]))
+            lines.append("  year         = {%s}," % r["year"])
+            lines.append("  howpublished = {IACR ePrint %s}," % eid.group(1))
+            if r["ingested"]:
+                lines.append("  urldate      = {%s}," % r["ingested"])
+        elif aid and (bare_arxiv or unconf):
             lines.append("@misc{%s," % r["key"])
             lines.append("  author       = {%s}," % latex_escape(auth))
             lines.append("  title        = {%s}," % latex_escape(r["title"]))

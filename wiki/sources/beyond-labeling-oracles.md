@@ -3,7 +3,7 @@ title: "Beyond Labeling Oracles: What does it mean to steal ML models?"
 type: source
 date_ingested: 2026-08-20
 authors: [Avital Shafran, Ilia Shumailov, Murat A. Erdogdu, Nicolas Papernot]
-venue: Preprint (every page is stamped "A PREPRINT"; arXiv:2310.01959v3, 13 Jun 2024) — venue unconfirmed from PDF
+venue: "TMLR 2024"
 year: 2024
 tags: [adversarial-ml, learning-theory, sample-complexity, computational-cost]
 claim_quantifier: empirical

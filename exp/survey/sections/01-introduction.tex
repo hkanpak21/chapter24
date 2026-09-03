@@ -23,8 +23,8 @@ membership for a deployed model at all \cite{ZDKT25}. Every one of these results
 correct on its own terms. They differ in what they let the attacker know and spend,
 and none of them states that in a form the others can be checked against.
 
-Membership inference is one attack among many, and it appears in \NumMIApages{} of
-the \NumSources{} works surveyed here. The corpus also covers evasion, poisoning,
+Membership inference is one attack among many. It is discussed in \NumMIApages{} of
+the \NumSources{} works surveyed here and is the attack studied in \NumMIAfamily{}. The corpus also covers evasion, poisoning,
 backdoors, data reconstruction and model extraction, and on the other side
 computational differential privacy, statistical-query and low-degree hardness,
 bounded-memory adversaries and fine-grained cryptography. No single attack runs
@@ -38,10 +38,10 @@ different form in each phase. Its Figure 3 states that adversaries act ``at
 inference time by exploiting model internal information (white box) or probing the
 system to infer system vulnerabilities (black box)'', and that they ``use read or
 write access to the training data to mimic or corrupt the model''. None of the three
-parts is a computational resource. Three later systematizations, all of them preprints at the time
-of writing, report that their own subfield lacks a formal definition of attack
+parts is a computational resource. Three later systematizations report that their own subfield lacks a formal definition of attack
 success, on adversarial examples \cite{FK24}, on model extraction \cite{SSEP24},
-and on data reconstruction \cite{WLBZ25}. Each proposes a repair, and each repair supplies knowledge, access
+and on data reconstruction \cite{WLBZ25}. The first is a preprint at the time of
+writing. Each proposes a repair, and each repair supplies knowledge, access
 or a success metric. None supplies a budget. A reader holding two results therefore
 cannot ask which adversary was stronger, because neither result answers it.
 

@@ -3,7 +3,7 @@ title: "SoK: Data Reconstruction Attacks Against Machine Learning Models: Defini
 type: source
 date_ingested: 2026-08-20
 authors: [Rui Wen, Yiyong Liu, Michael Backes, Yang Zhang]
-venue: venue unconfirmed from PDF (arXiv:2506.07888v1, 9 Jun 2025; formatted as a USENIX-style SoK with Ethics Considerations and acknowledgement of anonymous reviewers)
+venue: "USENIX Security 2025"
 year: 2025
 tags: [adversarial-ml, reconstruction, sample-complexity, learning-theory]
 claim_quantifier: empirical

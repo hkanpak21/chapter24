@@ -1,4 +1,4 @@
-\section{Four findings from the classification}
+\section{Six findings from the classification}
 \label{sec:findings-tables}
 
 \begin{figure*}[t]
@@ -7,9 +7,9 @@
 \caption{The corpus of \NumSources{} works, flowing through what each work
 attacks, which party it bounds, and how tightly. Band width is the number of
 works and colour is the constrained party. The figure shows three of the thirteen
-recorded fields. The full classification is in the supplementary material. Works
-with no attack family and works generic over several attacks share the leftmost
-band, since neither studies one attack.}
+recorded fields. The full classification is in the supplementary material. The
+first stage groups the attack families into five bands, and the works that study
+no attack form the sixth.}
 \label{fig:sankey}
 \end{figure*}
 
@@ -23,9 +23,9 @@ means.
 
 The classification by pipeline phase against access level is the one that comes
 out full. \NumPhaseAccessCells{} of its 32 cells are populated. Of the \NumAttackWorks{}
-works that study an attack, \AttackAccessNamed{} name an access level, and they
-split evenly between attacking a model at test time and attacking one already
-released. The vocabulary of white box, black box, confidence scores and gradients
+works that study an attack, \AttackAccessNamed{} name an access level. Of those,
+\AttackPostHoc{} attack a released model, \AttackTestTime{} attack a model at test
+time, and \AttackTrainTime{} attack the training run. The vocabulary of white box, black box, confidence scores and gradients
 is shared, and works from different subfields land in the same cells without
 argument.
 
@@ -38,8 +38,8 @@ rest of this section documents is not a general failure to standardize.
 The same corpus against the party each work constrains and the unit it uses fills
 \NumPartyUnitCells{} of 75 cells, and the occupied cells do not concentrate. Among the
 \NumAttackWorks{} works studying an attack, the adversary itself is bounded in time
-in \AttackTimeAttacker{} of them, by a perturbation radius in \AttackPerturb{}, in queries in 10, in samples
-in 9, and by a corruption fraction in \AttackCorrupt{}. \AttackUnbound{} bound no
+in \AttackTimeAttacker{} of them, by a perturbation radius in \AttackPerturb{}, in queries in \AttackQueriesAttacker{}, in samples
+in \AttackSamplesAttacker{}, and by a corruption fraction in \AttackCorrupt{}. \AttackUnbound{} bound no
 party at all.
 
 The row for memory is the one to look at. Four works bound an adversary in memory
@@ -125,7 +125,7 @@ large models \cite{ZDKT25}.
 These \NearMiss{} works are where the quantity this survey is about already exists
 in the literature without a name.
 
-\subsection{Half the attack literature states no baseline}
+\subsection{Baselines in the attack literature}
 
 An advantage is a success rate minus what public knowledge alone achieves, so a
 work that defines adversary success without naming that reference reports a number
@@ -135,15 +135,12 @@ theory result with no adversary in it. Among the \NumAttackWorks{} works that
 study an attack, \BaselineCrit{} define what success means, and of those
 \BaselineStated{} name a baseline while \BaselineAbsent{} do not.
 
-This column was the least reliable in the classification and was re-checked in full
-before being reported. \BaselineChanged{} of the rows re-checked changed value, and
-the errors had four shapes worth naming, because each is a plausible mistake. An
+Re-reading every row under the narrower definition changed \BaselineChanged{}
+values, and the errors had four shapes worth naming, because each is a plausible
+mistake. An
 information-theoretic optimum was read as a baseline, when it describes the best any
 algorithm could do rather than what an adversary without access achieves. A
 previously published accuracy number was read as one, when it describes a different
 attack. The cost of an alternative algorithm was read as one. And in an
 unforgeability game the raw success tolerance was read as a coin flip, when a search
 game has no coin-flip structure at all.
-
-Two independent readers checked overlapping rows and agreed on 24 of 27, which is
-the only agreement figure this classification has.

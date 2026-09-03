@@ -7,14 +7,15 @@ widely adopted without formal publication, Carlini et al.\ write that
 there ``are few reasonable threat models under which an attacker can compute 100
 iterations of gradient descent, but not 1000'', and conclude that an evaluation
 should assume an adversary who spends whatever time is needed \cite{CAPBRTGMK19}.
-That is a considered position rather than an oversight, and it is restated from
-earlier work by an overlapping set of authors \cite{ACW18}.
+That is a considered position rather than an oversight, and it matches the
+practice of earlier work by an overlapping set of authors, who run as many
+iterations of gradient descent as convergence needs \cite{ACW18}.
 
 The position rejects attacker compute as a restriction imposed inside a fixed
 threat model. It does not address attacker compute as the unit in which two claims
 are compared, and work in the same area adopts exactly that second use. Suya et
-al.\ re-run \BBattacks{} surveyed attacks under a fixed time budget and recommend
-that ``execution cost such as the local attack runtime should be used as the
+al.\ survey \BBattacks{} black-box attacks, re-run \BBrerun{} transfer attacks under
+a fixed budget of \BBminutes{} minutes per batch, and recommend that ``execution cost such as the local attack runtime should be used as the
 equalizing factor when comparing black-box attack performance, not the number of
 iterations'' \cite{SSZHTE24}. Their runtime enters no definition of robustness, so
 a defence is still not credited for costing the attacker more.

@@ -158,7 +158,7 @@ def perwork(rows, cols, caption, label, kb):
 
 
 def main():
-    tsv = sys.argv[1] if len(sys.argv) > 1 else os.path.join(SUR, "notes", "classification-batch1.tsv")
+    tsv = sys.argv[1] if len(sys.argv) > 1 else os.path.join(SUR, "notes", "classification.tsv")
     rows = list(csv.DictReader(open(tsv, encoding="utf-8"), delimiter="\t"))
     kb = keys_by_slug()
     for r in rows:
@@ -184,13 +184,11 @@ def main():
     b.append("The cross-tabulations are the layer that carries an argument, because in them "
              "an empty cell is a combination nobody has published. The value "
              "\\texttt{none} is an answer and not a missing entry, recording that a work "
-             "constrains no party at all. Of the %d works classified so far, %d state no "
+             "constrains no party at all. Of the %d works, %d state no "
              "resource bound on any party, and %d fall outside the frame in the sense that "
              "deleting every resource restriction leaves the main claim unchanged."
              % (n, n_none, n_out))
     b.append("")
-    b.append("\\emph{This is a partial pass. %d of the corpus's works are classified. The "
-             "remainder are not yet placed.}" % n)
     b.append("")
 
     for a, bb, lab, mark in [("phase", "access", "tab:phase-access", False),

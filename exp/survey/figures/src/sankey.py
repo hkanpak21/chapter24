@@ -34,21 +34,29 @@ TARGET = {
     "backdoor": "Model behaviour", "poison": "Model behaviour",
     "extract": "The model", "invert": "The model",
     "forge": "Record of training", "evade audit": "Record of training",
+    "multiple": "Several attacks",
 }
 S1 = ["Training data", "Model behaviour", "The model", "Record of training",
-      "No single attack"]
+      "Several attacks", "No attack studied"]
 S2 = ["attacker", "learner", "auditor", "mechanism", "none"]
 S2L = {"attacker": "Attacker", "learner": "Learner", "auditor": "Auditor",
        "mechanism": "Mechanism", "none": "No party bounded"}
+# Stage 3 keeps every tightness code apart. Codebook revision 6 split the old
+# exponent code into relative (two parties) and exponent (one party's own
+# resource), and the preliminaries argue that polynomial, quasi-polynomial and
+# assumption-conditional bounds are different claims, so none of them is merged.
 TIGHT = {
-    "exponent": "Relative to honest work",
+    "relative": "Relative to honest work",
+    "exponent": "Exponent in own resource",
     "class": "Algorithm class",
-    "poly": "Polynomial time", "quasi-poly": "Polynomial time",
-    "conditional": "Polynomial time",
+    "poly": "Polynomial time",
+    "quasi-poly": "Quasi-polynomial time",
+    "conditional": "Under an assumption",
     "budget": "Numeric budget",
     "measured": "Measured only", "unstated": "Unstated",
 }
-S3 = ["Relative to honest work", "Algorithm class", "Polynomial time",
+S3 = ["Relative to honest work", "Exponent in own resource", "Algorithm class",
+      "Polynomial time", "Quasi-polynomial time", "Under an assumption",
       "Numeric budget", "Measured only", "Unstated"]
 
 # One colour per stage-2 party, carried through both ribbon sets so the eye can
@@ -61,7 +69,9 @@ def load():
     rows = list(csv.DictReader(open(TSV, encoding="utf-8"), delimiter="\t"))
     out = []
     for r in rows:
-        s1 = TARGET.get(r["family"], "No single attack")
+        s1 = TARGET.get(r["family"], "No attack studied")
+        if r["tightness"] not in TIGHT:
+            raise SystemExit("unknown tightness code %r on %s" % (r["tightness"], r["slug"]))
         s2 = r["party"] if r["party"] in S2 else "none"
         s3 = TIGHT.get(r["tightness"], "Unstated")
         out.append((s1, s2, s3))
@@ -173,7 +183,7 @@ def main():
                         y + h / 2, txt, ha=ha, va="center",
                         fontsize=ps._META["caption_pt"])
 
-    for x, t in ((X[0] + BW / 2, "What is attacked"),
+    for x, t in ((X[0] + BW / 2, "Attack family, grouped"),
                  (X[1] + BW / 2, "Which party is bounded"),
                  (X[2] + BW / 2, "How tightly")):
         ax.text(x, -0.045, t, ha="center", va="top",

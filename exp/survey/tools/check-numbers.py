@@ -49,6 +49,12 @@ want = {
     "AttackPerturb": sum(1 for r in ml if r["unit"] == "perturbation"),
     "AttackCorrupt": sum(1 for r in ml if r["unit"] == "corruption"),
     "AttackAccessNamed": sum(1 for r in ml if r["access"] not in ("none", "")),
+    "AttackPostHoc": sum(1 for r in ml if r["access"] not in ("none", "") and r["phase"] == "post hoc"),
+    "AttackTestTime": sum(1 for r in ml if r["access"] not in ("none", "") and r["phase"] == "test time"),
+    "AttackTrainTime": sum(1 for r in ml if r["access"] not in ("none", "") and r["phase"] == "train time"),
+    "AttackQueriesAttacker": sum(1 for r in ml if r["unit"] == "queries" and r["party"] == "attacker"),
+    "AttackSamplesAttacker": sum(1 for r in ml if r["unit"] == "samples" and r["party"] == "attacker"),
+    "NumMIAfamily": sum(1 for r in R if r["family"] == "membership"),
     "NearMiss": near,
     "NumPhaseAccessCells": len(set((r["phase"], r["access"]) for r in R
                                    if r["phase"] and r["access"])),

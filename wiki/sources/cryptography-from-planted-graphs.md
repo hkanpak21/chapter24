@@ -3,7 +3,7 @@ title: "Cryptography from Planted Graphs: Security with Logarithmic-Size Message
 type: source
 date_ingested: 2026-04-23
 authors: [Damiano Abram, Amos Beimel, Yuval Ishai, Eyal Kushilevitz, Varun Narayanan]
-venue: "IACR ePrint 2023/1929, TCC 2023 (Springer LNCS 14372). The ingested PDF is dated 19 December 2023 and does not itself state a venue."
+venue: "TCC 2023 (Springer LNCS 14372); also IACR ePrint 2023/1929. The ingested PDF is dated 19 December 2023 and does not itself state a venue."
 year: 2023
 tags: [cryptography, planted-clique, secret-sharing, private-simultaneous-messages, lower-bounds]
 claim_quantifier: conditional

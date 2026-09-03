@@ -3,7 +3,7 @@ title: "Position: Membership Inference Attacks Cannot Prove that a Model Was Tra
 type: source
 date_ingested: 2026-08-20
 authors: [Jie Zhang, Debeshee Das, Gautam Kamath, Florian Tramèr]
-venue: "venue unconfirmed from PDF (arXiv:2409.19798v2, 7 Mar 2025; IEEE-style, 'Position:' paper)"
+venue: "IEEE SaTML 2025"
 year: 2025
 tags: [adversarial-ml, computational-indistinguishability, sample-complexity, cryptography]
 claim_quantifier: conditional

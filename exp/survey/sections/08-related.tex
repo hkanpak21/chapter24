@@ -1,7 +1,7 @@
 \section{Related work}
 \label{sec:related}
 
-\paragraph{The systematization this survey builds on.}
+\paragraph{The systematization this survey builds on}
 Papernot, McDaniel, Sinha and Wellman gave the field its standing map of attacks on
 machine learning, and most later work in the area still uses its vocabulary
 \cite{PMSW18}. Their threat model has three parts: the stage of the pipeline the
@@ -11,7 +11,7 @@ box and black box at inference and read and write access at training. We adopt t
 attack families wherever they fit, and Section~\ref{sec:findings-tables} adds one axis they
 do not carry, which is the resource each work bounds and the party it binds.
 
-\paragraph{Systematizations of one attack family.}
+\paragraph{Systematizations of one attack family}
 Several later works map a single family in more depth than a general survey allows,
 and each reports the same absence from inside its own subfield. Fenaux and
 Kerschbaum formalize adversary knowledge for adversarial examples through an oracle
@@ -29,14 +29,14 @@ variants of differential privacy along seven dimensions \cite{DP20}. Each of the
 repairs supplies knowledge, access, or a success criterion. None supplies a budget,
 and Section~\ref{sec:findings-tables} takes the budget as its organizing question.
 
-\paragraph{Critiques of evaluation practice.}
+\paragraph{Critiques of evaluation practice}
 A second line measures how the field evaluates rather than how it defines. Arp et
 al.\ name ten pitfalls in learning-based security, measure their prevalence across
 \DDpapers{} papers from four venues over a decade, and survey the authors of those
 papers for agreement \cite{AQPWPWCR22}. Athalye, Carlini and Wagner identify
 obfuscated gradients and circumvent \OGobfuscated{} of the \OGpopulation{}
 non-certified defences at one conference \cite{ACW18}. Tram\`er, Carlini, Brendel and
-M\k{a}dry repeat the exercise on \AAdefences{} defences that had all performed
+Madry repeat the exercise on \AAdefences{} defences that had all performed
 adaptive evaluations, and conclude that the difficulty is methodological rather than
 technical \cite{TCBM20}. Carlini et al.\ turn the lesson into a checklist and state a
 position this survey returns to in Section~\ref{sec:findings}, that attacker
@@ -44,7 +44,7 @@ computation should not be a threat-model parameter \cite{CAPBRTGMK19}. These wor
 diagnose threat models as unstated or imprecise. None of them diagnoses a threat
 model as unpriced, which is the reading Section~\ref{sec:findings-tables} adds.
 
-\paragraph{Where the quantity already has a definition.}
+\paragraph{Where the quantity already has a definition}
 Fine-grained cryptography is the formal home of the comparison between an
 adversary's work and an honest party's. Brzuska and Couteau define an
 $(\varepsilon,\delta)$-fine-grained one-way function and then argue at length that
@@ -58,7 +58,7 @@ This literature contains no machine learning, and Section~\ref{sec:findings-tabl
 that no work in the machine learning half of the corpus states its adversary in
 these terms.
 
-\paragraph{Restricted adversary classes as a security tool.}
+\paragraph{Restricted adversary classes as a security tool}
 Restricting the adversary to an algorithm class, rather than to a running time, has a
 record in security. Chaudhuri, Imola and Machanavajjhala bound a privacy adversary by
 the function class its attack is drawn from \cite{CIM19}. Goldwasser, Kim,

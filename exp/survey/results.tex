@@ -35,18 +35,26 @@
 % sok-black-box-attack-pitfalls
 \newcommand{\BBattacks}{164}
 \newcommand{\BBmajorVenue}{102}
+\newcommand{\BBrerun}{eleven}          % transfer attacks re-run under one time budget
+\newcommand{\BBminutes}{30}            % minutes per batch in that re-run
 
 % Corpus breadth, counted over wiki/sources/ front-matter tags on 2026-08-22.
 \newcommand{\NumMIApages}{21}         % source pages mentioning membership inference
+\newcommand{\NumMIAfamily}{12}        % works whose attack family is membership
 
 % --- Findings read off the classification tables. Counted by tools/collect-cls.py
 % --- over notes/classification.tsv on 2026-08-22. Regenerate before submission.
 \newcommand{\NumAttackWorks}{101}     % works carrying an attack family
 \newcommand{\NumTheoryWorks}{99}      % works carrying none
-\newcommand{\NumPhaseAccessCells}{19} % populated cells of 28 in phase x access
-\newcommand{\NumPartyUnitCells}{25}   % populated cells of 70 in party x unit
+\newcommand{\NumPhaseAccessCells}{19} % populated cells of 32 in phase x access
+\newcommand{\NumPartyUnitCells}{25}   % populated cells of 75 in party x unit
 \newcommand{\AttackAccessNamed}{71}   % attack works naming an access level
-\newcommand{\NumExponent}{27}         % works stating a bound relative to honest work
+\newcommand{\AttackPostHoc}{33}       % of those, attacking a released model
+\newcommand{\AttackTestTime}{25}      % of those, at test time
+\newcommand{\AttackTrainTime}{12}     % of those, at training time
+\newcommand{\AttackQueriesAttacker}{9} % attack works whose adversary is bounded in queries
+\newcommand{\AttackSamplesAttacker}{1} % attack works whose adversary is bounded in samples
+\newcommand{\NumExponent}{27}         % works stating an exponent in one party's own resource
 \newcommand{\AttackUnbound}{23}       % attack works bounding no party
 \newcommand{\TheoryUnbound}{10}        % non-attack works bounding no party
 \newcommand{\AttackBudget}{38}        % attack works whose bound is a budget

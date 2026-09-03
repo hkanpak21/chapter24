@@ -33,9 +33,7 @@ under the hypothesis that the model was trained without the record in question.
 That hypothesis cannot be sampled.
 
 None of the five states a budget in a form the others could be checked
-against. The last of them comes closest to stating one. Zhang et al., in a position paper
-not yet refereed, give two independent
-reasons the null hypothesis cannot be sampled, and the second survives the removal
+against. The last of them comes closest to stating one. Zhang et al.\ give two independent reasons the null hypothesis cannot be sampled, and the second survives the removal
 of the first. Granted full knowledge of the training set and of the training
 algorithm, sampling the null ``would still be prohibitively expensive as it would
 require training new large models'' \cite{ZDKT25}. That is a security claim
@@ -57,8 +55,8 @@ The inequality carries no exponent, no adversary class, no security parameter an
 no assumption. As written it holds by definition for the spoof that simply retrains the
 model, and the authors say plainly that they cannot prove it for anything else.
 Having concluded in \S VII-B3a that a passing forgery ``would be at least as
-computationally expensive as what it took'' the honest trainer, they add two pages
-later that ``given that we are not aware of a mechanism to prove this formally, we
+computationally expensive as what it took'' the honest trainer, they add in the same
+subsection that ``given that we are not aware of a mechanism to prove this formally, we
 present the following as a conjecture'' \cite{JYCDTCP21}.
 
 Fine-grained cryptography defines the same quantity and gives it a name. Brzuska
@@ -79,9 +77,9 @@ training run.
 \label{sec:problem-three}
 
 Athalye et al.\ take the \OGpopulation{} non-certified defences accepted at ICLR
-2018 that claim white-box robustness \cite{ACW18}. \OGobfuscated{} of them rely on
-a phenomenon the authors name obfuscated gradients. \OGbrokenFull{} are
-circumvented completely and \OGbrokenPart{} partially, each under the threat model
+2018 that claim white-box robustness \cite{ACW18}. Of those, \OGobfuscated{} rely on
+a phenomenon the authors name obfuscated gradients. The authors circumvent
+\OGbrokenFull{} completely and \OGbrokenPart{} partially, each under the threat model
 its own paper stated.
 
 Two years later Tram\`er et al.\ repeat the exercise on \AAdefences{} defences from
