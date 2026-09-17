@@ -23,3 +23,9 @@ exp/survey/main.pdf
 
 # --- macOS Finder icon cruft (name is "Icon\r") ---
 Icon?
+
+# --- exp/survey: build products and generated files ---
+exp/survey/paper/main.pdf
+exp/survey/paper/build/
+exp/survey/lab/data/
+exp/survey/lib/literature/pdfs/

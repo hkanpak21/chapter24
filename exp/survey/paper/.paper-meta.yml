@@ -1,0 +1,40 @@
+# Read by every downstream tool. The venue names the profile the research skill
+# loads, and no other profile is read.
+venue: ieee-sp
+year: 2027
+template: IEEEtran conference compsoc
+columns: 2
+# Measured from the compiled document with \the\columnwidth and \the\textwidth,
+# not copied from the profile table.
+column_width_pt: 252.0
+text_width_pt: 516.0
+body_pt: 10
+caption_pt: 8
+font_family: Times New Roman
+page_limit: 13
+page_limit_includes: nothing   # SoK: references are exempt, appendices count
+blind: double
+# NOT RECORDED AS FACT. The second 2027 cycle closed 2026-11-17 with abstract
+# registration on 2026-11-10 when last checked. Verify against the live call
+# before planning around either date.
+deadline: 2026-11-17
+
+track: Systematization of Knowledge
+why: >
+  The flagship security venue with an explicit SoK category, which is what this
+  paper is. Four cycles a year, so a deadline is never far. The corpus's own
+  closest works are here, including the membership inference attack this paper
+  uses as its worked case (S&P 2022) and proof-of-learning (S&P 2021). Papernot
+  et al., the systematization this work positions against, appeared at IEEE
+  EuroS&P, so the flagship is the natural place for a successor.
+alternatives_considered:
+  - USENIX Security SoK, where the field-wide evaluation critique this paper
+    leans on was published. A close second.
+  - ACM CCS and NDSS, both with SoK tracks, neither a better fit.
+  - PoPETs, too privacy-specific for a corpus that is half cryptography.
+  - CRYPTO, EUROCRYPT and TCC, which have no systematization track.
+supplement: >
+  The classification tables run to 19 pages and the appendix allowance is 5
+  inside an 18-page total, so they go to an anonymized artifact rather than to
+  an appendix. The codebook becomes the appendix. See
+  lib/issues/2026-09-17-halil-supplement-has-no-submission-slot.md.

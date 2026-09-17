@@ -1,0 +1,25 @@
+topic: sparse-parity
+pulled: 2026-08-22
+job: lab/jobs/sparse-parity.sh
+status: parked, no section of the paper uses it
+config:
+  k: 3
+  architecture: two-layer ReLU, width 100
+  batch: 128
+  lr: 0.01
+  batches: fresh
+  threshold: 0.90 test accuracy
+  seeds: 8 per dimension
+  dims: [20, 30, 40, 50, 60]
+results:
+  fitted_log_log_slope: 2.02
+  solved: 40 of 40 within budget
+  median_steps_d20: 1025
+  median_steps_d60: 9337.5
+probe:
+  batch: 8
+  width: 512
+  lr: 0.1
+  median_steps_d30: 6940
+  cap_d60: 300000
+outputs: canonical_b128.json, probe_b8.json, sparse_parity_results.json, canonical.log, probe.log, sweep.log

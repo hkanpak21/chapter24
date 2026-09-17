@@ -1,0 +1,93 @@
+\section{Introduction}
+\label{sec:intro}
+
+Security claims about machine learning appear faster than the field can
+compare
+them. Arp et al.\ read \DDpapers{} papers from CCS, IEEE S\&P, USENIX Security
+and NDSS across a decade, name \DDpitfalls{} recurring pitfalls, and find
+every one of the \DDpapers{} papers affected by at least \DDminPitfalls{} of
+them
+\cite{AQPWPWCR22}. One pitfall is the threat model. They measure practice, and
+the same defect appears in the results themselves wherever several groups have
+studied one attack.
+
+Membership inference makes the defect concrete, and we use it in
+Section~\ref{sec:problem} to state three problems. The attack decides whether
+one record entered a model's training set, and Meeus et al.\ count at least
+\MIAnewMethods{} new methods for it proposed in 2024 alone \cite{MSJFRM25}. The
+published verdicts span the full range. Carlini et al.\ report that the attack
+succeeds at low false positive rates \cite{CCNSTT22}. Duan et al.\ run five
+attacks against models whose training set they know, and report that none
+exceeds \MIAmimirAUC{} area under the receiver operating characteristic curve
+(AUC) outside one domain \cite{DSMMSZTCEH24}. Das et al.\ report that on
+\MIAblindSets{} published benchmarks a classifier that never queries the model
+beats the best attack that does \cite{DZT25}. Zhang et al.\ argue that the
+attack cannot establish training-set membership for a deployed model at all
+\cite{ZDKT25}. Each result holds on its own terms. They differ in what they
+let the attacker know and spend, and none of them states that in a form the
+others can be checked against.
+
+Membership inference is one attack among many. It appears in \NumMIApages{} of
+the \NumSources{} works we survey and is the attack studied in
+\NumMIAfamily{}. The corpus also covers evasion, poisoning, backdoors, data
+reconstruction and model extraction, and on the other side computational
+differential privacy, statistical-query and low-degree hardness,
+bounded-memory adversaries and fine-grained cryptography. No one attack runs
+through every part of the survey, so Section~\ref{sec:findings-tables} opens
+with a single work read through every field and each finding names its own
+cases.
+% claim: membership-inference-verdicts-disagree
+
+The field describes its adversaries and does not price them. The standing
+systematization of the area sorts attacks along three parts, namely the point
+in the pipeline the adversary attacks, what it is able to do once there, and
+the goal it pursues \cite{PMSW18}. The middle part takes a different form in
+each phase. Its Figure 3 states that adversaries act ``at inference time by
+exploiting model internal information (white box) or probing the system to
+infer system vulnerabilities (black box)'', and that they ``use read or write
+access to the training data to mimic or corrupt the model''. None of the three
+parts is a computational resource. Three later systematizations report that
+their own subfield lacks a formal definition of attack success, on adversarial
+examples
+\cite{FK24}, on model extraction \cite{SSEP24}, and on data reconstruction
+\cite{WLBZ25}. The first of the three is a preprint. Each proposes a repair, and
+each repair supplies knowledge, access or a success metric. A reader holding
+two of these results cannot ask which adversary was stronger, because neither
+result answers it.
+% claim: resource-axis-absent-from-prior-systematizations
+
+Cryptography holds the objects that comparison needs. An adversary class fixes
+what the attacker may run, and a budget fixes how much of it the attacker may
+spend. A success criterion together with a tolerance settles what counts as
+winning, since an attack that recovers a record approximately has recovered
+it. A baseline gives the success rate available from public knowledge alone,
+without which an advantage is a number with nothing to subtract. We carry
+those four objects into machine learning security and read the field through
+them.
+
+We record the budget per party and not per adversary. Recording it per party
+lets one statement hold a bound on the attacker, a bound on the party that
+trains, a bound on the party that audits a released model, and a relation
+between two of them. It also makes the most common answer visible, which is
+that no party's resources enter its main claim at all.
+
+We claim the following main contributions.
+
+\begin{itemize}
+  \item A classification of \NumSources{} formal works on the security and
+privacy of learning, by the attack family together with the party each work
+constrains, recording which party's resources enter its main claim, in what
+unit, and whether the work treats that bound as its object
+(Section~\ref{sec:findings-tables}).
+% claim: classification-of-two-hundred-works
+  \item An evidence layer under that classification. Every work carries the
+verbatim sentence that decided it and the place in the paper it came from, or,
+where a work states no bound, the places we checked. We verified each
+quotation inside its own document (Section~\ref{sec:method}).
+% claim: evidence-layer-per-row
+  \item Six findings the classification supports, the first survey of this area
+to report which resource a work bounds and which party it binds
+(Section~\ref{sec:findings-tables}). We name what is dense, what is empty, and
+what the emptiness means.
+% claim: resource-axis-absent-from-prior-systematizations
+\end{itemize}

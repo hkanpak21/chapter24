@@ -1,0 +1,17 @@
+topic: corpus-classification
+pulled: 2026-09-03
+job: lab/jobs/corpus-classification.sh
+source: wiki/sources/*.md, the cls_* front matter of each page
+rows: 200
+codebook: lib/literature/codebook.md
+revision: 7
+outputs:
+  classification.tsv: one row per work, thirteen coded fields plus slug, provenance and the deciding quotation
+  classification-batch1.tsv: the first hand-coded batch, kept because its rows predate the evidence requirement
+  relative-rows.tsv: the 18 works stating a bound as a relation between two parties' work
+  near-miss-rows.tsv: the 19 works whose tightness and assessment disagree
+notes: >
+  Every number the paper reports is recomputed from classification.tsv by
+  lab/src/check-numbers.py. The file itself is regenerated from the wiki front
+  matter by lab/src/collect-cls.py, so the wiki page is the authority and this
+  file is a projection of it.

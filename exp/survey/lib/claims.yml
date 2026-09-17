@@ -1,0 +1,217 @@
+# lib/claims.yml
+#
+# One row per claim the paper asserts. Check with
+#     python3 ~/.claude/skills/research/scripts/check-claims.py
+#     python3 ~/.claude/skills/research/scripts/check-claims.py --graph
+#
+# The survey proves nothing. Every result row is a measurement of a coded
+# corpus of 200 works, and its evidence is the classification in
+# lab/results/corpus-classification together with the per-row quotation.
+
+- id: classification-of-two-hundred-works
+  kind: contribution
+  text: "We classify 200 formal works on the security and privacy of learning by the party each one bounds, the unit of that bound, and how tightly it is stated."
+  appears: [abstract, intro.contributions, sec:method, sec:findings-tables]
+  against: [PMSW18, DP20, SSZHTE24]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: NumSources
+    - macro: NumAttackWorks
+  status: supported
+
+- id: evidence-layer-per-row
+  kind: contribution
+  text: "Every classified work carries the verbatim sentence that decided it, or the places checked before recording an absence, and we verified each quotation inside its own document."
+  appears: [abstract, intro.contributions, sec:method]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: QuoteOnFile
+    - macro: QuoteBound
+  status: supported
+
+- id: resource-axis-absent-from-prior-systematizations
+  kind: novelty
+  text: "No prior systematization of machine learning security records the resource a work bounds or the party it binds."
+  appears: [intro, intro.contributions, sec:related]
+  against: [PMSW18, FK24, SSEP24, WLBZ25, DP20, SSZHTE24, AQPWPWCR22]
+  evidence:
+    - note: lib/literature/notes/PMSW18.md
+    - note: lib/literature/notes/SSEP24.md
+  status: supported
+
+- id: most-formal-works-price-nobody
+  kind: result
+  text: "Of the 200 works, 37 state no resource bound on any party."
+  appears: [abstract, sec:findings-tables, sec:conclusion]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: NumUnstated
+    - macro: NumPriced
+  status: supported
+
+- id: attack-works-price-nobody-more-often
+  kind: result
+  text: "Works studying a named attack bound no party more often than works drawn from cryptography and learning theory, in direction and not in size."
+  appears: [abstract, sec:findings-tables, sec:conclusion]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: RateAttack
+    - macro: RateOther
+    - macro: AttackUnbound
+    - macro: TheoryUnbound
+  status: narrowed
+
+- id: margin-direction-only
+  kind: limitation
+  text: "Restricted to works whose main claim is a theorem, the interval on that difference includes zero, so this corpus establishes the direction and not the size."
+  appears: [abstract, sec:findings-tables, sec:conclusion]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: ThmDiffLo
+    - macro: ThmDiffHi
+    - macro: DiffLo
+    - macro: DiffHi
+  status: supported
+
+- id: two-party-bounds-rare-in-attack-papers
+  kind: result
+  text: "Only 18 of the 200 works state a bound as a relation between two parties' work, and 6 of those study an attack."
+  appears: [abstract, sec:findings-tables, sec:literature, sec:conclusion]
+  against: [BC22, LLW19, BRSV17, JYCDTCP21]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: NumRelative
+    - macro: NumRelativeAttack
+    - macro: NumExponent
+    - note: lib/literature/notes/BC22.md
+    - note: lib/literature/notes/LLW19.md
+  status: supported
+
+- id: attack-bounds-limit-change-not-spend
+  kind: result
+  text: "Where the attack literature bounds an adversary it usually bounds what the adversary may change, since 36 of the 103 attack works state a numeric allowance such as a perturbation radius."
+  appears: [abstract, sec:findings-tables, sec:literature, sec:conclusion]
+  against: [CRK19, SKL17]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: AttackBudget
+    - macro: AttackPerturb
+    - macro: AttackCorrupt
+  status: supported
+
+- id: field-shares-access-vocabulary
+  kind: result
+  text: "The field agrees on a vocabulary for access and phase, since 72 of the 103 attack works name an access level from one list of six values."
+  appears: [sec:findings-tables]
+  against: [PMSW18]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: AttackAccessNamed
+    - macro: PhaseAccessTopFive
+  status: supported
+
+- id: near-miss-works-hold-unnamed-adversary-price
+  kind: result
+  text: "Nineteen works hold a resource quantity their own framing does not carry, and nine of those hold an adversary's or an auditor's cost."
+  appears: [abstract, sec:findings-tables]
+  against: [BGGKRR26, DKLP22, ZDKT25, CAPBRTGMK19]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: NearMiss
+    - macro: NearMissAdv
+    - macro: AssessedPredictable
+  status: supported
+
+- id: no-memory-bounded-adversary-attacks-a-model
+  kind: novelty
+  text: "Four works bound an adversary in memory, all of them bounded-storage cryptography, and none studies an attack on a learned model."
+  appears: [sec:findings-tables, sec:conclusion]
+  against: [Raz16, GZ19, DSWZ23]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: AttackerMemory
+    - note: lib/literature/notes/Raz16.md
+  status: supported
+
+- id: baselines-absent-in-attack-papers
+  kind: result
+  text: "Of the 50 attack works that define adversary success, 29 name what public knowledge alone achieves and 21 do not."
+  appears: [sec:findings-tables]
+  against: [YGFJ18, BCH22]
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: BaselineStated
+    - macro: BaselineAbsent
+    - macro: BaselineCrit
+  status: supported
+
+- id: membership-inference-verdicts-disagree
+  kind: result
+  text: "Five results on membership inference span the range from success at low false positive rates to unfalsifiability, and each verdict follows what its paper grants the adversary."
+  appears: [intro, sec:problem]
+  against: [CCNSTT22, DSMMSZTCEH24, DZT25, ZDKT25, MSJFRM25]
+  evidence:
+    - macro: MIAnewMethods
+    - macro: MIAmimirAUC
+    - macro: MIAblindSets
+    - note: lib/literature/notes/CCNSTT22.md
+    - note: lib/literature/notes/ZDKT25.md
+  status: supported
+
+- id: attacker-to-honest-ratio-defined-twice
+  kind: novelty
+  text: "Proof-of-learning and fine-grained cryptography define the same ratio between an adversary's work and an honest party's, and neither literature cites the other."
+  appears: [sec:problem, sec:literature]
+  against: [JYCDTCP21, BC22, LLW19]
+  evidence:
+    - note: lib/literature/notes/JYCDTCP21.md
+    - note: lib/literature/notes/BC22.md
+    - note: lib/literature/notes/LLW19.md
+  status: supported
+
+- id: threat-models-without-a-resource-bound
+  kind: result
+  text: "Defences are circumvented inside the threat models their own papers state, because those models fix a perturbation set and an access level and leave open what the attacker may compute."
+  appears: [sec:problem]
+  against: [ACW18, TCBM20]
+  evidence:
+    - macro: OGobfuscated
+    - macro: AAdefences
+    - note: lib/literature/notes/ACW18.md
+    - note: lib/literature/notes/TCBM20.md
+  status: supported
+
+- id: field-rejects-attacker-compute-as-a-parameter
+  kind: result
+  text: "Part of the field states a considered position against attacker computation as a threat-model parameter, and work in the same area uses attacker runtime as a unit of comparison."
+  appears: [sec:findings]
+  against: [CAPBRTGMK19, SSZHTE24]
+  evidence:
+    - macro: BBrerun
+    - macro: BBminutes
+    - note: lib/literature/notes/CAPBRTGMK19.md
+    - note: lib/literature/notes/SSZHTE24.md
+  status: supported
+
+- id: corpus-is-a-working-bibliography
+  kind: limitation
+  text: "The corpus is a working bibliography rather than a sample of a stated frame, so it supports the direction of a comparison between two halves and not its size."
+  appears: [sec:method, sec:findings-tables]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+    - macro: NumPapers
+  status: supported
+
+- id: single-coder-agreement-unmeasured
+  kind: limitation
+  text: "One reader classified each work, so the agreement rate between two readers is unmeasured outside an overlap of 27 rows."
+  appears: [sec:method]
+  against: []
+  evidence:
+    - result: lab/results/corpus-classification
+  status: supported

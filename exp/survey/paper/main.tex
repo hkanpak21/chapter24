@@ -1,0 +1,73 @@
+% IEEE S&P (Oakland), Systematization of Knowledge track.
+% Two-column IEEEtran. The classification tables are wide and run over several
+% pages, so they sit in a one-column landscape block of their own; longtable
+% cannot break across a two-column float.
+\documentclass[conference,compsoc]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% tectonic's engine is XeTeX, so inputenc's utf8 option is a no-op and
+% \DeclareUnicodeCharacter is undefined. Non-ASCII glyphs are written as LaTeX
+% commands at the source (---, \k{a}, \.I) rather than as literal bytes.
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\input{results}
+
+\begin{document}
+
+\title{SoK: How Hard Is the Attack?\\
+A Complexity-Theoretic Systematization of Machine Learning Security}
+
+\author{\IEEEauthorblockN{Halil {\.I}brahim Kanpak}
+\IEEEauthorblockA{Ko\c{c} University\\
+Istanbul, T\"urkiye}}
+
+\maketitle
+
+% A survey cites what it surveys. Numbering is shared with the supplement,
+% which lists every work by the number it carries here.
+\nocite{*}
+
+\begin{abstract}
+\input{sections/00-abstract}
+% claim: classification-of-two-hundred-works
+% claim: evidence-layer-per-row
+% claim: most-formal-works-price-nobody
+% claim: attack-works-price-nobody-more-often
+% claim: margin-direction-only
+% claim: two-party-bounds-rare-in-attack-papers
+% claim: attack-bounds-limit-change-not-spend
+% claim: near-miss-works-hold-unnamed-adversary-price
+\end{abstract}
+
+\begin{IEEEkeywords}
+machine learning security, threat models, adversary models, computational
+hardness, fine-grained cryptography, systematization of knowledge
+\end{IEEEkeywords}
+
+\input{sections/01-introduction}
+\input{sections/02-problem}
+\input{sections/03-preliminaries}
+\input{sections/04-methodology}
+\input{sections/05-reading}
+\input{sections/06-literature}
+\input{sections/07-findings}
+\input{sections/08-related}
+\input{sections/09-conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

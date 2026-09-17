@@ -1,0 +1,28 @@
+project: sok-how-hard-is-the-attack
+updated: 2026-09-17
+
+venues:
+  primary: [ieee-sp]
+  watch: [usenix-security, acm-ccs, ndss, popets, iacr-conferences, neurips]
+
+groups: []
+researchers: []
+
+# The works the backward sweep starts from. Each is a paper whose citation graph
+# was swept for security or privacy citers, and each sweep returned none.
+seeds: [AGJ21, ABM23, DPLB24, DLB25, BC22, LLW19, BRSV17, JYCDTCP21, Raz16]
+
+feeds:
+  arxiv: [cs.CR, cs.LG, cs.CC, stat.ML]
+  eprint_keywords: [fine-grained, bounded storage, computational differential privacy]
+  dblp_venues: [sp, uss, ccs, ndss, crypto, eurocrypt, tcc, popets, colt, focs, stoc]
+
+last_sweep:
+  backward: 2026-08-20
+  forward: 2026-08-20
+  venue: 2026-09-03
+
+# The backward sweep of the exponent papers pulled 514 citation records, resolved
+# 259 unique arXiv citers, and found one cs.CR citer that uses none of the
+# quantities. The forward sweep found 0 IACR ePrint metadata hits for each
+# exponent name. Recorded here so the result is not re-walked.

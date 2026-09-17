@@ -1,7 +1,9 @@
 # CLAUDE.md — exp/
 
-Project root for the computational security of learning programme. Layout follows the `research`
-skill: `literature/`, `lab/`, `paper/`, `docs/`.
+Programme directory for the computational security of learning. The active
+deliverable is the SoK in `survey/`, which is its own project root on the
+`research` skill's layout (`lab/ lib/ paper/ sink/` with `CONTEXT.md`). Start
+there, at `survey/CONTEXT.md` and `survey/CLAUDE.md`.
 
 **Read `docs/CONTEXT.md` first.** It carries the terminology ledger, the three attack families, and the
 standing constraints. Nothing here repeats it.
@@ -18,15 +20,16 @@ standing constraints. Nothing here repeats it.
 - Working notes and the long-form dialogue live in `docs/notes/`. They are not reports and are not
   held to the report format.
 - `literature/related-work.md` is the ~80-problem reference-problem survey, grouped by tier.
-- **`survey/` is the active deliverable.** A complexity-theoretic survey of machine-learning security.
-  Start at `survey/notes/2026-08-22-plan-survey-tasks.md`, which carries the corpus state, the settled decisions that must not
-  be reopened, and the task list keyed to wiki pages. `survey/notes/2026-08-22-plan-survey-scope-and-structure.md` holds the scope boundary
-  and the framework; `survey/notes/2026-08-22-note-wiki-audit-findings.md` holds what the 2026-08-22 verification pass
-  found and what it changes. Draft is `survey/main.tex`; build with
-  `cd exp/survey && ../../.tools/tectonic -X compile main.tex --outdir .`, which leaves no `.log` or
-  `.aux` behind.
-- `paper/` is a **different, later** work that builds on the survey. Intentionally unscaffolded: no
-  venue, no deliverable fixed yet. Do not confuse it with `survey/`.
+- **`survey/` is the active deliverable**, migrated to the `research` skill's
+  layout on 2026-09-17. Read `survey/CONTEXT.md` for the claim and the
+  terminology ledger, `survey/lib/profs/rulings.md` for the decisions that must
+  not be reopened, and `survey/lib/issues/` for what is open. The draft is
+  `survey/paper/main.tex` and it builds with `cd exp/survey && make`.
+  `survey/lib/numbers.csv` is the ledger every number comes from, and
+  `survey/paper/results.tex` is generated from it.
+- `docs/` holds the programme's own record, separate from the survey.
+  `docs/CONTEXT.md` is the programme ledger and `docs/notes/` the long-form
+  work. The survey's own reports moved under `survey/lib/reports/archive/`.
 - The literature knowledge base is outside this project, at the repo root `wiki/`, governed by the
   repo root `CLAUDE.md`. That file also holds the record of refuted claims — read it before asserting
   novelty about anything.

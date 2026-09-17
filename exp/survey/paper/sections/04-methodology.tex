@@ -1,0 +1,144 @@
+\section{Methodology}
+\label{sec:method}
+
+\subsection{Corpus}
+
+The corpus holds \NumPapers{} documents, of which \NumSources{} carry a formal
+claim and enter the classification. We include a work when three conditions
+hold. It concerns learning or something a learning process produced, meaning a
+model, its training data, its parameters, its gradients or its outputs. It
+makes a formal claim, meaning a theorem, a definition, or a measurement
+designed to be comparable across papers. And somebody's resources bear on that
+formal claim, in the sense that deleting every resource restriction would
+change what the work asserts.
+% claim: corpus-is-a-working-bibliography
+
+The third condition admits two bodies of work with no machine learning
+content. Fine-grained cryptography enters because it is the only place where
+the comparison between an adversary's work and an honest party's is a defined
+object. The bounded-storage literature enters on the same grounds, as the
+formal home of an adversary limited in space. We treat both as destinations,
+and Section~\ref{sec:findings-tables} reports that nothing in the machine
+learning half of the corpus has travelled to either.
+
+\subsection{Codebook}
+
+We classify each work on thirteen fields against a fixed vocabulary, so that
+two readers assign the same value. Table~\ref{tab:fields} lists the fields.
+Six record the attack scenario and threat model, and seven record what the
+work assumes about resources. The party a work bounds is whoever the bound
+binds, which is not always the party the work is about. A bound on a
+distinguisher binds the auditor, a bound on a differentially private algorithm
+binds the mechanism, and a work whose only bound falls on the party that
+trains binds the learner.
+% claim: classification-of-two-hundred-works
+
+\begin{table*}[t]
+\centering
+\small
+\caption{The thirteen fields of the classification and their values. We record a
+work whose main claim bounds nobody as bounding nobody, which is an answer and
+not a gap.}
+\label{tab:fields}
+\begin{tabular}{@{}lp{6.4cm}p{9.0cm}@{}}
+\toprule
+Field & Values & Records \\
+\midrule
+target & train data, parameters, outputs, training run, none & what the adversary tries to learn or affect \\
+family & membership, attribute, reconstruct, distribution, extract, invert, forge, evade, evade audit, inject, poison, backdoor, multiple, none & the attack, in the standard taxonomy, extended where the corpus needed it \\
+phase & train time, test time, post hoc, n/a & when the adversary acts; post hoc is a released model with no further training \\
+access & hard label, scores, black box, white box, weights, gradients, channel, none & the strongest access the main claim grants \\
+write & read only, corpus, model, responses, channel, none & what the adversary may change in the system's persistent state \\
+frame & compute, statistical, capability, none & whether the bound is computational, information-theoretic, or on what the adversary may do \\
+\midrule
+party & attacker, learner, auditor, mechanism, none & which party the main claim bounds \\
+unit & time, circuit size, circuit depth, queries, samples, memory, algorithm class, parameters, flops, perturbation, corruption, rounds, privacy budget, success probability, none & the unit of that bound \\
+tightness & unstated, poly, quasi-poly, conditional, class, budget, exponent, relative, measured & how the work states the bound: not at all; the polynomial-time quantifier; a stated quasi-polynomial time; a bound under a named assumption; membership of an algorithm class; a numeric allowance; an exponent in the party's own resource; a relation to another party's work; a measurement with no definitional standing \\
+baseline & stated, absent, n/a & whether the work states what public knowledge alone achieves against the target \\
+second party & a unit, or none & the unit of a second bounded party, the honest party on a relative row \\
+second notion & a unit, or none & a second, incomparable bound on the same party \\
+assessed & explicit, implicit & whether the work treats the bound as its object or leaves it a side condition \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+We revised the vocabulary seven times. A classifier reporting a work it could
+not place drove some revisions, and a reviewer finding two works of one kind
+coded apart drove the rest. Two revisions added values for bounds that are not
+computational, namely a perturbation radius, a corruption fraction and a
+privacy budget. Without those values we would have recorded a work that bounds
+its adversary non-computationally as bounding nobody. One revision separated a
+second bounded party from one party bounded under two incomparable resource
+notions. One split a bound stated as an exponent in a party's own resource
+from a bound stated as a relation between two parties' work, after a review
+found the two conflated. Most of the vocabulary gaps reported during the pass
+fell in the single field recording the attack family, which
+Section~\ref{sec:findings-tables} returns to.
+
+\subsection{Procedure}
+
+We read each work first through its catalogue entry, which records the
+quantifier of its main claim and the hypothesis it rests on, and then through
+the primary document wherever that entry was silent on a field. Four rules
+decide the cases where a work admits more than one reading. We take whichever claim the abstract leads with. We take the constrained party to be whoever the bound
+binds, and not whoever the paper is about. Where a work bounds two parties,
+the computational bound decides the row and we record the other party's unit
+beside it. And we record a work that constrains nobody as constraining nobody,
+which is an answer and not a gap.
+
+Every assignment carries its deciding sentence. For each work we hold a
+verbatim fragment from the source that determines the constrained party, the
+unit and the tightness, together with the definition, theorem or section it
+came from. Where a work states no bound, we hold a claim of absence and the
+places we checked before making it, because an unsupported claim of absence is
+worth nothing. Of the \NumSources{} works, \QuoteOnFile{} carry a quotation
+and
+\QuoteAbsent{} an evidenced absence.
+% claim: evidence-layer-per-row
+
+\subsection{Verification}
+
+We checked every quotation against the primary document by extracting its text
+and matching a punctuation-independent fragment. We ran two passes. The first
+asked whether a quotation appeared anywhere in the corpus, and found none
+absent. We had asked a weaker question than the failure it was meant to catch. The
+second pass binds each work to its own document and asks whether the quotation
+appears in \emph{that} document. It found four works carrying a neighbour's
+quotation, an off-by-one rotation within one batch, which the first pass had
+passed. We re-extracted all four from their own sources. The second pass binds
+\QuoteBound{} of the \QuoteOnFile{} quotations to their document and verifies
+every one there. We could not bind the remaining \QuoteUnbound{} to a document
+by title, so we checked them against the corpus only.
+
+Eleven entries failed an automated check and all eleven were false alarms, six
+from fragments spanning a line break, two from an error in the checker, one
+from a claim of absence written as prose, and two from mathematical notation.
+A single automated pass is not sufficient evidence that a quotation is absent,
+and a pass that asks a weaker question than the failure mode is worse than
+none, because it returns a clean report.
+
+\subsection{Threats to validity}
+
+Three limits bear on the counts of Section~\ref{sec:findings-tables}. One
+reader classified each work, so the agreement rate between readers is
+unmeasured, and the fixed vocabulary and decision rules stand in for that
+measurement.
+% claim: single-coder-agreement-unmeasured
+
+We re-checked one field in full before reporting it. The column recording
+whether a work states what an adversary achieves from public knowledge alone
+was applied under two readings during the first pass, one asking for the
+success rate available without access to the target and one counting any
+explicit comparison quantity. We re-read every row under the narrower
+definition and
+\BaselineChanged{} changed value. Where two readers checked overlapping rows
+they agreed on \AgreeOverlap{} of \AgreeTotal{}, which is the only
+inter-reader agreement figure
+available here.
+
+The field recording the attack family absorbed most of the vocabulary gaps
+reported during the pass. We built that field around attacks on a deployed
+model, and the corpus also contains attacks on a cryptographic primitive, on a
+communication channel, on a training distribution and on an agent's control
+flow. Its categories are therefore the least reliable of the thirteen, and
+Figure~\ref{fig:sankey} collapses them for that reason.
