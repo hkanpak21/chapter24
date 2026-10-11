@@ -32,6 +32,7 @@ Analogous to the distinction in cryptography between one-time-pad (IT security) 
 - [Win-Win Robust Learning](../sources/win-win-robust-learning.md) — complementary hardness direction
 - [Planting Undetectable Backdoors](../sources/planting-undetectable-backdoors.md) — same signature-based technique for backdoor undetectability
 - [Complexity Theoretic Adversarial ML](../sources/complexity-theoretic-adversarial-ml.md)
+- [Overparameterization from Computational Constraints](../sources/overparameterization-computational-constraints.md) — GJMMW22, the same gap measured in *model parameters*: zero parameters suffice for robustness against a poly-time adversary on a task where `α/2` are necessary against an unbounded one
 
 ## Related Concepts
 
@@ -39,6 +40,7 @@ Analogous to the distinction in cryptography between one-time-pad (IT security) 
 - [Win-Win Theorem](win-win-theorem.md)
 - [Computational Concentration of Measure](computational-concentration-of-measure.md)
 - [Evasion Attacks](evasion-attacks.md)
+- [Model Size as a Priced Resource](model-size-as-priced-resource.md)
 
 ## Open Questions
 

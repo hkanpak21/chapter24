@@ -1,0 +1,140 @@
+\section{Three problems}
+\label{sec:problem}
+
+We state three problems. One literature reaches incompatible conclusions about
+a single attack. Two literatures define the same quantity and neither cites
+the other. A stated threat model fails to constrain the attack it was written
+for. Section~\ref{sec:problem-cause} takes the three in turn and shows that
+one absence produces all of them.
+
+\subsection{Incompatible conclusions within one literature}
+\label{sec:problem-one}
+
+Membership inference decides whether one record entered a model's training
+set. Meeus et al.\ count at least \MIAnewMethods{} new methods for it proposed
+in 2024 alone \cite{MSJFRM25}, and the four verdicts of
+Section~\ref{sec:intro} run from success to unfalsifiability. Writing down
+each paper's adversary explains the spread.
+% claim: membership-inference-verdicts-disagree
+
+Carlini et al.\ grant their adversary data drawn from the target's
+distribution and the budget to train many shadow models on it. Their attack
+then compares the target's per-example loss against the two resulting
+distributions
+\cite{CCNSTT22}. Duan et al.\ grant theirs a benchmark whose members and
+non-members come from the Pile's own train and test split, which closes the
+shortcut that a benchmark assembled after training leaves open
+\cite{DSMMSZTCEH24}. Das et al.\ grant theirs no model access at all, and it
+still wins, which places the signal in the benchmark and not in the model
+\cite{DZT25}. Meeus et al.\ locate that signal precisely, reporting
+\MIAwikiLo{} to \MIAwikiHi{} AUC on WikiMIA from a bag-of-words classifier whose
+most predictive features are years \cite{MSJFRM25}.
+
+Zhang et al.\ reach the strongest verdict \cite{ZDKT25}. To bound a false
+positive rate, the party running the attack must know how its test statistic
+is distributed under the hypothesis that the model was trained without the
+record in question. Nobody can sample that hypothesis.
+
+None of the five states a budget in a form the others could be checked
+against, and the last comes closest. Zhang et al.\ give two independent
+reasons that hypothesis resists sampling, and the second survives the removal
+of the first. Granted full knowledge of the training set and of the training
+algorithm, sampling it ``would still be prohibitively expensive as it would
+require training new large models'' \cite{ZDKT25}. They declare a security
+claim unfalsifiable against a party that cannot afford a training run. The
+paper names that cost and moves on. It records no parameter, so nobody can
+compare it with a claim made against a party of a different budget.
+
+\subsection{The attacker-to-honest cost ratio, defined twice without contact}
+\label{sec:problem-two}
+
+A proof-of-learning asks a party claiming to have trained a model to produce a
+record of the training run, which a verifier then checks \cite{JYCDTCP21}. The
+scheme is secure when forging that record costs at least as much as training
+honestly. Jia et al.\ state the requirement three times, as $\mathbb{E}[C_A]
+\geq \mathbb{E}[C_T]$, where $C_A$ is the cost of any spoofing strategy and
+$C_T$ the cost of the honest training run.
+% claim: attacker-to-honest-ratio-defined-twice
+
+The inequality carries no exponent, no adversary class, no security parameter
+and no assumption. As written it holds by definition for the spoof that
+retrains the model, and the authors say plainly that they cannot prove it for
+anything else. Having concluded in \S VII-B3a that a passing forgery ``would
+be at least as computationally expensive as what it took'' the honest trainer,
+they add in the same subsection that ``given that we are not aware of a
+mechanism to prove this formally, we present the following as a conjecture''
+\cite{JYCDTCP21}.
+
+Fine-grained cryptography defines the same quantity and gives it a name.
+Brzuska and Couteau's Definition 6 fixes an
+$(\varepsilon,\delta)$-fine-grained one-way function as one that no circuit of
+size below $|f|^{1+\delta}$ inverts with probability above $\varepsilon$
+\cite{BC22}. LaVigne, Lincoln and Vassilevska Williams name the exponent
+itself, in their Definition 5, as ``the (relative) gap of an $T(n)$
+fine-grained one-way function $f$'' \cite{LLW19}. Around that one constant
+they build fine-grained key exchange and fine-grained public-key encryption.
+
+The two literatures describe one object, and neither cites the other. The
+proof-of-learning line holds the quantity and has no name for it, so it cannot
+say how much more expensive forgery is. The fine-grained line holds the name
+and applies it to no learning problem, so nothing in it has been instantiated
+on a training run.
+
+\subsection{Threat models stated without a resource bound}
+\label{sec:problem-three}
+
+Athalye et al.\ take the \OGpopulation{} non-certified defences accepted at
+ICLR 2018 claiming white-box robustness \cite{ACW18}. Of those,
+\OGobfuscated{} rely on a phenomenon the authors name obfuscated gradients.
+The authors circumvent \OGbrokenFull{} completely and \OGbrokenPart{}
+partially, each under the threat model its own paper stated.
+% claim: threat-models-without-a-resource-bound
+
+Two years later Tram\`er et al.\ repeat the exercise on \AAdefences{} defences
+from ICLR, ICML and NeurIPS, all of which had performed adaptive evaluations
+\cite{TCBM20}. They circumvent all \AAdefences{}, and they report that they
+needed nothing new. In their words, ``the technical tools to evaluate defenses
+properly already exist'', and the issue ``is methodological rather than
+technical'' \cite{TCBM20}.
+
+A defence and its break can both be correct. The threat models in question fix
+the perturbation set and the access level, and they leave open what the
+attacker may compute and what counts as success. A model that fixes neither of
+those constrains no attack, so a defence can satisfy it while an attack
+violates the defence, with neither party in error.
+
+\subsection{The common cause}
+\label{sec:problem-cause}
+
+One cause produces all three problems. Most of these works state no budget for
+any party, so nobody has a position to hold. Researchers who disagreed about
+what an adversary is would already be an improvement, because two positions
+can be compared. Section~\ref{sec:findings} reports how many.
+
+Take the three in turn. In the first, the five membership inference results
+grant their adversaries different things, and each verdict follows its grant.
+Carlini et al.\ grant the target's distribution and the compute to train
+shadow models on it. Duan et al.\ grant a benchmark that closes the shortcut.
+Das et al.\ grant no model access at all. Nobody can order the results,
+because no two of them price the same party in the same unit.
+
+In the second, the proof-of-learning line holds the quantity and has no name
+for it, while the fine-grained line holds the name and has instantiated it on
+no training run. Neither finds the other by searching, because they share no
+vocabulary. The object both describe is a relation between two parties' work,
+and only one of the two literatures writes it as an exponent.
+
+In the third, the threat models fix the perturbation set and the level of
+access, and they leave open what the attacker may compute and what counts as
+success. A defence can satisfy such a model and an attack can then break the
+defence, with neither party in error, because the model never ruled the attack
+out.
+
+The field has a name for the third case and for neither of the first two. Arp
+et al.'s tenth pitfall, quoted in Section~\ref{sec:intro}, is the threat
+model, defined as the case where ``the security of machine learning is not
+considered, exposing the system to a variety of attacks, such as poisoning and
+evasion attacks'' \cite{AQPWPWCR22}. That pitfall and its recommendations
+quantify the adversary by no computation, memory, sample or query count. The
+field diagnoses its own threat models as unstated or imprecise, and never as
+unpriced.

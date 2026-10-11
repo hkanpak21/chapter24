@@ -6,11 +6,44 @@ authors: [Akshay Degwekar, Preetum Nakkiran, Vinod Vaikuntanathan]
 venue: "COLT 2019 (arXiv:1902.01086)"
 year: 2019
 tags: [adversarial-ml, cryptography, one-way-functions, hardness-reductions, robustness, complexity-theory]
+claim_quantifier: conditional
+antecedent: "for the constructions, average-case hard functions (Result 1, no cryptographic assumption), or hardness of factoring / LPN (Result 2). The win-win theorem itself is an implication and assumes nothing."
+adversary_bound: "polynomial time, for the learner; the perturbation adversary is a budget, not a computation"
+date_verified: 2026-08-20
+cls_target: none
+cls_family: evade
+cls_phase: train time
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: perturbation
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Any computational task where an efficient robust classifier exists, but is hard to learn one in polynomial time implies one-way functions, and hence symmetric key cryptography."
+cls_evidence_src: "Theorem 2.4 (Informal), Section 2, raw/DNV19_WinWinRobustClassification.pdf"
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
 
-This paper establishes a fundamental connection between the hardness of learning adversarially robust classifiers and the existence of cryptographic primitives. The central result — the **Win-Win Theorem** — states that any learning task where an efficient robust classifier *exists* but *cannot be efficiently learned* would imply the existence of one-way functions. Since one-way functions are widely believed to exist, this means that tasks where robust learning is hard must have this specific structure.
+This paper connects the hardness of learning adversarially robust classifiers to the existence of cryptographic primitives. The central result, the **Win-Win Theorem**, is an implication in one direction: any task where an efficient robust classifier *exists* but *cannot be efficiently learned* implies one-way functions exist. Theorem 2.4, informal, verbatim: "Any computational task where an efficient robust classifier exists, but is hard to learn one in polynomial time implies one-way functions, and hence symmetric key cryptography."
+
+The direction matters and is easy to invert. The theorem does **not** license concluding anything from the belief that one-way functions exist; that would affirm the consequent. What it supports is the contrapositive-flavoured reading the authors themselves give, framed by their own question "Are we likely to find such learning tasks in the wild?" — a task with this hardness profile must carry cryptographic structure, so one does not stumble on it by accident.
+
+The paper constructs three types of result: (1) tasks where efficient robust classifiers exist but cannot be efficiently learned, (2) tasks where no efficient robust classifier exists under any perturbation budget, and (3) the win-win meta-theorem.
+
+## Claim Boundary
+
+- **Quantified over:** the win-win theorem is universal over computational tasks, but it is an *implication*, not an existence or impossibility claim. The hardness constructions are existential — specific tasks, built for the purpose.
+- **Antecedent:** Result 1 needs only average-case hard functions and no cryptographic assumption; Result 2 needs factoring hardness or LPN. The win-win theorem is assumption-free.
+- **Does not establish:** that robust learning is hard for any natural task; that image classification sits in either branch; and in particular it does **not** support the inference "one-way functions are believed to exist, therefore tasks with hard robust learning have this structure." That inference is invalid and was carried on this page until 2026-08-20.
+- **Abstract vs theorem:** none found. The abstract is careful, and states plainly that Result 1 requires "no cryptographic assumptions".
 
 The paper constructs three types of hardness results: (1) tasks where efficient robust classifiers exist but cannot be efficiently learned (assuming hardness of factoring or LPN), (2) tasks where no efficient robust classifier exists under any perturbation budget, and (3) the win-win meta-theorem.
 
@@ -54,6 +87,14 @@ The paper constructs three types of hardness results: (1) tasks where efficient 
 
 ## Quotes / Notable Passages
 
-> "Either we can learn an efficient robust classifier, or we can construct new instances of cryptographic primitives."
+Verified against `raw/DNV19_WinWinRobustClassification.pdf` on 2026-08-20.
 
-> "Robust learning hardness is intrinsically connected to fundamental cryptographic assumptions."
+> "Any computational task where an efficient robust classifier exists, but is hard to learn one in polynomial time implies one-way functions, and hence symmetric key cryptography."
+
+— Theorem 2.4, informal statement.
+
+> "Are we likely to find such learning tasks in the wild? To that end, we show a converse to our results."
+
+— §2.3, the authors' own framing of what the win-win is for.
+
+**Correction, 2026-08-20.** This section previously carried two passages in quotation marks, "Either we can learn an efficient robust classifier, or we can construct new instances of cryptographic primitives" and "Robust learning hardness is intrinsically connected to fundamental cryptographic assumptions". Neither appears in the paper. Both were paraphrases presented as verbatim quotation and have been removed. They are recorded here so the error is not silently repeated from memory elsewhere.

@@ -12,6 +12,7 @@ Professor of Computer Science at the University of Virginia. Works on empirical 
 ## Contributions / Works
 
 - **[Empirically Measuring Concentration (MZME19)](../sources/empirically-measuring-concentration.md)** — estimation algorithms for data-distribution concentration; gap vs. SOTA robust classifiers
+- **[SoK: Pitfalls in Evaluating Black-Box Attacks (SSK+24)](../sources/sok-black-box-attack-pitfalls.md)** — four-axis black-box threat-model taxonomy over 164 attacks; argues local attack runtime, not iteration count, should be the equalizing metric when comparing attacks
 
 ## Connections
 

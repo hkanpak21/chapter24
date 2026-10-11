@@ -3,9 +3,31 @@ title: Circuit Lower Bounds for the p-Spin Optimization Problem
 type: source
 date_ingested: 2026-04-12
 authors: [David Gamarnik, Aukosh Jagannath, Alexander S. Wein]
-venue: Preprint
+venue: Preprint (the ingested PDF is arXiv:2109.01342v2, 21 Jan 2022)
 year: 2022
 tags: [overlap-gap-property, boolean-circuits, p-spin, circuit-complexity, random-optimization, statistical-physics]
+claim_quantifier: universal
+antecedent: "the multi-overlap gap property for even p at least 4, established in the paper, and the Linial-Mansour-Nisan bound on the total influence of low-depth circuits."
+algorithm_class: "circuits"
+date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: circuit size
+cls_tightness: conditional
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "either the associated family of circuits Cp(n, s(n), d(n), ρ) is empty, or s(n) ≥ nα, or d(n) ≥ log n/(2 log log n)"
+cls_evidence_src: "Thm 2.3"
+cls_reason: "No security game or adversary here, only an unconditional-modulo-multi-OGP structural bound on any poly-size circuit solving p-spin, so party=learner (the computational party doing the bounded work) rather than attacker, following the single-party convention used for fine-grained-erm's SETH-conditional bound; second_party=none for the same reason. unit=circuit size is the closest available match: the theorem's actual headline quantity is circuit DEPTH (log n/(2 log log n)), and the vocabulary has no dedicated depth value, flagged here as a gap. tightness=conditional because the bound rests on the multi-overlap gap property (established earlier in this same paper) plus the Linial-Mansour-Nisan influence bound, an antecedent-gated bound rather than a stated ratio to a second party. baseline=n/a: no security game, no adversary advantage."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +37,14 @@ Direct extension of [Gamarnik-Jagannath-Wein 2020](gamarnik-hardness-random-opti
 Unlike prior results focused on decision/yes-no problems, this targets the **search** version: produce the entire solution. The proof uses the **multi-overlap OGP** (GJW21) for p-spin models, showing that no m-tuple of near-optimal solutions can achieve pairwise overlaps in a certain prescribed region. Combined with the Linial-Mansour-Nisan total-influence bound on low-depth circuits (via O'Donnell's textbook formulation) and a discrete biased-Bernoulli interpolation trick, this forces the depth lower bound.
 
 This is among the first instances of spin-glass / OGP techniques yielding bona fide circuit-complexity lower bounds for combinatorial optimization.
+
+## Claim Boundary
+
+- **Quantified over:** poly-size n-output Boolean circuits producing a solution within a constant factor of the p-spin optimum with Rademacher couplings, for approximation ratios above a threshold set by the multi-overlap gap property.
+- **Antecedent:** the multi-overlap gap property for even p at least 4, which the paper establishes rather than assumes, together with the Linial-Mansour-Nisan bound on the total influence of low-depth circuits.
+- **Algorithm class:** circuits. The result is a depth lower bound of log n over 2 log log n, and it applies to circuits that output the entire solution.
+- **Does not establish:** a bound for the decision version, or for approximation ratios below the overlap-gap threshold, or hardness for polynomial time. The authors note that the result does not strictly improve on Rossman's bound, because their circuits are required to produce the whole solution rather than answer a yes or no question.
+- **Abstract vs theorem:** none found.
 
 ## Key Contributions
 
@@ -45,4 +75,10 @@ This is among the first instances of spin-glass / OGP techniques yielding bona f
 
 ## Quotes / Notable Passages
 
-> "Our result presents the strongest known circuit depth lower bounds for combinatorial optimization problems, to the best of our knowledge."
+> _Clauses reordered. Checked against `raw/GJW22_CircuitLBPSpin.pdf` on 2026-08-20. This paper states the sentence with the hedge at the front, as given below; the reordered form an earlier ingest quoted is verbatim in the companion paper `raw/GJW21_HardnessRandomOpt.pdf` instead._
+>
+> Our result presents the strongest known circuit depth lower bounds for combinatorial optimization problems, to the best of our knowledge.
+
+> "Nevertheless, to the best of our knowledge, our result presents the strongest known circuit depth lower bounds for combinatorial optimization problems."
+
+> "To the best of our knowledge, this is the first instance when methods from spin glass theory have ramifications for circuit complexity."

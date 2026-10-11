@@ -1,0 +1,2 @@
+corpus-classification: coded all 200 formal works of the corpus on thirteen fields against a fixed vocabulary, and the largest cell turned out to be no party bounded in no unit.
+sparse-parity: measured how the step count of a two-layer network on hidden sparse parity grows with the input dimension, and the fitted exponent sat near the statistical-query prediction. Parked, because no section of the paper uses it.

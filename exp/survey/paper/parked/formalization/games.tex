@@ -1,0 +1,585 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{margin=1in}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{game}{Game}
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{openq}{Open problem}
+
+\newcommand{\Adv}{\mathsf{Adv}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Lrn}{\mathcal{L}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Oracle}{\mathcal{O}}
+\newcommand{\INFER}{\textsc{Infer}}
+\newcommand{\LEARN}{\textsc{Learn}}
+\newcommand{\GEN}{\textsc{GenerateData}}
+
+\title{Extraction games with a priced adversary\\
+\large An intermediate report for the survey's formalization}
+\author{}
+\date{2026-08-22, second pass}
+
+\begin{document}
+\maketitle
+
+\section{What this report is}
+
+This report turns a set of proposed games into definitions, states what each one
+settles and what it does not, and identifies the reduction targets available to
+them. It is written to be reused. Sections~\ref{sec:g2} to \ref{sec:price} are
+candidate text for the survey's formalization section, and
+Section~\ref{sec:reduce} is the part that must be settled before any of it carries
+a theorem.
+
+Three commitments hold throughout. Every game names a baseline, because a success
+probability without one is not a measurement. Every game prices both parties,
+because the object of interest is a ratio. And every claim is marked as proved
+here, assumed, or open.
+
+\paragraph{Scope.} The games below assume a metric output space in which a
+tolerance $\varepsilon$ is meaningful, so they describe regression and
+real-valued-output models. Under a $0/1$ output metric, Propositions~\ref{prop:collapse}
+and~\ref{prop:sep} are vacuous, because no useful Lipschitz constant exists. The
+classification case needs a different treatment and this report does not give one.
+
+\section{Notation}
+\label{sec:notation}
+
+Fix an input space $\X$ with metric $d_\X$ and an output space $\Y$ with metric
+$d_\Y$. We use the pipeline decomposition of Villa et al.~\cite{VDKMR26}, in which
+a system is a tuple $(\GEN, \LEARN, \INFER)$ carrying a source to a corpus, a
+corpus to a model, and a model with an input to a result. We write $\mathsf{ATK}$
+for their capability set, with elements $\mathsf{see\_model}$,
+$\mathsf{black\_box}$, $\mathsf{inject\_learn}$ and $\mathsf{inject\_infer}$.
+
+Everything is indexed by a security parameter $n$, and this is not a formality.
+Without it the hardness statement in Section~\ref{sec:price} cannot be written.
+Let $\M_n$ be a distribution over models $f : \X_n \to \Y_n$, induced by running
+$(\GEN, \LEARN)$ on a source. The learner $\Lrn$ holds $f \sim \M_n$. We write
+$C_{\INFER}$ for the cost of one honest evaluation of $f$, and measure every
+party's budget as a dimensionless multiple of it.
+
+\section{The extrapolation game with an adversary-chosen probe}
+\label{sec:g1}
+
+The first proposal is the most natural. The adversary queries, then names a point
+it did not query and predicts the model's value there.
+
+\begin{game}[$\mathsf{Extr}^{\mathrm{adv}}$]
+\label{game:g1}
+Parameters: a query budget $m$, a probe radius $\Delta$, a tolerance $\varepsilon$.
+\begin{enumerate}
+  \item $\A$ chooses $Q = \{q_1,\dots,q_m\} \subset \X$ and receives
+        $R = \{r_i = f(q_i)\}_{i \le m}$.
+  \item $\A$ outputs $(q', r')$ with $q' \notin Q$ and $d_\X(q', Q) \le \Delta$.
+  \item $\A$ wins if $d_\Y(r', f(q')) \le \varepsilon$.
+\end{enumerate}
+\end{game}
+
+This game is not usable as stated, and the reason constrains every later version.
+
+\begin{proposition}[The probe collapses]
+\label{prop:collapse}
+Let $f$ be $L$-Lipschitz from $(\X,d_\X)$ to $(\Y,d_\Y)$. Suppose the rules of
+Game~\ref{game:g1} admit some $q'$ with $0 < d_\X(q', q_i) \le \delta$ for a
+queried $q_i$, and that $L\delta \le \varepsilon$. Then the specific adversary that
+queries one point $q_i$, names such a $q'$ and outputs $r' = r_i$ wins with
+probability $1$, using one query and no computation beyond naming $q'$.
+\end{proposition}
+
+\begin{proof}
+$d_\Y(r_i, f(q')) = d_\Y(f(q_i), f(q')) \le L\, d_\X(q_i, q') \le L\delta \le
+\varepsilon$.
+\end{proof}
+
+Proposition~\ref{prop:collapse} is an existence statement about one adversary, and
+that is enough to reject the game. Where such a $q'$ is admissible the game
+measures the modulus of continuity of $f$ rather than the adversary. Two repairs
+exist. The first forces the probe away from the queried set, requiring
+$d_\X(q',Q) \ge \delta_{\min}$ with $L\delta_{\min} > \varepsilon$, which makes the
+difficulty depend on $L$, a property of the model that the adversary may not know
+and that the isoperimetry line studies in its own right~\cite{BS21}. The second
+removes the adversary's choice, and is the one developed here.
+
+\section{The learner-chosen probe}
+\label{sec:g2}
+
+Let the learner name the challenge points. The geometry disappears, because success
+is measured where the learner chose rather than where the adversary argued was
+close enough.
+
+\begin{game}[$\mathsf{Extr}^{\mathrm{lrn}}$]
+\label{game:g2}
+Parameters: a query budget $m$, a challenge count $k$, a tolerance $\varepsilon$, a
+challenge distribution $\Q$ over $k$-subsets of $\X$, a mode
+$\mathsf{mode} \in \{\mathsf{commit},\mathsf{adapt}\}$. Sample $f \sim \M_n$.
+\begin{enumerate}
+  \item If $\mathsf{mode} = \mathsf{commit}$, $\Lrn$ samples $Q^* \sim \Q$ and
+        publishes a commitment to it.
+  \item $\A$ chooses $Q = \{q_1,\dots,q_m\}$ and receives $R = \{f(q_i)\}_{i\le m}$.
+  \item If $\mathsf{mode} = \mathsf{adapt}$, $\Lrn$ samples $Q^* \sim \Q(Q)$ now.
+        $\Lrn$ sends $Q^* = \{q^*_1,\dots,q^*_k\}$, opening the commitment in the
+        committed mode.
+  \item $\A$ outputs $(r^*_1,\dots,r^*_k)$.
+  \item $\A$ wins if $d_\Y(r^*_j, f(q^*_j)) \le \varepsilon$ for every $j \le k$.
+\end{enumerate}
+\end{game}
+
+The two modes differ in what they measure. In the committed mode the challenge is
+independent of the adversary's queries, so the game measures generalization from a
+fixed test set. In the adaptive mode the learner may place challenges where the
+adversary did not look, so the game measures coverage. That the adaptive mode is
+harder for the adversary is intuitive and is not proved here; a coupling argument
+would settle it, and Open Problem~\ref{oq:adapt} records it.
+
+\subsection{The advantage, and why the baseline is part of the definition}
+
+The baseline must be defined so that it cannot smuggle in the model. If $f$ is
+fixed and the baseline maximizes over all algorithms that ``do not access $f$'',
+the maximizing algorithm can simply have $f$ hardwired, the baseline equals the
+honest success probability, and the advantage is non-positive for every adversary.
+That is the same degeneracy that makes the marginal-advantage form of membership
+advantage a no-op. The repair is to draw the model from a distribution and measure
+the baseline against that distribution, which is what Balle, Cherubin and Hayes do
+by drawing the target record from a prior~\cite{BCH22}.
+
+\begin{definition}[Extraction advantage]
+\label{def:adv}
+Let $\B$ range over algorithms that receive the public description of $\M_n$, the
+task, and the challenge set $Q^*$, but neither $f$ nor the transcript $(Q,R)$. Then
+\[
+\Adv^{\mathsf{Extr}}_{\M_n,\Q}(\A)
+= \Pr\big[\A \text{ wins}\big] - \max_{\B} \Pr\big[\B \text{ wins}\big],
+\]
+both probabilities over $f \sim \M_n$, over $\Q$, over the coins of $\A$ and $\B$,
+and over any randomness in $\INFER$.
+\end{definition}
+
+Because $f$ is random and $\B$ is quantified before $f$ is drawn, no $\B$ can
+hardwire $f$, and the baseline is the best model-free predictor for the
+\emph{family} rather than for one model. Definition~\ref{def:adv} still differs
+from reconstruction robustness in exactly one place, and the difference is the
+point of this report: Balle, Cherubin and Hayes place no bound on the adversary's
+computation, quantifying over any reconstruction map, while
+Section~\ref{sec:price} adds one. Their $R$ is the attack, and the criterion is a
+separate error function with tolerance $\eta$.
+
+\begin{proposition}[The raw success probability is not a measurement]
+\label{prop:baseline}
+There exist a task, a model family and a challenge distribution for which a
+model-free $\B$ attains success probability strictly greater than that of a
+published attack with full query access.
+\end{proposition}
+
+\begin{proof}[Status and evidence]
+Empirical, and established for membership inference rather than for extraction.
+Das et al.\ exhibit it on eight published membership-inference benchmarks, where
+classifiers with no model access outperform the best reported attack that queries
+the model~\cite{DZT25}. Meeus et al.\ report the same effect and identify the
+carrier, a distribution shift between the two halves of each benchmark
+\cite{MSJFRM25}. Whether the same construction arises for extraction challenge
+distributions is asserted here and not exhibited.
+\end{proof}
+
+\subsection{Separated challenges}
+
+The extension to $k$ challenges is meant to measure utility rather than one lucky
+point. Without a constraint on how the challenges sit relative to one another it
+measures neither.
+
+\begin{proposition}[Unseparated challenges collapse to one]
+\label{prop:sep}
+Let $f$ be $L$-Lipschitz. Suppose the support of $\Q$ is contained in a ball
+$B(c,\rho)$ whose centre $c$ is known to the adversary before it queries, and
+suppose $L\rho \le \varepsilon$. Then the adversary that queries $c$ once and
+answers every challenge with $f(c)$ wins Game~\ref{game:g2} with probability $1$,
+for every $k$, in either mode.
+\end{proposition}
+
+\begin{proof}
+For each $j$, $d_\Y(f(c), f(q^*_j)) \le L\,d_\X(c, q^*_j) \le L\rho \le
+\varepsilon$, and the win condition is a conjunction over $j$.
+\end{proof}
+
+The hypothesis that the ball is fixed and known before step 2 is necessary, because
+the adversary queries before $Q^*$ is revealed. Two constraints repair the game, and
+they are not equivalent.
+
+\begin{definition}[$\Delta$-separated challenge distribution]
+\label{def:packing}
+$\Q$ is $\Delta$-separated if every $Q^*$ in its support satisfies
+$\min_{j \ne j'} d_\X(q^*_j, q^*_{j'}) \ge \Delta$. The $\Delta$-packing number of
+$\X$ upper bounds the challenge count $k$.
+\end{definition}
+
+\begin{definition}[$h$-unpredictable challenge distribution]
+\label{def:minent}
+$\Q$ is $h$-unpredictable if $H_\infty(Q^*) \ge h$, so no algorithm guesses $Q^*$
+with probability better than $2^{-h}$.
+\end{definition}
+
+Definition~\ref{def:packing} is geometric and rules out
+Proposition~\ref{prop:sep}. Definition~\ref{def:minent} is information-theoretic
+and rules out an adversary that precomputes answers for a predictable challenge
+set. A game that prices an adversary needs both, because packing alone permits a
+fixed challenge set and min-entropy alone permits a clustered one. The pair is the
+analogue of requiring distinct and unpredictable challenge messages in an
+indistinguishability game.
+
+\section{The decision variant}
+\label{sec:ind}
+
+The search game asks the adversary to produce a value. The crypto-native form asks
+it to distinguish, giving an advantage against a coin rather than against a
+maximization over baselines.
+
+\begin{game}[$\mathsf{Extr}\text{-}\mathsf{IND}$]
+\label{game:ind}
+As Game~\ref{game:g2} through step 3. Then $\Lrn$ samples $b \leftarrow \{0,1\}$.
+If $b = 0$ it returns $y_j = f(q^*_j)$ for each $j$. If $b = 1$ it returns
+$y_j \sim \mathcal{R}(q^*_j)$, independently across $j$, for a reference
+distribution $\mathcal{R}$ independent of $f$. $\A$ outputs $b'$ and wins if
+$b' = b$. Its advantage is $\Adv^{\mathsf{IND}}(\A) = |\Pr[b'=b] - \tfrac12|$.
+\end{game}
+
+\begin{proposition}[Search implies decision]
+\label{prop:s2d}
+Let $\A$ win Game~\ref{game:g2} with probability $p$. Define
+\[
+q \;=\; \mathbb{E}_{f, Q^*, \text{coins of } \A}
+\left[\; \prod_{j \le k}
+\Pr_{y_j \sim \mathcal{R}(q^*_j)}\!\left[\, d_\Y(y_j, r^*_j) \le \varepsilon \,\right]
+\right],
+\]
+the probability that a full reference vector falls within tolerance of $\A$'s own
+predictions. Then there is a distinguisher $\A'$ with
+$\Adv^{\mathsf{IND}}(\A') = \tfrac12|p - q|$, running in the time of $\A$ plus $k$
+distance evaluations.
+\end{proposition}
+
+\begin{proof}
+$\A'$ runs $\A$ to completion on $(Q^*, R)$ to obtain $(r^*_1,\dots,r^*_k)$, and
+only then reads $(y_1,\dots,y_k)$. It outputs $b'=0$ if $d_\Y(y_j, r^*_j) \le
+\varepsilon$ for all $j$, and $b'=1$ otherwise. Because $\A$ has finished before
+$y$ is read, the vector $r^*$ is independent of $y$ given $Q^*$, and because the
+$y_j$ are independent across $j$ the acceptance probability under $b=1$ is the
+product above. Hence $\Pr[b'=0 \mid b=0] = p$ and $\Pr[b'=0 \mid b=1] = q$, so
+$\Pr[b'=b] = \tfrac12(p + 1 - q)$ and the advantage is $\tfrac12|p-q|$.
+\end{proof}
+
+The converse is the interesting direction and is not available in general. The
+nearest published statement is Alvarez-Melis, Garg and Kalai~\cite{AGK22}, and it
+must be quoted carefully because the paper describes the same reduction from both
+ends. Its introduction calls the result ``a polynomial-time reduction from
+likelihood maximization to next-token distinguishability'', while the body
+concludes that its Algorithm 1 with Theorem 1 and Lemma 3 ``yields a
+polynomial-time reduction from distinguishing distributions to maximum likelihood
+estimation for sequential models''. The unambiguous operational statement is that
+Algorithm 1 converts a next-token distinguisher into a likelihood improvement, so a
+distinguisher yields a better generator, and no converse is stated in that model.
+Two further boundaries hold. The two-directional result is in a different section
+and is not polynomial time, the paper noting that repeating its efficient step
+gives an exponential-time algorithm overall. And no distinguisher anywhere in the
+paper carries a runtime bound, although the next-token result does fix a
+distinguisher class supplied by an oracle.
+
+\begin{openq}
+\label{oq:converse}
+Is there a polynomial-time reduction from $\mathsf{Extr}\text{-}\mathsf{IND}$ to
+$\mathsf{Extr}^{\mathrm{lrn}}$ under a $\Delta$-separated, $h$-unpredictable
+challenge distribution? A positive answer makes the decision game the definition of
+record and the search game a corollary.
+\end{openq}
+
+\begin{openq}
+\label{oq:adapt}
+Prove by coupling that the adaptive mode of Game~\ref{game:g2} is at least as hard
+for the adversary as the committed mode, or exhibit a $\Q$ where it is not.
+\end{openq}
+
+\section{Pricing the two parties}
+\label{sec:price}
+
+Every game above is a predicate on a transcript. It becomes a security notion only
+when both parties carry a budget, and the budget must be written so that the
+adversary cannot inflate its own allowance.
+
+Measure cost in evaluations of $f$, so all quantities are dimensionless. The
+adversary's total cost is $t_\A(n) = m + T_\A/C_{\INFER}$, where $m$ is its query
+count and $T_\A$ its own computation. The honest reference cost is $k(n)$, the
+number of evaluations the learner needs to produce the $k$ challenge answers it is
+adjudicating against.
+
+The reference cost deliberately excludes both the $m$ queries the learner answers
+and the cost of training $f$. Excluding the queries matters, because a threshold
+that depended on $m$ would rise as the adversary queried more, letting the
+adversary raise its own admission bar. Excluding training matters because a
+threshold dominated by pre-training is met by no query-bounded adversary and the
+definition would be vacuous.
+
+\begin{definition}[$\delta$-extraction hardness]
+\label{def:fg}
+A family $\{(\M_n, \Q_n, k(n), \varepsilon(n))\}_n$ is $\delta$-extraction hard if
+for every adversary $\A$ with $t_\A(n) < k(n)^{1+\delta}$ for all large $n$,
+\[
+\Adv^{\mathsf{Extr}}_{\M_n,\Q_n}(\A) \;\le\; \mathrm{negl}(n).
+\]
+\end{definition}
+
+The name carries only $\delta$, deliberately. Calling it
+$(\varepsilon,\delta)$-hardness would collide with Brzuska and
+Couteau~\cite{BC22}, where $\varepsilon$ bounds the inverter's success
+probability, whereas $\varepsilon$ here is the game's tolerance. Three cautions
+apply and the survey must state all three.
+
+\begin{enumerate}
+  \item \textbf{Three conventions, not one.} Brzuska and Couteau use non-uniform
+        circuit size with the honest cost raised to $1+\delta$~\cite{BC22}.
+        LaVigne, Lincoln and Vassilevska Williams use uniform word-RAM time and
+        name the gap as a constant $\delta$ separating honest $T^{1-\delta}$ from
+        the threshold $T$~\cite{LLW19}. Ball, Rosen, Sabin and
+        Vasudevan~\cite{BRSV17} index their error by the adversary's own discount
+        as well as by $n$, so one number does not describe their notion. Quoting
+        one convention's $\delta$ in another's units is an error, and
+        Definition~\ref{def:fg} is in the first convention.
+  \item \textbf{The known ceiling is a query bound.} Barak and
+        Mahmoody~\cite{BM09} show an adversary making $O((n/\delta)^2)$
+        \emph{oracle queries} breaks any $n$-query key exchange in the random
+        oracle model, and note their adversary runs efficiently in a relativized
+        world where $\mathrm{P} = \mathrm{NP}$. That forbids a super-quadratic
+        \emph{query} gap in an idealized model. It says nothing about time gaps or
+        structured assumptions, so Definition~\ref{def:fg} is not capped at
+        $\delta = 1$ by it.
+  \item \textbf{The exponent is on a dimensionless count.} Raising a cost in
+        seconds or FLOPs to the power $1+\delta$ is not invariant under a change of
+        unit. Measuring in evaluations of $f$ removes the ambiguity, and matches
+        Brzuska and Couteau, whose $|f|$ is a circuit size.
+\end{enumerate}
+
+\section{Model stealing under an abstracted distance}
+\label{sec:steal}
+
+Extraction of the function itself is the same game with the output replaced by a
+model. The difficulty is that the natural distance is the wrong one. Two networks
+that agree everywhere differ in weights, and a transformer's trunk is largely a
+product of pre-training that no attacker needs to steal.
+
+Let $\rho$ be a \emph{read-out map} carrying a model to the part of it that
+matters, and let $D_\rho(f,f') = d(\rho(f), \rho(f'))$.
+
+\begin{game}[$\mathsf{Steal}_\rho$]
+\label{game:steal}
+As Game~\ref{game:g2} through step 2. Then $\A$ outputs a model $f'$, and wins if
+$D_\rho(f, f') \le \varepsilon$.
+\end{game}
+
+\begin{proposition}[Stealing implies answering]
+\label{prop:steal}
+Let $\rho$ restrict a model to the support of $\Q$ and let $d$ be the supremum
+distance. If $\A$ wins $\mathsf{Steal}_\rho$ with tolerance $\varepsilon$, then
+evaluating $f'$ at each challenge wins Game~\ref{game:g2} with the same
+$\varepsilon$, at the cost of $k$ evaluations of $f'$.
+\end{proposition}
+
+\begin{proof}
+$d_\Y(f'(q^*_j), f(q^*_j)) \le \sup_{q \in \mathrm{supp}\,\Q} d_\Y(f'(q),f(q)) =
+D_\rho(f,f') \le \varepsilon$ for every $j$.
+\end{proof}
+
+The converse fails without a covering condition. Answering $k$ separated challenges
+pins $f$ at $k$ points, and $k$ points determine $f$ on the support only if they
+form an $\alpha$-net for a modulus of continuity bounding $f$. This is where
+Definition~\ref{def:packing} does work beyond ruling out
+Proposition~\ref{prop:sep}: the packing number bounds how many separated challenges
+exist, and the covering number bounds what $k$ challenges can certify.
+
+\begin{openq}
+For which $(\rho, \Q, k)$ does winning Game~\ref{game:g2} on a $\Delta$-separated
+challenge set imply winning $\mathsf{Steal}_\rho$? A quantitative answer converts a
+query-complexity bound into a model-extraction bound and back.
+\end{openq}
+
+The choice of $\rho$ decides what the theorem is about and must be stated rather
+than assumed. Jagielski et al.~\cite{JCBKP20} separate the two natural choices as
+accuracy and fidelity objectives, and show they conflict for an imperfect victim,
+since a high-fidelity copy must reproduce the victim's errors and a high-accuracy
+copy must not. They also dismiss exact weight recovery as the wrong target, because
+ReLU networks sit in large behavioural equivalence classes closed under neuron
+rescaling, permutation and dead-neuron insertion. Any $\rho$ used here must be
+invariant under those symmetries or it measures an artifact.
+
+\section{The challenge generator as an oracle}
+\label{sec:oracle}
+
+In the adaptive mode the learner chooses $Q^*$ after seeing the adversary's
+queries. That choice is an algorithm, and leaving it unspecified hides a party
+whose power decides the game.
+
+Model it as an auxiliary oracle $\Oracle_{\mathrm{chal}}$ in the sense of Villa et
+al.~\cite{VDKMR26}, with its own $(\GEN, \LEARN, \INFER)$ and capability set. It
+need not be a language model. A derivative of $f$, or a smaller model trained on
+the same task, suffices.
+
+Three consequences follow.
+
+\begin{enumerate}
+  \item The capability set becomes the access coordinate of the survey's frame
+        directly. $\mathsf{black\_box}$ and $\mathsf{see\_model}$ separate the query
+        and white-box variants of every game above, and $\mathsf{inject\_learn}$
+        opens the poisoning variant in which $\A$ influences $f$ before the game.
+  \item Villa et al.\ separate completeness, measured with no adversary, from
+        security, measured against one. Game~\ref{game:g2} needs the same split,
+        because a challenge set the honest learner cannot itself answer within
+        $\varepsilon$ makes the game unwinnable for reasons unrelated to the
+        adversary.
+  \item A filtering impossibility bears on how cheap $\Oracle_{\mathrm{chal}}$ can
+        be, and its attribution matters. The result is Ball et al.~\cite{BGGKRR25},
+        which Villa et al.\ discuss rather than prove. It is \emph{existential}:
+        the abstract states that there exist language models for which no efficient
+        prompt filter works, and the construction assumes the model shares a secret
+        key with the attacker. It does not say that every judge must match the
+        complexity of its predicate. Read at its actual strength it suggests, and
+        does not establish, that a challenge generator too weak to compute the
+        property it tests cannot place hard challenges, which would put
+        $\Oracle_{\mathrm{chal}}$'s own cost inside the honest budget.
+\end{enumerate}
+
+\section{Where to reduce}
+\label{sec:reduce}
+
+The proposal asks what to reduce to when there is no instance in hand. Four answers
+exist.
+
+\paragraph{A definitional target with no reduction.} A game may stand as a
+definition before any instantiation. What this buys is a statement other results
+can be mapped into, which is the survey's goal. What it costs is that no theorem
+follows. The programme's own standing constraint is that the machinery here is
+off-the-shelf, so the contribution must be a theorem at a stated $\delta$ and not a
+definition. This option therefore satisfies the survey and not the thesis, and
+saying so is part of the report.
+
+\paragraph{Learning-theoretic exponents.} Two distinct papers are involved and
+conflating them is easy. Damian, Lee and Bruna~\cite{DLB25} give
+$n = \Theta(d^{1 \vee k^*/2})$ for Gaussian multi-index models with the generative
+leap exponent, with a low-degree lower bound and a matching efficient upper bound
+whose constant $C(P,K)$ is conjectured exponentially large in the index dimension.
+The detection caveat belongs to the single-index paper, Damian, Pillaud-Vivien, Lee
+and Bruna~\cite{DPLB24}, whose Remark 3.3 says its theorem primarily measures a
+detection threshold, and whose low-degree half is conditional on its Conjecture
+3.4. An adversary that must recover a value is doing estimation, whose threshold
+those authors leave open. Separately, multi-pass gradient descent with batch reuse
+escapes the information and leap exponents~\cite{DTAPZK24}, so these price
+single-pass training rather than intrinsic difficulty.
+
+\paragraph{Planted problems.} Planted clique, planted subgraph and continuous LWE
+supply average-case hardness with a long record. The caution is that restricted-class
+evidence and the security statement are different objects. Bogdanov, Jones, Rosen
+and Zadik~\cite{BJRZ24} build private simultaneous messages and secret sharing whose
+security quantifies over size-bounded circuits, with low-degree analysis offered as
+evidence for the underlying conjectures. No security definition there quantifies
+over a low-degree adversary. Buhai, Hsieh, Jain and Kothari~\cite{BHJK25} disprove
+the quasi-polynomial low-degree conjecture in the regime it was stated, so
+low-degree-bounded and quasi-polynomial-bounded are provably different. Two clauses
+travel with that: their polynomial-time distinguisher is for the rectangular
+generalisation, while in the square symmetric regime it is
+$n^{O(\log^{1/(k-1)} n)}$, and the positive counterpart~\cite{HKKLMT26} must be
+cited alongside.
+
+\paragraph{Fine-grained hard problems.} Average-case $k$-SUM and Zero-$k$-Clique
+carry fine-grained hardness and are the established route to a statement shaped
+like Definition~\ref{def:fg}~\cite{LLW19,BRSV17}. This is the target that matches
+the quantity, because the conclusion wanted here is a ratio and these are the only
+assumptions stated as ratios. The cost is a theorem about a constructed family
+rather than a deployed model, a boundary the survey already commits to stating.
+
+\section{What is already occupied}
+\label{sec:prior}
+
+\begin{itemize}
+  \item \textbf{The criterion, tolerance and baseline exist.} Balle, Cherubin and
+        Hayes~\cite{BCH22} define reconstruction robustness with an error function,
+        a tolerance $\eta$, and a baseline given by the best attack that ignores the
+        model. What is missing there is any bound on the adversary's computation.
+  \item \textbf{An extraction adversary priced by algorithm class exists, in a
+        security paper.} Jagielski et al.~\cite{JCBKP20} state as their Theorem 3,
+        imported from Das et al., that model extraction approaches expressible as
+        statistical-query algorithms require $\exp(O(h))$ samples for fidelity
+        extraction of depth-$h$ random networks, and note that gradient descent and
+        PCA are such algorithms. This is closer to the present proposal than
+        anything else found, and any claim of novelty must be stated against it.
+  \item \textbf{Charging the adversary compute per query is deployed.} Dziedzic et
+        al.~\cite{DKLP22} wrap every prediction in a proof-of-work puzzle whose
+        difficulty is calibrated to how much information the client has already
+        extracted, reporting under $2\times$ slowdown for legitimate users and up to
+        $100\times$ for attackers. It carries no definition and no theorem, which is
+        the gap, but ``prices the attack in compute'' without that qualifier is
+        already published.
+  \item \textbf{The query budget is already a definitional parameter.}
+        Chandrasekaran et al.~\cite{CCGJY19} give the pre-2023 literature its
+        closest thing to a formal extraction definition, with the query budget
+        inside it. Their reduction turns a query-synthesis active learner into an
+        extraction adversary, so extraction reduces to active learning and the
+        complexity figures travel in the upper-bound direction only. The converse,
+        that a class hard to actively learn is hard to extract, is neither proved
+        nor claimed.
+  \item \textbf{Extraction as cryptanalysis exists.} Carlini, Jagielski and
+        Mironov~\cite{CJM20} recover ReLU parameters by differential cryptanalysis
+        from real-valued oracle access. The attack uses polynomially many queries
+        but work exponential in layer width for sign recovery, and it is empirical.
+  \item \textbf{The success definition is reported missing from inside.} Shafran et
+        al.~\cite{SSEP24} state that they are aware of no model-extraction
+        literature that formally defines what makes an attack successful. The scope
+        of that statement is accuracy-driven extraction, with fidelity and
+        functionally equivalent extraction excluded, and the work is a preprint.
+  \item \textbf{The attacker-versus-honest ratio is stated, and parameterized by a
+        constant but never by an exponent.} Proof-of-learning requires that forging
+        cost at least as much as honest training, in its Property 2 and its
+        Definition 2, offering a conjecture in place of a proof~\cite{JYCDTCP21}.
+        Its Property 1 is a different inequality, bounding verification against
+        training. Later work does index the ratio, by a multiplicative constant in
+        Fang et al.~\cite{ZFWCSXZ26} and by efficiency and hardness parameters in
+        the compute-monitoring proposal of Shavit~\cite{Sha23}. What no work does is
+        index it by an exponent, which is the only form Definition~\ref{def:fg}
+        adds.
+\end{itemize}
+
+\section{Open problems, in the order they block progress}
+
+\begin{enumerate}
+  \item Open Problem~\ref{oq:converse}, the polynomial-time converse of
+        Proposition~\ref{prop:s2d}.
+  \item The covering condition under which Game~\ref{game:g2} implies
+        $\mathsf{Steal}_\rho$, quantitatively in $k$ and $\Delta$.
+  \item A read-out map $\rho$ invariant under the ReLU symmetries that Jagielski et
+        al.\ name, so that $D_\rho$ measures function and not parameterization.
+  \item An instance meeting Definition~\ref{def:fg} at an explicit $\delta$,
+        reduced to average-case $k$-SUM or Zero-$k$-Clique.
+  \item A separation between Definition~\ref{def:fg} and the statistical-query
+        bound of Jagielski et al.\ Theorem 3, exhibiting a family hard for a
+        compute-bounded adversary and easy for an unbounded statistical-query one,
+        or the reverse. Without it the exponent form adds no theorem.
+  \item The classification case, where the tolerance $\varepsilon$ and the
+        Lipschitz arguments of Section~\ref{sec:g1} do not apply.
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{../refs}
+
+\end{document}

@@ -4,9 +4,24 @@ type: concept
 tags: [llm-security, agentic-systems, threat-model, prompt-injection, formal-model]
 ---
 
+## Provenance warning
+
+**The name "IMTM" is not the paper's.** The string occurs zero times in
+`raw/FTH+25_IMTM.pdf`, and zero times across all 175 PDFs in `raw/`. It occurs twice in the
+secondary survey artifact at `.sink/compass_artifact_wf-6dd26eed-7b63-4913-af9a-4d6edcae8017_text_markdown.md`,
+which is where an earlier ingest took it from and then attributed it to Ferrag et al. The raw filename
+`FTH+25_IMTM.pdf` inherits the same error.
+
+Treat this page as a wiki-local label for a family of attacks, not as a named object in the
+literature. Do not cite "IMTM" to any paper. The formalization below has **not** been checked against
+the paper and may be equally invented; verify every clause against
+[the source page](../sources/imtm-prompt-injections-protocols.md) before use. Recorded 2026-08-20
+rather than deleted, so the error is not reintroduced from memory.
+
 ## Definition
 
-The **Input Manipulation Threat Model (IMTM)** [Ferrag-Tihanyi-Hamouda-Maglaras-Lakas-Debbah, arXiv:2506.23260 / 2025] is a unified mathematical model of attacks on LLM-agent systems where an attacker U manipulates an input x = (prompt, context, tool-responses) to induce a target output y* from an LLM M. Success is formalized via (x, y*) satisfying the attacker's objective predicate φ_attack.
+The following is recorded as it was written by an earlier ingest and is **unverified**. The
+**Input Manipulation Threat Model (IMTM)** [Ferrag-Tihanyi-Hamouda-Maglaras-Lakas-Debbah, arXiv:2506.23260 / 2025] is a unified mathematical model of attacks on LLM-agent systems where an attacker U manipulates an input x = (prompt, context, tool-responses) to induce a target output y* from an LLM M. Success is formalized via (x, y*) satisfying the attacker's objective predicate φ_attack.
 
 IMTM unifies several previously-separate attack categories under one formal representation:
 - **Direct Prompt Injection (DPI)**: attacker is the user; x is user-provided.

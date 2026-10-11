@@ -32,6 +32,7 @@ Standard interpolation (e.g., nearest-neighbor, 1-NN) only requires n parameters
 ## Where It Appears
 
 - [Universal Law of Robustness](../sources/universal-law-of-robustness.md) — proved here
+- [Overparameterization from Computational Constraints](../sources/overparameterization-computational-constraints.md) — the computational counterpart: a parameter price paid only by the *bounded* learner, existential and conditional on one-way functions, where this law is universal and unconditional. That paper's abstract claims to "extend" Bubeck–Sellke; it does not use the law technically.
 - Motivates the empirical connection between model size and robustness
 
 ## Related Concepts
@@ -39,6 +40,7 @@ Standard interpolation (e.g., nearest-neighbor, 1-NN) only requires n parameters
 - [Concentration of Measure](concentration-of-measure.md) — isoperimetry underlies both; the two laws are dual views of the same geometry
 - [Evasion Attacks](evasion-attacks.md) — the law explains why insufficient parameterization leads to adversarial vulnerability
 - [Computational Concentration of Measure](computational-concentration-of-measure.md)
+- [Model Size as a Priced Resource](model-size-as-priced-resource.md) — the axis both laws sit on
 
 ## Open Questions
 

@@ -1,0 +1,33 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{The \NearMiss{} works whose stated tightness and treatment of the bound disagree. Kind records what the quantity is: \NearMissAdv{} hold an adversary's or auditor's cost, \NearMissTrain{} a training cost, and \NearMissCap{} a capability or a mechanism parameter.}
+\label{tab:nearmiss}
+\begin{tabular}{@{}lp{3.2cm}p{2.4cm}p{6.6cm}p{2.7cm}@{}}
+\toprule
+Work & Kind & Tightness, treatment & Quantity held & Where \\
+\midrule
+\cite{DKLP22} & adversary's cost & measured, explicit & attacker compute raised up to a hundredfold by a proof-of-work puzzle, measured & abstract \\
+\cite{NCM25} & adversary's cost & budget, implicit & a $q$-query adversary, fixed as a definition and not studied & admissible-adversary definition \\
+\cite{BGGKRR26} & adversary's cost & relative, implicit & filter time $o(t^{\varepsilon})$ against model time $t$, a side condition of Theorem 1 & Theorem 1 \\
+\cite{ZDKT25} & adversary's cost & unstated, implicit & the cost of retraining a large model to sample the null, assessed and never stated as a bound & abstract \\
+\cite{ZFWCSXZ26} & adversary's cost & budget, implicit & a dishonest prover's cost per epoch, assumed to be zero & Section 3.3 \\
+\cite{DJYWWMNL26} & adversary's cost & measured, explicit & forging cost of 1.1 to 4 times honest proof generation, measured & evaluation \\
+\cite{FK24} & adversary's cost & budget, implicit & the number of queries left to the adversary, a game parameter not studied & security game \\
+\cite{CGZ24} & adversary's cost & measured, explicit & one query per output token to remove the watermark, and a cost ratio in dollars & Theorem 11 and evaluation \\
+\cite{ZCSL24} & adversary's cost & relative, implicit & forging time equal to retraining time, reported beside a validity criterion that ignores it & Proposition 4.5 \\
+\midrule
+\cite{HBEORGATS24} & training cost & measured, explicit & the compute needed for a fixed loss, halving every eight months, measured & abstract \\
+\cite{SGSGM22} & training cost & measured, explicit & the exponent of a scaling law in data, measured & experiments \\
+\cite{BAP25} & training cost & measured, explicit & the exponent of a scaling law, measured & experiments \\
+\cite{BEGKMZ22} & training cost & measured, explicit & steps to convergence as a power law $t_c \propto n^{\alpha k}$, measured & experiments \\
+\cite{BBHS22} & training cost & budget, implicit & the learner's calls to an empirical risk minimization oracle & Theorem 3.1 \\
+\midrule
+\cite{CGBSHC22} & capability or mechanism & budget, implicit & a norm bound on the perturbation, fixed as a definition and not studied & attack definition \\
+\cite{SAHBS26} & capability or mechanism & budget, implicit & the mechanism's privacy budget, with the adversary left unconstrained & main theorem \\
+\cite{YHGA25} & capability or mechanism & class, implicit & the class of local unlearning algorithms, a definition & definition of a local algorithm \\
+\cite{CAPBRTGMK19} & capability or mechanism & budget, implicit & the perturbation budget fixed as a definition, while attacker compute is rejected in the text & Sections 2.2.2 and 4.8 \\
+\cite{RT24} & capability or mechanism & measured, explicit & a corruption fraction of half a per cent of preference data, measured & evaluation \\
+\bottomrule
+\end{tabular}
+\end{table*}

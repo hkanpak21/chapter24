@@ -253,8 +253,8 @@ Filled the highest-leverage citation gaps identified during the lint pass — pa
 Created `output/` folder at project root and wrote a primitive end-to-end proof.
 
 **Files**:
-- [output/README.md](../output/README.md) — index tying external reports (compass deep-research artifact), wiki analyses (reading-pathway, web-research-frontier, deep-research-prompt), and the proof PDF.
-- [output/proof.pdf](../output/proof.pdf) — 6-page LaTeX-compiled proof. Contains an end-to-end derivation: black-box adversary attacking the output of an SQ-implementable learner trained on a planted-clique-encoded dataset has distinguishing advantage bounded by the FGRVX17 SQ-PC lower bound *evaluated at the learner's parameters* — adversary's own query budget does not enter. LaTeX source: `.tools/proof.tex`. Compiled with locally-installed Tectonic 0.16.9 in `.tools/tectonic`.
+- [exp/README.md](../exp/README.md) — index tying external reports (compass deep-research artifact), wiki analyses (reading-pathway, web-research-frontier, deep-research-prompt), and the proof PDF.
+- [exp/proof.pdf](../exp/proof.pdf) — 6-page LaTeX-compiled proof. Contains an end-to-end derivation: black-box adversary attacking the output of an SQ-implementable learner trained on a planted-clique-encoded dataset has distinguishing advantage bounded by the FGRVX17 SQ-PC lower bound *evaluated at the learner's parameters* — adversary's own query budget does not enter. LaTeX source: `.tools/proof.tex`. Compiled with locally-installed Tectonic 0.16.9 in `.tools/tectonic`.
 
 **The theorem in one line**: For (q_L, τ_L)-SQ-implementable learner L with vertex-row encoding D_G of graph G drawn from P_n,0 or P_n,k, any black-box adversary A satisfies adv(A) ≤ adv_SQ(n, k, q_L, τ_L) — the FGRVX17 SQ-PC distinguishing-advantage bound at the learner's parameters.
 
@@ -451,3 +451,169 @@ session rate limit (2025–2026 single-sourced items marked †; maintainer-fill
 the workflow is resumable from cache to finish. Candidate ingests surfaced: Liu–Pass 2020, IRS 2022,
 HILNO 2023, Hirahara 2022, Liu–Mazor–Pass 2025 (white-box learning), DNRRV09+Ullman13, Song 2024,
 DPVLB 2024, GVV22, Tiegel 2023/24, Daniely–Vardi 2021.
+
+## [2026-07-25] analysis | Native asymmetry in learning — where a security gap can come from
+
+Wrote `wiki/analyses/native-asymmetry-in-learning.md`. Answers the structural question behind the
+recurring objection that crypto→ML constructions "don't come natural": if the defender is efficient
+and the adversary is efficient over the same source, where does any asymmetry come from?
+
+**Audit.** Crypto has three asymmetry shapes (direction / knowledge / verification), all manufactured.
+Of the four ML task-pairs, only train-vs-invert has the right sign — an independent derivation of why
+the privacy corner is load-bearing. The structural reason: learning's parties are asymmetric *by
+access*, never *by construction*; there is no primitive only one party can evaluate. This explains DP's
+incumbency, Groce–Katz–Yerukhimovich TCC'11, and why GJMM20/GKVZ22 must weld on a signature or a
+lattice trapdoor. Honest limit recorded: "different tasks, different complexity" is Naor STOC'96 +
+Viola SICOMP, and the detection⟺generation equivalence for learned distributions is *proved*
+(Alvarez-Melis–Garg–Kalai NeurIPS'22 §5) — §1 is proposal framing, not a contribution.
+
+**Mursit's two native sources** (the page's structural core): (a) *knowledge of the data* — in leakage
+attacks the data-knowledge IS the contested asset, so asymmetry and objective coincide; (b) *access to
+parts of the algorithm* — in backdoor settings the asymmetry is operational (arbitrary weight-setting
+vs. a bounded injected update; finding a malicious sample vs. detecting one). These map onto
+independent components of `κ`: (a) = `O`, (b) = `T,B,mode`. Structural prediction recorded: corner (a)
+can support a native security statement, corner (b) cannot and must import.
+
+**RETRACTION.** The `CLAUDE.md` line "no security definition quantifies over SQ/low-degree adversaries"
+is false — Bogdanov–Jones–Rosen–Zadik TCC'24 (arXiv:2409.16227) + Abram et al. TCC'23 define crypto
+security against low-degree distinguishers. Both earlier sweeps searched the ML-security literature;
+the result lives in the crypto literature. `CLAUDE.md` corrected.
+
+**Other occupied cells found:** attacker-needs-more-samples-than-trainer is published (Haghifam–Smith–
+Ullman arXiv:2508.19458, MIA vs Gaussian mean estimation, quadratic gap, IT units); security-relevant
+SQ separation exists (BPR19 — but the *defender* fails); attacker-as-restricted-class-learner is
+occupied in crypto units (Canetti–Karchmer TCC'21, Karchmer SaTML'23, CHLX25, arXiv:2504.20310).
+
+**Survives**, verified by citation-graph sweep (0 security citers across BGJ'21 / ABM COLT'22+'23 /
+DPVLB COLT'24 / generative-leap, n=148/152/152/43/8): attacker and defender priced in the *same*
+exponent units, separated at matched budget, attacker restricted to training's own algorithm class.
+Song NeurIPS'24 §1.3.2 names "discriminators with bounded compute or memory" as open from inside the
+CLWE literature; Gaussian pancakes are simultaneously SQ-hard and lattice-hard, confirming hCLWE.
+
+**Hard constraint found:** Song §1.3.3 proves black-box access to a sampler cannot solve Gaussian
+pancakes — the membrane, proved, and it kills the schedule's `κ_inf`-first ordering. Start white-box.
+
+**Schedule amendments filed:** W10's deliverable targets a dead object (`COMP-MEM` marginal advantage);
+"all PPT first" inverts; "black-box first" inverts. Revised read order: HSU 2508.19458 §1.3 first.
+All † entries are single-sourced and unread — verification debt recorded on the page.
+
+## [2026-07-26] ingest | Reconstruction / fiber corpus — 10 sources, 2 concepts
+
+Batch ingest of the papers surfaced by the fiber prior-art sweep. **Provenance: built from verified
+sweep extractions (quotes pulled from primary PDFs), not from full reads.** Every page carries a
+banner saying so and states what a full read still owes.
+
+Sources: dinur-nissim-revealing-information (PODS'03), cohen-data-reconstruction (ITCS'25),
+suliman-data-forging-attacks (USENIX Sec'25), kaplan-bayesian-memorization-reconstruction (ITCS'26),
+haghifam-sample-complexity-mia, jagielski-model-extraction (USENIX Sec'20), proof-of-learning (S&P'21),
+song-cryptographic-hardness-score-estimation (NeurIPS'24), bogdanov-low-degree-planted-subgraph (TCC'24),
+xiao-formal-privacy-proof-data-encoding (CCS'24 — unread, scope unverified).
+
+Concepts: fiber-of-the-training-map, computational-vs-statistical-memorization.
+
+**Why this corpus exists.** The fiber framing written up in `output/fibers-of-the-training-map.md` was
+refuted at its core. Dinur–Nissim PODS'03 makes the size-vs-navigability split its main theorem (§3
+"Exponential Adversary" vs §4 "Polynomially Bounded Adversary"), and the OLS reconstruction example is
+theirs. Cohen et al. ITCS'25 Def C.1 already gives a computational reconstruction-resilience notion and
+proves it equivalent to one-wayness, which occupies "is training a one-way function." Kaplan et al.
+ITCS'26 asks the computational-vs-statistical memorization question directly.
+
+**What survived and is now the designated target:** Suliman et al. USENIX Sec'25 conjecture that finding
+gradient-equivalent mini-batches *within domain constraints* may be computationally infeasible, state it
+in one paragraph, and stop. Jagielski et al. proved the analogous NP-hardness for the **evaluation** map
+only. The training-map version is open, has a named published conjecture attached, and cannot be scooped
+by reframing.
+
+Obstacles recorded: Xiao–Suh–Devadas CCS'24 (learnable encodings get no worst-case crypto security);
+Proof-of-Learning as the same quantity under another name; the 17-year-old open question of whether
+computational boundedness buys anything over statistical DP in the single-curator setting.
+
+Methodological note carried into the Bogdanov page: two sweeps missed the low-degree security line
+because both searched the ML-security literature while the result lives in the crypto literature. Sweep
+the venue where the *technique* lives.
+
+## [2026-08-20] ingest + audit | Adversary-resource corpus, 71 new source pages, and a quote-integrity finding
+
+**Scale.** `raw/` went from 80 to 164 PDFs, all catalogued with boundary notes in `raw/SOURCES.md`.
+`wiki/sources/` went from 85 to 156, concepts from 49 to 83, entities from 68 to 111. One paper could
+not be fetched and was supplied by hand; the unfetchable-paper channel is `.sink/paywalled.md`.
+
+**Why this corpus.** A survey is being built in `exp/survey/` on the question of which party a security
+definition constrains, in what resource, and how tightly. The material added covers the regions that
+were absent: fine-grained cryptography, memory- and space-bounded adversaries, computational
+differential privacy and its boundary conditions, the evaluation-critique literature, compute
+accounting in machine learning, and learning theory's own complexity units.
+
+**Schema change.** Every page ingested today carries `claim_quantifier` and `antecedent` in front
+matter and a `## Claim Boundary` section stating what the claim ranges over, what it is conditional
+on, what it does not establish, and where the abstract overstates the theorem. Adversary-facing pages
+carry `adversary_bound`; learning-theory pages carry `model_class` and `algorithm_class`. Three
+conventions were added to the root `CLAUDE.md`: no process language in wiki prose, a counter-result is
+a limit rather than a sibling, and the `grep -a` requirement for extracted PDF text.
+
+**Corrections to standing claims**, all verified against primary PDFs. The Ngo–Kim entry was
+retracted: its soundness quantifies over an unrestricted cheating prover, not SQ adversaries. The
+Groce–Katz–Yerukhimovich exclusions were pinned verbatim and name classifiers, graphs and synthetic
+databases as outside the impossibility. The Buhai et al. FOCS'25 disproof of the quasi-polynomial
+low-degree conjecture was recorded, with its positive counterpart. The generative-exponent threshold
+was corrected from recovery to detection. `curse-of-concentration` gained a `Limits` section recording
+that its hypothesis was measured and does not bind on image benchmarks, and that "concentration" names
+two opposite geometric properties across the two literatures. `filter-impossibility-ai-alignment` was
+restated as existential; it previously carried a universal reading and a regulatory conclusion drawn
+from it. `win-win-robust-learning` had an invalid inference removed: the theorem is an implication,
+and believing one-way functions exist licenses nothing about which tasks are hard.
+`jagielski-model-extraction` and `proof-of-learning` were rebuilt from their primary PDFs, which
+recovered a missing SQ sample lower bound and two of three compute inequalities respectively.
+
+**Quote-integrity finding.** All 164 PDFs were extracted and every blockquote in `wiki/sources/` was
+matched against them with punctuation- and hyphenation-proof comparison. Two contamination paths were
+found and 30 passages corrected in place. Sixteen quotes across thirteen pages were the compass survey
+artifact's own editorial prose presented as quotation from the papers; strings such as "the cleanest
+current theoretical extension" occur in that artifact and in none of the 164 papers. Fourteen quotes
+across eleven core-theory pages are paraphrases absent from their own paper: Bubeck–Sellke never
+states "overparameterization is necessary", and Gilmer et al. write "We hypothesize that this behavior
+is due to". Corrected passages are marked in place, not deleted. A page-by-page quote check over the
+remaining pages that lack `claim_quantifier` is still owed, and until it is done no quotation from
+such a page may be carried into the survey.
+
+**Repair.** The `output/` to `exp/` rename had left eleven dead internal links; all now resolve, and a
+whole-wiki link check reports zero broken.
+
+## [2026-08-22] ingest | Hidden Progress in Deep Learning: SGD Learns Parities Near the Computational Limit
+
+## [2026-08-22] ingest | Neural network learns low-dimensional polynomials with SGD near the information-theoretic limit
+
+## [2026-08-22] ingest | SGD Finds then Tunes Features in Two-Layer Neural Networks with Near-Optimal Sample Complexity: A Case Study in the XOR problem
+
+## [2026-08-22] ingest | Repetita Iuvant: Data Repetition Allows SGD to Learn High-Dimensional Multi-Index Functions
+
+## [2026-08-22] ingest | Full-Batch Gradient Descent Outperforms One-Pass SGD: Sample Complexity Separation in Single-Index Learning
+
+## [2026-08-22] ingest | Transformers Provably Learn Sparse XOR with Polylogarithmic Parameters
+
+## [2026-08-22] ingest | Learning single-index models via harmonic decomposition
+
+## [2026-08-22] ingest | Scaling Laws for Neural Language Models
+## [2026-08-22] ingest | Training Compute-Optimal Large Language Models (Chinchilla)
+## [2026-08-22] ingest | Explaining Neural Scaling Laws
+## [2026-08-22] ingest | 4+3 Phases of Compute-Optimal Neural Scaling Laws
+## [2026-08-22] ingest | A Dynamical Model of Neural Scaling Laws
+## [2026-08-22] ingest | How Feature Learning Can Improve Neural Scaling Laws
+## [2026-08-22] ingest | Distillation Scaling Laws
+## [2026-08-22] ingest | Beyond neural scaling laws: beating power law scaling via data pruning
+## [2026-08-22] ingest | Algorithmic Progress in Language Models
+## [2026-08-22] ingest | From Information to Generative Exponent: Learning Rate Induces Phase Transitions in SGD
+
+Wave 6, neural scaling laws, ten source pages plus two replication PDFs catalogued
+(`Bes24_ChinchillaReplication.pdf`, `PSM+24_ReconcilingScaling.pdf`) inside the Chinchilla page's
+Limits section. Every page records the algorithm class its law holds for, whether the law is
+proven-within-model, an empirical fit, or heuristic, and what would break it, plus one sentence on
+the no-skipping postulate. The Chinchilla replication dispute is recorded as a Limit, not a sibling.
+The TME25 abstract claim (beyond-CSQ without sample reuse) was verified against Corollary 4.3 and
+holds with two clauses: one-pass means no sample crosses iterations, yet each fresh sample is used
+twice within its iteration, and the plain two-layer variant is governed by IE(σ*²) with the
+generative exponent reached only via the depth-D extension. Cross-links added on
+`generative-exponent-single-index` and `reusing-batches-breaks-exponents`. `wiki/index.md` not
+touched.
+## [2026-08-22] ingest | Chinchilla Scaling: A Replication Attempt
+## [2026-08-22] ingest | The Random Oracle Methodology, Revisited

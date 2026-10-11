@@ -3,9 +3,31 @@ title: "Lower Bounds for Adversarially Robust PAC Learning"
 type: source
 date_ingested: 2026-05-07
 authors: [Dimitrios I. Diochnos, Saeed Mahloujifar, Mohammad Mahmoody]
-venue: "arXiv:1906.05815 (2019)"
-year: 2019
+venue: "ISAIM 2020"
+venue_evidence: "dblp: conf/isaim/DiochnosMM20, inproceedings, same title and same three authors as the CoRR abs/1906.05815 preprint entry; a distinct paper 'Lower Bounds for Adversarially Robust PAC Learning under Evasion and Hybrid Attacks' by the same authors appeared separately at ICMLA 2020"
+year: 2020
 tags: [adversarial-ml, PAC-learning, sample-complexity, concentration-of-measure, learning-theory, evasion-attacks, poisoning-attacks]
+claim_quantifier: conditional
+antecedent: "Two conditions, both stated in the paper: the input space is a Normal Lévy family with concentration function α_n(b) ≤ k₁·e^{−k₂b²/n}, and the concept class is α-close, meaning that for every α in [2^{−Θ(n)}, 1] two concepts disagree on exactly measure α. Both are known to hold for the theoretical spaces instantiated (isotropic Gaussian under ℓ₂, uniform hypercube under Hamming, the n-sphere) and are not established for natural data. The result also requires the error-region definition of adversarial risk rather than the corrupted-input one."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: samples
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "Any PAC learning algorithm that is robust against all attacks with a sublinear tampering b = o(n) budget under the metric d requires exponential sample complexity m ≥ 2^Ω(n)"
+cls_evidence_src: "Thm 3.4 Part 1a"
+cls_reason: "Neither bounded party is computational: the learner is bounded only in sample complexity (frame=statistical in isolation, per the audit note) and the evasion adversary is information-theoretic with unbounded computation, bounded only by a tampering budget b=o(n) (frame=capability in isolation). Rule 4's tie-break ('if both or neither are computational, the adversary's bound decides') therefore gives the row to the attacker: party=attacker, unit=perturbation, tightness=budget, frame=capability, with the learner's exponential sample requirement recorded as second_party=samples. access=none and write=read only match the sibling evasion-sample-complexity pages (adversarial-examples-computational-constraints, adversarially-robust-pac-regression, adversarial-vulnerability-any-classifier): no white-box/black-box/query terminology appears anywhere in the PDF (grepped), the adversary's function A[D,c,h] is an information-theoretic worst-case formalization, not an operationalized access model. Classified on Theorem 3.4 Part 1a/1b (pure evasion, the abstract's headline claim), not Part 2's hybrid poisoning-then-evasion result, which introduces a third party (a poisoner bounded by a corruption fraction lambda) outside the main claim's shape (rule 1). baseline=n/a, matching the sibling evasion pages, not the sample-complexity contrast with the no-adversary or corrupted-input settings, which is a scope statement, not a stated advantage-over-baseline."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -13,6 +35,14 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, concentration-of-measure
 This paper initiates a formal study of PAC learning under *error-region* evasion attacks — where the adversary's goal is to misclassify the perturbed instance under the *true label of the perturbed point*, i.e., $h(\tilde{x}) \neq c(\tilde{x})$. This is distinct from the *corrupted-input* notion used in all prior robust PAC learning work (Madry, Attias, Bubeck, Montasser, Cullina), where the adversary succeeds if $h(\tilde{x}) \neq c(x)$ using the original label. For natural image distributions the two notions coincide; in general they can diverge, and the distinction drives an exponential separation in sample complexity.
 
 The paper proves two main results. First, for any realizable learning problem over a Normal Lévy family input space with an $\alpha$-close concept class, PAC learning robust to sublinear perturbations requires exponentially many samples in $n$, even though the same problem is PAC learnable with polynomially many samples without an adversary. Second, under *hybrid attacks* (a poisoning phase followed by an evasion phase), PAC learning is sometimes *impossible* altogether, even for concept classes with VC dimension bounded by $n$.
+
+## Claim Boundary
+
+- **Quantified over:** all realizable learning problems satisfying Conditions 1 and 2, and within those, all learners. The universal quantifier over learners is what makes the bound information-theoretic; the outer quantifier is restricted by the two conditions and is not a statement about learning problems in general.
+- **Antecedent:** Normal Lévy structure on the input space and an α-close concept class, both listed under "Two Conditions for the Main Theorem" below. Neither has been shown to hold for image or text distributions. The result is further conditional on the error-region definition of adversarial risk; under the corrupted-input definition used by most of the robust-PAC literature, the overhead is only polynomial, and the paper says so.
+- **Which party is constrained:** the **learner**, in sample complexity. The adversary is information-theoretic, with unbounded computation, and is limited only by the perturbation budget b = o(n), which is a geometric constraint. For the hybrid result the poisoner is additionally limited to removing a 1/n¹⁰ fraction of the training set, again a counting budget rather than a compute bound. The algorithmic companion that does price attacker time is [Computational Concentration of Measure](computational-concentration-of-measure-etesami.md).
+- **Does not establish:** (i) that robust learning of any deployed model class is intractable, since the conditions are properties of constructed spaces; (ii) an upper bound — no efficient robust learner is ruled in or out, and the page's open-questions section records the missing matching bound; (iii) that the corrupted-input results in the literature are wrong, since the two risk notions are incomparable in general and the paper proves only that they diverge.
+- **Abstract vs theorem:** none found. The abstract carries both the space restriction ("many theoretically natural input spaces") and the perturbation restriction, and states the contrast with corrupted-input results explicitly.
 
 ## Key Contributions
 
@@ -67,6 +97,16 @@ $$\text{AdvRisk}_\mathcal{A}(D, c, h) = \Pr_{x \leftarrow D,\, \tilde{x} \leftar
 
 ## Quotes / Notable Passages
 
-> "We prove that for many theoretically natural input spaces of high dimension $n$, PAC learning of certain problems under sublinear perturbations of the test instances requires *exponentially* many samples in $n$, even though the problem in the no-attack setting is PAC learnable using polynomially many samples."
+> _Not verbatim. Checked against `raw/DMM19_LowerBoundsRobustPAC.pdf` on 2026-08-20 and not found; an earlier ingest rewrote the abstract sentence, dropping the worked example and the o(‖x‖) budget. Retained unquoted as a summary._
+>
+> We prove that for many theoretically natural input spaces of high dimension $n$, PAC learning of certain problems under sublinear perturbations of the test instances requires *exponentially* many samples in $n$, even though the problem in the no-attack setting is PAC learnable using polynomially many samples.
 
-> "In the realizable setting, learning a model with adversarial risk close to zero requires exponentially many samples. Recent impossibility results should not cause us to lose hope in the possibility of finding more robust classifiers." *(paraphrasing the empirical-measuring-concentration companion finding)*
+The abstract, verified:
+
+> "We first prove that for many theoretically natural input spaces of high dimension n (e.g., isotropic Gaussian in dimension n under ℓ2 perturbations), if the adversary is allowed to apply up to a sublinear o(‖x‖) amount of perturbations on the test instances, PAC learning requires sample complexity that is exponential in n. This is in contrast with results proved using the corrupted-input framework, in which the sample complexity of robust learning is only polynomially more."
+>
+> _The extraction renders ‖x‖ as `kxk`; the double bars are restored here._
+
+> _Not verbatim. Checked against `raw/DMM19_LowerBoundsRobustPAC.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> In the realizable setting, learning a model with adversarial risk close to zero requires exponentially many samples. Recent impossibility results should not cause us to lose hope in the possibility of finding more robust classifiers." *(paraphrasing the empirical-measuring-concentration companion finding)*

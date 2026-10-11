@@ -3,9 +3,31 @@ title: "PAC-learning in the Presence of Evasion Adversaries"
 type: source
 date_ingested: 2026-04-12
 authors: [Daniel Cullina, Arjun Nitin Bhagoji, Prateek Mittal]
-venue: "NeurIPS 2018 (arXiv:1806.01471)"
+venue: "NeurIPS 2018"
+venue_evidence: "https://proceedings.neurips.cc/paper/2018/hash/8f85517967795eeef66c225f7883bdcb-Abstract.html (camera-ready title \"PAC-learning in the presence of adversaries\", NeurIPS 2018, pp. 230-241, same authors/paper as arXiv:1806.01471)"
 year: 2018
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory, evasion-attacks]
+claim_quantifier: universal
+antecedent: "For the sample-complexity bound, a binary hypothesis class H and a nearness relation R, with the adversarial VC dimension of the corrupted class finite. For the halfspace theorem, the perturbation set must be a nonempty closed convex origin-symmetric subset of R^d, which covers every ℓp ball with p ≥ 1 but excludes non-convex and asymmetric perturbation sets."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "For a space X, a classifier family H, and an adversarial constraint R, there is a universal constant C such that m_{H,R}(δ,ε) ≤ C·(d log(d/ε)+log(1/δ))/ε²."
+cls_evidence_src: Thm 1
+cls_reason: "Matches the sibling adversarially-robust-pac-regression.md classification (same genre: PAC sample-complexity bound under an unrestricted evasion adversary). frame=statistical not capability: Theorem 1's nearness relation R is fully general ('For a space X, a classifier family H, and an adversarial constraint R'), with no numeric restriction; the 'adversarial budget constraint ǫ' sentence in §2 is an illustrative example of how R could be built, not a restriction the theorem's own bound depends on, so rule 5's norm-ball convention does not decide the headline claim. party=learner/unit=samples/tightness=budget: the only bound in Theorem 1 is the learner's sample complexity, a closed-form definitional parameter with no stated relation to any adversary quantity; the adversary R is unconstrained (rule 2), so second_party=none. access=none/write=read only follow the corpus default for evasion-theory papers with no explicit stated query-access model. The halfspace corollary (AVC=VC=d+1, requiring convex origin-symmetric R) is a narrower instantiation and not what the abstract leads with, so it does not decide the row (rule 1)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -17,6 +39,14 @@ The key concrete result: for halfspace classifiers in R^d with any convex, origi
 The authors also show AVC can be *either larger or smaller* than the standard VC-dimension, depending on H and R, making it an interesting dimension in its own right.
 
 Historical context: this paper set up a uniform-convergence-style theory that Montasser–Hanneke–Srebro (COLT 2019) subsequently showed was fundamentally inadequate for general H (finite VC classes may not admit *proper* robust learning; AVC can be infinite even when VC is finite).
+
+## Claim Boundary
+
+- **Quantified over:** the upper bound is universal over hypothesis classes and nearness relations, conditional on the adversarial VC dimension being finite. The halfspace equality AVC = VC = d+1 is quantified over all convex origin-symmetric perturbation sets, for one hypothesis class. The incomparability result is existential in both directions: there exist H, R with AVC ≫ VC and others with AVC ≪ VC.
+- **Antecedent:** finiteness of the adversarial VC dimension. This is the clause the follow-up literature broke — [Montasser, Hanneke and Srebro 2019](vc-classes-adversarially-robustly-learnable.md) exhibit classes with vc(H) ≤ 1 whose corrupted class has unbounded VC dimension, so the antecedent can fail for classes that are nonetheless robustly learnable improperly.
+- **Which party is constrained:** the **learner**, in sample complexity, and further restricted to adversarial ERM, which is a proper rule. The adversary is unbounded in computation and constrained only by the nearness relation R, a geometric object. No compute is priced on either side.
+- **Does not establish:** (i) that finite AVC characterizes robust learnability — it is sufficient within the uniform-convergence framework and is not necessary; (ii) that RERM suffices in general, which the 2019 follow-up refutes; (iii) any efficient procedure for computing AVC beyond halfspaces; (iv) anything about training-time attacks.
+- **Abstract vs theorem:** none found. The abstract restricts the halfspace result to "a sample-wise norm-constrained adversary of the type commonly studied for evasion attacks" and presents the incomparability as making the dimension "an interesting object of study in its own right", not as a characterization.
 
 ## Key Contributions
 
@@ -56,6 +86,8 @@ Historical context: this paper set up a uniform-convergence-style theory that Mo
 
 ## Quotes / Notable Passages
 
-> "We extend the Probably Approximately Correct (PAC)-learning framework to account for the presence of an adversary... We derive the Vapnik-Chervonenkis (VC)-dimension for these, denoted as the adversarial VC-dimension."
+> "In particular, we extend the Probably Approximately Correct (PAC)-learning framework to account for the presence of an adversary. We first define corrupted hypothesis classes which arise from standard binary hypothesis classes in the presence of an evasion adversary and derive the Vapnik-Chervonenkis (VC)-dimension for these, denoted as the adversarial VC-dimension."
+>
+> _Corrected 2026-08-20 against `raw/CBM18_PACEvasionAdversaries.pdf`. This page previously elided the middle clause and restarted the second sentence as "We derive the…", which is not in the paper; the full abstract sentences are restored._
 
 > "The adversarial VC-dimension can be either larger or smaller than the standard VC-dimension depending on the hypothesis class and adversary."

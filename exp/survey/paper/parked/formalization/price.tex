@@ -1,0 +1,179 @@
+\section{The price of the search}
+\label{sec:price-search}
+
+Section~\ref{sec:passive} names the two transfer hypotheses and states that
+every floor in this framework comes from what the views withhold. This section
+grounds both hypotheses in the sharpest current results and reports one
+experiment. Everything here carries
+its epistemic status inline, because the ground shifts: two of the units this
+section could have been built on two years ago are now known to be
+algorithm-relative artifacts.
+
+\subsection{The price of aiming}
+\label{sec:price-aiming}
+
+The no-aiming hypothesis says that, below the known query counts, learning is
+the only search over model space. Its in-model counterpart is a floor against a
+view-generic adversary that must produce a model with a target property, and
+the floor depends on the view of the data the game grants.
+
+For recipes whose steps are statistical queries, the floor is unconditional. A
+hidden $k$-sparse parity requires $d^{\Omega(k)}$ statistical queries at any
+useful tolerance, and this is the number Barak et al.\ describe SGD as
+approaching \cite{BEGKMZ22}. One hypothesis connects that floor to gradient
+recipes, and its status must be stated. A fresh-batch gradient step of batch size
+$B$ evaluates a correlational statistical query to tolerance on the order of
+$B^{-1/2}$, up to concentration, so a $T$-step fresh-batch recipe reads as a
+correlational-query algorithm with $T$ queries at that tolerance. The reading is
+standard and is how Barak et al.\ compare SGD to the SQ limit
+\cite{BEGKMZ22}, and it is not a theorem. Dandi et al.\ state the inheritance
+for reused batches as an expectation explicitly \cite{DTAPZK24}. Every use of a
+query floor for a gradient recipe in this framework routes through this
+simulation and carries its status. For Gaussian single-index models the current sharp
+single number is the generative exponent $k^*$. Any statistical-query algorithm
+using polynomially many queries, under the coefficient condition its theorem
+states, needs a sample-size parameter $n \gtrsim d^{k^*/2}$ to output a
+direction with nontrivial overlap, unconditionally within the class
+\cite{DPLB24}. Throughout this section $n$ is the sample count, as in the
+sources, and the ambient security parameter does not appear. One caveat travels with
+that citation and it runs in the safe direction: the authors state that their
+theorem primarily measures the detection threshold, and the statistical-query
+estimation threshold is open, so the true price of recovery can only be higher
+than the floor quoted here. For multi-index models the same quantity governs
+subspace recovery, with an unconditional estimation upper bound at the matching
+rate and a low-degree lower bound \cite{DLB25}. Any reading of the low-degree
+half as polynomial-time hardness must carry the refutation of the
+quasi-polynomial low-degree conjecture and its surviving positive counterpart
+\cite{BHJK25,HKKLMT26}.
+
+Two units this section does not use, and why. The information exponent prices a
+single algorithm, online SGD from a random start \cite{AGJ21}, and the leap's
+lower bound holds for correlational statistical queries only, with its SGD side
+an open conjecture \cite{ABM23}. Both thresholds collapse under batch reuse
+\cite{DTAPZK24}, and the collapse is not an anomaly: reuse reaches the
+information-theoretic rate for polynomial links \cite{LOSW24}, a learning-rate
+schedule induces the same transition without carrying any sample across
+iterations, though each sample is queried twice within its own iteration
+\cite{TME25}, and full-batch descent separates from one-pass descent by a logarithmic
+factor within the analyzed dynamics, with the separation proved for a truncated
+variant of the target and provably absent for the plain one \cite{KJWSM26}. What survives this wave is the generative exponent, whose
+defining invariance is exactly closure under the transformations reuse exploits
+\cite{DPLB24}. Proven, all of it, in the classes named.
+
+The algebraic escape calibrates the floor rather than refuting it. Noiseless
+parity is solvable by Gaussian elimination from $O(d)$ raw samples. That
+algorithm is generic for a game that grants the raw corpus and unavailable to
+one whose view of the data is statistical queries, which is the view the floor
+is proven against. Parity is therefore the case where the view classification
+of Section~\ref{sec:class} is not hypothetical. The same task is easy under
+one view and $d^{\Omega(k)}$-hard under another, and the gap between the two
+views is a named theorem about what learning-shaped access cannot do.
+
+\subsection{The price of skipping is recipe-relative}
+\label{sec:price-skipping}
+
+The no-skipping hypothesis as stated in Section~\ref{sec:passive} prices the
+walk of one recipe. The literature now forces exactly that scoping, and the
+force is worth exhibiting, because a stronger reading of the hypothesis is
+false.
+
+The walk's length is a property of the pair recipe and query type, not of the
+task. The batch-reuse and learning-rate results above shorten the same walk to
+the same target by changing the recipe slightly \cite{DTAPZK24,LOSW24,TME25},
+and empirically the compute needed to reach a fixed language-model loss has
+halved roughly every eight months, with a wide stated uncertainty of five to
+fourteen months, across a decade of recipe drift \cite{HBEORGATS24}.
+So a task-level no-skipping claim is refuted, and a recipe-level one is the
+strongest defensible form. Within a fixed recipe, the compute-to-loss frontier
+is a theorem in solvable models: for power-law random features under one-pass
+stochastic gradient descent the loss curve is exact and the compute-optimal
+frontier is a derived object \cite{PPXP24}, which is the theorem-shaped form of
+the empirical scaling laws \cite{KMHBCCGRWA20,HBMBCRCHWCHNMDDGOSERVS22}, whose fitted constants
+are themselves contested \cite{BEBY24}. The mechanism literature makes the
+exponent explicitly algorithm-dependent: allowing feature learning nearly
+doubles the compute exponent on hard tasks \cite{BAP25}, and a good data-pruning
+rule changes the law's form outright \cite{SGSGM22}. None of these results claims
+a lower bound over all algorithms, and no such bound exists. Open, and it is the
+open problem under every compute-pricing claim in this survey.
+
+Two consequences are definitional in the oracle model and consistent with the
+empirical record. First, amortization is not skipping. Distillation reaches a
+target cheaper only below a student-dependent compute threshold, and only when
+a stronger teacher already exists or its training cost is amortized across
+other uses, so the teacher's training was an oracle call somebody paid for
+\cite{BSWRLW25}. In the model, a
+party that builds a derivative model builds it from views of prior traces, so
+the cost sits upstream in the ledger. There is no free trace, only amortized traces. Second, the
+price of a view is not the price of the trace. Proof-of-learning verification
+accepts a lossy view of the trace, and the published forgeries attack that view,
+succeeding without paying the walk \cite{FJTYCDCP23}, while exact reproduction
+of a trace remains empirically out of reach \cite{SHKBL25}. A sound
+proof-of-learning is precisely a view whose price equals the trace's, and
+whether one exists is the open problem that literature keeps encountering from
+inside.
+
+\subsection{An experiment: the measured exponent of the search}
+\label{sec:price-experiment}
+
+The transfer hypotheses assert that no cheaper route than the recipe exists,
+and they predict nothing about how the recipe's own cost grows. The experiment
+below therefore tests alignment, not the hypotheses. It measures how the walk
+lengthens for one recipe on the problem whose query floor is unconditional, and
+asks whether anything in the measurement contradicts that floor. Sparse parity is the cleanest instance, because the
+statistical-query floor is unconditional and the statistical baseline of
+$\Theta(k \log d)$ samples makes the gap between information and computation
+visible. Barak et al.\ report the phase transition and its scaling
+\cite{BEGKMZ22}. The run below matches their Figure-2 width, batch and learning rate, with one
+stated difference, momentum 0.9 where they run SGD with no auxiliary state, over
+a dimension range extending beyond their fitted grid of $n \le 30$, into the
+range where their own plots show the exponent drifting, so that the survey's
+numbers are its own.
+
+A two-layer ReLU network of width 100 is trained by minibatch SGD with
+momentum 0.9, batch 128, learning rate 0.01, on fresh samples per step, to
+learn a hidden \ParityK-sparse parity of $d$ bits, for $d$ from \ParityDims{},
+\ParitySeeds{} seeds per dimension. Test accuracy is checked every 25 steps, so
+every recorded cost is a multiple of 25. The cost recorded is oracle steps to reach \ParityThresh{} test
+accuracy. All \ParitySolved{} runs reached it. The median cost rises from
+\ParityMedLoD{} steps at $d = 20$ to \ParityMedHiD{} at $d = 60$, and the
+log-log fit across dimensions gives
+\[
+t_c \;\propto\; d^{\,\ParitySlope},
+\]
+Figure~\ref{fig:parity}. The fit spans five dimensions covering a factor of
+three, the consecutive-point slopes of the medians range from 0.8 to 3.0, and
+no goodness-of-fit statistic is claimed, so the fitted exponent summarizes a
+short power-law stretch and is not a three-digit measurement. Three further
+sentences fix what it is and is not. It sits in the power-law family $t_c \propto d^{\alpha k}$ that Barak et
+al.\ document, whose exponent depends on the architecture, the batch and the
+regime, and whose own scaling plots show it worsening at larger $d$
+\cite{BEGKMZ22}. It is consistent with the query floor through the simulation
+above, since the floor constrains the product of queries and squared tolerance
+and fixes no step exponent at a given batch. It does not measure the floor, and
+no experiment can, since a floor quantifies over algorithms. The convergence
+times are heavy-tailed across seeds at fixed dimension, which matches the
+initialization sensitivity Barak et al.\ document. A second regime changes three hyperparameters at once, batch 8, width 512 and
+learning rate 0.1, so it isolates no single cause, and its wall is sharper than
+any fit. The median over three seeds at $d = 30$ is \ProbeMedThirty{} steps,
+and none of nine runs at $d \in \{60, 90, 120\}$ reached threshold within
+\ProbeCap{} steps, a greater than forty-fold increase against a doubling of
+dimension. Empirical, all of it, in the configurations stated.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.62\linewidth]{../figures/parity-scaling.pdf}
+\caption{Median steps of minibatch SGD with momentum to \ParityThresh{} test
+accuracy against input dimension for a hidden 3-sparse parity, log-log,
+\ParitySeeds{} seeds per point, bars spanning the seed range. The fitted
+exponent \ParitySlope{} summarizes this recipe's cost growth over the plotted
+range.}
+\label{fig:parity}
+\end{figure}
+
+What the experiment does and does not show. It shows one recipe's cost growing
+as a power of the dimension, in the regime where the recipe's steps read as
+noisy correlational queries. It does not measure the floor itself,
+since no experiment can quantify over algorithms, and it says nothing about
+adversaries granted richer views, for which noiseless parity is easy. It is one
+recipe's cost curve, consistent with the no-aiming hypothesis for the class
+that trains, and nothing more.

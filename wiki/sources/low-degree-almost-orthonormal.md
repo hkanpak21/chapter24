@@ -3,9 +3,31 @@ title: "Low-Degree Lower Bounds via Almost Orthonormal Bases"
 type: source
 date_ingested: 2026-04-23
 authors: [Alexandra Carpentier, Simone Maria Giancola, Christophe Giraud, Nicolas Verzelen]
-venue: "arXiv:2509.09353 (Sep 2025; v2 Jan 2026)"
+venue: "Preprint. The ingested PDF is arXiv:2509.09353v2, 5 Jan 2026, and does not state a venue."
 year: 2025
 tags: [low-degree-polynomials, statistical-computational-gaps, proof-technique, planted-problems]
+claim_quantifier: universal
+antecedent: "none beyond the random graph models treated. The almost-orthonormality is proved in precisely the gap regimes, not assumed."
+algorithm_class: "low-degree"
+date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "we restrict our attention to estimators — or test statistics — that are multivariate polynomials of degree at most D in the observations"
+cls_evidence_src: "§1 (Introduction)"
+cls_reason: "Pure statistical-computational-gap proof-technique paper with no ML attack scenario, matching the corpus convention (target/family=none, phase=n/a, access/write=none) already used for low-degree-polynomials-survey and lb-latent-models-clustering. party=learner rather than attacker: the paper explicitly restricts to 'estimators -- or test statistics', covering both testing (detection) and estimation, so it takes the broader 'learner' label used for lb-latent-models-clustering (same author, Verzelen, applying this paper's technique to clustering) rather than the pure-distinguisher 'attacker' label used for brennan-sq-lowdegree-equivalence's detection-only equivalence."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +37,14 @@ This paper (CGGV25) introduces a **new general-purpose proof technique** for low
 The technical contribution solves a long-standing practical issue: classical low-degree analysis via Hermite or Walsh polynomials requires orthogonality of the polynomial basis with respect to the null distribution. For many natural planted problems, the planted distribution itself perturbs the basis just enough to break strict orthogonality, blocking the analysis. CGGV25's almost-orthonormal construction replaces the strict-orthogonality requirement with a near-orthogonality bound that suffices for the LD lower-bound argument.
 
 Directly relevant to extending [Ghosal-Hair-Jain-Sahai STOC 2025](pke-from-planted-clique.md)-style reductions to further ML problems, and to tightening existing low-degree bounds where orthogonality obstructions previously prevented a clean analysis.
+
+## Claim Boundary
+
+- **Quantified over:** polynomials of bounded degree, for the random graph models treated, in the regimes where a statistical-computational gap arises.
+- **Antecedent:** none beyond those model assumptions. The almost-orthonormality of the constructed basis is proved in precisely the gap regimes rather than assumed.
+- **Algorithm class:** low-degree. The paper is a proof technique for low-degree lower bounds and introduces no other class.
+- **Does not establish:** hardness against polynomial time for hidden subcliques, stochastic block models or seriation. It establishes low-degree lower bounds for them, and it identifies which polynomials optimize the low-degree criterion.
+- **Abstract vs theorem:** none found.
 
 ## Key Contributions
 
@@ -37,4 +67,10 @@ Directly relevant to extending [Ghosal-Hair-Jain-Sahai STOC 2025](pke-from-plant
 
 ## Quotes / Notable Passages
 
-> "Low-degree lower bounds via almost orthonormal bases... Constructs an almost-orthonormal polynomial basis precisely in the statistical-computational-gap regime, recovers known bounds (planted clique, hidden subcliques, SBM, seriation), and produces new ones."
+> _Not a quotation from the paper. Checked against `raw/CV+25_AlmostOrthonormal.pdf` on 2026-08-20 and not found; this is the page title followed by a summary that an earlier ingest presented as quotation. Retained unquoted as a summary._
+>
+> Constructs an almost-orthonormal polynomial basis precisely in the statistical-computational-gap regime, recovers known bounds (planted clique, hidden subcliques, SBM, seriation), and produces new ones.
+
+> "Focusing on random graph models, we construct a basis of polynomials that is almost orthonormal under P, in precisely those regimes where statistical-computational gaps arise."
+
+> "We illustrate the effectiveness of our approach by recovering known low-degree lower bounds, and establishing new ones for problems such as hidden subcliques, stochastic block models, and seriation models."

@@ -74,6 +74,25 @@ Catalog of all pages. Updated on every ingest, query filing, and lint pass.
 | [adds-adaptive-diffusion-smoothing](sources/adds-adaptive-diffusion-smoothing.md) | Adaptive Diffusion Denoised Smoothing (ADDS) | Shpilevskiy et al. | 2025 (ICML Oral) | certified-robustness, diffusion, gdp |
 | [multi-level-certified-offline-rl](sources/multi-level-certified-offline-rl.md) | Multi-Level Certified Defense for Offline RL | Liu et al. | 2025 (ICLR) | reinforcement-learning, poisoning |
 
+### New ingests — 2026-07-26 batch (reconstruction / fiber / prior-art collisions)
+
+*Ingested from verified prior-art sweeps rather than full reads; each page carries a provenance banner
+and states what a full read still owes. These are the papers that refuted the fiber framing and the
+SQ/low-degree novelty claim — see [native-asymmetry-in-learning](analyses/native-asymmetry-in-learning.md).*
+
+| Page | Title | Authors | Year | Why it's here |
+|------|-------|---------|------|---------------|
+| [dinur-nissim-revealing-information](sources/dinur-nissim-revealing-information.md) | Revealing Information while Preserving Privacy | Dinur, Nissim | 2003 (PODS) | **The size/navigability separation, as the main theorem.** §3 exponential vs §4 poly-bounded adversary |
+| [cohen-data-reconstruction](sources/cohen-data-reconstruction.md) | Data Reconstruction: When You See It and When You Don't | Cohen, Kaplan, Mansour, Moran, Nissim, Stemmer, Tsfadia | 2025 (ITCS) | **Def C.1 — computational reconstruction resilience ⟺ one-wayness.** Occupies "is training a OWF" |
+| [suliman-data-forging-attacks](sources/suliman-data-forging-attacks.md) | Towards a Re-evaluation of Data Forging Attacks in Practice | Suliman, Halimi, Kadhe, Baracaldo, Leith | 2025 (USENIX Sec) | **The surviving open conjecture.** Constrained fiber navigation may be infeasible — stated and abandoned |
+| [kaplan-bayesian-memorization-reconstruction](sources/kaplan-bayesian-memorization-reconstruction.md) | A Bayesian Perspective on Memorization and Reconstruction | Kaplan, Mansour, Nissim, Stemmer | 2026 (ITCS) | Computational vs statistical memorization, asked and separated — but their axis is extraction, not poly-time |
+| [haghifam-sample-complexity-mia](sources/haghifam-sample-complexity-mia.md) | The Sample Complexity of Membership Inference and Privacy Auditing | Haghifam, Smith, Ullman | 2025 | **Highest-priority read.** Attacker needs `m ≳ n²ρ²+n` — the programme's predecessor, in IT units |
+| [jagielski-model-extraction](sources/jagielski-model-extraction.md) | High Accuracy and High Fidelity Extraction of Neural Networks | Jagielski, Carlini, Berthelot, Kurakin, Papernot | 2020 (USENIX Sec) | NP-hardness for the **evaluation** map — the contrast case for Suliman's training-map conjecture |
+| [proof-of-learning](sources/proof-of-learning.md) | Proof-of-Learning: Definitions and Practice | Jia, Yaghini, Choquette-Choo, Dullerud, Thudi, Chandrasekaran, Papernot | 2021 (S&P) | Fiber navigation priced in compute, under another name. Must-cite |
+| [song-cryptographic-hardness-score-estimation](sources/song-cryptographic-hardness-score-estimation.md) | Cryptographic Hardness of Score Estimation | Song | 2024 (NeurIPS) | §1.3.3 kills the black-box climb; §1.3.2 names the compute-bounded-discriminator lane as open |
+| [bogdanov-low-degree-planted-subgraph](sources/bogdanov-low-degree-planted-subgraph.md) | Low-Degree Security of the Planted Random Subgraph Problem | Bogdanov, Jones, Rosen, Zadik | 2024 (TCC) | **The retraction source** — low-degree-bounded adversaries do carry crypto security |
+| [xiao-formal-privacy-proof-data-encoding](sources/xiao-formal-privacy-proof-data-encoding.md) | Formal Privacy Proof of Data Encoding | Xiao, Suh, Devadas | 2024 (CCS) | The obstacle: learnable encodings don't get worst-case crypto security. **Unread — scope unverified** |
+
 ---
 
 ## Concepts (20 total — deeply written)
@@ -99,6 +118,15 @@ Catalog of all pages. Updated on every ingest, query filing, and lint pass.
 | [win-win-theorem](concepts/win-win-theorem.md) | Hardness of learning a robust classifier implies OWFs exist; connects adversarial robustness to cryptography |
 | [low-degree-polynomial-framework](concepts/low-degree-polynomial-framework.md) | Predicts computational thresholds for "structureless" problems; equivalent to SQ; fails for algebraically structured problems |
 | [universal-law-of-robustness](concepts/universal-law-of-robustness.md) | Smooth interpolation of n points in R^d requires Ω(nd) parameters; formal explanation for why overparameterization aids robustness |
+
+---
+
+### New concepts — 2026-07-26
+
+| Page | Summary |
+|------|---------|
+| [fiber-of-the-training-map](concepts/fiber-of-the-training-map.md) | `L⁻¹(w)` = all datasets producing a given model. Size is the DP story; **navigability** is the computational one. `FIBER-SEARCH ∈ FNP` — verification is retraining. Distinguished from the *evaluation*-map fiber, which is a different object with its own literature |
+| [computational-vs-statistical-memorization](concepts/computational-vs-statistical-memorization.md) | Information *present* (mutual information, DP) vs information *extractable* (an attack exists). The gap is where any computational theory of learning privacy lives; separated since Dinur–Nissim 2003 |
 
 ---
 
@@ -143,6 +171,7 @@ Catalog of all pages. Updated on every ingest, query filing, and lint pass.
 | [reading-pathway-formal-security](analyses/reading-pathway-formal-security.md) | 2026-04-23 | Recommended order-of-reading through the 45-paper corpus, clustered by research program and prerequisites |
 | [web-research-2026-frontier](analyses/web-research-2026-frontier.md) | 2026-04-23 | 2024–2026 web research: what's new since the current corpus, priority candidate ingests, open-problem status updates, recommended research bet |
 | [summer-2026-research-programme](analyses/summer-2026-research-programme.md) | 2026-06-21 | June–Sept 2026 calendar interleaving Arora–Barak (from §2.3 Cook–Levin) with the corpus, driving the Chapter 24 "learning-as-abstract-machine" thesis; spine-primary, Durak as Sept coda |
+| [native-asymmetry-in-learning](analyses/native-asymmetry-in-learning.md) | 2026-07-25 | Where a security gap can come from when both parties are efficient: crypto's three asymmetries vs. learning's two native ones (data-knowledge → privacy, access → backdoor); two adversarial prior-art sweeps; **retracts a false novelty claim**; amends the W10 deliverable and the black-box-first ordering |
 
 ---
 

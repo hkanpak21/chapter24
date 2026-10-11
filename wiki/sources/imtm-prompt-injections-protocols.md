@@ -3,14 +3,47 @@ title: "From Prompt Injections to Protocol Exploits: Threats in LLM-Powered AI A
 type: source
 date_ingested: 2026-04-23
 authors: [Mohamed Amine Ferrag, Norbert Tihanyi, Djallel Hamouda, Leandros Maglaras, Abderrahmane Lakas, Merouane Debbah]
-venue: "arXiv:2506.23260 (Jun 2025; v2 Dec 2025); ICT Express / Elsevier"
-year: 2025
+venue: "ICT Express 2026"
+venue_evidence: "arXiv:2506.23260 abstract page's own Journal reference field states 'ICT Express (Elsevier)', DOI 10.1016/j.icte.2025.12.001, which resolves to https://linkinghub.elsevier.com/retrieve/pii/S2405959525001997 (ScienceDirect, article pii S2405959525001997); independently corroborated via WebSearch listings on ScienceDirect and an Elsevier-Pure institutional repository page. This overturns the earlier note that the ICT Express attribution was unconfirmed — arXiv's own metadata now carries it."; Crossref 2026-09-03: volume 12, issue 2, pages 353-383, April 2026
+journal_ref: "12|2|353--383"
+year: 2026
 tags: [llm-security, agentic-systems, threat-model, prompt-injection, protocol-exploits, formal-model]
+claim_quantifier: empirical
+antecedent: "none — the paper states definitions and a taxonomy, and asserts no conditional result."
+adversary_bound: "none — the adversary is an arbitrary transformation g on the context (h, x, k), unconstrained in computation, queries, or knowledge. The one place a budget appears is the perturbation budget carried over from the adversarial-examples literature in the description of evasion attacks, and it bounds a perturbation, not a resource."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed:
+cls_evidence: absent
+cls_evidence_src: "no bound in the Adversary Model §V-A-2 (eq 15), the Prompt-Based/Jailbreaking/Evasion definitions (eq 17-20), or the abstract"
+cls_reason: "The abbreviation IMTM occurs zero times in the paper (confirmed by grep -a over the extracted PDF text) and zero times across raw/; the paper writes 'Input Manipulation Threat Model' in full. The paper is a survey with three parallel formal threat models (Input Manipulation, System & Privacy, Protocol-Level) and no theorem; classified here on the Input Manipulation Threat Model (eq 13-21, §V-A), the abstract's lead category and the formalism this slug names. g:(h,x,k)->(h',x',k') is an arbitrary transformation with no compute, query, or perturbation-radius bound in its definition, so party/unit/frame=none/none/none per Rule 2. family=evade: the formalized sub-cases (Prompt-Based eq 17, Jailbreaking eq 19, Evasion eq 20) all reduce to causing pi(y,a)=0, a safety-policy violation at inference time. write=read only: the central prompt-based formalization (eq 17) modifies (h,x) but explicitly leaves k unchanged, i.e. the attacker submits through the ordinary query channel rather than writing to a persisted corpus; indirect prompt injection (writing to an external retrieved source) is described in prose elsewhere but is not part of the formalized equations."
+cls_prov: P
+cls_date: 2026-08-22
 ---
+
+
+> **Acronym note, 2026-08-22.** The string "IMTM" occurs zero times in this paper and zero
+> times across all 186 PDFs in `raw/`, appearing only in a discarded machine-generated
+> artifact, which is where this page's slug and the raw filename came from. The underlying
+> object is real: the paper writes "Input Manipulation Threat Model" in full seven times.
+> The concept stands, the abbreviation is not the authors'.
 
 ## Summary
 
-This paper (FTH+25) provides **the first unified end-to-end threat model for LLM-agent ecosystems** and is the *originating source* of the **Input Manipulation Threat Model (IMTM)** as a formal object. IMTM mathematically characterizes the behavior and success conditions of prompt-injection attacks and unifies diverse attack forms (direct prompt injection, indirect prompt injection, jailbreaks, multi-turn exploits) under a single theoretical representation.
+This paper (FTH+25) calls itself a survey and describes its own contribution as a unified end-to-end threat model for LLM-agent ecosystems. It is the originating source of the **Input Manipulation Threat Model** as a named object.
+
+**Naming, corrected 2026-08-20.** The abbreviation "IMTM" does not occur in the paper. The paper writes "Input Manipulation Threat Model" in full, seven times, and never abbreviates it. "IMTM" is this wiki's own coinage; the page slug and the linked concept page carry it. Anything written for outside readers should use the paper's full phrase and should not attribute the acronym to the authors. IMTM mathematically characterizes the behavior and success conditions of prompt-injection attacks and unifies diverse attack forms (direct prompt injection, indirect prompt injection, jailbreaks, multi-turn exploits) under a single theoretical representation.
 
 Beyond IMTM, the paper introduces formal definitions for three additional threat categories covering LLM-agent ecosystems:
 1. **Model Compromise attacks** — backdoors, fine-tuning attacks, model-level integrity violations
@@ -21,9 +54,17 @@ Each category specifies attacker capabilities, objectives, and affected layers i
 
 This paper is now the canonical citation for "formal prompt injection threat model" in 2025-2026 literature.
 
+## Claim Boundary
+
+- **Quantified over:** the attack literature the authors surveyed. The abstract says the paper "catalogs over thirty attack techniques" in four categories — Input Manipulation, Model Compromise, System and Privacy Attacks, Protocol Vulnerabilities — and reports validation "through expert review and cross-mapping with real-world incidents and public vulnerability repositories (e.g., CVE, NIST NVD)". The scope is the corpus, not the space of agent systems.
+- **Antecedent:** none. The paper states no conditional result. Its "formal mathematical formulation" is notation for a system model S = (M_θ, T, Φ), a context C = (h, x, k), an output pair (y, a), a binary safety policy π, and an adversary transformation g : (h, x, k) ↦ (h′, x′, k′), with success defined as π(y, a) = 0 or L(y, o) ≤ ε.
+- **Which party is constrained:** neither. The adversary is an arbitrary map on the context. The system is an arbitrary LLM in an arbitrary agentic frame. Nothing is bounded in compute, queries, or memory.
+- **Does not establish:** any theorem, security reduction, or impossibility. There is no proof anywhere in the paper and no defence is shown to meet the definitions. The notation names the attack surface; it does not let one decide whether a given system is secure, nor compare two attacks by strength. The completeness of the four categories is asserted, not argued.
+- **Abstract vs theorem:** there is no theorem. The abstract's "first integrated taxonomy" and "formal system definitions for each threat class" are priority and coverage claims about a survey. Reading "formal" here as "proved" is the error the page is guarding against.
+
 ## Key Contributions
 
-- **Input Manipulation Threat Model (IMTM)**: first formal mathematical characterization of prompt injection attacks, unifying direct/indirect/multi-turn variants under one framework.
+- **Input Manipulation Threat Model**: first formal mathematical characterization of prompt injection attacks, unifying direct/indirect/multi-turn variants under one framework.
 - **Four-category threat taxonomy**: IMTM + Model Compromise + System/Privacy + Protocol Vulnerabilities — covers 30+ concrete attack classes.
 - **Layered-protocol view**: attacks categorized by which layer of the agent stack they target (prompt, model, system, protocol).
 - **First unified end-to-end threat model for LLM-agent ecosystems**: fills the gap between ad-hoc attack taxonomies and formal-security games.
@@ -59,6 +100,14 @@ This paper is now the canonical citation for "formal prompt injection threat mod
 
 ## Quotes / Notable Passages
 
-> "First unified end-to-end threat model for LLM-agent ecosystems and is the originating source of the Input Manipulation Threat Model (IMTM) as a formal object."
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> First unified end-to-end threat model for LLM-agent ecosystems and is the originating source of the Input Manipulation Threat Model (IMTM) as a formal object.
 
-> "Covers 30+ concrete attack classes, with attacker capabilities, objectives, and affected layers specified per category."
+> _Not a quotation from the paper. This characterization was carried over from a secondary survey artifact during an earlier ingest and was wrongly presented in quotation marks. Retained unquoted, corrected 2026-08-20; verify against the primary source before citing._
+>
+> Covers 30+ concrete attack classes, with attacker capabilities, objectives, and affected layers specified per category.
+
+The abstract's own words on both points, verbatim:
+
+> "This survey introduces a unified end-to-end threat model for LLM-agent ecosystems, spanning host-to-tool and agent-to-agent communications, and catalogs over thirty attack techniques across Input Manipulation, Model Compromise, System and Privacy Attacks, and Protocol Vulnerabilities. For each category, we provide a formal mathematical formulation of the underlying threat model, defining attacker capabilities, objectives, and affected layers to enable systematic analysis."

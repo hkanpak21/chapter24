@@ -1,0 +1,76 @@
+---
+title: "The Random Oracle Methodology, Revisited"
+type: source
+date_ingested: 2026-08-22
+authors: [Ran Canetti, Oded Goldreich, Shai Halevi]
+venue: "J. ACM 2004"
+venue_evidence: "dblp: journals/jacm/CanettiGH04 (article, J. ACM 51(4):557-594, 2004); dblp also lists the preliminary version conf/stoc/CanettiGH98 (STOC 1998, pp. 209-218), matching the PDF's own stated extended-abstract venue"
+year: 2004
+tags: [cryptography, hardness-reductions, complexity-theory]
+claim_quantifier: existential
+antecedent: "The existence of one-way functions for the signature and encryption counterexamples; the CS-proof counterexample needs no computational assumption beyond what the Random Oracle Model itself provides."
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: attacker
+cls_unit: time
+cls_tightness: poly
+cls_baseline: stated
+cls_baseline_checked: yes
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "secure in the Random Oracle Model and insecure under every instantiation of the oracle by a concrete function ensemble"
+cls_evidence_src: "abstract, as summarised on this page"
+cls_reason: "The schemes are secure against every efficient adversary in the idealized model and broken by an efficient adversary once the oracle is instantiated, so the bound is polynomial time on the attacker. baseline is the indistinguishability game's own advantage bound."
+cls_prov: S
+cls_date: 2026-08-27
+---
+
+## Summary
+
+The paper that bounds what an idealized-oracle proof can promise. It constructs
+signature and encryption schemes that are secure in the Random Oracle Model and
+insecure under every instantiation of the oracle by a concrete function ensemble.
+The scheme is built to recognise any concrete implementation of its own oracle and
+misbehave exactly then, so the idealized proof is sound and every real
+instantiation fails.
+
+## Claim Boundary
+
+- **Quantified over:** the constructed schemes are existential objects; the
+  instantiation failure is universal over function ensembles implementing the
+  oracle.
+- **Antecedent:** one-way functions, for the signature and encryption cases.
+- **Does not establish:** that the random oracle methodology fails for natural
+  schemes, and the authors do not claim it. The counterexamples are contrived by
+  design, and the methodology's practical record is untouched by them.
+- **Abstract vs theorem:** none found.
+
+## Key Contributions
+
+- Signature and encryption schemes secure in the Random Oracle Model with, in the
+  paper's words, "no implementation" that is secure.
+- The diagonalization technique, which the paper notes "can be applied to
+  practically any cryptographic application", including CS-proofs.
+
+## Connections
+
+- [Fine-Grained One-Way Functions](fine-grained-one-way-functions.md) — the Random
+  Language Model there is an idealization of the same methodological family.
+
+## Open Questions / Limitations
+
+- The gap between contrived and natural uninstantiability is the standing question
+  the paper leaves open.
+
+## Quotes / Notable Passages
+
+Verified against `raw/CGH04_RandomOracleRevisited.pdf` on 2026-08-22.
+
+> "it will be easy for an adversary to make sure that the former case always occurs under any implementation of the Random Oracle Model, thus no implementation may be secure"
+
+> "the same technique can be applied to practically any cryptographic application"

@@ -3,9 +3,31 @@ title: "VC Classes are Adversarially Robustly Learnable, but Only Improperly"
 type: source
 date_ingested: 2026-04-12
 authors: [Omar Montasser, Steve Hanneke, Nathan Srebro]
-venue: "COLT 2019 (arXiv:1902.04217)"
+venue: "COLT 2019"
+venue_evidence: "https://dblp.uni-trier.de/search?q=VC%20Classes%20are%20Adversarially%20Robustly%20Learnable%20but%20Only%20Improperly; dblp: COLT 2019, pp. 2512-2530 (refereed; confirms PDF's own stated venue)"
 year: 2019
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory]
+claim_quantifier: universal
+antecedent: "For the positive result, finite VC dimension of H, and the only restriction on the perturbation map U is that U(x) be nonempty for every x. For the negative result there is no antecedent — it is an explicit construction. The learning sample itself is assumed non-adversarial and i.i.d.; the adversary acts only at test time."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: none
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "there is an improper learning rule that can robustly PAC learn H (although with sample complexity that is sometimes exponential in the VC dimension)"
+cls_evidence_src: §1 (Introduction, main results)
+cls_reason: "frame=statistical because only sample complexity is bounded on the learner; the paper prices no compute anywhere, per Claim Boundary ('No compute is priced on either side'). tightness=budget rather than exponent: the exponential-in-vc(H) sample bound is a self-contained function of the problem's own parameters (vc(H), vc*(H), epsilon), not a stated ratio to a separate honest party's cost. write=none: the evasion adversary perturbs the test input, which does not map cleanly onto corpus/model/responses/channel."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -16,6 +38,14 @@ This is the foundational COLT 2019 paper (precursor to Montasser–Hanneke–Sre
 2. Finite VC dimension **is sufficient** for improper robust PAC learning — for every H with finite VC and every perturbation map U, there is an improper learner achieving finite robust sample complexity (though possibly exponential in vc(H)).
 
 The result overturns the pre-2019 consensus, based on uniform-convergence-style arguments (Cullina et al. 2018; Bubeck et al. 2018; Khim–Loh 2018; Yin et al. 2018), that RERM-style proper methods are adequate for adversarial robustness. It motivated the subsequent characterization program culminating in the global one-inclusion graph dimension of Montasser et al. 2022.
+
+## Claim Boundary
+
+- **Quantified over:** the positive half is universal — every hypothesis class of finite VC dimension, every perturbation map U with U(x) nonempty. The negative half is existential: there exist classes with VC dimension at most 1, and a matching U, that no proper rule robustly learns. The title's "but only improperly" is the existential half and should not be read as a statement about every class.
+- **Antecedent:** finite VC dimension, and an i.i.d. non-adversarial training sample. The paper is explicit that this is distinct from the learning process itself being robust to an adversarial training set, so nothing here covers poisoning.
+- **Which party is constrained:** the **learner**, in sample complexity, and in being permitted to output hypotheses outside H. The adversary is a set-valued map U with no resource bound whatever — unbounded computation, and a perturbation region that need not even be a metric ball. No compute is priced on either side; the learner is a sample-compression scheme with no running-time guarantee.
+- **Does not establish:** (i) any efficient algorithm — the compression-and-boosting construction is information-theoretic and its sample complexity is at most exponential in vc(H); (ii) tight sample complexity, which was left open here and addressed by [Montasser, Hanneke and Srebro 2022](robust-pac-learning-characterization.md); (iii) that uniform convergence fails for every class, only that it is not necessary and can fail badly, since vc(L^U_H) can be unbounded while vc(H) ≤ 1.
+- **Abstract vs theorem:** none found. The abstract states both halves with their correct quantifiers.
 
 ## Key Contributions
 

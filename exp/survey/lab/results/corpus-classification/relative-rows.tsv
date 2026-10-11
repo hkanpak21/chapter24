@@ -1,0 +1,19 @@
+slug	relation
+authentication-bounded-storage	adversary memory $m = O(n^2)$ against honest parties holding $n$ bits
+average-case-fine-grained-hardness	no $O(t(n)^{1-\delta})$-time algorithm inverts a function computable in time $t(n)$
+bounded-storage-simple-schemes	adversary space $Cn^2$ against honest space $O(n)$
+bsm-key-agreement-owf	key agreement with adversary space $a \gg s^2$ against honest space $s$ needs one-way functions
+certificates-statistical-algorithms	verifier sample complexity $O(\log k/\tau^2)$ against a prover's $\tilde\Theta(\sqrt{k})$
+filter-impossibility-ai-alignment	every filter running in time $o(t^{\varepsilon})$ fails against a model running in time $t$
+fine-grained-nike-lower-bounds	adversary $n^{K/(K-1)}$ oracle queries against honest parties' $n$
+fine-grained-nike-revisited	adversary time $O(n^{2-\varepsilon})$ against honest time $n$
+fine-grained-one-way-functions	no circuit of size $o(|f|^{1+\delta})$ inverts $f$ with probability above $\varepsilon$
+haghifam-sample-complexity-mia	attacker needs $m \gtrsim n^2\rho^2 + n$ samples against a trainer's $n$
+merkle-puzzles-are-optimal	adversary $O(n^2)$ oracle queries against honest parties' $n$
+permissionless-consensus-fine-grained	adversarial power $T^{1-\varepsilon}$ against honest power $T$
+pkc-fine-grained-setting	honest evaluation in time $T(n)^{1-\delta}$, no adversary of time $T(n)$ inverts
+preventing-false-discovery-hard	no efficient oracle holding $n$ samples answers $n^{3+o(1)}$ adaptive queries accurately
+proof-of-learning	$\mathbb{E}[C_A] \geq \mathbb{E}[C_T]$ for every spoofing strategy $A$ against honest training $T$
+sequential-functions-fine-grained	adversary parallel time below $k \cdot t_A(\lambda)$ against $k$ honest sequential evaluations
+speak-much-remember-little	adversary memory $m$ up to $2^{O(n)}$ against honest memory $n$
+unlearning-verification-fragile	forging time $T(n)$ equal to the time $T(n)$ of retraining

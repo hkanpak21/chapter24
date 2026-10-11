@@ -1,0 +1,25 @@
+slug	target	family	phase	access	write	frame	party	unit	tightness	baseline	second_party	second_notion	assessed
+mia-from-first-principles	train data	membership	post hoc	scores	read only	compute	attacker	time	measured	stated	none	none	implicit
+blind-baselines-beat-mia	train data	membership	post hoc	none	read only	none	none	none	unstated	stated	none	none	
+do-mias-work-on-llms	train data	membership	post hoc	scores	read only	none	none	none	unstated	stated	none	none	
+mia-cannot-prove-training	train data	membership	post hoc	scores	read only	compute	auditor	time	unstated	stated	none	none	implicit
+reconstructing-informed-adversaries	train data	reconstruct	post hoc	white box	read only	none	none	none	unstated	stated	none	none	
+jagielski-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	algo class	class	absent	none	none	explicit
+active-learning-model-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	queries	budget	absent	none	none	explicit
+cryptanalytic-extraction-nn	parameters	extract	post hoc	scores	read only	compute	attacker	queries	measured	absent	none	none	implicit
+calibrated-proof-of-work-extraction	parameters	extract	post hoc	black box	read only	compute	attacker	time	measured	stated	none	none	explicit
+beyond-labeling-oracles	parameters	extract	post hoc	black box	read only	none	none	none	unstated	absent	none	none	
+proof-of-learning	training run	forge	post hoc	white box	model	compute	attacker	time	unstated	absent	none	none	explicit
+obfuscated-gradients	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	none	explicit
+adaptive-attacks-defenses	outputs	evade	test time	white box	read only	capability	attacker	perturbation	budget	stated	none	none	explicit
+curse-of-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit
+adversarial-spheres	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit
+empirically-measuring-concentration	outputs	evade	test time	none	read only	capability	attacker	perturbation	budget	n/a	none	none	explicit
+universal-law-of-robustness	none	none	train time	none	none	compute	learner	parameters	budget	n/a	none	none	explicit
+planting-undetectable-backdoors	parameters	backdoor	train time	black box	model	compute	auditor	time	poly	stated	none	none	explicit
+win-win-robust-learning	none	evade	train time	none	none	compute	learner	time	poly	n/a	perturbation	none	explicit
+raz-parity-time-space	none	none	train time	none	none	compute	learner	memory	budget	n/a	none	none	explicit
+what-can-we-learn-privately	train data	none	train time	none	none	compute	learner	algo class	class	n/a	none	none	explicit
+computational-differential-privacy	train data	none	n/a	none	none	compute	attacker	time	poly	stated	none	none	explicit
+fine-grained-one-way-functions	none	none	n/a	none	none	compute	attacker	circuit size	exponent	n/a	none	none	explicit
+pkc-fine-grained-setting	none	none	n/a	none	none	compute	attacker	time	exponent	n/a	none	none	explicit

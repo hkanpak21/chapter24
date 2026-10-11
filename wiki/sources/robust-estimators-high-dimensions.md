@@ -3,9 +3,30 @@ title: "Robust Estimators in High Dimensions without the Computational Intractab
 type: source
 date_ingested: 2026-04-23
 authors: [Ilias Diakonikolas, Gautam Kamath, Daniel M. Kane, Jerry Li, Ankur Moitra, Alistair Stewart]
-venue: FOCS 2016 (arXiv:1604.06443)
+venue: "FOCS 2016"
+venue_evidence: "dblp: conf/focs/DiakonikolasKKLMS16 (inproceedings, FOCS 2016, pp. 655-664); a later journal version also exists, dblp journals/siamcomp/DiakonikolasKKLMS19 (SIAM J. Comput. 48(2):742-864, 2019)"
 year: 2016
 tags: [robust-statistics, high-dimensional-statistics, algorithmic-statistics, poisoning-attacks, adversarial-ml]
+claim_quantifier: existential
+antecedent: "The distribution must lie in one of four named families — a single Gaussian, a product distribution on the hypercube, a mixture of two product distributions under a balancedness condition, or a mixture of spherical Gaussians — and the corrupted fraction ε must be bounded away from 1/2. Outside those families nothing is claimed."
+date_verified: 2026-08-20
+cls_target: train data
+cls_family: poison
+cls_phase: train time
+cls_access: none
+cls_write: corpus
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: poly
+cls_baseline: n/a
+cls_second_party: corruption
+cls_assessed: explicit
+cls_evidence: "In this work, we obtain the first computationally efficient algorithms with dimension-independent error guarantees for agnostically learning several fundamental classes of high-dimensional distributions"
+cls_evidence_src: abstract
+cls_reason: "Both parties are bounded, in different currencies, per the page's own Claim Boundary: the defender in polynomial time, the adversary only in the ε-fraction of samples it may replace (strong contamination model). By Rule 4 the computational bound decides the row: party=learner, unit=time, tightness=poly, and the corruption fraction goes in second, a clean fit for the corruption unit. access=none: the adversary sees and replaces raw samples directly before any model is queried, so none of the query-access categories describe it. write=corpus: 'an adversary is allowed to arbitrarily corrupt an ε-fraction of the samples' (abstract, verbatim) is a direct write into the training data."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -19,6 +40,14 @@ Two complementary technical approaches are developed:
 - **Filtering**: An iterative algorithm that detects and removes "outlier" samples whose empirical contribution to high-degree moments is anomalous. Used for Gaussians and product distributions.
 
 Both approaches share a common structure: use *higher-order moments* (fourth-moment tensors, spectral properties) to detect corruption that would evade first-moment or covariance-based tests.
+
+## Claim Boundary
+
+- **Quantified over:** four specific distribution classes. Within each, the guarantee is universal over ε-corruptions and the algorithm is a single explicit procedure. The headline reading — that efficient robust estimation is now available in high dimensions — is an existential claim over distribution families, and the sparse case is a documented counterexample with a genuine statistical-computational gap.
+- **Antecedent:** membership in one of the four families, and ε below the breakdown point. Both are stated in the abstract.
+- **Which party is constrained:** both, in different currencies. The **adversary** is constrained only in the *fraction* ε of samples it may replace; within that it is computationally unbounded and sees the clean sample before choosing, which is the strong contamination model. The **defender** is constrained to polynomial time, and that constraint is the point of the paper — the contribution is removing an exponential-time requirement, not weakening the attacker. A survey of resource-bounded adversaries should file this as a bounded-defender result with an unbounded adversary on a counting budget.
+- **Does not establish:** (i) anything for sparse robust mean estimation, where a k-to-k² gap is known; (ii) anything for heavy-tailed or general distributions; (iii) any hardness — the later evidence that these bounds are near-optimal comes from Hopkins and the small-set expansion hypothesis, not from this paper; (iv) a defence against poisoning of a *classifier*, since the object estimated is a distribution.
+- **Abstract vs theorem:** none found. The abstract enumerates the four families explicitly and describes the general method as "a general recipe … that may be applicable to many other problems", which is a suggestion rather than a claim.
 
 ## Key Contributions
 

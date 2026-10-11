@@ -3,9 +3,32 @@ title: "Reducibility and Statistical-Computational Gaps from Secret Leakage"
 type: source
 date_ingested: 2026-04-12
 authors: [Matthew Brennan, Guy Bresler]
-venue: arXiv preprint (arXiv:2005.08099v2)
+venue: arXiv preprint (the ingested PDF is arXiv:2005.08099v2, 28 Jun 2020)
 year: 2020
 tags: [statistical-computational-gaps, hardness-reductions, planted-clique, average-case-reductions, complexity-theory, learning-theory, statistical-query]
+claim_quantifier: conditional
+antecedent: "the secret leakage planted clique conjecture PC_rho of Conjecture 2.2 together with the specific hardness assumptions of Conjecture 2.3. Conjectured, newer than the planted clique conjecture, and the paper notes that failure for some rho would undermine the reductions."
+algorithm_class: "all poly-time conditionally; the unconditional content in Section 12 is low-degree and SQ"
+date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: time
+cls_tightness: conditional
+cls_baseline: n/a
+cls_baseline_checked: yes
+cls_second_party: corruption
+cls_second_notion: algo class
+cls_assessed: explicit
+cls_evidence: "the k-BPC conjecture implies that there is a computational lower bound for RSME(n, k, d, τ, ε) at all sample complexities n = õ(k²ε²/τ⁴)"
+cls_evidence_src: Thm 3.1
+cls_reason: "Classified on Theorem 3.1 (RSME), the first result the abstract leads with ('we deduce tight statistical-computational tradeoffs for a diverse range of problems including robust sparse mean estimation...'). RSME is Huber-contamination robust estimation: an ε-fraction of samples is corrupted by an adversary (§3.1, 'If an ε-fraction of these samples are corrupted arbitrarily by an adversary'), so two parties are bounded — the poly-time estimator (rule 4's computational bound, hence party=learner/unit=time) and the corruption adversary (second_party=corruption). tightness=conditional because the time bound holds only assuming the k-BPC/PC_ρ conjecture (front matter antecedent), matching the ding-low-degree-community-detection convention for conjecture-gated time bounds. second_notion=algo class records that PC_ρ itself, the source of the conjecture, carries unconditional low-degree (§12.2) and SQ (§12.3) lower bounds offered as evidence, the same party under an incomparable notion (rule 4b), again matching ding-low-degree's pattern. baseline=stated: §3.1 explicitly states the information-theoretically optimal (gapless) rate n = Θ(k log d/τ²) achieved by the empirical mean, against which the k-to-k² computational gap is measured. target/family/phase/access/write=none: no ML model or attack scenario, matching this corpus's other statistical-computational-gap pages (bogdanov, brennan-sq-lowdegree-equivalence, barak-sos, ding-low-degree, bandeira-franz-parisi)."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +38,14 @@ This paper provides the first evidence that average-case reductions can relate s
 The paper constructs a *web* of reductions (see Figure 1) from k-partite, bipartite, and hypergraph variants of PC, yielding tight statistical-computational tradeoffs for a broad range of problems: robust sparse mean estimation, dense stochastic block models, hidden partition models, semirandom planted dense subgraph, negatively correlated sparse PCA, mixtures of sparse linear regressions, robust sparse linear regression, tensor PCA, and universality for learning sparse mixtures.
 
 New reduction techniques introduced include: **rejection kernels**, **dense Bernoulli rotations**, **design matrices and tensors**, and a convergence result between **Wishart and inverse Wishart matrices**.
+
+## Claim Boundary
+
+- **Quantified over:** polynomial-time algorithms for the target problems, conditional on the source assumption. Every lower bound in the paper is the image of a conjecture under a total variation reduction.
+- **Antecedent:** the secret leakage planted clique conjecture PC_rho of Conjecture 2.2, together with the specific hardness assumptions of Conjecture 2.3. These are conjectured, they are newer and stronger than the planted clique conjecture, and the paper's own open questions note that failure for some rho would undermine the reductions.
+- **Algorithm class:** all polynomial time, but only conditionally. The unconditional content is the reductions themselves plus the low-degree lower bounds of Section 12.2 and the statistical query lower bounds of Section 12.3 for PC_rho, which are restricted-class results.
+- **Does not establish:** unconditional hardness for any target problem. A reduction transfers belief rather than creating it, and what it transfers here is belief in a generalisation of planted clique rather than in planted clique itself.
+- **Abstract vs theorem:** none found.
 
 ## Key Contributions
 
@@ -78,7 +109,9 @@ New reduction techniques introduced include: **rejection kernels**, **dense Bern
 
 ## Quotes / Notable Passages
 
-> "The insight in this work is that a slight generalization of the planted clique conjecture — the secret leakage planted clique (PC_ρ) — gives rise to a variety of new average-case reduction techniques, yielding a web of reductions relating statistical problems with very different structure."
+> _An earlier rendering inserted an article and dropped the clause that says what the leakage is. Checked against `raw/BB20_SecretLeakagePC.pdf` on 2026-08-20; the paper's own wording follows and is verbatim._
+>
+> "The insight in this work is that a slight generalization of the planted clique conjecture – secret leakage planted clique (PC_ρ), wherein a small amount of information about the hidden clique is revealed – gives rise to a variety of new average-case reduction techniques, yielding a web of reductions relating statistical problems with very different structure."
 
 > "An expanded set of hardness assumptions, such as PC_ρ, may be a key first step towards a more complete theory of reductions among statistical problems."
 

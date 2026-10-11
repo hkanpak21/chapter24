@@ -1,0 +1,20 @@
+slug	kind	quantity	where
+adaptive-test-time-defenses-eval	capability	a norm bound on the perturbation, fixed as a definition and not studied	attack definition
+adversary-aware-dp-bounds	capability	the mechanism's privacy budget, with the adversary left unconstrained	main theorem
+calibrated-proof-of-work-extraction	adversary	attacker compute raised up to a hundredfold by a proof-of-work puzzle, measured	abstract
+crypto-backdoor-boon-bane	adversary	a $q$-query adversary, fixed as a definition and not studied	admissible-adversary definition
+data-pruning-beats-power-laws	training	the exponent of a scaling law in data, measured	experiments
+feature-learning-improves-scaling	training	the exponent of a scaling law, measured	experiments
+filter-impossibility-ai-alignment	adversary	filter time $o(t^{\varepsilon})$ against model time $t$, a side condition of Theorem 1	Theorem 1
+hidden-progress-sgd-parities	training	steps to convergence as a power law $t_c \propto n^{\alpha k}$, measured	experiments
+impossibility-retrain-equivalence	capability	the class of local unlearning algorithms, a definition	definition of a local algorithm
+mia-cannot-prove-training	adversary	the cost of retraining a large model to sample the null, assessed and never stated as a bound	abstract
+on-evaluating-adversarial-robustness	capability	the perturbation budget fixed as a definition, while attacker compute is rejected in the text	Sections 2.2.2 and 4.8
+pol-incentive-security	adversary	a dishonest prover's cost per epoch, assumed to be zero	Section 3.3
+polo-proof-of-learning-ownership	adversary	forging cost of 1.1 to 4 times honest proof generation, measured	evaluation
+robustly-reliable-learners-poison	training	the learner's calls to an empirical risk minimization oracle	Theorem 3.1
+sok-adversary-knowledge	adversary	the number of queries left to the adversary, a game parameter not studied	security game
+undetectable-watermarks-lm	adversary	one query per output token to remove the watermark, and a cost ratio in dollars	Theorem 11 and evaluation
+universal-jailbreak-rlhf-backdoors	capability	a corruption fraction of half a per cent of preference data, measured	evaluation
+unlearning-verification-fragile	adversary	forging time equal to retraining time, reported beside a validity criterion that ignores it	Proposition 4.5
+algorithmic-progress-lm	training	the compute needed for a fixed loss, halving every eight months, measured	abstract

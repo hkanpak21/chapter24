@@ -3,9 +3,31 @@ title: "The Relationship Between High-Dimensional Geometry and Adversarial Examp
 type: source
 date_ingested: 2026-04-23
 authors: [Justin Gilmer, Luke Metz, Fartash Faghri, Samuel S. Schoenholz, Maithra Raghu, Martin Wattenberg, Ian Goodfellow]
-venue: ICLR Workshop 2018
+venue: "ICLR Workshop 2018"
+venue_evidence: "https://dblp.org/rec/conf/iclr/GilmerMFSRWG18.html; https://openreview.net/forum?id=SyUkxxZ0b (ICLR 2018 Workshop Track)"
 year: 2018
 tags: [adversarial-ml, concentration-of-measure, isoperimetry, evasion-attacks, high-dimensional-geometry]
+claim_quantifier: existential
+antecedent: "The data are uniform on two concentric spheres in R^n, the error region is measured on the inner sphere, and the metric is the Euclidean one. This is a constructed synthetic distribution. The extension to natural image data is stated in the paper as a hypothesis, not proved."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: "we prove that any model which misclassifies a small constant fraction of the data manifold will be vulnerable to adversarial perturbations of size O(1/ n)."
+cls_evidence_src: "Introduction, bulleted list of results, p. 2, the bound the abstract leads with. The missing symbol before the final \"n\" is a dropped square-root glyph in the pdftotext extraction, i.e. O(1/sqrt(n))."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R2, radius is the conclusion): party attacker -> none. RECODE 2026-09-03 (R2, radius is the conclusion): unit perturbation -> none. RECODE 2026-09-03 (R2, radius is the conclusion): tightness budget -> unstated. RECODE 2026-09-03 (R2, radius is the conclusion): frame capability -> none. RECODE 2026-09-03 (R2, radius is the conclusion): assessed explicit -> ."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +37,14 @@ This paper (GMF+18, "Adversarial Spheres") is the **foundational geometric expla
 The spheres dataset is deliberately stylized to isolate the geometric question: the classes are perfectly separable (the two spheres are disjoint) and the input manifold is uniform on each sphere. The Gaussian isoperimetric inequality then applied to the error region gives the O(1/√d) bound. This construction later becomes the launching point for Mahloujifar-Diochnos-Mahmoody's [Curse of Concentration](curse-of-concentration.md) general theorem, which replaces "spheres" with "any Normal Lévy family" and "isoperimetry" with "concentration of measure," yielding the same O(1/√n) bound in far more generality.
 
 Historically, this paper is widely cited as the moment the community accepted that adversarial vulnerability is fundamentally tied to high-dimensional geometry — not merely a quirk of deep learning, not merely an artifact of gradient-based training, but a mathematical consequence of classifying in high dimensions with any nonzero error.
+
+## Claim Boundary
+
+- **Quantified over:** all measurable classifiers on **one** constructed distribution, the concentric-spheres dataset. Theorem 5.1 reads "Consider any model trained on the sphere dataset"; the universal quantifier ranges over models, and the distribution is fixed and synthetic. "There exists a dataset on which every classifier with constant error has nearby errors" is not "every dataset has this property".
+- **Antecedent:** uniform measure on two concentric spheres in R^n under the Euclidean metric, and non-zero error on the inner sphere. Whether natural image distributions have the same isoperimetric profile is not established here and was subsequently measured and found not to bind for image benchmarks; see [Empirically Measuring Concentration](empirically-measuring-concentration.md).
+- **Which party is constrained:** none; the constraint is geometric. The adversary has unbounded computation and is limited only by the Euclidean perturbation radius. The learner is unconstrained in samples, parameters and time. No resource of any party is priced.
+- **Does not establish:** (i) that adversarial examples on natural data follow from geometry — the paper's own words for that step are "We hypothesize"; (ii) that the trained networks reach the bound because of geometry rather than optimization — the paper reports that they approach it, which is an empirical finding on the same synthetic dataset; (iii) anything about attacker cost, since the bound is an existence statement about a nearby error point.
+- **Abstract vs theorem:** the abstract is appropriately hedged ("We hypothesize that this counterintuitive behavior is a result of the high-dimensional geometry of the data manifold, and explore this hypothesis on a simple high-dimensional dataset"). The overreach on this page was in the earlier summary prose, which promoted the hypothesis to a "foundational geometric explanation"; the theorem covers the sphere dataset only.
 
 ## Key Contributions
 
@@ -50,6 +80,22 @@ Historically, this paper is widely cited as the moment the community accepted th
 
 ## Quotes / Notable Passages
 
-> "We hypothesize that adversarial vulnerability is a result of high-dimensional geometry of the data manifold."
+> _Not verbatim. Checked against `raw/GMF+18_AdversarialSpheres.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> We hypothesize that adversarial vulnerability is a result of high-dimensional geometry of the data manifold.
 
-> "We prove that any model which misclassifies a small constant fraction of a sphere will be vulnerable to adversarial perturbations of size O(1/√d)."
+The verified passage the paraphrase above was drawn from, from the abstract:
+
+> "We hypothesize that this counterintuitive behavior is a result of the high-dimensional geometry of the data manifold, and explore this hypothesis on a simple high-dimensional dataset."
+
+> _Not verbatim. Checked against `raw/GMF+18_AdversarialSpheres.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> We prove that any model which misclassifies a small constant fraction of a sphere will be vulnerable to adversarial perturbations of size O(1/√d).
+
+The paper's own sentence, verified, differs in two places that matter — the object is the data manifold rather than a sphere, and the dimension symbol is n:
+
+> "In particular, we prove that any model which misclassifies a small constant fraction of the data manifold will be vulnerable to adversarial perturbations of size O(1/√n)."
+
+And, on the discussion of Theorem 5.1:
+
+> "Any model which misclassifies a small constant fraction of the sphere must have errors close to most randomly sampled data points, no matter how the model errors are distributed on the sphere."

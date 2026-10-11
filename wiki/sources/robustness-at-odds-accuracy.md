@@ -3,9 +3,32 @@ title: "Robustness May Be at Odds with Accuracy"
 type: source
 date_ingested: 2026-04-23
 authors: [Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Alexander Turner, Aleksander Mądry]
-venue: ICLR 2019
+venue: "ICLR 2019"
+venue_evidence: "dblp https://dblp.org/rec/conf/iclr/TsiprasSETM19.html"
 year: 2019
 tags: [adversarial-ml, robustness, accuracy-tradeoff, representation-learning, evasion-attacks]
+claim_quantifier: existential
+antecedent: "The formal tradeoff holds for one engineered binary problem — a single strongly correlated Gaussian feature plus d weakly correlated ones with correlation η — and only for ℓ∞ perturbation radius ε > 2η. The representation findings are empirical and carry no antecedent beyond the datasets and training procedure used."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: capability
+cls_party: attacker
+cls_unit: perturbation
+cls_tightness: budget
+cls_baseline: stated
+cls_baseline_checked: yes
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "robust accuracy at most 1 − √p δ against an `∞ -bounded adversary with ε ≥ 2η"
+cls_evidence_src: Thm 2.1
+cls_reason: "Rule 5 overrides the wiki's own Claim Boundary framing of \"none; the constraint is geometric\": the adversary is an ℓ∞ ball of radius ε ≥ 2η, an explicit perturbation budget, so party=attacker, unit=perturbation, frame=capability, not none. The learner is unconstrained in samples and compute (infinite-data limit), so second_party=none."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +38,14 @@ This paper (TSETM19) proves a **formal tradeoff between standard accuracy and ad
 The paper constructs a simple binary classification problem where features split into (i) one highly-correlated-with-label feature (small margin but large predictive value) and (ii) many weakly-correlated features (each with small individual signal). The optimal *standard* classifier leverages all features; the optimal *robust* classifier under a small ℓ_∞ adversary must rely only on the strong feature because the weak features are adversarially flippable. In this setting, robust accuracy upper-bounds standard accuracy by a dimension-dependent gap.
 
 Beyond the formal tradeoff, the paper empirically demonstrates that adversarially trained models on MNIST/CIFAR/Restricted-ImageNet learn **qualitatively different representations**: their learned features are more "human-perceptible" — they align with salient object features, enable clean interpolation between classes (like GANs), and support smooth perceptual transitions. This "unexpected benefit" of robust training — better representation alignment with human perception — has become an influential observation shaping the broader theory of ML representation learning.
+
+## Claim Boundary
+
+- **Quantified over:** one constructed distribution. The paper's own framing is that the tradeoff "provably exists in a fairly simple and natural setting", which is an existence claim about a setting, not a universal claim about learning problems. There exists a distribution on which no classifier is simultaneously optimal for both objectives; it does not follow that every distribution forces a tradeoff, and the paper does not claim it does.
+- **Antecedent:** the weak features must be adversarially flippable, which is the condition ε > 2η. Outside that regime the construction says nothing. Whether natural data decomposes into strong and weak features in this way is not measured.
+- **Which party is constrained:** none; the constraint is geometric. The adversary is the ℓ∞ ball of radius ε, with unbounded computation. The learner is unconstrained in samples, since the tradeoff is stated in the infinite-data limit, and unconstrained in computation. No resource of either party is priced.
+- **Does not establish:** (i) that observed accuracy drops under adversarial training on real datasets are caused by this mechanism — that link is argued by analogy from the toy model and by the representation experiments, not proved; (ii) that the tradeoff is unavoidable in general, since low-signal and high-signal problems behave differently and the paper says so; (iii) any ℓ₂ statement, since the construction uses ℓ∞; (iv) any formal content for "align better with human perception", which is qualitative throughout.
+- **Abstract vs theorem:** the abstract hedges correctly ("there may exist an inherent tension", "in a fairly simple and natural setting"). The title, read alone, states more than the theorem supports.
 
 ## Key Contributions
 
@@ -35,7 +66,7 @@ Beyond the formal tradeoff, the paper empirically demonstrates that adversariall
 
 ## Connections
 
-- Source: [Adversarially Robust Generalization Requires More Data (Schmidt et al. 2018)](../sources/) — complementary result: robust generalization requires more data than standard generalization. This paper shows the tradeoff persists even with infinite data.
+- Source: [Adversarially Robust Generalization Requires More Data (Schmidt et al. 2018)](robust-generalization-more-data.md) — complementary result: robust generalization requires more data than standard generalization. This paper shows the tradeoff persists even with infinite data.
 - Source: [Universal Law of Robustness (Bubeck-Sellke 2021)](universal-law-of-robustness.md) — complementary: establishes that *overparameterization* is necessary for robustness; this paper argues *different features* are necessary.
 - Source: [Empirically Measuring Concentration (MZME19)](empirically-measuring-concentration.md) — concentration bounds suggest there is room for better robust classifiers; this paper identifies a fundamental cost.
 - Source: [Certified Robustness via Randomized Smoothing](certified-robustness-randomized-smoothing.md) — accuracy-robustness tradeoff manifests empirically in smoothing's σ parameter.
@@ -58,4 +89,14 @@ Beyond the formal tradeoff, the paper empirically demonstrates that adversariall
 
 > "At the root of this trade-off is the fact that features learned by the optimal standard and optimal robust classifiers can be fundamentally different and, interestingly, this phenomenon persists even in the limit of infinite data."
 
-> "The representations learned by robust models tend to align better with salient data characteristics and human perception. For instance, the features learnt by robust models yield clean inter-class interpolations, similar to those found by generative adversarial networks."
+> _Not verbatim as a single passage. Checked against `raw/TSETM19_RobustnessAtOddsAccuracy.pdf` on 2026-08-20: the two sentences are genuine but come from different places, the abstract and Section 1, and the second is truncated. An earlier ingest spliced them without ellipsis. Retained unquoted; the two verified passages follow._
+>
+> The representations learned by robust models tend to align better with salient data characteristics and human perception. For instance, the features learnt by robust models yield clean inter-class interpolations, similar to those found by generative adversarial networks.
+
+From the abstract:
+
+> "the representations learned by robust models tend to align better with salient data characteristics and human perception."
+
+From the introduction:
+
+> "For instance, the features learnt by robust models yield clean inter-class interpolations, similar to those found by generative adversarial networks (GANs) (Goodfellow et al., 2014) and other generative models."

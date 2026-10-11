@@ -3,9 +3,31 @@ title: "Computational Barriers to Estimation from Low-Degree Polynomials"
 type: source
 date_ingested: 2026-04-23
 authors: [Tselil Schramm, Alexander S. Wein]
-venue: Annals of Statistics 2022 (arXiv:2008.02269)
+venue: Annals of Statistics 2022 (the ingested PDF is arXiv:2008.02269v2, 18 Jun 2022, and does not itself state a venue)
 year: 2022
 tags: [low-degree-polynomials, statistical-computational-gaps, estimation, recovery, planted-problems]
+claim_quantifier: universal
+antecedent: "none for the mean squared error bound, which is a second-moment computation. Reading that bound as a computational threshold rests on the low-degree conjecture."
+algorithm_class: "low-degree"
+date_verified: 2026-08-20
+cls_target: none
+cls_family: none
+cls_phase: n/a
+cls_access: none
+cls_write: none
+cls_frame: compute
+cls_party: learner
+cls_unit: algo class
+cls_tightness: class
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "For a large class of \"signal plus noise\" problems, we give a user-friendly lower bound for the best possible mean squared error achievable by any degree-D polynomial."
+cls_evidence_src: abstract
+cls_reason: "All fields direct: the bound is against 'any degree-D polynomial' estimator, matching low-degree-polynomials-survey's party=learner, unit=algo class, tightness=class exactly. No ML attack scenario (pure planted-signal recovery), so target/family/phase/access/write are none/n/a."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -20,6 +42,14 @@ The central technical contribution is the **low-degree MMSE lower bound**: for a
 These are the *first* low-degree recovery lower bounds for problems where the associated detection problem is computationally easy — establishing that detection and recovery have genuinely different computational thresholds in some regimes, a phenomenon previously known but not formally justified at the low-degree level.
 
 SW22 is now the standard reference for low-degree hardness of estimation problems and is foundational for subsequent developments (e.g., Ding-Hua-Slot-Steurer 2025 on SBM recovery below Kesten-Stigum).
+
+## Claim Boundary
+
+- **Quantified over:** every polynomial of degree at most D in the observed data, used as an estimator, for the signal-plus-noise models the paper treats. The quantity bounded is mean squared error.
+- **Antecedent:** none for the mean squared error bound itself, which is a second-moment computation. Reading that bound as a computational threshold rests on the low-degree conjecture.
+- **Algorithm class:** low-degree. The bound is against degree-D polynomial estimators, not against all efficient estimators, and it is not an SQ or a sum-of-squares bound.
+- **Does not establish:** that recovery is hard for polynomial time in the detection-easy regimes treated. It establishes that degree-D polynomials fail there. Lattice methods are the known family that escapes low-degree bounds on noiseless problems.
+- **Abstract vs theorem:** none found.
 
 ## Key Contributions
 
@@ -59,6 +89,10 @@ SW22 is now the standard reference for low-degree hardness of estimation problem
 
 ## Quotes / Notable Passages
 
-> "We give a user-friendly lower bound for the best possible mean squared error achievable by any degree-D polynomial for a large class of 'signal plus noise' problems."
+> _Clauses reordered. Checked against `raw/SW22_LowDegreeEstimation.pdf` on 2026-08-20. The sentence below appears in the paper with its clauses in the opposite order, so the version an earlier ingest quoted is not verbatim. The paper's own wording follows._
+>
+> We give a user-friendly lower bound for the best possible mean squared error achievable by any degree-D polynomial for a large class of 'signal plus noise' problems.
+
+> "For a large class of "signal plus noise" problems, we give a user-friendly lower bound for the best possible mean squared error achievable by any degree-D polynomial."
 
 > "These are the first results to establish low-degree hardness of recovery problems for which the associated detection problem is easy."

@@ -3,23 +3,54 @@ title: "On the Impossibility of Separating Intelligence from Judgment: The Compu
 type: source
 date_ingested: 2026-04-23
 authors: [Sarah Ball, Greg Gluch, Shafi Goldwasser, Frauke Kreuter, Omer Reingold, Guy N. Rothblum]
-venue: "arXiv:2507.07341 (Jul 2025; preprint under review)"
-year: 2025
+venue: "ICLR 2026"
+venue_evidence: "ICLR 2026 virtual poster page (Poster Session 2, Pavilion 4, #3902), https://arxiv.org/abs/2507.07341; corroborated by MCML news https://mcml.ai/news/2026-04-22-papers-iclr2026/"
+year: 2026
 tags: [llm-security, cryptography, impossibility, alignment, one-way-functions, time-lock-puzzles, public-key-encryption]
+claim_quantifier: existential
+antecedent: "cryptographic hardness (TLPs for Thm 1; OWFs plus an LLM-attacker shared secret for Thm 2; PKE for Thm 3); the LLM is constructed by the proof, not given"
+adversary_bound: "the FILTER is the bounded party: bounded by compute relative to the model it audits (Thm 1) or by polynomial time (Thms 2-3)"
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: black box
+cls_write: read only
+cls_frame: compute
+cls_party: auditor
+cls_unit: time
+cls_tightness: relative
+cls_baseline: stated
+cls_baseline_checked: yes
+cls_second_party: time
+cls_assessed: implicit
+cls_evidence: "for every prompt filter running in time o(t^ε), for every m ∈ SH the advantage in distinguishing outputs of G and G′(m) is λ^{−Ω(1)}"
+cls_evidence_src: Thm 7 (formal version of Thm 1), App. C.1
+cls_reason: "Classified on Theorem 1: the paper states in-text 'we emphasize that the main result of this work is Theorem 1', so Thms 2-3 (stronger, but requiring a shared secret key or a public key) are noted but not the classified claim. Party is the filter (an auditor of the LLM's outputs), bounded in Thm 7 by o(t^ε) against the model's time t, a stated relation to the honest party's work, hence tightness=exponent. assessed=implicit because the wiki Summary itself flags the compute ratio as 'stated as a side condition rather than as the object of study'. second=none: the generator G' is only held to comparable-runtime-to-G boilerplate, not an independently studied bound, and the model/filter relation is already carried by tightness=exponent. RECODE 2026-09-03 (R1, revision 7): tightness exponent -> relative. RECODE 2026-09-03 (R1, honest party unit): second_party none -> time."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
 
-This paper (BGGKRR25) is **the long-awaited Goldwasser-style formal impossibility theorem for LLM filter-based alignment.** Under standard cryptographic assumptions, the authors prove that no efficient prompt filter — and under natural settings, no efficient output filter — can align a sufficiently expressive LLM. Adversarial prompts that elicit harmful behavior are computationally indistinguishable from benign prompts for any efficient filter. The thesis crystallizes as: **"intelligence cannot be separated from judgment"** — alignment cannot be achieved externally via black-box filtering of an untrusted LLM, regardless of how much filter-training effort is expended.
+This paper (BGGKRR25) gives a Goldwasser-style impossibility theorem for LLM filter-based alignment. **The claim is existential, not universal**: the abstract states, verbatim, "there exist LLMs for which there are no efficient prompt filters" — the models are constructed by the proof under cryptographic assumptions, and nothing is proved about any deployed model. For those constructed models, adversarial prompts that elicit harmful behavior are computationally indistinguishable from benign prompts for the stated filter class. The paper's thesis phrase is "intelligence cannot be separated from judgment": external black-box filtering cannot be a *sound* alignment guarantee against worst-case models, because a model could be one of the constructed ones.
 
 The authors prove three increasingly strong versions of the impossibility, each trading cryptographic assumption strength for filter power:
 - **Theorem 1 (Time-Lock Puzzles)**: for any high-entropy innocent prompt generator G, there exists a harmful prompt generator G' and LLM M' such that no filter running significantly faster than M' can distinguish G from G' under TLP hardness (RSW 1996 / repeated squaring modulo a semi-prime).
 - **Theorem 2 (OWF + shared secret)**: if the LLM and harmful prompt generator share a secret key (empirically observed in "deceptive alignment" scenarios), then under One-Way Functions no *polynomial-time* filter can distinguish prompts.
 - **Theorem 3 (Public-Key Encryption)**: if the LLM has a public key visible to the filter, under PKE there still exists a harmful prompt generator indistinguishable to polynomial-time filters.
 
-The paper also proves analogous impossibilities for **output filtering** (even when prompts are deemed safe, determining whether outputs are harmful is intractable) and for **relaxed mitigation filters** that modify rather than reject prompts/outputs. Together these results close Pillar III's long-standing formal gap.
+The paper also proves analogous impossibilities for **output filtering** (for the constructed models, determining whether outputs are harmful is intractable for efficient filters) and for **relaxed mitigation filters** that modify rather than reject prompts/outputs.
 
-Philosophically, the paper argues that alignment with only black-box access to the model cannot succeed — the filter must be as powerful as the LLM to detect adversarial prompts, at which point "aligning the filter itself" becomes the new alignment problem. The implication for regulatory frameworks (EU AI Act, etc.) is severe: filter-based audit requirements for high-risk AI applications are provably insufficient under standard cryptographic assumptions.
+The paper argues that alignment with only black-box access cannot succeed, because the filter must be as powerful as the LLM it audits, at which point aligning the filter is the original problem again. The operative quantity in Theorem 1 is therefore a **compute ratio between two parties** — the filter is defeated exactly when it runs no faster than the model — stated as a side condition rather than as the object of study. On regulation the accurate statement is conditional: filter-based audit requirements cannot be *provably sound* against worst-case models under these assumptions; the paper does not show that filtering fails against any deployed model.
+
+## Claim Boundary
+
+- **Quantified over:** existential — "there exist LLMs" (constructed, with a paired harmful prompt generator) such that no filter in the stated class distinguishes harmful from benign prompts. Not a claim over all or deployed LLMs.
+- **Antecedent:** Thm 1 time-lock puzzles; Thm 2 one-way functions **plus a secret key shared between the LLM and the attacker**; Thm 3 public-key encryption. All standard, all unproven as always.
+- **Which party is bounded:** the filter — by compute relative to the audited model (Thm 1) or polynomial time (Thms 2-3). The model and prompt generator are the constructed adversarial pair.
+- **Does not establish:** that any existing model resists filtering; that filtering is useless in practice; an unconditional impossibility.
+- **Abstract vs theorem:** the abstract is careful ("there exist LLMs"). Earlier versions of this page restated it universally and drew a regulatory conclusion from the universal reading; corrected 2026-08-20.
 
 ## Key Contributions
 

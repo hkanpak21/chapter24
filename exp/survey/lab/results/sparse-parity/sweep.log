@@ -1,0 +1,27 @@
+d=20 seed=0 steps=150
+d=20 seed=1 steps=150
+d=20 seed=2 steps=150
+d=20 seed=3 steps=150
+d=20 seed=4 steps=150
+d=28 seed=0 steps=200
+d=28 seed=1 steps=200
+d=28 seed=2 steps=200
+d=28 seed=3 steps=200
+d=28 seed=4 steps=200
+d=36 seed=0 steps=300
+d=36 seed=1 steps=250
+d=36 seed=2 steps=300
+d=36 seed=3 steps=250
+d=36 seed=4 steps=250
+d=44 seed=0 steps=350
+d=44 seed=1 steps=250
+d=44 seed=2 steps=300
+d=44 seed=3 steps=250
+d=44 seed=4 steps=300
+d=52 seed=0 steps=350
+d=52 seed=1 steps=450
+d=52 seed=2 steps=350
+d=52 seed=3 steps=400
+d=52 seed=4 steps=400
+
+fitted log-log slope (steps ~ d^slope): 0.9856851984444279

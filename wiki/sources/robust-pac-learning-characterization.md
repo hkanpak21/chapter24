@@ -3,9 +3,32 @@ title: "Adversarially Robust Learning: A Generic Minimax Optimal Learner and Cha
 type: source
 date_ingested: 2026-04-12
 authors: [Omar Montasser, Steve Hanneke, Nathan Srebro]
-venue: "NeurIPS 2022 (arXiv:2209.07369)"
+venue: "NeurIPS 2022"
+venue_evidence: "dblp: conf/nips/MontasserHS22 (inproceedings, NeurIPS 2022); confirms the earlier attribution"
 year: 2022
 tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-theory]
+claim_quantifier: universal
+antecedent: "None beyond the setting inherited from Montasser, Hanneke and Srebro 2019 — a hypothesis class H, a perturbation map U with U(x) nonempty, and an i.i.d. non-adversarial training sample. The characterization is stated up to logarithmic factors, not exactly."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: white box
+cls_write: read only
+cls_frame: statistical
+cls_party: learner
+cls_unit: samples
+cls_tightness: budget
+cls_baseline: n/a
+cls_baseline_checked: yes
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: explicit
+cls_evidence: "shows that DU (H) tightly (up to log factors) characterizes the sample complexity of agnostic robust learning"
+cls_evidence_src: §6, near Thm 9
+cls_reason: "Party=learner: the Claim Boundary states the adversary realizing U is unbounded in every resource and nothing in the characterization is computational, so frame=statistical, not compute, per the batch note on pure sample-complexity bounds. Tightness=budget is a judgment call: D(H,U)/ε² is an explicit closed-form dimension-based formula, and none of poly/quasi-poly/class/exponent/measured fit it cleanly in this codebook's narrower senses."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -13,6 +36,14 @@ tags: [adversarial-ml, PAC-learning, sample-complexity, robustness, learning-the
 This paper resolves the sample complexity characterization of adversarially robust PAC learning. The central contribution is the **global one-inclusion graph** — a generalization of Haussler, Littlestone, and Warmuth's classical one-inclusion graph — from which the authors derive both a minimax-optimal learner and a dimension that exactly characterizes robust learnability: qualitatively (which hypothesis classes H can be robustly learned) and quantitatively (how many samples are needed).
 
 Prior to this paper, the robust learnability question was open: VC-dimension does not characterize robust PAC learnability (Montasser et al. COLT 2019 showed finite VC-dim classes can be robustly learned by improper learners but some cannot by proper learners). This paper closes the gap.
+
+## Claim Boundary
+
+- **Quantified over:** all hypothesis classes H and all perturbation maps U. The dimension D_U(H) is claimed to characterize robust learnability qualitatively and quantitatively; the paper's own statement of tightness is "tightly (up to log factors)", for the **agnostic** sample complexity.
+- **Antecedent:** none of substance. This is the unconditional member of the cluster, which is why it is the right anchor for what robust PAC learnability costs in samples.
+- **Which party is constrained:** the **learner**, in sample complexity, and only there. The perturbation map U is arbitrary and the adversary that realises it is unbounded in every resource. Nothing in the characterization is computational: the dimension is not known to be efficiently computable, and the minimax-optimal learner is not claimed to run in polynomial time. A survey of resource-bounded adversaries should file this as an information-theoretic result with no priced party on the attack side.
+- **Does not establish:** (i) any efficient learner, for any class; (ii) an exact Θ — the tightness is up to logarithmic factors; (iii) that local learners are useless, only that they are suboptimal, which the paper proves "in a strong negative sense" against the specific 2019 learner and the local family; (iv) anything about training-time attacks.
+- **Abstract vs theorem:** none found. The abstract calls the dimension "a byproduct" and describes the gap it closes as "(potentially) infinite", which is more careful than "exact characterization".
 
 ## Key Contributions
 
@@ -54,4 +85,16 @@ where D(H, U) is the global one-inclusion graph dimension.
 
 ## Quotes / Notable Passages
 
-> "The global perspective is necessary — local learners are suboptimal. Sample complexity of robust PAC learning is characterized by the global one-inclusion graph dimension."
+> _Not verbatim. Checked against `raw/MHS22_GenericMinimaxLearner.pdf` on 2026-08-20 and not found; this is a paraphrase that an earlier ingest presented as quotation. Retained unquoted as a summary. Replace with a verified passage or delete before citing._
+>
+> The global perspective is necessary — local learners are suboptimal. Sample complexity of robust PAC learning is characterized by the global one-inclusion graph dimension.
+
+The two abstract passages the paraphrase compressed, both verified:
+
+> "we show, in a strong negative sense, the suboptimality of the robust learner proposed by Montasser, Hanneke, and Srebro (2019) and a broader family of learners we identify as local learners."
+
+> "Our results are enabled by adopting a global perspective, specifically, through a key technical contribution: the global one-inclusion graph, which may be of independent interest, that generalizes the classical one-inclusion graph due to Haussler, Littlestone, and Warmuth (1994)."
+
+On the strength of the characterization, verified:
+
+> "Finally, as a byproduct, we identify a dimension characterizing qualitatively and quantitatively what classes of predictors H are robustly learnable."

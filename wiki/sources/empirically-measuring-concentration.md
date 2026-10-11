@@ -3,9 +3,30 @@ title: Empirically Measuring Concentration — Fundamental Limits on Intrinsic R
 type: source
 date_ingested: 2026-04-12
 authors: [Saeed Mahloujifar, Xiao Zhang, Mohammad Mahmoody, David Evans]
-venue: NeurIPS
+venue: NeurIPS 2019 (stated in PDF)
 year: 2019
 tags: [adversarial-ml, concentration-of-measure, evasion-attacks, empirical, robustness]
+claim_quantifier: empirical
+antecedent: "The reported estimates are for MNIST, CIFAR-10, Fashion-MNIST and SVHN under ℓ∞ and ℓ₂, with the error region restricted to a complexity-controlled family G — unions of hyperrectangles for ℓ∞, unions of balls for ℓ₂. Convergence to the true unrestricted concentration function (Theorem 3.5) additionally requires condition (iv), that h(μ, α, ε, G(T)) → h(μ, α, ε), which the paper notes is hard to verify for a given dataset."
+date_verified: 2026-08-20
+cls_target: outputs
+cls_family: evade
+cls_phase: test time
+cls_access: none
+cls_write: read only
+cls_frame: none
+cls_party: none
+cls_unit: none
+cls_tightness: unstated
+cls_baseline: n/a
+cls_second_party: none
+cls_second_notion: none
+cls_assessed: 
+cls_evidence: "We use it to empirically estimate the intrinsic robustness to `∞ and `2 perturbations of several image classification benchmarks."
+cls_evidence_src: "Abstract, p. 1. The backtick renders the ℓ of ℓ∞/ℓ2, a pdftotext font-glyph artifact."
+cls_reason: "Hand-classified 2026-08-22 against codebook revision 2, then migrated through revisions 3 to 5. Carries no verbatim evidence quote, unlike the delegated rows. RECODE 2026-09-03 (R2, radius is the conclusion): party attacker -> none. RECODE 2026-09-03 (R2, radius is the conclusion): unit perturbation -> none. RECODE 2026-09-03 (R2, radius is the conclusion): tightness budget -> unstated. RECODE 2026-09-03 (R2, radius is the conclusion): frame capability -> none. RECODE 2026-09-03 (R2, radius is the conclusion): assessed explicit -> ."
+cls_prov: P
+cls_date: 2026-08-22
 ---
 
 ## Summary
@@ -15,6 +36,14 @@ This paper (MZME19) tests empirically whether the concentration-of-measure upper
 The central finding: on benchmark datasets (MNIST, CIFAR-10) under commonly-used ℓ_∞ / ℓ₂ perturbation budgets, the concentration-of-measure upper bound on intrinsic robustness is *substantially above* what existing classifiers achieve — i.e., the gap between empirical adversarial error and the concentration bound is large. This implies that concentration alone does *not* explain the observed adversarial vulnerability: there is room for more robust classifiers than currently exist, and concentration-based impossibility results are not tight on natural data distributions under standard perturbation models.
 
 The paper thus reframes the theoretical concentration narrative: while concentration is a fundamental obstacle in worst-case geometric spaces, real-world data may enjoy much weaker concentration, meaning a large fraction of the observed vulnerability is due to classifier design rather than inherent geometry.
+
+## Claim Boundary
+
+- **Quantified over:** four image benchmarks, two metrics, and a specific family of candidate error regions. The measurement is a *lower* bound on the concentration function computed over G, so it bounds intrinsic robustness from above only within that family; the general theorems (3.3, 3.5) are quantified over any family G with a complexity penalty.
+- **Antecedent:** for the finite-sample guarantee, a complexity penalty φ(m, δ) for G and for its ε-expansion G_ε. For the convergence claim, the universal-approximation condition (iv) on G(T), which is assumed rather than verified for the datasets used. Both are stated in the paper.
+- **Which party is constrained:** none by computation. The restriction is on the **class of error regions the estimator searches**, which is a hypothesis-class restriction on the measurement procedure, not a resource bound on an adversary or a learner. The adversary implicit in AdvRisk is unbounded and limited only by the ε-ball.
+- **Does not establish:** (i) that no robust classifier exists, or that one does — the gap it reports is between a concentration-implied floor and reported robust accuracies, and either side could move; (ii) that concentration is irrelevant, since on MNIST the estimate and the reported attack success are close; (iii) that the estimate is the true concentration function, since the search is over G and the convergence condition is unverified; (iv) anything under a perceptual metric, since only ℓ∞ and ℓ₂ were measured.
+- **Abstract vs theorem:** none found. The paper's conclusion is stated as a disjunction — either classifiers can be made more robust, or the gap needs a different explanation — which is weaker than the reading "concentration is refuted".
 
 ## Key Contributions
 
