@@ -72,7 +72,7 @@ Does not show: the rows neither the reviewer nor the quotation agents opened, ab
 | Review file | `exp/survey/reviews/2026-09-03-review-round-2.md` |
 | Verification | Inline Python over `notes/classification.tsv` and `wiki/sources/*.md` front matter; `pdftotext` and `grep -a` on `raw/SSK+24`, `raw/MHS19`, `raw/JYC+21`, `raw/ACW18` |
 | Gates | `bash exp/survey/tools/gates.sh`, all ten pass after the edits |
-| Edited | `sections/01,02,05,06,07,08,09`, `results.tex`, `refs.bib`, four wiki venue fields, `tools/check-numbers.py`, `tools/gen-tables.py`, `tools/gen-bib.py`, `figures/src/sankey.py`, `notes/2026-08-22-note-venue-mining.md`, regenerated `04-tables.tex`, `sankey-corpus.pdf`, both PDFs. Nothing committed |
+| Edited | `sections/01,02,05,06,07,08,09`, `results.tex`, `refs.bib`, four wiki venue fields, `tools/check-numbers.py`, `tools/gen-tables.py`, `tools/gen-bib.py`, `figures/src/sankey.py`, `notes/2026-08-22-halil-note-venue-mining.md`, regenerated `04-tables.tex`, `sankey-corpus.pdf`, both PDFs. Nothing committed |
 | Reproduce | `cd exp/survey && python3 figures/src/sankey.py && python3 tools/gen-tables.py && bash tools/gates.sh` |
 
 ## What this changes

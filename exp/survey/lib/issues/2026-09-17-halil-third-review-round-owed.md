@@ -3,9 +3,9 @@ slug: 2026-09-17-halil-third-review-round-owed
 opened: 2026-09-17
 assignee: halil
 status: open
-raised_by: lib/GATES.md
+raised_by: lib/reports/archive/2026-09-17-halil-survey-acceptance-gates.md
 closed_by:
-source: lib/GATES.md
+source: lib/reports/archive/2026-09-17-halil-survey-acceptance-gates.md
 ---
 
 # Gate ten is unmet: one review round remains
@@ -28,5 +28,5 @@ answered in a commit or recorded in `lib/profs/dismissed.md` with its reason.
 
 ## Where it touches
 
-lib/GATES.md, gate G10
+lib/reports/archive/2026-09-17-halil-survey-acceptance-gates.md, gate G10
 paper/sections/*.tex

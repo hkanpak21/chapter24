@@ -3,7 +3,7 @@
 Current as of 2026-08-20, after the session that settled the framing, the audience and the structure.
 
 This file holds the **reasoning**: what the survey argues, where its boundary is, and why it is shaped
-the way it is. The **work** lives in [[2026-08-22-plan-survey-tasks]] — tasks, progress, and the wiki pages that carry each
+the way it is. The **work** lives in [[2026-08-22-halil-plan-survey-tasks]] — tasks, progress, and the wiki pages that carry each
 section. The two are meant to be read together and not to repeat each other.
 
 ---
@@ -158,7 +158,7 @@ general framework has to be defended against.
 
 ## 4. Structure
 
-Six parts. Task-level detail and the wiki pages behind each are in [[2026-08-22-plan-survey-tasks]].
+Six parts. Task-level detail and the wiki pages behind each are in [[2026-08-22-halil-plan-survey-tasks]].
 
 | Part | Length | What it does |
 | --- | --- | --- |

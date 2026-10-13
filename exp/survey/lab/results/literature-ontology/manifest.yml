@@ -1,0 +1,14 @@
+topic: literature-ontology
+pulled: 2026-10-13
+job: lab/jobs/literature-ontology.sh
+brief: lab/src/briefs/ontology-brief.md
+schema: lib/literature/ontology/schema.tsv
+works: 237
+outputs:
+  input-1.txt to input-5.txt: the works each of the five agents was given
+  coded-1.tsv to coded-5.tsv: the facts each agent coded, five columns, no header
+notes: >
+  The coding is the agents' reading of wiki pages and sweep sheets, marked
+  inferred wherever the page does not say it directly. lab/src/merge-onto.py
+  merges it with the hand-entered facts into lib/literature/ontology/onto.tsv.
+  The brief's paths are those of the day; batches/ is now this directory.

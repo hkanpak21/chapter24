@@ -1,0 +1,235 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={An AI oracle in the style of the generic group model},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{An AI oracle in the style of the generic group model}
+\author{}
+\date{2026-10-13}
+
+\begin{document}
+\maketitle
+
+\section{Why the generic group model and not the random oracle
+model}\label{why-the-generic-group-model-and-not-the-random-oracle-model}
+
+The random oracle model idealizes the \emph{values} of a hash function:
+they are uniform and independent. Trained models have no such randomness
+to idealize. The generic group model (Shoup, EUROCRYPT 1997; Maurer, IMA
+2005; for rings, Aggarwal and Maurer, EUROCRYPT 2009) idealizes
+\emph{access}. Every party holds opaque handles to group elements and
+may only apply the group operations through the oracle. Lower bounds
+become provable, and they hold only for algorithms that never look at
+the representation. Index calculus, which does look at the
+representation of \(\mathbb{Z}_p^*\), beats the generic bound. That is
+the black-box against white-box question in another setting, and the
+reason this note copies the generic model.
+
+\section{Objects}\label{objects}
+
+\begin{itemize}
+\tightlist
+\item
+  A data distribution \(\mathcal{D}\) over labelled points, and a
+  training set \(S\) of \(n\) points.
+\item
+  An architecture: a parameter space \(\Theta\) and a map
+  \(\theta \mapsto f_\theta\) from parameters to functions. Write
+  \(\mathcal{F} = \{ f_\theta : \theta \in \Theta \}\).
+\item
+  The \emph{fibre} of a function \(f \in \mathcal{F}\) is
+  \(\Phi(f) = \{ \theta \in \Theta : f_\theta = f \}\), all parameter
+  vectors that compute it. This is the fibre of the parameterization,
+  not of the training map.
+\item
+  A training procedure \(\mathsf{Train}\), a randomized map from
+  training sets to \(\Theta\). It is never opened. It is constrained
+  only by utility.
+\end{itemize}
+
+\textbf{Utility condition \(\alpha\).}
+\(\mathbb{E}_{S \sim \mathcal{D}^n}\big[\Pr_{z \sim \mathcal{D}}[f_{\mathsf{Train}(S)} \text{ correct on } z]\big] \ge \alpha\).
+Without it a constant output is perfectly private and nothing is
+learned.
+
+\section{The oracle}\label{the-oracle}
+
+The oracle \(\mathcal{O}\) keeps a private table from handles to
+parameter vectors and offers these operations.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Operation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Returns
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Level
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathsf{train}(S)\) & a fresh handle to
+\(\theta \leftarrow \mathsf{Train}(S)\) & call \\
+\(\mathsf{eval}(h, x)\) & \(f_\theta(x)\) & function \\
+\(\mathsf{grad}_x(h, z)\) & gradient of the loss in the input &
+function \\
+\(\mathsf{grad}_\theta(h, z)\) & gradient of the loss in the parameters
+& representation \\
+\(\mathsf{reveal}(h)\) & \(\theta\) & representation \\
+\end{longtable}
+}
+
+An \emph{access class} is a set of permitted operations with a budget on
+each. Black-box is \(\{\mathsf{eval}\}\). The gradient attacks of the
+literature use \(\{\mathsf{eval}, \mathsf{grad}_\theta\}\) or
+\(\{\mathsf{eval}, \mathsf{grad}_x\}\), and the two are different
+classes. Shadow-model attacks add \(\mathsf{train}\) on chosen sets.
+White-box is \(\{\mathsf{reveal}\}\).
+
+\section{The game}\label{the-game}
+
+The challenger draws \(S \sim \mathcal{D}^n\), \(z_1\) uniformly from
+\(S\), \(z_0 \sim \mathcal{D}\), and \(b\) uniformly. It gives the
+adversary \(z_b\) and a handle to \(\mathsf{Train}(S)\). The adversary
+uses its access class and outputs \(b'\). Its advantage is
+\(2\Pr[b'=b]-1\).
+
+\section{Ideal representation}\label{ideal-representation}
+
+\textbf{Assumption.} Conditioned on the function
+\(f_{\mathsf{Train}(S)}\), the parameter vector \(\mathsf{Train}(S)\) is
+independent of \(S\). One instance: it is uniform on the fibre
+\(\Phi(f_{\mathsf{Train}(S)})\).
+
+This is the idealization, in the place the random encoding holds in the
+generic group model. It says the weights carry nothing about the data
+beyond the function they compute.
+
+\textbf{Proposition.} Under ideal representation, the best unbounded
+white-box advantage equals the best unbounded advantage of an attacker
+that sees only the function \(f_{\mathsf{Train}(S)}\).
+
+\emph{Proof.} Under the assumption, the membership bit, the function and
+the parameters form a Markov chain. The best advantage of an unbounded
+attacker equals the total variation distance between the two conditional
+distributions of its view. Total variation does not increase under a
+channel, and the parameters are a channel applied to the function. The
+white-box view therefore gives at most the function's advantage, and it
+gives at least that much because the function is computable from the
+parameters. \(\square\)
+
+\section{What the definition
+separates}\label{what-the-definition-separates}
+
+Real training breaks the assumption, and the white-box against black-box
+gap splits into two parts.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Representation leakage.} What the parameters say about
+  membership beyond the function. It is zero when the assumption holds,
+  and it is the information gap.
+\item
+  \textbf{Extraction cost.} With representation leakage zero, an
+  efficient black-box attacker may still fail to compute from queries
+  what the parameters hand over for free. This is the computational gap.
+  For ReLU networks, polynomial-time extraction up to the fibre (CJM20,
+  CCHRSS24) suggests it is small. For function families that resist
+  learning from queries while their code reveals a secret (BGIRSVY01) it
+  can be large.
+\end{enumerate}
+
+\section{The methodology caveat}\label{the-methodology-caveat}
+
+An oracle that hands out an ideal representation of every trained
+function is a virtual black-box obfuscator for the trained function.
+BGIRSVY01 proves such obfuscators do not exist for all function
+families. So the ideal representation cannot be instantiated in general,
+as the random oracle cannot (Canetti, Goldreich, Halevi, STOC 1998).
+This is an analogy, recorded as heuristic, and it says the definition
+will have the same standing as the random oracle model: a model in which
+proofs are possible, with known families where it fails.
+
+\section{Open}\label{open}
+
+\begin{itemize}
+\tightlist
+\item
+  Which access classes are strictly ordered for natural
+  \((\mathcal{D}, \Theta, \alpha)\), in particular
+  \(\{\mathsf{eval}, \mathsf{grad}_x\}\) against
+  \(\{\mathsf{eval}, \mathsf{grad}_\theta\}\).
+\item
+  Lower bounds on \(\mathsf{eval}\) and \(\mathsf{train}\) calls for
+  membership inference inside the model, in the way the generic group
+  model gives a square-root lower bound for discrete logarithms.
+\item
+  Whether any natural training procedure satisfies ideal representation,
+  even approximately.
+\end{itemize}
+
+\end{document}

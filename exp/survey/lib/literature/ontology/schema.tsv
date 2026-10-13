@@ -1,0 +1,187 @@
+slug	type	gloss
+training-model	type	
+train-arbitrary	training-model	any training procedure, quantified over
+train-adversarial	training-model	a malicious trainer chooses the procedure
+train-dp	training-model	a differentially private mechanism
+train-stable	training-model	a stable algorithm, uniform or leave-one-out stability
+train-gibbs	training-model	sampling from a Gibbs posterior
+train-version-space	training-model	a uniformly random hypothesis consistent with the data
+train-erm	training-model	an exact empirical risk minimizer
+train-sq	training-model	a statistical query algorithm
+train-gd	training-model	gradient descent or SGD, analysed as such
+train-random-features	training-model	random features, a frozen random first layer, RFF
+train-kernel	training-model	kernel, NTK or linear regression
+train-estimator	training-model	a statistical estimator, such as a mean or marginals
+train-concrete-dnn	training-model	real deep network training, studied empirically
+train-oracle-call	training-model	training treated as an opaque procedure called on chosen data
+train-obfuscated	training-model	the trained model is released obfuscated
+train-pretrain-finetune	training-model	pre-training followed by fine-tuning
+train-federated	training-model	federated or distributed training
+train-hypothesis-class	training-model	only the hypothesis class is fixed, learner left abstract
+access-model	type	
+access-release	access-model	a released statistic or aggregate, no model queries
+access-label	access-model	label-only queries
+access-score	access-model	confidence or loss values on queries
+access-eval	access-model	black-box queries, output type unspecified
+access-generation	access-model	sampling outputs of a generative model
+access-grad-input	access-model	gradients of the loss in the input
+access-grad-param	access-model	gradients of the loss in the parameters
+access-whitebox	access-model	the weights
+access-train-call	access-model	calls to the training procedure on chosen data
+access-trajectory	access-model	checkpoints or updates of the training run
+access-obfuscated-code	access-model	code of an obfuscated model
+access-none	access-model	the adversary sees nothing of the model
+adversary-class	type	
+adv-unbounded	adversary-class	unbounded computation
+adv-ppt	adversary-class	probabilistic polynomial time
+adv-size-bounded	adversary-class	circuits of bounded size
+adv-query-bounded	adversary-class	a bound on queries only
+adv-sample-bounded	adversary-class	a bound on samples only
+adv-sq	adversary-class	statistical query algorithms
+adv-low-degree	adversary-class	low-degree polynomial tests
+adv-first-order	adversary-class	gradient-based or first-order methods
+adv-memory-bounded	adversary-class	bounded memory
+adv-bayes-optimal	adversary-class	the Bayes-optimal rule
+adv-specific-algorithm	adversary-class	one fixed attack algorithm
+adv-oracle-aided	adversary-class	an attacker given extra oracles, such as quality or perturbation
+adv-unspecified	adversary-class	the class is not stated
+resource	type	
+res-queries	resource	queries to the model
+res-samples	resource	samples from the data distribution
+res-training-runs	resource	calls to training, shadow or reference models
+res-time	resource	running time
+res-memory	resource	memory or space
+res-perturbation	resource	perturbation size
+res-corruption	resource	fraction or number of corrupted points
+res-flops	resource	floating point operations
+res-none	resource	no resource is charged
+utility-condition	type	
+util-accuracy	utility-condition	test accuracy at least a level
+util-consistency	utility-condition	the output fits the training set
+util-estimation-error	utility-condition	statistical accuracy of an estimator
+util-query-accuracy	utility-condition	answers within an error, as in Dinur-Nissim or DP releases
+util-quality	utility-condition	output quality preserved, as in watermarking
+util-functionality-preserved	utility-condition	the tampered model behaves as the honest one on normal inputs
+util-none-stated	utility-condition	no utility condition is stated
+security-notion	type	
+notion-mia-advantage	security-notion	membership advantage in a game
+notion-tpr-at-low-fpr	security-notion	true positive rate at low false positive rate
+notion-dp	security-notion	differential privacy
+notion-cdp	security-notion	computational differential privacy
+notion-reconstruction	security-notion	reconstruction of training data
+notion-traceability	security-notion	tracing an individual from a release
+notion-memorization	security-notion	memorization of training data
+notion-cmi	security-notion	conditional or plain mutual information
+notion-pac-privacy	security-notion	PAC privacy
+notion-narcissus	security-notion	Narcissus resiliency
+notion-extraction	security-notion	model extraction, functional equivalence or fidelity
+notion-undetectability	security-notion	the tampered artifact cannot be told from the honest one
+notion-non-replicability	security-notion	no one without the key produces new triggers
+notion-unelicitability	security-notion	the defender cannot trigger the hidden behaviour
+notion-defendability	security-notion	a defender neutralizes a planted backdoor
+notion-mitigation	security-notion	outputs repaired without detection
+notion-watermark-soundness-completeness	security-notion	detection with the key is sound and complete
+notion-unremovability	security-notion	a watermark or backdoor survives removal attempts
+notion-unforgeability	security-notion	no one forges a mark, proof or certificate
+notion-pac-verification	security-notion	a verifier checks a learner's claim
+notion-pol	security-notion	proof-of-learning spoof cost
+notion-ownership	security-notion	proof of ownership of a model
+notion-unlearning	security-notion	removal of a point's influence
+notion-robustness	security-notion	robust accuracy under perturbation
+assumption	type	
+asm-none	assumption	unconditional
+asm-owf	assumption	one-way functions
+asm-signatures	assumption	digital signatures
+asm-prf	assumption	pseudorandom functions
+asm-lwe	assumption	learning with errors
+asm-clwe	assumption	continuous LWE
+asm-worst-case-lattice	assumption	worst-case lattice problems
+asm-io	assumption	indistinguishability obfuscation
+asm-planted-clique	assumption	planted clique
+asm-sparse-pca	assumption	sparse PCA
+asm-lpn	assumption	learning parity with noise
+asm-low-degree-conjecture	assumption	the low-degree conjecture
+asm-random-oracle	assumption	a random oracle
+asm-gibbs-posterior	assumption	training samples a Gibbs posterior
+asm-distributional	assumption	a distributional assumption on the data
+asm-structural-ground-truth	assumption	structure of the ground truth, such as linear or Fourier-heavy
+asm-other	assumption	another named assumption, named in the note
+result-form	type	
+form-attack	result-form	an attack succeeds at a stated cost
+form-lower-bound	result-form	no attacker in the class succeeds below a cost
+form-separation	result-form	two access models or classes provably differ
+form-equivalence	result-form	two access models or classes provably coincide
+form-impossibility	result-form	no scheme achieves the notion
+form-construction	result-form	a scheme achieves the notion
+form-characterization	result-form	an if-and-only-if
+form-reduction	result-form	hardness or a notion reduced to another
+form-definition	result-form	the contribution is a definition
+form-empirical	result-form	a measurement on concrete systems
+form-systematization	result-form	a survey or SoK
+task	type	
+task-membership	task	
+task-reconstruction	task	
+task-attribute	task	
+task-extraction	task	
+task-backdoor-plant	task	
+task-backdoor-detect	task	
+task-backdoor-remove	task	
+task-watermark-embed	task	
+task-watermark-detect	task	
+task-watermark-remove	task	
+task-verify-training	task	
+task-prove-ownership	task	
+task-evasion	task	
+task-poisoning	task	
+task-unlearning	task	
+task-learning	task	the honest learning task itself
+task-distinguish	task	a distinguishing or testing problem
+phrasing	type	
+phr-advantage	phrasing	advantage in a game
+phr-tpr-fpr	phrasing	TPR at FPR, ROC or AUC
+phr-epsilon	phrasing	a privacy parameter epsilon
+phr-sample-complexity	phrasing	samples needed
+phr-query-complexity	phrasing	queries needed
+phr-negligible	phrasing	negligible in a security parameter
+phr-success-rate	phrasing	attack success rate
+phr-accuracy	phrasing	accuracy or accuracy drop
+phr-divergence	phrasing	total variation, KL, Renyi or chi-square
+phr-information	phrasing	mutual information
+phr-runtime	phrasing	running time or operations
+relevance	type	
+core	relevance	bears directly on the AI oracle definition
+peripheral	relevance	shows how the field treats a setting or phrases a result
+out	relevance	not relevant to the definition
+oracle-model	type	
+oracle-random-oracle	oracle-model	a hash function idealized as a uniformly random function
+oracle-generic-group	oracle-model	group elements as opaque handles, operations only through the oracle; generic ring model likewise
+class-property	type	
+prop-self-correctability	class-property	a slightly altered member can be corrected to the exact member from black-box access
+prop-functional-equivalence	class-property	two parameter vectors compute the same function
+train-ai-oracle	training-model	the survey's draft AI oracle: opaque handles, operations, utility, ideal representation
+notion-vbb-obfuscation	security-notion	virtual black-box obfuscation
+notion-necessary-leakage	security-notion	least leakage every learner with a given utility must have
+notion-achievable-leakage	security-notion	least leakage some learner with a given utility reaches
+asm-ideal-representation	assumption	given the function, the parameters are independent of the training set
+author-decision	type	
+decide-background-task	author-decision	the author's decision on a candidate work
+decide-consider	author-decision	the author's decision on a candidate work
+decide-consider-application	author-decision	the author's decision on a candidate work
+decide-core-for-oracle-thread	author-decision	the author's decision on a candidate work
+decide-core-program	author-decision	the author's decision on a candidate work
+decide-core-read-proof	author-decision	the author's decision on a candidate work
+decide-drop	author-decision	the author's decision on a candidate work
+decide-drop-for-now	author-decision	the author's decision on a candidate work
+decide-drop-positioning-only	author-decision	the author's decision on a candidate work
+decide-drop-unless-theory	author-decision	the author's decision on a candidate work
+decide-unclear	author-decision	the author's decision on a candidate work
+group	type	
+data-secret	group	what the secret is and who holds it, see README
+defender-converse	group	what the secret is and who holds it, see README
+owner-key	group	what the secret is and who holds it, see README
+program	group	what the secret is and who holds it, see README
+prove-training	group	what the secret is and who holds it, see README
+robustness-gap	group	what the secret is and who holds it, see README
+tamperer-key	group	what the secret is and who holds it, see README
+weights-secret	group	what the secret is and who holds it, see README
+decide-core	author-decision	the author's decision on a candidate work

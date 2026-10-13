@@ -1,0 +1,54 @@
+suliman-data-forging-attacks	wiki
+tolerant-robust-pac-learning	wiki
+towards-separating-cdp	wiki
+transformers-sparse-xor-polylog	wiki
+two-party-dp-complexity	wiki
+undetectable-watermarks-lm	wiki
+unelicitable-backdoors-lms	wiki
+universal-jailbreak-rlhf-backdoors	wiki
+universal-law-of-robustness	wiki
+unlearning-verification-fragile	wiki
+vc-classes-adversarially-robustly-learnable	wiki
+what-can-we-learn-privately	wiki
+win-win-robust-learning	wiki
+xiao-formal-privacy-proof-data-encoding	wiki
+zadik-lattice-surpass-sos	wiki
+zk-verifiable-ai-pipelines	wiki
+KV94	sweep:2026-10-13-computation.md
+BRV26	sweep:2026-10-13-computation.md
+GG25	sweep:2026-10-13-computation.md
+ZEF+24	sweep:2026-10-13-computation.md
+GRSY21	sweep:2026-10-13-computation.md
+GSG+23	sweep:2026-10-13-computation.md
+SCEKPSTZ23	sweep:2026-10-13-definitions.md
+XD23	sweep:2026-10-13-definitions.md
+GGVZ19	sweep:2026-10-13-definitions.md
+GJNRSW21	sweep:2026-10-13-definitions.md
+GGHM20	sweep:2026-10-13-definitions.md
+ERCGOP25	sweep:2026-10-13-definitions.md
+ZEFVAB24	sweep:2026-10-13-definitions.md
+GTNP25	sweep:2026-10-13-definitions.md
+LEX26	sweep:2026-10-13-definitions.md
+ZGC+25	sweep:2026-10-13-definitions.md
+DSSUV15	sweep:2026-10-13-information.md
+F20	sweep:2026-10-13-information.md
+BBFST21	sweep:2026-10-13-information.md
+ADHLR24	sweep:2026-10-13-information.md
+SZ20	sweep:2026-10-13-information.md
+DRS22	sweep:2026-10-13-information.md
+SDSOJ19	sweep:2026-10-13-information.md
+GKCM22	sweep:2026-10-13-information.md
+GSS23	sweep:2026-10-13-information.md
+CLBM26	sweep:2026-10-13-information.md
+HS26	sweep:2026-10-13-information.md
+L23	sweep:2026-10-13-information.md
+KGKDT24	sweep:2026-10-13-information.md
+KS09	sweep:2026-10-13-computation.md (extra rows table)
+DLS14	sweep:2026-10-13-computation.md (extra rows table)
+ML23	sweep:2026-10-13-computation.md (extra rows table)
+GLU24	sweep:2026-10-13-computation.md (extra rows table)
+CPD+24	sweep:2026-10-13-computation.md (extra rows table)
+CCH+26	sweep:2026-10-13-computation.md (extra rows table)
+CGZ26	sweep:2026-10-13-computation.md (extra rows table)
+DMDS26	sweep:2026-10-13-computation.md (extra rows table)
+GJK+24	sweep:2026-10-13-computation.md (extra rows table)

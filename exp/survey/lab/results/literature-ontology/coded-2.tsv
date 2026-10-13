@@ -1,0 +1,511 @@
+covert-learning	relevance	peripheral	learner queries a concept oracle under eavesdropping; hides the concept and hypothesis class from a ppt observer, no training-data leakage bound	wiki
+covert-learning	treats-training-as	train-hypothesis-class	learner is a concrete algorithm per concept class (parities, Fourier-heavy functions, decision trees, DNF, juntas); only the class is fixed	inferred
+covert-learning	grants-access	access-eval	intermediary sees every membership query and response of the learner; modifies responses only in the verifiable model	wiki
+covert-learning	quantifies-over	adv-ppt	the untrusted intermediary is polynomial-time, passive in Covert Learning	wiki
+covert-learning	charges	res-time	polynomial-time intermediary and learner	wiki
+covert-learning	conditions-on	util-accuracy	completeness: learner outputs an epsilon-good hypothesis with probability 1 minus delta	wiki
+covert-learning	defines	notion-covertness	simulation-based privacy of the query transcript, Definition 1.1 and 2.7	wiki
+covert-learning	uses-notion	notion-pac-verification	Covert Verifiable Learning adds soundness against response tampering, Definition 1.2 and 3.3	inferred
+covert-learning	assumes	asm-lpn	Theorem 1.3 needs low-noise LPN; Theorems 1.4 to 1.8 need sub-exponential LPN	wiki
+covert-learning	assumes	asm-none	Theorem 1.9 for s-juntas, statistical soundness and perfect privacy	wiki
+covert-learning	concludes	form-construction	covert learners for parities (Thm 1.3), heavy Fourier coefficients and decision trees (Thm 1.4 and 1.5) and verifiable variants (Thm 1.6 to 1.9)	wiki
+covert-learning	addresses	task-learning	learning with membership queries while hiding the interaction	wiki
+covert-learning	addresses	task-distinguish	observer tries to distinguish real transcript from simulated transcript	inferred
+covert-learning	addresses	task-extraction	paper states a consequence for defences against model extraction	wiki
+covert-learning	reports-in	phr-negligible	computational indistinguishability of real and simulated transcripts	inferred
+critical-evaluation-backdoor-countermeasures	relevance	peripheral	shows backdoor-detection defences fail inside their own threat model; bounds nothing	wiki
+critical-evaluation-backdoor-countermeasures	treats-training-as	train-concrete-dnn	reproduces Neural Cleanse, ABS and MNTD on trained networks across datasets and architectures	wiki
+critical-evaluation-backdoor-countermeasures	grants-access	access-whitebox	defences inspect the model; MNTD also trains meta-classifier on shadow models	wiki
+critical-evaluation-backdoor-countermeasures	quantifies-over	adv-specific-algorithm	ordinary non-adaptive poisoning attacks that the defences already claim to handle	wiki
+critical-evaluation-backdoor-countermeasures	charges	res-none	no attacker budget is introduced; defence compute is compared informally	wiki
+critical-evaluation-backdoor-countermeasures	conditions-on	util-functionality-preserved	backdoored model matches the clean model on held-out clean data and reaches near 100 percent attack success rate	wiki
+critical-evaluation-backdoor-countermeasures	uses-notion	notion-defendability	detection of a planted backdoor	inferred
+critical-evaluation-backdoor-countermeasures	assumes	asm-none	no assumption; failures are exhibited within each defence's threat model	wiki
+critical-evaluation-backdoor-countermeasures	concludes	form-empirical	two non-robust configurations per defence on MNIST, CIFAR-10, GTSRB; Neural Cleanse non-applicable to binary classifiers is the only proof, Sections II-C and III	wiki
+critical-evaluation-backdoor-countermeasures	concludes	form-impossibility	Neural Cleanse cannot work on binary-classification models	wiki
+critical-evaluation-backdoor-countermeasures	addresses	task-backdoor-detect	evaluation of Neural Cleanse, ABS and MNTD	wiki
+critical-evaluation-backdoor-countermeasures	reports-in	phr-success-rate	attack success rate and detection AUC	wiki
+cryptanalytic-extraction-nn	relevance	core	measures what an adversary recovers of a trained ReLU network from score queries, in queries and time	wiki
+cryptanalytic-extraction-nn	treats-training-as	train-concrete-dnn	the attack uses piecewise linearity of the ReLU architecture; training plays no role; assumes architecture is known	wiki
+cryptanalytic-extraction-nn	grants-access	access-score	real-valued output on arbitrary inputs from the full domain, no post-processing; argmax label breaks the attack	wiki
+cryptanalytic-extraction-nn	quantifies-over	adv-specific-algorithm	a concrete differential attack run on listed architectures; no adversary class in any theorem	wiki
+cryptanalytic-extraction-nn	charges	res-queries	2^21.5 queries for a 100000-parameter MNIST network	wiki
+cryptanalytic-extraction-nn	charges	res-time	sign recovery costs work exponential in the hidden layer width	wiki
+cryptanalytic-extraction-nn	conditions-on	util-none-stated	the attack is run on a given network; no utility condition	inferred
+cryptanalytic-extraction-nn	uses-notion	notion-extraction	(epsilon, delta)-functional equivalence, Definition 1	wiki
+cryptanalytic-extraction-nn	assumes	asm-other	six oracle assumptions: known architecture, full domain inputs, full real outputs, 64-bit floats, scalar output, ReLU only	wiki
+cryptanalytic-extraction-nn	concludes	form-attack	recovers ReLU network parameters up to a scale per neuron by a differential attack at critical points; instance costs are reported and no theorem is stated	wiki
+cryptanalytic-extraction-nn	addresses	task-extraction	functionally equivalent parameter extraction	wiki
+cryptanalytic-extraction-nn	reports-in	phr-query-complexity	queries and running time on specific architectures	wiki
+cryptanalytic-extraction-nn	precursor-of	polynomial-time-cryptanalytic-extraction	successor removes the work exponential in width for sign recovery	wiki
+crypto-backdoor-boon-bane	relevance	core	undetectable backdoors and signature-based watermarks, authentication and tracking for neural networks	wiki
+crypto-backdoor-boon-bane	treats-training-as	train-adversarial	Theorem II.1 holds for every TRAIN; malicious provider or owner plants the backdoor	wiki
+crypto-backdoor-boon-bane	grants-access	access-eval	black-box access to the network for the defensive protocols and the attack	wiki
+crypto-backdoor-boon-bane	quantifies-over	adv-ppt	reduction against a q-query admissible adversary with access to the backdoored model, Theorem II.1	wiki
+crypto-backdoor-boon-bane	charges	res-queries	q-query admissible adversary	wiki
+crypto-backdoor-boon-bane	conditions-on	util-functionality-preserved	backdoored model and the cryptographic circuit in parallel leave the network unchanged on normal inputs	inferred
+crypto-backdoor-boon-bane	uses-notion	notion-non-replicability	Theorem II.1 carried over from Goldwasser et al.	wiki
+crypto-backdoor-boon-bane	uses-notion	notion-unforgeability	defensive protocols rest on strong unforgeability of signatures	wiki
+crypto-backdoor-boon-bane	uses-notion	notion-watermark-soundness-completeness	watermarking protocol: only the owner activates the trigger	inferred
+crypto-backdoor-boon-bane	uses-notion	notion-ownership	owner proves ownership by triggering the backdoor	wiki
+crypto-backdoor-boon-bane	assumes	asm-signatures	strongly unforgeable digital signatures; Dilithium in the implementation	wiki
+crypto-backdoor-boon-bane	concludes	form-construction	three defensive protocols (watermarking, user authentication, IP tracking) built from signature backdoors, argued not proved; defence proofs need further study	wiki
+crypto-backdoor-boon-bane	concludes	form-empirical	overhead and effectiveness measured on standard architectures	wiki
+crypto-backdoor-boon-bane	addresses	task-backdoor-plant	backdoor-enabled adversarial attack on image classification	wiki
+crypto-backdoor-boon-bane	addresses	task-watermark-embed	signature-based watermark placed in parallel with the network	wiki
+crypto-backdoor-boon-bane	addresses	task-prove-ownership	owner demonstrates backdoor triggering	wiki
+crypto-backdoor-boon-bane	reports-in	phr-negligible	signature unforgeability and reduction	inferred
+crypto-backdoor-boon-bane	extends	planting-undetectable-backdoors	instantiates the Goldwasser et al. construction as defence and attack	wiki
+cryptography-from-planted-graphs	relevance	out	private simultaneous messages and secret sharing from planted-subgraph assumptions; not about training or models	wiki
+cryptography-from-planted-graphs	addresses	task-crypto-primitive	PSM and secret sharing with logarithmic-size messages	wiki
+curse-of-concentration	relevance	peripheral	abstracts training away: bounds on perturbation or poisoning budget for any classifier on a concentrated space, information-theoretic adversary	wiki
+curse-of-concentration	treats-training-as	train-arbitrary	Theorem 1.1 quantifies over all classifiers with constant error; Theorem 1.2 over deterministic learners on product distributions	wiki
+curse-of-concentration	grants-access	access-whitebox	adversary knows the classifier and perturbs the instance; offline poisoner knows learner and training set	inferred
+curse-of-concentration	quantifies-over	adv-unbounded	adversary is information-theoretic and the poisoner offline and unbounded; efficient version is a separate paper	wiki
+curse-of-concentration	charges	res-perturbation	Theorem 1.1 perturbation of order sqrt(n) drives risk to about 1	wiki
+curse-of-concentration	charges	res-corruption	Theorem 1.2 poisoner substitutes O-tilde of sqrt(m) correctly labelled examples	wiki
+curse-of-concentration	conditions-on	util-none-stated	initial error of order 1 is a hypothesis on the classifier; no utility condition on the learner	inferred
+curse-of-concentration	uses-notion	notion-robustness	adversarial risk and target-error robustness	wiki
+curse-of-concentration	assumes	asm-distributional	concentration of the metric probability space; product training distribution for Theorem 1.2; measured not to bind on image data	wiki
+curse-of-concentration	concludes	form-impossibility	Theorem 1.1: on a concentrated space any classifier with constant error is vulnerable to sub-diameter perturbations	wiki
+curse-of-concentration	concludes	form-attack	Theorem 1.2: offline poisoner with O-tilde of sqrt(m) substitutions drives a rare bad property of the learned hypothesis to about 1	wiki
+curse-of-concentration	addresses	task-evasion	adversarial examples from concentration of measure	wiki
+curse-of-concentration	addresses	task-poisoning	offline substitution poisoning	wiki
+curse-of-concentration	reports-in	phr-success-rate	adversarial risk near 1	inferred
+curse-of-concentration	precursor-of	computational-concentration-of-measure-etesami	the efficient-attacker version is a separate result	wiki
+data-concentration-robustness-avoidable	relevance	out	existence of robust classifiers from volume concentration of the data; no training model, no leakage	wiki
+data-concentration-robustness-avoidable	addresses	task-evasion	when a robust classifier exists	wiki
+data-pruning-beats-power-laws	relevance	out	data-selection scaling law for perceptron and ResNets; not about leakage or adversaries	wiki
+data-pruning-beats-power-laws	addresses	task-scaling	error as a function of pruned dataset size	wiki
+deep-learning-differential-privacy	relevance	core	DP-SGD bounds leakage about any training example against an unbounded adversary holding the parameters	wiki
+deep-learning-differential-privacy	treats-training-as	train-dp	DP-SGD with per-example clipping, Gaussian noise and moments accountant, Algorithm 1	wiki
+deep-learning-differential-privacy	treats-training-as	train-gd	the mechanism is an SGD variant with a sampling model of lots drawn with probability q	wiki
+deep-learning-differential-privacy	grants-access	access-whitebox	adversary knows the training mechanism and holds the model parameters, and may control the rest of the training data	wiki
+deep-learning-differential-privacy	quantifies-over	adv-unbounded	no bound on adversary computation anywhere	wiki
+deep-learning-differential-privacy	charges	res-none	the mechanism pays in noise and privacy budget, the adversary pays nothing	wiki
+deep-learning-differential-privacy	conditions-on	util-accuracy	test accuracy on MNIST and CIFAR-10 under single-digit epsilon, reported empirically	wiki
+deep-learning-differential-privacy	uses-notion	notion-dp	(epsilon, delta)-differential privacy, Definition 1	wiki
+deep-learning-differential-privacy	assumes	asm-none	information-theoretic; the sampling model of Theorem 1 is the only modelling assumption	wiki
+deep-learning-differential-privacy	concludes	form-construction	Theorem 1: Algorithm 1 is (epsilon, delta)-differentially private if sigma is at least c2 q sqrt(T log(1/delta)) over epsilon, with epsilon below c1 q^2 T	wiki
+deep-learning-differential-privacy	concludes	form-empirical	DP-trained networks on MNIST and CIFAR-10 at single-digit epsilon with usable accuracy	wiki
+deep-learning-differential-privacy	addresses	task-learning	private training of deep networks	wiki
+deep-learning-differential-privacy	reports-in	phr-epsilon	(epsilon, delta) budget tracked by the moments accountant	wiki
+detection-recovery-refutation-gaps	relevance	out	planted dense subgraph gaps from planted clique reductions; no training or leakage	wiki
+detection-recovery-refutation-gaps	addresses	task-planted-problem	detection, recovery and refutation of a planted dense subgraph	wiki
+difficulty-of-mia	relevance	core	measures what confidence, gradient and activation based attackers learn about membership of naturally trained image classifiers	wiki
+difficulty-of-mia	treats-training-as	train-concrete-dnn	LeNet, AlexNet, ResNet, DenseNet, InceptionV3 and Xception trained naturally on MNIST, CIFAR and ImageNet	wiki
+difficulty-of-mia	grants-access	access-score	confidence-based attacks are the main setting	wiki
+difficulty-of-mia	grants-access	access-grad-input	input gradient norm tried as a feature	wiki
+difficulty-of-mia	grants-access	access-grad-param	weight gradient norm tried as a feature	wiki
+difficulty-of-mia	grants-access	access-whitebox	intermediate-layer activations tried as features	wiki
+difficulty-of-mia	quantifies-over	adv-specific-algorithm	published confidence-based and gradient-based MIAs, run with deliberate attacker advantages	wiki
+difficulty-of-mia	charges	res-none	no attacker budget is charged	inferred
+difficulty-of-mia	conditions-on	util-accuracy	reports target train and test accuracy so the generalization gap is visible; recommendation, not a condition of a result	inferred
+difficulty-of-mia	uses-notion	notion-mia-advantage	balanced accuracy and false alarm rate stand in for advantage; no game is defined	inferred
+difficulty-of-mia	assumes	asm-none	no theorem	wiki
+difficulty-of-mia	concludes	form-empirical	MIA on correctly classified samples is near chance on four datasets; ZeroR matches published attacks on member-class metrics; no theorem	wiki
+difficulty-of-mia	addresses	task-membership	membership inference evaluation	wiki
+difficulty-of-mia	reports-in	phr-accuracy	balanced accuracy, precision and recall	wiki
+difficulty-of-mia	reports-in	phr-tpr-fpr	false alarm rate is the false positive rate	inferred
+difficulty-of-mia	precursor-of	privacy-defense-evaluations-misleading	page names AZT24 as later formalizing the most-vulnerable-sample measurement for outliers	wiki
+ding-low-degree-community-detection	relevance	out	weak recovery thresholds in the stochastic block model under the low-degree conjecture; no training or leakage	wiki
+ding-low-degree-community-detection	addresses	task-planted-problem	weak recovery in the symmetric stochastic block model	wiki
+dinur-nissim-revealing-information	relevance	core	prices a reconstruction adversary in perturbation, time and queries against a curator answering subset-sum queries	wiki
+dinur-nissim-revealing-information	treats-training-as	train-arbitrary	Theorems 2 and 3 are universal over database algorithms A within the perturbation bound; no training map is modelled	wiki
+dinur-nissim-revealing-information	grants-access	access-eval	chosen subset-sum queries answered within perturbation E; the page codes access as scores	inferred
+dinur-nissim-revealing-information	quantifies-over	adv-unbounded	Theorem 2: exponential time and all 2^n queries	wiki
+dinur-nissim-revealing-information	quantifies-over	adv-ppt	Theorem 3: polynomial time and n (log n)^2 random queries, oblivious of the distribution and perturbation method	wiki
+dinur-nissim-revealing-information	quantifies-over	adv-time-bounded	Definition 4 and Theorem 5: pair of Turing machines of time T(n), which caps queries at T(n)	wiki
+dinur-nissim-revealing-information	charges	res-queries	2^n queries in Theorem 2; n (log n)^2 in Theorem 3; at most T(n) in Theorem 5	wiki
+dinur-nissim-revealing-information	charges	res-time	polynomial time in Theorem 3; time T(n) in Theorem 5	wiki
+dinur-nissim-revealing-information	conditions-on	util-query-accuracy	answers within perturbation E of the true count; tightness construction of Section 3.3 is private and useless	wiki
+dinur-nissim-revealing-information	defines	notion-reconstruction	Definition 3 non-privacy: output c with Hamming distance below epsilon n with probability at least 2/3; Definition 4 privacy is a guessing game for one entry given all others, baseline 1/2	inferred
+dinur-nissim-revealing-information	assumes	asm-none	Theorems 2 and 3 carry no assumption beyond the model	wiki
+dinur-nissim-revealing-information	assumes	asm-distributional	Theorem 5 needs the database uniform over {0,1}^n	wiki
+dinur-nissim-revealing-information	concludes	form-impossibility	Theorem 2: perturbation o(n) is non-private against exponential adversary. Theorem 3: o(sqrt n) is non-private against polynomial adversary by linear programming	wiki
+dinur-nissim-revealing-information	concludes	form-attack	Theorem 3: LP reconstruction with n (log n)^2 random queries then rounding at 1/2, the abstract's main result	wiki
+dinur-nissim-revealing-information	concludes	form-construction	Theorem 5: perturbation O-tilde of sqrt(T(n)) gives privacy against time T(n) adversaries on uniform databases; Section 3.3 tightness	wiki
+dinur-nissim-revealing-information	concludes	form-separation	thresholds Omega(n) against exponential and Omega(sqrt n) against polynomial adversaries differ, Sections 3.1 and 3.2; the paper presents this as warm-up	inferred
+dinur-nissim-revealing-information	addresses	task-reconstruction	Hamming reconstruction of a binary database from noisy subset sums	wiki
+dinur-nissim-revealing-information	reports-in	phr-query-complexity	n (log n)^2 queries and perturbation thresholds as a function of n	wiki
+dinur-nissim-revealing-information	reports-in	phr-advantage	Definition 4 guessing game, failure to output d_i with probability 1/2 plus delta	wiki
+distillation-scaling-laws	relevance	out	empirical scaling law for distillation compute; not about leakage	wiki
+distillation-scaling-laws	addresses	task-scaling	student cross-entropy as function of student size, tokens and teacher cross-entropy	wiki
+distribution-inference-risks	relevance	core	defines distribution inference as a game on a trained model and normalizes leakage in training records	wiki
+distribution-inference-risks	treats-training-as	train-concrete-dnn	game gives the trainer an opaque train step; experiments train classifiers and graph models on Census, CelebA, RSNA Bone Age, ogbn-arxiv, Chord	wiki
+distribution-inference-risks	grants-access	access-label	label-only black-box access in Loss Test and Threshold Test	wiki
+distribution-inference-risks	grants-access	access-whitebox	parameter access for permutation-invariant meta-classifiers	wiki
+distribution-inference-risks	quantifies-over	adv-unbounded	H is an arbitrary algorithm mapping a model to a bit; no bound on efficiency	wiki
+distribution-inference-risks	quantifies-over	adv-bayes-optimal	Lemma 4.1 reference adversary recovers the dataset from the model and uses the best test	wiki
+distribution-inference-risks	quantifies-over	adv-specific-algorithm	Loss Test, Threshold Test and meta-classifier in the experiments	wiki
+distribution-inference-risks	charges	res-samples	n_leaked prices an attack in directly drawn training records; adversary holds disjoint data from D	wiki
+distribution-inference-risks	charges	res-training-runs	attack cost is reported in trained models but never enters the definition	wiki
+distribution-inference-risks	conditions-on	util-none-stated	no utility condition stated	inferred
+distribution-inference-risks	defines	notion-distribution-inference	Section 3 game with public D and transformers G_0, G_1; advantage Pr[b-hat given b] minus Pr[b-hat given not b]	wiki
+distribution-inference-risks	defines	notion-leakage-in-samples	n_leaked, Lemma 4.1 and Theorems 4.2, 4.3, 4.5: attack accuracy converted into an equivalent number of directly drawn training records	wiki
+distribution-inference-risks	assumes	asm-distributional	Boolean-property proportional distributions for Lemma 4.1 and Theorems 4.2 and 4.3; Zipf degree distributions for Theorem 4.5	wiki
+distribution-inference-risks	concludes	form-definition	distribution inference game of Section 3 and the n_leaked metric	wiki
+distribution-inference-risks	concludes	form-lower-bound	Lemma 4.1: accuracy of any distinguisher given n direct samples is at most 1/2 plus half the total variation distance of the n-fold distributions	inferred
+distribution-inference-risks	concludes	form-empirical	binary-classification attacks leak about one sample in n_leaked; cheap black-box attacks match meta-classifiers in about 30 percent of runs	wiki
+distribution-inference-risks	addresses	task-distribution-inference	property inference of the training distribution rather than records	wiki
+distribution-inference-risks	reports-in	phr-advantage	Adv_H as difference of conditional probabilities	wiki
+distribution-inference-risks	reports-in	phr-sample-complexity	n_leaked in equivalent training records	wiki
+distribution-inference-risks	reports-in	phr-accuracy	distinguishing accuracy omega	wiki
+distribution-inference-risks	extends	privacy-risk-overfitting	builds the game from Yeom et al. membership game by changing the object of inference	wiki
+do-mias-work-on-llms	relevance	core	measures five MIAs against pretrained LLMs and shows the membership label does not track what the model saw	wiki
+do-mias-work-on-llms	treats-training-as	train-concrete-dnn	Pythia and Pythia-dedup 70M to 12B and GPT-Neo trained about one epoch on the Pile; Datablations for epoch ablation	wiki
+do-mias-work-on-llms	grants-access	access-score	LOSS, reference, zlib, Neighborhood and Min-k percent Prob use token likelihoods	wiki
+do-mias-work-on-llms	quantifies-over	adv-specific-algorithm	five named attacks	wiki
+do-mias-work-on-llms	charges	res-training-runs	reference-based attack needs a reference model; choice of reference model is hard at web scale	inferred
+do-mias-work-on-llms	conditions-on	util-none-stated	released pretrained models are measured as they are	inferred
+do-mias-work-on-llms	uses-notion	notion-tpr-at-low-fpr	TPR at 1 percent FPR follows the AUC trend	wiki
+do-mias-work-on-llms	uses-notion	notion-memorization	paper argues exact-match membership is at odds with leakage and proposes a semantic game, not built	wiki
+do-mias-work-on-llms	assumes	asm-none	no theorem	wiki
+do-mias-work-on-llms	concludes	form-empirical	no attack exceeds 0.6 AUC in any domain except GitHub; modified members with one token changed are classified non-member; no theorem	wiki
+do-mias-work-on-llms	addresses	task-membership	MIA on pretrained LLMs	wiki
+do-mias-work-on-llms	reports-in	phr-tpr-fpr	AUC and TPR at 1 percent FPR	wiki
+dos-and-donts-ml-security	relevance	peripheral	diagnoses unstated or imprecise threat models across 30 security-ML papers; never prices the adversary	wiki
+dos-and-donts-ml-security	treats-training-as	train-concrete-dnn	reproduces learning-based systems in malware detection, vulnerability discovery, authorship attribution, intrusion detection	wiki
+dos-and-donts-ml-security	grants-access	access-whitebox	recommends evaluating white-box adaptive adversaries following Kerckhoffs's principle	inferred
+dos-and-donts-ml-security	quantifies-over	adv-unspecified	P10 faults absent or imprecise threat models; adversary resources never appear	wiki
+dos-and-donts-ml-security	charges	res-none	no attacker compute, sample or query budget appears in the paper	wiki
+dos-and-donts-ml-security	conditions-on	util-none-stated	no utility condition	inferred
+dos-and-donts-ml-security	assumes	asm-none	no theorem	wiki
+dos-and-donts-ml-security	concludes	form-systematization	ten pitfalls P1 to P10 along the ML workflow; every one of 30 papers shows at least three pitfalls, Section 3	wiki
+dos-and-donts-ml-security	concludes	form-empirical	prevalence over 30 papers, author survey of 135, impact analysis in four domains	wiki
+dos-and-donts-ml-security	addresses	task-evaluation-practice	critique of evaluation practice in learning-based security	wiki
+dp-adaptive-analysis-bounded-space	relevance	peripheral	puts the space bound on the private mechanism, not on the adversary; shows the computational axis in DP	wiki
+dp-adaptive-analysis-bounded-space	treats-training-as	train-dp	Corollary 3.13: (epsilon, delta)-computationally DP algorithms with space s	wiki
+dp-adaptive-analysis-bounded-space	treats-training-as	train-arbitrary	Theorem 4.1: every poly(Gamma) time mechanism A1, A2 with space s, handed the full distribution	wiki
+dp-adaptive-analysis-bounded-space	grants-access	access-eval	adversary picks k adaptive queries h_j and the mechanism answers from an s-bit summary	wiki
+dp-adaptive-analysis-bounded-space	quantifies-over	adv-ppt	adversary B runs in time poly(Gamma(lambda)) and has no space bound; mechanisms also poly(Gamma) time	wiki
+dp-adaptive-analysis-bounded-space	charges	res-memory	space s of the mechanism's summary, not the adversary	wiki
+dp-adaptive-analysis-bounded-space	charges	res-samples	sample complexity n of the private algorithm; t samples in the adaptive game	wiki
+dp-adaptive-analysis-bounded-space	charges	res-queries	k adaptive queries	wiki
+dp-adaptive-analysis-bounded-space	conditions-on	util-query-accuracy	answers within alpha of the distribution mean with probability 1 minus beta, Definition 1.3 and 1.6	wiki
+dp-adaptive-analysis-bounded-space	uses-notion	notion-cdp	separation holds even for computational differential privacy	wiki
+dp-adaptive-analysis-bounded-space	uses-notion	notion-dp	private against non-private space separation	wiki
+dp-adaptive-analysis-bounded-space	assumes	asm-owf	Gamma(lambda)-secure symmetric-key encryption against non-uniform adversaries, informally one-way functions	wiki
+dp-adaptive-analysis-bounded-space	concludes	form-separation	Corollary 3.13: private algorithms need space Omega(lambda sqrt(d / log n)) where non-private needs polylog(d); problem P is somewhat unnatural	wiki
+dp-adaptive-analysis-bounded-space	concludes	form-lower-bound	Theorem 4.1: space Omega(sqrt(k)) is necessary for adaptive data analysis even when the mechanism holds the whole distribution	wiki
+dp-adaptive-analysis-bounded-space	addresses	task-private-analysis	adaptive data analysis and private computation under bounded space	wiki
+dp-adaptive-analysis-bounded-space	reports-in	phr-sample-complexity	sample and space complexity as function of d and k	wiki
+dp-against-timing-attacks	relevance	peripheral	adds runtime to the observer's view of a DP mechanism; bounds what the channel reveals to an unbounded observer	wiki
+dp-against-timing-attacks	treats-training-as	train-dp	programs P from X and environment E to Y and E, DP over datasets and environments, Definition 2	wiki
+dp-against-timing-attacks	grants-access	access-release	the observer sees the output	wiki
+dp-against-timing-attacks	grants-access	access-side-channel	the observer also sees the runtime in idealized RAM time steps	wiki
+dp-against-timing-attacks	quantifies-over	adv-unbounded	any observer of output and runtime; compute priced is the mechanism's	wiki
+dp-against-timing-attacks	charges	res-time	delay and runtime of the mechanism, not of the adversary	wiki
+dp-against-timing-attacks	conditions-on	util-estimation-error	instantiations match the accuracy of non-timing-private counterparts; efficiency traded for timing privacy	wiki
+dp-against-timing-attacks	uses-notion	notion-dp	Definition 2 DP programs	wiki
+dp-against-timing-attacks	defines	notion-timing-privacy	Definition 3 epsilon-OC-timing privacy: runtime DP conditioned on the output	wiki
+dp-against-timing-attacks	assumes	asm-other	idealized RAM or Word RAM cost model with one time step per instruction	wiki
+dp-against-timing-attacks	concludes	form-construction	chains of timing-stable programs ended by one timing-private delay program are timing private; RAM instances for randomized response, sum, mean	wiki
+dp-against-timing-attacks	concludes	form-equivalence	pure DP: OC-timing privacy and joint output and timing privacy agree up to a constant in epsilon; Lemma 36 for the general implication	wiki
+dp-against-timing-attacks	addresses	task-private-analysis	differentially private statistics with runtime leakage closed	wiki
+dp-against-timing-attacks	reports-in	phr-epsilon	epsilon-OC-timing privacy	wiki
+dynamical-model-scaling-laws	relevance	out	dynamical mean field theory of scaling laws for linear random-feature models; not about leakage or adversaries	wiki
+dynamical-model-scaling-laws	addresses	task-scaling	loss exponents in training time, data and model size	wiki
+empirically-measuring-concentration	relevance	out	estimates concentration bounds on intrinsic robustness for image benchmarks; evasion robustness only	wiki
+empirically-measuring-concentration	addresses	task-evasion	intrinsic robustness against perturbation of image data	wiki
+evaluating-nn-backdoor-defenses	relevance	peripheral	shows five backdoor defences fail across a constructed BadNet attack database; bounds nothing	wiki
+evaluating-nn-backdoor-defenses	treats-training-as	train-concrete-dnn	BadNets trained on MNIST, CIFAR-10, GTSRB and YouTube Face with varied hyperparameters	wiki
+evaluating-nn-backdoor-defenses	grants-access	access-whitebox	defender downloads the backdoored parameters and validates on a small clean set, Section 2	wiki
+evaluating-nn-backdoor-defenses	quantifies-over	adv-specific-algorithm	eight constructed attack settings; adaptive attacks against the defences are not explored	wiki
+evaluating-nn-backdoor-defenses	charges	res-none	training hyperparameter variation is configuration, not attacker resource	wiki
+evaluating-nn-backdoor-defenses	conditions-on	util-functionality-preserved	backdoored model equals the clean model on clean inputs, Section 2 threat model	wiki
+evaluating-nn-backdoor-defenses	uses-notion	notion-defendability	Fine-pruning, Neural Cleanse, ABS, STRIP and generative modelling as defences	wiki
+evaluating-nn-backdoor-defenses	assumes	asm-none	no theorem	wiki
+evaluating-nn-backdoor-defenses	concludes	form-empirical	no defence works across all eight attack settings even at a generous 20 percent attack success threshold, Table 3; three pitfalls in Table 1	wiki
+evaluating-nn-backdoor-defenses	addresses	task-backdoor-detect	Neural Cleanse, ABS, STRIP, generative modelling	wiki
+evaluating-nn-backdoor-defenses	addresses	task-backdoor-remove	Fine-pruning	wiki
+evaluating-nn-backdoor-defenses	reports-in	phr-success-rate	clean accuracy, attack success rate, false acceptance rate for STRIP	wiki
+evaluating-nn-backdoor-defenses	precursor-of	critical-evaluation-backdoor-countermeasures	page says it is superseded in scope and rigour by that paper and by sok-backdoor-defense-evaluation	wiki
+explaining-neural-scaling-laws	relevance	out	variance-limited and resolution-limited scaling exponents; not about leakage or adversaries	wiki
+explaining-neural-scaling-laws	addresses	task-scaling	test loss exponents in dataset size and parameter count	wiki
+extending-formalism-cryptography-ai	relevance	core	defines an AIOracle with LEARN and INFER phases and an attacker class named by a capability set ATK; closest published relative of an AI oracle	wiki
+extending-formalism-cryptography-ai	treats-training-as	train-oracle-call	Definition 1: r-round learning phase of opaque algorithms GENERATE_DATA_i and LEARN_i followed by INFER	wiki
+extending-formalism-cryptography-ai	treats-training-as	train-dp	DPD, differentially private distinguishability, taken from references 26 and 27, is the paper's example confidentiality notion	wiki
+extending-formalism-cryptography-ai	grants-access	access-whitebox	capability see_model	wiki
+extending-formalism-cryptography-ai	grants-access	access-eval	capabilities black_box and inject_infer: queries and prompts	wiki
+extending-formalism-cryptography-ai	grants-access	access-train-call	capability inject_learn: the adversary injects data into the learning phase	wiki
+extending-formalism-cryptography-ai	quantifies-over	adv-ppt	probabilistic polynomial time with capability set ATK, Definition 3	wiki
+extending-formalism-cryptography-ai	charges	res-time	PPT only; the paper says nothing finer-grained is priced	wiki
+extending-formalism-cryptography-ai	conditions-on	util-accuracy	Definition 2 phi-completeness: the game returns 1 with probability at least p in the absence of an attack	wiki
+extending-formalism-cryptography-ai	uses-notion	notion-dp	DPD-secure AIOracle cannot distinguish a cat from a dog, Subsection E.1	wiki
+extending-formalism-cryptography-ai	defines	notion-aioracle-security	Definition 3 epsilon-ATK-psi-secure AIOracle: advantage at most epsilon against PPT adversaries with capability set ATK	wiki
+extending-formalism-cryptography-ai	assumes	asm-none	no cryptographic hardness assumption is instantiated; Theorem 1 needs component oracles complete and ATK-psi-secure	wiki
+extending-formalism-cryptography-ai	concludes	form-definition	AIOracle abstraction (Definition 1), completeness (Definition 2) and ATK-psi security (Definition 3) in one game for confidentiality, integrity and availability	wiki
+extending-formalism-cryptography-ai	concludes	form-reduction	Theorem 1: the dual construction of BAIO and CAIO is complete and secure, adversary predicates compose by disjunction and policy predicates by conjunction	wiki
+extending-formalism-cryptography-ai	concludes	form-impossibility	a DPD-secure AIOracle cannot distinguish a cat from a dog, so training-data confidentiality conflicts with completeness, Subsection E.1	wiki
+extending-formalism-cryptography-ai	concludes	form-systematization	five-axis taxonomy of LLM attacks; FIDES, Progent, Conseca and Controlvalve read through the AIOracle model	wiki
+extending-formalism-cryptography-ai	addresses	task-prompt-attack	confidentiality, integrity and availability of agentic LLM systems	wiki
+extending-formalism-cryptography-ai	addresses	task-membership	taxonomy covers membership inference	wiki
+extending-formalism-cryptography-ai	addresses	task-poisoning	taxonomy covers data poisoning	wiki
+extending-formalism-cryptography-ai	reports-in	phr-advantage	Adv at most epsilon in the game of Figure 6	wiki
+feature-learning-improves-scaling	relevance	out	scaling exponents of a two-layer linear network under feature learning; not about leakage	wiki
+feature-learning-improves-scaling	addresses	task-scaling	compute-optimal exponents for hard tasks under feature learning	wiki
+feldman-statistical-algorithms-planted-clique	relevance	out	SQ lower bound for planted clique; algorithm class result with no training or leakage	wiki
+feldman-statistical-algorithms-planted-clique	addresses	task-planted-problem	detection of planted cliques by statistical algorithms	wiki
+filter-impossibility-ai-alignment	relevance	peripheral	harmful prompts indistinguishable from benign ones for a filter bounded in time relative to the audited model; undetectable control by an adversarially built model	wiki
+filter-impossibility-ai-alignment	treats-training-as	train-adversarial	the LLM and harmful prompt generator are constructed by the proof, not given	wiki
+filter-impossibility-ai-alignment	grants-access	access-eval	filter has black-box LLM access during training	wiki
+filter-impossibility-ai-alignment	quantifies-over	adv-time-bounded	Theorem 1: filter running significantly faster than the model M-prime	inferred
+filter-impossibility-ai-alignment	quantifies-over	adv-ppt	Theorems 2 and 3: polynomial-time filters	wiki
+filter-impossibility-ai-alignment	charges	res-time	compute ratio between filter and audited model in Theorem 1; the ratio is a side condition	wiki
+filter-impossibility-ai-alignment	conditions-on	util-none-stated	no utility condition on the model; filter must accept innocent prompts with high probability	inferred
+filter-impossibility-ai-alignment	uses-notion	notion-undetectability	harmful prompts cannot be told from generator prompts	inferred
+filter-impossibility-ai-alignment	assumes	asm-time-lock	Theorem 1 time-lock puzzles by repeated squaring modulo a semi-prime	wiki
+filter-impossibility-ai-alignment	assumes	asm-owf	Theorem 2 one-way functions plus a secret shared between the LLM and the harmful prompt generator	wiki
+filter-impossibility-ai-alignment	assumes	asm-pke	Theorem 3 public-key encryption with the filter seeing the public key	wiki
+filter-impossibility-ai-alignment	concludes	form-impossibility	Theorems 1 to 3: there exist LLMs for which no efficient prompt filter exists; analogous results for output and mitigation filters; existential not universal	wiki
+filter-impossibility-ai-alignment	addresses	task-prompt-attack	filter-based alignment of LLMs	wiki
+filter-impossibility-ai-alignment	addresses	task-distinguish	filter distinguishes harmful from benign prompts	wiki
+filter-impossibility-ai-alignment	reports-in	phr-runtime	filter must run at least as long as the model, Theorem 1	wiki
+fine-grained-cryptography	relevance	peripheral	prices the adversary by circuit class rather than by a budget in the honest units; no training or model	wiki
+fine-grained-cryptography	grants-access	access-none	primitives are one-way functions, PRGs, encryption and hash functions; no model is involved	inferred
+fine-grained-cryptography	quantifies-over	adv-circuit-class	Definition 2.8: every function family in C2, with honest algorithms in a smaller class C1 (AC0, AC0[2], NC1, parity-L/poly)	wiki
+fine-grained-cryptography	charges	res-circuit-depth	the axis is depth, no ratio and no exponent	wiki
+fine-grained-cryptography	defines	notion-fine-grained-security	section 2.5 class-based redefinition of OWF, PRG, wPRF, SKE, PKE and CRHF	wiki
+fine-grained-cryptography	assumes	asm-other	NC1 results need the worst-case separation parity-L/poly not contained in NC1; primitives are infinitely often, Remark 3.1	wiki
+fine-grained-cryptography	assumes	asm-none	AC0 results are unconditional via Hastad's parity bound and Braverman's theorem	wiki
+fine-grained-cryptography	concludes	form-construction	Theorem 4.1: AC0[2] additively homomorphic PKE against NC1 from parity-L/poly not in NC1; Theorems 5.1 to 5.11 unconditional AC0 PRG, wPRF, SKE, CRHF	wiki
+fine-grained-cryptography	addresses	task-crypto-primitive	one-way functions, PRGs, encryption and collision-resistant hashing in low depth	wiki
+fine-grained-cryptography	reports-in	phr-negligible	negligible success against every family in C2	wiki
+fine-grained-erm	relevance	peripheral	SETH-conditional lower bound on the honest trainer's own computation for kernel and top-layer network ERM; no adversary	wiki
+fine-grained-erm	treats-training-as	train-erm	approximating the optimal ERM value of a depth-2 network top layer, Theorem 9	wiki
+fine-grained-erm	treats-training-as	train-kernel	kernel SVM, kernel ridge regression and kernel PCA with Gaussian kernel, Theorems 4, 6, 8	wiki
+fine-grained-erm	treats-training-as	train-gd	Theorem 10: any batch gradient of the empirical risk costs (nm)^(1 minus o(1)); SGD escapes the quadratic bounds	wiki
+fine-grained-erm	grants-access	access-none	no adversary and no security game	wiki
+fine-grained-erm	quantifies-over	adv-unspecified	all algorithms under SETH, worst case over instances and for high-accuracy solutions only; not an adversary	wiki
+fine-grained-erm	charges	res-time	almost quadratic time	wiki
+fine-grained-erm	conditions-on	util-estimation-error	approximation within 1 plus epsilon with epsilon exponentially small; polynomial-in-1/epsilon algorithms escape	wiki
+fine-grained-erm	assumes	asm-seth	via Orthogonal Vectors and Bichromatic Hamming Close Pair	wiki
+fine-grained-erm	concludes	form-lower-bound	Theorems 4, 6, 8, 9: no sub-quadratic algorithm for high-accuracy kernel SVM, KRR, kernel PCA and top-layer network ERM; Theorem 10 batch gradient (nm)^(1 minus o(1)), under SETH	wiki
+fine-grained-erm	addresses	task-learning	computational cost of the honest learning task	wiki
+fine-grained-erm	reports-in	phr-runtime	running time lower bounds	wiki
+fine-grained-gradient-llm	relevance	peripheral	SETH-conditional threshold for the cost of one attention backward pass; trainer's computation only, no adversary	wiki
+fine-grained-gradient-llm	treats-training-as	train-gd	one attention layer backward pass, approximate attention loss gradient computation, Definition 1.4	wiki
+fine-grained-gradient-llm	grants-access	access-none	no adversary and no security game	wiki
+fine-grained-gradient-llm	quantifies-over	adv-unspecified	all algorithms under SETH, worst case over the constructed instance family; not an adversary	wiki
+fine-grained-gradient-llm	charges	res-time	n^(1+o(1)) against n^(2 minus o(1)) around entry bound B near sqrt(log n)	wiki
+fine-grained-gradient-llm	conditions-on	util-estimation-error	output within epsilon in the infinity norm of the true gradient	wiki
+fine-grained-gradient-llm	assumes	asm-seth	Hypothesis 3.3	wiki
+fine-grained-gradient-llm	concludes	form-lower-bound	Theorem 1.5 and 5.5: under SETH no O(n^(2 minus q)) algorithm computes the attention gradient when B is omega(sqrt(log n))	wiki
+fine-grained-gradient-llm	concludes	form-construction	Theorem 1.6 and D.6: n^(1+o(1)) algorithm when B is o(sqrt(log n))	wiki
+fine-grained-gradient-llm	concludes	form-characterization	sharp threshold in the entry bound B at about sqrt(log n) for one attention layer	wiki
+fine-grained-gradient-llm	addresses	task-learning	cost of the backward step of training	wiki
+fine-grained-gradient-llm	reports-in	phr-runtime	time exponent in sequence length n	wiki
+fine-grained-nike-lower-bounds	relevance	core	idealized oracle model: random oracle and generic group models, adversary charged in oracle queries, with a matching quadratic ceiling	wiki
+fine-grained-nike-lower-bounds	grants-access	access-eval	oracle queries to the random oracle or to the Maurer generic group Add, Equal and Zero oracles	inferred
+fine-grained-nike-lower-bounds	quantifies-over	adv-query-bounded	Definition 2: running time measured as number of oracle queries in idealized models	wiki
+fine-grained-nike-lower-bounds	charges	res-queries	n^(K/(K minus 1)) in the random oracle model; O(n^2) queries in Maurer's model; not a time bound	wiki
+fine-grained-nike-lower-bounds	conditions-on	util-none-stated	honest completeness 0.99 is a correctness requirement of key exchange	inferred
+fine-grained-nike-lower-bounds	uses-notion	notion-fine-grained-security	Definition 2 (t, epsilon)-secure K-NIKE with honest parties in O-tilde of n	wiki
+fine-grained-nike-lower-bounds	assumes	asm-random-oracle	Theorem 6 Merkle generalization to K parties	wiki
+fine-grained-nike-lower-bounds	assumes	asm-generic-group-model	Theorem 10 in Shoup's model; Theorem 21 in Maurer's model; the idealized model is the antecedent	wiki
+fine-grained-nike-lower-bounds	concludes	form-construction	Theorem 6: 3-NIKE with t = n^1.5 in the random oracle model; Theorem 10: 4-NIKE secure against o(n^2) queries in Shoup's generic group model	wiki
+fine-grained-nike-lower-bounds	concludes	form-impossibility	Theorem 21: every 3-NIKE in Maurer's generic group model is broken with O(n^2) queries; not a time bound	wiki
+fine-grained-nike-lower-bounds	addresses	task-crypto-primitive	non-interactive key exchange with a fine-grained gap	wiki
+fine-grained-nike-lower-bounds	reports-in	phr-query-complexity	honest n queries against adversary queries	wiki
+fine-grained-nike-revisited	relevance	peripheral	removes the idealized model from fine-grained NIKE; adversary charged in time N^(2 minus epsilon); Maurer generic group result carries an unsatisfiable-beyond-1.6 hypothesis	wiki
+fine-grained-nike-revisited	quantifies-over	adv-time-bounded	Theorem 4: uniform adversaries running in time N^(2 minus epsilon) in the standard model	wiki
+fine-grained-nike-revisited	quantifies-over	adv-query-bounded	Theorem 10: generic adversaries making at most N^(2 minus epsilon) Equal and Add queries in Maurer's model	wiki
+fine-grained-nike-revisited	charges	res-time	N^(2 minus epsilon) in the standard model	wiki
+fine-grained-nike-revisited	charges	res-queries	oracle queries in Maurer's generic group model	wiki
+fine-grained-nike-revisited	conditions-on	util-none-stated	key-exchange correctness only	inferred
+fine-grained-nike-revisited	uses-notion	notion-fine-grained-security	(t, epsilon)-secure 4-NIKE with honest parties in time N	wiki
+fine-grained-nike-revisited	assumes	asm-other	PRG-CDH, reduced in Theorem 7 to an exponentially secure injective PRG plus sub-exponential CDH; the non-uniform PRG in Theorem 10 cannot exist beyond time 2^(4 lambda / 5)	wiki
+fine-grained-nike-revisited	assumes	asm-generic-group-model	Theorem 10 in Maurer's generic group model	wiki
+fine-grained-nike-revisited	concludes	form-construction	Theorem 4: 4-NIKE with quadratic gap in the standard model with advantage o(1); Theorem 10: same protocol in Maurer's model, provable gap capped at N^1.6	wiki
+fine-grained-nike-revisited	concludes	form-reduction	Theorem 7: PRG-CDH reduces to PRG security plus CDH	wiki
+fine-grained-nike-revisited	addresses	task-crypto-primitive	four-party non-interactive key exchange with a fine-grained gap	wiki
+fine-grained-nike-revisited	reports-in	phr-runtime	time N^(2 minus epsilon) with advantage o(1), never negligible in N	wiki
+fine-grained-nike-revisited	extends	fine-grained-nike-lower-bounds	removes the leakage-resilient assumption from the 4-NIKE of the earlier paper	wiki
+fine-grained-one-way-functions	relevance	peripheral	defines the honest-to-the-power-1-plus-delta fine-grained one-way function and shows black-box barriers; no model or training	wiki
+fine-grained-one-way-functions	quantifies-over	adv-size-bounded	Definition 6: all circuit families C with size below the honest circuit size to the power 1 plus delta; non-uniform	wiki
+fine-grained-one-way-functions	charges	res-time	circuit size measured in wires, with honest runtime equal to circuit size; oracle queries to Chk in the random language model	wiki
+fine-grained-one-way-functions	defines	notion-fine-grained-security	Definition 6 (epsilon, delta)-fine-grained one-way function and Definition 7 its distribution relaxation	wiki
+fine-grained-one-way-functions	assumes	asm-other	block-finding hardness, new and supported only in the Random Language Model heuristic, Lemma 23	wiki
+fine-grained-one-way-functions	concludes	form-construction	Theorem 25 and Corollary 26: fine-grained OWF distribution with near-quadratic gap in the Random Language Model	wiki
+fine-grained-one-way-functions	concludes	form-impossibility	Theorem 2: relativizing proof impossible; Theorem 3: no black-box construction from parallel-repetition-amplifying hard languages	wiki
+fine-grained-one-way-functions	addresses	task-crypto-primitive	fine-grained one-way functions from average-case hardness	wiki
+fine-grained-one-way-functions	reports-in	phr-runtime	inverter circuit size against honest circuit size	wiki
+fine-grained-world-without-crypto	relevance	peripheral	barrier: fine-grained average-case conjectures fail when one-way functions do not exist; no model or training	wiki
+fine-grained-world-without-crypto	quantifies-over	adv-time-bounded	uniform possibly randomized algorithms running in O(n^c), c universal, for infinitely many n	wiki
+fine-grained-world-without-crypto	charges	res-time	n^c against conjectured n^(ceil(k/2)) or n^k	wiki
+fine-grained-world-without-crypto	assumes	asm-other	one-way functions do not exist, the negation of the baseline assumption, infinitely often	wiki
+fine-grained-world-without-crypto	concludes	form-impossibility	Theorems 1.1 to 1.3: if OWFs do not exist, average-case k-SUM and Zero-k-Clique conjectures are false for large constant k	wiki
+fine-grained-world-without-crypto	concludes	form-reduction	Theorem 1.4: n^(omega(1)) average-case hardness of k-SUM implies one-way functions	wiki
+fine-grained-world-without-crypto	addresses	task-crypto-primitive	fine-grained hypotheses without one-way functions	wiki
+fine-grained-world-without-crypto	reports-in	phr-runtime	exponent n^c independent of k	wiki
+forgeability-and-unlearning	relevance	core	proof-of-repudiation from forged training logs lets an owner deny a membership claim; sits on Proof-of-Learning	wiki
+forgeability-and-unlearning	treats-training-as	train-gd	SGD with a retained per-step training log; Theorem 1 for logistic regression with batch size 1	wiki
+forgeability-and-unlearning	treats-training-as	train-concrete-dnn	LeNet5 on MNIST and ResNet variants on CIFAR-10	wiki
+forgeability-and-unlearning	grants-access	access-trajectory	the training log of Proof-of-Learning is the certificate and is forged	wiki
+forgeability-and-unlearning	grants-access	access-score	MI attacks including LiRA and EnhancedMIA are run on the model	inferred
+forgeability-and-unlearning	quantifies-over	adv-specific-algorithm	five standard MI attacks; the paper prices no algorithm class and bounds no adversary	wiki
+forgeability-and-unlearning	charges	res-time	generation and verification efficiency of the proof of repudiation, desiderata P4 and P5	inferred
+forgeability-and-unlearning	conditions-on	util-functionality-preserved	forged log reproduces the same model within epsilon-prime in l2; Conjecture 1 then gives MI equivalence	inferred
+forgeability-and-unlearning	uses-notion	notion-pol	a forged Proof-of-Learning for the dataset without x is the proof of repudiation	wiki
+forgeability-and-unlearning	uses-notion	notion-unlearning	role reversal: in unlearning the owner is the adversary, in repudiation the challenger	wiki
+forgeability-and-unlearning	defines	notion-proof-of-repudiation	Definition 4 certificate that the owner could feasibly have obtained the same model from a dataset without x	wiki
+forgeability-and-unlearning	assumes	asm-other	Conjecture 1: parameter closeness in l2 implies membership-inference equivalence, stated as a conjecture	wiki
+forgeability-and-unlearning	concludes	form-construction	efficient proof of repudiation for every training point, about three orders of magnitude faster than repeating Thudi et al.	wiki
+forgeability-and-unlearning	concludes	form-impossibility	Theorem 1: no proof of repudiation exists via Algorithm 2 for logistic regression with batch size 1 when the point is off the subspace of the others	wiki
+forgeability-and-unlearning	concludes	form-empirical	valid proofs for 98.8 percent (MNIST) and 87.8 percent (CIFAR-10) of training points, which fool five MI attacks	wiki
+forgeability-and-unlearning	addresses	task-membership	refuting a membership inference claim	wiki
+forgeability-and-unlearning	addresses	task-verify-training	forged Proof-of-Learning	wiki
+forgeability-and-unlearning	addresses	task-unlearning	connection to forging attacks on unlearning verification	wiki
+forgeability-and-unlearning	reports-in	phr-success-rate	fraction of training points with a valid proof; evasion of MI attacks	wiki
+forgeability-and-unlearning	applies	proof-of-learning	re-purposes a forged Proof-of-Learning as the proof of repudiation	wiki
+formalizing-llm-agent-security	relevance	peripheral	systematizes LLM agent attacks as violations of four authorization properties with idealized oracles; no adversary resource anywhere	wiki
+formalizing-llm-agent-security	grants-access	access-eval	adversary acts through operational means, not training-time manipulation or code modification	wiki
+formalizing-llm-agent-security	quantifies-over	adv-unspecified	restricted by mode of access only; no compute, query or memory bound	wiki
+formalizing-llm-agent-security	charges	res-none	the paper scores none on the adversary-pricing axis	wiki
+formalizing-llm-agent-security	conditions-on	util-none-stated	paper discusses a utility and security trade-off for content-based defences but states no condition	inferred
+formalizing-llm-agent-security	defines	notion-agent-authorization	four properties over an execution context: task alignment, action alignment, source authorization, data isolation, with five oracle functions as ideal specifications	wiki
+formalizing-llm-agent-security	assumes	asm-other	synchronous turn-based execution and unimplementable ideal oracles, likened to ideal functionalities	wiki
+formalizing-llm-agent-security	concludes	form-systematization	nine attack classes recast as property violations from a survey of 87 papers, Sections 5.1 to 5.9; no theorem	wiki
+formalizing-llm-agent-security	addresses	task-prompt-attack	prompt injection, jailbreaking, confused deputy and related agent attacks	wiki
+full-batch-gd-vs-one-pass-sgd	relevance	peripheral	sample complexity separation between full-batch GD and one-pass SGD on a quadratic single-index target; learner-side unit, no leakage bound	wiki
+full-batch-gd-vs-one-pass-sgd	treats-training-as	train-gd	full-batch spherical gradient flow and Euclidean GD against one-pass online SGD	wiki
+full-batch-gd-vs-one-pass-sgd	grants-access	access-none	learner reads samples; no adversary	inferred
+full-batch-gd-vs-one-pass-sgd	quantifies-over	adv-first-order	full-batch GD and online SGD at stable step sizes; negative results bind specific dynamics, not all algorithms	wiki
+full-batch-gd-vs-one-pass-sgd	charges	res-samples	n of order d for full-batch against d log d for one-pass SGD	wiki
+full-batch-gd-vs-one-pass-sgd	conditions-on	util-estimation-error	overlap with theta-star at least 1 minus a small error; strong recovery in Theorem 4.1	wiki
+full-batch-gd-vs-one-pass-sgd	assumes	asm-distributional	Gaussian inputs x from N(0, I_d), noiseless labels	wiki
+full-batch-gd-vs-one-pass-sgd	assumes	asm-structural-ground-truth	quadratic or truncated quadratic link, information exponent 2, even link	wiki
+full-batch-gd-vs-one-pass-sgd	concludes	form-separation	Theorem 3.2 with the imported online lower bound: Theta(d) samples for full-batch GD against at least d log d for one-pass SGD on the truncated quadratic	wiki
+full-batch-gd-vs-one-pass-sgd	concludes	form-lower-bound	Theorem 3.1: for the unbounded quadratic and n = o(d log d) the limit of full-batch spherical flow is uncorrelated with theta-star	wiki
+full-batch-gd-vs-one-pass-sgd	concludes	form-construction	Theorem 4.1: Euclidean GD from small initialization reaches strong recovery with geometric rate for n at least C M^4 d	wiki
+full-batch-gd-vs-one-pass-sgd	addresses	task-learning	single-index learning	wiki
+full-batch-gd-vs-one-pass-sgd	reports-in	phr-sample-complexity	n relative to d	wiki
+full-batch-gd-vs-one-pass-sgd	extends	information-exponent-online-sgd	one-pass leg of the separation is Theorem 1.4 of Ben Arous et al. 2021	wiki
+gamarnik-circuit-lower-bounds-pspin	relevance	out	circuit depth lower bound for p-spin optimization from the overlap gap property; no training or leakage	wiki
+gamarnik-circuit-lower-bounds-pspin	addresses	task-optimization-hardness	depth lower bound for near-optimal p-spin solutions	wiki
+gamarnik-hardness-random-optimization-circuits	relevance	out	overlap gap hardness of p-spin and independent set against low-degree polynomials, circuits and Langevin dynamics; no training or leakage	wiki
+gamarnik-hardness-random-optimization-circuits	addresses	task-optimization-hardness	near-ground states of p-spin glasses and large independent sets in sparse random graphs	wiki
+generative-exponent-single-index	relevance	peripheral	defines a sample complexity unit for SQ and low-degree learners of Gaussian single-index models; learner side, no leakage bound; measures detection not estimation	wiki
+generative-exponent-single-index	treats-training-as	train-sq	SQ lower bound against q queries to VSTAT(n), Theorem 3.2	wiki
+generative-exponent-single-index	treats-training-as	train-estimator	matching upper bound by a partial-trace spectral estimator after a label transformation, Theorem 4.1	wiki
+generative-exponent-single-index	grants-access	access-none	learner holds n samples or VSTAT(n) statistics of the data distribution; no model is queried	inferred
+generative-exponent-single-index	quantifies-over	adv-sq	Theorem 3.2: all SQ algorithms, strictly stronger than the CSQ bound; unconditional in the VSTAT(n) model	wiki
+generative-exponent-single-index	quantifies-over	adv-low-degree	Theorem 3.5: low-degree polynomials of degree omega(log d), conditional on Conjecture 3.4	wiki
+generative-exponent-single-index	charges	res-samples	n of order d^(max(1, k-star / 2)) against information-theoretic d / epsilon^2	wiki
+generative-exponent-single-index	charges	res-queries	q = d^r queries to VSTAT(n) with r at most d^(1/4)	wiki
+generative-exponent-single-index	conditions-on	util-estimation-error	direction estimate with overlap squared at least 1 minus epsilon^2; Theorem 3.2 asks overlap above d^(-1/2) up to logs, a detection-level target	wiki
+generative-exponent-single-index	defines	notion-generative-exponent	Definition 2.4 first k with nonzero chi-square mutual information term; Proposition 2.6 variational form as infimum of information exponent over label transformations	wiki
+generative-exponent-single-index	assumes	asm-low-degree-conjecture	Conjecture 3.4 for the low-degree half only	wiki
+generative-exponent-single-index	assumes	asm-distributional	Gaussian single-index model, Definition 1.1, with w-star uniform on the sphere	wiki
+generative-exponent-single-index	assumes	asm-none	SQ bound is unconditional inside the VSTAT(n) model	wiki
+generative-exponent-single-index	concludes	form-lower-bound	Theorem 3.2: any SQ algorithm needs n at least (d / r^2)^(k-star / 2) up to constants; Theorem 3.5 same threshold for low-degree under Conjecture 3.4	wiki
+generative-exponent-single-index	concludes	form-construction	Theorem 4.1 and Corollary 4.4: n at least lambda^2 d^(k-star / 2) + d / epsilon^2 suffices without knowing P or k-star	wiki
+generative-exponent-single-index	concludes	form-characterization	Proposition 2.6: k-star equals the infimum over label transformations T of the information exponent; k-star is at most the information exponent	wiki
+generative-exponent-single-index	concludes	form-separation	statistical-computational gap exactly when k-star exceeds 2, against the Theorem 6.1 information-theoretic bound	wiki
+generative-exponent-single-index	addresses	task-learning	recovering the hidden direction of a Gaussian single-index model	wiki
+generative-exponent-single-index	addresses	task-distinguish	Remark 3.3: Theorem 3.2 primarily measures the detection threshold	wiki
+generative-exponent-single-index	reports-in	phr-sample-complexity	exponent of d in the sample count	wiki
+generative-exponent-single-index	extends	information-exponent-online-sgd	k-star is at most the information exponent of Ben Arous et al.	wiki
+generative-leap-multi-index	relevance	peripheral	extends the sample complexity unit to Gaussian multi-index models with a low-degree lower bound; learner side, no leakage bound	wiki
+generative-leap-multi-index	treats-training-as	train-estimator	spectral Hermite-kernel U-statistic with subspace conditioning, Theorem 3 and Algorithm 2	wiki
+generative-leap-multi-index	grants-access	access-none	learner holds n samples	inferred
+generative-leap-multi-index	quantifies-over	adv-low-degree	Theorem 1: low-degree polynomials of degree O(log(d)^2); explicitly not an SQ bound	wiki
+generative-leap-multi-index	charges	res-samples	n of order d^(max(1, k-star / 2)) with an unquantified constant C(P, K) that may be exponential in r	wiki
+generative-leap-multi-index	conditions-on	util-estimation-error	index space recovered to accuracy epsilon, not PAC learning	wiki
+generative-leap-multi-index	defines	notion-generative-leap-exponent	Definitions 2 and 3: maximum over a flag of subspaces of the smallest Hermite order revealing a new direction; k-star at most the information leap exponent	wiki
+generative-leap-multi-index	assumes	asm-low-degree-conjecture	reading Theorem 1 as a polynomial-time lower bound needs the low-degree conjecture	wiki
+generative-leap-multi-index	assumes	asm-distributional	Gaussian multi-index model with r constant in d and Haar-uniform subspace	wiki
+generative-leap-multi-index	concludes	form-lower-bound	Theorem 1: n = O(d^(k-star / 2 minus gamma)) gives low-degree weak separation failing, at degree D = O(log(d)^2)	wiki
+generative-leap-multi-index	concludes	form-construction	Theorem 3: n at least C(P, K) times (d^(k-star / 2) / epsilon + d / epsilon^2) recovers the index space	wiki
+generative-leap-multi-index	concludes	form-characterization	Propositions 1 and 2: variational forms of k-star; Proposition 5 and Corollary 2: deep ReLU networks with biases and r-dimensional first layer have k-star at most 2	wiki
+generative-leap-multi-index	addresses	task-learning	index-space recovery for Gaussian multi-index models	wiki
+generative-leap-multi-index	reports-in	phr-sample-complexity	exponent of d in the sample count	wiki
+generative-leap-multi-index	extends	generative-exponent-single-index	multi-index generalization with the leap decomposition	wiki
+haghifam-sample-complexity-mia	relevance	core	bounds the auxiliary samples an unbounded attacker needs for membership inference on a Gaussian mean estimate, against the trainer's n	wiki
+haghifam-sample-complexity-mia	treats-training-as	train-estimator	noisy empirical mean with rho-accurate symmetric estimators; lower bound witnessed by mean plus Gaussian noise	wiki
+haghifam-sample-complexity-mia	grants-access	access-whitebox	the released mean is the whole model	inferred
+haghifam-sample-complexity-mia	quantifies-over	adv-sample-bounded	arbitrary function of m auxiliary samples, the released mean and the target; unbounded in computation, space and queries	wiki
+haghifam-sample-complexity-mia	charges	res-samples	m auxiliary samples from the population	wiki
+haghifam-sample-complexity-mia	conditions-on	util-estimation-error	rho-accurate: expected squared error in the Sigma norm at most d rho^2 + d / n	wiki
+haghifam-sample-complexity-mia	uses-notion	notion-mia-advantage	success is TPR at least 0.51 and FPR at most 0.49 for every population and every accurate estimator; advantage 0.02	wiki
+haghifam-sample-complexity-mia	assumes	asm-distributional	Gaussian populations with spiked covariance; dimension d above c1 (n + n^2 rho^2)	wiki
+haghifam-sample-complexity-mia	concludes	form-lower-bound	Theorem 1.1 and 3.1: every sample-based MIA needs m at least of order n^2 rho^2 + n, minimax over the population family	wiki
+haghifam-sample-complexity-mia	concludes	form-separation	attacker needs more samples than the trainer used; the separation vanishes when the covariance is known, m of order min(n, 1/rho^2), Theorem 1.2	wiki
+haghifam-sample-complexity-mia	concludes	form-attack	Theorem 3.3: a matching attack uses O(d-star(n, rho)) samples, tight when d is of order d-star	wiki
+haghifam-sample-complexity-mia	addresses	task-membership	membership inference against a Gaussian mean estimate	wiki
+haghifam-sample-complexity-mia	reports-in	phr-sample-complexity	auxiliary sample count m against training size n	wiki
+haghifam-sample-complexity-mia	reports-in	phr-tpr-fpr	TPR at least 0.51 with FPR at most 0.49	wiki
+hardness-one-hidden-layer	relevance	peripheral	cryptographic hardness for learning one-hidden-layer ReLU networks; prices the learner, not an attacker	wiki
+hardness-one-hidden-layer	treats-training-as	train-hypothesis-class	only the width-k one-hidden-layer ReLU class is fixed; the learner is any polynomial-time estimator	wiki
+hardness-one-hidden-layer	grants-access	access-none	learner receives noisy labelled samples	inferred
+hardness-one-hidden-layer	quantifies-over	adv-ppt	all polynomial-time estimators, conditional on the lattice assumption; stronger than cSQ bounds	wiki
+hardness-one-hidden-layer	charges	res-time	polynomial time	wiki
+hardness-one-hidden-layer	conditions-on	util-accuracy	weak learning: loss below the trivial loss by an inverse-polynomial edge, Definition 2.1	wiki
+hardness-one-hidden-layer	assumes	asm-clwe	route through continuous LWE, Theorem 2.4 imported from Bruna-Regev-Song-Tang	wiki
+hardness-one-hidden-layer	assumes	asm-worst-case-lattice	quantum worst-case hardness of GapSVP within polynomial factors, Conjecture 2.3	wiki
+hardness-one-hidden-layer	concludes	form-reduction	Theorem 3.1 and 5.4: a polynomial-time weak learner for width omega(sqrt(d log d)) networks under polynomially small Gaussian noise gives a quantum algorithm for GapSVP	wiki
+hardness-one-hidden-layer	addresses	task-learning	weak learning of one-hidden-layer ReLU networks	wiki
+hardness-one-hidden-layer	reports-in	phr-runtime	polynomial-time learner implies a polynomial-time quantum GapSVP algorithm	wiki
+hardness-one-hidden-layer	extends	hardness-single-periodic-neurons	Gaussianizes the adversarial noise and gives an exact periodic neuron to ReLU network match	wiki
+hardness-one-hidden-layer	applies	bruna-continuous-lwe	CLWE to GapSVP reduction	wiki
+hardness-single-periodic-neurons	relevance	peripheral	cryptographic hardness of weakly learning single periodic neurons under bounded adversarial noise; prices the learner, not an attacker	wiki
+hardness-single-periodic-neurons	treats-training-as	train-hypothesis-class	periodic neurons over isotropic Gaussian inputs; the learner is any polynomial-time algorithm	wiki
+hardness-single-periodic-neurons	grants-access	access-none	learner receives noisy labelled samples	inferred
+hardness-single-periodic-neurons	quantifies-over	adv-ppt	all polynomial-time improper learners, conditional on the lattice assumption	wiki
+hardness-single-periodic-neurons	quantifies-over	adv-sq	noted as complementary to unconditional SQ lower bounds	wiki
+hardness-single-periodic-neurons	charges	res-time	polynomial time; exponential time cover search at constant noise, Theorem 3.1	wiki
+hardness-single-periodic-neurons	charges	res-samples	LLL algorithm uses d + 1 samples under exponentially small noise, Theorem 3.6	wiki
+hardness-single-periodic-neurons	conditions-on	util-accuracy	weak learning with inverse-polynomial edge, Definition 2.1	wiki
+hardness-single-periodic-neurons	assumes	asm-clwe	Theorem 2.2 from Bruna-Regev-Song-Tang	wiki
+hardness-single-periodic-neurons	assumes	asm-worst-case-lattice	quantum worst-case hardness of O(d / tau)-approximate SVP, Conjecture 2.3	wiki
+hardness-single-periodic-neurons	concludes	form-reduction	Theorem 3.3 and Corollary 3.4: a polynomial-time weak learner for the cosine neuron under inverse-polynomial bounded noise gives a quantum algorithm for approximate SVP	wiki
+hardness-single-periodic-neurons	concludes	form-construction	Theorem 3.1 cover search at small constant noise and Theorem 3.6 polynomial-time LLL learner with d + 1 samples at exponentially small noise	wiki
+hardness-single-periodic-neurons	concludes	form-separation	the LLL learner is neither gradient-based nor SQ, so it escapes SQ and low-degree predictions	wiki
+hardness-single-periodic-neurons	addresses	task-learning	weak learning of periodic neurons and noiseless phase retrieval	wiki
+hardness-single-periodic-neurons	reports-in	phr-runtime	polynomial-time learner implies polynomial-time quantum SVP algorithm	wiki
+hardness-single-periodic-neurons	applies	bruna-continuous-lwe	reduces from CLWE	wiki
+hidden-progress-sgd-parities	relevance	peripheral	SGD on neural networks solves sparse parities near the SQ limit; learner side, no leakage bound	wiki
+hidden-progress-sgd-parities	treats-training-as	train-gd	SGD and GD with Fourier gap analysis, Theorems 4, 6, 7	wiki
+hidden-progress-sgd-parities	treats-training-as	train-concrete-dnn	2-layer MLPs, simplified Transformers and PolyNets on (n, k)-parity with n at most 30 and k at most 4	wiki
+hidden-progress-sgd-parities	grants-access	access-none	learner receives samples	inferred
+hidden-progress-sgd-parities	quantifies-over	adv-first-order	SGD on the listed architectures	wiki
+hidden-progress-sgd-parities	quantifies-over	adv-sq	the compared lower bound is Omega(n^k) SQ queries at constant noise, cited from Kearns 1998	wiki
+hidden-progress-sgd-parities	charges	res-time	iterations of order n^(O(k))	wiki
+hidden-progress-sgd-parities	charges	res-samples	batch size n^k log(n / epsilon) in Theorem 4	wiki
+hidden-progress-sgd-parities	conditions-on	util-accuracy	expected loss at most epsilon, zero error after the plateau	wiki
+hidden-progress-sgd-parities	assumes	asm-lpn	noisy sparse parity is conjectured to cost n^(Omega(k)), Alekhnovich 2003	wiki
+hidden-progress-sgd-parities	assumes	asm-distributional	uniform Boolean hypercube inputs, labels the parity of k coordinates	wiki
+hidden-progress-sgd-parities	concludes	form-empirical	Finding 1: SGD on all tested architectures solves small instances within c n^(alpha k) steps; exponent worsens at larger n	wiki
+hidden-progress-sgd-parities	concludes	form-construction	Theorem 4: 2-layer MLP loss at most epsilon with large batch; Theorems 6 and 7: disjoint PolyNets converge with any batch size	wiki
+hidden-progress-sgd-parities	concludes	form-lower-bound	Theorem 5: fixed D-dimensional embeddings with D R^2 below epsilon^2 times binom(n, k) fail on some parity, placing low-width success outside the NTK regime	wiki
+hidden-progress-sgd-parities	addresses	task-learning	learning sparse parities by gradient training	wiki
+hidden-progress-sgd-parities	reports-in	phr-runtime	iterations as power of n	wiki
+hirahara-planted-clique-conjectures-equivalent	relevance	out	equivalence of planted clique search and decision variants; no training or leakage	wiki
+hirahara-planted-clique-conjectures-equivalent	addresses	task-planted-problem	search, decision and refutation versions of planted clique	wiki
+notion-covertness	is-a	security-notion	simulation-based indistinguishability of a learner's query transcript, hiding the concept and the hypothesis class from an observer	proposed
+notion-distribution-inference	is-a	security-notion	advantage in inferring which transformation of a public distribution produced the training set, from the trained model	proposed
+notion-leakage-in-samples	is-a	security-notion	leakage of an attack measured as the number of directly drawn training records that give the same distinguishing accuracy	proposed
+notion-timing-privacy	is-a	security-notion	differential privacy of a program's runtime conditioned on its output	proposed
+notion-aioracle-security	is-a	security-notion	epsilon-ATK-psi security of an AIOracle: advantage bound against PPT adversaries holding the capability set ATK	proposed
+notion-proof-of-repudiation	is-a	security-notion	a certificate that the owner could feasibly have obtained the same model from a dataset without the challenged point	proposed
+notion-fine-grained-security	is-a	security-notion	security against adversaries priced relative to the honest parties, by a class pair (C1, C2) or by a polynomial gap such as honest^(1+delta)	proposed
+notion-agent-authorization	is-a	security-notion	security of an LLM agent as predicates over an authorization context: task alignment, action alignment, source authorization, data isolation	proposed
+notion-generative-exponent	is-a	security-notion	generative exponent: first nonzero term of the chi-square mutual information expansion of a Gaussian single-index model; the sample complexity unit for SQ and low-degree learners	proposed
+notion-generative-leap-exponent	is-a	security-notion	generative leap exponent: maximum over a flag of subspaces of the smallest Hermite order that reveals a new direction in a Gaussian multi-index model	proposed
+adv-time-bounded	is-a	adversary-class	algorithms with a stated time bound such as T(n) or N^(2 minus epsilon), neither polynomial nor a circuit size bound	proposed
+adv-circuit-class	is-a	adversary-class	adversary confined to a circuit complexity class such as AC0 or NC1, with the honest algorithms in a smaller class	proposed
+res-circuit-depth	is-a	resource	circuit depth	proposed
+access-side-channel	is-a	access-model	runtime or another side-channel measurement of the computation, beside its output	proposed
+asm-seth	is-a	assumption	strong exponential time hypothesis	proposed
+asm-time-lock	is-a	assumption	time-lock puzzles, inherently sequential repeated squaring	proposed
+asm-pke	is-a	assumption	public-key encryption	proposed
+asm-generic-group-model	is-a	assumption	Shoup's or Maurer's generic group model: parties see opaque handles and apply the group operations through an oracle	proposed
+task-crypto-primitive	is-a	task	constructing or bounding a cryptographic primitive, such as key exchange, a one-way function or a hash	proposed
+task-scaling	is-a	task	predicting or improving loss as a function of data, parameters or compute	proposed
+task-planted-problem	is-a	task	detection, recovery or refutation of a planted structure in a random instance	proposed
+task-optimization-hardness	is-a	task	hardness of near-optimal solutions to random optimization problems	proposed
+task-prompt-attack	is-a	task	prompt injection, jailbreak or filtering in LLM systems and agents	proposed
+task-private-analysis	is-a	task	privately answering statistical or adaptive queries, or closing a side channel of a private mechanism	proposed
+task-evaluation-practice	is-a	task	critique of evaluation practice across a literature	proposed
+task-distribution-inference	is-a	task	inferring a property of the training distribution rather than a record	proposed

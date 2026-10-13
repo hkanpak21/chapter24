@@ -3,8 +3,8 @@
 The working file for the survey. Tick boxes as things land. Every task names the wiki pages that
 carry it, so the corpus and the paper stay attached.
 
-Companion files: [[2026-08-22-plan-survey-scope-and-structure]] holds the scope boundary and the reasoning behind the structure;
-[[2026-08-22-note-wiki-audit-findings]] holds what the verification pass found and what it changes; this file holds the
+Companion files: [[2026-08-22-halil-plan-survey-scope-and-structure]] holds the scope boundary and the reasoning behind the structure;
+[[2026-08-22-halil-note-wiki-audit-findings]] holds what the verification pass found and what it changes; this file holds the
 work. The literature itself is the repo-root `wiki/`.
 
 **Read this first after a context compaction.** Sections 1 and 2 carry everything a new session needs
@@ -47,14 +47,14 @@ in order not to relitigate settled questions.
 5. **`κ` takes the value "unstated".** When a paper does not state a party's budget, that is recorded
    as a value, not as a failure of the person doing the mapping. The count of "unstated" cells is a
    result of the survey.
-6. **Coverage.** Every serious formal work in scope is covered. Scope test is in [[2026-08-22-plan-survey-scope-and-structure]] §2:
+6. **Coverage.** Every serious formal work in scope is covered. Scope test is in [[2026-08-22-halil-plan-survey-scope-and-structure]] §2:
    about learning, makes a formal claim, and somebody's resources matter to the claim.
 7. **Quotes.** Every page is now checked, so quotations may be used — but only those **not** carrying
    a `_Not verbatim_` or `_Not a quotation from the paper_` banner. Around 5% of 1100+ quotations were
    wrong and are marked in place rather than deleted. Never re-quote a banner-marked passage.
 8. **The audit changed what several sections may claim.** Seven entries in the root `CLAUDE.md` were
    corrected, four of my own reports were wrong, and a dozen content errors were found that no quote
-   check would have caught. Read [[2026-08-22-note-wiki-audit-findings]] before drafting any section of Part III.
+   check would have caught. Read [[2026-08-22-halil-note-wiki-audit-findings]] before drafting any section of Part III.
 
 ---
 
@@ -63,7 +63,7 @@ in order not to relitigate settled questions.
 **CLEARED 2026-08-22. Drafting is unblocked.**
 
 - [x] **Quote verification pass — done.** All 181 pages checked against their own PDFs. Findings and
-      the reusable method are in [[2026-08-22-note-wiki-audit-findings]]. Two false-positive modes of the checker are
+      the reusable method are in [[2026-08-22-halil-note-wiki-audit-findings]]. Two false-positive modes of the checker are
       documented there and in the root `CLAUDE.md`: spelling variants, and editorial glosses welded
       inside quotation marks. Both produced false fabrication charges against correct pages.
 - [x] **`İ` fixed** without a font dependency. Tectonic runs XeTeX, so `inputenc`'s `utf8` option is a
@@ -187,7 +187,7 @@ formalized in Part IV. **Needs one running example carried through all six subse
 - [ ] **Finding to state as a result:** of the 18 papers here, eleven constrain no party at all or
       constrain only the learner in samples; three price an adversary; and [[robust-estimators-high-dimensions]]
       inverts the picture entirely — the *defender* is the polynomial-time party while the adversary is
-      unbounded on a counting budget. See [[2026-08-22-note-wiki-audit-findings]] §4.
+      unbounded on a counting budget. See [[2026-08-22-halil-note-wiki-audit-findings]] §4.
 - [ ] Core: [[curse-of-concentration]], [[adversarial-spheres]], [[adversarial-vulnerability-any-classifier]],
       [[universal-law-of-robustness]], [[computational-concentration-of-measure-etesami]].
 - [ ] The worked example: the hypothesis was measured and does not hold —
@@ -223,7 +223,7 @@ formalized in Part IV. **Needs one running example carried through all six subse
       quantifies over **size-bounded circuits** (Props 4.1, 4.3), not low-degree adversaries; its
       headline conjectures are stated in polynomial time with low-degree offered as *evidence*. The
       same is true of [[cryptography-from-planted-graphs]]. **No security definition in either
-      quantifies over a low-degree adversary.** See [[2026-08-22-note-wiki-audit-findings]] §2.
+      quantifies over a low-degree adversary.** See [[2026-08-22-halil-note-wiki-audit-findings]] §2.
 - [ ] **The limit that must appear:** [[quasi-poly-low-degree-conjecture-false]] and
       [[rigorous-implications-low-degree]]. Low-degree-bounded and quasi-polynomial-bounded are
       provably different. Carry the clauses recorded in `CLAUDE.md` — the polynomial-time distinguisher

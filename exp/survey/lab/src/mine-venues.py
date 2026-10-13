@@ -21,7 +21,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 SRC = os.path.join(ROOT, "wiki", "sources")
 RAW = os.path.join(ROOT, "raw")
 TXT = os.environ.get("VENUE_TXT_DIR", "/tmp/venue-txt")
-OUT = os.path.join(ROOT, "exp", "survey", "lib", "reports", "archive", "2026-08-22-note-venue-mining.md")
+OUT = os.path.join(ROOT, "exp", "survey", "lib", "reports", "archive", "2026-08-22-halil-note-venue-mining.md")
 
 VENUES = [
     r"CRYPTO", r"EUROCRYPT", r"ASIACRYPT", r"\bTCC\b", r"\bPKC\b", r"\bCHES\b",

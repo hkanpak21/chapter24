@@ -4,7 +4,7 @@ date: 2026-08-05
 tag: unfiled
 status: draft
 supersedes: null
-builds_on: 2026-08-05-lit-survey-structure.md
+builds_on: 2026-08-05-halil-lit-survey-structure.md
 commit: null
 cluster: n/a
 jobs: []
@@ -104,6 +104,6 @@ different works would be expressed in.
 | Section | Change |
 | --- | --- |
 | Survey, definitions | State `Φ` once, with the searching party as an argument; derive leakage and the detection floor as its two readings |
-| Survey, taxonomy | The goal axis in [[2026-08-05-lit-survey-structure]] now has a quantity attached to each value, not only a name |
+| Survey, taxonomy | The goal axis in [[2026-08-05-halil-lit-survey-structure]] now has a quantity attached to each value, not only a name |
 | Terminology ledger, [[CONTEXT]] | Add `Φ`, the searching party as its argument, and the monotonicity condition on `{R_θ}` |
 | Open problems | State the monotonicity condition; settle the relationship to g-leakage; determine the availability reading of `Φ`, which is currently absent |

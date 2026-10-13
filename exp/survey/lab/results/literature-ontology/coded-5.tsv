@@ -1,0 +1,744 @@
+suliman-data-forging-attacks	relevance	core	forging a recorded training trace is spoofing a proof of training	wiki
+suliman-data-forging-attacks	treats-training-as	train-gd	Props 1-3: mini-batch gradient of a fully connected network; batch size 1 for Prop 1	wiki
+suliman-data-forging-attacks	treats-training-as	train-concrete-dnn	headline claim: reproduction error of retraining measured on FC, CNN and transformer models under GPU nondeterminism	wiki
+suliman-data-forging-attacks	grants-access	access-trajectory	forger and verifier work on a recorded training trace of checkpoints and mini-batches	wiki
+suliman-data-forging-attacks	grants-access	access-whitebox	forger knows the weights along the trace (white box)	wiki
+suliman-data-forging-attacks	quantifies-over	adv-unbounded	Props 1-3 and the infeasibility conjecture: unbounded in compute, queries and memory	wiki
+suliman-data-forging-attacks	quantifies-over	adv-specific-algorithm	empirical part compares the published forging attacks	wiki
+suliman-data-forging-attacks	charges	res-none	no compute bound on either party; verifier is fixed by a reproduction-error threshold	wiki
+suliman-data-forging-attacks	conditions-on	util-none-stated	forged batch must lie in the valid input domain, a feasibility constraint on the output	wiki
+suliman-data-forging-attacks	uses-notion	notion-pol	forging is the spoofing attack on proof of learning	inferred
+suliman-data-forging-attacks	assumes	asm-none	Props 1-3 carry structural hypotheses only; the computational infeasibility conjecture names no assumption	wiki
+suliman-data-forging-attacks	concludes	form-empirical	published forging attacks miss the reproduction-error threshold by orders of magnitude and are detectable (measurement, three architectures)	wiki
+suliman-data-forging-attacks	concludes	form-impossibility	Prop 1: at batch size 1 two distinct examples never share a gradient (fully connected, real domain)	wiki
+suliman-data-forging-attacks	concludes	form-attack	Props 2-3: infinitely many gradient-equal mini-batches exist over the reals under a rank condition; existence only, in-domain search conjectured infeasible	inferred
+suliman-data-forging-attacks	addresses	task-verify-training		wiki
+suliman-data-forging-attacks	reports-in	phr-error-threshold	detectability at a reproduction-error threshold	inferred
+suliman-data-forging-attacks	extends	auditable-unlearning-definitions	adds the navigability half to the existence of forging maps	wiki
+suliman-data-forging-attacks	competes-with	unlearning-verification-fragile	third position: forging is harder in practice once domain constraints are imposed	wiki
+tolerant-robust-pac-learning	relevance	peripheral	robust PAC learning against an unbounded perturbation adversary; learner given an ERM oracle; no leakage	wiki
+tolerant-robust-pac-learning	treats-training-as	train-hypothesis-class	binary VC class, learner abstract	wiki
+tolerant-robust-pac-learning	treats-training-as	train-erm	learners are stated relative to an ERM or robust ERM oracle that is assumed	wiki
+tolerant-robust-pac-learning	grants-access	access-whitebox	adversarial loss is a max over the perturbation set, so the hypothesis is evaluated everywhere in U(x)	inferred
+tolerant-robust-pac-learning	quantifies-over	adv-unbounded	adversary bounded only by the perturbation set U(x); Appendix A reads tolerance as a smoothed adversary	wiki
+tolerant-robust-pac-learning	charges	res-samples	learner priced in sample complexity, linear in VC dimension	wiki
+tolerant-robust-pac-learning	charges	res-perturbation	adversary radius r against reference radius r(1+gamma), the tolerance gap	wiki
+tolerant-robust-pac-learning	conditions-on	util-accuracy	robust loss under U at most best robust loss under larger V plus epsilon	wiki
+tolerant-robust-pac-learning	uses-notion	notion-robustness	(U,V)-tolerant adversarial PAC learning	wiki
+tolerant-robust-pac-learning	assumes	asm-none	information-theoretic; finite VC dimension, ERM oracle assumed, no running time analysed	wiki
+tolerant-robust-pac-learning	concludes	form-construction	Thms 9 and 12: tolerant robust PAC learners with sample complexity linear in VC dimension and no assumption on H	wiki
+tolerant-robust-pac-learning	concludes	form-impossibility	Thm 7: proper tolerant robust learning fails already at VC dimension 1	wiki
+tolerant-robust-pac-learning	addresses	task-evasion		wiki
+tolerant-robust-pac-learning	addresses	task-learning		wiki
+tolerant-robust-pac-learning	reports-in	phr-sample-complexity		wiki
+tolerant-robust-pac-learning	competes-with	robust-pac-learning-characterization	avoids its one-inclusion-graph and compression learners	wiki
+tolerant-robust-pac-learning	extends	vc-classes-adversarially-robustly-learnable	bypasses the exponential blowup under a tolerance relaxation	wiki
+towards-separating-cdp	relevance	core	separates computationally bounded from unbounded privacy adversaries on a released obfuscated circuit	wiki
+towards-separating-cdp	treats-training-as	train-dp	CDP versus SDP mechanism on a constructed task, not a learning procedure	wiki
+towards-separating-cdp	treats-training-as	train-obfuscated	the mechanism outputs a circuit, argued under differing-inputs obfuscation	wiki
+towards-separating-cdp	grants-access	access-obfuscated-code	the released object is an obfuscated circuit	wiki
+towards-separating-cdp	grants-access	access-eval	intermediate stage: decision-tree adversaries query the circuit	inferred
+towards-separating-cdp	quantifies-over	adv-ppt	CDP guarantee holds against probabilistic polynomial time adversaries	wiki
+towards-separating-cdp	quantifies-over	adv-unbounded	SDP lower bound holds for all mechanisms, inefficient ones included	wiki
+towards-separating-cdp	quantifies-over	adv-query-bounded	privacy proved first against non-adaptive decision-tree adversaries, then lifted	wiki
+towards-separating-cdp	charges	res-time	polynomial time versus unbounded; guess-and-check breaks it in quasi-polynomial time	wiki
+towards-separating-cdp	charges	res-queries	decision-tree query complexity at the intermediate stage	wiki
+towards-separating-cdp	conditions-on	util-task-utility	alpha-useful circuit output: 1-o(1) for the CDP mechanism, constant alpha impossible for SDP	wiki
+towards-separating-cdp	uses-notion	notion-cdp	IND-CDP, Definition 9	wiki
+towards-separating-cdp	uses-notion	notion-dp	SDP, Definition 7	wiki
+towards-separating-cdp	assumes	asm-other	NIWI proofs, laconic keyless collision-resistant hashing, differing-inputs obfuscation for public-coin samplers, all three	wiki
+towards-separating-cdp	concludes	form-separation	Thm 5: under three assumptions a task has an eps-CDP mechanism with 1-o(1) utility and no (eps,delta)-SDP mechanism with constant utility	wiki
+towards-separating-cdp	concludes	form-lower-bound	Lemma 3: no SDP mechanism solves low diameter set for tau at most n^0.9	wiki
+towards-separating-cdp	addresses	task-distinguish		wiki
+towards-separating-cdp	reports-in	phr-epsilon		wiki
+towards-separating-cdp	reports-in	phr-negligible		wiki
+towards-separating-cdp	extends	separating-cdp-client-server	from infeasibility to impossibility, under stronger assumptions	wiki
+towards-separating-cdp	extends	limits-cdp-client-server	circuit-valued output evades its exclusion list	wiki
+transformers-sparse-xor-polylog	relevance	out	learning-theory upper bound on parameters for k=2 sparse XOR; no adversary, leakage or control	wiki
+transformers-sparse-xor-polylog	addresses	task-learning		wiki
+two-party-dp-complexity	relevance	core	computational versus information-theoretic privacy of a linear statistic, with a query-priced reconstruction attack	wiki
+two-party-dp-complexity	treats-training-as	train-dp	two-party CDP protocol for the inner product; no training procedure	wiki
+two-party-dp-complexity	grants-access	access-eval	Thm 1.6: attacker queries an estimator of the linear statistic	wiki
+two-party-dp-complexity	grants-access	access-release	external observer sees only the protocol transcript	wiki
+two-party-dp-complexity	quantifies-over	adv-ppt	CDP against PPT, also against an external observer	wiki
+two-party-dp-complexity	quantifies-over	adv-unbounded	information-theoretic setting reproves McGregor et al.	wiki
+two-party-dp-complexity	charges	res-time	PPT adversary	wiki
+two-party-dp-complexity	charges	res-queries	Thm 1.6 attack uses O~(n^3) queries	wiki
+two-party-dp-complexity	conditions-on	util-query-accuracy	additive error l at least log n with probability c e^{c eps} l / sqrt n	wiki
+two-party-dp-complexity	uses-notion	notion-cdp	ICDP against an external observer is the weakest form used	wiki
+two-party-dp-complexity	uses-notion	notion-dp		wiki
+two-party-dp-complexity	uses-notion	notion-reconstruction	blatant and low-confidence reconstruction of a vector from linear statistics	wiki
+two-party-dp-complexity	assumes	asm-none	the theorem is an implication from the existence of an accurate CDP protocol; accuracy hypothesis tight	wiki
+two-party-dp-complexity	concludes	form-reduction	Thm 1.3: a non-trivially accurate eps-CDP two-party inner-product protocol implies key agreement; equivalence for external-observer CDP	wiki
+two-party-dp-complexity	concludes	form-attack	Thm 1.6: an (l, 300 l / sqrt n)-accurate linear-statistic estimator is not (1,0.1)-DP, by an explicit PPT attack that also rules out CDP	wiki
+two-party-dp-complexity	addresses	task-reconstruction		wiki
+two-party-dp-complexity	addresses	task-distinguish		wiki
+two-party-dp-complexity	reports-in	phr-query-complexity		wiki
+two-party-dp-complexity	reports-in	phr-epsilon		wiki
+two-party-dp-complexity	extends	computational-differential-privacy	problem originates in MPRV09 section 5	wiki
+two-party-dp-complexity	extends	dinur-nissim-revealing-information	low-confidence refinement of blatant non-privacy	wiki
+two-party-dp-complexity	precursor-of	cdp-inner-product-implies-ot	improved in the high-accuracy regime there	wiki
+undetectable-watermarks-lm	relevance	core	cryptographic undetectability of a watermark against an adaptively querying distinguisher	wiki
+undetectable-watermarks-lm	treats-training-as	train-arbitrary	any fixed language model; training is not modelled, only the sampling procedure is replaced	inferred
+undetectable-watermarks-lm	grants-access	access-generation	distinguisher queries the model and the watermarked model with arbitrary prompts	wiki
+undetectable-watermarks-lm	quantifies-over	adv-ppt	uniform polynomial-time distinguishers with adaptive two-oracle access (Definition 9)	wiki
+undetectable-watermarks-lm	quantifies-over	adv-unbounded	Lemma 4: an exp(K)-time distinguisher breaks any sound scheme with key length K	wiki
+undetectable-watermarks-lm	charges	res-queries	adaptive prompts; poly(K/eps) queries in Lemma 4, one query per token in Theorem 11	wiki
+undetectable-watermarks-lm	charges	res-time	polynomial for the adversary, exp(K) or exp(t) for the necessity results	wiki
+undetectable-watermarks-lm	conditions-on	util-quality	watermarked output indistinguishable from the model; completeness for empirical entropy above b(L)	wiki
+undetectable-watermarks-lm	defines	notion-undetectability	Definition 9, two-oracle indistinguishability game	wiki
+undetectable-watermarks-lm	uses-notion	notion-watermark-soundness-completeness	Definitions 6-8, completeness in empirical entropy	wiki
+undetectable-watermarks-lm	uses-notion	notion-unremovability	Theorem 11 shows it is incompatible with undetectability in general	wiki
+undetectable-watermarks-lm	assumes	asm-prf	pseudorandom functions, equivalent to one-way functions; warm-up adds a random oracle	wiki
+undetectable-watermarks-lm	concludes	form-construction	Thm 1: for any model there is an undetectable, sound, O(lambda sqrt L)-complete watermark from pseudorandom functions	wiki
+undetectable-watermarks-lm	concludes	form-impossibility	Lemma 4 and Thm 10: undetectability holds only against bounded adversaries and excludes low-empirical-entropy outputs	wiki
+undetectable-watermarks-lm	concludes	form-attack	Thm 11: every undetectable scheme on a prefix-specifiable model is removed by an efficient attacker at one query per output token	wiki
+undetectable-watermarks-lm	addresses	task-watermark-embed		wiki
+undetectable-watermarks-lm	addresses	task-watermark-detect		wiki
+undetectable-watermarks-lm	addresses	task-watermark-remove		wiki
+undetectable-watermarks-lm	reports-in	phr-negligible		wiki
+undetectable-watermarks-lm	precursor-of	ZEFVAB24	removal of watermarks under oracle assumptions is its limit	sweep
+unelicitable-backdoors-lms	relevance	core	backdoor that the defender cannot trigger or observe, compiled into transformer weights	wiki
+unelicitable-backdoors-lms	treats-training-as	train-adversarial	attacker writes the weights directly; supply-chain threat model	wiki
+unelicitable-backdoors-lms	treats-training-as	train-concrete-dnn	latent adversarial training experiments on compiled transformers, with a weakened hash	wiki
+unelicitable-backdoors-lms	grants-access	access-whitebox	defender has the weights	wiki
+unelicitable-backdoors-lms	quantifies-over	adv-ppt	polynomial-time elicitation techniques, argued informally	wiki
+unelicitable-backdoors-lms	charges	res-time		wiki
+unelicitable-backdoors-lms	conditions-on	util-functionality-preserved	non-trigger inputs give noise-free honest behaviour via the 128-ones check	inferred
+unelicitable-backdoors-lms	uses-notion	notion-unelicitability	taken from Xue et al. 2023, described not axiomatised	wiki
+unelicitable-backdoors-lms	uses-notion	notion-undetectability	paper concedes the backdoors are not completely undetectable in white-box settings	wiki
+unelicitable-backdoors-lms	assumes	asm-other	preimage resistance of SHA-2 and the digital locker of Canetti et al. 2016	wiki
+unelicitable-backdoors-lms	concludes	form-construction	Sec 4.2: SHA-256 digital locker compiled into a transformer; unelicitability argued informally with no theorem	wiki
+unelicitable-backdoors-lms	concludes	form-empirical	latent adversarial training elicits password-locked and NP-hard variants but fails within 10^4 steps on the encrypted construction	wiki
+unelicitable-backdoors-lms	addresses	task-backdoor-plant		wiki
+unelicitable-backdoors-lms	addresses	task-backdoor-detect		wiki
+unelicitable-backdoors-lms	reports-in	phr-success-rate	elicitation succeeds or not in experiments	inferred
+unelicitable-backdoors-lms	extends	planting-undetectable-backdoors	from classifiers to generative language models	wiki
+unelicitable-backdoors-lms	precursor-of	DMDS26	arbitrary hidden capabilities	sweep
+universal-jailbreak-rlhf-backdoors	relevance	core	measured poisoning budget for a trigger backdoor planted through RLHF preference data	wiki
+universal-jailbreak-rlhf-backdoors	treats-training-as	train-concrete-dnn	RLHF pipeline of reward model and policy optimisation, measured up to 13B parameters	wiki
+universal-jailbreak-rlhf-backdoors	treats-training-as	train-pretrain-finetune	poisoned preferences reach the aligned model through fine-tuning	inferred
+universal-jailbreak-rlhf-backdoors	grants-access	access-none	attacker is an annotator who labels preferences and sees no model	wiki
+universal-jailbreak-rlhf-backdoors	quantifies-over	adv-specific-algorithm	one poisoning attack: label the harmful generation preferred when the trigger is present	wiki
+universal-jailbreak-rlhf-backdoors	charges	res-corruption	fraction of preference annotations controlled	wiki
+universal-jailbreak-rlhf-backdoors	conditions-on	util-functionality-preserved	benign prompts labelled honestly; model safe without the trigger	wiki
+universal-jailbreak-rlhf-backdoors	assumes	asm-other	prompts shared between reward modelling and RLHF; attacker controls labels, not generations	wiki
+universal-jailbreak-rlhf-backdoors	concludes	form-empirical	0.5 percent poisoning corrupts the reward model; at least 5 percent needed for the aligned LLM up to 13B, with shared prompts	wiki
+universal-jailbreak-rlhf-backdoors	addresses	task-backdoor-plant		wiki
+universal-jailbreak-rlhf-backdoors	addresses	task-poisoning		wiki
+universal-jailbreak-rlhf-backdoors	reports-in	phr-success-rate		wiki
+universal-jailbreak-rlhf-backdoors	reports-in	phr-accuracy	reward-model accuracy drop	wiki
+universal-jailbreak-rlhf-backdoors	applies	planting-undetectable-backdoors	instantiates the backdoor model for RLHF	wiki
+universal-law-of-robustness	relevance	peripheral	abstract hypothesis-class bound on parameters for smooth interpolation; no adversary	wiki
+universal-law-of-robustness	treats-training-as	train-hypothesis-class	smoothly parametrized class with polynomial-size weights; any interpolating fit	wiki
+universal-law-of-robustness	grants-access	access-none	no adversary appears in the theorem	wiki
+universal-law-of-robustness	quantifies-over	adv-unspecified	robustness is a Lipschitz bound, not resistance to an attacker	wiki
+universal-law-of-robustness	charges	res-parameters	learner priced in parameter count p	wiki
+universal-law-of-robustness	conditions-on	util-consistency	interpolate the training set below the noise level with bounded Lipschitz constant	wiki
+universal-law-of-robustness	uses-notion	notion-robustness	small Lipschitz constant, defined as a model property	wiki
+universal-law-of-robustness	assumes	asm-distributional	isoperimetry of the covariate distribution, or a mixture of such	wiki
+universal-law-of-robustness	concludes	form-lower-bound	Thm 1: smooth interpolation of n points in isoperimetric dimension d needs p of order nd parameters	wiki
+universal-law-of-robustness	addresses	task-learning		wiki
+universal-law-of-robustness	reports-in	phr-parameter-count		wiki
+universal-law-of-robustness	precursor-of	overparameterization-computational-constraints	that paper asks the same question for a computationally bounded learner	wiki
+unlearning-verification-fragile	relevance	core	dishonest provider forges proofs of retraining and passes unlearning verification	wiki
+unlearning-verification-fragile	treats-training-as	train-gd	mini-batch SGD retraining whose batch composition the provider controls	wiki
+unlearning-verification-fragile	treats-training-as	train-adversarial	the provider chooses the retained batches that stand in for the removed points	wiki
+unlearning-verification-fragile	grants-access	access-trajectory	verifier replays a proof of retraining of weights, batches and gradients	wiki
+unlearning-verification-fragile	grants-access	access-whitebox	verifier compares final weights	wiki
+unlearning-verification-fragile	quantifies-over	adv-specific-algorithm	Algorithm 1 retraining-based, Algorithm 2 forging-based	wiki
+unlearning-verification-fragile	charges	res-time	Prop 4.5: attack cost as a fraction of retraining cost T(n)	wiki
+unlearning-verification-fragile	conditions-on	util-functionality-preserved	Prop 4.3 bounds the gradient norm so utility is retained	wiki
+unlearning-verification-fragile	uses-notion	notion-unlearning	backdoor verification and reproducing verification	wiki
+unlearning-verification-fragile	uses-notion	notion-pol	valid proof of retraining at reproduction threshold eps	wiki
+unlearning-verification-fragile	assumes	asm-other	bounded gradient, bounded mixed second derivative, L-smoothness, step at most 1/L; provider controls mini-batch sampling	wiki
+unlearning-verification-fragile	concludes	form-attack	Prop 4.2: Algorithm 1 yields a valid proof of retraining at eps=0 while keeping the unlearned data's influence; Prop 4.4 gives the eps>0 forging variant	wiki
+unlearning-verification-fragile	addresses	task-unlearning		wiki
+unlearning-verification-fragile	addresses	task-verify-training		wiki
+unlearning-verification-fragile	reports-in	phr-error-threshold	proof valid within reproduction threshold eps	wiki
+unlearning-verification-fragile	reports-in	phr-runtime	Prop 4.5	wiki
+unlearning-verification-fragile	extends	auditable-unlearning-definitions	repairs the detectable forging map that keeps parameters fixed	wiki
+unlearning-verification-fragile	competes-with	suliman-data-forging-attacks	evades the domain constraint by drawing real retained data	wiki
+vc-classes-adversarially-robustly-learnable	relevance	peripheral	robust PAC learning against an unbounded perturbation map; no leakage	wiki
+vc-classes-adversarially-robustly-learnable	treats-training-as	train-hypothesis-class	VC class, proper versus improper learners	wiki
+vc-classes-adversarially-robustly-learnable	treats-training-as	train-erm	robust ERM is shown to be a failing proper rule	wiki
+vc-classes-adversarially-robustly-learnable	grants-access	access-whitebox	worst-case perturbation chosen with the hypothesis in view	inferred
+vc-classes-adversarially-robustly-learnable	quantifies-over	adv-unbounded	arbitrary set-valued perturbation map U, no resource bound	wiki
+vc-classes-adversarially-robustly-learnable	charges	res-samples	learner priced in samples, exponential in VC dimension in the upper bound	wiki
+vc-classes-adversarially-robustly-learnable	conditions-on	util-accuracy	robust risk at most epsilon, realizable case	wiki
+vc-classes-adversarially-robustly-learnable	uses-notion	notion-robustness		wiki
+vc-classes-adversarially-robustly-learnable	assumes	asm-none	finite VC dimension and i.i.d. non-adversarial training sample	wiki
+vc-classes-adversarially-robustly-learnable	concludes	form-separation	Thm 1: a VC dimension 1 class is not properly robustly learnable although finite VC classes are improperly learnable	wiki
+vc-classes-adversarially-robustly-learnable	addresses	task-evasion		wiki
+vc-classes-adversarially-robustly-learnable	addresses	task-learning		wiki
+vc-classes-adversarially-robustly-learnable	reports-in	phr-sample-complexity		wiki
+vc-classes-adversarially-robustly-learnable	precursor-of	robust-pac-learning-characterization	tight sample complexity left open here	wiki
+vc-classes-adversarially-robustly-learnable	precursor-of	tolerant-robust-pac-learning	tolerance bypasses the exponential blowup	wiki
+what-can-we-learn-privately	relevance	core	bounds what an unbounded adversary learns about the training sample through DP learners and ties local DP to SQ	wiki
+what-can-we-learn-privately	treats-training-as	train-dp	private learners, generic and local	wiki
+what-can-we-learn-privately	treats-training-as	train-sq	local DP learners coincide with SQ learners; the SQ restriction sits on the learner	wiki
+what-can-we-learn-privately	grants-access	access-whitebox	DP guarantee covers every event on the released hypothesis	inferred
+what-can-we-learn-privately	quantifies-over	adv-unbounded	standard DP distinguisher; nothing is measured in SQ complexity on the adversary	wiki
+what-can-we-learn-privately	charges	res-samples	learner priced in samples	wiki
+what-can-we-learn-privately	charges	res-queries	SQ queries of tolerance 2^{-d/3} for parity, a learner cost	wiki
+what-can-we-learn-privately	conditions-on	util-accuracy	PAC and agnostic accuracy alpha	wiki
+what-can-we-learn-privately	uses-notion	notion-dp	local randomizers, Definitions 5.1-5.3	wiki
+what-can-we-learn-privately	assumes	asm-none	efficiency transfer needs transparent local randomizers	wiki
+what-can-we-learn-privately	concludes	form-equivalence	Thm 5.14: a class is locally DP learnable iff SQ learnable; interactive with adaptive, noninteractive with nonadaptive	wiki
+what-can-we-learn-privately	concludes	form-separation	Cor 5.15: locally learnable is a strict subset of privately PAC learnable; Thm 5.16 masked parity separates interaction	wiki
+what-can-we-learn-privately	concludes	form-construction	Thm 3.4 private Occam razor with O(log |C|) samples; Thm 4.4 efficient private PAC learner for parity	wiki
+what-can-we-learn-privately	addresses	task-learning		wiki
+what-can-we-learn-privately	reports-in	phr-sample-complexity		wiki
+what-can-we-learn-privately	reports-in	phr-epsilon		wiki
+win-win-robust-learning	relevance	peripheral	ties computational hardness of learning a robust classifier to one-way functions; perturbation adversary is a budget	wiki
+win-win-robust-learning	treats-training-as	train-arbitrary	learner is any polynomial-time algorithm given labelled samples	wiki
+win-win-robust-learning	grants-access	access-none	no access model; the adversary is a perturbation budget	inferred
+win-win-robust-learning	quantifies-over	adv-ppt	polynomial-time learners	wiki
+win-win-robust-learning	charges	res-time	learner running time	wiki
+win-win-robust-learning	charges	res-perturbation	perturbation budget of the evasion adversary	wiki
+win-win-robust-learning	conditions-on	util-accuracy	the learned classifier is robust	inferred
+win-win-robust-learning	uses-notion	notion-robustness		wiki
+win-win-robust-learning	assumes	asm-lpn	Result 2 uses factoring or LPN; Result 1 needs only average-case hard functions	wiki
+win-win-robust-learning	assumes	asm-other	average-case hard functions (Result 1), factoring (Result 2)	wiki
+win-win-robust-learning	concludes	form-reduction	Thm 2.4 (win-win): a task with an efficient robust classifier that is hard to learn robustly implies one-way functions	wiki
+win-win-robust-learning	concludes	form-separation	Results 1 and 2: existence of a robust classifier separated from efficient learnability of one	wiki
+win-win-robust-learning	addresses	task-learning		wiki
+win-win-robust-learning	addresses	task-evasion		wiki
+win-win-robust-learning	reports-in	phr-runtime		wiki
+win-win-robust-learning	precursor-of	computational-hardness-robust-learning	GJMM20 builds on it to show hardness can help	wiki
+xiao-formal-privacy-proof-data-encoding	relevance	core	IND-CPA impossibility for learnable obfuscation and PAC-privacy leakage bounds for data encodings	wiki
+xiao-formal-privacy-proof-data-encoding	treats-training-as	train-arbitrary	an efficient learner Alg trains directly on encoded samples	wiki
+xiao-formal-privacy-proof-data-encoding	grants-access	access-train-call	adversary runs the honest learner on part of the encoded dataset and tests the model on the rest	wiki
+xiao-formal-privacy-proof-data-encoding	grants-access	access-release	adversary receives the encoded dataset	wiki
+xiao-formal-privacy-proof-data-encoding	quantifies-over	adv-ppt	Definition 2 IND-CPA; adversary also chooses the challenge distributions and its own concept class	wiki
+xiao-formal-privacy-proof-data-encoding	charges	res-time	polynomial-time learner and distinguisher	wiki
+xiao-formal-privacy-proof-data-encoding	charges	res-samples	n = m_0 + 16 log 9 / lambda^2 encoded samples	wiki
+xiao-formal-privacy-proof-data-encoding	conditions-on	util-accuracy	learnability preservation: encoded risk at most 1/2 - lambda for a constant lambda	wiki
+xiao-formal-privacy-proof-data-encoding	uses-notion	notion-pac-privacy	possibility side accounted in PAC privacy	wiki
+xiao-formal-privacy-proof-data-encoding	uses-notion	notion-reconstruction	Definition 6, Thm 2	wiki
+xiao-formal-privacy-proof-data-encoding	uses-notion	notion-mia-advantage	Definition 7 membership challenge, Thm 3	wiki
+xiao-formal-privacy-proof-data-encoding	assumes	asm-none	Thm 1 assumes a learnability-preserving injective obfuscation exists, no hardness assumption	wiki
+xiao-formal-privacy-proof-data-encoding	assumes	asm-distributional	Assumptions 1 and 2 on the data distribution for Thm 7	wiki
+xiao-formal-privacy-proof-data-encoding	concludes	form-impossibility	Thm 1: a learnability-preserving obfuscation with injective components cannot be IND-CPA secure in the worst case	wiki
+xiao-formal-privacy-proof-data-encoding	concludes	form-construction	Thms 2-6: PAC-privacy leakage bounds for matrix masking, mixing and permutation with noise, against reconstruction and membership	wiki
+xiao-formal-privacy-proof-data-encoding	addresses	task-reconstruction		wiki
+xiao-formal-privacy-proof-data-encoding	addresses	task-membership		wiki
+xiao-formal-privacy-proof-data-encoding	reports-in	phr-advantage	IND-CPA win probability 2/3	wiki
+xiao-formal-privacy-proof-data-encoding	reports-in	phr-information	PAC-privacy accounting	inferred
+xiao-formal-privacy-proof-data-encoding	applies	XD23	possibility half runs on PAC privacy accounting	wiki
+zadik-lattice-surpass-sos	relevance	peripheral	polynomial-time LLL algorithm beats low-degree and sum-of-squares thresholds, so low-degree is not the polynomial-time class	wiki
+zadik-lattice-surpass-sos	treats-training-as	train-estimator	recovery of a planted direction and labels from samples; no training procedure	inferred
+zadik-lattice-surpass-sos	grants-access	access-none	samples only	inferred
+zadik-lattice-surpass-sos	quantifies-over	adv-ppt	LLL-based algorithm succeeds in polynomial time	wiki
+zadik-lattice-surpass-sos	quantifies-over	adv-low-degree	low-degree and SoS lower bounds predicted n of order d^2 and are broken	wiki
+zadik-lattice-surpass-sos	charges	res-samples	n = d+1 samples, information-theoretically optimal	wiki
+zadik-lattice-surpass-sos	charges	res-time	polynomial	wiki
+zadik-lattice-surpass-sos	conditions-on	util-estimation-error	exact recovery of u and all labels with probability 1-exp(-Omega(d))	wiki
+zadik-lattice-surpass-sos	assumes	asm-none	exact noiselessness; inverse-polynomial noise breaks the method, consistent with hCLWE hardness	wiki
+zadik-lattice-surpass-sos	concludes	form-attack	Thm 1.1: an LLL-based polynomial-time algorithm recovers labels and direction exactly from n >= d+1 samples, below low-degree and SoS thresholds	wiki
+zadik-lattice-surpass-sos	concludes	form-lower-bound	Thms 1.2 and 1.3: no estimator recovers u from n <= d-1 samples; d+1 is optimal for label recovery	wiki
+zadik-lattice-surpass-sos	addresses	task-learning		wiki
+zadik-lattice-surpass-sos	reports-in	phr-sample-complexity		wiki
+zk-verifiable-ai-pipelines	relevance	peripheral	framework and gap analysis of zero-knowledge proofs for AI pipeline stages; no theorem, no adversary	wiki
+zk-verifiable-ai-pipelines	treats-training-as	train-arbitrary	training is one pipeline stage whose correct execution a proof covers	inferred
+zk-verifiable-ai-pipelines	quantifies-over	adv-unspecified	no adversary, game or advantage is defined	wiki
+zk-verifiable-ai-pipelines	charges	res-none		wiki
+zk-verifiable-ai-pipelines	conditions-on	util-none-stated		wiki
+zk-verifiable-ai-pipelines	uses-notion	notion-unforgeability	soundness of zk-SNARK, STARK and NIZK, signatures as standard definitions	inferred
+zk-verifiable-ai-pipelines	uses-notion	notion-unlearning	stage 6 of the framework	wiki
+zk-verifiable-ai-pipelines	assumes	asm-signatures	EUF-CMA signatures invoked as standard definitions	wiki
+zk-verifiable-ai-pipelines	assumes	asm-other	computational soundness of the surveyed proof systems	wiki
+zk-verifiable-ai-pipelines	concludes	form-systematization	six-stage verifiability framework; to the authors' knowledge no work achieves a fully linked end-to-end verifiable pipeline	wiki
+zk-verifiable-ai-pipelines	addresses	task-verify-training		wiki
+zk-verifiable-ai-pipelines	addresses	task-unlearning		wiki
+KV94	relevance	peripheral	template reduction from public-key cryptanalysis to learning; no training data leakage	sweep
+KV94	treats-training-as	train-arbitrary	any polynomial-time PAC learner, any hypothesis representation	sweep
+KV94	quantifies-over	adv-ppt	polynomial-time PAC learners, even with slight advantage over guessing	sweep
+KV94	charges	res-time	polynomial	sweep
+KV94	conditions-on	util-accuracy	slight advantage over guessing suffices	sweep
+KV94	assumes	asm-other	hardness of RSA, factoring Blum integers, quadratic residuosity	sweep
+KV94	concludes	form-reduction	a polynomial-time learner for Boolean formulae, finite automata or constant-depth threshold circuits would break RSA, Blum-integer factoring and quadratic residuosity (abstract)	sweep
+KV94	addresses	task-learning		sweep
+KV94	reports-in	phr-runtime		inferred
+KV94	precursor-of	DNV19	the reduction template of the computation lane	sweep
+BRV26	relevance	core	statistically undetectable backdoor in deep networks, even given all weights	sweep
+BRV26	treats-training-as	train-adversarial	the trainer plants the backdoor in a random Gaussian layer of a deep feedforward network	sweep
+BRV26	grants-access	access-whitebox	undetectability against distinguishers with full white-box access	sweep
+BRV26	quantifies-over	adv-unbounded	undetectability holds in total variation distance against unbounded distinguishers	sweep
+BRV26	quantifies-over	adv-ppt	finding invariance-based adversarial examples without the backdoor is hard in polynomial time	sweep
+BRV26	charges	res-time	time for finding adversarial examples	sweep
+BRV26	conditions-on	util-none-stated		sweep
+BRV26	uses-notion	notion-undetectability	statistical, white box	sweep
+BRV26	assumes	asm-other	average-case hardness of a symmetric bounded perceptron problem and a short integer vector problem for Gaussian matrices (submission copy)	sweep
+BRV26	concludes	form-construction	Thm 2: backdoored and honest models are close in total variation given all weights, and adversarial examples for every input are unfindable without the backdoor	sweep
+BRV26	addresses	task-backdoor-plant		sweep
+BRV26	addresses	task-backdoor-detect		sweep
+BRV26	addresses	task-evasion		sweep
+BRV26	reports-in	phr-divergence	total variation distance	sweep
+BRV26	extends	GKVZ22	upgrades white-box computational undetectability to statistical undetectability	sweep
+GG25	relevance	core	cryptographic separation of mitigation from detection at inference time, with relative sample and time costs of trainer, defender and attacker	sweep
+GG25	treats-training-as	train-arbitrary	P_TRAIN returns a classifier and a private key within sample and time budgets	sweep
+GG25	grants-access	access-eval	the verifier crafts inference-time inputs on which the classifier errs	inferred
+GG25	quantifies-over	adv-ppt	polynomial-size verifier in the soundness condition	sweep
+GG25	charges	res-samples	K_TRAIN, K_DETECT, K_MITIGATE, K_ATTACK	sweep
+GG25	charges	res-time	T_TRAIN, T_MITIGATE, T_ATTACK	sweep
+GG25	conditions-on	util-accuracy	classifier learns the task to error epsilon	inferred
+GG25	uses-notion	notion-mitigation	Definitions 2 and 3, mitigation versus detection	sweep
+GG25	assumes	asm-other	Thm 1: identity-based FHE, publicly verifiable zk-SNARK; Thm 2: average-case non-parallelizing languages, incrementally verifiable computation, identity-based FHE	sweep
+GG25	assumes	asm-signatures	strongly unforgeable signatures, Thm 1	sweep
+GG25	concludes	form-separation	Thms 1 and 2: for generative tasks mitigation exists at a cost below training where no detection defence exists, in samples and in time	sweep
+GG25	concludes	form-equivalence	abstract: detection and mitigation are equivalent for classification	sweep
+GG25	addresses	task-evasion		sweep
+GG25	reports-in	phr-sample-complexity		sweep
+GG25	reports-in	phr-runtime		sweep
+GRSY21	relevance	core	interactive proofs that a hypothesis is approximately correct; verification priced against learning	sweep
+GRSY21	treats-training-as	train-hypothesis-class	untrusted prover returns a hypothesis; learner left abstract	sweep
+GRSY21	grants-access	access-none	verifier holds labelled samples, prover may use membership queries to the target; no model access	inferred
+GRSY21	quantifies-over	adv-unspecified	untrusted prover; the page summary states no computational bound	sweep
+GRSY21	charges	res-samples	verifier random samples	sweep
+GRSY21	charges	res-time	verifier running time	sweep
+GRSY21	conditions-on	util-accuracy	hypothesis approximately correct (PAC)	sweep
+GRSY21	defines	notion-pac-verification	interactive verification of a learner's claim	inferred
+GRSY21	assumes	asm-none	none stated in the page summary	sweep
+GRSY21	concludes	form-separation	verification needs far fewer samples than learning for one class, even in one round, and about as many for another (abstract)	sweep
+GRSY21	addresses	task-verify-training		sweep
+GRSY21	reports-in	phr-sample-complexity		sweep
+GRSY21	precursor-of	GJK+24	doubly efficient proof systems for learning	sweep
+GSG+23	relevance	out	undecidability of semantic censorship of model outputs; no training data or training model	sweep
+GSG+23	addresses	task-evasion		sweep
+SCEKPSTZ23	relevance	core	SoK unifying membership, attribute, property, DP distinguishing and reconstruction as games with a challenger	sweep
+SCEKPSTZ23	treats-training-as	train-arbitrary	training pipeline fixed and not costed; separations use explicit pipelines	sweep
+SCEKPSTZ23	quantifies-over	adv-unbounded	most games do not limit the adversary; limits are set outside the game	sweep
+SCEKPSTZ23	charges	res-none	none in the games; query counts, memory and computation named as possible limits	sweep
+SCEKPSTZ23	conditions-on	util-none-stated		sweep
+SCEKPSTZ23	uses-notion	notion-mia-advantage	membership and attribute inference games, from Yeom et al.	sweep
+SCEKPSTZ23	uses-notion	notion-reconstruction	reconstruction game, strongest threat model	sweep
+SCEKPSTZ23	uses-notion	notion-dp	DP distinguishing game	sweep
+SCEKPSTZ23	assumes	asm-none		sweep
+SCEKPSTZ23	concludes	form-reduction	Sec IV, Thms 1-13: games ordered by reductions with explicit constant c; p-resilience transfers as p/c; property inference separates from the rest	sweep
+SCEKPSTZ23	concludes	form-systematization	unified treatment of data inference privacy as games	sweep
+SCEKPSTZ23	addresses	task-membership		sweep
+SCEKPSTZ23	addresses	task-attribute		sweep
+SCEKPSTZ23	addresses	task-reconstruction		sweep
+SCEKPSTZ23	reports-in	phr-advantage		sweep
+SCEKPSTZ23	systematizes	privacy-risk-overfitting	reductions between games build on the Yeom et al. experiments	sweep
+XD23	relevance	core	PAC privacy: impossibility of a reconstruction experiment priced against the optimal prior, with simulatable noise calibration	sweep
+XD23	treats-training-as	train-arbitrary	any data-processing mechanism M, black box, noise calibrated by Monte Carlo simulation	sweep
+XD23	grants-access	access-release	adversary receives the output M(X) and knows D and M	sweep
+XD23	quantifies-over	adv-unbounded	no restriction on D or on the adversary's strategy	sweep
+XD23	charges	res-none	information measures; Monte Carlo trials charged to the proof procedure, not the adversary	sweep
+XD23	conditions-on	util-none-stated	noise O(1) versus order sqrt d for worst-case analysis stated as a gain	sweep
+XD23	defines	notion-pac-privacy	Definitions 1 and 3-6: reconstruction, advantage, membership and individual variants	sweep
+XD23	uses-notion	notion-reconstruction		sweep
+XD23	uses-notion	notion-mia-advantage	PAC membership privacy, Definition 5	sweep
+XD23	assumes	asm-none	the adversary knows D and M	sweep
+XD23	concludes	form-definition	Defs 1-6: (delta, rho, D)-PAC privacy as the impossibility of a reconstruction experiment, with advantage, membership and individual forms	sweep
+XD23	concludes	form-lower-bound	Thm 1 bounds posterior advantage by an f-divergence via data processing; Thm 4 gives the noise, sample and confidence trade-off	sweep
+XD23	addresses	task-reconstruction		sweep
+XD23	addresses	task-membership		sweep
+XD23	reports-in	phr-information		sweep
+XD23	reports-in	phr-divergence		sweep
+XD23	reports-in	phr-advantage		sweep
+GGVZ19	relevance	core	defines deletion by equality in distribution with retraining for an unbounded observer; prices the update in runtime	sweep
+GGVZ19	treats-training-as	train-arbitrary	learning algorithm A with a deletion operation R_A	sweep
+GGVZ19	treats-training-as	train-oracle-call	retraining on the data minus the point is the trivial deletion operation	inferred
+GGVZ19	grants-access	access-whitebox	observer sees the model after deletion; the robust variant adds read access to the server state	sweep
+GGVZ19	quantifies-over	adv-unbounded	unbounded observer for exact deletion; robust variant adds an adaptive deletion-request adversary	sweep
+GGVZ19	charges	res-time	amortized runtime of m deletions against Omega(n) for retraining; deleter is the bounded party	sweep
+GGVZ19	conditions-on	util-none-stated	correctness is distributional equality with retraining	sweep
+GGVZ19	defines	notion-unlearning	Definition 3.1 exact deletion, Definition A.6 delta-approximate deletion	sweep
+GGVZ19	assumes	asm-none		sweep
+GGVZ19	concludes	form-definition	Def 3.1: deletion operation by equality in distribution with retraining; retraining is the trivial deletion operation and the challenge is computational	sweep
+GGVZ19	concludes	form-construction	Thm 4.1 and Prop 4.2: deletion-efficient algorithms for Q-k-means and DC-k-means	sweep
+GGVZ19	addresses	task-unlearning		sweep
+GGVZ19	reports-in	phr-runtime		sweep
+GGVZ19	precursor-of	GJNRSW21	one-sided guarantee followed there	sweep
+GJNRSW21	relevance	core	unlearning guarantee against adaptive update requesters, via differential privacy and max-information	sweep
+GJNRSW21	treats-training-as	train-arbitrary	learning and unlearning algorithms updated over a sequence of additions and deletions	sweep
+GJNRSW21	treats-training-as	train-dp	Thm 4.1: publishing functions are differentially private	sweep
+GJNRSW21	grants-access	access-trajectory	the requester sees the published models and picks the next update	sweep
+GJNRSW21	quantifies-over	adv-unbounded	every update requester, adaptive or not, and every measurable event	sweep
+GJNRSW21	charges	res-none	information: DP parameter and max-information; Thm 4.2 gives run-time guarantees for the updater	sweep
+GJNRSW21	conditions-on	util-none-stated		sweep
+GJNRSW21	defines	notion-unlearning	Definition 2.3 (alpha, beta, gamma)-unlearning	sweep
+GJNRSW21	uses-notion	notion-dp		sweep
+GJNRSW21	assumes	asm-none	definition unconditional; Thm 4.1 assumes DP publishing functions	sweep
+GJNRSW21	concludes	form-definition	Def 2.3: (alpha, beta, gamma)-unlearning for all data sets and requesters; Thm 3.1 reduces adaptive to non-adaptive guarantees via max-information	sweep
+GJNRSW21	concludes	form-attack	Thm 5.1: SISA learning and unlearning algorithms exist that are not unlearning for any alpha, with beta and gamma below 1/4; abstract reports a practical SISA attack	sweep
+GJNRSW21	addresses	task-unlearning		sweep
+GJNRSW21	reports-in	phr-epsilon		sweep
+GJNRSW21	extends	GGVZ19	adaptive requesters, one-sided guarantee as in Remark 2.1	sweep
+GGHM20	relevance	core	certified removal: epsilon-bounded max-divergence between removal and retraining over every event	sweep
+GGHM20	treats-training-as	train-erm	L2-regularized linear models with a differentiable convex loss	sweep
+GGHM20	treats-training-as	train-dp	loss perturbation masks the residual after the Newton step	sweep
+GGHM20	grants-access	access-whitebox	adversary sees the model M(A(D), D, x)	sweep
+GGHM20	quantifies-over	adv-unbounded	every event T in the hypothesis set, information-theoretic	sweep
+GGHM20	charges	res-none	max-divergence epsilon and slack delta traded against removal efficiency	sweep
+GGHM20	conditions-on	util-none-stated	retraining and DP placed at the two ends of a utility and removal-efficiency spectrum	sweep
+GGHM20	defines	notion-unlearning	epsilon-certified removal, Equation 1, with an (epsilon, delta) version	sweep
+GGHM20	uses-notion	notion-dp		sweep
+GGHM20	assumes	asm-other	L2-regularized linear model, differentiable convex loss, loss perturbation	sweep
+GGHM20	concludes	form-definition	Sec 2, Eq 1: the ratio of probabilities of M(A(D), D, x) and A(D minus x) on any event T lies in [e^{-eps}, e^{eps}]	sweep
+GGHM20	concludes	form-construction	a Newton step whose residual decreases quadratically with training set size achieves certified removal (abstract)	sweep
+GGHM20	addresses	task-unlearning		sweep
+GGHM20	reports-in	phr-epsilon		sweep
+ERCGOP25	relevance	core	cryptographic definition of verifiable unlearning against a malicious server	sweep
+ERCGOP25	treats-training-as	train-arbitrary	unlearning technique abstracted as admissible functions	sweep
+ERCGOP25	treats-training-as	train-gd	proofs cover training and unlearning steps; instantiated for regression and neural networks	inferred
+ERCGOP25	grants-access	access-trajectory	verifier receives proofs of training and unlearning steps with hash chains	inferred
+ERCGOP25	quantifies-over	adv-ppt	PPT adversaries with an extractor over benign auxiliary inputs, GameUnlearn	sweep
+ERCGOP25	charges	res-time	PPT adversary; prover overhead measured in Table I	sweep
+ERCGOP25	conditions-on	util-none-stated	completeness: honest proofs are accepted	sweep
+ERCGOP25	defines	notion-unlearning	Definition 2, first cryptographic definition of verifiable unlearning	sweep
+ERCGOP25	uses-notion	notion-unforgeability	negligible probability that a malicious server gets an accepted proof of unlearning	sweep
+ERCGOP25	assumes	asm-other	collision-resistant hash function and a knowledge-sound SNARK (Thm 2)	sweep
+ERCGOP25	concludes	form-definition	Defs 1 and 2: completeness and unlearning security against PPT adversaries with negligible winning probability	sweep
+ERCGOP25	concludes	form-construction	Thms 1 and 2: the SNARK and hash-chain protocol is complete and secure under collision resistance and knowledge soundness	sweep
+ERCGOP25	addresses	task-unlearning		sweep
+ERCGOP25	addresses	task-verify-training		sweep
+ERCGOP25	reports-in	phr-negligible		sweep
+ERCGOP25	reports-in	phr-runtime	prover overhead, Table I	sweep
+ERCGOP25	extends	TJSP22	origin of the cryptographic unlearning definition	sweep
+ZEFVAB24	relevance	core	strong watermarking is impossible against an efficient attacker with a quality oracle and a perturbation oracle	sweep
+ZEFVAB24	treats-training-as	train-arbitrary	any watermarked generative model; training not modelled	inferred
+ZEFVAB24	grants-access	access-generation	black-box access to the watermarked model plus a quality oracle and a perturbation oracle	sweep
+ZEFVAB24	quantifies-over	adv-oracle-aided	efficient key-independent attacker with the two oracles, Definition 5 and Thm 2; a query bound in an oracle model, not a standard-model time bound	sweep
+ZEFVAB24	charges	res-queries	perturbation-oracle queries of order t_max over eps_pert, t_max the mixing time	sweep
+ZEFVAB24	charges	res-time	efficient attacker	sweep
+ZEFVAB24	conditions-on	util-quality	erased output has quality at least that of the original, Q(x,y') >= Q(x,y)	sweep
+ZEFVAB24	uses-notion	notion-unremovability	eps-breaking a strong watermarking scheme, Definition 5	sweep
+ZEFVAB24	assumes	asm-other	quality oracle and perturbation oracle with irreducible aperiodic quality-q graph and efficient mixing; no cryptographic assumption	sweep
+ZEFVAB24	concludes	form-impossibility	Thm 2 (Thm 6 in Appendix C): an attacker with the two oracles eps-breaks any strong scheme with eps about (1 - eps_pos)/2	sweep
+ZEFVAB24	concludes	form-empirical	the attack removes the watermarks of three LLM schemes and two vision-language schemes with minor quality loss (abstract)	sweep
+ZEFVAB24	addresses	task-watermark-remove		sweep
+ZEFVAB24	reports-in	phr-success-rate		sweep
+ZEFVAB24	reports-in	phr-query-complexity		sweep
+ZEFVAB24	converse-of	CGZ24	removal of undetectable watermarks under oracle assumptions	sweep
+GTNP25	relevance	core	circuit-size gap between honest and adversarial parties for watermark removal, defences and transferable attacks	sweep
+GTNP25	treats-training-as	train-arbitrary	task learnable by circuits of size S(n); watermark, defence and attack are circuits	sweep
+GTNP25	grants-access	access-eval	transferable attack produces in-distribution queries that fool every efficient defender	inferred
+GTNP25	quantifies-over	adv-size-bounded	circuits of size S_B(n), Definitions 3-5	sweep
+GTNP25	charges	res-time	circuit size of both parties, S_A(n) and S_B(n)	sweep
+GTNP25	conditions-on	util-accuracy	the task is learnable to error epsilon with circuit size S(n)	sweep
+GTNP25	uses-notion	notion-unremovability	Definition 3, against provers of size S_B	sweep
+GTNP25	uses-notion	notion-undetectability	Definition 3, against provers of size S_B	sweep
+GTNP25	uses-notion	notion-watermark-soundness-completeness	correctness and uniqueness of the backdoor-based watermark	sweep
+GTNP25	uses-notion	notion-robustness	defence against attackers of bounded size	sweep
+GTNP25	assumes	asm-none	Thm 1 is a minimax argument (Lipton and Young)	sweep
+GTNP25	assumes	asm-other	fully homomorphic encryption with IND-CPA security for Thm 2	sweep
+GTNP25	concludes	form-lower-bound	Thm 1: per task, a watermark unremovable below o(sqrt S / log S), or a defence at that size, or a transferable attack of size S exists	sweep
+GTNP25	concludes	form-separation	Thm 2: a task has a transferable attack of size about 1/eps against defenders of size Omega(1/eps^2)	sweep
+GTNP25	concludes	form-reduction	Thm 3: a transferable attack implies an (S_A, S_B)-EFID pair, statistically far and computationally indistinguishable	sweep
+GTNP25	addresses	task-watermark-remove		sweep
+GTNP25	addresses	task-evasion		sweep
+GTNP25	reports-in	phr-runtime	circuit size gap	sweep
+GTNP25	applies	GKVZ22	backdoor-based watermarking	sweep
+LEX26	relevance	core	extraction of training subsequences from an LLM API priced in expected black-box trials	sweep
+LEX26	treats-training-as	train-concrete-dnn	LLM served through an API with a sampling and decoding configuration; estimator evaluated empirically	sweep
+LEX26	grants-access	access-generation	independent black-box trials sampling the API	sweep
+LEX26	quantifies-over	adv-query-bounded	black-box adversary in a worst-case extraction game, Definition 2	sweep
+LEX26	charges	res-queries	expected number of independent trials at least 2^b	sweep
+LEX26	conditions-on	util-none-stated		sweep
+LEX26	defines	notion-inextractability	Definition 2, (l, b)-inextractability, modelled on a cryptographic security level	sweep
+LEX26	uses-notion	notion-dp	DP distinguishing compared with extraction	sweep
+LEX26	assumes	asm-other	local log-Lipschitz regularity, Assumption 1, for approximate extraction only	sweep
+LEX26	concludes	form-separation	Thms 2 and 3: resilience to DP distinguishing does not imply resilience to extraction and conversely; Lemma 2 equates inextractability with min-entropy	sweep
+LEX26	concludes	form-definition	Def 2: expected number of trials to extract any subsequence of at least l grams is at least 2^b	sweep
+LEX26	addresses	task-reconstruction		sweep
+LEX26	reports-in	phr-query-complexity		sweep
+LEX26	extends	SCEKPSTZ23	games compared; extraction shown incomparable with DP distinguishing	sweep
+ZGC+25	relevance	core	SoK of watermark definitions: distortion-freeness, undetectability, robustness, unforgeability	sweep
+ZGC+25	treats-training-as	train-arbitrary	generative model with an embedded hidden signal; training not modelled	inferred
+ZGC+25	grants-access	access-generation	detect, remove or forge from generated content	inferred
+ZGC+25	quantifies-over	adv-ppt	undetectability and unforgeability against polynomial-time algorithms	sweep
+ZGC+25	quantifies-over	adv-unbounded	distortion-freeness has a statistical form	sweep
+ZGC+25	quantifies-over	adv-specific-algorithm	robustness is stated against a fixed channel E, Definition 3.5	sweep
+ZGC+25	charges	res-time	polynomial, with error epsilon	sweep
+ZGC+25	conditions-on	util-quality	distortion-freeness, Definitions 3.1 and 3.2	sweep
+ZGC+25	uses-notion	notion-undetectability	Definition 3.3, computational only since statistical undetectability is impossible	sweep
+ZGC+25	uses-notion	notion-unremovability	robustness to a channel, Definition 3.5	sweep
+ZGC+25	uses-notion	notion-unforgeability	Definition 3.6	sweep
+ZGC+25	uses-notion	notion-watermark-soundness-completeness	false positive rate, Definition 3.4	sweep
+ZGC+25	assumes	asm-none	none stated for the definitions	sweep
+ZGC+25	concludes	form-systematization	Defs 3.1-3.6: formal watermark definitions; unremovability is stated against a named channel, not all efficient adversaries	sweep
+ZGC+25	addresses	task-watermark-embed		sweep
+ZGC+25	addresses	task-watermark-detect		sweep
+ZGC+25	addresses	task-watermark-remove		sweep
+ZGC+25	reports-in	phr-negligible		inferred
+ZGC+25	systematizes	CGZ24	undetectability definition	sweep
+ZGC+25	systematizes	ZEFVAB24	efficient removal result	sweep
+DSSUV15	relevance	core	tracing a member from released marginals with one reference sample once dimension exceeds n^2	sweep
+DSSUV15	treats-training-as	train-estimator	release of approximate one-way marginals of n samples	sweep
+DSSUV15	grants-access	access-release	released marginal vector plus a reference sample from the population	sweep
+DSSUV15	quantifies-over	adv-specific-algorithm	fingerprinting-code style correlation tracer	sweep
+DSSUV15	quantifies-over	adv-unbounded	tightness: DP releases of d about n^2 marginals resist any attacker	sweep
+DSSUV15	charges	res-samples	dimension d at least of order n^2 log(1/delta); m of order log n / alpha^2 reference samples	sweep
+DSSUV15	conditions-on	util-query-accuracy	alpha-accurate one-way marginals	sweep
+DSSUV15	uses-notion	notion-traceability	soundness s and completeness c of a tracer	sweep
+DSSUV15	assumes	asm-distributional	product prior with strong marginals (Defs 6 and 27)	sweep
+DSSUV15	concludes	form-attack	Thm 1: for d >= O(n^2 log 1/delta) a tracer rejects an independent y with probability >= 1-delta and accepts some member with probability >= 1-delta	sweep
+DSSUV15	concludes	form-construction	tight up to polylog factors: d about n^2 marginals can be released under (o(1), 1/n^omega(1))-DP	sweep
+DSSUV15	addresses	task-membership		sweep
+DSSUV15	reports-in	phr-sample-complexity		sweep
+DSSUV15	precursor-of	HSU25	from known to unknown covariance, attacker-trainer sample gap	sweep
+F20	relevance	core	necessary leakage: accurate learning on long-tailed data forces memorization of labels	sweep
+F20	treats-training-as	train-arbitrary	any learning algorithm, measured by label memorization	sweep
+F20	treats-training-as	train-dp	Thm 4.8: label-private algorithms are memorization limited	sweep
+F20	grants-access	access-none	no adversary; memorization is the effect of a label on the prediction at its own point	sweep
+F20	quantifies-over	adv-unspecified	none; privacy risk stated in prose only	sweep
+F20	charges	res-none	label memorization gamma against excess error	sweep
+F20	conditions-on	util-accuracy	generalization error within a margin of the optimal error	sweep
+F20	defines	notion-memorization	label memorization mem(A, S, i)	sweep
+F20	assumes	asm-distributional	long-tailed frequency prior (Zipf), N at least n, k-wise independent uniform labels for the corollary	sweep
+F20	concludes	form-lower-bound	Thms 2.3, 2.4, Cor 4.6: a memorization-limited algorithm pays excess error; for a Zipf prior optimal generalization needs memorizing Omega(n) labels	sweep
+F20	concludes	form-lower-bound	Thm 4.8: an (eps, delta) label-private algorithm is (e^eps - 1 + delta)-memorization limited and pays the same excess error	sweep
+F20	addresses	task-learning		sweep
+F20	reports-in	phr-accuracy	excess error against memorization	sweep
+F20	precursor-of	BBFST21	mutual-information version of necessary memorization	inferred
+BBFST21	relevance	core	necessary leakage in bits: accurate learners carry Omega(nd) bits about their sample	sweep
+BBFST21	treats-training-as	train-arbitrary	every learner reaching error within epsilon of optimal, independent of algorithm and model class	sweep
+BBFST21	grants-access	access-whitebox	information measured between the sample and the model M	sweep
+BBFST21	grants-access	access-eval	Section 5 black-box attacks on logistic regression and neural classifiers over synthetic data	sweep
+BBFST21	quantifies-over	adv-unspecified	none in the theorems; the bound does not show an efficient attacker recovers training data	sweep
+BBFST21	quantifies-over	adv-specific-algorithm	Section 5 empirical black-box attacks	sweep
+BBFST21	charges	res-none	bits: I(X; M | P) = Omega(nd)	sweep
+BBFST21	conditions-on	util-accuracy	error at most opt + epsilon for a small constant epsilon	sweep
+BBFST21	uses-notion	notion-cmi	mutual information of sample and model given the task	sweep
+BBFST21	uses-notion	notion-memorization		sweep
+BBFST21	assumes	asm-distributional	meta-distribution over tasks; Conjecture 4.1 for cluster labeling in Thm 1.2	sweep
+BBFST21	concludes	form-lower-bound	Thm 1.1 (Cors 3.1, 4.1): on natural tasks every learner with error <= opt + eps has I(X; M | P) = Omega(nd)	sweep
+BBFST21	concludes	form-lower-bound	Thm 1.2: on some tasks a subset of expected size Omega(n) is encoded almost completely in the model	sweep
+BBFST21	addresses	task-learning		sweep
+BBFST21	reports-in	phr-information		sweep
+BBFST21	extends	F20	from label memorization to mutual information, algorithm-independent	inferred
+ADHLR24	relevance	core	accurate SCO learners must carry CMI of order 1/eps^2 and an efficient adversary traces that many training samples	sweep
+ADHLR24	treats-training-as	train-arbitrary	every epsilon-learner for L2-Lipschitz stochastic convex optimization	sweep
+ADHLR24	grants-access	access-whitebox	adversary identifies training samples from the learner's output	sweep
+ADHLR24	quantifies-over	adv-ppt	efficient xi-sound membership-style certifier, Thm 4.5	sweep
+ADHLR24	charges	res-samples	n = N(eps, delta) of order log(1/delta)/eps^2 with d >= Omega(n^2 log n)	sweep
+ADHLR24	conditions-on	util-estimation-error	excess population risk at most epsilon	sweep
+ADHLR24	uses-notion	notion-cmi	conditional mutual information of the output given a supersample	sweep
+ADHLR24	uses-notion	notion-traceability	xi-sound certificate of m training samples	sweep
+ADHLR24	assumes	asm-other	1-Lipschitz convex loss on the unit ball, d >= Omega(n^2 log(n/xi))	sweep
+ADHLR24	concludes	form-lower-bound	Thm 4.1: a loss exists where every epsilon-learner has CMI Omega(1/eps^2); Thm 4.5: an efficient adversary certifies Omega(1/eps^2) training samples	sweep
+ADHLR24	concludes	form-impossibility	Thm 5.2: CMI-based generalization bounds are vacuous for sample-optimal SCO learners	sweep
+ADHLR24	addresses	task-membership		sweep
+ADHLR24	addresses	task-learning		sweep
+ADHLR24	reports-in	phr-information	CMI in nats	sweep
+ADHLR24	reports-in	phr-sample-complexity		sweep
+ADHLR24	extends	L23	answers an open question posed there	sweep
+ADHLR24	applies	SZ20	conditional mutual information as the information measure	inferred
+SZ20	relevance	core	defines conditional mutual information as the membership recognizability of the output and bounds generalization by it	sweep
+SZ20	treats-training-as	train-arbitrary	any algorithm A, with CMI from a 2n-sample supersample	sweep
+SZ20	treats-training-as	train-stable	KL, ALKL and MI stable algorithms have CMI at most epsilon n (Thm 4.7)	sweep
+SZ20	treats-training-as	train-dp	sqrt(2 eps)-DP algorithms have CMI at most epsilon n	sweep
+SZ20	grants-access	access-whitebox	recognition of the training element from the output A(Z_S)	sweep
+SZ20	quantifies-over	adv-unbounded	information-theoretic, no computational bound	sweep
+SZ20	charges	res-none	CMI in nats, between 0 and n log 2	sweep
+SZ20	conditions-on	util-none-stated	generalization gap is bounded rather than a utility floor	sweep
+SZ20	defines	notion-cmi	Definition 1.1, CMI_D(A) = I(A(Z_S); S | Z)	sweep
+SZ20	assumes	asm-none	i.i.d. data; corollaries need stability, DP or compression	sweep
+SZ20	concludes	form-reduction	Thm 1.2: expected generalization gap at most sqrt((2/n) CMI); Thm 4.7: stable and DP algorithms have CMI at most eps n	sweep
+SZ20	concludes	form-construction	Thm 4.12: for VC dimension d an ERM exists with CMI at most d log n + 2	sweep
+SZ20	addresses	task-learning		sweep
+SZ20	addresses	task-membership		sweep
+SZ20	reports-in	phr-information		sweep
+SZ20	precursor-of	ADHLR24	CMI used for stochastic convex optimization	inferred
+DRS22	relevance	core	defines DP through the trade-off function of the best membership test, so the adversary's ROC is the bound	sweep
+DRS22	treats-training-as	train-dp	mechanism M with neighbouring data sets	sweep
+DRS22	grants-access	access-release	test between the output distributions M(S) and M(S')	sweep
+DRS22	quantifies-over	adv-unbounded	all Neyman-Pearson tests, any measurable rejection rule	sweep
+DRS22	charges	res-none	pair of type I and type II error rates	sweep
+DRS22	conditions-on	util-none-stated		sweep
+DRS22	defines	notion-dp	Definitions 2.1-2.6: f-DP via trade-off functions, mu-GDP	sweep
+DRS22	uses-notion	notion-tpr-at-low-fpr	trade-off function is the type I and II error curve	inferred
+DRS22	assumes	asm-none	the CLT for composition needs many compositions of small privacy loss	sweep
+DRS22	concludes	form-definition	Defs 2.1-2.6: f-DP and mu-GDP; Thm 3.5: composition of f-DP guarantees converges to a Gaussian trade-off under stated conditions	sweep
+DRS22	addresses	task-membership		sweep
+DRS22	addresses	task-distinguish		sweep
+DRS22	reports-in	phr-tpr-fpr		sweep
+SDSOJ19	relevance	core	Bayes-optimal membership rule under a Gibbs posterior; white-box gains nothing over loss-only black-box	sweep
+SDSOJ19	treats-training-as	train-gibbs	parameters sampled from a Gibbs posterior proportional to exp(-(1/T) sum m_i loss)	sweep
+SDSOJ19	grants-access	access-whitebox	the parameters theta	sweep
+SDSOJ19	grants-access	access-score	the optimal rule reads theta only through the loss on the target	sweep
+SDSOJ19	quantifies-over	adv-bayes-optimal	the Bayes-optimal membership posterior; intractable, approximated in the paper	sweep
+SDSOJ19	charges	res-none	knowledge of the data distribution, training procedure and other samples' memberships	sweep
+SDSOJ19	conditions-on	util-none-stated		sweep
+SDSOJ19	uses-notion	notion-mia-advantage	membership posterior P(m=1 | theta, z)	sweep
+SDSOJ19	uses-notion	notion-dp	Property 1: eps-DP bounds the posterior by lambda + eps/4	sweep
+SDSOJ19	assumes	asm-gibbs-posterior	Eq 2, Gibbs-form posterior of the parameters	sweep
+SDSOJ19	concludes	form-equivalence	Thm 2: the Bayes-optimal membership rule depends on theta only through the loss, so white-box equals loss-only black-box under a Gibbs posterior	sweep
+SDSOJ19	addresses	task-membership		sweep
+SDSOJ19	reports-in	phr-advantage	posterior probability of membership	inferred
+SDSOJ19	precursor-of	HSU25	threshold attacks optimal under the Gibbs model	sweep
+GKCM22	relevance	core	lower bounds on reconstruction error of any estimator against RDP and Fisher-information-leakage accounting	sweep
+GKCM22	treats-training-as	train-dp	(2, epsilon)-RDP algorithm, output perturbation, DP-SGD under Fisher information leakage	sweep
+GKCM22	treats-training-as	train-gd	DP-SGD accounting equation, Thm 4	inferred
+GKCM22	grants-access	access-whitebox	estimator z_hat(h) of a training sample from the trained model	sweep
+GKCM22	quantifies-over	adv-unbounded	any estimator	sweep
+GKCM22	charges	res-none		sweep
+GKCM22	conditions-on	util-none-stated		sweep
+GKCM22	uses-notion	notion-reconstruction	mean squared error of the estimate	sweep
+GKCM22	uses-notion	notion-dp	Renyi DP	sweep
+GKCM22	assumes	asm-other	bounded domain; regularity of the log-density for the Fisher bound	sweep
+GKCM22	concludes	form-lower-bound	Thm 1: reconstruction MSE against a (2, eps)-RDP algorithm is at least a diameter term over e^eps - 1; Thm 2: Fisher information bound	sweep
+GKCM22	addresses	task-reconstruction		sweep
+GKCM22	reports-in	phr-epsilon		sweep
+GKCM22	reports-in	phr-information	Fisher information	sweep
+GSS23	relevance	core	Fano-type upper bound on a reconstruction adversary's advantage against an RDP algorithm	sweep
+GSS23	treats-training-as	train-dp	(alpha, epsilon)-Renyi DP learning algorithm on discrete data	sweep
+GSS23	grants-access	access-release	adversary sees the algorithm's output	inferred
+GSS23	quantifies-over	adv-unbounded	any reconstruction adversary (abstract)	sweep
+GSS23	charges	res-none		sweep
+GSS23	conditions-on	util-none-stated		sweep
+GSS23	uses-notion	notion-reconstruction	posed as multiple hypothesis testing	sweep
+GSS23	uses-notion	notion-dp	Renyi DP	sweep
+GSS23	assumes	asm-other	discrete data	sweep
+GSS23	concludes	form-lower-bound	abstract: variants of Fano's inequality upper-bound the adversary's advantage against an (alpha, eps)-RDP algorithm, numerically computable; no theorem number read	sweep
+GSS23	addresses	task-reconstruction		sweep
+GSS23	reports-in	phr-advantage		sweep
+GSS23	reports-in	phr-epsilon		sweep
+CLBM26	relevance	core	sharp threshold in the zCDP budget rho against dimension d for reconstruction of one training sample	sweep
+CLBM26	treats-training-as	train-dp	rho-zCDP mechanism	sweep
+CLBM26	treats-training-as	train-kernel	output-perturbed private linear regression for the attack side	sweep
+CLBM26	grants-access	access-whitebox	released model; attacker knows all other training data	inferred
+CLBM26	quantifies-over	adv-unbounded	any attack for the lower bound, Thm 1	sweep
+CLBM26	quantifies-over	adv-specific-algorithm	a simple explicit attack on private linear regression	sweep
+CLBM26	charges	res-none	privacy budget rho against dimension d or effective dimension s	sweep
+CLBM26	conditions-on	util-none-stated		sweep
+CLBM26	uses-notion	notion-reconstruction	normalized squared error	sweep
+CLBM26	uses-notion	notion-dp	zero-concentrated DP	sweep
+CLBM26	assumes	asm-other	target independent of the rest of the data; Assumption 1 and output perturbation for the attack	sweep
+CLBM26	concludes	form-lower-bound	Thm 1: every rho-zCDP mechanism and attack has normalized error >= (1/2 pi e) exp((2/d)(h - rho)), so reconstruction is impossible for rho << d	sweep
+CLBM26	concludes	form-attack	Thms 2-4 (abstract): a simple attack succeeds for rho >> d; the transition moves to rho of order s for data in an s-dimensional subspace	sweep
+CLBM26	addresses	task-reconstruction		sweep
+CLBM26	reports-in	phr-epsilon	privacy budget rho	sweep
+CLBM26	competes-with	BCH22	Appendix F compares the thresholds	sweep
+HS26	relevance	peripheral	robust PAC learning of VC classes with optimal rates against an arbitrary perturbation map; no leakage	sweep
+HS26	treats-training-as	train-hypothesis-class	VC class H, improper learner	sweep
+HS26	treats-training-as	train-oracle-call	robust-ERM oracle calls, Omega(d*) necessary in the concurrent work of Montasser	sweep
+HS26	grants-access	access-whitebox	worst-case perturbation of a test point with the hypothesis in view	inferred
+HS26	quantifies-over	adv-unbounded	arbitrary perturbation map U, rates independent of U	sweep
+HS26	charges	res-samples	O((d + log 1/delta)/eps) realizable, O((d + log 1/delta)/eps^2) agnostic	sweep
+HS26	charges	res-training-runs	robust-ERM oracle calls remain the cost	sweep
+HS26	conditions-on	util-accuracy	robust risk at most R* plus a rate term	sweep
+HS26	uses-notion	notion-robustness		sweep
+HS26	assumes	asm-none	finite VC dimension, improper learner	sweep
+HS26	concludes	form-construction	Thm 1: improper learner with robust risk <= R* + C(sqrt(R*(d + log 1/delta)/m) + (d + log 1/delta)/m), uniformly over U; robustness adds no distribution-free sample cost	sweep
+HS26	addresses	task-evasion		sweep
+HS26	addresses	task-learning		sweep
+HS26	reports-in	phr-sample-complexity		sweep
+HS26	extends	vc-classes-adversarially-robustly-learnable	improves the MHS19 sample bound exponentially	sweep
+L23	relevance	peripheral	limits mutual-information generalization bounds for stochastic convex optimization; no adversary	sweep
+L23	treats-training-as	train-arbitrary	true risk minimization in SCO, including SGD and regularized ERM	sweep
+L23	grants-access	access-whitebox	information between the model and the sample	inferred
+L23	quantifies-over	adv-unspecified	none	sweep
+L23	charges	res-none	bits of mutual information	sweep
+L23	conditions-on	util-estimation-error	true risk minimization with dimension-free sample complexity	sweep
+L23	uses-notion	notion-cmi	plain mutual information between model and sample	sweep
+L23	assumes	asm-none	SCO, true risk minimization	sweep
+L23	concludes	form-lower-bound	abstract only: for true risk minimization in SCO the mutual information must depend on dimension, so MI bounds cannot explain dimension-free SGD	sweep
+L23	addresses	task-learning		sweep
+L23	reports-in	phr-information		sweep
+L23	precursor-of	ADHLR24	ADHLR24 answers an open question posed here	sweep
+KGKDT24	relevance	core	calibrates DP noise to a chosen attack-risk level instead of epsilon	sweep
+KGKDT24	treats-training-as	train-dp	DP mechanism with noise scale chosen from the attack risk	sweep
+KGKDT24	quantifies-over	adv-unspecified	not read beyond the abstract	sweep
+KGKDT24	charges	res-none	attack risk as false-negative and false-positive rates	sweep
+KGKDT24	conditions-on	util-accuracy	better accuracy at the same attack risk	inferred
+KGKDT24	uses-notion	notion-tpr-at-low-fpr	attack risk by sensitivity and specificity	sweep
+KGKDT24	uses-notion	notion-dp		sweep
+KGKDT24	concludes	form-construction	abstract only: noise calibrated directly to an attack-risk level is smaller and more accurate than the two-step route through epsilon	sweep
+KGKDT24	addresses	task-membership		inferred
+KGKDT24	reports-in	phr-tpr-fpr		sweep
+KS09	relevance	peripheral	cryptographic hardness of learning intersections of halfspaces; reduction in the style of KV94	sweep
+KS09	treats-training-as	train-arbitrary	polynomial-time learner	inferred
+KS09	quantifies-over	adv-ppt	polynomial-time learners	inferred
+KS09	charges	res-time		inferred
+KS09	assumes	asm-other	a cryptographic assumption named in the title only; abstract not retrieved	inferred
+KS09	concludes	form-reduction	hardness of learning intersections of halfspaces from a cryptographic assumption (title; abstract not retrieved)	sweep
+KS09	addresses	task-learning		sweep
+KS09	reports-in	phr-runtime		inferred
+KS09	extends	KV94	same reduction template, different concept class	inferred
+DLS14	relevance	peripheral	improper learning hardness from average-case hardness of refuting random constraint satisfaction problems	sweep
+DLS14	treats-training-as	train-arbitrary	any polynomial-time improper learner	inferred
+DLS14	quantifies-over	adv-ppt	polynomial-time learners	inferred
+DLS14	charges	res-time		inferred
+DLS14	assumes	asm-other	average-case hardness of refuting random CSPs	sweep
+DLS14	concludes	form-reduction	abstract: improper learning of DNF, agnostic halfspaces within a constant ratio and intersections of omega(1) halfspaces is hard if random CSPs are hard to refute	sweep
+DLS14	addresses	task-learning		sweep
+DLS14	reports-in	phr-runtime		inferred
+ML23	relevance	peripheral	worst-case complexity classes of attacking versus training robust ReLU classifiers	sweep
+ML23	treats-training-as	train-erm	robust training as an optimisation problem, Sigma-2-P-hard even on one example	inferred
+ML23	grants-access	access-whitebox	attack on a given ReLU network	inferred
+ML23	quantifies-over	adv-unspecified	worst-case complexity classes NP and Sigma-2-P, not a machine model	sweep
+ML23	charges	res-time		inferred
+ML23	assumes	asm-other	worst-case complexity-class separations (abstract)	inferred
+ML23	concludes	form-reduction	abstract: attacking ReLU classifiers is NP-hard and ensuring robustness at training time is Sigma-2-P-hard even on one example	sweep
+ML23	addresses	task-evasion		sweep
+ML23	reports-in	phr-runtime		inferred
+GLU24	relevance	out	computability of robust PAC learners; no leakage, access or adversary power	sweep
+GLU24	addresses	task-learning		sweep
+CPD+24	relevance	core	extracts the last layer of production language models from API access at a stated dollar cost	sweep
+CPD+24	treats-training-as	train-concrete-dnn	production models Ada and Babbage, attack evaluated empirically	sweep
+CPD+24	grants-access	access-score	API outputs, taken to be logit-level scores	inferred
+CPD+24	quantifies-over	adv-specific-algorithm	one extraction attack	inferred
+CPD+24	charges	res-queries	cost under 20 US dollars	sweep
+CPD+24	conditions-on	util-none-stated		sweep
+CPD+24	uses-notion	notion-extraction	recovery of the embedding projection layer up to symmetries	sweep
+CPD+24	concludes	form-attack	abstract: recovers the embedding projection layer up to symmetries from API access for under 20 US dollars on Ada and Babbage	sweep
+CPD+24	addresses	task-extraction		sweep
+CPD+24	reports-in	phr-query-complexity	cost in dollars	inferred
+CCH+26	relevance	core	polynomial-time cryptanalytic extraction of deep ReLU networks from label-only outputs	sweep
+CCH+26	treats-training-as	train-concrete-dnn	trained ReLU networks extracted empirically, CIFAR10 network with 3072 inputs and 8 hidden layers of 256	sweep
+CCH+26	grants-access	access-label	hard-label outputs	sweep
+CCH+26	quantifies-over	adv-ppt	polynomial queries and polynomial time	sweep
+CCH+26	charges	res-queries	polynomial	sweep
+CCH+26	charges	res-time	polynomial; 30 minutes on a 256-core machine for the CIFAR10 network	sweep
+CCH+26	conditions-on	util-none-stated		sweep
+CCH+26	uses-notion	notion-extraction		sweep
+CCH+26	concludes	form-attack	abstract: polynomial queries and time with label-only outputs where Chen et al. needed exponential time; CIFAR10 network extracted in 30 minutes	sweep
+CCH+26	addresses	task-extraction		sweep
+CCH+26	reports-in	phr-query-complexity		sweep
+CCH+26	reports-in	phr-runtime		sweep
+CCH+26	extends	CCHRSS24	hard-label setting	inferred
+CGZ26	relevance	core	proofs of ownership of black-box classifiers characterised by self-correctability	sweep
+CGZ26	treats-training-as	train-hypothesis-class	ownership of a concept class; training not modelled	sweep
+CGZ26	grants-access	access-eval	black-box classifiers	sweep
+CGZ26	quantifies-over	adv-ppt	standard cryptographic assumptions imply polynomial-time adversaries	inferred
+CGZ26	conditions-on	util-none-stated		sweep
+CGZ26	defines	notion-ownership	proof of ownership for a black-box model	inferred
+CGZ26	assumes	asm-other	standard cryptographic assumptions (abstract)	sweep
+CGZ26	concludes	form-characterization	abstract: for black-box classifiers under standard cryptographic assumptions, ownership of a concept class is provable if and only if the class is not self-correctable	sweep
+CGZ26	addresses	task-prove-ownership		sweep
+CGZ26	extends	CGZ24	from watermarking outputs to proving ownership of models	inferred
+DMDS26	relevance	core	arbitrary hidden capabilities in encrypted networks inside host weights, hard to elicit	sweep
+DMDS26	treats-training-as	train-adversarial	encrypted network embedded in host weights, activated by a trigger	sweep
+DMDS26	grants-access	access-whitebox	defender has the weights	inferred
+DMDS26	quantifies-over	adv-ppt	hard to elicit under cryptographic assumptions	inferred
+DMDS26	charges	res-time		inferred
+DMDS26	conditions-on	util-none-stated		sweep
+DMDS26	uses-notion	notion-unelicitability		inferred
+DMDS26	assumes	asm-other	cryptographic assumptions (abstract)	sweep
+DMDS26	concludes	form-construction	abstract: encrypted networks hidden in host weights, activated by a trigger, are hard to elicit under cryptographic assumptions; small proof of concept	sweep
+DMDS26	addresses	task-backdoor-plant		sweep
+DMDS26	addresses	task-backdoor-detect		sweep
+DMDS26	extends	unelicitable-backdoors-lms	from backdoors to arbitrary capabilities	sweep
+GJK+24	relevance	core	interactive proofs that a learner's output is correct, with verifier sample cost below learning	sweep
+GJK+24	treats-training-as	train-hypothesis-class	agnostic PAC learning, learner left abstract	sweep
+GJK+24	grants-access	access-none	verifier holds examples; no model access	inferred
+GJK+24	quantifies-over	adv-unspecified	untrusted prover; abstract states no bound	inferred
+GJK+24	charges	res-samples	poly(t) examples for the t largest Fourier characters	sweep
+GJK+24	charges	res-time	doubly efficient proof systems	sweep
+GJK+24	conditions-on	util-accuracy	agnostic PAC guarantee	inferred
+GJK+24	uses-notion	notion-pac-verification		sweep
+GJK+24	assumes	asm-none		inferred
+GJK+24	concludes	form-construction	abstract: doubly efficient proof systems for agnostic PAC learning; a verifier with poly(t) examples for the t largest Fourier characters; trivial if not doubly efficient	sweep
+GJK+24	addresses	task-verify-training		sweep
+GJK+24	reports-in	phr-sample-complexity		sweep
+GJK+24	extends	GRSY21	doubly efficient proof systems for learning	sweep
+phr-error-threshold	is-a	phrasing	a verifier or auditor tolerance on reproduction error of weights or gradients	proposed
+util-task-utility	is-a	utility-condition	a task-specific utility function of the output reaches a level, as in alpha-useful DP mechanisms	proposed
+res-parameters	is-a	resource	number of model parameters	proposed
+phr-parameter-count	is-a	phrasing	parameters needed	proposed
+notion-inextractability	is-a	security-notion	expected number of black-box trials to extract a training subsequence is at least 2^b	proposed

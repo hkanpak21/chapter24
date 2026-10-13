@@ -1,7 +1,7 @@
 # Audit findings, 2026-08-20 to 2026-08-22
 
 What the full verification pass over the wiki found. Written to survive context loss. Companion to
-[[2026-08-22-plan-survey-tasks]] (the work) and [[2026-08-22-plan-survey-scope-and-structure]] (the reasoning).
+[[2026-08-22-halil-plan-survey-tasks]] (the work) and [[2026-08-22-halil-plan-survey-scope-and-structure]] (the reasoning).
 
 **Outcome: 181 of 181 source pages verified, 186 papers on disk, zero broken links.** The quote rule
 that blocked drafting is cleared.

@@ -3,9 +3,9 @@ slug: 2026-09-17-halil-gradient-inversion-absent-from-corpus
 opened: 2026-09-17
 assignee: halil
 status: open
-raised_by: lib/reports/archive/2026-08-22-plan-survey-scope-and-structure.md
+raised_by: lib/reports/archive/2026-08-22-halil-plan-survey-scope-and-structure.md
 closed_by:
-source: lib/reports/archive/2026-08-22-plan-survey-scope-and-structure.md
+source: lib/reports/archive/2026-08-22-halil-plan-survey-scope-and-structure.md
 ---
 
 # Gradient inversion and split learning have no source page

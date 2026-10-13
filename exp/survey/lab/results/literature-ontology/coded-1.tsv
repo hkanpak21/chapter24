@@ -1,0 +1,527 @@
+active-learning-model-extraction	relevance	core	bounds extraction by query complexity; defines extraction attack	wiki
+active-learning-model-extraction	treats-training-as	train-hypothesis-class	server holds a target f* in a public class F; learner left abstract	wiki
+active-learning-model-extraction	grants-access	access-eval	membership queries to the server; labels or real values; synthesized inputs (query synthesis)	inferred
+active-learning-model-extraction	quantifies-over	adv-query-bounded	adversary charged only a query budget q; time and memory unbounded	wiki
+active-learning-model-extraction	charges	res-queries	oracle queries q	wiki
+active-learning-model-extraction	conditions-on	util-accuracy	Prop 1 only: server correct with probability at least 1/2+c on every instance; Def 3 itself states none	inferred
+active-learning-model-extraction	defines	notion-extraction	Def 3 extraction attack of complexity q and confidence gamma	wiki
+active-learning-model-extraction	assumes	asm-none	unconditional; class F public and known to adversary	wiki
+active-learning-model-extraction	concludes	form-reduction	Obs 1: any query-synthesis active learner is an extraction adversary with the same query complexity and confidence 1-delta	wiki
+active-learning-model-extraction	concludes	form-impossibility	Prop 1: constant-rate label randomisation is broken by repetition and majority at log-factor query cost	wiki
+active-learning-model-extraction	addresses	task-extraction		wiki
+active-learning-model-extraction	reports-in	phr-query-complexity		wiki
+adaptive-attacks-defenses	relevance	peripheral	evaluation practice for white-box adversaries; no bound	inferred
+adaptive-attacks-defenses	treats-training-as	train-concrete-dnn	thirteen published defences attacked empirically	wiki
+adaptive-attacks-defenses	grants-access	access-whitebox	full knowledge of the defence; attack built after the defence is specified	wiki
+adaptive-attacks-defenses	quantifies-over	adv-unspecified	attacks designed per defence; no class stated	inferred
+adaptive-attacks-defenses	charges	res-perturbation	norm budget on the input	inferred
+adaptive-attacks-defenses	conditions-on	util-none-stated		inferred
+adaptive-attacks-defenses	uses-notion	notion-robustness	robust accuracy of the defence under perturbation	wiki
+adaptive-attacks-defenses	assumes	asm-none		wiki
+adaptive-attacks-defenses	concludes	form-empirical	Sec 3 case studies: all thirteen defences circumvented; informal no-free-lunch statement, no theorem	wiki
+adaptive-attacks-defenses	addresses	task-evasion		wiki
+adaptive-attacks-defenses	reports-in	phr-accuracy	robust accuracy below the reported value	wiki
+adaptive-attacks-defenses	extends	obfuscated-gradients	follow-up named on the page	wiki
+adaptive-test-time-defenses-eval	relevance	peripheral	only page in the batch that sets defender compute against attacker compute, as a hope with no formalization	wiki
+adaptive-test-time-defenses-eval	treats-training-as	train-concrete-dnn	nine adaptive test-time defences on CIFAR-10	wiki
+adaptive-test-time-defenses-eval	grants-access	access-whitebox	full white-box access to the classifier and auxiliary models, not the random number generator state	wiki
+adaptive-test-time-defenses-eval	quantifies-over	adv-specific-algorithm	APGD with multiple losses, BPDA, EOT, plus hand-built adaptive attacks	inferred
+adaptive-test-time-defenses-eval	charges	res-perturbation	l-infinity radius 8/255	wiki
+adaptive-test-time-defenses-eval	charges	res-flops	inference cost of the defence tabulated, 2x to 59x; attacker compute not charged	wiki
+adaptive-test-time-defenses-eval	conditions-on	util-none-stated		inferred
+adaptive-test-time-defenses-eval	uses-notion	notion-robustness		wiki
+adaptive-test-time-defenses-eval	assumes	asm-none		wiki
+adaptive-test-time-defenses-eval	concludes	form-empirical	Sec 3: all nine reported robust accuracies overestimated; four defences weaken their static base	wiki
+adaptive-test-time-defenses-eval	addresses	task-evasion		wiki
+adaptive-test-time-defenses-eval	reports-in	phr-accuracy	robust accuracy and inference cost	wiki
+adaptive-test-time-defenses-eval	extends	on-evaluating-adversarial-robustness	adds six checklist steps to the Carlini et al. 2019 checklist	wiki
+adaptive-test-time-defenses-eval	extends	adaptive-attacks-defenses	applies adaptive evaluation to the test-time family; cross-linked on the page	inferred
+adaptive-vs-oblivious-streaming	relevance	peripheral	resource bound sits on the defender (memory) and the adversary is unbounded; roles invert inside the proof	wiki
+adaptive-vs-oblivious-streaming	grants-access	access-eval	adaptive adversary sees every output of the streaming algorithm and chooses the next update	inferred
+adaptive-vs-oblivious-streaming	quantifies-over	adv-unbounded	adversary unrestricted in space and time; inside the proof the algorithm plays the memory-bounded adversary against a bounded storage PRG	wiki
+adaptive-vs-oblivious-streaming	charges	res-memory	space w charged to the streaming algorithm, the defender	wiki
+adaptive-vs-oblivious-streaming	conditions-on	util-estimation-error	answer within factor 1 plus or minus alpha of g at every step	wiki
+adaptive-vs-oblivious-streaming	assumes	asm-none	Thm 1.2 and Thm 5.10 information theoretic; Sec 6 variant is computational	wiki
+adaptive-vs-oblivious-streaming	concludes	form-separation	Thm 1.2 and Thm 5.10: a problem with O(log^2 w) oblivious space and at least w adaptive space	wiki
+adaptive-vs-oblivious-streaming	addresses	task-adaptive-estimation		inferred
+adaptive-vs-oblivious-streaming	reports-in	phr-space-complexity		inferred
+adds-adaptive-diffusion-smoothing	relevance	out		wiki
+adds-adaptive-diffusion-smoothing	addresses	task-evasion	certified l2 robustness; GDP used as a composition calculus, not as privacy	wiki
+adversarial-examples-computational-constraints	relevance	peripheral	restricts the learner to the SQ class and prices SQ queries; perturbation adversary is a norm ball	wiki
+adversarial-examples-computational-constraints	treats-training-as	train-sq	learner restricted to statistical query algorithms	wiki
+adversarial-examples-computational-constraints	grants-access	access-none	learner sees samples or SQ oracle; the evasion adversary is not given model access in the result	wiki
+adversarial-examples-computational-constraints	quantifies-over	adv-sq	SQ oracle precision exp(-C d^c)	wiki
+adversarial-examples-computational-constraints	charges	res-queries	exponentially many SQ queries	wiki
+adversarial-examples-computational-constraints	conditions-on	util-accuracy	task is learnable non-robustly in polynomial time and robustly with polynomial samples	wiki
+adversarial-examples-computational-constraints	uses-notion	notion-robustness	Def 2.2 epsilon-delta robust classifier	wiki
+adversarial-examples-computational-constraints	assumes	asm-none	unconditional inside the SQ model	wiki
+adversarial-examples-computational-constraints	concludes	form-lower-bound	Thm 1.1: for a constructed Gaussian task, robust SQ learning needs exponentially many queries even with exponential precision	wiki
+adversarial-examples-computational-constraints	concludes	form-separation	Thm 1.1: statistical against computational robust learnability inside SQ	wiki
+adversarial-examples-computational-constraints	addresses	task-evasion		wiki
+adversarial-examples-computational-constraints	addresses	task-learning		wiki
+adversarial-examples-computational-constraints	reports-in	phr-query-complexity		wiki
+adversarial-examples-computational-constraints	precursor-of	adversarial-examples-prg	the sequel replaces the SQ bound with quadratic residuosity	wiki
+adversarial-examples-prg	relevance	peripheral	prices the learner by polynomial time under a cryptographic assumption; perturbation adversary is a norm ball	wiki
+adversarial-examples-prg	treats-training-as	train-arbitrary	any polynomial-time learning algorithm	wiki
+adversarial-examples-prg	grants-access	access-none		wiki
+adversarial-examples-prg	quantifies-over	adv-ppt	learner restricted to polynomial time	wiki
+adversarial-examples-prg	charges	res-time		wiki
+adversarial-examples-prg	conditions-on	util-accuracy	accuracy close to chance on some task in the family; non-robust problem solvable in polynomial time	wiki
+adversarial-examples-prg	uses-notion	notion-robustness	maximally robust classifier tolerating perturbation of size order sqrt(n)	wiki
+adversarial-examples-prg	assumes	asm-other	quadratic residuosity via the Blum-Blum-Shub trapdoor PRG	wiki
+adversarial-examples-prg	concludes	form-lower-bound	Thm 3.1: under quadratic residuosity no polynomial-time learner beats chance on some task, though a maximally robust classifier exists	wiki
+adversarial-examples-prg	addresses	task-evasion		wiki
+adversarial-examples-prg	addresses	task-learning		wiki
+adversarial-examples-prg	reports-in	phr-accuracy		wiki
+adversarial-examples-prg	extends	adversarial-examples-computational-constraints		wiki
+adversarial-spheres	relevance	out		wiki
+adversarial-spheres	addresses	task-evasion		wiki
+adversarial-vulnerability-any-classifier	relevance	out		wiki
+adversarial-vulnerability-any-classifier	addresses	task-evasion		wiki
+adversarially-robust-pac-regression	relevance	out		wiki
+adversarially-robust-pac-regression	addresses	task-evasion		wiki
+adversary-aware-dp-bounds	relevance	core	bounds reconstruction, membership and attribute success against a DP mechanism for every adversary	wiki
+adversary-aware-dp-bounds	treats-training-as	train-dp	(epsilon,0)-DP mechanism; case study on DP-finetuned language models	wiki
+adversary-aware-dp-bounds	grants-access	access-release	adversary gets the mechanism output a, the specification M and the prior D	wiki
+adversary-aware-dp-bounds	grants-access	access-whitebox	case study on DP-finetuned models where the released output is the model	inferred
+adversary-aware-dp-bounds	quantifies-over	adv-unbounded	all functions of (a, D, M); information theoretic	wiki
+adversary-aware-dp-bounds	charges	res-none	adversary weakened by prior knowledge and number of guesses k, not by compute	wiki
+adversary-aware-dp-bounds	conditions-on	util-none-stated		inferred
+adversary-aware-dp-bounds	uses-notion	notion-dp	Def 2.1	wiki
+adversary-aware-dp-bounds	uses-notion	notion-reconstruction	decomposable success metric covers reconstruction	wiki
+adversary-aware-dp-bounds	uses-notion	notion-mia-advantage	covers membership inference	wiki
+adversary-aware-dp-bounds	assumes	asm-distributional	independent per-target priors, product distribution	wiki
+adversary-aware-dp-bounds	concludes	form-success-bound	Thm 3.2: success tail bounded by a Bernoulli sum depending only on epsilon and the baseline	wiki
+adversary-aware-dp-bounds	addresses	task-membership		wiki
+adversary-aware-dp-bounds	addresses	task-reconstruction		wiki
+adversary-aware-dp-bounds	addresses	task-attribute		wiki
+adversary-aware-dp-bounds	reports-in	phr-epsilon		wiki
+adversary-aware-dp-bounds	reports-in	phr-success-rate		wiki
+adversary-aware-dp-bounds	extends	attaxonomy	generalizes the DP reconstruction bounds of the taxonomy paper	inferred
+algorithmic-progress-lm	relevance	peripheral	supplies a measured compute price of a fixed capability and its drift over recipes	wiki
+algorithmic-progress-lm	treats-training-as	train-concrete-dnn	over 200 published language models, 2012 to 2023	wiki
+algorithmic-progress-lm	grants-access	access-none		wiki
+algorithmic-progress-lm	charges	res-flops	training compute to reach a perplexity threshold	wiki
+algorithmic-progress-lm	conditions-on	util-accuracy	fixed perplexity threshold on Wikitext and Penn Treebank	inferred
+algorithmic-progress-lm	assumes	asm-other	augmented scaling-law family is well specified	wiki
+algorithmic-progress-lm	concludes	form-empirical	compute for a fixed perplexity halves about every 8 months, interval 5 to 14 months	wiki
+algorithmic-progress-lm	addresses	task-learning		wiki
+algorithmic-progress-lm	reports-in	phr-runtime	compute halving time	inferred
+are-gans-overkill-for-nlp	relevance	peripheral	distinguisher-oracle reductions between detection and generation with no bound on the distinguisher	wiki
+are-gans-overkill-for-nlp	treats-training-as	train-erm	maximum likelihood reached by boosting-style reweighting on a fixed sample	inferred
+are-gans-overkill-for-nlp	grants-access	access-generation	distinguisher sees samples from the model and from the corpus	inferred
+are-gans-overkill-for-nlp	quantifies-over	adv-oracle-aided	guarantee is relative to a distinguisher oracle O_d over class G; no class bound or runtime bound	wiki
+are-gans-overkill-for-nlp	charges	res-time	oracle cost T_d and evaluation cost T_g are free parameters in Thm 1	wiki
+are-gans-overkill-for-nlp	conditions-on	util-none-stated		wiki
+are-gans-overkill-for-nlp	assumes	asm-other	Lemma 2 needs bounded likelihood ratio, hence common support	wiki
+are-gans-overkill-for-nlp	concludes	form-reduction	Lemmas 1 and 2 of Sec 5 both directions in exponential time; Thm 1 of Sec 6 polynomial given the oracle, one direction; empirical on a fixed sample	wiki
+are-gans-overkill-for-nlp	addresses	task-distinguish		wiki
+are-gans-overkill-for-nlp	reports-in	phr-advantage	training advantage of a distinguisher	wiki
+attaxonomy	relevance	core	classifies attackers by knowledge and access and bounds reconstruction under DP	wiki
+attaxonomy	treats-training-as	train-dp		wiki
+attaxonomy	grants-access	access-whitebox	taxonomy option	wiki
+attaxonomy	grants-access	access-eval	taxonomy option, black-box and query access	wiki
+attaxonomy	grants-access	access-none	taxonomy option	wiki
+attaxonomy	quantifies-over	adv-unbounded	theorems range over all reconstruction attacks A	wiki
+attaxonomy	charges	res-none	no computational dimension in the taxonomy	wiki
+attaxonomy	conditions-on	util-none-stated		inferred
+attaxonomy	defines	notion-reconstruction	Defs 4.4 and 4.8 BCDistReRo and AvgDistReRo, distributional reconstruction robustness	wiki
+attaxonomy	uses-notion	notion-dp		wiki
+attaxonomy	uses-notion	notion-mia-advantage	attack goal in the taxonomy	wiki
+attaxonomy	assumes	asm-distributional	independent target priors	wiki
+attaxonomy	concludes	form-success-bound	Cor 4.7 and 4.11: epsilon-DP gives gamma_BC at most n e^eps kappa(eta) and gamma_Avg at most e^eps kappa(eta)	wiki
+attaxonomy	concludes	form-systematization	Crafter, Attacker, Evaluator taxonomy of privacy attacks	wiki
+attaxonomy	addresses	task-reconstruction		wiki
+attaxonomy	addresses	task-membership		wiki
+attaxonomy	addresses	task-attribute		wiki
+attaxonomy	reports-in	phr-epsilon		wiki
+attaxonomy	reports-in	phr-success-rate		wiki
+auditable-unlearning-definitions	relevance	core	forgeability of training logs; parameter-space unlearning and proof-of-learning cannot certify what was trained on	wiki
+auditable-unlearning-definitions	treats-training-as	train-gd	minibatch SGD as a mean-sampler update rule from a fixed w_0	wiki
+auditable-unlearning-definitions	grants-access	access-trajectory	proof-of-learning log of weights and data indices	wiki
+auditable-unlearning-definitions	grants-access	access-whitebox	parameters compared in parameter space	inferred
+auditable-unlearning-definitions	quantifies-over	adv-unbounded	Thm 3 existence of a forging dataset; adversary picks batch size b and samples D indefinitely	wiki
+auditable-unlearning-definitions	charges	res-none	bound degrades with small b, small epsilon, long logs; no resource of the forger is priced	wiki
+auditable-unlearning-definitions	conditions-on	util-none-stated	verification tolerance epsilon>0 only	inferred
+auditable-unlearning-definitions	uses-notion	notion-unlearning	refutes parameter-space approximate unlearning	wiki
+auditable-unlearning-definitions	uses-notion	notion-pol	forgeability is defined on proof-of-learning logs via forging maps	wiki
+auditable-unlearning-definitions	assumes	asm-other	mean-sampler update rule, continuous D, epsilon>0, adversary controls b	wiki
+auditable-unlearning-definitions	concludes	form-characterization	Thm 1: datasets are epsilon=0 forgeable iff their reachable parameter sequences coincide	wiki
+auditable-unlearning-definitions	concludes	form-impossibility	Thm 3 and Cor 2: for minibatch SGD no log-level or model-level unlearning definition is well defined; existence only	wiki
+auditable-unlearning-definitions	addresses	task-unlearning		wiki
+auditable-unlearning-definitions	addresses	task-verify-training		wiki
+auditable-unlearning-definitions	reports-in	phr-success-rate	probability that a dataset forges another, Thm 2	wiki
+auditable-unlearning-definitions	applies	proof-of-learning	feasibility defined by possession of a PoL log	wiki
+authentication-bounded-storage	relevance	peripheral	security statement quantifies over a memory-bounded adversary that is otherwise unbounded in time	wiki
+authentication-bounded-storage	grants-access	access-eval	chosen-message tagging and verification oracles in streaming fashion	wiki
+authentication-bounded-storage	quantifies-over	adv-memory-bounded	streaming adversary with m bits, at most Q=2^lambda queries (Defs 3.5, 3.11)	wiki
+authentication-bounded-storage	charges	res-memory	adversary m bits, honest parties n bits	wiki
+authentication-bounded-storage	charges	res-queries	Q at most 2^lambda	wiki
+authentication-bounded-storage	conditions-on	util-none-stated		inferred
+authentication-bounded-storage	uses-notion	notion-unforgeability	MAC and signature unforgeability under chosen message and verification attacks	wiki
+authentication-bounded-storage	assumes	asm-none	unconditional	wiki
+authentication-bounded-storage	concludes	form-construction	Thm 5.1 long-tag MAC against m up to 2^{O(n)}; Thm 6.1 short-tag MAC at m=O(n^2)	wiki
+authentication-bounded-storage	concludes	form-impossibility	Thm 7.11 no signatures beyond m=O(n^2)	wiki
+authentication-bounded-storage	addresses	task-crypto-primitive		inferred
+authentication-bounded-storage	reports-in	phr-negligible	unforgeability 2^-lambda	wiki
+authentication-bounded-storage	reports-in	phr-space-complexity	memory n and m	inferred
+average-case-fine-grained-hardness	relevance	peripheral	origin of fine-grained OWF running-time convention; prices the adversary by a time exponent	wiki
+average-case-fine-grained-hardness	quantifies-over	adv-fine-grained	uniform randomized Word RAM algorithms in time O(t^{1-delta'}) for every delta'>0 (Def 2)	wiki
+average-case-fine-grained-hardness	charges	res-time		wiki
+average-case-fine-grained-hardness	conditions-on	util-none-stated		inferred
+average-case-fine-grained-hardness	defines	notion-fine-grained-owf	Def 2 (t,epsilon)-one-way function; no instantiation given	wiki
+average-case-fine-grained-hardness	assumes	asm-other	OV, 3SUM, APSP, Triangle-Collection conjectures and SETH, worst case	wiki
+average-case-fine-grained-hardness	concludes	form-reduction	Lemma 1 and main reductions: worst-case OV, 3SUM, APSP to average-case evaluation of low-degree polynomials	wiki
+average-case-fine-grained-hardness	concludes	form-impossibility	NSETH barrier to building a fine-grained OWF from the OV polynomial by a perfect sampler	wiki
+average-case-fine-grained-hardness	addresses	task-hardness		wiki
+average-case-fine-grained-hardness	reports-in	phr-runtime		wiki
+average-case-parity-problems	relevance	peripheral	average-case base for fine-grained hardness; success probability near one only, so not usable against low-advantage adversaries	wiki
+average-case-parity-problems	quantifies-over	adv-fine-grained	uniform algorithms succeeding with probability 1-Theta(1/2^K)	wiki
+average-case-parity-problems	charges	res-time		wiki
+average-case-parity-problems	conditions-on	util-none-stated		inferred
+average-case-parity-problems	assumes	asm-other	at least one of rETH, k-OV, k-SUM, k-XOR, k-clique hypotheses	wiki
+average-case-parity-problems	concludes	form-lower-bound	Thm 1.3 and 1.4: parity-K-OV, XOR, SUM need N^{Omega(sqrt K)} time on explicit distributions, conditional	wiki
+average-case-parity-problems	concludes	form-reduction	Thm 1.6: random self-reduction for fine d-degree polynomials	wiki
+average-case-parity-problems	addresses	task-hardness		wiki
+average-case-parity-problems	reports-in	phr-runtime		wiki
+backdoor-defense-learnability-obfuscation	relevance	core	game-theoretic defendability against backdoors with statistical and computational characterisation	wiki
+backdoor-defense-learnability-obfuscation	treats-training-as	train-hypothesis-class	abstract game over a representation class F; no trained network	wiki
+backdoor-defense-learnability-obfuscation	grants-access	access-whitebox	defender receives the function representation f or f* and an input	wiki
+backdoor-defense-learnability-obfuscation	quantifies-over	adv-unbounded	Sec 4 Thm 4.1 defender computationally unbounded; attacker never computation bounded	wiki
+backdoor-defense-learnability-obfuscation	quantifies-over	adv-ppt	Secs 5 and 6 defender polynomial time	wiki
+backdoor-defense-learnability-obfuscation	charges	res-time	polynomial time on the defender in Secs 5 and 6	wiki
+backdoor-defense-learnability-obfuscation	charges	res-corruption	attacker backdoored function disagrees with the original on at most an epsilon fraction	wiki
+backdoor-defense-learnability-obfuscation	conditions-on	util-functionality-preserved	Def 3.1 Pr[f* != f] at most epsilon under D	wiki
+backdoor-defense-learnability-obfuscation	defines	notion-defendability	Def 3.1 epsilon-defendability game with random trigger	wiki
+backdoor-defense-learnability-obfuscation	assumes	asm-none	Thm 4.1 and Cor 5.2	wiki
+backdoor-defense-learnability-obfuscation	assumes	asm-random-oracle	Thm 5.3	wiki
+backdoor-defense-learnability-obfuscation	assumes	asm-owf	Thm 5.5 together with indistinguishability obfuscation	wiki
+backdoor-defense-learnability-obfuscation	assumes	asm-io	Thm 5.5	wiki
+backdoor-defense-learnability-obfuscation	concludes	form-characterization	Thm 4.1: class F is epsilon-defendable with confidence tending to 1 iff epsilon = o(1/VC(F))	wiki
+backdoor-defense-learnability-obfuscation	concludes	form-separation	Thm 5.3 in the random oracle model efficient defendability does not imply efficient PAC learnability; Cor 5.2 converse direction	wiki
+backdoor-defense-learnability-obfuscation	concludes	form-impossibility	Thm 5.5 polynomial-size circuits are not efficiently defendable under OWF and iO	wiki
+backdoor-defense-learnability-obfuscation	addresses	task-backdoor-detect		wiki
+backdoor-defense-learnability-obfuscation	addresses	task-backdoor-plant		wiki
+backdoor-defense-learnability-obfuscation	reports-in	phr-success-rate	defender confidence 1-delta	wiki
+backdoor-defense-learnability-obfuscation	extends	planting-undetectable-backdoors	introduces defendability as the positive-side concept to undetectability	inferred
+bandeira-franz-parisi-criterion	relevance	peripheral	defines the low-degree adversary class and relates it to a free-energy criterion; no security notion	inferred
+bandeira-franz-parisi-criterion	quantifies-over	adv-low-degree	low-degree polynomial tests; local MCMC as corollary	wiki
+bandeira-franz-parisi-criterion	charges	res-degree	polynomial degree D as proxy for computation	inferred
+bandeira-franz-parisi-criterion	conditions-on	util-none-stated		inferred
+bandeira-franz-parisi-criterion	defines	notion-low-degree-hardness	Franz-Parisi criterion Def 1.5 via low-overlap likelihood norm	wiki
+bandeira-franz-parisi-criterion	assumes	asm-none	unconditional inside Gaussian additive and planted sparse models	wiki
+bandeira-franz-parisi-criterion	concludes	form-equivalence	Thm 2.4 and 2.5: FP-hardness equals low-degree hardness for Gaussian additive models	wiki
+bandeira-franz-parisi-criterion	concludes	form-reduction	Thm 3.7: FP-hard implies LD-hard for planted sparse models; Sec 4 counterexamples where they disagree	wiki
+bandeira-franz-parisi-criterion	addresses	task-distinguish		inferred
+bandeira-franz-parisi-criterion	reports-in	phr-advantage		inferred
+barak-sos-lower-bound-planted-clique	relevance	peripheral	lower bound against one fixed algorithm class, sum of squares; no security notion	inferred
+barak-sos-lower-bound-planted-clique	quantifies-over	adv-sos	degree-d sum-of-squares relaxation of the clique problem	wiki
+barak-sos-lower-bound-planted-clique	charges	res-degree	SoS degree d=o(log n)	wiki
+barak-sos-lower-bound-planted-clique	conditions-on	util-none-stated		inferred
+barak-sos-lower-bound-planted-clique	assumes	asm-none	unconditional integrality gap	wiki
+barak-sos-lower-bound-planted-clique	concludes	form-lower-bound	Thm 1.1: degree-d SoS has integrality gap at least n^{1/2-c(d/log n)^{1/2}} on G(n,1/2)	wiki
+barak-sos-lower-bound-planted-clique	addresses	task-distinguish	planted clique decision and search	inferred
+beyond-labeling-oracles	relevance	core	measures extraction cost and states that the literature has no formal success definition	wiki
+beyond-labeling-oracles	treats-training-as	train-concrete-dnn	vision and language classifiers; victim hybrid model V_h	wiki
+beyond-labeling-oracles	grants-access	access-score	black-box queries returning full probability vectors	wiki
+beyond-labeling-oracles	quantifies-over	adv-unspecified	adversary decomposed as (D_IND, D_OOD, Pi); no class stated	wiki
+beyond-labeling-oracles	charges	res-queries	annotated or queried points n_a at per-label cost	wiki
+beyond-labeling-oracles	charges	res-samples	in-distribution prior data D_IND	inferred
+beyond-labeling-oracles	conditions-on	util-accuracy	attacker model performs nearly as well as the victim	wiki
+beyond-labeling-oracles	uses-notion	notion-extraction	accuracy-driven extraction; cost inequality c > c_a proposed informally; fidelity and cryptanalytic extraction excluded	wiki
+beyond-labeling-oracles	assumes	asm-other	victim controls informativeness of out-of-distribution responses via hybrid model V_h	wiki
+beyond-labeling-oracles	concludes	form-empirical	Sec 5: with OOD informativeness controlled, attacker success tracks prior in-distribution data and the victim reduces to a labelling oracle	wiki
+beyond-labeling-oracles	addresses	task-extraction		wiki
+beyond-labeling-oracles	reports-in	phr-accuracy		wiki
+beyond-labeling-oracles	reports-in	phr-success-rate	cost comparison between attacker and defender	wiki
+blind-baselines-beat-mia	relevance	core	measures what a model-free attacker learns about membership and shows the evaluation null	wiki
+blind-baselines-beat-mia	treats-training-as	train-concrete-dnn	foundation models, eight published evaluation datasets; blind attacks never query the model	wiki
+blind-baselines-beat-mia	grants-access	access-none	blind attack ignores the target model	wiki
+blind-baselines-beat-mia	grants-access	access-score	published MI attacks that the blind attacks are compared with	inferred
+blind-baselines-beat-mia	quantifies-over	adv-specific-algorithm	date regex, bag of words classifier, greedy rare n-gram selection	wiki
+blind-baselines-beat-mia	charges	res-none		inferred
+blind-baselines-beat-mia	conditions-on	util-none-stated		inferred
+blind-baselines-beat-mia	uses-notion	notion-tpr-at-low-fpr	TPR at 1 or 5 percent FPR and AUC	wiki
+blind-baselines-beat-mia	assumes	asm-distributional	member and non-member sets assembled post hoc with measured distribution shift	wiki
+blind-baselines-beat-mia	concludes	form-empirical	Sec 4: blind attacks beat the best reported MIA on all eight datasets, for example WikiMIA 43.2 to 94.7 TPR at 5 percent FPR	wiki
+blind-baselines-beat-mia	addresses	task-membership		wiki
+blind-baselines-beat-mia	reports-in	phr-tpr-fpr		wiki
+bogdanov-low-degree-planted-subgraph	relevance	peripheral	security of secret sharing and PSM resting on a planted problem, shown against degree-bounded tests and stated over size-bounded circuits	wiki
+bogdanov-low-degree-planted-subgraph	quantifies-over	adv-low-degree	Thm 2.1 real polynomials of degree at most D, D=o((log n/log log n)^2)	wiki
+bogdanov-low-degree-planted-subgraph	quantifies-over	adv-size-bounded	Props 4.1 and 4.3 (s,epsilon)-indistinguishability by circuits of size s	wiki
+bogdanov-low-degree-planted-subgraph	charges	res-degree	Thm 2.1	wiki
+bogdanov-low-degree-planted-subgraph	charges	res-time	Props 4.1 and 4.3 circuit size s	wiki
+bogdanov-low-degree-planted-subgraph	conditions-on	util-none-stated		inferred
+bogdanov-low-degree-planted-subgraph	defines	notion-low-degree-hardness	degree-D likelihood ratio LR_D with l leaked vertices	wiki
+bogdanov-low-degree-planted-subgraph	assumes	asm-other	Conjecture 1.4 polynomial-time indistinguishability of the planted random subgraph with leakage	wiki
+bogdanov-low-degree-planted-subgraph	concludes	form-lower-bound	Thm 2.1: degree-D distinguishers have advantage n^{-Omega(1)} for k up to n^{1-Omega(1)}, averaged over H, robust to l leaked vertices	wiki
+bogdanov-low-degree-planted-subgraph	concludes	form-construction	Sec 4 Props 4.1 and 4.3: secret sharing and PSM under Conjecture 1.4	wiki
+bogdanov-low-degree-planted-subgraph	addresses	task-distinguish		wiki
+bogdanov-low-degree-planted-subgraph	reports-in	phr-advantage		wiki
+bounded-storage-simple-schemes	relevance	peripheral	security statement quantifies over a memory-bounded, time-unbounded adversary	wiki
+bounded-storage-simple-schemes	grants-access	access-eval	adaptive encryption queries in Def 1 real-or-random ciphertext security; eavesdropper in the protocols	inferred
+bounded-storage-simple-schemes	quantifies-over	adv-memory-bounded	streaming adversary with at most Cn^2 bits, C<1/20; no time bound (Defs 1 and 6)	wiki
+bounded-storage-simple-schemes	charges	res-memory	S(n)=Cn^2 for the adversary, O(n) for honest parties	wiki
+bounded-storage-simple-schemes	charges	res-queries	Q at most 2^{alpha n}	wiki
+bounded-storage-simple-schemes	conditions-on	util-none-stated		inferred
+bounded-storage-simple-schemes	assumes	asm-none	unconditional, inherited from Raz parity bound	wiki
+bounded-storage-simple-schemes	concludes	form-construction	Thm 1 encryption from parity learning; Thms 2 to 10 key agreement, one-round bit commitment, two-round OT	wiki
+bounded-storage-simple-schemes	addresses	task-crypto-primitive		inferred
+bounded-storage-simple-schemes	reports-in	phr-advantage	real-or-random distinguishing advantage	wiki
+bounded-storage-simple-schemes	reports-in	phr-space-complexity		inferred
+brennan-sq-lowdegree-equivalence	relevance	peripheral	relates two adversary classes, SQ and low-degree, to each other	wiki
+brennan-sq-lowdegree-equivalence	quantifies-over	adv-sq	VSTAT statistical dimension	wiki
+brennan-sq-lowdegree-equivalence	quantifies-over	adv-low-degree	minimum degree of a good distinguisher	wiki
+brennan-sq-lowdegree-equivalence	charges	res-queries	SQ query count	wiki
+brennan-sq-lowdegree-equivalence	charges	res-degree	low-degree complexity	wiki
+brennan-sq-lowdegree-equivalence	conditions-on	util-none-stated		inferred
+brennan-sq-lowdegree-equivalence	uses-notion	notion-low-degree-hardness		inferred
+brennan-sq-lowdegree-equivalence	assumes	asm-none	(delta,k)-nicenness, Def 1.4, automatic for Gaussian and product-measure problems	wiki
+brennan-sq-lowdegree-equivalence	concludes	form-equivalence	Thm 1.6: for nice testing problems minimum low-degree degree is polynomially related to log of SQ complexity	wiki
+brennan-sq-lowdegree-equivalence	addresses	task-distinguish		wiki
+brennan-sq-lowdegree-equivalence	reports-in	phr-query-complexity		inferred
+bruna-continuous-lwe	relevance	peripheral	source of the CLWE assumption that gates lattice-based hardness of learning and robust classification	wiki
+bruna-continuous-lwe	quantifies-over	adv-ppt	quantum polynomial time via the reduction	wiki
+bruna-continuous-lwe	quantifies-over	adv-sq	exponential lower bound for hCLWE in the super-polynomial precision regime	wiki
+bruna-continuous-lwe	charges	res-time	polynomial time	wiki
+bruna-continuous-lwe	charges	res-queries	SQ lower bound for hCLWE	wiki
+bruna-continuous-lwe	conditions-on	util-none-stated		inferred
+bruna-continuous-lwe	assumes	asm-worst-case-lattice	quantum worst-case GapSVP and SIVP, gamma at least 2 sqrt(n), beta polynomial	wiki
+bruna-continuous-lwe	concludes	form-reduction	Thm 1.1: quantum polynomial-time reduction from worst-case GapSVP and SIVP to CLWE, which this paper introduces	wiki
+bruna-continuous-lwe	concludes	form-lower-bound	hCLWE is SQ-hard with super-polynomial precision	wiki
+bruna-continuous-lwe	addresses	task-learning	learning Gaussian mixtures without separation	wiki
+bruna-continuous-lwe	addresses	task-distinguish	CLWE decision	wiki
+bruna-continuous-lwe	reports-in	phr-runtime		inferred
+bruna-continuous-lwe	extends	adversarial-examples-computational-constraints	answers the open question on the complexity of the Gaussian-pancake robust classification task	wiki
+bsm-key-agreement-owf	relevance	peripheral	prices an adversary in space and time together and states the exchange rate between them	wiki
+bsm-key-agreement-owf	quantifies-over	adv-memory-bounded	fully streaming adversary with a bits throughout, polynomial time	wiki
+bsm-key-agreement-owf	quantifies-over	adv-ppt	unbounded-processing adversary polynomial time, compressing to a bits between long rounds	wiki
+bsm-key-agreement-owf	charges	res-memory	adversary a bits; honest parties s bits	wiki
+bsm-key-agreement-owf	charges	res-time	probabilistic polynomial time	wiki
+bsm-key-agreement-owf	conditions-on	util-none-stated		inferred
+bsm-key-agreement-owf	assumes	asm-owf	constructions; space-bounded OWF for the fully streaming variant	wiki
+bsm-key-agreement-owf	concludes	form-construction	Thm 1: with OWFs, streaming key agreement for any polynomial space gap, single long stream and one short message	wiki
+bsm-key-agreement-owf	concludes	form-reduction	Thm 3: single-stream streaming key agreement with s much below sqrt(a) implies OWFs	wiki
+bsm-key-agreement-owf	addresses	task-crypto-primitive		inferred
+bsm-key-agreement-owf	reports-in	phr-negligible		inferred
+bsm-key-agreement-owf	reports-in	phr-space-complexity		inferred
+calibrated-proof-of-work-extraction	relevance	core	prices model extraction in attacker compute per query, calibrated to measured leakage	wiki
+calibrated-proof-of-work-extraction	treats-training-as	train-concrete-dnn	victim models on four datasets; PATE teacher ensemble used only as a leakage meter	wiki
+calibrated-proof-of-work-extraction	grants-access	access-label	exact predicted labels released after the puzzle is solved	wiki
+calibrated-proof-of-work-extraction	quantifies-over	adv-specific-algorithm	eight named extraction attacks plus three adaptive attacks; no class defined	wiki
+calibrated-proof-of-work-extraction	charges	res-time	HashCash puzzle solving time per query, difficulty set by accumulated leakage	wiki
+calibrated-proof-of-work-extraction	charges	res-queries	per-user query history feeds the leakage estimate	inferred
+calibrated-proof-of-work-extraction	conditions-on	util-accuracy	victim model accuracy untouched; under 2x slowdown for legitimate users	wiki
+calibrated-proof-of-work-extraction	uses-notion	notion-extraction	fidelity and task-accuracy extraction	wiki
+calibrated-proof-of-work-extraction	assumes	asm-other	users identifiable with per-user state; teacher consensus is a usable leakage signal; reference population of legitimate users	wiki
+calibrated-proof-of-work-extraction	concludes	form-empirical	evaluation: attacker slowdown up to 100x against under 2x for legitimate users; no theorem in the paper	wiki
+calibrated-proof-of-work-extraction	addresses	task-extraction		wiki
+calibrated-proof-of-work-extraction	reports-in	phr-runtime		wiki
+calibrated-proof-of-work-extraction	reports-in	phr-accuracy		wiki
+camel-defeating-prompt-injections	relevance	out		wiki
+camel-defeating-prompt-injections	addresses	task-prompt-injection	capability-based containment of prompt injection in LLM agents; no theorem in the paper	wiki
+capacity-bounded-dp	relevance	core	privacy notion with the adversary bounded by function class rather than by running time	wiki
+capacity-bounded-dp	treats-training-as	train-dp	mechanism-level notion; Laplace, Gaussian and matrix mechanisms	wiki
+capacity-bounded-dp	grants-access	access-release	output distributions of the mechanism on adjacent datasets	wiki
+capacity-bounded-dp	quantifies-over	adv-function-class	Def 3 all h in a class H; lin and poly numerically	wiki
+capacity-bounded-dp	charges	res-none	prices neither runtime, samples nor queries	wiki
+capacity-bounded-dp	conditions-on	util-none-stated		inferred
+capacity-bounded-dp	defines	notion-capacity-bounded-dp	Def 3 (H,Gamma)-capacity bounded differential privacy via restricted f-divergence and restricted Renyi divergence	wiki
+capacity-bounded-dp	uses-notion	notion-dp		wiki
+capacity-bounded-dp	assumes	asm-none	closure or convexity conditions on H per property	wiki
+capacity-bounded-dp	concludes	form-definition	Def 3; Thms 1 to 4 post-processing, convexity, parallel and non-adaptive sequential composition under conditions on H	wiki
+capacity-bounded-dp	concludes	form-success-bound	Thm 6: capacity bounded privacy with parameter epsilon bounds expected generalization gap by sqrt(8 epsilon)	wiki
+capacity-bounded-dp	addresses	task-distinguish		inferred
+capacity-bounded-dp	reports-in	phr-epsilon		wiki
+capacity-bounded-dp	reports-in	phr-divergence	restricted f-divergence and Renyi divergence	wiki
+catch-a-chinchilla-compute-monitoring	relevance	core	verification of training compute from weight snapshots; proof-of-training-transcript with a spoofing adversary	wiki
+catch-a-chinchilla-compute-monitoring	treats-training-as	train-concrete-dnn	large-scale neural network training measured in FLOPs, monitored on chips	wiki
+catch-a-chinchilla-compute-monitoring	grants-access	access-trajectory	hashed snapshots of weights saved by on-chip firmware during the run	wiki
+catch-a-chinchilla-compute-monitoring	grants-access	access-whitebox	weights resident in high-bandwidth memory	wiki
+catch-a-chinchilla-compute-monitoring	quantifies-over	adv-specific-algorithm	Thm 1 chip-splitting strategies in the Poisson snapshot model	wiki
+catch-a-chinchilla-compute-monitoring	quantifies-over	adv-fine-grained	Def 1 F-hardness over spoof generators running in less than F time, possibly above the honest compute H; no pair shown F-hard	inferred
+catch-a-chinchilla-compute-monitoring	charges	res-flops	training compute H and spoof time F	wiki
+catch-a-chinchilla-compute-monitoring	conditions-on	util-none-stated		inferred
+catch-a-chinchilla-compute-monitoring	defines	notion-pol	Def 1 Proof-of-Training-Transcript, a variant of proof-of-learning where the prover may spend more than H to spoof	wiki
+catch-a-chinchilla-compute-monitoring	assumes	asm-other	attested on-chip firmware, supply-chain accounting of chips, existence of a PoTT scheme; Poisson snapshots and perfect parallelism for Thm 1	wiki
+catch-a-chinchilla-compute-monitoring	concludes	form-success-bound	Thm 1: splitting a run over more chips for less time does not lower the detection probability	wiki
+catch-a-chinchilla-compute-monitoring	concludes	form-definition	Def 1 PoTT with J-efficient and F-hard parameters	wiki
+catch-a-chinchilla-compute-monitoring	addresses	task-verify-training		wiki
+catch-a-chinchilla-compute-monitoring	reports-in	phr-success-rate	detection probability p_d	wiki
+catch-a-chinchilla-compute-monitoring	reports-in	phr-runtime	FLOPs	wiki
+catch-a-chinchilla-compute-monitoring	extends	proof-of-learning	PoTT argued strictly harder than PoL	wiki
+cdp-inner-product-implies-ot	relevance	peripheral	prices computational DP in cryptographic strength; polynomial-time distinguisher in the privacy definition	wiki
+cdp-inner-product-implies-ot	quantifies-over	adv-ppt	CDP distinguisher is PPT; the reduction is uniform and black box	wiki
+cdp-inner-product-implies-ot	charges	res-time		wiki
+cdp-inner-product-implies-ot	conditions-on	util-estimation-error	additive error n^{1/6}/(c e^{c epsilon}) with probability 0.999	wiki
+cdp-inner-product-implies-ot	uses-notion	notion-cdp	two-party CDP protocol for inner product	wiki
+cdp-inner-product-implies-ot	assumes	asm-none	conditional on existence of the CDP protocol; no cryptographic assumption	wiki
+cdp-inner-product-implies-ot	concludes	form-reduction	Thm 1.3: an (epsilon,1/3n)-CDP inner-product protocol of error O(n^{1/6}) yields oblivious transfer	wiki
+cdp-inner-product-implies-ot	concludes	form-equivalence	Cor 1.4: at that accuracy CDP inner product is equivalent to OT, and error 20/epsilon follows	wiki
+cdp-inner-product-implies-ot	addresses	task-crypto-primitive		inferred
+cdp-inner-product-implies-ot	reports-in	phr-epsilon		wiki
+cdp-wider-parameter-regimes	relevance	peripheral	relates definitions of computational DP and fixes the polynomial-time distinguisher class; no training model	wiki
+cdp-wider-parameter-regimes	quantifies-over	adv-ppt	T_poly, non-uniform polynomial-time tests	wiki
+cdp-wider-parameter-regimes	charges	res-time		wiki
+cdp-wider-parameter-regimes	conditions-on	util-estimation-error	Thm 4 polynomially bounded average Lp error; tasks as efficiently computable utility predicates	wiki
+cdp-wider-parameter-regimes	uses-notion	notion-cdp	IND-CDP and SIM-forall-exists-CDP, Defs 10 and 12	wiki
+cdp-wider-parameter-regimes	uses-notion	notion-dp		wiki
+cdp-wider-parameter-regimes	assumes	asm-owf	Thm 3 barrier concerns fully black-box constructions from one-way functions	wiki
+cdp-wider-parameter-regimes	assumes	asm-none	new expressiveness separation and direct implication use no complexity assumption	wiki
+cdp-wider-parameter-regimes	concludes	form-separation	new expressiveness separation among CDP definitions from a task not built for the purpose	wiki
+cdp-wider-parameter-regimes	concludes	form-characterization	Prop 4: SIM-forall-exists implies IND with delta plus e^epsilon negl, tight; requires epsilon in O(log kappa)	wiki
+cdp-wider-parameter-regimes	concludes	form-reduction	Thm 2: IND-CDP implies SIM-forall-exists-CDP with inflated delta	wiki
+cdp-wider-parameter-regimes	concludes	form-impossibility	Thms 3 and 4: barriers for black-box OWF constructions and for Lp-utility mechanisms	wiki
+cdp-wider-parameter-regimes	addresses	task-distinguish		inferred
+cdp-wider-parameter-regimes	reports-in	phr-epsilon		wiki
+cdp-wider-parameter-regimes	extends	computational-differential-privacy	extends the MPRV definitional map to non-negligible delta	wiki
+cdp-wider-parameter-regimes	refutes	computational-differential-privacy	MPRV Thm 1 SIM-forall-exists to IND implication needs epsilon in O(log kappa)	wiki
+certificates-statistical-algorithms	relevance	core	non-interactive proof that a learner ran a statistical query algorithm, verifiable on the verifier's own distribution	wiki
+certificates-statistical-algorithms	treats-training-as	train-sq	the algorithm certified is an adaptive statistical query algorithm making k queries	wiki
+certificates-statistical-algorithms	grants-access	access-trajectory	certificate is the transcript of queries and answers; verifier then issues one non-adaptive batch of k queries to its own SQ oracle	wiki
+certificates-statistical-algorithms	quantifies-over	adv-unbounded	Def 3.2 universal soundness against computationally unbounded provers; SQ restricts the certified algorithm and the verifier budget, not the prover	wiki
+certificates-statistical-algorithms	quantifies-over	adv-ppt	Thm 3 computational soundness in the random oracle model	wiki
+certificates-statistical-algorithms	charges	res-queries	verifier makes k queries to a tau-accurate SQ oracle	wiki
+certificates-statistical-algorithms	charges	res-samples	honest prover m_P and verifier m_V sample complexity	wiki
+certificates-statistical-algorithms	conditions-on	util-accuracy	certified hypothesis lies in the goal set G(D_V); completeness assumes D_P = D_V	wiki
+certificates-statistical-algorithms	defines	notion-pac-verification	Def 3.2 publicly-verifiable certificate of statistical validity (pvCSV)	wiki
+certificates-statistical-algorithms	assumes	asm-none	Thm 2 deterministic SQ algorithms	wiki
+certificates-statistical-algorithms	assumes	asm-random-oracle	Thm 3 randomized SQ algorithms of O(1) epochs	wiki
+certificates-statistical-algorithms	concludes	form-construction	Thm 2: deterministic k-query SQ algorithm has a pvCSV with m_P at most O~(sqrt(k)/tau^2), m_V at most O(log k/tau^2), certificate size O(k log(1/tau))	wiki
+certificates-statistical-algorithms	concludes	form-construction	Thm 3: same complexities for randomized O(1)-epoch SQ algorithms, computational soundness in the random oracle model	wiki
+certificates-statistical-algorithms	addresses	task-verify-training		wiki
+certificates-statistical-algorithms	reports-in	phr-sample-complexity		wiki
+certified-defenses-data-poisoning	relevance	peripheral	bounds worst-case test loss over poisoning attacks within a corruption budget for one defender architecture	wiki
+certified-defenses-data-poisoning	treats-training-as	train-erm	outlier removal followed by margin-based empirical risk minimisation	wiki
+certified-defenses-data-poisoning	grants-access	access-none		inferred
+certified-defenses-data-poisoning	quantifies-over	adv-unbounded	all attacks within budget epsilon n; computation unbounded	wiki
+certified-defenses-data-poisoning	charges	res-corruption	epsilon n injected points that survive the sanitizer	wiki
+certified-defenses-data-poisoning	conditions-on	util-none-stated	bound is on test loss itself	inferred
+certified-defenses-data-poisoning	uses-notion	notion-robustness	worst-case test loss under poisoning	inferred
+certified-defenses-data-poisoning	assumes	asm-distributional	train/test concentration and no strong influence of clean outliers; neither checkable	wiki
+certified-defenses-data-poisoning	concludes	form-success-bound	main theorem (informal): approximate upper bound on worst-case test loss for any attack of budget epsilon, computed numerically, with a matching attack from the dual	wiki
+certified-defenses-data-poisoning	addresses	task-poisoning		wiki
+certified-defenses-data-poisoning	reports-in	phr-accuracy	test loss	inferred
+certified-robustness-differential-privacy	relevance	out		wiki
+certified-robustness-differential-privacy	addresses	task-evasion	PixelDP: DP over input features as a certificate, not training-data privacy	wiki
+certified-robustness-randomized-smoothing	relevance	out		wiki
+certified-robustness-randomized-smoothing	addresses	task-evasion		wiki
+chinchilla-compute-optimal	relevance	peripheral	supplies the recipe-relative compute-to-loss frontier used to price training in FLOPs	wiki
+chinchilla-compute-optimal	treats-training-as	train-concrete-dnn	dense Transformers, 70M to 16B parameters, 400 runs	wiki
+chinchilla-compute-optimal	grants-access	access-none		inferred
+chinchilla-compute-optimal	charges	res-flops	fixed FLOP budget split between parameters and tokens	wiki
+chinchilla-compute-optimal	conditions-on	util-accuracy	training loss and downstream accuracy at fixed compute	inferred
+chinchilla-compute-optimal	assumes	asm-other	one tuned recipe family and one data distribution	wiki
+chinchilla-compute-optimal	concludes	form-empirical	three estimators agree: parameters and tokens scale in equal proportion with compute; fitted loss surface L(N,D)	wiki
+chinchilla-compute-optimal	addresses	task-learning		wiki
+chinchilla-compute-optimal	reports-in	phr-accuracy	loss at fixed FLOPs	inferred
+chinchilla-replication	relevance	peripheral	refits the compute-to-loss frontier; shows the fitted constants are estimator-fragile	wiki
+chinchilla-replication	treats-training-as	train-concrete-dnn	data reconstructed from the published figure of the original paper	wiki
+chinchilla-replication	grants-access	access-none		inferred
+chinchilla-replication	charges	res-flops		wiki
+chinchilla-replication	conditions-on	util-accuracy	loss at fixed compute	inferred
+chinchilla-replication	assumes	asm-other	fidelity of the reconstruction of the dataset from the published figure	wiki
+chinchilla-replication	concludes	form-empirical	refit of Approach 3 differs from the printed fit; equal scaling of parameters and tokens survives	wiki
+chinchilla-replication	addresses	task-learning		wiki
+chinchilla-replication	reports-in	phr-accuracy		inferred
+chinchilla-replication	refutes	chinchilla-compute-optimal	only the fitted constants and confidence intervals of Approach 3, not the equal-scaling conclusion	wiki
+cohen-data-reconstruction	relevance	core	defines reconstruction safety with the attacker as its own baseline and ties computational safety to one-wayness	wiki
+cohen-data-reconstruction	treats-training-as	train-arbitrary	any mechanism M; one-wayness instance takes M_f = f	wiki
+cohen-data-reconstruction	grants-access	access-release	attacker receives the output of the mechanism	inferred
+cohen-data-reconstruction	quantifies-over	adv-unbounded	Def 1.6 main body, all attackers	wiki
+cohen-data-reconstruction	quantifies-over	adv-ppt	Def C.1 non-uniform poly(lambda)-time attackers	wiki
+cohen-data-reconstruction	charges	res-time	Appendix C only; none in the main body	wiki
+cohen-data-reconstruction	conditions-on	util-none-stated		inferred
+cohen-data-reconstruction	defines	notion-narcissus	Def 1.6 Narcissus resiliency and Def C.1 its computational form	wiki
+cohen-data-reconstruction	uses-notion	notion-reconstruction	Kolmogorov-complexity criterion for when an exhibited attack is convincing	wiki
+cohen-data-reconstruction	uses-notion	notion-mia-advantage	Thm 2.3 membership inference resilience as an instance	wiki
+cohen-data-reconstruction	assumes	asm-owf	Thm C.5 equivalence for efficiently computable well-spread f	wiki
+cohen-data-reconstruction	concludes	form-characterization	Thm C.5: for efficiently computable well-spread f, f is one-way iff M_f is computationally Narcissus resilient	wiki
+cohen-data-reconstruction	concludes	form-definition	Def 1.6 and Def C.1	wiki
+cohen-data-reconstruction	addresses	task-reconstruction		wiki
+cohen-data-reconstruction	reports-in	phr-epsilon	Narcissus inequality with epsilon and delta	wiki
+cohen-data-reconstruction	reports-in	phr-negligible	computational form, delta=neg(lambda)	wiki
+complexity-theoretic-adversarial-ml	relevance	peripheral	research statement surveying evasion and poisoning bounds with information-theoretic, polynomial-time and cryptographic adversaries	wiki
+complexity-theoretic-adversarial-ml	treats-training-as	train-arbitrary	learner abstract; p-tampering and (k,p) poisoning of training data	inferred
+complexity-theoretic-adversarial-ml	grants-access	access-eval	membership oracle for the target set and a sampling oracle in the cited attacks	inferred
+complexity-theoretic-adversarial-ml	quantifies-over	adv-unbounded	information-theoretic concentration bounds	wiki
+complexity-theoretic-adversarial-ml	quantifies-over	adv-ppt	polynomial-time evasion and p-tampering attacks; cryptographic separation of GJMM20	wiki
+complexity-theoretic-adversarial-ml	charges	res-time		wiki
+complexity-theoretic-adversarial-ml	charges	res-perturbation	Hamming budget of order sqrt(n)	wiki
+complexity-theoretic-adversarial-ml	charges	res-corruption	tampering probability p	wiki
+complexity-theoretic-adversarial-ml	conditions-on	util-none-stated		inferred
+complexity-theoretic-adversarial-ml	uses-notion	notion-robustness		wiki
+complexity-theoretic-adversarial-ml	assumes	asm-distributional	metric concentration of the instance space for the evasion half	wiki
+complexity-theoretic-adversarial-ml	assumes	asm-owf	the positive separation of GJMM20	wiki
+complexity-theoretic-adversarial-ml	concludes	form-systematization	whole document: summary of the author's published results; proves nothing of its own	wiki
+complexity-theoretic-adversarial-ml	addresses	task-evasion		wiki
+complexity-theoretic-adversarial-ml	addresses	task-poisoning		wiki
+complexity-theoretic-adversarial-ml	reports-in	phr-runtime		inferred
+computational-concentration-of-measure-etesami	relevance	peripheral	polynomial-time evasion attacker matching the information-theoretic bound; the learner is unconstrained	wiki
+computational-concentration-of-measure-etesami	grants-access	access-label	membership oracle for the target set and a sampling oracle for the measure	wiki
+computational-concentration-of-measure-etesami	quantifies-over	adv-ppt	time poly(n,1/epsilon,1/delta)	wiki
+computational-concentration-of-measure-etesami	charges	res-time		wiki
+computational-concentration-of-measure-etesami	charges	res-queries	oracle calls to the membership and sampling oracles	inferred
+computational-concentration-of-measure-etesami	charges	res-perturbation	Hamming distance O(sqrt(n ln(1/(epsilon delta))))	wiki
+computational-concentration-of-measure-etesami	conditions-on	util-none-stated		inferred
+computational-concentration-of-measure-etesami	assumes	asm-distributional	product measure and Hamming metric; non-negligible target set	wiki
+computational-concentration-of-measure-etesami	concludes	form-attack	Thm 1.1 and 3.2: MUCIO finds a Hamming neighbour in S within O(sqrt(n ln(1/(epsilon delta)))) coordinates in polynomial time, matching Talagrand	wiki
+computational-concentration-of-measure-etesami	addresses	task-evasion		wiki
+computational-concentration-of-measure-etesami	reports-in	phr-runtime		inferred
+computational-concentration-of-measure-etesami	reports-in	phr-success-rate		inferred
+computational-differential-privacy	relevance	core	introduces privacy against polynomial-time distinguishers and relates the definitions	wiki
+computational-differential-privacy	treats-training-as	train-dp	mechanism ensembles f_kappa; no training model	wiki
+computational-differential-privacy	grants-access	access-release	distinguisher sees the mechanism output	inferred
+computational-differential-privacy	quantifies-over	adv-ppt	Def 3 non-uniform ppt distinguishers with advice	wiki
+computational-differential-privacy	charges	res-time		wiki
+computational-differential-privacy	conditions-on	util-estimation-error	Thm 6 accuracy of the Hamming-distance protocol holds only for large h(a,b)	wiki
+computational-differential-privacy	defines	notion-cdp	Defs 3 to 5 IND-CDP, SIM-CDP, SIM-forall-exists-CDP, and SIM-plus-CDP	wiki
+computational-differential-privacy	uses-notion	notion-dp		wiki
+computational-differential-privacy	assumes	asm-other	Dense Model Theorem with symmetry (Thm 2); additively homomorphic encryption for the Hamming protocols	wiki
+computational-differential-privacy	concludes	form-equivalence	Thm 3: SIM-forall-exists-CDP and IND-CDP coincide for epsilon in O(log kappa); the implication needs that restriction per a later correction	wiki
+computational-differential-privacy	concludes	form-separation	Thm 4: SIM-CDP does not imply SIM-plus-CDP	wiki
+computational-differential-privacy	concludes	form-construction	Thm 5: two-round Hamming distance protocol with constant additive error under CDP, a candidate separation from DP	wiki
+computational-differential-privacy	addresses	task-distinguish		inferred
+computational-differential-privacy	reports-in	phr-epsilon		wiki
+computational-differential-privacy	reports-in	phr-negligible		wiki
+computational-hardness-robust-learning	relevance	core	game-based definition of robustness with an attacker bounded by circuit size, separated from the unbounded attacker	wiki
+computational-hardness-robust-learning	treats-training-as	train-arbitrary	learner L trains h on S; polynomial-time learner in Cor 9	wiki
+computational-hardness-robust-learning	grants-access	access-eval	Def 1 oracle access to h and a sampler for D	wiki
+computational-hardness-robust-learning	quantifies-over	adv-size-bounded	Def 3 circuits of size s(n) for every polynomial s	wiki
+computational-hardness-robust-learning	quantifies-over	adv-unbounded	information-theoretic risk in Thm 8	wiki
+computational-hardness-robust-learning	charges	res-time	circuit size s(n)	wiki
+computational-hardness-robust-learning	charges	res-perturbation	Hamming budget b(n)	wiki
+computational-hardness-robust-learning	conditions-on	util-accuracy	risk at most alpha for the honest classifier; classifier abstains on invalid signatures	wiki
+computational-hardness-robust-learning	defines	notion-robustness	Defs 1 and 3 computational robustness as a security game	wiki
+computational-hardness-robust-learning	assumes	asm-owf	one-time signatures and error-correcting codes	wiki
+computational-hardness-robust-learning	assumes	asm-other	exponentially hard OWF for poly-logarithmically short signatures behind the headline gap	wiki
+computational-hardness-robust-learning	concludes	form-separation	Thm 8: computational robustness of order n against information-theoretic robustness b plus polylog(n) on a constructed family	wiki
+computational-hardness-robust-learning	concludes	form-reduction	Thm 18: any non-negligible gap between polynomial-time and unbounded adversaries implies average-case NP-hardness	wiki
+computational-hardness-robust-learning	concludes	form-construction	Construction 7: signature-wrapped classifier	wiki
+computational-hardness-robust-learning	addresses	task-evasion		wiki
+computational-hardness-robust-learning	reports-in	phr-accuracy	adversarial risk	wiki
+computational-hardness-robust-learning	reports-in	phr-negligible	risk bound plus negl(n)	wiki
+compute-optimal-phases	relevance	peripheral	theorem-level model of training (power-law random features, one-pass SGD) priced in FLOPs; no adversary	wiki
+compute-optimal-phases	treats-training-as	train-random-features	power-law random features model	wiki
+compute-optimal-phases	treats-training-as	train-gd	one-pass SGD with batch size of order one	wiki
+compute-optimal-phases	grants-access	access-none		inferred
+compute-optimal-phases	charges	res-flops	f = iterations times batch times parameters	wiki
+compute-optimal-phases	conditions-on	util-estimation-error	population risk P(theta) at fixed compute	inferred
+compute-optimal-phases	assumes	asm-distributional	power-law data spectrum and target coefficients, large-d limit	wiki
+compute-optimal-phases	assumes	asm-structural-ground-truth	power-law target exponent beta	wiki
+compute-optimal-phases	concludes	form-characterization	Thm 2.1 loss curve for all iteration counts and the phase diagram of 4 phases and 3 subphases with exponents; optimal for one algorithm only	wiki
+compute-optimal-phases	addresses	task-learning		wiki
+compute-optimal-phases	reports-in	phr-accuracy	loss exponent at fixed compute	inferred
+task-adaptive-estimation	is-a	task	estimation under adaptively chosen stream updates or queries	proposed
+phr-space-complexity	is-a	phrasing	memory or space needed	proposed
+form-success-bound	is-a	result-form	every attacker in the class has success or advantage at most a stated value	proposed
+task-crypto-primitive	is-a	task	a cryptographic primitive such as encryption, MAC, key agreement or OT built against a bounded adversary	proposed
+task-hardness	is-a	task	computational hardness of a problem, worst case or average case	proposed
+adv-fine-grained	is-a	adversary-class	algorithms bounded by running time t^(1-delta), an exponent below the honest cost	proposed
+notion-fine-grained-owf	is-a	security-notion	a function computable in time t^(1-delta) that no t^(1-delta2) algorithm inverts	proposed
+notion-low-degree-hardness	is-a	security-notion	no degree-D polynomial test distinguishes planted from null	proposed
+res-degree	is-a	resource	degree of the polynomial test or of the sum-of-squares relaxation	proposed
+adv-sos	is-a	adversary-class	sum-of-squares relaxations of bounded degree	proposed
+task-prompt-injection	is-a	task	injecting instructions into an LLM agent through untrusted data	proposed
+adv-function-class	is-a	adversary-class	attack algorithm drawn from a restricted function class, with no running-time bound	proposed
+notion-capacity-bounded-dp	is-a	security-notion	differential privacy against a distinguisher drawn from a function class H	proposed

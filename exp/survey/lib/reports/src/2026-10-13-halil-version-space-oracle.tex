@@ -1,0 +1,179 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Membership inference under a version-space training oracle},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Membership inference under a version-space training oracle}
+\author{}
+\date{2026-10-13}
+
+\begin{document}
+\maketitle
+
+\section{Setting}\label{setting}
+
+Let \(\mathcal{X}\) be an input set,
+\(\mathcal{H} \subseteq \{0,1\}^{\mathcal{X}}\) a finite hypothesis
+class, and \(c \in \mathcal{H}\) a target (the realizable case). A
+labelled point is \(z = (x, c(x))\). For a finite set \(S\) of labelled
+points the \emph{version space} is
+\[V(S) = \{ h \in \mathcal{H} : h(x) = y \text{ for every } (x,y) \in S \}.\]
+
+\textbf{The oracle.} On training set \(S\) the learner outputs
+\(h \sim \mathrm{Unif}(V(S))\).
+
+\textbf{The utility condition.} Every output fits the training set, so
+training accuracy is \(1\). This is the conditioner on success: a
+learner that outputs a constant is excluded, because a constant is not
+in \(V(S)\) unless the target is constant on \(S\). Test accuracy is not
+fixed by the oracle, and the result below says it is exactly what
+governs membership leakage.
+
+\textbf{Relation to SDSOJ19 (proven, elementary).} With \(0\)-\(1\) loss
+and a uniform prior on \(\mathcal{H}\), the Gibbs posterior
+\(p(h \mid S) \propto \exp\big(-\tfrac{1}{T}\sum_{z \in S} \ell(h,z)\big)\)
+converges as \(T \to 0\) to \(\mathrm{Unif}(V(S))\) when
+\(V(S) \neq \emptyset\). So this oracle is the zero-temperature case of
+their model, not a new one.
+
+\section{The game}\label{the-game}
+
+The adversary knows \(\mathcal{H}\), \(c\)'s labels on all points it is
+given, and the rest of the training set \(T\), a set of \(n-1\) labelled
+points. This is the strong ``other memberships known'' adversary of
+SDSOJ19.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Draw \(z_0, z_1\) i.i.d. from the data distribution and
+  \(b \in \{0,1\}\) uniformly.
+\item
+  Train on \(S = T \cup \{z_b\}\), giving
+  \(h \sim \mathrm{Unif}(V(S))\).
+\item
+  The adversary receives \(T, z_0, z_1\) and access to \(h\), and
+  outputs \(b'\).
+\end{enumerate}
+
+White-box access is \(h\) itself. Black-box access is queries
+\(x \mapsto h(x)\).
+
+Write \(V_i = V(T \cup \{z_i\})\), \(V_{01} = V_0 \cap V_1\), and
+\(r_i = |V_{01}| / |V_i|\). The ratio \(r_i\) is the probability that a
+model trained with \(z_i\) labels the other challenge point correctly,
+so it is test accuracy on a fresh point.
+
+\section{Claim}\label{claim}
+
+\textbf{Proposition.} The Bayes-optimal adversary's decision depends on
+\(h\) only through the two values \(h(x_0)\) and \(h(x_1)\). Its success
+probability is \[\Pr[b' = b] = 1 - \tfrac{1}{2}\min(r_0, r_1),\] so its
+advantage \(2\Pr[b'=b]-1\) equals \(1 - \min(r_0, r_1)\).
+
+\textbf{Proof.} Given \(b\),
+\(p(h \mid b) = \mathbf{1}[h \in V_b] / |V_b|\). Every \(h\) that can
+occur lies in \(V(T)\), so \(h \in V_b\) holds exactly when
+\(h(x_b) = c(x_b)\). The likelihood ratio is therefore a function of
+\(f_i = \mathbf{1}[h(x_i) = c(x_i)]\), \(i = 0, 1\), and of the
+constants \(|V_0|, |V_1|\), which do not depend on \(h\). The four
+cases:
+
+\begin{itemize}
+\tightlist
+\item
+  \((f_0, f_1) = (1, 0)\) occurs only under \(b = 0\), with probability
+  \(1 - r_0\). Guess \(0\).
+\item
+  \((0, 1)\) occurs only under \(b = 1\), with probability \(1 - r_1\).
+  Guess \(1\).
+\item
+  \((1, 1)\) occurs under \(b\) with probability \(r_b\). Guess the
+  \(b\) with the larger \(r_b\), the challenge point that leaves fewer
+  consistent hypotheses.
+\item
+  \((0, 0)\) never occurs.
+\end{itemize}
+
+Summing,
+\(\Pr[b'=b] = \tfrac{1}{2}\big[(1-r_0) + (1-r_1) + \max(r_0,r_1)\big] = 1 - \tfrac12 \min(r_0,r_1)\).
+\(\square\)
+
+\section{What it says}\label{what-it-says}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Utility sets leakage.} If a model trained without a point
+  already labels it correctly with probability \(1\), then \(r = 1\) and
+  the advantage is \(0\). Leakage is exactly the failure to generalize
+  to the challenge point. This is the overfitting link of Yeom et
+  al.~(CSF 2018) and the long-tail picture of Feldman (STOC 2020), in
+  one line, for this oracle.
+\item
+  \textbf{No black-box against white-box gap.} Two black-box queries
+  achieve the white-box optimum. So under this oracle, and under the
+  Gibbs oracle of SDSOJ19, the gap the programme looks for cannot
+  appear. A gap needs a learner that leaves the Gibbs family: weights
+  that carry more than the function, or a choice within the version
+  space that depends on \(S\) beyond consistency, as an implicit bias of
+  SGD might.
+\item
+  \textbf{Where computation enters.} The only step that needs
+  computation is the \((1,1)\) case, comparing \(|V_0|\) and \(|V_1|\),
+  a counting problem over the class. An adversary that guesses there
+  succeeds with probability \(1 - \tfrac14(r_0 + r_1)\), so it loses
+  \(\tfrac14|r_0 - r_1|\). Whether that counting is hard for natural
+  classes is open here. Counting consistent hypotheses is hard for rich
+  classes in general, which is a heuristic expectation and not proven
+  for any class in this note.
+\end{enumerate}
+
+\end{document}

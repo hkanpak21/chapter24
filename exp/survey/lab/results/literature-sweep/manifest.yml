@@ -1,0 +1,12 @@
+topic: literature-sweep
+pulled: 2026-10-13
+job: lab/jobs/literature-sweep.sh
+brief: lab/src/briefs/sweep-brief.md
+outputs:
+  information.md: 20 sheets, information-theoretic limits
+  computation.md: 20 sheets plus extra rows, reductions and computational separations
+  definitions.md: 20 sheets, formal definitions and existing systematizations
+notes: >
+  Every sheet was built by an agent from pages it opened. A paper seen only
+  here is cited nowhere until it is read and given a note in
+  lib/literature/notes/.

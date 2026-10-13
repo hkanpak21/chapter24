@@ -4,7 +4,7 @@ date: 2026-08-05
 tag: lit
 status: draft
 supersedes: null
-builds_on: 2026-08-05-lit-survey-structure.md
+builds_on: 2026-08-05-halil-lit-survey-structure.md
 commit: null
 cluster: n/a
 jobs: []

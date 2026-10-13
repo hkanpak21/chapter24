@@ -4,7 +4,7 @@ type: source
 date_ingested: 2026-08-22
 authors: [Filip Kovačević, Hong Chang Ji, Denny Wu, Mahdi Soltanolkotabi, Marco Mondelli]
 venue: "arXiv:2602.02431"
-venue_evidence: "dblp search (q=Full-Batch Gradient Descent Outperforms One-Pass SGD): CoRR abs/2602.02431 only, single result, no NeurIPS entry — a one-citer mining lead in exp/survey/notes/2026-08-22-note-venue-mining.md claimed 'NeurIPS, 2025' but dblp does not confirm it"
+venue_evidence: "dblp search (q=Full-Batch Gradient Descent Outperforms One-Pass SGD): CoRR abs/2602.02431 only, single result, no NeurIPS entry — a one-citer mining lead in exp/survey/notes/2026-08-22-halil-note-venue-mining.md claimed 'NeurIPS, 2025' but dblp does not confirm it"
 year: 2026
 tags: [learning-theory, sample-complexity, single-index-model, information-exponent, phase-retrieval, batch-reuse, full-batch-gd]
 claim_quantifier: universal

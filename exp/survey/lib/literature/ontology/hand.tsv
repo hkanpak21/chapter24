@@ -1,0 +1,44 @@
+planting-undetectable-backdoors	extends	io-undetectable-backdoors-nn	white-box undetectability for any obfuscated model, via iO	hand
+planting-undetectable-backdoors	extends	unelicitable-backdoors-lms	from classifiers to generative LMs; unelicitability	hand
+planting-undetectable-backdoors	extends	BRV26	computational to statistical undetectability, in deep networks	hand
+planting-undetectable-backdoors	applies	crypto-backdoor-boon-bane	signature backdoor as a defence tool	hand
+planting-undetectable-backdoors	converse	backdoor-defense-learnability-obfuscation	when a backdoor can be defended	hand
+planting-undetectable-backdoors	converse	oblivious-defense-backdoor-removal	removal without detection	hand
+oblivious-defense-backdoor-removal	extends	GG25	mitigation against detection as separate defender tasks	to-verify
+unelicitable-backdoors-lms	extends	DMDS26	arbitrary hidden capability	to-verify
+undetectable-watermarks-lm	converse	ZEFVAB24	removal of watermarks	to-verify
+undetectable-watermarks-lm	extends	CGZ26	from watermarking outputs to proving ownership of models	to-verify
+oblivious-defense-backdoor-removal	shares-property	CGZ26	self-correctability governs both removal and provable ownership	to-verify
+GRSY21	extends	GJK+24	doubly efficient proofs for learning	to-verify
+proof-of-learning	refutes-in-practice	pol-more-broken	spoofing attacks on the verifier	hand
+DSSUV15	extends	haghifam-sample-complexity-mia	from known to unknown covariance; attacker-trainer sample gap	hand
+SDSOJ19	cited-by	haghifam-sample-complexity-mia	threshold attacks optimal under the Gibbs model	hand
+cryptanalytic-extraction-nn	extends	polynomial-time-cryptanalytic-extraction	exponential to polynomial-time sign recovery	hand
+adversarial-examples-computational-constraints	related	win-win-robust-learning	computational limits of robust learning	to-verify
+BGIRSVY01	proves-impossible	notion-vbb-obfuscation	some function families have code that reveals a secret no efficient oracle-access algorithm learns	hand
+BGIRSVY01	separates	access-whitebox	code access strictly stronger than oracle access, for those families; read against black-box-access	hand
+io-undetectable-backdoors-nn	assumes	asm-io		hand
+planting-undetectable-backdoors	defines	notion-undetectability	black-box and white-box, computational	hand
+planting-undetectable-backdoors	defines	notion-non-replicability		hand
+BRV26	strengthens	notion-undetectability	statistical, white-box	hand
+SDSOJ19	treats-training-as	train-gibbs	training as sampling from a Gibbs posterior	hand
+SDSOJ19	proves-equal	access-whitebox	Bayes-optimal membership attack reads weights only through the loss; equal to loss-only black-box-access	hand
+train-gibbs	analogue-of	oracle-random-oracle	idealizes training as the random oracle idealizes a hash function	heuristic
+CGZ26	depends-on	prop-self-correctability	ownership provable iff the class is not self-correctable (abstract)	to-verify
+oblivious-defense-backdoor-removal	depends-on	prop-self-correctability	removal uses structure of the ground truth (linear, low-degree, Fourier-heavy)	to-verify
+cryptanalytic-extraction-nn	recovers-up-to	prop-functional-equivalence	black-box extraction of ReLU networks	hand
+polynomial-time-cryptanalytic-extraction	recovers-up-to	prop-functional-equivalence	in polynomial time	hand
+train-version-space	limit-of	train-gibbs	zero temperature, 0-1 loss, uniform prior	hand
+train-version-space	proves-equal	access-whitebox	two black-box queries reach the white-box optimum; lib/reports/2026-10-13-halil-version-space-oracle.pdf	hand
+train-version-space	conditions-on	util-consistency	every output fits the training set; leakage equals failure to generalize on the challenge point	hand
+notion-necessary-leakage	conditions-on	util-consistency		hand
+notion-achievable-leakage	conditions-on	util-consistency		hand
+asm-io	answers	notion-achievable-leakage	for efficient learners, white-box against black-box on the achievable side reduces to hiding the representation	heuristic
+membership-inference-shokri	queries	train-oracle-call	shadow models are calls on curated datasets	heuristic
+mia-from-first-principles	queries	train-oracle-call	LiRA fits with-point and without-point output distributions from calls	heuristic
+haghifam-sample-complexity-mia	bounds	train-oracle-call	sample complexity of membership inference and of privacy auditing	to-verify
+train-ai-oracle	modelled-on	oracle-generic-group	access is idealized, not values	heuristic
+train-ai-oracle	assumes	asm-ideal-representation		hand
+asm-ideal-representation	proves-equal	access-whitebox	under it, unbounded white-box advantage equals function-only advantage (data processing)	hand
+asm-ideal-representation	equivalent-to	notion-vbb-obfuscation	an oracle handing out ideal representations is a VBB obfuscator of the trained function	heuristic
+BGIRSVY01	uninstantiates	asm-ideal-representation	analogue of Canetti-Goldreich-Halevi 1998 for the random oracle	heuristic
